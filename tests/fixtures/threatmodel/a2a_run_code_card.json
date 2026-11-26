@@ -1,0 +1,36 @@
+{
+  "name": "Code Runner Agent",
+  "description": "Runs small analysis jobs for other agents.",
+  "version": "1.0.0",
+  "provider": {
+    "organization": "Example Agents Ltd",
+    "url": "https://agents.example.com"
+  },
+  "capabilities": {
+    "streaming": false,
+    "pushNotifications": false
+  },
+  "defaultInputModes": ["text/plain"],
+  "defaultOutputModes": ["text/plain"],
+  "supportedInterfaces": [
+    {
+      "url": "https://agents.example.com/a2a/v1",
+      "protocolBinding": "JSONRPC",
+      "protocolVersion": "1.0"
+    }
+  ],
+  "skills": [
+    {
+      "id": "run_code",
+      "name": "Run code",
+      "description": "Executes Python code supplied by the caller and returns stdout.",
+      "tags": ["python"]
+    },
+    {
+      "id": "summarize",
+      "name": "Summarize",
+      "description": "Summarizes a document.",
+      "tags": ["text"]
+    }
+  ]
+}

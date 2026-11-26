@@ -1,0 +1,49 @@
+{
+  "name": "Forecast Agent",
+  "description": "Provides weather forecasts for cities worldwide.",
+  "version": "1.2.0",
+  "provider": {
+    "organization": "Example Weather Ltd",
+    "url": "https://agent.example.com"
+  },
+  "documentationUrl": "https://agent.example.com/docs",
+  "capabilities": {
+    "streaming": true,
+    "pushNotifications": false,
+    "extendedAgentCard": false
+  },
+  "defaultInputModes": [
+    "text/plain"
+  ],
+  "defaultOutputModes": [
+    "text/plain",
+    "application/json"
+  ],
+  "supportedInterfaces": [
+    {
+      "url": "https://agent.example.com/a2a/v1",
+      "protocolBinding": "JSONRPC",
+      "protocolVersion": "1.0"
+    }
+  ],
+  "skills": [
+    {
+      "id": "forecast",
+      "name": "Weather forecast",
+      "description": "Returns a five day weather forecast for a city.",
+      "tags": [
+        "weather",
+        "forecast"
+      ],
+      "examples": [
+        "What is the weather in Paris tomorrow?"
+      ],
+      "inputModes": [
+        "text/plain"
+      ],
+      "outputModes": [
+        "application/json"
+      ]
+    }
+  ]
+}

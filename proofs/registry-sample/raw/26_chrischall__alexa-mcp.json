@@ -1,0 +1,2989 @@
+{
+  "schema_version": "0.5",
+  "target": "<corpus>/registry/26_chrischall__alexa-mcp",
+  "risk_score": 100.0,
+  "risk_level": "critical",
+  "tools_found": 37,
+  "findings_count": 44,
+  "findings": [
+    {
+      "id": "poison_alexa_begin_login_instruction_injection",
+      "severity": "critical",
+      "category": "tool_poisoning",
+      "title": "Tool poisoning: instruction injection in 'alexa_begin_login'",
+      "description": "Hidden instruction detected in tool description that could manipulate AI behavior. Matched pattern in tool 'alexa_begin_login': 'never '",
+      "owasp_asi": [
+        "ASI01"
+      ],
+      "owasp_mcp": [
+        "MCP03"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Review tool description carefully. Compare claimed functionality with actual code behavior. Consider removing this MCP server."
+    },
+    {
+      "id": "poison_alexa_list_smart_home_long_desc",
+      "severity": "medium",
+      "category": "tool_poisoning",
+      "title": "Unusually long tool description for 'alexa_list_smart_home'",
+      "description": "Tool description is 625 characters. Long descriptions can hide malicious instructions.",
+      "owasp_asi": [
+        "ASI01"
+      ],
+      "owasp_mcp": [
+        "MCP03"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Review the full tool description for hidden instructions."
+    },
+    {
+      "id": "poison_alexa_control_smart_home_instruction_injection",
+      "severity": "critical",
+      "category": "tool_poisoning",
+      "title": "Tool poisoning: instruction injection in 'alexa_control_smart_home'",
+      "description": "Hidden instruction detected in tool description that could manipulate AI behavior. Matched pattern in tool 'alexa_control_smart_home': 'silently'",
+      "owasp_asi": [
+        "ASI01"
+      ],
+      "owasp_mcp": [
+        "MCP03"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Review tool description carefully. Compare claimed functionality with actual code behavior. Consider removing this MCP server."
+    },
+    {
+      "id": "poison_alexa_get_smart_home_state_tool_chaining",
+      "severity": "high",
+      "category": "tool_poisoning",
+      "title": "Tool poisoning: tool chaining in 'alexa_get_smart_home_state'",
+      "description": "Tool description attempts to chain execution with other tools. Matched pattern in tool 'alexa_get_smart_home_state': '('read', 'every')'",
+      "owasp_asi": [
+        "ASI02"
+      ],
+      "owasp_mcp": [
+        "MCP03"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Review tool description carefully. Compare claimed functionality with actual code behavior. Consider removing this MCP server."
+    },
+    {
+      "id": "poison_alexa_set_vacation_mode_instruction_injection",
+      "severity": "critical",
+      "category": "tool_poisoning",
+      "title": "Tool poisoning: instruction injection in 'alexa_set_vacation_mode'",
+      "description": "Hidden instruction detected in tool description that could manipulate AI behavior. Matched pattern in tool 'alexa_set_vacation_mode': 'never '",
+      "owasp_asi": [
+        "ASI01"
+      ],
+      "owasp_mcp": [
+        "MCP03"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Review tool description carefully. Compare claimed functionality with actual code behavior. Consider removing this MCP server."
+    },
+    {
+      "id": "shadow_alexa_get_do_not_disturb_near_duplicate",
+      "severity": "medium",
+      "category": "tool_shadowing",
+      "title": "Tool 'alexa_get_do_not_disturb' is a near-duplicate of 'alexa_set_do_not_disturb'",
+      "description": "'alexa_get_do_not_disturb' and 'alexa_set_do_not_disturb' differ by one character or a suffix. The model may pick either; a lookalike with extra instructions shadows the legitimate tool.",
+      "owasp_asi": [
+        "ASI01",
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP03",
+        "MCP06"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Keep one clearly named tool per capability; remove or rename lookalikes."
+    },
+    {
+      "id": "shadow_alexa_set_equalizer_near_duplicate",
+      "severity": "medium",
+      "category": "tool_shadowing",
+      "title": "Tool 'alexa_set_equalizer' is a near-duplicate of 'alexa_get_equalizer'",
+      "description": "'alexa_set_equalizer' and 'alexa_get_equalizer' differ by one character or a suffix. The model may pick either; a lookalike with extra instructions shadows the legitimate tool.",
+      "owasp_asi": [
+        "ASI01",
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP03",
+        "MCP06"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Keep one clearly named tool per capability; remove or rename lookalikes."
+    },
+    {
+      "id": "cross_tool_alexa_list_devices_alexa_list_smart_home",
+      "severity": "medium",
+      "category": "cross_server",
+      "title": "Tool 'alexa_list_devices' references tool 'alexa_list_smart_home'",
+      "description": "Tool description mentions another tool by name, which could enable tool chaining attacks.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP01",
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Verify this cross-reference is legitimate and necessary."
+    },
+    {
+      "id": "cross_tool_alexa_update_list_item_alexa_get_list_items",
+      "severity": "medium",
+      "category": "cross_server",
+      "title": "Tool 'alexa_update_list_item' references tool 'alexa_get_list_items'",
+      "description": "Tool description mentions another tool by name, which could enable tool chaining attacks.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP01",
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Verify this cross-reference is legitimate and necessary."
+    },
+    {
+      "id": "cross_tool_alexa_remove_list_item_alexa_get_list_items",
+      "severity": "medium",
+      "category": "cross_server",
+      "title": "Tool 'alexa_remove_list_item' references tool 'alexa_get_list_items'",
+      "description": "Tool description mentions another tool by name, which could enable tool chaining attacks.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP01",
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Verify this cross-reference is legitimate and necessary."
+    },
+    {
+      "id": "cross_tool_alexa_begin_login_alexa_finish_login",
+      "severity": "medium",
+      "category": "cross_server",
+      "title": "Tool 'alexa_begin_login' references tool 'alexa_finish_login'",
+      "description": "Tool description mentions another tool by name, which could enable tool chaining attacks.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP01",
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Verify this cross-reference is legitimate and necessary."
+    },
+    {
+      "id": "cross_tool_alexa_finish_login_alexa_begin_login",
+      "severity": "medium",
+      "category": "cross_server",
+      "title": "Tool 'alexa_finish_login' references tool 'alexa_begin_login'",
+      "description": "Tool description mentions another tool by name, which could enable tool chaining attacks.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP01",
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Verify this cross-reference is legitimate and necessary."
+    },
+    {
+      "id": "cross_tool_alexa_list_device_modes_alexa_set_device_mode",
+      "severity": "medium",
+      "category": "cross_server",
+      "title": "Tool 'alexa_list_device_modes' references tool 'alexa_set_device_mode'",
+      "description": "Tool description mentions another tool by name, which could enable tool chaining attacks.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP01",
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Verify this cross-reference is legitimate and necessary."
+    },
+    {
+      "id": "cross_tool_alexa_set_device_mode_alexa_garage_door",
+      "severity": "medium",
+      "category": "cross_server",
+      "title": "Tool 'alexa_set_device_mode' references tool 'alexa_garage_door'",
+      "description": "Tool description mentions another tool by name, which could enable tool chaining attacks.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP01",
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Verify this cross-reference is legitimate and necessary."
+    },
+    {
+      "id": "cross_tool_alexa_set_device_mode_alexa_list_device_modes",
+      "severity": "medium",
+      "category": "cross_server",
+      "title": "Tool 'alexa_set_device_mode' references tool 'alexa_list_device_modes'",
+      "description": "Tool description mentions another tool by name, which could enable tool chaining attacks.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP01",
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Verify this cross-reference is legitimate and necessary."
+    },
+    {
+      "id": "cross_tool_alexa_create_reminder_alexa_create_timer",
+      "severity": "medium",
+      "category": "cross_server",
+      "title": "Tool 'alexa_create_reminder' references tool 'alexa_create_timer'",
+      "description": "Tool description mentions another tool by name, which could enable tool chaining attacks.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP01",
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Verify this cross-reference is legitimate and necessary."
+    },
+    {
+      "id": "cross_tool_alexa_cancel_alarm_reminder_alexa_list_alarms_reminders",
+      "severity": "medium",
+      "category": "cross_server",
+      "title": "Tool 'alexa_cancel_alarm_reminder' references tool 'alexa_list_alarms_reminders'",
+      "description": "Tool description mentions another tool by name, which could enable tool chaining attacks.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP01",
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Verify this cross-reference is legitimate and necessary."
+    },
+    {
+      "id": "cross_tool_alexa_list_smart_home_alexa_garage_door",
+      "severity": "medium",
+      "category": "cross_server",
+      "title": "Tool 'alexa_list_smart_home' references tool 'alexa_garage_door'",
+      "description": "Tool description mentions another tool by name, which could enable tool chaining attacks.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP01",
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Verify this cross-reference is legitimate and necessary."
+    },
+    {
+      "id": "cross_tool_alexa_list_smart_home_alexa_control_smart_home",
+      "severity": "medium",
+      "category": "cross_server",
+      "title": "Tool 'alexa_list_smart_home' references tool 'alexa_control_smart_home'",
+      "description": "Tool description mentions another tool by name, which could enable tool chaining attacks.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP01",
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Verify this cross-reference is legitimate and necessary."
+    },
+    {
+      "id": "cross_tool_alexa_list_smart_home_alexa_set_device_mode",
+      "severity": "medium",
+      "category": "cross_server",
+      "title": "Tool 'alexa_list_smart_home' references tool 'alexa_set_device_mode'",
+      "description": "Tool description mentions another tool by name, which could enable tool chaining attacks.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP01",
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Verify this cross-reference is legitimate and necessary."
+    },
+    {
+      "id": "cross_tool_alexa_list_smart_home_alexa_list_devices",
+      "severity": "medium",
+      "category": "cross_server",
+      "title": "Tool 'alexa_list_smart_home' references tool 'alexa_list_devices'",
+      "description": "Tool description mentions another tool by name, which could enable tool chaining attacks.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP01",
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Verify this cross-reference is legitimate and necessary."
+    },
+    {
+      "id": "cross_tool_alexa_list_smart_home_alexa_lock",
+      "severity": "medium",
+      "category": "cross_server",
+      "title": "Tool 'alexa_list_smart_home' references tool 'alexa_lock'",
+      "description": "Tool description mentions another tool by name, which could enable tool chaining attacks.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP01",
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Verify this cross-reference is legitimate and necessary."
+    },
+    {
+      "id": "cross_tool_alexa_list_smart_home_alexa_set_thermostat",
+      "severity": "medium",
+      "category": "cross_server",
+      "title": "Tool 'alexa_list_smart_home' references tool 'alexa_set_thermostat'",
+      "description": "Tool description mentions another tool by name, which could enable tool chaining attacks.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP01",
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Verify this cross-reference is legitimate and necessary."
+    },
+    {
+      "id": "cross_tool_alexa_control_smart_home_alexa_set_device_mode",
+      "severity": "medium",
+      "category": "cross_server",
+      "title": "Tool 'alexa_control_smart_home' references tool 'alexa_set_device_mode'",
+      "description": "Tool description mentions another tool by name, which could enable tool chaining attacks.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP01",
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Verify this cross-reference is legitimate and necessary."
+    },
+    {
+      "id": "cross_tool_alexa_control_smart_home_alexa_set_thermostat",
+      "severity": "medium",
+      "category": "cross_server",
+      "title": "Tool 'alexa_control_smart_home' references tool 'alexa_set_thermostat'",
+      "description": "Tool description mentions another tool by name, which could enable tool chaining attacks.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP01",
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Verify this cross-reference is legitimate and necessary."
+    },
+    {
+      "id": "code_0001",
+      "severity": "high",
+      "category": "obfuscation",
+      "title": "Obfuscated or encoded content in MCP server",
+      "description": "Pattern matched in src\\registration.ts at line 61: `value = JSON.parse(text.startsWith('{') ? text : Buffer.from(text, 'base64').toString('utf8'));`",
+      "owasp_asi": [
+        "ASI01",
+        "ASI10"
+      ],
+      "owasp_mcp": [
+        "MCP03",
+        "MCP04"
+      ],
+      "file_path": "src\\registration.ts",
+      "line_number": 61,
+      "recommendation": "Review this obfuscation pattern."
+    },
+    {
+      "id": "code_0002",
+      "severity": "critical",
+      "category": "code_execution",
+      "title": "MCP server can execute arbitrary commands",
+      "description": "Pattern matched in src\\tools\\notifications.ts at line 123: `const m = at ? ISO_WITH_OFFSET.exec(at) : null;`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "src\\tools\\notifications.ts",
+      "line_number": 123,
+      "recommendation": "Review this arbitrary code exec pattern."
+    },
+    {
+      "id": "GHSA-46jr-4wx8-v453",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: @modelcontextprotocol/server",
+      "description": "MCP TypeScript SDK: One HTTP request within the default size limit could exhaust server memory during validation",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update @modelcontextprotocol/server to a patched version."
+    },
+    {
+      "id": "GHSA-f897-62hf-6gxq",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: @modelcontextprotocol/server",
+      "description": "MCP TypeScript SDK: HTTP server transports and handlers did not limit request body size or JSON-RPC batch length",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update @modelcontextprotocol/server to a patched version."
+    },
+    {
+      "id": "GHSA-jm63-cq47-j5jp",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: @modelcontextprotocol/server",
+      "description": "MCP  TypeScript server SDK: Shared transport or server instances delivered one HTTP client's messages to another",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update @modelcontextprotocol/server to a patched version."
+    },
+    {
+      "id": "GHSA-rvq5-wwqv-78pq",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: @modelcontextprotocol/server",
+      "description": "MCP TypeScript SDK: Server bearer authentication accepted tokens issued for another service",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update @modelcontextprotocol/server to a patched version."
+    },
+    {
+      "id": "GHSA-m95q-7qp3-xv42",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: zod",
+      "description": "Zod denial of service vulnerability",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update zod to a patched version."
+    },
+    {
+      "id": "GHSA-mrhx-c7xc-m3w5",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: zod",
+      "description": "Zod can exhaust memory while validating oversized constrained collections",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update zod to a patched version."
+    },
+    {
+      "id": "toxic_combo_data_read_network_external",
+      "severity": "high",
+      "category": "toxic_tool_combo",
+      "title": "Data read + external network = exfiltration path",
+      "description": "Tools that can read internal data AND make external network requests create a direct exfiltration channel. A hijacked agent could read sensitive data then forward it to an attacker-controlled endpoint. Provided by: alexa_list_devices, alexa_get_now_playing, alexa_list_volumes, alexa_list_lists, alexa_get_list_items, alexa_add_list_item, alexa_update_list_item, alexa_remove_list_item, alexa_begin_login, alexa_finish_login, alexa_list_device_modes, alexa_set_device_mode, alexa_list_alarms_reminders, alexa_cancel_alarm_reminder, alexa_list_routines, alexa_get_do_not_disturb, alexa_get_equalizer, alexa_set_equalizer, alexa_list_bluetooth, alexa_list_smart_home, alexa_get_smart_home_state, alexa_set_thermostat, alexa_set_vacation_mode (data_read) + alexa_begin_login, alexa_list_bluetooth (network_external).",
+      "owasp_asi": [
+        "ASI02"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Implement tool-level permission scoping. Consider whether both capabilities are necessary or if one can be restricted."
+    },
+    {
+      "id": "toxic_combo_credential_access_network_external",
+      "severity": "critical",
+      "category": "toxic_tool_combo",
+      "title": "Credential access + external network = credential theft path",
+      "description": "Tools that access credentials AND make external requests can exfiltrate tokens, API keys, and secrets to remote servers. Provided by: alexa_begin_login, alexa_finish_login, alexa_session_status (credential_access) + alexa_begin_login, alexa_list_bluetooth (network_external).",
+      "owasp_asi": [
+        "ASI02"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Implement tool-level permission scoping. Consider whether both capabilities are necessary or if one can be restricted."
+    },
+    {
+      "id": "toxic_combo_code_execute_network_external",
+      "severity": "critical",
+      "category": "toxic_tool_combo",
+      "title": "Code execution + external network = remote code execution path",
+      "description": "Tools that execute code AND fetch external content can download and run attacker-controlled payloads. Provided by: alexa_run_builtin, alexa_run_routine, alexa_get_smart_home_state (code_execute) + alexa_begin_login, alexa_list_bluetooth (network_external).",
+      "owasp_asi": [
+        "ASI02"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Implement tool-level permission scoping. Consider whether both capabilities are necessary or if one can be restricted."
+    },
+    {
+      "id": "toxic_combo_data_read_data_write",
+      "severity": "medium",
+      "category": "toxic_tool_combo",
+      "title": "Broad data read + write = data manipulation risk",
+      "description": "Tools that can both read and write data could be manipulated to corrupt, overwrite, or delete information. Provided by: alexa_list_devices, alexa_get_now_playing, alexa_list_volumes, alexa_list_lists, alexa_get_list_items, alexa_add_list_item, alexa_update_list_item, alexa_remove_list_item, alexa_begin_login, alexa_finish_login, alexa_list_device_modes, alexa_set_device_mode, alexa_list_alarms_reminders, alexa_cancel_alarm_reminder, alexa_list_routines, alexa_get_do_not_disturb, alexa_get_equalizer, alexa_set_equalizer, alexa_list_bluetooth, alexa_list_smart_home, alexa_get_smart_home_state, alexa_set_thermostat, alexa_set_vacation_mode (data_read) + alexa_update_list_item, alexa_remove_list_item, alexa_create_reminder, alexa_create_timer, alexa_cancel_alarm_reminder (data_write).",
+      "owasp_asi": [
+        "ASI02"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Implement tool-level permission scoping. Consider whether both capabilities are necessary or if one can be restricted."
+    },
+    {
+      "id": "toxic_combo_filesystem_network_external",
+      "severity": "high",
+      "category": "toxic_tool_combo",
+      "title": "Filesystem access + external network = file exfiltration path",
+      "description": "Tools that access local files AND make network requests can exfiltrate source code, configs, keys, and documents. Provided by: alexa_remove_list_item, alexa_control_smart_home (filesystem) + alexa_begin_login, alexa_list_bluetooth (network_external).",
+      "owasp_asi": [
+        "ASI02"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Implement tool-level permission scoping. Consider whether both capabilities are necessary or if one can be restricted."
+    },
+    {
+      "id": "toxic_combo_code_execute_filesystem",
+      "severity": "high",
+      "category": "toxic_tool_combo",
+      "title": "Code execution + filesystem = unrestricted local access",
+      "description": "Tools that execute code AND access the filesystem can read/write any file the agent has permissions for, including SSH keys and credentials. Provided by: alexa_run_builtin, alexa_run_routine, alexa_get_smart_home_state (code_execute) + alexa_remove_list_item, alexa_control_smart_home (filesystem).",
+      "owasp_asi": [
+        "ASI02"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Implement tool-level permission scoping. Consider whether both capabilities are necessary or if one can be restricted."
+    },
+    {
+      "id": "toxic_combo_credential_access_data_write",
+      "severity": "high",
+      "category": "toxic_tool_combo",
+      "title": "Credential access + data write = privilege persistence",
+      "description": "Tools that access credentials AND write data could persist stolen credentials or create backdoor accounts. Provided by: alexa_begin_login, alexa_finish_login, alexa_session_status (credential_access) + alexa_update_list_item, alexa_remove_list_item, alexa_create_reminder, alexa_create_timer, alexa_cancel_alarm_reminder (data_write).",
+      "owasp_asi": [
+        "ASI02"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Implement tool-level permission scoping. Consider whether both capabilities are necessary or if one can be restricted."
+    },
+    {
+      "id": "mcp04_unpinned_0001",
+      "severity": "medium",
+      "category": "supply_chain",
+      "title": "Unpinned install source",
+      "description": "`npx @chrischall/alexa-mcp` without a pinned version in .mcp.json at line 4. Without an exact version the next install silently picks up whatever is published, including a compromised release.",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": ".mcp.json",
+      "line_number": 4,
+      "recommendation": "Pin an exact version (pkg@1.2.3, pkg==1.2.3) and prefer a lockfile or hash-checked requirements."
+    },
+    {
+      "id": "mcp04_unpinned_0002",
+      "severity": "medium",
+      "category": "supply_chain",
+      "title": "Unpinned install source",
+      "description": "`npx @chrischall/alexa-mcp` without a pinned version in manifest.json at line 47. Without an exact version the next install silently picks up whatever is published, including a compromised release.",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": "manifest.json",
+      "line_number": 47,
+      "recommendation": "Pin an exact version (pkg@1.2.3, pkg==1.2.3) and prefer a lockfile or hash-checked requirements."
+    },
+    {
+      "id": "mcp08_no_tool_logging",
+      "severity": "info",
+      "category": "audit_telemetry",
+      "title": "No logging found in files that define MCP tools (low confidence)",
+      "description": "None of the tool-defining files (src\\tools\\actions.ts, src\\tools\\devices.ts, src\\tools\\lists.ts, src\\tools\\login.ts, src\\tools\\modes.ts) reference a logging library or logger call. Tool invocations may leave no audit trail. Confidence is low: logging could be configured elsewhere or by the host.",
+      "owasp_asi": [
+        "ASI10"
+      ],
+      "owasp_mcp": [
+        "MCP08"
+      ],
+      "file_path": "src\\tools\\actions.ts",
+      "line_number": null,
+      "recommendation": "Log each tool invocation (tool name, caller/session, outcome, and redacted arguments) to a durable, tamper-evident sink."
+    },
+    {
+      "id": "blast_radius_estimate",
+      "severity": "high",
+      "category": "cascading_failure",
+      "title": "Blast radius: HIGH \u2014 compromise of this server has broad impact",
+      "description": "If this MCP server is compromised, the blast radius is HIGH due to: arbitrary code execution, external network access, filesystem access, credential access, 37 tools (large attack surface), 6 critical findings. A single tool poisoning or supply chain attack could cascade across all connected systems.",
+      "owasp_asi": [
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Apply least-privilege to this server. Isolate it from other MCP servers. Implement kill switches and behavioral monitoring. Limit env vars to the minimum required."
+    }
+  ],
+  "server_profile": {
+    "name": "<corpus>/registry/26_chrischall__alexa-mcp",
+    "command": null,
+    "args": [],
+    "env_vars": [],
+    "transport": "unknown",
+    "tools": [
+      {
+        "name": "alexa_run_builtin",
+        "description": "Have an Echo play one of Alexa\u2019s built-in features out loud: the weather forecast, traffic, the flash briefing (news), the good-morning greeting, a fun fact, a joke, sing a song, tell a story, today\u2019s / tomorrow\u2019s / the next calendar event, or \"cleanup\" (tidy-up music). Everyone in the room hears it.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "device": {},
+            "command": {
+              "type": "string",
+              "description": "Which built-in feature.",
+              "enum": "BUILTINS"
+            },
+            "confirmToken": {}
+          },
+          "required": [
+            "device",
+            "command",
+            "confirmToken"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "alexa_fire_tv",
+        "description": "Control a Fire TV through Alexa: turn the TV on or off, pause or resume the video, or go to the home screen.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "device": {},
+            "command": {
+              "type": "string",
+              "description": "What to do.",
+              "enum": [
+                "turnOn",
+                "turnOff",
+                "pause",
+                "resume",
+                "home"
+              ]
+            },
+            "confirmToken": {}
+          },
+          "required": [
+            "device",
+            "command",
+            "confirmToken"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "alexa_stop",
+        "description": "Stop whatever an Alexa device is doing \u2014 music, a ringing alarm or timer, speech \u2014 like saying \"Alexa, stop\". Pass a device, or allDevices to stop every device on the account.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "device": {},
+            "allDevices": {
+              "type": "boolean",
+              "description": "Stop every Alexa device on the account."
+            },
+            "confirmToken": {}
+          },
+          "required": [
+            "device",
+            "confirmToken"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "alexa_list_devices",
+        "description": "List the Echo speakers, Echo Shows, Fire TVs and other Alexa devices on the Amazon account, with name, serial, device family and whether each is online. Use the name or serial with the other alexa_ tools. Thermostats, lights, plugs, switches, locks and other smart-home devices are NOT here: use alexa_list_smart_home for those.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "view": {}
+          },
+          "required": [
+            "view"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "alexa_get_now_playing",
+        "description": "What is playing on an Alexa device right now \u2014 media state, title, artist and provider, from its player.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "device": {}
+          },
+          "required": [
+            "device"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "alexa_list_volumes",
+        "description": "Current speaker volume (0\u2013100) and mute state of every Alexa device that reports one.",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "alexa_set_volume",
+        "description": "Set the speaker volume (0\u2013100) of an Alexa device.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "device": {},
+            "volume": {
+              "type": "number",
+              "description": "Volume level, 0\u2013100."
+            },
+            "confirmToken": {}
+          },
+          "required": [
+            "device",
+            "volume",
+            "confirmToken"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "alexa_playback",
+        "description": "Play, pause, skip to next or go back to previous on an Alexa device\u2019s current media.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "device": {},
+            "command": {
+              "type": "string",
+              "description": "The media command.",
+              "enum": [
+                "play",
+                "pause",
+                "next",
+                "previous"
+              ]
+            },
+            "confirmToken": {}
+          },
+          "required": [
+            "device",
+            "command",
+            "confirmToken"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "alexa_list_lists",
+        "description": "List the Alexa shopping and to-do lists on the account, with how many active items each has.",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "alexa_get_list_items",
+        "description": "Read the items on an Alexa shopping or to-do list. Completed items are omitted unless includeCompleted is set.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "list": {},
+            "includeCompleted": {
+              "type": "boolean",
+              "default": false,
+              "description": "Also return checked-off items."
+            }
+          },
+          "required": [
+            "list"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "alexa_add_list_item",
+        "description": "Add an item to an Alexa shopping or to-do list.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "list": {},
+            "item": {
+              "type": "string",
+              "description": "The item text, e.g. \"oat milk\"."
+            },
+            "confirmToken": {}
+          },
+          "required": [
+            "list",
+            "item",
+            "confirmToken"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "alexa_update_list_item",
+        "description": "Check off (mark complete) or un-check (mark active again) an item on an Alexa shopping or to-do list, by its name or item id from alexa_get_list_items.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "list": {},
+            "item": {
+              "type": "string",
+              "description": "Item text (exact, case-insensitive) or item id."
+            },
+            "completed": {
+              "type": "boolean",
+              "description": "true marks it complete; false marks it active again."
+            },
+            "confirmToken": {}
+          },
+          "required": [
+            "list",
+            "item",
+            "completed",
+            "confirmToken"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "alexa_remove_list_item",
+        "description": "Delete an item from an Alexa shopping or to-do list (by its name or item id from alexa_get_list_items). This deletes it outright \u2014 any quantity or note on it is lost.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "list": {},
+            "item": {
+              "type": "string",
+              "description": "Item text (exact, case-insensitive) or item id."
+            },
+            "confirmToken": {}
+          },
+          "required": [
+            "list",
+            "item",
+            "confirmToken"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "alexa_begin_login",
+        "description": "Start signing in to Amazon Alexa (or re-connect a revoked session). Returns a signInUrl on www.amazon.com and a loginId. Give the user the link to open in their OWN browser (a private tab works best on a phone with the Alexa app). After signing in they land on a blank www.amazon.com/ap/maplanding page: ask them to paste that page\u2019s full address, then call alexa_finish_login with it and the loginId. The password never passes through this server. The link works for 15 minutes.",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "has_hidden_instructions": true,
+        "poisoning_risk": "critical",
+        "poisoning_detail": "Hidden instruction detected in tool description that could manipulate AI behavior. Matched pattern in tool 'alexa_begin_login': 'never '"
+      },
+      {
+        "name": "alexa_finish_login",
+        "description": "Finish an Alexa sign-in started by alexa_begin_login. Pass the loginId and the full address of the www.amazon.com/ap/maplanding page the user landed on (or just its authorization code). Registers this server as an \"alexa-mcp\" device on the Amazon account, saves the session, and checks it by reading the device list. Each sign-in link can be finished once; if it fails, start again with alexa_begin_login.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "loginId": {
+              "type": "string",
+              "description": "The loginId alexa_begin_login returned."
+            },
+            "redirectUrl": {
+              "type": "string",
+              "description": "The full address of the www.amazon.com/ap/maplanding page after signing in (or its authorization code)."
+            }
+          },
+          "required": [
+            "loginId",
+            "redirectUrl"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "alexa_list_device_modes",
+        "description": "List the mode settings of an Alexa smart-home device and what each is set to now, with the values it accepts: a thermostat\u2019s fan mode (On / Auto / Circulate), a robot vacuum\u2019s (Roomba) state, a light\u2019s effect, washer or air-purifier modes. Use the setting and value names with alexa_set_device_mode.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "target": {
+              "type": "string",
+              "description": "Device name (or id) from alexa_list_smart_home."
+            }
+          },
+          "required": [
+            "target"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "alexa_set_device_mode",
+        "description": "Change a mode setting on an Alexa smart-home device: a thermostat\u2019s fan mode (e.g. \"Circulate\"), a robot vacuum\u2019s mode, a light effect, and similar. `setting` picks the mode control by name (e.g. \"Fan Mode\") when the device has several; `mode` is the value by name or id, as alexa_list_device_modes shows them. Garage doors are not changed here: use alexa_garage_door.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "target": {
+              "type": "string",
+              "description": "Device name (or id) from alexa_list_smart_home."
+            },
+            "mode": {
+              "type": "string",
+              "description": "The new value, by name (\"Circulate\") or value (\"3\")."
+            },
+            "setting": {
+              "type": "string",
+              "description": "Which mode control, by name (\"Fan Mode\") or instance. Optional when the device has one."
+            },
+            "confirmToken": {}
+          },
+          "required": [
+            "target",
+            "mode",
+            "confirmToken"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "alexa_garage_door",
+        "description": "Open or close a garage door connected to Alexa. Opening a garage door reduces your home\u2019s security \u2014 anyone outside can walk in \u2014 so confirm the user really wants it open.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "target": {
+              "type": "string",
+              "description": "Garage door name (or id) from alexa_list_smart_home."
+            },
+            "action": {
+              "type": "string",
+              "description": "open or close.",
+              "enum": [
+                "open",
+                "close"
+              ]
+            },
+            "confirmToken": {}
+          },
+          "required": [
+            "target",
+            "action",
+            "confirmToken"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "alexa_lock",
+        "description": "Lock or unlock a smart lock (door lock) connected to Alexa. Unlocking reduces your home\u2019s security, so confirm the user really wants it unlocked. Amazon may require a voice PIN or the Alexa app to unlock; its refusal is reported as an error.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "target": {
+              "type": "string",
+              "description": "Lock name (or id) from alexa_list_smart_home."
+            },
+            "action": {
+              "type": "string",
+              "description": "lock or unlock.",
+              "enum": [
+                "lock",
+                "unlock"
+              ]
+            },
+            "confirmToken": {}
+          },
+          "required": [
+            "target",
+            "action",
+            "confirmToken"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "alexa_list_alarms_reminders",
+        "description": "List the alarms, timers and reminders set on the account\u2019s Alexa devices, with id, label, device, date/time, whether each is on, and its recurrence. Optionally filter by type.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "description": "Only this kind.",
+              "enum": [
+                "Alarm",
+                "Timer",
+                "Reminder"
+              ]
+            },
+            "includeOff": {
+              "type": "boolean",
+              "default": false,
+              "description": "Also return alarms/reminders that are switched off."
+            }
+          },
+          "required": []
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "alexa_create_reminder",
+        "description": "Set an Alexa reminder (Alexa says the label at that time) or an alarm on an Echo device. Give the time either as `at`, ISO 8601 WITH a UTC offset (e.g. 2026-10-09T09:00:00-04:00), or as `inMinutes` from now. The time is applied in the device\u2019s own time zone. Use alexa_create_timer for a countdown timer.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "device": {},
+            "type": {
+              "type": "string",
+              "default": "Reminder",
+              "description": "\"Reminder\" (default) or \"Alarm\".",
+              "enum": [
+                "Reminder",
+                "Alarm"
+              ]
+            },
+            "label": {
+              "type": "string",
+              "description": "What Alexa reminds you of, e.g. \"call mom\". Required for reminders."
+            },
+            "at": {
+              "type": "string",
+              "description": "When, as ISO 8601 with a UTC offset, e.g. 2026-10-09T09:00:00-04:00."
+            },
+            "inMinutes": {
+              "type": "number",
+              "description": "Or: this many minutes from now."
+            },
+            "confirmToken": {}
+          },
+          "required": [
+            "device",
+            "confirmToken"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "alexa_create_timer",
+        "description": "Start an Alexa countdown timer on an Echo device, e.g. a 10-minute pasta timer.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "device": {},
+            "minutes": {
+              "type": "number",
+              "description": "Duration in minutes (0.5\u20131440)."
+            },
+            "label": {
+              "type": "string",
+              "description": "Optional timer name, e.g. \"pasta\"."
+            },
+            "confirmToken": {}
+          },
+          "required": [
+            "device",
+            "minutes",
+            "confirmToken"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "alexa_cancel_alarm_reminder",
+        "description": "Cancel (delete) an Alexa alarm, timer or reminder \u2014 by its id from alexa_list_alarms_reminders, or by its label (plus the device when the same label is on several). A recurring alarm is deleted entirely, not just its next occurrence.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "description": "Notification id from alexa_list_alarms_reminders."
+            },
+            "label": {
+              "type": "string",
+              "description": "Or: the reminder/timer label (case-insensitive)."
+            },
+            "device": {
+              "description": "With label: the device it is on."
+            },
+            "confirmToken": {}
+          },
+          "required": [
+            "confirmToken"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "alexa_list_routines",
+        "description": "List the Alexa routines on the account \u2014 name (or trigger phrase), id, whether enabled, and what triggers each (voice phrase, schedule, device event).",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "view": {}
+          },
+          "required": [
+            "view"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "alexa_run_routine",
+        "description": "Run an Alexa routine now, exactly as if its trigger fired. A routine can do anything it was built to \u2014 lights, locks, messages, purchases \u2014 so check what it does before running it.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "routine": {
+              "type": "string",
+              "description": "Routine name, trigger phrase or id (from alexa_list_routines)."
+            },
+            "device": {
+              "type": "string",
+              "description": "Device the routine runs on (where spoken responses play). Defaults to the first online speaker."
+            },
+            "confirmToken": {}
+          },
+          "required": [
+            "routine",
+            "confirmToken"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "alexa_session_status",
+        "description": "Report how this Alexa server is configured \u2014 whether a registration is present, where it came from, the Amazon site, and how old the session cookies are. Makes NO network call; alexa_healthcheck checks that Amazon still accepts the session.",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "alexa_get_do_not_disturb",
+        "description": "Which Alexa devices have Do Not Disturb (DND, quiet mode) switched on right now.",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "alexa_set_do_not_disturb",
+        "description": "Switch Do Not Disturb (DND, quiet mode) on or off for an Alexa device.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "device": {},
+            "enabled": {
+              "type": "boolean",
+              "description": "true turns Do Not Disturb on, false turns it off."
+            },
+            "confirmToken": {}
+          },
+          "required": [
+            "device",
+            "enabled",
+            "confirmToken"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "alexa_get_equalizer",
+        "description": "Read an Echo speaker or soundbar\u2019s equalizer: bass, mid(range) and treble, in dB.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "device": {}
+          },
+          "required": [
+            "device"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "alexa_set_equalizer",
+        "description": "Set an Echo speaker or soundbar\u2019s equalizer \u2014 bass, mid and/or treble, \u22126 to +6 dB. Bands you leave out keep their current value.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "device": {},
+            "bass": {
+              "description": "Bass, \u22126 to +6."
+            },
+            "mid": {
+              "description": "Midrange, \u22126 to +6."
+            },
+            "treble": {
+              "description": "Treble, \u22126 to +6."
+            },
+            "confirmToken": {}
+          },
+          "required": [
+            "device",
+            "confirmToken"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "alexa_list_bluetooth",
+        "description": "List the Bluetooth phones, speakers and headphones paired with each Alexa device, which are connected, and whether the Echo is streaming over Bluetooth.",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "alexa_list_smart_home",
+        "description": "List the smart-home devices, groups and scenes Alexa controls \u2014 thermostats, lights, plugs, switches, locks, garage doors, robot vacuums, sensors, scenes \u2014 with the actions this server can perform on each: setTemperature / setThermostatMode via alexa_set_thermostat, lock / unlock via alexa_lock, open / close via alexa_garage_door, setMode (fan mode, vacuum mode, light effect) via alexa_set_device_mode, the rest via alexa_control_smart_home. These are NOT in alexa_list_devices, which only lists Echo speakers, Echo Shows and Fire TVs. Optionally filter by kind (e.g. THERMOSTAT, LIGHT, SMARTPLUG, SMARTLOCK, GARAGE_DOOR).",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "type": "string",
+              "description": "Only entities of this kind, e.g. LIGHT, THERMOSTAT, SCENE_TRIGGER (case-insensitive)."
+            },
+            "view": {}
+          },
+          "required": [
+            "view"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "medium",
+        "poisoning_detail": "Tool description is 625 characters. Long descriptions can hide malicious instructions."
+      },
+      {
+        "name": "alexa_control_smart_home",
+        "description": "Control an Alexa smart-home device, group or scene: turn lights and plugs on or off, set brightness (0\u2013100), set a light colour (colorName, e.g. \"red\") or white temperature (colorTemperatureName, e.g. \"warm_white\"), or activate a scene. Thermostats use alexa_set_thermostat; other device modes (fan mode, vacuum) alexa_set_device_mode; doors have their own tools. A device that is offline is reported as an error, not silently ignored.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "target": {
+              "type": "string",
+              "description": "Device, group or scene name (or id) from alexa_list_smart_home."
+            },
+            "action": {
+              "type": "string",
+              "description": "What to do.",
+              "enum": "SMART_HOME_ACTIONS"
+            },
+            "brightness": {
+              "type": "number",
+              "description": "Required for setBrightness: 0\u2013100."
+            },
+            "colorName": {
+              "type": "string",
+              "description": "Required for setColor: an Alexa colour name, lower case, e.g. \"red\", \"blue\", \"warm_white\"."
+            },
+            "colorTemperatureName": {
+              "type": "string",
+              "description": "Required for setColorTemperature: e.g. \"warm_white\", \"soft_white\", \"white\", \"daylight_white\", \"cool_white\"."
+            },
+            "confirmToken": {}
+          },
+          "required": [
+            "target",
+            "action",
+            "confirmToken"
+          ]
+        },
+        "has_hidden_instructions": true,
+        "poisoning_risk": "critical",
+        "poisoning_detail": "Hidden instruction detected in tool description that could manipulate AI behavior. Matched pattern in tool 'alexa_control_smart_home': 'silently'"
+      },
+      {
+        "name": "alexa_get_smart_home_state",
+        "description": "Read the live state of Alexa smart-home devices: what temperature a thermostat reads and is set to (mode, heat/cool setpoints, humidity, whether heating or cooling is running), whether lights and plugs are on and how bright, light colour, lock state, contact and motion sensors, and whether each device is reachable. Name the devices, or pass a kind (e.g. THERMOSTAT, LIGHT) to read every one of that kind. An unreachable device is reported on its row, not as a failure.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "targets": {
+              "type": "array",
+              "description": "Device names (or ids) from alexa_list_smart_home."
+            },
+            "kind": {
+              "type": "string",
+              "description": "Read every entity of this kind instead, e.g. THERMOSTAT, LIGHT (case-insensitive)."
+            },
+            "view": {}
+          },
+          "required": [
+            "view"
+          ]
+        },
+        "has_hidden_instructions": true,
+        "poisoning_risk": "high",
+        "poisoning_detail": "Tool description attempts to chain execution with other tools. Matched pattern in tool 'alexa_get_smart_home_state': '('read', 'every')'"
+      },
+      {
+        "name": "alexa_set_thermostat",
+        "description": "Set an Alexa-connected thermostat: change the temperature setpoint (heat-to / cool-to) and/or the mode (HEAT, COOL, AUTO, OFF, ECO). In AUTO mode pass lower (heat to) and/or upper (cool to) \u2014 the one you omit is kept from the current setting; in HEAT or COOL mode pass temperature. Reads the thermostat first and refuses a setpoint outside its allowed range. Units default to the thermostat\u2019s own scale.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "target": {
+              "type": "string",
+              "description": "Thermostat name (or id) from alexa_list_smart_home."
+            },
+            "temperature": {
+              "type": "number",
+              "description": "Single setpoint for HEAT or COOL mode."
+            },
+            "lower": {
+              "type": "number",
+              "description": "AUTO mode: heat-to setpoint (lower bound)."
+            },
+            "upper": {
+              "type": "number",
+              "description": "AUTO mode: cool-to setpoint (upper bound)."
+            },
+            "mode": {
+              "type": "string",
+              "description": "New thermostat mode.",
+              "enum": "THERMOSTAT_MODES"
+            },
+            "scale": {
+              "type": "string",
+              "description": "Units of the temperatures given. Defaults to the thermostat\u2019s scale.",
+              "enum": [
+                "fahrenheit",
+                "celsius"
+              ]
+            },
+            "confirmToken": {}
+          },
+          "required": [
+            "target",
+            "confirmToken"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "alexa_speak",
+        "description": "Make Alexa say something out loud. mode \"speak\" speaks the text on ONE device in Alexa\u2019s voice; mode \"announce\" plays it as an announcement (chime first) on one or more devices at once. Everyone in the room hears it, so it cannot be taken back.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "devices": {
+              "type": "array",
+              "description": "Device(s) to speak on. \"speak\" mode takes exactly one; \"announce\" takes one or more."
+            },
+            "text": {
+              "type": "string",
+              "description": "What to say (up to {MAX_SPEECH_CHARS} characters)."
+            },
+            "mode": {
+              "type": "string",
+              "default": "speak",
+              "description": "\"speak\" (default) or \"announce\".",
+              "enum": [
+                "speak",
+                "announce"
+              ]
+            },
+            "confirmToken": {}
+          },
+          "required": [
+            "devices",
+            "text",
+            "confirmToken"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "alexa_set_vacation_mode",
+        "description": "Turn thermostat vacation mode (away mode) on or off. Alexa thermostats have no native vacation or away mode, so this emulates one: turning it ON saves each thermostat\u2019s current mode and temperature setpoints, then sets energy-saving setpoints (heat to 55\u00b0, cool to 85\u00b0 by default, in the thermostat\u2019s own scale) \u2014 a thermostat that is OFF stays OFF. Turning it OFF restores exactly what was saved. Defaults to every thermostat. Turning it on twice is refused so the saved settings are never lost.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "enabled": {
+              "type": "boolean",
+              "description": "true turns vacation mode on; false restores the saved settings."
+            },
+            "targets": {
+              "type": "array",
+              "description": "Thermostat names (or ids). Default: all thermostats."
+            },
+            "heatTo": {
+              "type": "number",
+              "description": "Vacation heat-to setpoint, in the thermostat\u2019s scale. Default 55 \u00b0F / 13 \u00b0C."
+            },
+            "coolTo": {
+              "type": "number",
+              "description": "Vacation cool-to setpoint, in the thermostat\u2019s scale. Default 85 \u00b0F / 29 \u00b0C."
+            },
+            "confirmToken": {}
+          },
+          "required": [
+            "enabled",
+            "confirmToken"
+          ]
+        },
+        "has_hidden_instructions": true,
+        "poisoning_risk": "critical",
+        "poisoning_detail": "Hidden instruction detected in tool description that could manipulate AI behavior. Matched pattern in tool 'alexa_set_vacation_mode': 'never '"
+      }
+    ],
+    "resources": [],
+    "prompts": [],
+    "repo_url": null,
+    "npm_package": null,
+    "capabilities_claimed": [],
+    "capabilities_actual": []
+  },
+  "fingerprint": "ab5ea44ee94e753729e9915cf207b43818b6a6581c46c1be535942bc29ea0198",
+  "surface_map": {
+    "server": {
+      "name": "<corpus>/registry/26_chrischall__alexa-mcp",
+      "instructions": "",
+      "transport": "unknown",
+      "auth": "unknown"
+    },
+    "tools": [
+      {
+        "name": "alexa_run_builtin",
+        "description": "Have an Echo play one of Alexa\u2019s built-in features out loud: the weather forecast, traffic, the flash briefing (news), the good-morning greeting, a fun fact, a joke, sing a song, tell a story, today\u2019s / tomorrow\u2019s / the next calendar event, or \"cleanup\" (tidy-up music). Everyone in the room hears it.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "device": {},
+            "command": {
+              "type": "string",
+              "description": "Which built-in feature.",
+              "enum": "BUILTINS"
+            },
+            "confirmToken": {}
+          },
+          "required": [
+            "device",
+            "command",
+            "confirmToken"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "src\\tools\\actions.ts:36"
+      },
+      {
+        "name": "alexa_fire_tv",
+        "description": "Control a Fire TV through Alexa: turn the TV on or off, pause or resume the video, or go to the home screen.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "device": {},
+            "command": {
+              "type": "string",
+              "description": "What to do.",
+              "enum": [
+                "turnOn",
+                "turnOff",
+                "pause",
+                "resume",
+                "home"
+              ]
+            },
+            "confirmToken": {}
+          },
+          "required": [
+            "device",
+            "command",
+            "confirmToken"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "src\\tools\\actions.ts:68"
+      },
+      {
+        "name": "alexa_stop",
+        "description": "Stop whatever an Alexa device is doing \u2014 music, a ringing alarm or timer, speech \u2014 like saying \"Alexa, stop\". Pass a device, or allDevices to stop every device on the account.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "device": {},
+            "allDevices": {
+              "type": "boolean",
+              "description": "Stop every Alexa device on the account."
+            },
+            "confirmToken": {}
+          },
+          "required": [
+            "device",
+            "confirmToken"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [
+          "all devices"
+        ],
+        "registration": "static",
+        "location": "src\\tools\\actions.ts:102"
+      },
+      {
+        "name": "alexa_list_devices",
+        "description": "List the Echo speakers, Echo Shows, Fire TVs and other Alexa devices on the Amazon account, with name, serial, device family and whether each is online. Use the name or serial with the other alexa_ tools. Thermostats, lights, plugs, switches, locks and other smart-home devices are NOT here: use alexa_list_smart_home for those.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "view": {}
+          },
+          "required": [
+            "view"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "src\\tools\\devices.ts:19"
+      },
+      {
+        "name": "alexa_get_now_playing",
+        "description": "What is playing on an Alexa device right now \u2014 media state, title, artist and provider, from its player.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "device": {}
+          },
+          "required": [
+            "device"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "src\\tools\\devices.ts:36"
+      },
+      {
+        "name": "alexa_list_volumes",
+        "description": "Current speaker volume (0\u2013100) and mute state of every Alexa device that reports one.",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "src\\tools\\devices.ts:64"
+      },
+      {
+        "name": "alexa_set_volume",
+        "description": "Set the speaker volume (0\u2013100) of an Alexa device.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "device": {},
+            "volume": {
+              "type": "number",
+              "description": "Volume level, 0\u2013100."
+            },
+            "confirmToken": {}
+          },
+          "required": [
+            "device",
+            "volume",
+            "confirmToken"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "src\\tools\\devices.ts:80"
+      },
+      {
+        "name": "alexa_playback",
+        "description": "Play, pause, skip to next or go back to previous on an Alexa device\u2019s current media.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "device": {},
+            "command": {
+              "type": "string",
+              "description": "The media command.",
+              "enum": [
+                "play",
+                "pause",
+                "next",
+                "previous"
+              ]
+            },
+            "confirmToken": {}
+          },
+          "required": [
+            "device",
+            "command",
+            "confirmToken"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "src\\tools\\devices.ts:108"
+      },
+      {
+        "name": "alexa_list_lists",
+        "description": "List the Alexa shopping and to-do lists on the account, with how many active items each has.",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "src\\tools\\lists.ts:52"
+      },
+      {
+        "name": "alexa_get_list_items",
+        "description": "Read the items on an Alexa shopping or to-do list. Completed items are omitted unless includeCompleted is set.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "list": {},
+            "includeCompleted": {
+              "type": "boolean",
+              "default": false,
+              "description": "Also return checked-off items."
+            }
+          },
+          "required": [
+            "list"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "src\\tools\\lists.ts:62"
+      },
+      {
+        "name": "alexa_add_list_item",
+        "description": "Add an item to an Alexa shopping or to-do list.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "list": {},
+            "item": {
+              "type": "string",
+              "description": "The item text, e.g. \"oat milk\"."
+            },
+            "confirmToken": {}
+          },
+          "required": [
+            "list",
+            "item",
+            "confirmToken"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "src\\tools\\lists.ts:81"
+      },
+      {
+        "name": "alexa_update_list_item",
+        "description": "Check off (mark complete) or un-check (mark active again) an item on an Alexa shopping or to-do list, by its name or item id from alexa_get_list_items.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "list": {},
+            "item": {
+              "type": "string",
+              "description": "Item text (exact, case-insensitive) or item id."
+            },
+            "completed": {
+              "type": "boolean",
+              "description": "true marks it complete; false marks it active again."
+            },
+            "confirmToken": {}
+          },
+          "required": [
+            "list",
+            "item",
+            "completed",
+            "confirmToken"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "src\\tools\\lists.ts:109"
+      },
+      {
+        "name": "alexa_remove_list_item",
+        "description": "Delete an item from an Alexa shopping or to-do list (by its name or item id from alexa_get_list_items). This deletes it outright \u2014 any quantity or note on it is lost.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "list": {},
+            "item": {
+              "type": "string",
+              "description": "Item text (exact, case-insensitive) or item id."
+            },
+            "confirmToken": {}
+          },
+          "required": [
+            "list",
+            "item",
+            "confirmToken"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "src\\tools\\lists.ts:143"
+      },
+      {
+        "name": "alexa_begin_login",
+        "description": "Start signing in to Amazon Alexa (or re-connect a revoked session). Returns a signInUrl on www.amazon.com and a loginId. Give the user the link to open in their OWN browser (a private tab works best on a phone with the Alexa app). After signing in they land on a blank www.amazon.com/ap/maplanding page: ask them to paste that page\u2019s full address, then call alexa_finish_login with it and the loginId. The password never passes through this server. The link works for 15 minutes.",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "capabilities": [],
+        "return_literals": [
+          "Have the user open signInUrl, sign in, and paste the address of the page they land on into alexa_finish_login."
+        ],
+        "registration": "static",
+        "location": "src\\tools\\login.ts:14"
+      },
+      {
+        "name": "alexa_finish_login",
+        "description": "Finish an Alexa sign-in started by alexa_begin_login. Pass the loginId and the full address of the www.amazon.com/ap/maplanding page the user landed on (or just its authorization code). Registers this server as an \"alexa-mcp\" device on the Amazon account, saves the session, and checks it by reading the device list. Each sign-in link can be finished once; if it fails, start again with alexa_begin_login.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "loginId": {
+              "type": "string",
+              "description": "The loginId alexa_begin_login returned."
+            },
+            "redirectUrl": {
+              "type": "string",
+              "description": "The full address of the www.amazon.com/ap/maplanding page after signing in (or its authorization code)."
+            }
+          },
+          "required": [
+            "loginId",
+            "redirectUrl"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "src\\tools\\login.ts:37"
+      },
+      {
+        "name": "alexa_list_device_modes",
+        "description": "List the mode settings of an Alexa smart-home device and what each is set to now, with the values it accepts: a thermostat\u2019s fan mode (On / Auto / Circulate), a robot vacuum\u2019s (Roomba) state, a light\u2019s effect, washer or air-purifier modes. Use the setting and value names with alexa_set_device_mode.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "target": {
+              "type": "string",
+              "description": "Device name (or id) from alexa_list_smart_home."
+            }
+          },
+          "required": [
+            "target"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "src\\tools\\modes.ts:84"
+      },
+      {
+        "name": "alexa_set_device_mode",
+        "description": "Change a mode setting on an Alexa smart-home device: a thermostat\u2019s fan mode (e.g. \"Circulate\"), a robot vacuum\u2019s mode, a light effect, and similar. `setting` picks the mode control by name (e.g. \"Fan Mode\") when the device has several; `mode` is the value by name or id, as alexa_list_device_modes shows them. Garage doors are not changed here: use alexa_garage_door.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "target": {
+              "type": "string",
+              "description": "Device name (or id) from alexa_list_smart_home."
+            },
+            "mode": {
+              "type": "string",
+              "description": "The new value, by name (\"Circulate\") or value (\"3\")."
+            },
+            "setting": {
+              "type": "string",
+              "description": "Which mode control, by name (\"Fan Mode\") or instance. Optional when the device has one."
+            },
+            "confirmToken": {}
+          },
+          "required": [
+            "target",
+            "mode",
+            "confirmToken"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "src\\tools\\modes.ts:108"
+      },
+      {
+        "name": "alexa_garage_door",
+        "description": "Open or close a garage door connected to Alexa. Opening a garage door reduces your home\u2019s security \u2014 anyone outside can walk in \u2014 so confirm the user really wants it open.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "target": {
+              "type": "string",
+              "description": "Garage door name (or id) from alexa_list_smart_home."
+            },
+            "action": {
+              "type": "string",
+              "description": "open or close.",
+              "enum": [
+                "open",
+                "close"
+              ]
+            },
+            "confirmToken": {}
+          },
+          "required": [
+            "target",
+            "action",
+            "confirmToken"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "src\\tools\\modes.ts:165"
+      },
+      {
+        "name": "alexa_lock",
+        "description": "Lock or unlock a smart lock (door lock) connected to Alexa. Unlocking reduces your home\u2019s security, so confirm the user really wants it unlocked. Amazon may require a voice PIN or the Alexa app to unlock; its refusal is reported as an error.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "target": {
+              "type": "string",
+              "description": "Lock name (or id) from alexa_list_smart_home."
+            },
+            "action": {
+              "type": "string",
+              "description": "lock or unlock.",
+              "enum": [
+                "lock",
+                "unlock"
+              ]
+            },
+            "confirmToken": {}
+          },
+          "required": [
+            "target",
+            "action",
+            "confirmToken"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "src\\tools\\modes.ts:218"
+      },
+      {
+        "name": "alexa_list_alarms_reminders",
+        "description": "List the alarms, timers and reminders set on the account\u2019s Alexa devices, with id, label, device, date/time, whether each is on, and its recurrence. Optionally filter by type.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "description": "Only this kind.",
+              "enum": [
+                "Alarm",
+                "Timer",
+                "Reminder"
+              ]
+            },
+            "includeOff": {
+              "type": "boolean",
+              "default": false,
+              "description": "Also return alarms/reminders that are switched off."
+            }
+          },
+          "required": []
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "src\\tools\\notifications.ts:66"
+      },
+      {
+        "name": "alexa_create_reminder",
+        "description": "Set an Alexa reminder (Alexa says the label at that time) or an alarm on an Echo device. Give the time either as `at`, ISO 8601 WITH a UTC offset (e.g. 2026-10-09T09:00:00-04:00), or as `inMinutes` from now. The time is applied in the device\u2019s own time zone. Use alexa_create_timer for a countdown timer.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "device": {},
+            "type": {
+              "type": "string",
+              "default": "Reminder",
+              "description": "\"Reminder\" (default) or \"Alarm\".",
+              "enum": [
+                "Reminder",
+                "Alarm"
+              ]
+            },
+            "label": {
+              "type": "string",
+              "description": "What Alexa reminds you of, e.g. \"call mom\". Required for reminders."
+            },
+            "at": {
+              "type": "string",
+              "description": "When, as ISO 8601 with a UTC offset, e.g. 2026-10-09T09:00:00-04:00."
+            },
+            "inMinutes": {
+              "type": "number",
+              "description": "Or: this many minutes from now."
+            },
+            "confirmToken": {}
+          },
+          "required": [
+            "device",
+            "confirmToken"
+          ]
+        },
+        "capabilities": [
+          "exec"
+        ],
+        "return_literals": [],
+        "registration": "static",
+        "location": "src\\tools\\notifications.ts:90"
+      },
+      {
+        "name": "alexa_create_timer",
+        "description": "Start an Alexa countdown timer on an Echo device, e.g. a 10-minute pasta timer.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "device": {},
+            "minutes": {
+              "type": "number",
+              "description": "Duration in minutes (0.5\u20131440)."
+            },
+            "label": {
+              "type": "string",
+              "description": "Optional timer name, e.g. \"pasta\"."
+            },
+            "confirmToken": {}
+          },
+          "required": [
+            "device",
+            "minutes",
+            "confirmToken"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "src\\tools\\notifications.ts:147"
+      },
+      {
+        "name": "alexa_cancel_alarm_reminder",
+        "description": "Cancel (delete) an Alexa alarm, timer or reminder \u2014 by its id from alexa_list_alarms_reminders, or by its label (plus the device when the same label is on several). A recurring alarm is deleted entirely, not just its next occurrence.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "description": "Notification id from alexa_list_alarms_reminders."
+            },
+            "label": {
+              "type": "string",
+              "description": "Or: the reminder/timer label (case-insensitive)."
+            },
+            "device": {
+              "description": "With label: the device it is on."
+            },
+            "confirmToken": {}
+          },
+          "required": [
+            "confirmToken"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "src\\tools\\notifications.ts:188"
+      },
+      {
+        "name": "alexa_list_routines",
+        "description": "List the Alexa routines on the account \u2014 name (or trigger phrase), id, whether enabled, and what triggers each (voice phrase, schedule, device event).",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "view": {}
+          },
+          "required": [
+            "view"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "src\\tools\\routines.ts:37"
+      },
+      {
+        "name": "alexa_run_routine",
+        "description": "Run an Alexa routine now, exactly as if its trigger fired. A routine can do anything it was built to \u2014 lights, locks, messages, purchases \u2014 so check what it does before running it.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "routine": {
+              "type": "string",
+              "description": "Routine name, trigger phrase or id (from alexa_list_routines)."
+            },
+            "device": {
+              "type": "string",
+              "description": "Device the routine runs on (where spoken responses play). Defaults to the first online speaker."
+            },
+            "confirmToken": {}
+          },
+          "required": [
+            "routine",
+            "confirmToken"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "src\\tools\\routines.ts:53"
+      },
+      {
+        "name": "alexa_session_status",
+        "description": "Report how this Alexa server is configured \u2014 whether a registration is present, where it came from, the Amazon site, and how old the session cookies are. Makes NO network call; alexa_healthcheck checks that Amazon still accepts the session.",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "src\\tools\\session.ts:8"
+      },
+      {
+        "name": "alexa_get_do_not_disturb",
+        "description": "Which Alexa devices have Do Not Disturb (DND, quiet mode) switched on right now.",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "src\\tools\\settings.ts:30"
+      },
+      {
+        "name": "alexa_set_do_not_disturb",
+        "description": "Switch Do Not Disturb (DND, quiet mode) on or off for an Alexa device.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "device": {},
+            "enabled": {
+              "type": "boolean",
+              "description": "true turns Do Not Disturb on, false turns it off."
+            },
+            "confirmToken": {}
+          },
+          "required": [
+            "device",
+            "enabled",
+            "confirmToken"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "src\\tools\\settings.ts:46"
+      },
+      {
+        "name": "alexa_get_equalizer",
+        "description": "Read an Echo speaker or soundbar\u2019s equalizer: bass, mid(range) and treble, in dB.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "device": {}
+          },
+          "required": [
+            "device"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "src\\tools\\settings.ts:74"
+      },
+      {
+        "name": "alexa_set_equalizer",
+        "description": "Set an Echo speaker or soundbar\u2019s equalizer \u2014 bass, mid and/or treble, \u22126 to +6 dB. Bands you leave out keep their current value.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "device": {},
+            "bass": {
+              "description": "Bass, \u22126 to +6."
+            },
+            "mid": {
+              "description": "Midrange, \u22126 to +6."
+            },
+            "treble": {
+              "description": "Treble, \u22126 to +6."
+            },
+            "confirmToken": {}
+          },
+          "required": [
+            "device",
+            "confirmToken"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "src\\tools\\settings.ts:89"
+      },
+      {
+        "name": "alexa_list_bluetooth",
+        "description": "List the Bluetooth phones, speakers and headphones paired with each Alexa device, which are connected, and whether the Echo is streaming over Bluetooth.",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "src\\tools\\settings.ts:128"
+      },
+      {
+        "name": "alexa_list_smart_home",
+        "description": "List the smart-home devices, groups and scenes Alexa controls \u2014 thermostats, lights, plugs, switches, locks, garage doors, robot vacuums, sensors, scenes \u2014 with the actions this server can perform on each: setTemperature / setThermostatMode via alexa_set_thermostat, lock / unlock via alexa_lock, open / close via alexa_garage_door, setMode (fan mode, vacuum mode, light effect) via alexa_set_device_mode, the rest via alexa_control_smart_home. These are NOT in alexa_list_devices, which only lists Echo speakers, Echo Shows and Fire TVs. Optionally filter by kind (e.g. THERMOSTAT, LIGHT, SMARTPLUG, SMARTLOCK, GARAGE_DOOR).",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "type": "string",
+              "description": "Only entities of this kind, e.g. LIGHT, THERMOSTAT, SCENE_TRIGGER (case-insensitive)."
+            },
+            "view": {}
+          },
+          "required": [
+            "view"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "src\\tools\\smarthome.ts:143"
+      },
+      {
+        "name": "alexa_control_smart_home",
+        "description": "Control an Alexa smart-home device, group or scene: turn lights and plugs on or off, set brightness (0\u2013100), set a light colour (colorName, e.g. \"red\") or white temperature (colorTemperatureName, e.g. \"warm_white\"), or activate a scene. Thermostats use alexa_set_thermostat; other device modes (fan mode, vacuum) alexa_set_device_mode; doors have their own tools. A device that is offline is reported as an error, not silently ignored.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "target": {
+              "type": "string",
+              "description": "Device, group or scene name (or id) from alexa_list_smart_home."
+            },
+            "action": {
+              "type": "string",
+              "description": "What to do.",
+              "enum": "SMART_HOME_ACTIONS"
+            },
+            "brightness": {
+              "type": "number",
+              "description": "Required for setBrightness: 0\u2013100."
+            },
+            "colorName": {
+              "type": "string",
+              "description": "Required for setColor: an Alexa colour name, lower case, e.g. \"red\", \"blue\", \"warm_white\"."
+            },
+            "colorTemperatureName": {
+              "type": "string",
+              "description": "Required for setColorTemperature: e.g. \"warm_white\", \"soft_white\", \"white\", \"daylight_white\", \"cool_white\"."
+            },
+            "confirmToken": {}
+          },
+          "required": [
+            "target",
+            "action",
+            "confirmToken"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "src\\tools\\smarthome.ts:168"
+      },
+      {
+        "name": "alexa_get_smart_home_state",
+        "description": "Read the live state of Alexa smart-home devices: what temperature a thermostat reads and is set to (mode, heat/cool setpoints, humidity, whether heating or cooling is running), whether lights and plugs are on and how bright, light colour, lock state, contact and motion sensors, and whether each device is reachable. Name the devices, or pass a kind (e.g. THERMOSTAT, LIGHT) to read every one of that kind. An unreachable device is reported on its row, not as a failure.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "targets": {
+              "type": "array",
+              "description": "Device names (or ids) from alexa_list_smart_home."
+            },
+            "kind": {
+              "type": "string",
+              "description": "Read every entity of this kind instead, e.g. THERMOSTAT, LIGHT (case-insensitive)."
+            },
+            "view": {}
+          },
+          "required": [
+            "view"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "src\\tools\\smarthome.ts:241"
+      },
+      {
+        "name": "alexa_set_thermostat",
+        "description": "Set an Alexa-connected thermostat: change the temperature setpoint (heat-to / cool-to) and/or the mode (HEAT, COOL, AUTO, OFF, ECO). In AUTO mode pass lower (heat to) and/or upper (cool to) \u2014 the one you omit is kept from the current setting; in HEAT or COOL mode pass temperature. Reads the thermostat first and refuses a setpoint outside its allowed range. Units default to the thermostat\u2019s own scale.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "target": {
+              "type": "string",
+              "description": "Thermostat name (or id) from alexa_list_smart_home."
+            },
+            "temperature": {
+              "type": "number",
+              "description": "Single setpoint for HEAT or COOL mode."
+            },
+            "lower": {
+              "type": "number",
+              "description": "AUTO mode: heat-to setpoint (lower bound)."
+            },
+            "upper": {
+              "type": "number",
+              "description": "AUTO mode: cool-to setpoint (upper bound)."
+            },
+            "mode": {
+              "type": "string",
+              "description": "New thermostat mode.",
+              "enum": "THERMOSTAT_MODES"
+            },
+            "scale": {
+              "type": "string",
+              "description": "Units of the temperatures given. Defaults to the thermostat\u2019s scale.",
+              "enum": [
+                "fahrenheit",
+                "celsius"
+              ]
+            },
+            "confirmToken": {}
+          },
+          "required": [
+            "target",
+            "confirmToken"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "src\\tools\\smarthome.ts:287"
+      },
+      {
+        "name": "alexa_speak",
+        "description": "Make Alexa say something out loud. mode \"speak\" speaks the text on ONE device in Alexa\u2019s voice; mode \"announce\" plays it as an announcement (chime first) on one or more devices at once. Everyone in the room hears it, so it cannot be taken back.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "devices": {
+              "type": "array",
+              "description": "Device(s) to speak on. \"speak\" mode takes exactly one; \"announce\" takes one or more."
+            },
+            "text": {
+              "type": "string",
+              "description": "What to say (up to {MAX_SPEECH_CHARS} characters)."
+            },
+            "mode": {
+              "type": "string",
+              "default": "speak",
+              "description": "\"speak\" (default) or \"announce\".",
+              "enum": [
+                "speak",
+                "announce"
+              ]
+            },
+            "confirmToken": {}
+          },
+          "required": [
+            "devices",
+            "text",
+            "confirmToken"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "src\\tools\\speech.ts:11"
+      },
+      {
+        "name": "alexa_set_vacation_mode",
+        "description": "Turn thermostat vacation mode (away mode) on or off. Alexa thermostats have no native vacation or away mode, so this emulates one: turning it ON saves each thermostat\u2019s current mode and temperature setpoints, then sets energy-saving setpoints (heat to 55\u00b0, cool to 85\u00b0 by default, in the thermostat\u2019s own scale) \u2014 a thermostat that is OFF stays OFF. Turning it OFF restores exactly what was saved. Defaults to every thermostat. Turning it on twice is refused so the saved settings are never lost.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "enabled": {
+              "type": "boolean",
+              "description": "true turns vacation mode on; false restores the saved settings."
+            },
+            "targets": {
+              "type": "array",
+              "description": "Thermostat names (or ids). Default: all thermostats."
+            },
+            "heatTo": {
+              "type": "number",
+              "description": "Vacation heat-to setpoint, in the thermostat\u2019s scale. Default 55 \u00b0F / 13 \u00b0C."
+            },
+            "coolTo": {
+              "type": "number",
+              "description": "Vacation cool-to setpoint, in the thermostat\u2019s scale. Default 85 \u00b0F / 29 \u00b0C."
+            },
+            "confirmToken": {}
+          },
+          "required": [
+            "enabled",
+            "confirmToken"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "src\\tools\\vacation.ts:83"
+      }
+    ],
+    "resources": [],
+    "prompts": [],
+    "mutations": [],
+    "source": {
+      "kind": "static",
+      "target": "<corpus>/registry/26_chrischall__alexa-mcp",
+      "languages": [
+        "typescript"
+      ]
+    },
+    "generated_at": "2026-11-04T02:43:42+00:00",
+    "fingerprint": "ab5ea44ee94e753729e9915cf207b43818b6a6581c46c1be535942bc29ea0198",
+    "schema": "axiom.surface/1"
+  },
+  "owasp_coverage": {
+    "framework": "OWASP Top 10 for Agentic Applications 2026",
+    "reference": "https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/",
+    "coverage": {
+      "ASI01": {
+        "name": "Agent Goal Hijack",
+        "coverage_level": "strong",
+        "findings_count": 7,
+        "finding_ids": [
+          "poison_alexa_begin_login_instruction_injection",
+          "poison_alexa_list_smart_home_long_desc",
+          "poison_alexa_control_smart_home_instruction_injection",
+          "poison_alexa_set_vacation_mode_instruction_injection",
+          "shadow_alexa_get_do_not_disturb_near_duplicate",
+          "shadow_alexa_set_equalizer_near_duplicate",
+          "code_0001"
+        ],
+        "detectors": [
+          "tool_poisoning",
+          "prompt_injection",
+          "instruction_injection"
+        ]
+      },
+      "ASI02": {
+        "name": "Tool Misuse & Exploitation",
+        "coverage_level": "strong",
+        "findings_count": 26,
+        "finding_ids": [
+          "poison_alexa_get_smart_home_state_tool_chaining",
+          "cross_tool_alexa_list_devices_alexa_list_smart_home",
+          "cross_tool_alexa_update_list_item_alexa_get_list_items",
+          "cross_tool_alexa_remove_list_item_alexa_get_list_items",
+          "cross_tool_alexa_begin_login_alexa_finish_login",
+          "cross_tool_alexa_finish_login_alexa_begin_login",
+          "cross_tool_alexa_list_device_modes_alexa_set_device_mode",
+          "cross_tool_alexa_set_device_mode_alexa_garage_door",
+          "cross_tool_alexa_set_device_mode_alexa_list_device_modes",
+          "cross_tool_alexa_create_reminder_alexa_create_timer"
+        ],
+        "detectors": [
+          "toxic_tool_combo",
+          "tool_overscope",
+          "tool_chaining_detection"
+        ]
+      },
+      "ASI03": {
+        "name": "Identity & Privilege Abuse",
+        "coverage_level": "strong",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "credential_analysis",
+          "shared_credential_detection",
+          "env_var_audit"
+        ]
+      },
+      "ASI04": {
+        "name": "Agentic Supply Chain Vulnerabilities",
+        "coverage_level": "strong",
+        "findings_count": 10,
+        "finding_ids": [
+          "shadow_alexa_get_do_not_disturb_near_duplicate",
+          "shadow_alexa_set_equalizer_near_duplicate",
+          "GHSA-46jr-4wx8-v453",
+          "GHSA-f897-62hf-6gxq",
+          "GHSA-jm63-cq47-j5jp",
+          "GHSA-rvq5-wwqv-78pq",
+          "GHSA-m95q-7qp3-xv42",
+          "GHSA-mrhx-c7xc-m3w5",
+          "mcp04_unpinned_0001",
+          "mcp04_unpinned_0002"
+        ],
+        "detectors": [
+          "dependency_cve",
+          "lifecycle_hooks",
+          "npx_unversioned",
+          "known_mcp_cves"
+        ]
+      },
+      "ASI05": {
+        "name": "Unexpected Code Execution",
+        "coverage_level": "strong",
+        "findings_count": 1,
+        "finding_ids": [
+          "code_0002"
+        ],
+        "detectors": [
+          "code_exec_patterns",
+          "code_generation_detection",
+          "sandbox_escape"
+        ]
+      },
+      "ASI06": {
+        "name": "Memory & Context Poisoning",
+        "coverage_level": "partial",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "memory_poisoning_patterns",
+          "context_manipulation_detection"
+        ],
+        "gap_note": "Axiom detects static patterns. Full coverage requires runtime memory monitoring."
+      },
+      "ASI07": {
+        "name": "Insecure Inter-Agent Communication",
+        "coverage_level": "partial",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "transport_security",
+          "a2a_pattern_detection"
+        ],
+        "gap_note": "Axiom checks transport security. Full A2A protocol analysis requires runtime interception."
+      },
+      "ASI08": {
+        "name": "Cascading Failures",
+        "coverage_level": "partial",
+        "findings_count": 19,
+        "finding_ids": [
+          "cross_tool_alexa_list_devices_alexa_list_smart_home",
+          "cross_tool_alexa_update_list_item_alexa_get_list_items",
+          "cross_tool_alexa_remove_list_item_alexa_get_list_items",
+          "cross_tool_alexa_begin_login_alexa_finish_login",
+          "cross_tool_alexa_finish_login_alexa_begin_login",
+          "cross_tool_alexa_list_device_modes_alexa_set_device_mode",
+          "cross_tool_alexa_set_device_mode_alexa_garage_door",
+          "cross_tool_alexa_set_device_mode_alexa_list_device_modes",
+          "cross_tool_alexa_create_reminder_alexa_create_timer",
+          "cross_tool_alexa_cancel_alarm_reminder_alexa_list_alarms_reminders"
+        ],
+        "detectors": [
+          "blast_radius_estimation",
+          "dependency_chain_analysis"
+        ],
+        "gap_note": "Axiom estimates blast radius from tool capabilities. Full cascading failure analysis requires runtime topology mapping."
+      },
+      "ASI09": {
+        "name": "Human-Agent Trust Exploitation",
+        "coverage_level": "strong",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "claimed_vs_actual",
+          "deceptive_output_detection",
+          "trust_manipulation_patterns"
+        ]
+      },
+      "ASI10": {
+        "name": "Rogue Agents",
+        "coverage_level": "partial",
+        "findings_count": 2,
+        "finding_ids": [
+          "code_0001",
+          "mcp08_no_tool_logging"
+        ],
+        "detectors": [
+          "sleeper_patterns",
+          "behavioral_drift_indicators",
+          "persistence_detection"
+        ],
+        "gap_note": "Axiom detects static rogue indicators. Full rogue agent detection requires runtime behavioral monitoring."
+      }
+    },
+    "total_asi_categories_with_findings": 6
+  },
+  "owasp_mcp_coverage": {
+    "framework": "OWASP MCP Top 10",
+    "framework_version": "v0.1 beta",
+    "reference": "https://owasp.org/www-project-mcp-top-10/",
+    "coverage": {
+      "MCP01": {
+        "id": "MCP01:2025",
+        "name": "Token Mismanagement & Secret Exposure",
+        "coverage_level": "partial",
+        "reason": "Regex-based secret detection in server source and client configs plus env-var exposure checks; no entropy analysis, git-history scan, or token lifetime/passthrough checks.",
+        "findings_count": 18,
+        "finding_ids": [
+          "cross_tool_alexa_list_devices_alexa_list_smart_home",
+          "cross_tool_alexa_update_list_item_alexa_get_list_items",
+          "cross_tool_alexa_remove_list_item_alexa_get_list_items",
+          "cross_tool_alexa_begin_login_alexa_finish_login",
+          "cross_tool_alexa_finish_login_alexa_begin_login",
+          "cross_tool_alexa_list_device_modes_alexa_set_device_mode",
+          "cross_tool_alexa_set_device_mode_alexa_garage_door",
+          "cross_tool_alexa_set_device_mode_alexa_list_device_modes",
+          "cross_tool_alexa_create_reminder_alexa_create_timer",
+          "cross_tool_alexa_cancel_alarm_reminder_alexa_list_alarms_reminders"
+        ],
+        "detectors": [
+          "credential_theft",
+          "cross_server",
+          "mcp01_hardcoded_secrets",
+          "config_hardcoded_secret",
+          "env_var_audit",
+          "env_dump"
+        ]
+      },
+      "MCP02": {
+        "id": "MCP02:2025",
+        "name": "Privilege Escalation via Scope Creep",
+        "coverage_level": "strong",
+        "reason": "Permission over-scope patterns, toxic tool-capability combinations, path-escape checks and env-var over-exposure in configs.",
+        "findings_count": 26,
+        "finding_ids": [
+          "cross_tool_alexa_list_devices_alexa_list_smart_home",
+          "cross_tool_alexa_update_list_item_alexa_get_list_items",
+          "cross_tool_alexa_remove_list_item_alexa_get_list_items",
+          "cross_tool_alexa_begin_login_alexa_finish_login",
+          "cross_tool_alexa_finish_login_alexa_begin_login",
+          "cross_tool_alexa_list_device_modes_alexa_set_device_mode",
+          "cross_tool_alexa_set_device_mode_alexa_garage_door",
+          "cross_tool_alexa_set_device_mode_alexa_list_device_modes",
+          "cross_tool_alexa_create_reminder_alexa_create_timer",
+          "cross_tool_alexa_cancel_alarm_reminder_alexa_list_alarms_reminders"
+        ],
+        "detectors": [
+          "permission_overscope",
+          "toxic_tool_combo",
+          "identity_privilege",
+          "sandbox_escape",
+          "config_risk",
+          "cascading_failure",
+          "cross_server",
+          "excessive_scope",
+          "confused_deputy",
+          "file_read",
+          "file_write"
+        ]
+      },
+      "MCP03": {
+        "id": "MCP03:2025",
+        "name": "Tool Poisoning",
+        "coverage_level": "strong",
+        "reason": "Dedicated detector for hidden instructions in tool metadata, plus runtime rug-pull diffing between source and live tool definitions.",
+        "findings_count": 8,
+        "finding_ids": [
+          "poison_alexa_begin_login_instruction_injection",
+          "poison_alexa_list_smart_home_long_desc",
+          "poison_alexa_control_smart_home_instruction_injection",
+          "poison_alexa_get_smart_home_state_tool_chaining",
+          "poison_alexa_set_vacation_mode_instruction_injection",
+          "shadow_alexa_get_do_not_disturb_near_duplicate",
+          "shadow_alexa_set_equalizer_near_duplicate",
+          "code_0001"
+        ],
+        "detectors": [
+          "tool_poisoning",
+          "obfuscation",
+          "rogue_agent",
+          "source_vs_runtime_diff",
+          "tool_shadowing",
+          "hidden_unicode",
+          "rug_pull_primitive",
+          "surface_mismatch"
+        ]
+      },
+      "MCP04": {
+        "id": "MCP04:2025",
+        "name": "Software Supply Chain Attacks & Dependency Tampering",
+        "coverage_level": "strong",
+        "reason": "Dependency CVE lookup, known MCP CVEs, install lifecycle hooks, and unpinned npx/uvx/pip/@latest install sources.",
+        "findings_count": 9,
+        "finding_ids": [
+          "code_0001",
+          "GHSA-46jr-4wx8-v453",
+          "GHSA-f897-62hf-6gxq",
+          "GHSA-jm63-cq47-j5jp",
+          "GHSA-rvq5-wwqv-78pq",
+          "GHSA-m95q-7qp3-xv42",
+          "GHSA-mrhx-c7xc-m3w5",
+          "mcp04_unpinned_0001",
+          "mcp04_unpinned_0002"
+        ],
+        "detectors": [
+          "dependency_vuln",
+          "supply_chain",
+          "known_cve",
+          "obfuscation",
+          "lifecycle_hooks",
+          "mcp04_unpinned_install",
+          "homoglyph",
+          "rug_pull_primitive",
+          "surface_mismatch"
+        ]
+      },
+      "MCP05": {
+        "id": "MCP05:2025",
+        "name": "Command Injection & Execution",
+        "coverage_level": "partial",
+        "reason": "Regex, AST and Semgrep find exec/shell sinks and a heuristic flags sinks inside tool handlers, but there is no inter-procedural taint tracking from tool input to sink.",
+        "findings_count": 1,
+        "finding_ids": [
+          "code_0002"
+        ],
+        "detectors": [
+          "command_injection",
+          "code_execution",
+          "code_generation",
+          "sandbox_escape",
+          "mcp05_tool_input_sink",
+          "shell_exec"
+        ]
+      },
+      "MCP06": {
+        "id": "MCP06:2025",
+        "name": "Prompt Injection via Contextual Payloads",
+        "coverage_level": "partial",
+        "reason": "Injection markers are detected in tool metadata, server instructions, resources, prompts and the strings a tool returns (static), and in instructions/resources/prompts read live; payloads produced by calling a tool at runtime are not inspected.",
+        "findings_count": 2,
+        "finding_ids": [
+          "shadow_alexa_get_do_not_disturb_near_duplicate",
+          "shadow_alexa_set_equalizer_near_duplicate"
+        ],
+        "detectors": [
+          "prompt_injection",
+          "memory_poisoning",
+          "trust_exploitation",
+          "response_injection",
+          "tool_shadowing"
+        ]
+      },
+      "MCP07": {
+        "id": "MCP07:2025",
+        "name": "Insufficient Authentication & Authorization",
+        "coverage_level": "partial",
+        "reason": "Flags remote servers with no visible auth and servers bound to all interfaces; does not verify OAuth implementation or per-tool authorization logic.",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "transport_security",
+          "inter_agent_comm",
+          "identity_privilege",
+          "transport_no_auth",
+          "config_no_auth",
+          "mcp07_bind_all_interfaces"
+        ]
+      },
+      "MCP08": {
+        "id": "MCP08:2025",
+        "name": "Lack of Audit and Telemetry",
+        "coverage_level": "gap",
+        "reason": "Only a low-confidence heuristic for missing logging in tool-defining files; actual audit trails and telemetry pipelines are not verified.",
+        "findings_count": 1,
+        "finding_ids": [
+          "mcp08_no_tool_logging"
+        ],
+        "detectors": [
+          "audit_telemetry",
+          "mcp08_no_tool_logging"
+        ]
+      },
+      "MCP09": {
+        "id": "MCP09:2025",
+        "name": "Shadow MCP Servers",
+        "coverage_level": "partial",
+        "reason": "Covered by `axiom discover` allowlist on the local machine; no network-wide or fleet discovery.",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "mcpguard_discover",
+          "shadow_mcp"
+        ]
+      },
+      "MCP10": {
+        "id": "MCP10:2025",
+        "name": "Context Injection & Over-Sharing",
+        "coverage_level": "partial",
+        "reason": "Hard-coded egress URLs, tools that send to caller-chosen destinations and bulk-exposure heuristics are detected statically and live; what context is actually shared at runtime is not observed.",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "context_oversharing",
+          "data_exfiltration",
+          "memory_poisoning",
+          "mcp10_broad_data_exposure"
+        ]
+      }
+    },
+    "total_mcp_categories_with_findings": 7
+  },
+  "ai_analysis": null,
+  "tool_poisoning_report": null,
+  "prompt_injection_risk": null
+}

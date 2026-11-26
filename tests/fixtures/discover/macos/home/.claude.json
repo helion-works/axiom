@@ -1,0 +1,28 @@
+{
+  "numStartups": 12,
+  "mcpServers": {
+    "github": {
+      "type": "stdio",
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-github"
+      ]
+    }
+  },
+  "projects": {
+    "/Users/demo/work/app": {
+      "allowedTools": [],
+      "mcpServers": {
+        "sketchy-scraper": {
+          "type": "stdio",
+          "command": "npx",
+          "args": [
+            "-y",
+            "totally-legit-scraper-mcp@0.0.1"
+          ]
+        }
+      }
+    }
+  }
+}

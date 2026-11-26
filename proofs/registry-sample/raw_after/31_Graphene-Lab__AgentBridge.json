@@ -1,0 +1,1536 @@
+{
+  "schema_version": "0.5",
+  "target": "31_Graphene-Lab__AgentBridge",
+  "risk_score": 19.0,
+  "risk_level": "low",
+  "tools_found": 0,
+  "findings_count": 55,
+  "findings": [
+    {
+      "id": "ast_0001",
+      "severity": "info",
+      "category": "credential_theft",
+      "title": "Environment variable access via os.environ.get()",
+      "description": "Call to `os.environ.get()` reads an environment variable (capability note) in benchmark\\judge.py at line 22",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP01"
+      ],
+      "file_path": "benchmark\\judge.py",
+      "line_number": 22,
+      "recommendation": "Document which env vars are needed. Avoid reading arbitrary env vars.",
+      "rule_id": "code_pattern_ast",
+      "evidence": "os.environ.get()",
+      "location": "benchmark\\judge.py:22",
+      "replay": "axiom scan <corpus>/registry/31_Graphene-Lab__AgentBridge --output json --no-ai --no-history | jq '.findings[] | select(.id==\"ast_0001\")'"
+    },
+    {
+      "id": "ast_0002",
+      "severity": "info",
+      "category": "credential_theft",
+      "title": "Environment variable access via os.environ.get()",
+      "description": "Call to `os.environ.get()` reads an environment variable (capability note) in benchmark\\judge.py at line 23",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP01"
+      ],
+      "file_path": "benchmark\\judge.py",
+      "line_number": 23,
+      "recommendation": "Document which env vars are needed. Avoid reading arbitrary env vars.",
+      "rule_id": "code_pattern_ast",
+      "evidence": "os.environ.get()",
+      "location": "benchmark\\judge.py:23",
+      "replay": "axiom scan <corpus>/registry/31_Graphene-Lab__AgentBridge --output json --no-ai --no-history | jq '.findings[] | select(.id==\"ast_0002\")'"
+    },
+    {
+      "id": "ast_0003",
+      "severity": "info",
+      "category": "credential_theft",
+      "title": "Environment variable access via os.environ.get()",
+      "description": "Call to `os.environ.get()` reads an environment variable (capability note) in benchmark\\judge.py at line 24",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP01"
+      ],
+      "file_path": "benchmark\\judge.py",
+      "line_number": 24,
+      "recommendation": "Document which env vars are needed. Avoid reading arbitrary env vars.",
+      "rule_id": "code_pattern_ast",
+      "evidence": "os.environ.get()",
+      "location": "benchmark\\judge.py:24",
+      "replay": "axiom scan <corpus>/registry/31_Graphene-Lab__AgentBridge --output json --no-ai --no-history | jq '.findings[] | select(.id==\"ast_0003\")'"
+    },
+    {
+      "id": "ast_0004",
+      "severity": "info",
+      "category": "data_exfiltration",
+      "title": "Outbound HTTP request via urllib.request.urlopen()",
+      "description": "Call to `urllib.request.urlopen()` makes outbound network request in benchmark\\judge.py at line 96",
+      "owasp_asi": [
+        "ASI01",
+        "ASI02"
+      ],
+      "owasp_mcp": [
+        "MCP10"
+      ],
+      "file_path": "benchmark\\judge.py",
+      "line_number": 96,
+      "recommendation": "Verify this is expected. Outbound requests can exfiltrate data.",
+      "rule_id": "code_pattern_ast",
+      "evidence": "urllib.request.urlopen()",
+      "location": "benchmark\\judge.py:96",
+      "replay": "axiom scan <corpus>/registry/31_Graphene-Lab__AgentBridge --output json --no-ai --no-history | jq '.findings[] | select(.id==\"ast_0004\")'"
+    },
+    {
+      "id": "code_0001",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in e2e\\OfficeTaskLine\\client.test.mjs at line 23: `const GAME = path.resolve(HERE, \"../../OfficeManager/game.js\");`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "e2e\\OfficeTaskLine\\client.test.mjs",
+      "line_number": 23,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const GAME = path.resolve(HERE, \"../../OfficeManager/game.js\");",
+      "location": "e2e\\OfficeTaskLine\\client.test.mjs:23",
+      "replay": "axiom scan <corpus>/registry/31_Graphene-Lab__AgentBridge --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0001\")'"
+    },
+    {
+      "id": "code_0002",
+      "severity": "low",
+      "category": "obfuscation",
+      "title": "Encoded or obfuscated content in MCP server source",
+      "description": "Pattern matched in e2e\\OfficeTaskLine\\client.test.mjs at line 118: `atob: (s) => Buffer.from(s, \"base64\").toString(\"binary\"),`",
+      "owasp_asi": [
+        "ASI01",
+        "ASI10"
+      ],
+      "owasp_mcp": [
+        "MCP03",
+        "MCP04"
+      ],
+      "file_path": "e2e\\OfficeTaskLine\\client.test.mjs",
+      "line_number": 118,
+      "recommendation": "Review this obfuscation pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "atob: (s) => Buffer.from(s, \"base64\").toString(\"binary\"),",
+      "location": "e2e\\OfficeTaskLine\\client.test.mjs:118",
+      "replay": "axiom scan <corpus>/registry/31_Graphene-Lab__AgentBridge --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0002\")'"
+    },
+    {
+      "id": "code_0003",
+      "severity": "info",
+      "category": "permission_overscope",
+      "title": "Filesystem operations in MCP server source (capability note)",
+      "description": "Pattern matched in e2e\\OfficeTaskLine\\client.test.mjs at line 126: `const game = fs.readFileSync(GAME, \"utf8\");`",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": "e2e\\OfficeTaskLine\\client.test.mjs",
+      "line_number": 126,
+      "recommendation": "Review this file system broad access pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const game = fs.readFileSync(GAME, \"utf8\");",
+      "location": "e2e\\OfficeTaskLine\\client.test.mjs:126",
+      "replay": "axiom scan <corpus>/registry/31_Graphene-Lab__AgentBridge --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0003\")'"
+    },
+    {
+      "id": "code_0004",
+      "severity": "info",
+      "category": "data_exfiltration",
+      "title": "Server makes outbound network requests (capability note)",
+      "description": "Pattern matched in e2e\\OfficeTaskLine\\client.test.mjs at line 278: `ws = new WebSocket(\"ws://test\"); ws.readyState = 1;`",
+      "owasp_asi": [
+        "ASI01",
+        "ASI02"
+      ],
+      "owasp_mcp": [
+        "MCP10"
+      ],
+      "file_path": "e2e\\OfficeTaskLine\\client.test.mjs",
+      "line_number": 278,
+      "recommendation": "Review this data exfiltration pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "ws = new WebSocket(\"ws://test\"); ws.readyState = 1;",
+      "location": "e2e\\OfficeTaskLine\\client.test.mjs:278",
+      "replay": "axiom scan <corpus>/registry/31_Graphene-Lab__AgentBridge --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0004\")'"
+    },
+    {
+      "id": "code_0005",
+      "severity": "info",
+      "category": "data_exfiltration",
+      "title": "Server makes outbound network requests (capability note)",
+      "description": "Pattern matched in e2e\\OfficeTaskLine\\protocol.test.mjs at line 31: `const ws = new WebSocket(WS_URL);`",
+      "owasp_asi": [
+        "ASI01",
+        "ASI02"
+      ],
+      "owasp_mcp": [
+        "MCP10"
+      ],
+      "file_path": "e2e\\OfficeTaskLine\\protocol.test.mjs",
+      "line_number": 31,
+      "recommendation": "Review this data exfiltration pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const ws = new WebSocket(WS_URL);",
+      "location": "e2e\\OfficeTaskLine\\protocol.test.mjs:31",
+      "replay": "axiom scan <corpus>/registry/31_Graphene-Lab__AgentBridge --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0005\")'"
+    },
+    {
+      "id": "code_0006",
+      "severity": "info",
+      "category": "permission_overscope",
+      "title": "Filesystem operations in MCP server source (capability note)",
+      "description": "Pattern matched in examples\\build.js at line 8: `const cat = JSON.parse(fs.readFileSync(path.join(ROOT, 'catalog.json'), 'utf8'));`",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": "examples\\build.js",
+      "line_number": 8,
+      "recommendation": "Review this file system broad access pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const cat = JSON.parse(fs.readFileSync(path.join(ROOT, 'catalog.json'), 'utf8'));",
+      "location": "examples\\build.js:8",
+      "replay": "axiom scan <corpus>/registry/31_Graphene-Lab__AgentBridge --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0006\")'"
+    },
+    {
+      "id": "code_0007",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in examples\\build.js at line 218: `s += `---\\n*Part of the **Automate Your Business with AI** example library. The full book is free \u2014 see the [examples RE`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "examples\\build.js",
+      "line_number": 218,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "s +=",
+      "location": "examples\\build.js:218",
+      "replay": "axiom scan <corpus>/registry/31_Graphene-Lab__AgentBridge --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0007\")'"
+    },
+    {
+      "id": "code_0008",
+      "severity": "info",
+      "category": "permission_overscope",
+      "title": "Filesystem operations in MCP server source (capability note)",
+      "description": "Pattern matched in examples\\build.js at line 226: `fs.writeFileSync(path.join(dir, 'README.md'), readme(e), 'utf8');`",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": "examples\\build.js",
+      "line_number": 226,
+      "recommendation": "Review this file system broad access pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "fs.writeFileSync(path.join(dir, 'README.md'), readme(e), 'utf8');",
+      "location": "examples\\build.js:226",
+      "replay": "axiom scan <corpus>/registry/31_Graphene-Lab__AgentBridge --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0008\")'"
+    },
+    {
+      "id": "code_0009",
+      "severity": "info",
+      "category": "permission_overscope",
+      "title": "Filesystem operations in MCP server source (capability note)",
+      "description": "Pattern matched in examples\\build.js at line 234: `fs.writeFileSync(sf, JSON.stringify(spec), 'utf8');`",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": "examples\\build.js",
+      "line_number": 234,
+      "recommendation": "Review this file system broad access pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "fs.writeFileSync(sf, JSON.stringify(spec), 'utf8');",
+      "location": "examples\\build.js:234",
+      "replay": "axiom scan <corpus>/registry/31_Graphene-Lab__AgentBridge --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0009\")'"
+    },
+    {
+      "id": "code_0010",
+      "severity": "info",
+      "category": "permission_overscope",
+      "title": "Filesystem operations in MCP server source (capability note)",
+      "description": "Pattern matched in examples\\build.js at line 236: `fs.unlinkSync(sf);`",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": "examples\\build.js",
+      "line_number": 236,
+      "recommendation": "Review this file system broad access pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "fs.unlinkSync(sf);",
+      "location": "examples\\build.js:236",
+      "replay": "axiom scan <corpus>/registry/31_Graphene-Lab__AgentBridge --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0010\")'"
+    },
+    {
+      "id": "code_0011",
+      "severity": "info",
+      "category": "permission_overscope",
+      "title": "Filesystem operations in MCP server source (capability note)",
+      "description": "Pattern matched in examples\\_tools\\build_book.js at line 13: `const files = fs.readdirSync(CH);`",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": "examples\\_tools\\build_book.js",
+      "line_number": 13,
+      "recommendation": "Review this file system broad access pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const files = fs.readdirSync(CH);",
+      "location": "examples\\_tools\\build_book.js:13",
+      "replay": "axiom scan <corpus>/registry/31_Graphene-Lab__AgentBridge --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0011\")'"
+    },
+    {
+      "id": "code_0012",
+      "severity": "info",
+      "category": "permission_overscope",
+      "title": "Filesystem operations in MCP server source (capability note)",
+      "description": "Pattern matched in examples\\_tools\\build_lang.js at line 29: `fs.writeFileSync(coverBody, '<div class=\"bookcover\"><img src=\"assets/' + coverImg + '\" alt=\"' + TITLE + '\"></div>');`",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": "examples\\_tools\\build_lang.js",
+      "line_number": 29,
+      "recommendation": "Review this file system broad access pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "fs.writeFileSync(coverBody, '<div class=\"bookcover\"><img src=\"assets/' + coverImg + '\" alt=\"' + TITLE + '\"></div>');",
+      "location": "examples\\_tools\\build_lang.js:29",
+      "replay": "axiom scan <corpus>/registry/31_Graphene-Lab__AgentBridge --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0012\")'"
+    },
+    {
+      "id": "code_0013",
+      "severity": "info",
+      "category": "permission_overscope",
+      "title": "Filesystem operations in MCP server source (capability note)",
+      "description": "Pattern matched in examples\\_tools\\build_lang.js at line 31: `const files = fs.readdirSync(CH);`",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": "examples\\_tools\\build_lang.js",
+      "line_number": 31,
+      "recommendation": "Review this file system broad access pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const files = fs.readdirSync(CH);",
+      "location": "examples\\_tools\\build_lang.js:31",
+      "replay": "axiom scan <corpus>/registry/31_Graphene-Lab__AgentBridge --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0013\")'"
+    },
+    {
+      "id": "code_0014",
+      "severity": "info",
+      "category": "permission_overscope",
+      "title": "Filesystem operations in MCP server source (capability note)",
+      "description": "Pattern matched in examples\\_tools\\build_lang.js at line 80: `fs.unlinkSync(htmlOut);`",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": "examples\\_tools\\build_lang.js",
+      "line_number": 80,
+      "recommendation": "Review this file system broad access pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "fs.unlinkSync(htmlOut);",
+      "location": "examples\\_tools\\build_lang.js:80",
+      "replay": "axiom scan <corpus>/registry/31_Graphene-Lab__AgentBridge --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0014\")'"
+    },
+    {
+      "id": "code_0015",
+      "severity": "low",
+      "category": "obfuscation",
+      "title": "Encoded or obfuscated content in MCP server source",
+      "description": "Pattern matched in examples\\_tools\\gen.js at line 46: `const head = `<tr><th class=\"cn\"></th>${cols.map((c,i)=>`<th>${String.fromCharCode(65+i)}</th>`).join('')}</tr>`;`",
+      "owasp_asi": [
+        "ASI01",
+        "ASI10"
+      ],
+      "owasp_mcp": [
+        "MCP03",
+        "MCP04"
+      ],
+      "file_path": "examples\\_tools\\gen.js",
+      "line_number": 46,
+      "recommendation": "Review this obfuscation pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const head =",
+      "location": "examples\\_tools\\gen.js:46",
+      "replay": "axiom scan <corpus>/registry/31_Graphene-Lab__AgentBridge --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0015\")'"
+    },
+    {
+      "id": "code_0016",
+      "severity": "info",
+      "category": "permission_overscope",
+      "title": "Filesystem operations in MCP server source (capability note)",
+      "description": "Pattern matched in examples\\_tools\\gen.js at line 243: `const text = fs.readFileSync(s.src, 'utf8').replace(/\\r/g,'').replace(/\\s+$/,'');`",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": "examples\\_tools\\gen.js",
+      "line_number": 243,
+      "recommendation": "Review this file system broad access pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const text = fs.readFileSync(s.src, 'utf8').replace(/\\r/g,'').replace(/\\s+$/,'');",
+      "location": "examples\\_tools\\gen.js:243",
+      "replay": "axiom scan <corpus>/registry/31_Graphene-Lab__AgentBridge --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0016\")'"
+    },
+    {
+      "id": "code_0017",
+      "severity": "info",
+      "category": "permission_overscope",
+      "title": "Filesystem operations in MCP server source (capability note)",
+      "description": "Pattern matched in examples\\_tools\\gen.js at line 265: `const spec = JSON.parse(fs.readFileSync(process.argv[2], 'utf8'));`",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": "examples\\_tools\\gen.js",
+      "line_number": 265,
+      "recommendation": "Review this file system broad access pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const spec = JSON.parse(fs.readFileSync(process.argv[2], 'utf8'));",
+      "location": "examples\\_tools\\gen.js:265",
+      "replay": "axiom scan <corpus>/registry/31_Graphene-Lab__AgentBridge --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0017\")'"
+    },
+    {
+      "id": "code_0018",
+      "severity": "info",
+      "category": "permission_overscope",
+      "title": "Filesystem operations in MCP server source (capability note)",
+      "description": "Pattern matched in examples\\_tools\\gen.js at line 272: `fs.writeFileSync(tmp, html, 'utf8');`",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": "examples\\_tools\\gen.js",
+      "line_number": 272,
+      "recommendation": "Review this file system broad access pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "fs.writeFileSync(tmp, html, 'utf8');",
+      "location": "examples\\_tools\\gen.js:272",
+      "replay": "axiom scan <corpus>/registry/31_Graphene-Lab__AgentBridge --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0018\")'"
+    },
+    {
+      "id": "code_0019",
+      "severity": "info",
+      "category": "permission_overscope",
+      "title": "Filesystem operations in MCP server source (capability note)",
+      "description": "Pattern matched in examples\\_tools\\gen.js at line 280: `setTimeout(()=>{ try{fs.unlinkSync(tmp);}catch(e){}`",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": "examples\\_tools\\gen.js",
+      "line_number": 280,
+      "recommendation": "Review this file system broad access pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "setTimeout(()=>{ try{fs.unlinkSync(tmp);}catch(e){}",
+      "location": "examples\\_tools\\gen.js:280",
+      "replay": "axiom scan <corpus>/registry/31_Graphene-Lab__AgentBridge --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0019\")'"
+    },
+    {
+      "id": "code_0020",
+      "severity": "info",
+      "category": "permission_overscope",
+      "title": "Filesystem operations in MCP server source (capability note)",
+      "description": "Pattern matched in examples\\_tools\\inspect_board.js at line 5: `const h = fs.readFileSync(path.join(SRC, id + '.html'), 'utf8');`",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": "examples\\_tools\\inspect_board.js",
+      "line_number": 5,
+      "recommendation": "Review this file system broad access pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const h = fs.readFileSync(path.join(SRC, id + '.html'), 'utf8');",
+      "location": "examples\\_tools\\inspect_board.js:5",
+      "replay": "axiom scan <corpus>/registry/31_Graphene-Lab__AgentBridge --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0020\")'"
+    },
+    {
+      "id": "code_0021",
+      "severity": "info",
+      "category": "permission_overscope",
+      "title": "Filesystem operations in MCP server source (capability note)",
+      "description": "Pattern matched in examples\\_tools\\inspect_sales.js at line 5: `const h = fs.readFileSync(path.join(SRC, id + '.html'), 'utf8');`",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": "examples\\_tools\\inspect_sales.js",
+      "line_number": 5,
+      "recommendation": "Review this file system broad access pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const h = fs.readFileSync(path.join(SRC, id + '.html'), 'utf8');",
+      "location": "examples\\_tools\\inspect_sales.js:5",
+      "replay": "axiom scan <corpus>/registry/31_Graphene-Lab__AgentBridge --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0021\")'"
+    },
+    {
+      "id": "code_0022",
+      "severity": "info",
+      "category": "permission_overscope",
+      "title": "Filesystem operations in MCP server source (capability note)",
+      "description": "Pattern matched in examples\\_tools\\inspect_slides.js at line 5: `const h = fs.readFileSync(path.join(SRC, id + '.html'), 'utf8');`",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": "examples\\_tools\\inspect_slides.js",
+      "line_number": 5,
+      "recommendation": "Review this file system broad access pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const h = fs.readFileSync(path.join(SRC, id + '.html'), 'utf8');",
+      "location": "examples\\_tools\\inspect_slides.js:5",
+      "replay": "axiom scan <corpus>/registry/31_Graphene-Lab__AgentBridge --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0022\")'"
+    },
+    {
+      "id": "code_0023",
+      "severity": "info",
+      "category": "permission_overscope",
+      "title": "Filesystem operations in MCP server source (capability note)",
+      "description": "Pattern matched in examples\\_tools\\inspect_struct.js at line 4: `const h = fs.readFileSync(path.join(SRC, 'pitch-deck.html'), 'utf8');`",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": "examples\\_tools\\inspect_struct.js",
+      "line_number": 4,
+      "recommendation": "Review this file system broad access pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const h = fs.readFileSync(path.join(SRC, 'pitch-deck.html'), 'utf8');",
+      "location": "examples\\_tools\\inspect_struct.js:4",
+      "replay": "axiom scan <corpus>/registry/31_Graphene-Lab__AgentBridge --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0023\")'"
+    },
+    {
+      "id": "code_0024",
+      "severity": "info",
+      "category": "permission_overscope",
+      "title": "Filesystem operations in MCP server source (capability note)",
+      "description": "Pattern matched in examples\\_tools\\integrate_book.js at line 14: `const catalog = JSON.parse(fs.readFileSync(path.join(EX, 'catalog.json'), 'utf8'));`",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": "examples\\_tools\\integrate_book.js",
+      "line_number": 14,
+      "recommendation": "Review this file system broad access pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const catalog = JSON.parse(fs.readFileSync(path.join(EX, 'catalog.json'), 'utf8'));",
+      "location": "examples\\_tools\\integrate_book.js:14",
+      "replay": "axiom scan <corpus>/registry/31_Graphene-Lab__AgentBridge --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0024\")'"
+    },
+    {
+      "id": "code_0025",
+      "severity": "info",
+      "category": "permission_overscope",
+      "title": "Filesystem operations in MCP server source (capability note)",
+      "description": "Pattern matched in examples\\_tools\\integrate_book.js at line 109: `const png = fs.readdirSync(imgDir).find(f => f.toLowerCase().endsWith('.png'));`",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": "examples\\_tools\\integrate_book.js",
+      "line_number": 109,
+      "recommendation": "Review this file system broad access pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const png = fs.readdirSync(imgDir).find(f => f.toLowerCase().endsWith('.png'));",
+      "location": "examples\\_tools\\integrate_book.js:109",
+      "replay": "axiom scan <corpus>/registry/31_Graphene-Lab__AgentBridge --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0025\")'"
+    },
+    {
+      "id": "code_0026",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in examples\\_tools\\integrate_book.js at line 113: `return '../../assets/examples/' + e.id + '.png';`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "examples\\_tools\\integrate_book.js",
+      "line_number": 113,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "return '../../assets/examples/' + e.id + '.png';",
+      "location": "examples\\_tools\\integrate_book.js:113",
+      "replay": "axiom scan <corpus>/registry/31_Graphene-Lab__AgentBridge --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0026\")'"
+    },
+    {
+      "id": "code_0027",
+      "severity": "info",
+      "category": "permission_overscope",
+      "title": "Filesystem operations in MCP server source (capability note)",
+      "description": "Pattern matched in examples\\_tools\\integrate_book.js at line 132: `let txt = fs.readFileSync(fp, 'utf8');`",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": "examples\\_tools\\integrate_book.js",
+      "line_number": 132,
+      "recommendation": "Review this file system broad access pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "let txt = fs.readFileSync(fp, 'utf8');",
+      "location": "examples\\_tools\\integrate_book.js:132",
+      "replay": "axiom scan <corpus>/registry/31_Graphene-Lab__AgentBridge --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0027\")'"
+    },
+    {
+      "id": "code_0028",
+      "severity": "info",
+      "category": "permission_overscope",
+      "title": "Filesystem operations in MCP server source (capability note)",
+      "description": "Pattern matched in examples\\_tools\\integrate_book.js at line 143: `fs.writeFileSync(fp, txt);`",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": "examples\\_tools\\integrate_book.js",
+      "line_number": 143,
+      "recommendation": "Review this file system broad access pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "fs.writeFileSync(fp, txt);",
+      "location": "examples\\_tools\\integrate_book.js:143",
+      "replay": "axiom scan <corpus>/registry/31_Graphene-Lab__AgentBridge --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0028\")'"
+    },
+    {
+      "id": "code_0029",
+      "severity": "info",
+      "category": "permission_overscope",
+      "title": "Filesystem operations in MCP server source (capability note)",
+      "description": "Pattern matched in examples\\_tools\\integrate_book.js at line 164: `fs.writeFileSync(path.join(CH, file), md);`",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": "examples\\_tools\\integrate_book.js",
+      "line_number": 164,
+      "recommendation": "Review this file system broad access pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "fs.writeFileSync(path.join(CH, file), md);",
+      "location": "examples\\_tools\\integrate_book.js:164",
+      "replay": "axiom scan <corpus>/registry/31_Graphene-Lab__AgentBridge --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0029\")'"
+    },
+    {
+      "id": "code_0030",
+      "severity": "info",
+      "category": "permission_overscope",
+      "title": "Filesystem operations in MCP server source (capability note)",
+      "description": "Pattern matched in examples\\_tools\\make_covers.js at line 77: `fs.writeFileSync(wf, html(c));`",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": "examples\\_tools\\make_covers.js",
+      "line_number": 77,
+      "recommendation": "Review this file system broad access pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "fs.writeFileSync(wf, html(c));",
+      "location": "examples\\_tools\\make_covers.js:77",
+      "replay": "axiom scan <corpus>/registry/31_Graphene-Lab__AgentBridge --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0030\")'"
+    },
+    {
+      "id": "code_0031",
+      "severity": "info",
+      "category": "permission_overscope",
+      "title": "Filesystem operations in MCP server source (capability note)",
+      "description": "Pattern matched in examples\\_tools\\make_covers.js at line 88: `const b = fs.readFileSync(out);`",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": "examples\\_tools\\make_covers.js",
+      "line_number": 88,
+      "recommendation": "Review this file system broad access pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const b = fs.readFileSync(out);",
+      "location": "examples\\_tools\\make_covers.js:88",
+      "replay": "axiom scan <corpus>/registry/31_Graphene-Lab__AgentBridge --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0031\")'"
+    },
+    {
+      "id": "code_0032",
+      "severity": "info",
+      "category": "permission_overscope",
+      "title": "Filesystem operations in MCP server source (capability note)",
+      "description": "Pattern matched in examples\\_tools\\render_docs.js at line 113: `const buf = fs.readFileSync(inPng);`",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": "examples\\_tools\\render_docs.js",
+      "line_number": 113,
+      "recommendation": "Review this file system broad access pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const buf = fs.readFileSync(inPng);",
+      "location": "examples\\_tools\\render_docs.js:113",
+      "replay": "axiom scan <corpus>/registry/31_Graphene-Lab__AgentBridge --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0032\")'"
+    },
+    {
+      "id": "code_0033",
+      "severity": "info",
+      "category": "permission_overscope",
+      "title": "Filesystem operations in MCP server source (capability note)",
+      "description": "Pattern matched in examples\\_tools\\render_docs.js at line 123: `fs.writeFileSync(outPng, encodePng(cropped, p.w, cropH, bpp, p.chunks.pHYs));`",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": "examples\\_tools\\render_docs.js",
+      "line_number": 123,
+      "recommendation": "Review this file system broad access pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "fs.writeFileSync(outPng, encodePng(cropped, p.w, cropH, bpp, p.chunks.pHYs));",
+      "location": "examples\\_tools\\render_docs.js:123",
+      "replay": "axiom scan <corpus>/registry/31_Graphene-Lab__AgentBridge --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0033\")'"
+    },
+    {
+      "id": "code_0034",
+      "severity": "info",
+      "category": "permission_overscope",
+      "title": "Filesystem operations in MCP server source (capability note)",
+      "description": "Pattern matched in examples\\_tools\\render_docs.js at line 172: `const wrapped = wrapSheet(extractBody(fs.readFileSync(srcHtml, 'utf8')));`",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": "examples\\_tools\\render_docs.js",
+      "line_number": 172,
+      "recommendation": "Review this file system broad access pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const wrapped = wrapSheet(extractBody(fs.readFileSync(srcHtml, 'utf8')));",
+      "location": "examples\\_tools\\render_docs.js:172",
+      "replay": "axiom scan <corpus>/registry/31_Graphene-Lab__AgentBridge --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0034\")'"
+    },
+    {
+      "id": "code_0035",
+      "severity": "info",
+      "category": "permission_overscope",
+      "title": "Filesystem operations in MCP server source (capability note)",
+      "description": "Pattern matched in examples\\_tools\\render_docs.js at line 174: `fs.writeFileSync(wf, wrapped);`",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": "examples\\_tools\\render_docs.js",
+      "line_number": 174,
+      "recommendation": "Review this file system broad access pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "fs.writeFileSync(wf, wrapped);",
+      "location": "examples\\_tools\\render_docs.js:174",
+      "replay": "axiom scan <corpus>/registry/31_Graphene-Lab__AgentBridge --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0035\")'"
+    },
+    {
+      "id": "code_0036",
+      "severity": "info",
+      "category": "permission_overscope",
+      "title": "Filesystem operations in MCP server source (capability note)",
+      "description": "Pattern matched in examples\\_tools\\render_presentations.js at line 73: `const html = activateSlide(fs.readFileSync(srcHtml, 'utf8'), TARGET[base]).replace(/<\\/head>/i, shotCss() + '</head>');`",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": "examples\\_tools\\render_presentations.js",
+      "line_number": 73,
+      "recommendation": "Review this file system broad access pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const html = activateSlide(fs.readFileSync(srcHtml, 'utf8'), TARGET[base]).replace(/<\\/head>/i, shotCss() + '</head>');",
+      "location": "examples\\_tools\\render_presentations.js:73",
+      "replay": "axiom scan <corpus>/registry/31_Graphene-Lab__AgentBridge --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0036\")'"
+    },
+    {
+      "id": "code_0037",
+      "severity": "info",
+      "category": "permission_overscope",
+      "title": "Filesystem operations in MCP server source (capability note)",
+      "description": "Pattern matched in examples\\_tools\\render_presentations.js at line 75: `fs.writeFileSync(wf, html);`",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": "examples\\_tools\\render_presentations.js",
+      "line_number": 75,
+      "recommendation": "Review this file system broad access pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "fs.writeFileSync(wf, html);",
+      "location": "examples\\_tools\\render_presentations.js:75",
+      "replay": "axiom scan <corpus>/registry/31_Graphene-Lab__AgentBridge --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0037\")'"
+    },
+    {
+      "id": "code_0038",
+      "severity": "info",
+      "category": "permission_overscope",
+      "title": "Filesystem operations in MCP server source (capability note)",
+      "description": "Pattern matched in examples\\_tools\\render_presentations.js at line 80: `const b = fs.readFileSync(outAbs);`",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": "examples\\_tools\\render_presentations.js",
+      "line_number": 80,
+      "recommendation": "Review this file system broad access pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const b = fs.readFileSync(outAbs);",
+      "location": "examples\\_tools\\render_presentations.js:80",
+      "replay": "axiom scan <corpus>/registry/31_Graphene-Lab__AgentBridge --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0038\")'"
+    },
+    {
+      "id": "code_0039",
+      "severity": "info",
+      "category": "permission_overscope",
+      "title": "Filesystem operations in MCP server source (capability note)",
+      "description": "Pattern matched in examples\\_tools\\sample_png.js at line 12: `const png = PNG.sync.read(fs.readFileSync(path.join(EX, rel)));`",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": "examples\\_tools\\sample_png.js",
+      "line_number": 12,
+      "recommendation": "Review this file system broad access pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const png = PNG.sync.read(fs.readFileSync(path.join(EX, rel)));",
+      "location": "examples\\_tools\\sample_png.js:12",
+      "replay": "axiom scan <corpus>/registry/31_Graphene-Lab__AgentBridge --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0039\")'"
+    },
+    {
+      "id": "code_0040",
+      "severity": "info",
+      "category": "permission_overscope",
+      "title": "Filesystem operations in MCP server source (capability note)",
+      "description": "Pattern matched in examples\\_tools\\verify_docs.js at line 7: `const b=fs.readFileSync(R+f);const p=parse(b);const bpp=p.ct===6?4:3;`",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": "examples\\_tools\\verify_docs.js",
+      "line_number": 7,
+      "recommendation": "Review this file system broad access pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const b=fs.readFileSync(R+f);const p=parse(b);const bpp=p.ct===6?4:3;",
+      "location": "examples\\_tools\\verify_docs.js:7",
+      "replay": "axiom scan <corpus>/registry/31_Graphene-Lab__AgentBridge --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0040\")'"
+    },
+    {
+      "id": "code_0041",
+      "severity": "info",
+      "category": "permission_overscope",
+      "title": "Filesystem operations in MCP server source (capability note)",
+      "description": "Pattern matched in examples\\_tools\\verify_presentations.js at line 7: `const b=fs.readFileSync(R+f);const p=parse(b);const bpp=p.ct===6?4:3;`",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": "examples\\_tools\\verify_presentations.js",
+      "line_number": 7,
+      "recommendation": "Review this file system broad access pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const b=fs.readFileSync(R+f);const p=parse(b);const bpp=p.ct===6?4:3;",
+      "location": "examples\\_tools\\verify_presentations.js:7",
+      "replay": "axiom scan <corpus>/registry/31_Graphene-Lab__AgentBridge --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0041\")'"
+    },
+    {
+      "id": "code_0042",
+      "severity": "low",
+      "category": "obfuscation",
+      "title": "Encoded or obfuscated content in MCP server source",
+      "description": "Pattern matched in OfficeManager\\game.js at line 82: `const MASK_BYTES = atob(OFFICE_MASK_B64);`",
+      "owasp_asi": [
+        "ASI01",
+        "ASI10"
+      ],
+      "owasp_mcp": [
+        "MCP03",
+        "MCP04"
+      ],
+      "file_path": "OfficeManager\\game.js",
+      "line_number": 82,
+      "recommendation": "Review this obfuscation pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const MASK_BYTES = atob(OFFICE_MASK_B64);",
+      "location": "OfficeManager\\game.js:82",
+      "replay": "axiom scan <corpus>/registry/31_Graphene-Lab__AgentBridge --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0042\")'"
+    },
+    {
+      "id": "code_0043",
+      "severity": "info",
+      "category": "data_exfiltration",
+      "title": "Server makes outbound network requests (capability note)",
+      "description": "Pattern matched in OfficeManager\\game.js at line 418: `ws = new WebSocket(proto + \"://\" + location.host + \"/ws/office\");`",
+      "owasp_asi": [
+        "ASI01",
+        "ASI02"
+      ],
+      "owasp_mcp": [
+        "MCP10"
+      ],
+      "file_path": "OfficeManager\\game.js",
+      "line_number": 418,
+      "recommendation": "Review this data exfiltration pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "ws = new WebSocket(proto + \"://\" + location.host + \"/ws/office\");",
+      "location": "OfficeManager\\game.js:418",
+      "replay": "axiom scan <corpus>/registry/31_Graphene-Lab__AgentBridge --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0043\")'"
+    },
+    {
+      "id": "ast_0001",
+      "severity": "info",
+      "category": "data_exfiltration",
+      "title": "Outbound HTTP request via urllib.request.urlopen()",
+      "description": "Call to `urllib.request.urlopen()` makes outbound network request in tools\\store\\vps\\mirror-msi.py at line 171",
+      "owasp_asi": [
+        "ASI01",
+        "ASI02"
+      ],
+      "owasp_mcp": [
+        "MCP10"
+      ],
+      "file_path": "tools\\store\\vps\\mirror-msi.py",
+      "line_number": 171,
+      "recommendation": "Verify this is expected. Outbound requests can exfiltrate data.",
+      "rule_id": "code_pattern_ast",
+      "evidence": "urllib.request.urlopen()",
+      "location": "tools\\store\\vps\\mirror-msi.py:171",
+      "replay": "axiom scan <corpus>/registry/31_Graphene-Lab__AgentBridge --output json --no-ai --no-history | jq '.findings[] | select(.id==\"ast_0001\")'"
+    },
+    {
+      "id": "code_0044",
+      "severity": "info",
+      "category": "permission_overscope",
+      "title": "Filesystem operations in MCP server source (capability note)",
+      "description": "Pattern matched in tools\\wiki\\sync-wiki.js at line 20: `for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {`",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": "tools\\wiki\\sync-wiki.js",
+      "line_number": 20,
+      "recommendation": "Review this file system broad access pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {",
+      "location": "tools\\wiki\\sync-wiki.js:20",
+      "replay": "axiom scan <corpus>/registry/31_Graphene-Lab__AgentBridge --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0044\")'"
+    },
+    {
+      "id": "code_0045",
+      "severity": "info",
+      "category": "permission_overscope",
+      "title": "Filesystem operations in MCP server source (capability note)",
+      "description": "Pattern matched in tools\\wiki\\sync-wiki.js at line 51: `const content = rewriteLinks(fs.readFileSync(file, 'utf8'));`",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": "tools\\wiki\\sync-wiki.js",
+      "line_number": 51,
+      "recommendation": "Review this file system broad access pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const content = rewriteLinks(fs.readFileSync(file, 'utf8'));",
+      "location": "tools\\wiki\\sync-wiki.js:51",
+      "replay": "axiom scan <corpus>/registry/31_Graphene-Lab__AgentBridge --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0045\")'"
+    },
+    {
+      "id": "code_0046",
+      "severity": "info",
+      "category": "permission_overscope",
+      "title": "Filesystem operations in MCP server source (capability note)",
+      "description": "Pattern matched in tools\\wiki\\sync-wiki.js at line 52: `fs.writeFileSync(path.join(wikiDir, name + '.md'), content);`",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": "tools\\wiki\\sync-wiki.js",
+      "line_number": 52,
+      "recommendation": "Review this file system broad access pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "fs.writeFileSync(path.join(wikiDir, name + '.md'), content);",
+      "location": "tools\\wiki\\sync-wiki.js:52",
+      "replay": "axiom scan <corpus>/registry/31_Graphene-Lab__AgentBridge --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0046\")'"
+    },
+    {
+      "id": "code_0047",
+      "severity": "info",
+      "category": "permission_overscope",
+      "title": "Filesystem operations in MCP server source (capability note)",
+      "description": "Pattern matched in tools\\wiki\\sync-wiki.js at line 66: `fs.writeFileSync(path.join(wikiDir, 'Sidebar.md'), sidebar);`",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": "tools\\wiki\\sync-wiki.js",
+      "line_number": 66,
+      "recommendation": "Review this file system broad access pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "fs.writeFileSync(path.join(wikiDir, 'Sidebar.md'), sidebar);",
+      "location": "tools\\wiki\\sync-wiki.js:66",
+      "replay": "axiom scan <corpus>/registry/31_Graphene-Lab__AgentBridge --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0047\")'"
+    },
+    {
+      "id": "transport_plain_http",
+      "severity": "info",
+      "category": "transport_security",
+      "title": "MCP server listens on plain HTTP",
+      "description": "appsettings.json binds or references http://localhost; the server is on the loopback interface; only this machine can reach it.",
+      "owasp_asi": [
+        "ASI07"
+      ],
+      "owasp_mcp": [
+        "MCP07"
+      ],
+      "file_path": "appsettings.json",
+      "line_number": null,
+      "recommendation": "Use HTTPS with valid TLS certificates for anything reachable beyond this machine.",
+      "rule_id": "transport_plain_http",
+      "evidence": "MCP server listens on plain HTTP",
+      "location": "appsettings.json",
+      "replay": "axiom scan <corpus>/registry/31_Graphene-Lab__AgentBridge --output json --no-ai --no-history | jq '.findings[] | select(.id==\"transport_plain_http\")'"
+    },
+    {
+      "id": "codegen_0001",
+      "severity": "low",
+      "category": "code_generation",
+      "title": "Dynamic code generation from input detected",
+      "description": "Pattern in e2e\\OfficeTaskLine\\client.test.mjs at line 124: `vm.createContext(sandbox);`. Tools that generate code from agent inputs can execute attacker-controlled payloads.",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "e2e\\OfficeTaskLine\\client.test.mjs",
+      "line_number": 124,
+      "recommendation": "Sandbox code execution. Validate and sanitize all inputs before code generation. Use AST-based analysis instead of string-based code construction.",
+      "rule_id": "code_generation_pattern",
+      "evidence": "Dynamic code generation from input detected",
+      "location": "e2e\\OfficeTaskLine\\client.test.mjs:124",
+      "replay": "axiom scan <corpus>/registry/31_Graphene-Lab__AgentBridge --output json --no-ai --no-history | jq '.findings[] | select(.id==\"codegen_0001\")'"
+    },
+    {
+      "id": "rogue_0001",
+      "severity": "low",
+      "category": "rogue_agent",
+      "title": "Rogue agent indicator detected",
+      "description": "Pattern in examples\\build.js near line 216: `schedule\\n${e.recurring`. This could indicate self-modifying behavior, persistence mechanisms, or evasion capabilities.",
+      "owasp_asi": [
+        "ASI10"
+      ],
+      "owasp_mcp": [
+        "MCP03"
+      ],
+      "file_path": "examples\\build.js",
+      "line_number": 216,
+      "recommendation": "Implement behavioral monitoring and kill switches. Ensure all agent actions are logged and auditable. Run in sandboxed environments with strict resource limits.",
+      "rule_id": "rogue_agent_pattern",
+      "evidence": "Rogue agent indicator detected",
+      "location": "examples\\build.js:216",
+      "replay": "axiom scan <corpus>/registry/31_Graphene-Lab__AgentBridge --output json --no-ai --no-history | jq '.findings[] | select(.id==\"rogue_0001\")'"
+    }
+  ],
+  "server_profile": {
+    "name": "31_Graphene-Lab__AgentBridge",
+    "command": null,
+    "args": [],
+    "env_vars": [],
+    "transport": "unknown",
+    "tools": [],
+    "resources": [],
+    "prompts": [],
+    "repo_url": null,
+    "npm_package": null,
+    "capabilities_claimed": [],
+    "capabilities_actual": []
+  },
+  "fingerprint": "e498b97c37656b596d8b93bc1fb01bfa568ae69f61435908d643dc6cb386a256",
+  "surface_map": {
+    "server": {
+      "name": "31_Graphene-Lab__AgentBridge",
+      "instructions": "",
+      "transport": "unknown",
+      "auth": "unknown"
+    },
+    "tools": [],
+    "resources": [],
+    "prompts": [],
+    "mutations": [],
+    "source": {
+      "kind": "static",
+      "target": "31_Graphene-Lab__AgentBridge",
+      "languages": []
+    },
+    "generated_at": "2026-11-11T22:34:17+00:00",
+    "fingerprint": "e498b97c37656b596d8b93bc1fb01bfa568ae69f61435908d643dc6cb386a256",
+    "schema": "axiom.surface/1"
+  },
+  "provenance": {
+    "identity": {
+      "npm": null,
+      "pypi": null,
+      "repository": "https://github.com/graphene-lab/agentbridge",
+      "server_name": "31_Graphene-Lab__AgentBridge"
+    },
+    "registry": {
+      "status": "not_in_registry"
+    },
+    "lookalikes": [],
+    "checked_at": "2026-11-11T22:34:19+00:00"
+  },
+  "owasp_coverage": {
+    "framework": "OWASP Top 10 for Agentic Applications 2026",
+    "reference": "https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/",
+    "coverage": {
+      "ASI01": {
+        "name": "Agent Goal Hijack",
+        "coverage_level": "strong",
+        "findings_count": 8,
+        "finding_ids": [
+          "ast_0004",
+          "code_0002",
+          "code_0004",
+          "code_0005",
+          "code_0015",
+          "code_0042",
+          "code_0043",
+          "ast_0001"
+        ],
+        "detectors": [
+          "tool_poisoning",
+          "prompt_injection",
+          "instruction_injection"
+        ]
+      },
+      "ASI02": {
+        "name": "Tool Misuse & Exploitation",
+        "coverage_level": "strong",
+        "findings_count": 5,
+        "finding_ids": [
+          "ast_0004",
+          "code_0004",
+          "code_0005",
+          "code_0043",
+          "ast_0001"
+        ],
+        "detectors": [
+          "toxic_tool_combo",
+          "tool_overscope",
+          "tool_chaining_detection"
+        ]
+      },
+      "ASI03": {
+        "name": "Identity & Privilege Abuse",
+        "coverage_level": "strong",
+        "findings_count": 41,
+        "finding_ids": [
+          "ast_0001",
+          "ast_0002",
+          "ast_0003",
+          "code_0003",
+          "code_0006",
+          "code_0008",
+          "code_0009",
+          "code_0010",
+          "code_0011",
+          "code_0012"
+        ],
+        "detectors": [
+          "credential_analysis",
+          "shared_credential_detection",
+          "env_var_audit"
+        ]
+      },
+      "ASI04": {
+        "name": "Agentic Supply Chain Vulnerabilities",
+        "coverage_level": "strong",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "dependency_cve",
+          "lifecycle_hooks",
+          "npx_unversioned",
+          "known_mcp_cves"
+        ]
+      },
+      "ASI05": {
+        "name": "Unexpected Code Execution",
+        "coverage_level": "strong",
+        "findings_count": 4,
+        "finding_ids": [
+          "code_0001",
+          "code_0007",
+          "code_0026",
+          "codegen_0001"
+        ],
+        "detectors": [
+          "code_exec_patterns",
+          "code_generation_detection",
+          "sandbox_escape"
+        ]
+      },
+      "ASI06": {
+        "name": "Memory & Context Poisoning",
+        "coverage_level": "partial",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "memory_poisoning_patterns",
+          "context_manipulation_detection"
+        ],
+        "gap_note": "Axiom detects static patterns. Full coverage requires runtime memory monitoring."
+      },
+      "ASI07": {
+        "name": "Insecure Inter-Agent Communication",
+        "coverage_level": "partial",
+        "findings_count": 1,
+        "finding_ids": [
+          "transport_plain_http"
+        ],
+        "detectors": [
+          "transport_security",
+          "a2a_pattern_detection"
+        ],
+        "gap_note": "Axiom checks transport security. Full A2A protocol analysis requires runtime interception."
+      },
+      "ASI08": {
+        "name": "Cascading Failures",
+        "coverage_level": "partial",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "blast_radius_estimation",
+          "dependency_chain_analysis"
+        ],
+        "gap_note": "Axiom estimates blast radius from tool capabilities. Full cascading failure analysis requires runtime topology mapping."
+      },
+      "ASI09": {
+        "name": "Human-Agent Trust Exploitation",
+        "coverage_level": "strong",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "claimed_vs_actual",
+          "deceptive_output_detection",
+          "trust_manipulation_patterns"
+        ]
+      },
+      "ASI10": {
+        "name": "Rogue Agents",
+        "coverage_level": "partial",
+        "findings_count": 4,
+        "finding_ids": [
+          "code_0002",
+          "code_0015",
+          "code_0042",
+          "rogue_0001"
+        ],
+        "detectors": [
+          "sleeper_patterns",
+          "behavioral_drift_indicators",
+          "persistence_detection"
+        ],
+        "gap_note": "Axiom detects static rogue indicators. Full rogue agent detection requires runtime behavioral monitoring."
+      }
+    },
+    "total_asi_categories_with_findings": 6
+  },
+  "owasp_mcp_coverage": {
+    "framework": "OWASP MCP Top 10",
+    "framework_version": "v0.1 beta",
+    "reference": "https://owasp.org/www-project-mcp-top-10/",
+    "coverage": {
+      "MCP01": {
+        "id": "MCP01:2025",
+        "name": "Token Mismanagement & Secret Exposure",
+        "coverage_level": "partial",
+        "reason": "Regex-based secret detection in server source and client configs plus env-var exposure checks; no entropy analysis, git-history scan, or token lifetime/passthrough checks.",
+        "findings_count": 3,
+        "finding_ids": [
+          "ast_0001",
+          "ast_0002",
+          "ast_0003"
+        ],
+        "detectors": [
+          "credential_theft",
+          "cross_server",
+          "mcp01_hardcoded_secrets",
+          "config_hardcoded_secret",
+          "env_var_audit",
+          "env_dump"
+        ]
+      },
+      "MCP02": {
+        "id": "MCP02:2025",
+        "name": "Privilege Escalation via Scope Creep",
+        "coverage_level": "strong",
+        "reason": "Permission over-scope patterns, toxic tool-capability combinations, path-escape checks and env-var over-exposure in configs.",
+        "findings_count": 41,
+        "finding_ids": [
+          "code_0001",
+          "code_0003",
+          "code_0006",
+          "code_0007",
+          "code_0008",
+          "code_0009",
+          "code_0010",
+          "code_0011",
+          "code_0012",
+          "code_0013"
+        ],
+        "detectors": [
+          "permission_overscope",
+          "toxic_tool_combo",
+          "identity_privilege",
+          "sandbox_escape",
+          "config_risk",
+          "cascading_failure",
+          "cross_server",
+          "excessive_scope",
+          "confused_deputy",
+          "file_read",
+          "file_write"
+        ]
+      },
+      "MCP03": {
+        "id": "MCP03:2025",
+        "name": "Tool Poisoning",
+        "coverage_level": "strong",
+        "reason": "Dedicated detector for hidden instructions in tool metadata, plus runtime rug-pull diffing between source and live tool definitions.",
+        "findings_count": 4,
+        "finding_ids": [
+          "code_0002",
+          "code_0015",
+          "code_0042",
+          "rogue_0001"
+        ],
+        "detectors": [
+          "tool_poisoning",
+          "obfuscation",
+          "rogue_agent",
+          "source_vs_runtime_diff",
+          "tool_shadowing",
+          "hidden_unicode",
+          "rug_pull_primitive",
+          "surface_mismatch"
+        ]
+      },
+      "MCP04": {
+        "id": "MCP04:2025",
+        "name": "Software Supply Chain Attacks & Dependency Tampering",
+        "coverage_level": "strong",
+        "reason": "Dependency CVE lookup, known MCP CVEs, install lifecycle hooks, and unpinned npx/uvx/pip/@latest install sources.",
+        "findings_count": 3,
+        "finding_ids": [
+          "code_0002",
+          "code_0015",
+          "code_0042"
+        ],
+        "detectors": [
+          "dependency_vuln",
+          "supply_chain",
+          "known_cve",
+          "obfuscation",
+          "lifecycle_hooks",
+          "mcp04_unpinned_install",
+          "homoglyph",
+          "rug_pull_primitive",
+          "surface_mismatch"
+        ]
+      },
+      "MCP05": {
+        "id": "MCP05:2025",
+        "name": "Command Injection & Execution",
+        "coverage_level": "partial",
+        "reason": "Regex, AST and Semgrep find exec/shell sinks and a heuristic flags sinks inside tool handlers, but there is no inter-procedural taint tracking from tool input to sink.",
+        "findings_count": 4,
+        "finding_ids": [
+          "code_0001",
+          "code_0007",
+          "code_0026",
+          "codegen_0001"
+        ],
+        "detectors": [
+          "command_injection",
+          "code_execution",
+          "code_generation",
+          "sandbox_escape",
+          "mcp05_tool_input_sink",
+          "shell_exec"
+        ]
+      },
+      "MCP06": {
+        "id": "MCP06:2025",
+        "name": "Prompt Injection via Contextual Payloads",
+        "coverage_level": "partial",
+        "reason": "Injection markers are detected in tool metadata, server instructions, resources, prompts and the strings a tool returns (static), and in instructions/resources/prompts read live; payloads produced by calling a tool at runtime are not inspected.",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "prompt_injection",
+          "memory_poisoning",
+          "trust_exploitation",
+          "response_injection",
+          "tool_shadowing"
+        ]
+      },
+      "MCP07": {
+        "id": "MCP07:2025",
+        "name": "Insufficient Authentication & Authorization",
+        "coverage_level": "partial",
+        "reason": "Flags remote servers with no visible auth and servers bound to all interfaces; does not verify OAuth implementation or per-tool authorization logic.",
+        "findings_count": 1,
+        "finding_ids": [
+          "transport_plain_http"
+        ],
+        "detectors": [
+          "transport_security",
+          "inter_agent_comm",
+          "identity_privilege",
+          "transport_no_auth",
+          "config_no_auth",
+          "mcp07_bind_all_interfaces"
+        ]
+      },
+      "MCP08": {
+        "id": "MCP08:2025",
+        "name": "Lack of Audit and Telemetry",
+        "coverage_level": "gap",
+        "reason": "Only a low-confidence heuristic for missing logging in tool-defining files; actual audit trails and telemetry pipelines are not verified.",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "audit_telemetry",
+          "mcp08_no_tool_logging"
+        ]
+      },
+      "MCP09": {
+        "id": "MCP09:2025",
+        "name": "Shadow MCP Servers",
+        "coverage_level": "partial",
+        "reason": "Covered by `axiom discover` allowlist on the local machine; no network-wide or fleet discovery.",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "mcpguard_discover",
+          "shadow_mcp"
+        ]
+      },
+      "MCP10": {
+        "id": "MCP10:2025",
+        "name": "Context Injection & Over-Sharing",
+        "coverage_level": "partial",
+        "reason": "Hard-coded egress URLs, tools that send to caller-chosen destinations and bulk-exposure heuristics are detected statically and live; what context is actually shared at runtime is not observed.",
+        "findings_count": 5,
+        "finding_ids": [
+          "ast_0004",
+          "code_0004",
+          "code_0005",
+          "code_0043",
+          "ast_0001"
+        ],
+        "detectors": [
+          "context_oversharing",
+          "data_exfiltration",
+          "memory_poisoning",
+          "mcp10_broad_data_exposure"
+        ]
+      }
+    },
+    "total_mcp_categories_with_findings": 7
+  },
+  "ai_analysis": null,
+  "tool_poisoning_report": null,
+  "prompt_injection_risk": null
+}

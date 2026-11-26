@@ -1,0 +1,9 @@
+include README.md
+include CHANGELOG.md
+recursive-include docs *.md
+include LICENSE
+include NOTICE
+include .env.example
+include requirements.txt
+recursive-include data *.py *.json
+recursive-include frontend/templates *.html

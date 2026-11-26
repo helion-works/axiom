@@ -1,0 +1,3977 @@
+{
+  "schema_version": "0.5",
+  "target": "01_thedaviddias__Front-End-Checklist",
+  "risk_score": 37.0,
+  "risk_level": "medium",
+  "tools_found": 11,
+  "findings_count": 145,
+  "findings": [
+    {
+      "id": "cross_tool_get_checklist_rules_get_rule",
+      "severity": "medium",
+      "category": "cross_server",
+      "title": "Tool 'get_checklist_rules' references tool 'get_rule'",
+      "description": "Tool description mentions another tool by name, which could enable tool chaining attacks.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP01",
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Verify this cross-reference is legitimate and necessary.",
+      "rule_id": "cross_tool_reference",
+      "evidence": "Tool 'get_checklist_rules' references tool 'get_rule'",
+      "location": "static:<corpus>/registry2/01_thedaviddias__Front-End-Checklist:get_checklist_rules_get_rule",
+      "replay": "axiom scan <corpus>/registry2/01_thedaviddias__Front-End-Checklist --output json --no-ai --no-history | jq '.findings[] | select(.id==\"cross_tool_get_checklist_rules_get_rule\")'"
+    },
+    {
+      "id": "code_0001",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in apps\\web\\content-collections.ts at line 183: `directory: '../../packages/content/rules',`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "apps\\web\\content-collections.ts",
+      "line_number": 183,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "directory: '../../packages/content/rules',",
+      "location": "apps\\web\\content-collections.ts:183",
+      "replay": "axiom scan <corpus>/registry2/01_thedaviddias__Front-End-Checklist --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0001\")'"
+    },
+    {
+      "id": "code_0002",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in apps\\web\\content-collections.ts at line 298: `directory: '../../packages/content/checklists',`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "apps\\web\\content-collections.ts",
+      "line_number": 298,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "directory: '../../packages/content/checklists',",
+      "location": "apps\\web\\content-collections.ts:298",
+      "replay": "axiom scan <corpus>/registry2/01_thedaviddias__Front-End-Checklist --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0002\")'"
+    },
+    {
+      "id": "code_0003",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in apps\\web\\content-collections.ts at line 374: `directory: '../../packages/content/guides',`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "apps\\web\\content-collections.ts",
+      "line_number": 374,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "directory: '../../packages/content/guides',",
+      "location": "apps\\web\\content-collections.ts:374",
+      "replay": "axiom scan <corpus>/registry2/01_thedaviddias__Front-End-Checklist --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0003\")'"
+    },
+    {
+      "id": "code_0004",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in apps\\web\\jest.config.cjs at line 2: `const { COVERAGE_REPORTERS, COVERAGE_THRESHOLD } = require('../../jest.base.cjs')`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "apps\\web\\jest.config.cjs",
+      "line_number": 2,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const { COVERAGE_REPORTERS, COVERAGE_THRESHOLD } = require('../../jest.base.cjs')",
+      "location": "apps\\web\\jest.config.cjs:2",
+      "replay": "axiom scan <corpus>/registry2/01_thedaviddias__Front-End-Checklist --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0004\")'"
+    },
+    {
+      "id": "code_0005",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in apps\\web\\jest.config.cjs at line 17: `'^@frontendchecklist/rules$': '<rootDir>/../../packages/rules/src/index.ts',`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "apps\\web\\jest.config.cjs",
+      "line_number": 17,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "'^@frontendchecklist/rules$': '<rootDir>/../../packages/rules/src/index.ts',",
+      "location": "apps\\web\\jest.config.cjs:17",
+      "replay": "axiom scan <corpus>/registry2/01_thedaviddias__Front-End-Checklist --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0005\")'"
+    },
+    {
+      "id": "code_0006",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in apps\\web\\jest.config.cjs at line 18: `'^@frontendchecklist/rules/(.*)$': '<rootDir>/../../packages/rules/src/$1.ts',`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "apps\\web\\jest.config.cjs",
+      "line_number": 18,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "'^@frontendchecklist/rules/(.*)$': '<rootDir>/../../packages/rules/src/$1.ts',",
+      "location": "apps\\web\\jest.config.cjs:18",
+      "replay": "axiom scan <corpus>/registry2/01_thedaviddias__Front-End-Checklist --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0006\")'"
+    },
+    {
+      "id": "code_0007",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in apps\\web\\jest.config.cjs at line 19: `'^@repo/mcp$': '<rootDir>/../../packages/mcp/src/index.ts',`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "apps\\web\\jest.config.cjs",
+      "line_number": 19,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "'^@repo/mcp$': '<rootDir>/../../packages/mcp/src/index.ts',",
+      "location": "apps\\web\\jest.config.cjs:19",
+      "replay": "axiom scan <corpus>/registry2/01_thedaviddias__Front-End-Checklist --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0007\")'"
+    },
+    {
+      "id": "code_0008",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in apps\\web\\jest.config.cjs at line 20: `'^@repo/mcp/load-rules$': '<rootDir>/../../packages/mcp/src/load-rules.ts',`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "apps\\web\\jest.config.cjs",
+      "line_number": 20,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "'^@repo/mcp/load-rules$': '<rootDir>/../../packages/mcp/src/load-rules.ts',",
+      "location": "apps\\web\\jest.config.cjs:20",
+      "replay": "axiom scan <corpus>/registry2/01_thedaviddias__Front-End-Checklist --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0008\")'"
+    },
+    {
+      "id": "code_0009",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in apps\\web\\jest.config.cjs at line 21: `'^@repo/utils$': '<rootDir>/../../packages/utils/src/public-api.ts',`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "apps\\web\\jest.config.cjs",
+      "line_number": 21,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "'^@repo/utils$': '<rootDir>/../../packages/utils/src/public-api.ts',",
+      "location": "apps\\web\\jest.config.cjs:21",
+      "replay": "axiom scan <corpus>/registry2/01_thedaviddias__Front-End-Checklist --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0009\")'"
+    },
+    {
+      "id": "code_0010",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in apps\\web\\jest.config.cjs at line 24: `'^@repo/design-system/custom/(.*)$': '<rootDir>/../../packages/design-system/src/custom/$1.tsx',`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "apps\\web\\jest.config.cjs",
+      "line_number": 24,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "'^@repo/design-system/custom/(.*)$': '<rootDir>/../../packages/design-system/src/custom/$1.tsx',",
+      "location": "apps\\web\\jest.config.cjs:24",
+      "replay": "axiom scan <corpus>/registry2/01_thedaviddias__Front-End-Checklist --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0010\")'"
+    },
+    {
+      "id": "code_0011",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in apps\\web\\jest.config.cjs at line 25: `'^@repo/design-system/ui/(.*)$': '<rootDir>/../../packages/design-system/src/ui/$1.tsx',`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "apps\\web\\jest.config.cjs",
+      "line_number": 25,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "'^@repo/design-system/ui/(.*)$': '<rootDir>/../../packages/design-system/src/ui/$1.tsx',",
+      "location": "apps\\web\\jest.config.cjs:25",
+      "replay": "axiom scan <corpus>/registry2/01_thedaviddias__Front-End-Checklist --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0011\")'"
+    },
+    {
+      "id": "code_0012",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in apps\\web\\jest.config.cjs at line 26: `'^@repo/design-system/icons$': '<rootDir>/../../packages/design-system/src/icons.ts',`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "apps\\web\\jest.config.cjs",
+      "line_number": 26,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "'^@repo/design-system/icons$': '<rootDir>/../../packages/design-system/src/icons.ts',",
+      "location": "apps\\web\\jest.config.cjs:26",
+      "replay": "axiom scan <corpus>/registry2/01_thedaviddias__Front-End-Checklist --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0012\")'"
+    },
+    {
+      "id": "code_0013",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in apps\\web\\jest.config.cjs at line 27: `'^@repo/emails/server$': '<rootDir>/../../packages/emails/src/server.ts',`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "apps\\web\\jest.config.cjs",
+      "line_number": 27,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "'^@repo/emails/server$': '<rootDir>/../../packages/emails/src/server.ts',",
+      "location": "apps\\web\\jest.config.cjs:27",
+      "replay": "axiom scan <corpus>/registry2/01_thedaviddias__Front-End-Checklist --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0013\")'"
+    },
+    {
+      "id": "code_0014",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in apps\\web\\jest.config.cjs at line 28: `'^.*custom/(.*)/src$': '<rootDir>/../../packages/design-system/src/custom/$1.tsx',`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "apps\\web\\jest.config.cjs",
+      "line_number": 28,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "'^.*custom/(.*)/src$': '<rootDir>/../../packages/design-system/src/custom/$1.tsx',",
+      "location": "apps\\web\\jest.config.cjs:28",
+      "replay": "axiom scan <corpus>/registry2/01_thedaviddias__Front-End-Checklist --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0014\")'"
+    },
+    {
+      "id": "code_0015",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in apps\\web\\jest.config.cjs at line 30: `'<rootDir>/../../packages/design-system/src/custom/$1.tsx',`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "apps\\web\\jest.config.cjs",
+      "line_number": 30,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "'<rootDir>/../../packages/design-system/src/custom/$1.tsx',",
+      "location": "apps\\web\\jest.config.cjs:30",
+      "replay": "axiom scan <corpus>/registry2/01_thedaviddias__Front-End-Checklist --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0015\")'"
+    },
+    {
+      "id": "code_0016",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in apps\\web\\jest.config.cjs at line 32: `'<rootDir>/../../packages/design-system/src/custom/navigation/$1.tsx',`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "apps\\web\\jest.config.cjs",
+      "line_number": 32,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "'<rootDir>/../../packages/design-system/src/custom/navigation/$1.tsx',",
+      "location": "apps\\web\\jest.config.cjs:32",
+      "replay": "axiom scan <corpus>/registry2/01_thedaviddias__Front-End-Checklist --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0016\")'"
+    },
+    {
+      "id": "code_0017",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in apps\\web\\jest.config.cjs at line 33: `'^.*ui/(.*)/src$': '<rootDir>/../../packages/design-system/src/ui/$1.tsx',`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "apps\\web\\jest.config.cjs",
+      "line_number": 33,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "'^.*ui/(.*)/src$': '<rootDir>/../../packages/design-system/src/ui/$1.tsx',",
+      "location": "apps\\web\\jest.config.cjs:33",
+      "replay": "axiom scan <corpus>/registry2/01_thedaviddias__Front-End-Checklist --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0017\")'"
+    },
+    {
+      "id": "code_0018",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in apps\\web\\jest.config.cjs at line 35: `'<rootDir>/../../packages/design-system/src/ui/$1.tsx',`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "apps\\web\\jest.config.cjs",
+      "line_number": 35,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "'<rootDir>/../../packages/design-system/src/ui/$1.tsx',",
+      "location": "apps\\web\\jest.config.cjs:35",
+      "replay": "axiom scan <corpus>/registry2/01_thedaviddias__Front-End-Checklist --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0018\")'"
+    },
+    {
+      "id": "code_0019",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in apps\\web\\jest.config.cjs at line 36: `'^.*packages/design-system/icons/src$': '<rootDir>/../../packages/design-system/src/icons.ts',`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "apps\\web\\jest.config.cjs",
+      "line_number": 36,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "'^.*packages/design-system/icons/src$': '<rootDir>/../../packages/design-system/src/icons.ts',",
+      "location": "apps\\web\\jest.config.cjs:36",
+      "replay": "axiom scan <corpus>/registry2/01_thedaviddias__Front-End-Checklist --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0019\")'"
+    },
+    {
+      "id": "code_0020",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in apps\\web\\jest.config.cjs at line 37: `'^.*icons/src$': '<rootDir>/../../packages/design-system/src/icons.ts',`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "apps\\web\\jest.config.cjs",
+      "line_number": 37,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "'^.*icons/src$': '<rootDir>/../../packages/design-system/src/icons.ts',",
+      "location": "apps\\web\\jest.config.cjs:37",
+      "replay": "axiom scan <corpus>/registry2/01_thedaviddias__Front-End-Checklist --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0020\")'"
+    },
+    {
+      "id": "code_0021",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in apps\\web\\jest.config.cjs at line 38: `'^.*packages/utils/src$': '<rootDir>/../../packages/utils/src/public-api.ts',`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "apps\\web\\jest.config.cjs",
+      "line_number": 38,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "'^.*packages/utils/src$': '<rootDir>/../../packages/utils/src/public-api.ts',",
+      "location": "apps\\web\\jest.config.cjs:38",
+      "replay": "axiom scan <corpus>/registry2/01_thedaviddias__Front-End-Checklist --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0021\")'"
+    },
+    {
+      "id": "code_0022",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in apps\\web\\jest.config.cjs at line 39: `'^.*utils/src$': '<rootDir>/../../packages/utils/src/public-api.ts'`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "apps\\web\\jest.config.cjs",
+      "line_number": 39,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "'^.*utils/src$': '<rootDir>/../../packages/utils/src/public-api.ts'",
+      "location": "apps\\web\\jest.config.cjs:39",
+      "replay": "axiom scan <corpus>/registry2/01_thedaviddias__Front-End-Checklist --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0022\")'"
+    },
+    {
+      "id": "code_0023",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in apps\\web\\next.config.js at line 72: `'/api/mcp': ['../../skills/**/*.md']`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "apps\\web\\next.config.js",
+      "line_number": 72,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "'/api/mcp': ['../../skills/**/*.md']",
+      "location": "apps\\web\\next.config.js:72",
+      "replay": "axiom scan <corpus>/registry2/01_thedaviddias__Front-End-Checklist --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0023\")'"
+    },
+    {
+      "id": "code_0024",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in apps\\web\\app\\api\\mcp\\content-helpers.ts at line 100: `for (const fd of readdirSync('/proc/self/fd')) {`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "apps\\web\\app\\api\\mcp\\content-helpers.ts",
+      "line_number": 100,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "for (const fd of readdirSync('/proc/self/fd')) {",
+      "location": "apps\\web\\app\\api\\mcp\\content-helpers.ts:100",
+      "replay": "axiom scan <corpus>/registry2/01_thedaviddias__Front-End-Checklist --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0024\")'"
+    },
+    {
+      "id": "code_0025",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in apps\\web\\app\\api\\mcp\\content-helpers.ts at line 103: `target = readlinkSync(`/proc/self/fd/${fd}`)`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "apps\\web\\app\\api\\mcp\\content-helpers.ts",
+      "line_number": 103,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "target = readlinkSync(",
+      "location": "apps\\web\\app\\api\\mcp\\content-helpers.ts:103",
+      "replay": "axiom scan <corpus>/registry2/01_thedaviddias__Front-End-Checklist --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0025\")'"
+    },
+    {
+      "id": "code_0026",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in apps\\web\\components\\mentions\\embeds\\x-mention-card.tsx at line 35: `const match = /^https?:\\/\\/(?:www\\.)?(?:x|twitter)\\.com\\/([^/?#]+)\\/status\\//u.exec(url)`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "apps\\web\\components\\mentions\\embeds\\x-mention-card.tsx",
+      "line_number": 35,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const match = /^https?:\\/\\/(?:www\\.)?(?:x|twitter)\\.com\\/([^/?#]+)\\/status\\//u.exec(url)",
+      "location": "apps\\web\\components\\mentions\\embeds\\x-mention-card.tsx:35",
+      "replay": "axiom scan <corpus>/registry2/01_thedaviddias__Front-End-Checklist --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0026\")'"
+    },
+    {
+      "id": "code_0027",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in apps\\web\\components\\mentions\\embeds\\x-mention-card.tsx at line 41: `const match = /^(.*?)([.,!?;:)\\]]*)$/u.exec(value)`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "apps\\web\\components\\mentions\\embeds\\x-mention-card.tsx",
+      "line_number": 41,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const match = /^(.*?)([.,!?;:)\\]]*)$/u.exec(value)",
+      "location": "apps\\web\\components\\mentions\\embeds\\x-mention-card.tsx:41",
+      "replay": "axiom scan <corpus>/registry2/01_thedaviddias__Front-End-Checklist --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0027\")'"
+    },
+    {
+      "id": "code_0028",
+      "severity": "info",
+      "category": "data_exfiltration",
+      "title": "Server makes outbound network requests (capability note)",
+      "description": "Pattern matched in apps\\web\\lib\\server\\github-profile-fetch.ts at line 59: `const response = await fetch('https://api.github.com/user', {`",
+      "owasp_asi": [
+        "ASI01",
+        "ASI02"
+      ],
+      "owasp_mcp": [
+        "MCP10"
+      ],
+      "file_path": "apps\\web\\lib\\server\\github-profile-fetch.ts",
+      "line_number": 59,
+      "recommendation": "Review this data exfiltration pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const response = await fetch('https://api.github.com/user', {",
+      "location": "apps\\web\\lib\\server\\github-profile-fetch.ts:59",
+      "replay": "axiom scan <corpus>/registry2/01_thedaviddias__Front-End-Checklist --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0028\")'"
+    },
+    {
+      "id": "code_0029",
+      "severity": "info",
+      "category": "data_exfiltration",
+      "title": "Server makes outbound network requests (capability note)",
+      "description": "Pattern matched in apps\\web\\lib\\server\\github-profile-fetch.ts at line 105: `const response = await fetch('https://api.github.com/user', {`",
+      "owasp_asi": [
+        "ASI01",
+        "ASI02"
+      ],
+      "owasp_mcp": [
+        "MCP10"
+      ],
+      "file_path": "apps\\web\\lib\\server\\github-profile-fetch.ts",
+      "line_number": 105,
+      "recommendation": "Review this data exfiltration pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const response = await fetch('https://api.github.com/user', {",
+      "location": "apps\\web\\lib\\server\\github-profile-fetch.ts:105",
+      "replay": "axiom scan <corpus>/registry2/01_thedaviddias__Front-End-Checklist --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0029\")'"
+    },
+    {
+      "id": "code_0030",
+      "severity": "info",
+      "category": "permission_overscope",
+      "title": "Filesystem operations in MCP server source (capability note)",
+      "description": "Pattern matched in apps\\web\\scripts\\enrich-mentions.ts at line 344: `const inputFile = fs.readFileSync(INPUT_PATH, 'utf-8')`",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": "apps\\web\\scripts\\enrich-mentions.ts",
+      "line_number": 344,
+      "recommendation": "Review this file system broad access pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const inputFile = fs.readFileSync(INPUT_PATH, 'utf-8')",
+      "location": "apps\\web\\scripts\\enrich-mentions.ts:344",
+      "replay": "axiom scan <corpus>/registry2/01_thedaviddias__Front-End-Checklist --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0030\")'"
+    },
+    {
+      "id": "code_0031",
+      "severity": "info",
+      "category": "permission_overscope",
+      "title": "Filesystem operations in MCP server source (capability note)",
+      "description": "Pattern matched in apps\\web\\scripts\\enrich-mentions.ts at line 350: `const outputFile = fs.readFileSync(OUTPUT_PATH, 'utf-8')`",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": "apps\\web\\scripts\\enrich-mentions.ts",
+      "line_number": 350,
+      "recommendation": "Review this file system broad access pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const outputFile = fs.readFileSync(OUTPUT_PATH, 'utf-8')",
+      "location": "apps\\web\\scripts\\enrich-mentions.ts:350",
+      "replay": "axiom scan <corpus>/registry2/01_thedaviddias__Front-End-Checklist --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0031\")'"
+    },
+    {
+      "id": "code_0032",
+      "severity": "info",
+      "category": "permission_overscope",
+      "title": "Filesystem operations in MCP server source (capability note)",
+      "description": "Pattern matched in apps\\web\\scripts\\enrich-mentions.ts at line 390: `fs.writeFileSync(OUTPUT_PATH, `${JSON.stringify(output, null, 2)}\\n`)`",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": "apps\\web\\scripts\\enrich-mentions.ts",
+      "line_number": 390,
+      "recommendation": "Review this file system broad access pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "fs.writeFileSync(OUTPUT_PATH,",
+      "location": "apps\\web\\scripts\\enrich-mentions.ts:390",
+      "replay": "axiom scan <corpus>/registry2/01_thedaviddias__Front-End-Checklist --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0032\")'"
+    },
+    {
+      "id": "code_0033",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in apps\\web\\scripts\\x-metadata.ts at line 50: `const match = /<p\\b[^>]*>([\\s\\S]*?)<\\/p>/iu.exec(html)`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "apps\\web\\scripts\\x-metadata.ts",
+      "line_number": 50,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const match = /<p\\b[^>]*>([\\s\\S]*?)<\\/p>/iu.exec(html)",
+      "location": "apps\\web\\scripts\\x-metadata.ts:50",
+      "replay": "axiom scan <corpus>/registry2/01_thedaviddias__Front-End-Checklist --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0033\")'"
+    },
+    {
+      "id": "code_0034",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in apps\\web\\test-utils\\accessibility.tsx at line 176: `const fgMatch = /^#?([a-f\\d]{2})([a-f\\d]{2})([a-f\\d]{2})$/i.exec(foreground)`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "apps\\web\\test-utils\\accessibility.tsx",
+      "line_number": 176,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const fgMatch = /^#?([a-f\\d]{2})([a-f\\d]{2})([a-f\\d]{2})$/i.exec(foreground)",
+      "location": "apps\\web\\test-utils\\accessibility.tsx:176",
+      "replay": "axiom scan <corpus>/registry2/01_thedaviddias__Front-End-Checklist --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0034\")'"
+    },
+    {
+      "id": "code_0035",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in apps\\web\\test-utils\\accessibility.tsx at line 177: `const bgMatch = /^#?([a-f\\d]{2})([a-f\\d]{2})([a-f\\d]{2})$/i.exec(background)`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "apps\\web\\test-utils\\accessibility.tsx",
+      "line_number": 177,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const bgMatch = /^#?([a-f\\d]{2})([a-f\\d]{2})([a-f\\d]{2})$/i.exec(background)",
+      "location": "apps\\web\\test-utils\\accessibility.tsx:177",
+      "replay": "axiom scan <corpus>/registry2/01_thedaviddias__Front-End-Checklist --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0035\")'"
+    },
+    {
+      "id": "code_0036",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in packages\\auth\\jest.config.js at line 1: `const { createPackageJestConfig } = require('../../jest.base.cjs')`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "packages\\auth\\jest.config.js",
+      "line_number": 1,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const { createPackageJestConfig } = require('../../jest.base.cjs')",
+      "location": "packages\\auth\\jest.config.js:1",
+      "replay": "axiom scan <corpus>/registry2/01_thedaviddias__Front-End-Checklist --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0036\")'"
+    },
+    {
+      "id": "code_0037",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in packages\\cli\\src\\content.ts at line 46: `const repoRoot = path.resolve(HERE, '../../..')`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "packages\\cli\\src\\content.ts",
+      "line_number": 46,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const repoRoot = path.resolve(HERE, '../../..')",
+      "location": "packages\\cli\\src\\content.ts:46",
+      "replay": "axiom scan <corpus>/registry2/01_thedaviddias__Front-End-Checklist --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0037\")'"
+    },
+    {
+      "id": "code_0038",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in packages\\cli\\src\\spec.ts at line 152: `const candidate = [path.join(here, '../SKILL.md'), path.join(here, '../../SKILL.md')].find(`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "packages\\cli\\src\\spec.ts",
+      "line_number": 152,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const candidate = [path.join(here, '../SKILL.md'), path.join(here, '../../SKILL.md')].find(",
+      "location": "packages\\cli\\src\\spec.ts:152",
+      "replay": "axiom scan <corpus>/registry2/01_thedaviddias__Front-End-Checklist --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0038\")'"
+    },
+    {
+      "id": "code_0039",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in packages\\config\\jest.config.js at line 1: `const { createPackageJestConfig } = require('../../jest.base.cjs')`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "packages\\config\\jest.config.js",
+      "line_number": 1,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const { createPackageJestConfig } = require('../../jest.base.cjs')",
+      "location": "packages\\config\\jest.config.js:1",
+      "replay": "axiom scan <corpus>/registry2/01_thedaviddias__Front-End-Checklist --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0039\")'"
+    },
+    {
+      "id": "code_0040",
+      "severity": "info",
+      "category": "credential_theft",
+      "title": "Server reads environment variables or credential-file paths (capability note)",
+      "description": "Pattern matched in packages\\config\\src\\app.ts at line 36: `const envValue = process.env[envKey]`",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP01"
+      ],
+      "file_path": "packages\\config\\src\\app.ts",
+      "line_number": 36,
+      "recommendation": "Review this credential harvesting pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const envValue = process.env[envKey]",
+      "location": "packages\\config\\src\\app.ts:36",
+      "replay": "axiom scan <corpus>/registry2/01_thedaviddias__Front-End-Checklist --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0040\")'"
+    },
+    {
+      "id": "code_0041",
+      "severity": "info",
+      "category": "credential_theft",
+      "title": "Server reads environment variables or credential-file paths (capability note)",
+      "description": "Pattern matched in packages\\config\\src\\environment.ts at line 64: `if (process.env[format] !== undefined) {`",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP01"
+      ],
+      "file_path": "packages\\config\\src\\environment.ts",
+      "line_number": 64,
+      "recommendation": "Review this credential harvesting pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "if (process.env[format] !== undefined) {",
+      "location": "packages\\config\\src\\environment.ts:64",
+      "replay": "axiom scan <corpus>/registry2/01_thedaviddias__Front-End-Checklist --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0041\")'"
+    },
+    {
+      "id": "code_0042",
+      "severity": "info",
+      "category": "credential_theft",
+      "title": "Server reads environment variables or credential-file paths (capability note)",
+      "description": "Pattern matched in packages\\config\\src\\environment.ts at line 65: `return process.env[format]`",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP01"
+      ],
+      "file_path": "packages\\config\\src\\environment.ts",
+      "line_number": 65,
+      "recommendation": "Review this credential harvesting pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "return process.env[format]",
+      "location": "packages\\config\\src\\environment.ts:65",
+      "replay": "axiom scan <corpus>/registry2/01_thedaviddias__Front-End-Checklist --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0042\")'"
+    },
+    {
+      "id": "code_0043",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in packages\\crawler\\src\\index.ts at line 51: `let match = hrefRegex.exec(html)`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "packages\\crawler\\src\\index.ts",
+      "line_number": 51,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "let match = hrefRegex.exec(html)",
+      "location": "packages\\crawler\\src\\index.ts:51",
+      "replay": "axiom scan <corpus>/registry2/01_thedaviddias__Front-End-Checklist --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0043\")'"
+    },
+    {
+      "id": "code_0044",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in packages\\crawler\\src\\index.ts at line 64: `match = hrefRegex.exec(html)`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "packages\\crawler\\src\\index.ts",
+      "line_number": 64,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "match = hrefRegex.exec(html)",
+      "location": "packages\\crawler\\src\\index.ts:64",
+      "replay": "axiom scan <corpus>/registry2/01_thedaviddias__Front-End-Checklist --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0044\")'"
+    },
+    {
+      "id": "code_0045",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in packages\\data-layer\\jest.config.js at line 1: `const { createPackageJestConfig } = require('../../jest.base.cjs')`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "packages\\data-layer\\jest.config.js",
+      "line_number": 1,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const { createPackageJestConfig } = require('../../jest.base.cjs')",
+      "location": "packages\\data-layer\\jest.config.js:1",
+      "replay": "axiom scan <corpus>/registry2/01_thedaviddias__Front-End-Checklist --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0045\")'"
+    },
+    {
+      "id": "code_0046",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in packages\\design-system\\jest.config.js at line 1: `const { createPackageJestConfig } = require('../../jest.base.cjs')`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "packages\\design-system\\jest.config.js",
+      "line_number": 1,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const { createPackageJestConfig } = require('../../jest.base.cjs')",
+      "location": "packages\\design-system\\jest.config.js:1",
+      "replay": "axiom scan <corpus>/registry2/01_thedaviddias__Front-End-Checklist --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0046\")'"
+    },
+    {
+      "id": "code_0047",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in packages\\emails\\jest.config.js at line 1: `const { createPackageJestConfig } = require('../../jest.base.cjs')`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "packages\\emails\\jest.config.js",
+      "line_number": 1,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const { createPackageJestConfig } = require('../../jest.base.cjs')",
+      "location": "packages\\emails\\jest.config.js:1",
+      "replay": "axiom scan <corpus>/registry2/01_thedaviddias__Front-End-Checklist --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0047\")'"
+    },
+    {
+      "id": "code_0048",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in packages\\i18n\\jest.config.js at line 1: `const { createPackageJestConfig } = require('../../jest.base.cjs')`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "packages\\i18n\\jest.config.js",
+      "line_number": 1,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const { createPackageJestConfig } = require('../../jest.base.cjs')",
+      "location": "packages\\i18n\\jest.config.js:1",
+      "replay": "axiom scan <corpus>/registry2/01_thedaviddias__Front-End-Checklist --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0048\")'"
+    },
+    {
+      "id": "code_0049",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in packages\\mcp\\jest.config.js at line 1: `const { createPackageJestConfig } = require('../../jest.base.cjs')`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "packages\\mcp\\jest.config.js",
+      "line_number": 1,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const { createPackageJestConfig } = require('../../jest.base.cjs')",
+      "location": "packages\\mcp\\jest.config.js:1",
+      "replay": "axiom scan <corpus>/registry2/01_thedaviddias__Front-End-Checklist --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0049\")'"
+    },
+    {
+      "id": "code_0050",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in packages\\mcp\\scripts\\eval-tool-choice.ts at line 35: `const REPO_ROOT = path.resolve(__dirname, '../../..')`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "packages\\mcp\\scripts\\eval-tool-choice.ts",
+      "line_number": 35,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const REPO_ROOT = path.resolve(__dirname, '../../..')",
+      "location": "packages\\mcp\\scripts\\eval-tool-choice.ts:35",
+      "replay": "axiom scan <corpus>/registry2/01_thedaviddias__Front-End-Checklist --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0050\")'"
+    },
+    {
+      "id": "code_0051",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in packages\\mcp\\scripts\\serve.ts at line 11: `const repoRoot = path.resolve(__dirname, '../../..')`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "packages\\mcp\\scripts\\serve.ts",
+      "line_number": 11,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const repoRoot = path.resolve(__dirname, '../../..')",
+      "location": "packages\\mcp\\scripts\\serve.ts:11",
+      "replay": "axiom scan <corpus>/registry2/01_thedaviddias__Front-End-Checklist --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0051\")'"
+    },
+    {
+      "id": "code_0052",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in packages\\mcp\\scripts\\load\\config.ts at line 16: `export const REPO_ROOT = path.resolve(__dirname, '../../../..')`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "packages\\mcp\\scripts\\load\\config.ts",
+      "line_number": 16,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "export const REPO_ROOT = path.resolve(__dirname, '../../../..')",
+      "location": "packages\\mcp\\scripts\\load\\config.ts:16",
+      "replay": "axiom scan <corpus>/registry2/01_thedaviddias__Front-End-Checklist --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0052\")'"
+    },
+    {
+      "id": "code_0053",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in packages\\mcp\\scripts\\load\\config.ts at line 23: `<script>eval(location.hash.slice(1)); document.write('<p>hi</p>')</script>`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "packages\\mcp\\scripts\\load\\config.ts",
+      "line_number": 23,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "<script>eval(location.hash.slice(1)); document.write('<p>hi</p>')</script>",
+      "location": "packages\\mcp\\scripts\\load\\config.ts:23",
+      "replay": "axiom scan <corpus>/registry2/01_thedaviddias__Front-End-Checklist --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0053\")'"
+    },
+    {
+      "id": "code_0054",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in packages\\mcp\\scripts\\tool-choice\\cases.ts at line 51: `prompt: \"Is this script OK to ship?\\ndocument.write('<p>hi</p>'); eval(userInput)\",`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "packages\\mcp\\scripts\\tool-choice\\cases.ts",
+      "line_number": 51,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "prompt: \"Is this script OK to ship?\\ndocument.write('<p>hi</p>'); eval(userInput)\",",
+      "location": "packages\\mcp\\scripts\\tool-choice\\cases.ts:51",
+      "replay": "axiom scan <corpus>/registry2/01_thedaviddias__Front-End-Checklist --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0054\")'"
+    },
+    {
+      "id": "code_0055",
+      "severity": "info",
+      "category": "permission_overscope",
+      "title": "Filesystem operations in MCP server source (capability note)",
+      "description": "Pattern matched in packages\\mcp\\src\\content-loader.ts at line 48: `const files = fs.readdirSync(checklistsDir).filter(file => file.endsWith('.mdx'))`",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": "packages\\mcp\\src\\content-loader.ts",
+      "line_number": 48,
+      "recommendation": "Review this file system broad access pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const files = fs.readdirSync(checklistsDir).filter(file => file.endsWith('.mdx'))",
+      "location": "packages\\mcp\\src\\content-loader.ts:48",
+      "replay": "axiom scan <corpus>/registry2/01_thedaviddias__Front-End-Checklist --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0055\")'"
+    },
+    {
+      "id": "code_0056",
+      "severity": "info",
+      "category": "permission_overscope",
+      "title": "Filesystem operations in MCP server source (capability note)",
+      "description": "Pattern matched in packages\\mcp\\src\\content-loader.ts at line 52: `const content = fs.readFileSync(filePath, 'utf-8')`",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": "packages\\mcp\\src\\content-loader.ts",
+      "line_number": 52,
+      "recommendation": "Review this file system broad access pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const content = fs.readFileSync(filePath, 'utf-8')",
+      "location": "packages\\mcp\\src\\content-loader.ts:52",
+      "replay": "axiom scan <corpus>/registry2/01_thedaviddias__Front-End-Checklist --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0056\")'"
+    },
+    {
+      "id": "code_0057",
+      "severity": "low",
+      "category": "obfuscation",
+      "title": "Encoded or obfuscated content in MCP server source",
+      "description": "Pattern matched in packages\\mcp\\src\\utils\\pagination.ts at line 31: `const decoded = Buffer.from(cursor, 'base64').toString('utf-8')`",
+      "owasp_asi": [
+        "ASI01",
+        "ASI10"
+      ],
+      "owasp_mcp": [
+        "MCP03",
+        "MCP04"
+      ],
+      "file_path": "packages\\mcp\\src\\utils\\pagination.ts",
+      "line_number": 31,
+      "recommendation": "Review this obfuscation pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const decoded = Buffer.from(cursor, 'base64').toString('utf-8')",
+      "location": "packages\\mcp\\src\\utils\\pagination.ts:31",
+      "replay": "axiom scan <corpus>/registry2/01_thedaviddias__Front-End-Checklist --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0057\")'"
+    },
+    {
+      "id": "code_0058",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in packages\\rule-feedback\\jest.config.js at line 1: `const { createPackageJestConfig } = require('../../jest.base.cjs')`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "packages\\rule-feedback\\jest.config.js",
+      "line_number": 1,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const { createPackageJestConfig } = require('../../jest.base.cjs')",
+      "location": "packages\\rule-feedback\\jest.config.js:1",
+      "replay": "axiom scan <corpus>/registry2/01_thedaviddias__Front-End-Checklist --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0058\")'"
+    },
+    {
+      "id": "code_0059",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in packages\\rules\\src\\load-rules.ts at line 15: `const MONOREPO_RULES_DIR = path.resolve(CURRENT_DIR, '../../content/rules/en')`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "packages\\rules\\src\\load-rules.ts",
+      "line_number": 15,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const MONOREPO_RULES_DIR = path.resolve(CURRENT_DIR, '../../content/rules/en')",
+      "location": "packages\\rules\\src\\load-rules.ts:15",
+      "replay": "axiom scan <corpus>/registry2/01_thedaviddias__Front-End-Checklist --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0059\")'"
+    },
+    {
+      "id": "code_0060",
+      "severity": "info",
+      "category": "permission_overscope",
+      "title": "Filesystem operations in MCP server source (capability note)",
+      "description": "Pattern matched in packages\\rules\\src\\load-rules.ts at line 170: `const categories = fs.readdirSync(rulesDir)`",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": "packages\\rules\\src\\load-rules.ts",
+      "line_number": 170,
+      "recommendation": "Review this file system broad access pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const categories = fs.readdirSync(rulesDir)",
+      "location": "packages\\rules\\src\\load-rules.ts:170",
+      "replay": "axiom scan <corpus>/registry2/01_thedaviddias__Front-End-Checklist --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0060\")'"
+    },
+    {
+      "id": "code_0061",
+      "severity": "info",
+      "category": "permission_overscope",
+      "title": "Filesystem operations in MCP server source (capability note)",
+      "description": "Pattern matched in packages\\rules\\src\\load-rules.ts at line 176: `const files = fs.readdirSync(categoryPath).filter(file => file.endsWith('.mdx'))`",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": "packages\\rules\\src\\load-rules.ts",
+      "line_number": 176,
+      "recommendation": "Review this file system broad access pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const files = fs.readdirSync(categoryPath).filter(file => file.endsWith('.mdx'))",
+      "location": "packages\\rules\\src\\load-rules.ts:176",
+      "replay": "axiom scan <corpus>/registry2/01_thedaviddias__Front-End-Checklist --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0061\")'"
+    },
+    {
+      "id": "code_0062",
+      "severity": "info",
+      "category": "permission_overscope",
+      "title": "Filesystem operations in MCP server source (capability note)",
+      "description": "Pattern matched in packages\\rules\\src\\load-rules.ts at line 180: `const content = fs.readFileSync(filePath, 'utf-8')`",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": "packages\\rules\\src\\load-rules.ts",
+      "line_number": 180,
+      "recommendation": "Review this file system broad access pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const content = fs.readFileSync(filePath, 'utf-8')",
+      "location": "packages\\rules\\src\\load-rules.ts:180",
+      "replay": "axiom scan <corpus>/registry2/01_thedaviddias__Front-End-Checklist --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0062\")'"
+    },
+    {
+      "id": "code_0063",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in packages\\schemas\\jest.config.js at line 1: `const { createPackageJestConfig } = require('../../jest.base.cjs')`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "packages\\schemas\\jest.config.js",
+      "line_number": 1,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const { createPackageJestConfig } = require('../../jest.base.cjs')",
+      "location": "packages\\schemas\\jest.config.js:1",
+      "replay": "axiom scan <corpus>/registry2/01_thedaviddias__Front-End-Checklist --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0063\")'"
+    },
+    {
+      "id": "code_0064",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in packages\\seo\\jest.config.js at line 1: `const { createPackageJestConfig } = require('../../jest.base.cjs')`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "packages\\seo\\jest.config.js",
+      "line_number": 1,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const { createPackageJestConfig } = require('../../jest.base.cjs')",
+      "location": "packages\\seo\\jest.config.js:1",
+      "replay": "axiom scan <corpus>/registry2/01_thedaviddias__Front-End-Checklist --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0064\")'"
+    },
+    {
+      "id": "code_0065",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in packages\\state\\jest.config.js at line 1: `const { createPackageJestConfig } = require('../../jest.base.cjs')`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "packages\\state\\jest.config.js",
+      "line_number": 1,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const { createPackageJestConfig } = require('../../jest.base.cjs')",
+      "location": "packages\\state\\jest.config.js:1",
+      "replay": "axiom scan <corpus>/registry2/01_thedaviddias__Front-End-Checklist --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0065\")'"
+    },
+    {
+      "id": "code_0066",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in packages\\storage\\jest.config.js at line 1: `const { createPackageJestConfig } = require('../../jest.base.cjs')`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "packages\\storage\\jest.config.js",
+      "line_number": 1,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const { createPackageJestConfig } = require('../../jest.base.cjs')",
+      "location": "packages\\storage\\jest.config.js:1",
+      "replay": "axiom scan <corpus>/registry2/01_thedaviddias__Front-End-Checklist --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0066\")'"
+    },
+    {
+      "id": "code_0067",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in packages\\types\\jest.config.cjs at line 1: `const { createPackageJestConfig } = require('../../jest.base.cjs')`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "packages\\types\\jest.config.cjs",
+      "line_number": 1,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const { createPackageJestConfig } = require('../../jest.base.cjs')",
+      "location": "packages\\types\\jest.config.cjs:1",
+      "replay": "axiom scan <corpus>/registry2/01_thedaviddias__Front-End-Checklist --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0067\")'"
+    },
+    {
+      "id": "code_0068",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in packages\\utils\\jest.config.js at line 1: `const { createPackageJestConfig } = require('../../jest.base.cjs')`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "packages\\utils\\jest.config.js",
+      "line_number": 1,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const { createPackageJestConfig } = require('../../jest.base.cjs')",
+      "location": "packages\\utils\\jest.config.js:1",
+      "replay": "axiom scan <corpus>/registry2/01_thedaviddias__Front-End-Checklist --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0068\")'"
+    },
+    {
+      "id": "code_0069",
+      "severity": "info",
+      "category": "permission_overscope",
+      "title": "Filesystem operations in MCP server source (capability note)",
+      "description": "Pattern matched in packages\\validators\\src\\as-casts.js at line 108: `const content = fs.readFileSync(filePath, 'utf8')`",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": "packages\\validators\\src\\as-casts.js",
+      "line_number": 108,
+      "recommendation": "Review this file system broad access pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const content = fs.readFileSync(filePath, 'utf8')",
+      "location": "packages\\validators\\src\\as-casts.js:108",
+      "replay": "axiom scan <corpus>/registry2/01_thedaviddias__Front-End-Checklist --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0069\")'"
+    },
+    {
+      "id": "code_0070",
+      "severity": "info",
+      "category": "permission_overscope",
+      "title": "Filesystem operations in MCP server source (capability note)",
+      "description": "Pattern matched in packages\\validators\\src\\barrel-files.js at line 101: `const content = fs.readFileSync(filePath, 'utf8')`",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": "packages\\validators\\src\\barrel-files.js",
+      "line_number": 101,
+      "recommendation": "Review this file system broad access pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const content = fs.readFileSync(filePath, 'utf8')",
+      "location": "packages\\validators\\src\\barrel-files.js:101",
+      "replay": "axiom scan <corpus>/registry2/01_thedaviddias__Front-End-Checklist --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0070\")'"
+    },
+    {
+      "id": "code_0071",
+      "severity": "info",
+      "category": "permission_overscope",
+      "title": "Filesystem operations in MCP server source (capability note)",
+      "description": "Pattern matched in packages\\validators\\src\\barrel-files.js at line 131: `const items = fs.readdirSync(dir)`",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": "packages\\validators\\src\\barrel-files.js",
+      "line_number": 131,
+      "recommendation": "Review this file system broad access pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const items = fs.readdirSync(dir)",
+      "location": "packages\\validators\\src\\barrel-files.js:131",
+      "replay": "axiom scan <corpus>/registry2/01_thedaviddias__Front-End-Checklist --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0071\")'"
+    },
+    {
+      "id": "code_0072",
+      "severity": "info",
+      "category": "permission_overscope",
+      "title": "Filesystem operations in MCP server source (capability note)",
+      "description": "Pattern matched in packages\\validators\\src\\console-logs.js at line 125: `const configContent = fs.readFileSync(configPath, 'utf8')`",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": "packages\\validators\\src\\console-logs.js",
+      "line_number": 125,
+      "recommendation": "Review this file system broad access pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const configContent = fs.readFileSync(configPath, 'utf8')",
+      "location": "packages\\validators\\src\\console-logs.js:125",
+      "replay": "axiom scan <corpus>/registry2/01_thedaviddias__Front-End-Checklist --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0072\")'"
+    },
+    {
+      "id": "code_0073",
+      "severity": "info",
+      "category": "permission_overscope",
+      "title": "Filesystem operations in MCP server source (capability note)",
+      "description": "Pattern matched in packages\\validators\\src\\console-logs.js at line 149: `const packageJson = JSON.parse(fs.readFileSync(packageJsonPath, 'utf8'))`",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": "packages\\validators\\src\\console-logs.js",
+      "line_number": 149,
+      "recommendation": "Review this file system broad access pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const packageJson = JSON.parse(fs.readFileSync(packageJsonPath, 'utf8'))",
+      "location": "packages\\validators\\src\\console-logs.js:149",
+      "replay": "axiom scan <corpus>/registry2/01_thedaviddias__Front-End-Checklist --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0073\")'"
+    },
+    {
+      "id": "code_0074",
+      "severity": "info",
+      "category": "permission_overscope",
+      "title": "Filesystem operations in MCP server source (capability note)",
+      "description": "Pattern matched in packages\\validators\\src\\file-complexity.js at line 79: `const content = fs.readFileSync(filePath, 'utf8')`",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": "packages\\validators\\src\\file-complexity.js",
+      "line_number": 79,
+      "recommendation": "Review this file system broad access pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const content = fs.readFileSync(filePath, 'utf8')",
+      "location": "packages\\validators\\src\\file-complexity.js:79",
+      "replay": "axiom scan <corpus>/registry2/01_thedaviddias__Front-End-Checklist --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0074\")'"
+    },
+    {
+      "id": "code_0075",
+      "severity": "info",
+      "category": "permission_overscope",
+      "title": "Filesystem operations in MCP server source (capability note)",
+      "description": "Pattern matched in packages\\validators\\src\\jsdoc.js at line 190: `const content = fs.readFileSync(filePath, 'utf-8')`",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": "packages\\validators\\src\\jsdoc.js",
+      "line_number": 190,
+      "recommendation": "Review this file system broad access pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const content = fs.readFileSync(filePath, 'utf-8')",
+      "location": "packages\\validators\\src\\jsdoc.js:190",
+      "replay": "axiom scan <corpus>/registry2/01_thedaviddias__Front-End-Checklist --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0075\")'"
+    },
+    {
+      "id": "code_0076",
+      "severity": "info",
+      "category": "permission_overscope",
+      "title": "Filesystem operations in MCP server source (capability note)",
+      "description": "Pattern matched in packages\\validators\\src\\validate-imports.ts at line 58: `const content = fs.readFileSync(filePath, 'utf-8')`",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": "packages\\validators\\src\\validate-imports.ts",
+      "line_number": 58,
+      "recommendation": "Review this file system broad access pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const content = fs.readFileSync(filePath, 'utf-8')",
+      "location": "packages\\validators\\src\\validate-imports.ts:58",
+      "replay": "axiom scan <corpus>/registry2/01_thedaviddias__Front-End-Checklist --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0076\")'"
+    },
+    {
+      "id": "code_0077",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in packages\\validators\\src\\validate-security.ts at line 36: `{ pattern: /eval\\s*\\(/, message: 'Avoid using eval()', severity: 'critical' as const },`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "packages\\validators\\src\\validate-security.ts",
+      "line_number": 36,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "{ pattern: /eval\\s*\\(/, message: 'Avoid using eval()', severity: 'critical' as const },",
+      "location": "packages\\validators\\src\\validate-security.ts:36",
+      "replay": "axiom scan <corpus>/registry2/01_thedaviddias__Front-End-Checklist --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0077\")'"
+    },
+    {
+      "id": "code_0078",
+      "severity": "info",
+      "category": "permission_overscope",
+      "title": "Filesystem operations in MCP server source (capability note)",
+      "description": "Pattern matched in packages\\validators\\src\\validate-security.ts at line 73: `const content = fs.readFileSync(filePath, 'utf-8')`",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": "packages\\validators\\src\\validate-security.ts",
+      "line_number": 73,
+      "recommendation": "Review this file system broad access pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const content = fs.readFileSync(filePath, 'utf-8')",
+      "location": "packages\\validators\\src\\validate-security.ts:73",
+      "replay": "axiom scan <corpus>/registry2/01_thedaviddias__Front-End-Checklist --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0078\")'"
+    },
+    {
+      "id": "code_0079",
+      "severity": "info",
+      "category": "permission_overscope",
+      "title": "Filesystem operations in MCP server source (capability note)",
+      "description": "Pattern matched in packages\\validators\\src\\validate-types.ts at line 30: `const content = fs.readFileSync(filePath, 'utf-8')`",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": "packages\\validators\\src\\validate-types.ts",
+      "line_number": 30,
+      "recommendation": "Review this file system broad access pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const content = fs.readFileSync(filePath, 'utf-8')",
+      "location": "packages\\validators\\src\\validate-types.ts:30",
+      "replay": "axiom scan <corpus>/registry2/01_thedaviddias__Front-End-Checklist --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0079\")'"
+    },
+    {
+      "id": "code_0080",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in packages\\virtualization\\jest.config.js at line 1: `const { createPackageJestConfig } = require('../../jest.base.cjs')`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "packages\\virtualization\\jest.config.js",
+      "line_number": 1,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const { createPackageJestConfig } = require('../../jest.base.cjs')",
+      "location": "packages\\virtualization\\jest.config.js:1",
+      "replay": "axiom scan <corpus>/registry2/01_thedaviddias__Front-End-Checklist --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0080\")'"
+    },
+    {
+      "id": "code_0081",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in scripts\\audit\\mcp-audit.ts at line 27: `const r = spawnSync(command, cmdArgs, {`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "scripts\\audit\\mcp-audit.ts",
+      "line_number": 27,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const r = spawnSync(command, cmdArgs, {",
+      "location": "scripts\\audit\\mcp-audit.ts:27",
+      "replay": "axiom scan <corpus>/registry2/01_thedaviddias__Front-End-Checklist --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0081\")'"
+    },
+    {
+      "id": "code_0082",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in scripts\\audit\\mcp-impact-benchmark.ts at line 18: `import { executeReviewCode } from '../../packages/mcp/src/tools/review-code'`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "scripts\\audit\\mcp-impact-benchmark.ts",
+      "line_number": 18,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "import { executeReviewCode } from '../../packages/mcp/src/tools/review-code'",
+      "location": "scripts\\audit\\mcp-impact-benchmark.ts:18",
+      "replay": "axiom scan <corpus>/registry2/01_thedaviddias__Front-End-Checklist --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0082\")'"
+    },
+    {
+      "id": "code_0083",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in scripts\\audit\\mcp-impact-benchmark.ts at line 113: `return eval(userInput)`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "scripts\\audit\\mcp-impact-benchmark.ts",
+      "line_number": 113,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "return eval(userInput)",
+      "location": "scripts\\audit\\mcp-impact-benchmark.ts:113",
+      "replay": "axiom scan <corpus>/registry2/01_thedaviddias__Front-End-Checklist --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0083\")'"
+    },
+    {
+      "id": "code_0084",
+      "severity": "info",
+      "category": "permission_overscope",
+      "title": "Filesystem operations in MCP server source (capability note)",
+      "description": "Pattern matched in scripts\\audit\\mcp-impact-benchmark.ts at line 151: `fs.writeFileSync(filePath, content)`",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": "scripts\\audit\\mcp-impact-benchmark.ts",
+      "line_number": 151,
+      "recommendation": "Review this file system broad access pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "fs.writeFileSync(filePath, content)",
+      "location": "scripts\\audit\\mcp-impact-benchmark.ts:151",
+      "replay": "axiom scan <corpus>/registry2/01_thedaviddias__Front-End-Checklist --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0084\")'"
+    },
+    {
+      "id": "code_0085",
+      "severity": "info",
+      "category": "permission_overscope",
+      "title": "Filesystem operations in MCP server source (capability note)",
+      "description": "Pattern matched in scripts\\audit\\mcp-impact-benchmark.ts at line 205: `const code = fs.existsSync(candidatePath) ? fs.readFileSync(candidatePath, 'utf8') : ''`",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": "scripts\\audit\\mcp-impact-benchmark.ts",
+      "line_number": 205,
+      "recommendation": "Review this file system broad access pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const code = fs.existsSync(candidatePath) ? fs.readFileSync(candidatePath, 'utf8') : ''",
+      "location": "scripts\\audit\\mcp-impact-benchmark.ts:205",
+      "replay": "axiom scan <corpus>/registry2/01_thedaviddias__Front-End-Checklist --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0085\")'"
+    },
+    {
+      "id": "code_0086",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in scripts\\audit\\skills-quality-audit.ts at line 12: `import { getToolDefinitions } from '../../packages/mcp/src/server-tools'`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "scripts\\audit\\skills-quality-audit.ts",
+      "line_number": 12,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "import { getToolDefinitions } from '../../packages/mcp/src/server-tools'",
+      "location": "scripts\\audit\\skills-quality-audit.ts:12",
+      "replay": "axiom scan <corpus>/registry2/01_thedaviddias__Front-End-Checklist --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0086\")'"
+    },
+    {
+      "id": "code_0087",
+      "severity": "info",
+      "category": "permission_overscope",
+      "title": "Filesystem operations in MCP server source (capability note)",
+      "description": "Pattern matched in scripts\\audit\\skills-quality-audit.ts at line 227: `for (const entry of fs.readdirSync(dir)) {`",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": "scripts\\audit\\skills-quality-audit.ts",
+      "line_number": 227,
+      "recommendation": "Review this file system broad access pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "for (const entry of fs.readdirSync(dir)) {",
+      "location": "scripts\\audit\\skills-quality-audit.ts:227",
+      "replay": "axiom scan <corpus>/registry2/01_thedaviddias__Front-End-Checklist --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0087\")'"
+    },
+    {
+      "id": "code_0088",
+      "severity": "info",
+      "category": "permission_overscope",
+      "title": "Filesystem operations in MCP server source (capability note)",
+      "description": "Pattern matched in scripts\\audit\\skills-quality-audit.ts at line 241: `return fs.existsSync(filePath) ? fs.readFileSync(filePath, 'utf8') : ''`",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": "scripts\\audit\\skills-quality-audit.ts",
+      "line_number": 241,
+      "recommendation": "Review this file system broad access pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "return fs.existsSync(filePath) ? fs.readFileSync(filePath, 'utf8') : ''",
+      "location": "scripts\\audit\\skills-quality-audit.ts:241",
+      "replay": "axiom scan <corpus>/registry2/01_thedaviddias__Front-End-Checklist --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0088\")'"
+    },
+    {
+      "id": "code_0089",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in scripts\\generate\\generate-readme.ts at line 12: `import { absoluteRuleUrl, absoluteUrl, routeRulesCategory } from '../../packages/config/src/routes'`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "scripts\\generate\\generate-readme.ts",
+      "line_number": 12,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "import { absoluteRuleUrl, absoluteUrl, routeRulesCategory } from '../../packages/config/src/routes'",
+      "location": "scripts\\generate\\generate-readme.ts:12",
+      "replay": "axiom scan <corpus>/registry2/01_thedaviddias__Front-End-Checklist --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0089\")'"
+    },
+    {
+      "id": "code_0090",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in scripts\\generate\\generate-readme.ts at line 17: `} from '../../packages/rules/src/types'`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "scripts\\generate\\generate-readme.ts",
+      "line_number": 17,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "} from '../../packages/rules/src/types'",
+      "location": "scripts\\generate\\generate-readme.ts:17",
+      "replay": "axiom scan <corpus>/registry2/01_thedaviddias__Front-End-Checklist --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0090\")'"
+    },
+    {
+      "id": "code_0091",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in scripts\\generate\\generate-readme.ts at line 105: `critical: '../../apps/web/public/priority/critical.svg',`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "scripts\\generate\\generate-readme.ts",
+      "line_number": 105,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "critical: '../../apps/web/public/priority/critical.svg',",
+      "location": "scripts\\generate\\generate-readme.ts:105",
+      "replay": "axiom scan <corpus>/registry2/01_thedaviddias__Front-End-Checklist --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0091\")'"
+    },
+    {
+      "id": "code_0092",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in scripts\\generate\\generate-readme.ts at line 106: `high: '../../apps/web/public/priority/high.svg',`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "scripts\\generate\\generate-readme.ts",
+      "line_number": 106,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "high: '../../apps/web/public/priority/high.svg',",
+      "location": "scripts\\generate\\generate-readme.ts:106",
+      "replay": "axiom scan <corpus>/registry2/01_thedaviddias__Front-End-Checklist --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0092\")'"
+    },
+    {
+      "id": "code_0093",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in scripts\\generate\\generate-readme.ts at line 107: `medium: '../../apps/web/public/priority/medium.svg',`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "scripts\\generate\\generate-readme.ts",
+      "line_number": 107,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "medium: '../../apps/web/public/priority/medium.svg',",
+      "location": "scripts\\generate\\generate-readme.ts:107",
+      "replay": "axiom scan <corpus>/registry2/01_thedaviddias__Front-End-Checklist --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0093\")'"
+    },
+    {
+      "id": "code_0094",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in scripts\\generate\\generate-readme.ts at line 108: `low: '../../apps/web/public/priority/low.svg'`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "scripts\\generate\\generate-readme.ts",
+      "line_number": 108,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "low: '../../apps/web/public/priority/low.svg'",
+      "location": "scripts\\generate\\generate-readme.ts:108",
+      "replay": "axiom scan <corpus>/registry2/01_thedaviddias__Front-End-Checklist --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0094\")'"
+    },
+    {
+      "id": "code_0095",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in scripts\\generate\\package-mcp-plugin.mjs at line 7: `const root = fileURLToPath(new URL('../../', import.meta.url))`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "scripts\\generate\\package-mcp-plugin.mjs",
+      "line_number": 7,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const root = fileURLToPath(new URL('../../', import.meta.url))",
+      "location": "scripts\\generate\\package-mcp-plugin.mjs:7",
+      "replay": "axiom scan <corpus>/registry2/01_thedaviddias__Front-End-Checklist --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0095\")'"
+    },
+    {
+      "id": "code_0096",
+      "severity": "info",
+      "category": "permission_overscope",
+      "title": "Filesystem operations in MCP server source (capability note)",
+      "description": "Pattern matched in scripts\\rule-structure\\expand-related-rules.ts at line 83: `for (const category of fs.readdirSync(RULES_DIR)) {`",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": "scripts\\rule-structure\\expand-related-rules.ts",
+      "line_number": 83,
+      "recommendation": "Review this file system broad access pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "for (const category of fs.readdirSync(RULES_DIR)) {",
+      "location": "scripts\\rule-structure\\expand-related-rules.ts:83",
+      "replay": "axiom scan <corpus>/registry2/01_thedaviddias__Front-End-Checklist --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0096\")'"
+    },
+    {
+      "id": "code_0097",
+      "severity": "info",
+      "category": "permission_overscope",
+      "title": "Filesystem operations in MCP server source (capability note)",
+      "description": "Pattern matched in scripts\\rule-structure\\expand-related-rules.ts at line 87: `for (const file of fs.readdirSync(categoryDir)) {`",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": "scripts\\rule-structure\\expand-related-rules.ts",
+      "line_number": 87,
+      "recommendation": "Review this file system broad access pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "for (const file of fs.readdirSync(categoryDir)) {",
+      "location": "scripts\\rule-structure\\expand-related-rules.ts:87",
+      "replay": "axiom scan <corpus>/registry2/01_thedaviddias__Front-End-Checklist --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0097\")'"
+    },
+    {
+      "id": "code_0098",
+      "severity": "info",
+      "category": "permission_overscope",
+      "title": "Filesystem operations in MCP server source (capability note)",
+      "description": "Pattern matched in scripts\\rule-structure\\expand-related-rules.ts at line 91: `const raw = fs.readFileSync(filePath, 'utf8')`",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": "scripts\\rule-structure\\expand-related-rules.ts",
+      "line_number": 91,
+      "recommendation": "Review this file system broad access pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const raw = fs.readFileSync(filePath, 'utf8')",
+      "location": "scripts\\rule-structure\\expand-related-rules.ts:91",
+      "replay": "axiom scan <corpus>/registry2/01_thedaviddias__Front-End-Checklist --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0098\")'"
+    },
+    {
+      "id": "code_0099",
+      "severity": "info",
+      "category": "permission_overscope",
+      "title": "Filesystem operations in MCP server source (capability note)",
+      "description": "Pattern matched in scripts\\rule-structure\\expand-related-rules.ts at line 177: `fs.writeFileSync(doc.filePath, matter.stringify(doc.content, nextFrontmatter))`",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": "scripts\\rule-structure\\expand-related-rules.ts",
+      "line_number": 177,
+      "recommendation": "Review this file system broad access pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "fs.writeFileSync(doc.filePath, matter.stringify(doc.content, nextFrontmatter))",
+      "location": "scripts\\rule-structure\\expand-related-rules.ts:177",
+      "replay": "axiom scan <corpus>/registry2/01_thedaviddias__Front-End-Checklist --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0099\")'"
+    },
+    {
+      "id": "code_0100",
+      "severity": "info",
+      "category": "permission_overscope",
+      "title": "Filesystem operations in MCP server source (capability note)",
+      "description": "Pattern matched in scripts\\rule-structure\\fix-rule-structure.ts at line 138: `const raw = fs.readFileSync(filePath, 'utf8').replace(/\\0/g, '')`",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": "scripts\\rule-structure\\fix-rule-structure.ts",
+      "line_number": 138,
+      "recommendation": "Review this file system broad access pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const raw = fs.readFileSync(filePath, 'utf8').replace(/\\0/g, '')",
+      "location": "scripts\\rule-structure\\fix-rule-structure.ts:138",
+      "replay": "axiom scan <corpus>/registry2/01_thedaviddias__Front-End-Checklist --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0100\")'"
+    },
+    {
+      "id": "code_0101",
+      "severity": "info",
+      "category": "permission_overscope",
+      "title": "Filesystem operations in MCP server source (capability note)",
+      "description": "Pattern matched in scripts\\rule-structure\\fix-rule-structure.ts at line 227: `fs.writeFileSync(filePath, nextRaw)`",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": "scripts\\rule-structure\\fix-rule-structure.ts",
+      "line_number": 227,
+      "recommendation": "Review this file system broad access pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "fs.writeFileSync(filePath, nextRaw)",
+      "location": "scripts\\rule-structure\\fix-rule-structure.ts:227",
+      "replay": "axiom scan <corpus>/registry2/01_thedaviddias__Front-End-Checklist --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0101\")'"
+    },
+    {
+      "id": "code_0102",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in scripts\\setup\\install-lefthook.mjs at line 9: `const result = spawnSync('lefthook', ['install'], { stdio: 'inherit' })`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "scripts\\setup\\install-lefthook.mjs",
+      "line_number": 9,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const result = spawnSync('lefthook', ['install'], { stdio: 'inherit' })",
+      "location": "scripts\\setup\\install-lefthook.mjs:9",
+      "replay": "axiom scan <corpus>/registry2/01_thedaviddias__Front-End-Checklist --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0102\")'"
+    },
+    {
+      "id": "code_0103",
+      "severity": "info",
+      "category": "permission_overscope",
+      "title": "Filesystem operations in MCP server source (capability note)",
+      "description": "Pattern matched in scripts\\validation\\check-as-casts.js at line 183: `const content = fs.readFileSync(filePath, 'utf8')`",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": "scripts\\validation\\check-as-casts.js",
+      "line_number": 183,
+      "recommendation": "Review this file system broad access pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const content = fs.readFileSync(filePath, 'utf8')",
+      "location": "scripts\\validation\\check-as-casts.js:183",
+      "replay": "axiom scan <corpus>/registry2/01_thedaviddias__Front-End-Checklist --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0103\")'"
+    },
+    {
+      "id": "code_0104",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in scripts\\validation\\check-as-casts.js at line 192: `const result = execSync('git diff --cached --name-only --diff-filter=ACM', {`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "scripts\\validation\\check-as-casts.js",
+      "line_number": 192,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const result = execSync('git diff --cached --name-only --diff-filter=ACM', {",
+      "location": "scripts\\validation\\check-as-casts.js:192",
+      "replay": "axiom scan <corpus>/registry2/01_thedaviddias__Front-End-Checklist --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0104\")'"
+    },
+    {
+      "id": "code_0105",
+      "severity": "info",
+      "category": "permission_overscope",
+      "title": "Filesystem operations in MCP server source (capability note)",
+      "description": "Pattern matched in scripts\\validation\\check-as-casts.js at line 217: `const entries = fs.readdirSync(dir, { withFileTypes: true })`",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": "scripts\\validation\\check-as-casts.js",
+      "line_number": 217,
+      "recommendation": "Review this file system broad access pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const entries = fs.readdirSync(dir, { withFileTypes: true })",
+      "location": "scripts\\validation\\check-as-casts.js:217",
+      "replay": "axiom scan <corpus>/registry2/01_thedaviddias__Front-End-Checklist --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0105\")'"
+    },
+    {
+      "id": "code_0106",
+      "severity": "info",
+      "category": "permission_overscope",
+      "title": "Filesystem operations in MCP server source (capability note)",
+      "description": "Pattern matched in scripts\\validation\\check-as-casts.js at line 257: `const content = fs.readFileSync(file, 'utf8')`",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": "scripts\\validation\\check-as-casts.js",
+      "line_number": 257,
+      "recommendation": "Review this file system broad access pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const content = fs.readFileSync(file, 'utf8')",
+      "location": "scripts\\validation\\check-as-casts.js:257",
+      "replay": "axiom scan <corpus>/registry2/01_thedaviddias__Front-End-Checklist --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0106\")'"
+    },
+    {
+      "id": "code_0107",
+      "severity": "info",
+      "category": "permission_overscope",
+      "title": "Filesystem operations in MCP server source (capability note)",
+      "description": "Pattern matched in scripts\\validation\\check-barrel-files.js at line 90: `const content = fs.readFileSync(filePath, 'utf8')`",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": "scripts\\validation\\check-barrel-files.js",
+      "line_number": 90,
+      "recommendation": "Review this file system broad access pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const content = fs.readFileSync(filePath, 'utf8')",
+      "location": "scripts\\validation\\check-barrel-files.js:90",
+      "replay": "axiom scan <corpus>/registry2/01_thedaviddias__Front-End-Checklist --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0107\")'"
+    },
+    {
+      "id": "code_0108",
+      "severity": "info",
+      "category": "permission_overscope",
+      "title": "Filesystem operations in MCP server source (capability note)",
+      "description": "Pattern matched in scripts\\validation\\check-barrel-files.js at line 122: `const entries = fs.readdirSync(dir, { withFileTypes: true })`",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": "scripts\\validation\\check-barrel-files.js",
+      "line_number": 122,
+      "recommendation": "Review this file system broad access pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const entries = fs.readdirSync(dir, { withFileTypes: true })",
+      "location": "scripts\\validation\\check-barrel-files.js:122",
+      "replay": "axiom scan <corpus>/registry2/01_thedaviddias__Front-End-Checklist --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0108\")'"
+    },
+    {
+      "id": "code_0109",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in scripts\\validation\\check-console-logs.js at line 28: `} = require('../../packages/validators/src/console-logs.js')`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "scripts\\validation\\check-console-logs.js",
+      "line_number": 28,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "} = require('../../packages/validators/src/console-logs.js')",
+      "location": "scripts\\validation\\check-console-logs.js:28",
+      "replay": "axiom scan <corpus>/registry2/01_thedaviddias__Front-End-Checklist --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0109\")'"
+    },
+    {
+      "id": "code_0110",
+      "severity": "info",
+      "category": "permission_overscope",
+      "title": "Filesystem operations in MCP server source (capability note)",
+      "description": "Pattern matched in scripts\\validation\\check-console-logs.js at line 54: `const content = fs.readFileSync(filePath, 'utf8')`",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": "scripts\\validation\\check-console-logs.js",
+      "line_number": 54,
+      "recommendation": "Review this file system broad access pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const content = fs.readFileSync(filePath, 'utf8')",
+      "location": "scripts\\validation\\check-console-logs.js:54",
+      "replay": "axiom scan <corpus>/registry2/01_thedaviddias__Front-End-Checklist --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0110\")'"
+    },
+    {
+      "id": "code_0111",
+      "severity": "info",
+      "category": "permission_overscope",
+      "title": "Filesystem operations in MCP server source (capability note)",
+      "description": "Pattern matched in scripts\\validation\\check-console-logs.js at line 63: `const files = fs.readdirSync(dirPath)`",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": "scripts\\validation\\check-console-logs.js",
+      "line_number": 63,
+      "recommendation": "Review this file system broad access pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const files = fs.readdirSync(dirPath)",
+      "location": "scripts\\validation\\check-console-logs.js:63",
+      "replay": "axiom scan <corpus>/registry2/01_thedaviddias__Front-End-Checklist --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0111\")'"
+    },
+    {
+      "id": "code_0112",
+      "severity": "info",
+      "category": "permission_overscope",
+      "title": "Filesystem operations in MCP server source (capability note)",
+      "description": "Pattern matched in scripts\\validation\\check-directory-structure.js at line 159: `const items = fs.readdirSync(dir, { withFileTypes: true })`",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": "scripts\\validation\\check-directory-structure.js",
+      "line_number": 159,
+      "recommendation": "Review this file system broad access pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const items = fs.readdirSync(dir, { withFileTypes: true })",
+      "location": "scripts\\validation\\check-directory-structure.js:159",
+      "replay": "axiom scan <corpus>/registry2/01_thedaviddias__Front-End-Checklist --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0112\")'"
+    },
+    {
+      "id": "code_0113",
+      "severity": "info",
+      "category": "permission_overscope",
+      "title": "Filesystem operations in MCP server source (capability note)",
+      "description": "Pattern matched in scripts\\validation\\check-file-complexity.js at line 190: `const content = fs.readFileSync(filePath, 'utf-8')`",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": "scripts\\validation\\check-file-complexity.js",
+      "line_number": 190,
+      "recommendation": "Review this file system broad access pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const content = fs.readFileSync(filePath, 'utf-8')",
+      "location": "scripts\\validation\\check-file-complexity.js:190",
+      "replay": "axiom scan <corpus>/registry2/01_thedaviddias__Front-End-Checklist --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0113\")'"
+    },
+    {
+      "id": "code_0114",
+      "severity": "info",
+      "category": "permission_overscope",
+      "title": "Filesystem operations in MCP server source (capability note)",
+      "description": "Pattern matched in scripts\\validation\\check-file-complexity.js at line 317: `const items = fs.readdirSync(dir)`",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": "scripts\\validation\\check-file-complexity.js",
+      "line_number": 317,
+      "recommendation": "Review this file system broad access pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const items = fs.readdirSync(dir)",
+      "location": "scripts\\validation\\check-file-complexity.js:317",
+      "replay": "axiom scan <corpus>/registry2/01_thedaviddias__Front-End-Checklist --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0114\")'"
+    },
+    {
+      "id": "code_0115",
+      "severity": "info",
+      "category": "permission_overscope",
+      "title": "Filesystem operations in MCP server source (capability note)",
+      "description": "Pattern matched in scripts\\validation\\check-jsdoc.js at line 329: `const content = fs.readFileSync(filePath, 'utf-8')`",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": "scripts\\validation\\check-jsdoc.js",
+      "line_number": 329,
+      "recommendation": "Review this file system broad access pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const content = fs.readFileSync(filePath, 'utf-8')",
+      "location": "scripts\\validation\\check-jsdoc.js:329",
+      "replay": "axiom scan <corpus>/registry2/01_thedaviddias__Front-End-Checklist --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0115\")'"
+    },
+    {
+      "id": "code_0116",
+      "severity": "info",
+      "category": "permission_overscope",
+      "title": "Filesystem operations in MCP server source (capability note)",
+      "description": "Pattern matched in scripts\\validation\\check-jsdoc.js at line 524: `const items = fs.readdirSync(dir)`",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": "scripts\\validation\\check-jsdoc.js",
+      "line_number": 524,
+      "recommendation": "Review this file system broad access pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const items = fs.readdirSync(dir)",
+      "location": "scripts\\validation\\check-jsdoc.js:524",
+      "replay": "axiom scan <corpus>/registry2/01_thedaviddias__Front-End-Checklist --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0116\")'"
+    },
+    {
+      "id": "code_0117",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in scripts\\validation\\check-relative-imports.ts at line 13: `'../../components': '@/components',`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "scripts\\validation\\check-relative-imports.ts",
+      "line_number": 13,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "'../../components': '@/components',",
+      "location": "scripts\\validation\\check-relative-imports.ts:13",
+      "replay": "axiom scan <corpus>/registry2/01_thedaviddias__Front-End-Checklist --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0117\")'"
+    },
+    {
+      "id": "code_0118",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in scripts\\validation\\check-relative-imports.ts at line 14: `'../../../components': '@/components',`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "scripts\\validation\\check-relative-imports.ts",
+      "line_number": 14,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "'../../../components': '@/components',",
+      "location": "scripts\\validation\\check-relative-imports.ts:14",
+      "replay": "axiom scan <corpus>/registry2/01_thedaviddias__Front-End-Checklist --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0118\")'"
+    },
+    {
+      "id": "code_0119",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in scripts\\validation\\check-relative-imports.ts at line 16: `'../../lib': '@/lib',`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "scripts\\validation\\check-relative-imports.ts",
+      "line_number": 16,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "'../../lib': '@/lib',",
+      "location": "scripts\\validation\\check-relative-imports.ts:16",
+      "replay": "axiom scan <corpus>/registry2/01_thedaviddias__Front-End-Checklist --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0119\")'"
+    },
+    {
+      "id": "code_0120",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in scripts\\validation\\check-relative-imports.ts at line 17: `'../../../lib': '@/lib',`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "scripts\\validation\\check-relative-imports.ts",
+      "line_number": 17,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "'../../../lib': '@/lib',",
+      "location": "scripts\\validation\\check-relative-imports.ts:17",
+      "replay": "axiom scan <corpus>/registry2/01_thedaviddias__Front-End-Checklist --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0120\")'"
+    },
+    {
+      "id": "code_0121",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in scripts\\validation\\check-relative-imports.ts at line 19: `'../../hooks': '@/hooks',`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "scripts\\validation\\check-relative-imports.ts",
+      "line_number": 19,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "'../../hooks': '@/hooks',",
+      "location": "scripts\\validation\\check-relative-imports.ts:19",
+      "replay": "axiom scan <corpus>/registry2/01_thedaviddias__Front-End-Checklist --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0121\")'"
+    },
+    {
+      "id": "code_0122",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in scripts\\validation\\check-relative-imports.ts at line 20: `'../../../hooks': '@/hooks',`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "scripts\\validation\\check-relative-imports.ts",
+      "line_number": 20,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "'../../../hooks': '@/hooks',",
+      "location": "scripts\\validation\\check-relative-imports.ts:20",
+      "replay": "axiom scan <corpus>/registry2/01_thedaviddias__Front-End-Checklist --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0122\")'"
+    },
+    {
+      "id": "code_0123",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in scripts\\validation\\check-relative-imports.ts at line 22: `'../../contexts': '@/contexts',`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "scripts\\validation\\check-relative-imports.ts",
+      "line_number": 22,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "'../../contexts': '@/contexts',",
+      "location": "scripts\\validation\\check-relative-imports.ts:22",
+      "replay": "axiom scan <corpus>/registry2/01_thedaviddias__Front-End-Checklist --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0123\")'"
+    },
+    {
+      "id": "code_0124",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in scripts\\validation\\check-relative-imports.ts at line 23: `'../../../contexts': '@/contexts',`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "scripts\\validation\\check-relative-imports.ts",
+      "line_number": 23,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "'../../../contexts': '@/contexts',",
+      "location": "scripts\\validation\\check-relative-imports.ts:23",
+      "replay": "axiom scan <corpus>/registry2/01_thedaviddias__Front-End-Checklist --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0124\")'"
+    },
+    {
+      "id": "code_0125",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in scripts\\validation\\check-relative-imports.ts at line 25: `'../../utils': '@/utils',`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "scripts\\validation\\check-relative-imports.ts",
+      "line_number": 25,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "'../../utils': '@/utils',",
+      "location": "scripts\\validation\\check-relative-imports.ts:25",
+      "replay": "axiom scan <corpus>/registry2/01_thedaviddias__Front-End-Checklist --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0125\")'"
+    },
+    {
+      "id": "code_0126",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in scripts\\validation\\check-relative-imports.ts at line 26: `'../../../utils': '@/utils',`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "scripts\\validation\\check-relative-imports.ts",
+      "line_number": 26,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "'../../../utils': '@/utils',",
+      "location": "scripts\\validation\\check-relative-imports.ts:26",
+      "replay": "axiom scan <corpus>/registry2/01_thedaviddias__Front-End-Checklist --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0126\")'"
+    },
+    {
+      "id": "code_0127",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in scripts\\validation\\check-relative-imports.ts at line 28: `'../../mocks': '@/__tests__/mocks'`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "scripts\\validation\\check-relative-imports.ts",
+      "line_number": 28,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "'../../mocks': '@/__tests__/mocks'",
+      "location": "scripts\\validation\\check-relative-imports.ts:28",
+      "replay": "axiom scan <corpus>/registry2/01_thedaviddias__Front-End-Checklist --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0127\")'"
+    },
+    {
+      "id": "code_0128",
+      "severity": "info",
+      "category": "permission_overscope",
+      "title": "Filesystem operations in MCP server source (capability note)",
+      "description": "Pattern matched in scripts\\validation\\check-relative-imports.ts at line 38: `const content = fs.readFileSync(filePath, 'utf-8')`",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": "scripts\\validation\\check-relative-imports.ts",
+      "line_number": 38,
+      "recommendation": "Review this file system broad access pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const content = fs.readFileSync(filePath, 'utf-8')",
+      "location": "scripts\\validation\\check-relative-imports.ts:38",
+      "replay": "axiom scan <corpus>/registry2/01_thedaviddias__Front-End-Checklist --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0128\")'"
+    },
+    {
+      "id": "code_0129",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in scripts\\validation\\check-relative-imports.ts at line 67: `if (!suggestion && (importPath.startsWith('../') || importPath.startsWith('../../'))) {`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "scripts\\validation\\check-relative-imports.ts",
+      "line_number": 67,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "if (!suggestion && (importPath.startsWith('../') || importPath.startsWith('../../'))) {",
+      "location": "scripts\\validation\\check-relative-imports.ts:67",
+      "replay": "axiom scan <corpus>/registry2/01_thedaviddias__Front-End-Checklist --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0129\")'"
+    },
+    {
+      "id": "transport_plain_http",
+      "severity": "info",
+      "category": "transport_security",
+      "title": "MCP server listens on plain HTTP",
+      "description": "packages\\mcp\\src\\http-server.ts binds or references http://127.0.0.1; the server is on the loopback interface; only this machine can reach it.",
+      "owasp_asi": [
+        "ASI07"
+      ],
+      "owasp_mcp": [
+        "MCP07"
+      ],
+      "file_path": "packages\\mcp\\src\\http-server.ts",
+      "line_number": null,
+      "recommendation": "Use HTTPS with valid TLS certificates for anything reachable beyond this machine.",
+      "rule_id": "transport_plain_http",
+      "evidence": "MCP server listens on plain HTTP",
+      "location": "packages\\mcp\\src\\http-server.ts",
+      "replay": "axiom scan <corpus>/registry2/01_thedaviddias__Front-End-Checklist --output json --no-ai --no-history | jq '.findings[] | select(.id==\"transport_plain_http\")'"
+    },
+    {
+      "id": "transport_no_auth",
+      "severity": "low",
+      "category": "transport_security",
+      "title": "HTTP/SSE transport defined without visible authentication",
+      "description": "packages\\mcp\\src\\server.ts sets up an HTTP/SSE transport and no authentication middleware is visible; the host is not known from the source; verify where this server is deployed.",
+      "owasp_asi": [
+        "ASI07"
+      ],
+      "owasp_mcp": [
+        "MCP07"
+      ],
+      "file_path": "packages\\mcp\\src\\server.ts",
+      "line_number": null,
+      "recommendation": "Require OAuth 2.1 / bearer authentication on any endpoint that is not bound to localhost.",
+      "rule_id": "transport_no_auth",
+      "evidence": "HTTP/SSE transport defined without visible authentication",
+      "location": "packages\\mcp\\src\\server.ts",
+      "replay": "axiom scan <corpus>/registry2/01_thedaviddias__Front-End-Checklist --output json --no-ai --no-history | jq '.findings[] | select(.id==\"transport_no_auth\")'"
+    },
+    {
+      "id": "codegen_0001",
+      "severity": "low",
+      "category": "code_generation",
+      "title": "Dynamic code generation from input detected",
+      "description": "Pattern in packages\\validators\\src\\validate-imports.ts at line 74: `this.checkRelativeImport(filePath, index + 1, importPath)`. Tools that generate code from agent inputs can execute attacker-controlled payloads.",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "packages\\validators\\src\\validate-imports.ts",
+      "line_number": 74,
+      "recommendation": "Sandbox code execution. Validate and sanitize all inputs before code generation. Use AST-based analysis instead of string-based code construction.",
+      "rule_id": "code_generation_pattern",
+      "evidence": "Dynamic code generation from input detected",
+      "location": "packages\\validators\\src\\validate-imports.ts:74",
+      "replay": "axiom scan <corpus>/registry2/01_thedaviddias__Front-End-Checklist --output json --no-ai --no-history | jq '.findings[] | select(.id==\"codegen_0001\")'"
+    },
+    {
+      "id": "memory_0001",
+      "severity": "low",
+      "category": "memory_poisoning",
+      "title": "Memory/context modification capability detected",
+      "description": "Pattern in apps\\web\\hooks\\use-intersection-in-view.ts near line 7: `state update`. MCP servers that modify agent memory or context can poison long-term behavior.",
+      "owasp_asi": [
+        "ASI06"
+      ],
+      "owasp_mcp": [
+        "MCP06",
+        "MCP10"
+      ],
+      "file_path": "apps\\web\\hooks\\use-intersection-in-view.ts",
+      "line_number": 7,
+      "recommendation": "Validate all data before writing to agent memory. Implement integrity checks on persistent context. Log all memory modifications for audit.",
+      "rule_id": "memory_poisoning_pattern",
+      "evidence": "Memory/context modification capability detected",
+      "location": "apps\\web\\hooks\\use-intersection-in-view.ts:7",
+      "replay": "axiom scan <corpus>/registry2/01_thedaviddias__Front-End-Checklist --output json --no-ai --no-history | jq '.findings[] | select(.id==\"memory_0001\")'"
+    },
+    {
+      "id": "memory_0002",
+      "severity": "low",
+      "category": "memory_poisoning",
+      "title": "Memory/context modification capability detected",
+      "description": "Pattern in packages\\storage\\src\\index.ts near line 26: `memoryCache`. MCP servers that modify agent memory or context can poison long-term behavior.",
+      "owasp_asi": [
+        "ASI06"
+      ],
+      "owasp_mcp": [
+        "MCP06",
+        "MCP10"
+      ],
+      "file_path": "packages\\storage\\src\\index.ts",
+      "line_number": 26,
+      "recommendation": "Validate all data before writing to agent memory. Implement integrity checks on persistent context. Log all memory modifications for audit.",
+      "rule_id": "memory_poisoning_pattern",
+      "evidence": "Memory/context modification capability detected",
+      "location": "packages\\storage\\src\\index.ts:26",
+      "replay": "axiom scan <corpus>/registry2/01_thedaviddias__Front-End-Checklist --output json --no-ai --no-history | jq '.findings[] | select(.id==\"memory_0002\")'"
+    },
+    {
+      "id": "memory_0003",
+      "severity": "low",
+      "category": "memory_poisoning",
+      "title": "Memory/context modification capability detected",
+      "description": "Pattern in packages\\storage\\src\\storage-helpers.ts near line 57: `memory cache`. MCP servers that modify agent memory or context can poison long-term behavior.",
+      "owasp_asi": [
+        "ASI06"
+      ],
+      "owasp_mcp": [
+        "MCP06",
+        "MCP10"
+      ],
+      "file_path": "packages\\storage\\src\\storage-helpers.ts",
+      "line_number": 57,
+      "recommendation": "Validate all data before writing to agent memory. Implement integrity checks on persistent context. Log all memory modifications for audit.",
+      "rule_id": "memory_poisoning_pattern",
+      "evidence": "Memory/context modification capability detected",
+      "location": "packages\\storage\\src\\storage-helpers.ts:57",
+      "replay": "axiom scan <corpus>/registry2/01_thedaviddias__Front-End-Checklist --output json --no-ai --no-history | jq '.findings[] | select(.id==\"memory_0003\")'"
+    },
+    {
+      "id": "memory_0004",
+      "severity": "low",
+      "category": "memory_poisoning",
+      "title": "Memory/context modification capability detected",
+      "description": "Pattern in packages\\storage\\src\\__tests__\\storage.test.ts near line 94: `memoryCache`. MCP servers that modify agent memory or context can poison long-term behavior.",
+      "owasp_asi": [
+        "ASI06"
+      ],
+      "owasp_mcp": [
+        "MCP06",
+        "MCP10"
+      ],
+      "file_path": "packages\\storage\\src\\__tests__\\storage.test.ts",
+      "line_number": 94,
+      "recommendation": "Validate all data before writing to agent memory. Implement integrity checks on persistent context. Log all memory modifications for audit.",
+      "rule_id": "memory_poisoning_pattern",
+      "evidence": "Memory/context modification capability detected",
+      "location": "packages\\storage\\src\\__tests__\\storage.test.ts:94",
+      "replay": "axiom scan <corpus>/registry2/01_thedaviddias__Front-End-Checklist --output json --no-ai --no-history | jq '.findings[] | select(.id==\"memory_0004\")'"
+    },
+    {
+      "id": "memory_0005",
+      "severity": "low",
+      "category": "memory_poisoning",
+      "title": "Memory/context modification capability detected",
+      "description": "Pattern in scripts\\generate\\generate-skills.ts near line 268: `state update`. MCP servers that modify agent memory or context can poison long-term behavior.",
+      "owasp_asi": [
+        "ASI06"
+      ],
+      "owasp_mcp": [
+        "MCP06",
+        "MCP10"
+      ],
+      "file_path": "scripts\\generate\\generate-skills.ts",
+      "line_number": 268,
+      "recommendation": "Validate all data before writing to agent memory. Implement integrity checks on persistent context. Log all memory modifications for audit.",
+      "rule_id": "memory_poisoning_pattern",
+      "evidence": "Memory/context modification capability detected",
+      "location": "scripts\\generate\\generate-skills.ts:268",
+      "replay": "axiom scan <corpus>/registry2/01_thedaviddias__Front-End-Checklist --output json --no-ai --no-history | jq '.findings[] | select(.id==\"memory_0005\")'"
+    },
+    {
+      "id": "trust_0001",
+      "severity": "low",
+      "category": "trust_exploitation",
+      "title": "Trust exploitation pattern: consent bypass",
+      "description": "Pattern in scripts\\lib\\rule-support-data.ts near line 107: `suppressWarning`. This could enable a compromised agent to mislead users.",
+      "owasp_asi": [
+        "ASI09"
+      ],
+      "owasp_mcp": [
+        "MCP06"
+      ],
+      "file_path": "scripts\\lib\\rule-support-data.ts",
+      "line_number": 107,
+      "recommendation": "Implement output verification. Require human confirmation for high-impact actions. Mark agent-generated content as such.",
+      "rule_id": "trust_exploitation_pattern",
+      "evidence": "Trust exploitation pattern: consent bypass",
+      "location": "scripts\\lib\\rule-support-data.ts:107",
+      "replay": "axiom scan <corpus>/registry2/01_thedaviddias__Front-End-Checklist --output json --no-ai --no-history | jq '.findings[] | select(.id==\"trust_0001\")'"
+    },
+    {
+      "id": "rogue_0001",
+      "severity": "low",
+      "category": "rogue_agent",
+      "title": "Rogue agent indicator detected",
+      "description": "Pattern in packages\\search\\src\\index.ts near line 382: `clearHistory`. This could indicate self-modifying behavior, persistence mechanisms, or evasion capabilities.",
+      "owasp_asi": [
+        "ASI10"
+      ],
+      "owasp_mcp": [
+        "MCP03"
+      ],
+      "file_path": "packages\\search\\src\\index.ts",
+      "line_number": 382,
+      "recommendation": "Implement behavioral monitoring and kill switches. Ensure all agent actions are logged and auditable. Run in sandboxed environments with strict resource limits.",
+      "rule_id": "rogue_agent_pattern",
+      "evidence": "Rogue agent indicator detected",
+      "location": "packages\\search\\src\\index.ts:382",
+      "replay": "axiom scan <corpus>/registry2/01_thedaviddias__Front-End-Checklist --output json --no-ai --no-history | jq '.findings[] | select(.id==\"rogue_0001\")'"
+    },
+    {
+      "id": "mcp04_unpinned_0001",
+      "severity": "medium",
+      "category": "supply_chain",
+      "title": "Unpinned install source",
+      "description": "`npx tsx` without a pinned version in .mcp.json at line 4. Without an exact version the next install silently picks up whatever is published, including a compromised release.",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": ".mcp.json",
+      "line_number": 4,
+      "recommendation": "Pin an exact version (pkg@1.2.3, pkg==1.2.3) and prefer a lockfile or hash-checked requirements.",
+      "rule_id": "unpinned_install_source",
+      "evidence": "Unpinned install source",
+      "location": ".mcp.json:4",
+      "replay": "axiom scan <corpus>/registry2/01_thedaviddias__Front-End-Checklist --output json --no-ai --no-history | jq '.findings[] | select(.id==\"mcp04_unpinned_0001\")'"
+    },
+    {
+      "id": "mcp04_unpinned_0002",
+      "severity": "medium",
+      "category": "supply_chain",
+      "title": "Unpinned install source",
+      "description": "`mcp-security-auditor@latest` floating tag in package.json at line 54. Without an exact version the next install silently picks up whatever is published, including a compromised release.",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": "package.json",
+      "line_number": 54,
+      "recommendation": "Pin an exact version (pkg@1.2.3, pkg==1.2.3) and prefer a lockfile or hash-checked requirements.",
+      "rule_id": "unpinned_install_source",
+      "evidence": "Unpinned install source",
+      "location": "package.json:54",
+      "replay": "axiom scan <corpus>/registry2/01_thedaviddias__Front-End-Checklist --output json --no-ai --no-history | jq '.findings[] | select(.id==\"mcp04_unpinned_0002\")'"
+    },
+    {
+      "id": "mcp08_no_tool_logging",
+      "severity": "info",
+      "category": "audit_telemetry",
+      "title": "No logging found in files that define MCP tools (low confidence)",
+      "description": "None of the tool-defining files (packages\\mcp\\src\\server-tools.ts) reference a logging library or logger call. Tool invocations may leave no audit trail. Confidence is low: logging could be configured elsewhere or by the host.",
+      "owasp_asi": [
+        "ASI10"
+      ],
+      "owasp_mcp": [
+        "MCP08"
+      ],
+      "file_path": "packages\\mcp\\src\\server-tools.ts",
+      "line_number": null,
+      "recommendation": "Log each tool invocation (tool name, caller/session, outcome, and redacted arguments) to a durable, tamper-evident sink.",
+      "rule_id": "no_tool_logging",
+      "evidence": "No logging found in files that define MCP tools (low confidence)",
+      "location": "packages\\mcp\\src\\server-tools.ts",
+      "replay": "axiom scan <corpus>/registry2/01_thedaviddias__Front-End-Checklist --output json --no-ai --no-history | jq '.findings[] | select(.id==\"mcp08_no_tool_logging\")'"
+    },
+    {
+      "id": "instructions_tool_chaining",
+      "severity": "medium",
+      "category": "prompt_injection",
+      "title": "Tool chaining in server instructions",
+      "description": "Tool description sequences other tools around itself. Matched 'then use' in server instructions. Excerpt: 'Use Front-End Checklist whenever the user is reviewing, implementing, debugging, or auditing frontend code. Reach for this server for HTML, CSS, JavaScript, Typ'",
+      "owasp_asi": [
+        "ASI02"
+      ],
+      "owasp_mcp": [
+        "MCP06"
+      ],
+      "file_path": "packages\\mcp\\src\\server.ts",
+      "line_number": 134,
+      "recommendation": "Review this content; an agent will follow it.",
+      "rule_id": "served_text_tool_chaining",
+      "evidence": "then use",
+      "location": "packages\\mcp\\src\\server.ts:134",
+      "replay": "axiom scan <corpus>/registry2/01_thedaviddias__Front-End-Checklist --output json --no-ai --no-history | jq '.findings[] | select(.id==\"instructions_tool_chaining\")'"
+    },
+    {
+      "id": "resource_ui_frontend-checklist_review-report_instruction_injection",
+      "severity": "medium",
+      "category": "prompt_injection",
+      "title": "Instruction injection in resource 'ui://frontend-checklist/review-report'",
+      "description": "Steering language in tool description (imperative guidance aimed at the model). Matched 'never' in resource 'ui://frontend-checklist/review-report'. Excerpt: 'ui://frontend-checklist/review-report text/html;profile=mcp-app <!DOCTYPE html> <html lang=\"en\"> <head> <meta charset=\"utf-8\"> <meta name=\"viewport\" content=\"wi'",
+      "owasp_asi": [
+        "ASI01"
+      ],
+      "owasp_mcp": [
+        "MCP06"
+      ],
+      "file_path": "packages\\mcp\\src\\server-apps.ts",
+      "line_number": 199,
+      "recommendation": "Review this content; an agent will follow it.",
+      "rule_id": "served_text_instruction_injection",
+      "evidence": "never",
+      "location": "packages\\mcp\\src\\server-apps.ts:199",
+      "replay": "axiom scan <corpus>/registry2/01_thedaviddias__Front-End-Checklist --output json --no-ai --no-history | jq '.findings[] | select(.id==\"resource_ui_frontend-checklist_review-report_instruction_injection\")'"
+    }
+  ],
+  "server_profile": {
+    "name": "01_thedaviddias__Front-End-Checklist",
+    "command": null,
+    "args": [],
+    "env_vars": [],
+    "transport": "http",
+    "tools": [
+      {
+        "name": "audit_url",
+        "description": "Fetches a public https:// URL and audits its HTML against frontend best practice rules.",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "get_checklist_rules",
+        "description": "Returns full rule details for every rule in a curated checklist in one call \u2014 more efficient than calling get_rule N times.",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "review_code",
+        "description": "Analyzes pasted HTML, CSS, JavaScript, React, or Next.js code against relevant frontend rules.",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "get_rule",
+        "description": "Retrieves a single frontend development rule by its unique slug with complete details.",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "search_rules",
+        "description": "Searches frontend rules by technology, concern, category, priority, or implementation pattern.",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "check_rule",
+        "description": "Checks code against a specific frontend rule and returns analysis with fix guidance.",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "fix_rule",
+        "description": "Returns the fix/implementation prompt for a specific rule with priority context.",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "explain_rule",
+        "description": "Returns the educational explanation for a rule - why it matters and its impact.",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "list_categories",
+        "description": "Returns all available categories with metadata including rule counts and descriptions.",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "get_workflow",
+        "description": "Returns a curated, ordered sequence of rules for a specific checklist workflow.",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "get_quick_reference",
+        "description": "Returns a compact, actionable checklist of rules for a category with priority filtering.",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      }
+    ],
+    "resources": [
+      {
+        "uri": "ui://frontend-checklist/review-report",
+        "name": "review_report_app",
+        "description": "Interactive view of review_code and audit_url results.",
+        "mime_type": null
+      },
+      {
+        "uri": "rule_resource",
+        "name": "rule_resource",
+        "description": "Read a single frontend rule as normalized markdown.",
+        "mime_type": null
+      },
+      {
+        "uri": "checklist_resource",
+        "name": "checklist_resource",
+        "description": "Read a curated checklist with ordered rule references.",
+        "mime_type": null
+      },
+      {
+        "uri": "skill://{name}/{+path}",
+        "name": "skill_file",
+        "description": "A SKILL.md or supporting file from a Front-End Checklist agent skill.",
+        "mime_type": null
+      }
+    ],
+    "prompts": [
+      {
+        "name": "review_code_prompt",
+        "description": "Guide the model to review provided frontend code with the review_code tool.",
+        "arguments": [
+          {
+            "name": "code",
+            "required": false
+          },
+          {
+            "name": "focus",
+            "required": false
+          },
+          {
+            "name": "minPriority",
+            "required": false
+          }
+        ]
+      },
+      {
+        "name": "explain_rule_prompt",
+        "description": "Guide the model to explain why a frontend rule matters.",
+        "arguments": [
+          {
+            "name": "slug",
+            "required": true
+          }
+        ]
+      },
+      {
+        "name": "fix_rule_prompt",
+        "description": "Guide the model to retrieve remediation guidance for a specific rule.",
+        "arguments": [
+          {
+            "name": "slug",
+            "required": true
+          },
+          {
+            "name": "codeSnippet",
+            "required": false
+          }
+        ]
+      },
+      {
+        "name": "audit_url_prompt",
+        "description": "Guide the model to audit a live website using the audit_url tool.",
+        "arguments": [
+          {
+            "name": "url",
+            "required": true
+          },
+          {
+            "name": "focus",
+            "required": false
+          },
+          {
+            "name": "minPriority",
+            "required": false
+          }
+        ]
+      },
+      {
+        "name": "workflow_prompt",
+        "description": "Guide the model through a curated frontend checklist workflow.",
+        "arguments": [
+          {
+            "name": "checklist",
+            "required": true
+          }
+        ]
+      }
+    ],
+    "repo_url": null,
+    "npm_package": null,
+    "capabilities_claimed": [],
+    "capabilities_actual": []
+  },
+  "fingerprint": "d475e4bdbaeb47f8047df216ae18a47a3e678cef983f083681f8ff6571cb399e",
+  "surface_map": {
+    "server": {
+      "name": "front-end-checklist",
+      "instructions": "Use Front-End Checklist whenever the user is reviewing, implementing, debugging, or auditing frontend code.\nReach for this server for HTML, CSS, JavaScript, TypeScript, React, Next.js, accessibility, performance, SEO, security, images, privacy, i18n, testing, and launch-readiness work.\nFor pasted or inspected frontend code, call review_code first as a conservative static heuristic pass, then use its suggestions plus search_rules, get_rule, fix_rule, explain_rule, or check_rule for deeper remediation.\nIf review_code returns no issues, treat that as no provable static issue found; follow suggestions or retrieve relevant rules before concluding the implementation is clean.\nFor broad audits, call get_workflow or get_checklist_rules before checking individual rules. For live public pages, use audit_url.",
+      "transport": "streamable-http",
+      "auth": "unknown",
+      "instructions_location": "packages\\mcp\\src\\server.ts:134"
+    },
+    "tools": [
+      {
+        "name": "audit_url",
+        "description": "Fetches a public https:// URL and audits its HTML against frontend best practice rules.",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "apps\\web\\app\\(site)\\mcp\\page-data.ts:14"
+      },
+      {
+        "name": "get_checklist_rules",
+        "description": "Returns full rule details for every rule in a curated checklist in one call \u2014 more efficient than calling get_rule N times.",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "apps\\web\\app\\(site)\\mcp\\page-data.ts:49"
+      },
+      {
+        "name": "review_code",
+        "description": "Analyzes pasted HTML, CSS, JavaScript, React, or Next.js code against relevant frontend rules.",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "apps\\web\\app\\(site)\\mcp\\page-data.ts:77"
+      },
+      {
+        "name": "get_rule",
+        "description": "Retrieves a single frontend development rule by its unique slug with complete details.",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "apps\\web\\app\\(site)\\mcp\\page-data.ts:112"
+      },
+      {
+        "name": "search_rules",
+        "description": "Searches frontend rules by technology, concern, category, priority, or implementation pattern.",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "apps\\web\\app\\(site)\\mcp\\page-data.ts:140"
+      },
+      {
+        "name": "check_rule",
+        "description": "Checks code against a specific frontend rule and returns analysis with fix guidance.",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "apps\\web\\app\\(site)\\mcp\\page-data.ts:179"
+      },
+      {
+        "name": "fix_rule",
+        "description": "Returns the fix/implementation prompt for a specific rule with priority context.",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "apps\\web\\app\\(site)\\mcp\\page-data.ts:198"
+      },
+      {
+        "name": "explain_rule",
+        "description": "Returns the educational explanation for a rule - why it matters and its impact.",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "apps\\web\\app\\(site)\\mcp\\page-data.ts:212"
+      },
+      {
+        "name": "list_categories",
+        "description": "Returns all available categories with metadata including rule counts and descriptions.",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "apps\\web\\app\\(site)\\mcp\\page-data.ts:226"
+      },
+      {
+        "name": "get_workflow",
+        "description": "Returns a curated, ordered sequence of rules for a specific checklist workflow.",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "apps\\web\\app\\(site)\\mcp\\page-data.ts:239"
+      },
+      {
+        "name": "get_quick_reference",
+        "description": "Returns a compact, actionable checklist of rules for a category with priority filtering.",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "apps\\web\\app\\(site)\\mcp\\page-data.ts:255"
+      }
+    ],
+    "resources": [
+      {
+        "uri": "ui://frontend-checklist/review-report",
+        "name": "review_report_app",
+        "description": "Interactive view of review_code and audit_url results.",
+        "mime_type": null,
+        "content_literals": [
+          "ui://frontend-checklist/review-report",
+          "text/html;profile=mcp-app",
+          "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"utf-8\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n<title>Front-End Checklist report</title>\n<style>\n  :root {\n    color-scheme: light dark;\n    --bg: var(--color-background-primary, Canvas);\n    --fg: var(--color-text-primary, CanvasText);\n    --muted: var(--color-text-secondary, GrayText);\n    --border: var(--color-border-primary, color-mix(in srgb, CanvasText 15%, transparent));\n    --critical: var(--color-text-danger, #c62828);\n    --high: var(--color-text-warning, #b45309);\n    --medium: var(--color-text-info, #1d4ed8);\n    --low: var(--color-text-secondary, #6b7280);\n  }\n  * { box-sizing: border-box; }\n  body { margin: 0; padding: 16px; background: var(--bg); color: var(--fg);\n    font: 14px/1.5 var(--font-sans, system-ui, sans-serif); }\n  h1 { font-size: 16px; margin: 0 0 4px; }\n  .source { color: var(--muted); font-size: 12px; margin: 0 0 12px; overflow-wrap: anywhere; }\n  .stats { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }\n  .stat { border: 1px solid var(--border); border-radius: 8px; padding: 6px 10px; min-width: 88px; }\n  .stat b { display: block; font-size: 18px; }\n  .stat span { color: var(--muted); font-size: 12px; }\n  ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }\n  li { border: 1px solid var(--border); border-radius: 8px; padding: 10px 12px; }\n  .badge { display: inline-block; font-size: 11px; font-weight: 600; text-transform: uppercase;\n    letter-spacing: .04em; margin-right: 8px; }\n  .critical { color: var(--critical); } .high { color: var(--high); }\n  .medium { color: var(--medium); } .low { color: var(--low); }\n  .rule { color: var(--muted); font-size: 12px; font-family: var(--font-mono, ui-monospace, monospace); }\n  .issue { margin: 4px 0 0; }\n  .empty, .suggestions { color: var(--muted); }\n  .suggestions { margin-top: 16px; font-size: 13px; }\n</style>\n</head>\n<body>\n<main id=\"app\"><p class=\"empty\">Waiting for the review result\u2026</p></main>\n<script>\n(() => {\n  const app = document.getElementById('app')\n  let nextId = 1\n\n  const post = message => window.parent.postMessage({ jsonrpc: '2.0', ...message }, '*')\n\n  /**\n   * Create an element whose text is set via textContent (never parsed as HTML).\n   *\n   * @param tag - Element tag name.\n   * @param className - Optional class list.\n   * @param text - Optional text content.\n   * @returns The new element.\n   */\n  const el = (tag, className, text) => {\n    const node = document.createElement(tag)\n    if (className) node.className = className\n    if (text !== undefined) node.textContent = String(text)\n    return node\n  }\n\n  const render = result => {\n    const data = result && result.structuredContent\n    app.replaceChildren()\n    if (!data || !data.summary) {\n      const text = result && result.content && result.content[0] && result.content[0].text\n      app.append(el('p', 'empty', (data && (data.error || data.message)) || text || 'No report data.'))\n      return\n    }\n\n    app.append(el('h1', '', data.source ? 'Page audit' : 'Code review'))\n    if (data.source && data.source.url) app.append(el('p', 'source', data.source.url))\n\n    const stats = el('div', 'stats')\n    for (const [label, value] of [\n      ['Issues', data.summary.issuesFound],\n      ['Critical', data.summary.criticalIssues],\n      ['High', data.summary.highIssues],\n      ['Checks', data.summary.totalChecks]\n    ]) {\n      const stat = el('div', 'stat')\n      stat.append(el('b', '', value ?? 0), el('span', '', label))\n      stats.append(stat)\n    }\n    app.append(stats)\n\n    const issues = Array.isArray(data.issues) ? data.issues : []\n    if (issues.length === 0) {\n      app.append(el('p', 'empty', 'No provable static issues found.'))\n    } else {\n      const list = el('ul')\n      for (const issue of issues) {\n        const item = el('li')\n        const priority = ['critical', 'high', 'medium', 'low'].includes(issue.priority)\n          ? issue.priority\n          : 'low'\n        const heading = el('div')\n        heading.append(el('span', 'badge ' + priority, priority), el('strong', '', issue.title))\n        item.append(heading, el('div', 'rule', issue.rule), el('p', 'issue', issue.issue))\n        list.append(item)\n      }\n      app.append(list)\n    }\n\n    const suggestions = Array.isArray(data.suggestions) ? data.suggestions : []\n    if (suggestions.length > 0) {\n      app.append(el('p', 'suggestions', suggestions.join(' ')))\n    }\n  }\n\n  const applyHostContext = context => {\n    const variables = context && context.styles && context.styles.variables\n    if (variables) {\n      for (const [key, value] of Object.entries(variables)) {\n        if (key.startsWith('--') && typeof value === 'string') {\n          document.documentElement.style.setProperty(key, value)\n        }\n      }\n    }\n    if (context && context.theme) document.documentElement.style.colorScheme = context.theme\n  }\n\n  window.addEventListener('message', event => {\n    const message = event.data\n    if (!message || message.jsonrpc !== '2.0') return\n\n    if (message.id === 1 && message.result) {\n      applyHostContext(message.result.hostContext)\n      post({ method: 'ui/notifications/initialized', params: {} })\n      return\n    }\n    if (message.method === 'ui/notifications/tool-result') render(message.params)\n    if (message.method === 'ui/notifications/host-context-changed') applyHostContext(message.params)\n  })\n\n  post({\n    id: nextId++,\n    method: 'ui/initialize',\n    params: {\n      protocolVersion: '2026-01-26',\n      appInfo: { name: 'frontend-checklist-review-report', version: '1.0.0' },\n      appCapabilities: { availableDisplayModes: ['inline'] }\n    }\n  })\n\n  let lastHeight = 0\n  new ResizeObserver(() => {\n    const height = Math.ceil(document.documentElement.scrollHeight)\n    if (height === lastHeight) return\n    lastHeight = height\n    post({\n      method: 'ui/notifications/size-changed',\n      params: { width: Math.ceil(document.documentElement.scrollWidth), height }\n    })\n  }).observe(document.body)\n})()\n</script>\n</body>\n</html>\n"
+        ],
+        "location": "packages\\mcp\\src\\server-apps.ts:199"
+      },
+      {
+        "uri": "rule_resource",
+        "name": "rule_resource",
+        "description": "Read a single frontend rule as normalized markdown.",
+        "mime_type": null,
+        "content_literals": [
+          "text/markdown"
+        ],
+        "location": "packages\\mcp\\src\\server-resources.ts:144"
+      },
+      {
+        "uri": "checklist_resource",
+        "name": "checklist_resource",
+        "description": "Read a curated checklist with ordered rule references.",
+        "mime_type": null,
+        "content_literals": [
+          "text/markdown"
+        ],
+        "location": "packages\\mcp\\src\\server-resources.ts:195"
+      },
+      {
+        "uri": "skill://{name}/{+path}",
+        "name": "skill_file",
+        "description": "A SKILL.md or supporting file from a Front-End Checklist agent skill.",
+        "mime_type": null,
+        "content_literals": [
+          "text/markdown"
+        ],
+        "location": "packages\\mcp\\src\\server-skills.ts:224"
+      }
+    ],
+    "prompts": [
+      {
+        "name": "review_code_prompt",
+        "description": "Guide the model to review provided frontend code with the review_code tool.",
+        "arguments": [
+          {
+            "name": "code",
+            "required": false
+          },
+          {
+            "name": "focus",
+            "required": false
+          },
+          {
+            "name": "minPriority",
+            "required": false
+          }
+        ],
+        "message_literals": [
+          "user",
+          "text",
+          "Review the frontend code using the `review_code` tool.",
+          "`review_code` is a conservative static heuristic pass; zero issues means no provable static issue was found, not that the implementation is automatically clean.",
+          "Code:\n{code}",
+          "If I provide code next, pass it to `review_code`.",
+          "Focus categories: {focus.join(', ')}",
+          ", ",
+          "Minimum priority: {minPriority}",
+          "Summarize issues by priority. If there are no issues, follow `review_code` suggestions with `search_rules` or `get_rule` before concluding clean. Call `fix_rule` only when remediation detail is needed.",
+          "\n\n"
+        ],
+        "location": "packages\\mcp\\src\\server-prompts.ts:32"
+      },
+      {
+        "name": "explain_rule_prompt",
+        "description": "Guide the model to explain why a frontend rule matters.",
+        "arguments": [
+          {
+            "name": "slug",
+            "required": true
+          }
+        ],
+        "message_literals": [
+          "user",
+          "text",
+          "Use the `explain_rule` tool for the rule slug `{slug}`, then explain the rule in plain language with practical implications."
+        ],
+        "location": "packages\\mcp\\src\\server-prompts.ts:65"
+      },
+      {
+        "name": "fix_rule_prompt",
+        "description": "Guide the model to retrieve remediation guidance for a specific rule.",
+        "arguments": [
+          {
+            "name": "slug",
+            "required": true
+          },
+          {
+            "name": "codeSnippet",
+            "required": false
+          }
+        ],
+        "message_literals": [
+          "user",
+          "text",
+          "Use the `fix_rule` tool for the rule slug `{slug}`.",
+          "Provide this code snippet as context:\n{codeSnippet}",
+          "Return concrete remediation steps and highlight any caveats.",
+          "\n\n"
+        ],
+        "location": "packages\\mcp\\src\\server-prompts.ts:87"
+      },
+      {
+        "name": "audit_url_prompt",
+        "description": "Guide the model to audit a live website using the audit_url tool.",
+        "arguments": [
+          {
+            "name": "url",
+            "required": true
+          },
+          {
+            "name": "focus",
+            "required": false
+          },
+          {
+            "name": "minPriority",
+            "required": false
+          }
+        ],
+        "message_literals": [
+          "user",
+          "text",
+          "Audit the site `{url}` with the `audit_url` tool.",
+          "Focus categories: {focus.join(', ')}",
+          ", ",
+          "Minimum priority: {minPriority}",
+          "Summarize the highest-severity findings first and cite the affected rule slugs.",
+          "\n\n"
+        ],
+        "location": "packages\\mcp\\src\\server-prompts.ts:114"
+      },
+      {
+        "name": "workflow_prompt",
+        "description": "Guide the model through a curated frontend checklist workflow.",
+        "arguments": [
+          {
+            "name": "checklist",
+            "required": true
+          }
+        ],
+        "message_literals": [
+          "user",
+          "text",
+          "Use the `get_workflow` tool for the checklist slug `{checklist}`.",
+          "Then walk through the ordered steps, and fetch rule details or checklist resources when more context is needed.",
+          "\n\n"
+        ],
+        "location": "packages\\mcp\\src\\server-prompts.ts:143"
+      }
+    ],
+    "mutations": [],
+    "source": {
+      "kind": "static",
+      "target": "01_thedaviddias__Front-End-Checklist",
+      "languages": [
+        "typescript"
+      ]
+    },
+    "generated_at": "2026-11-11T22:35:53+00:00",
+    "fingerprint": "d475e4bdbaeb47f8047df216ae18a47a3e678cef983f083681f8ff6571cb399e",
+    "schema": "axiom.surface/1"
+  },
+  "provenance": {
+    "identity": {
+      "npm": "front-end-checklist",
+      "pypi": null,
+      "repository": "https://github.com/thedaviddias/front-end-checklist",
+      "server_name": "front-end-checklist"
+    },
+    "registry": {
+      "status": "match",
+      "entry": "io.github.thedaviddias/front-end-checklist",
+      "repository": "https://github.com/thedaviddias/front-end-checklist",
+      "packages": [],
+      "publishedAt": "2026-10-04T23:45:43.257384Z",
+      "version": "2.0.1"
+    },
+    "lookalikes": [],
+    "checked_at": "2026-11-11T22:35:59+00:00"
+  },
+  "owasp_coverage": {
+    "framework": "OWASP Top 10 for Agentic Applications 2026",
+    "reference": "https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/",
+    "coverage": {
+      "ASI01": {
+        "name": "Agent Goal Hijack",
+        "coverage_level": "strong",
+        "findings_count": 4,
+        "finding_ids": [
+          "code_0028",
+          "code_0029",
+          "code_0057",
+          "resource_ui_frontend-checklist_review-report_instruction_injection"
+        ],
+        "detectors": [
+          "tool_poisoning",
+          "prompt_injection",
+          "instruction_injection"
+        ]
+      },
+      "ASI02": {
+        "name": "Tool Misuse & Exploitation",
+        "coverage_level": "strong",
+        "findings_count": 4,
+        "finding_ids": [
+          "cross_tool_get_checklist_rules_get_rule",
+          "code_0028",
+          "code_0029",
+          "instructions_tool_chaining"
+        ],
+        "detectors": [
+          "toxic_tool_combo",
+          "tool_overscope",
+          "tool_chaining_detection"
+        ]
+      },
+      "ASI03": {
+        "name": "Identity & Privilege Abuse",
+        "coverage_level": "strong",
+        "findings_count": 44,
+        "finding_ids": [
+          "code_0030",
+          "code_0031",
+          "code_0032",
+          "code_0040",
+          "code_0041",
+          "code_0042",
+          "code_0055",
+          "code_0056",
+          "code_0060",
+          "code_0061"
+        ],
+        "detectors": [
+          "credential_analysis",
+          "shared_credential_detection",
+          "env_var_audit"
+        ]
+      },
+      "ASI04": {
+        "name": "Agentic Supply Chain Vulnerabilities",
+        "coverage_level": "strong",
+        "findings_count": 2,
+        "finding_ids": [
+          "mcp04_unpinned_0001",
+          "mcp04_unpinned_0002"
+        ],
+        "detectors": [
+          "dependency_cve",
+          "lifecycle_hooks",
+          "npx_unversioned",
+          "known_mcp_cves"
+        ]
+      },
+      "ASI05": {
+        "name": "Unexpected Code Execution",
+        "coverage_level": "strong",
+        "findings_count": 83,
+        "finding_ids": [
+          "code_0001",
+          "code_0002",
+          "code_0003",
+          "code_0004",
+          "code_0005",
+          "code_0006",
+          "code_0007",
+          "code_0008",
+          "code_0009",
+          "code_0010"
+        ],
+        "detectors": [
+          "code_exec_patterns",
+          "code_generation_detection",
+          "sandbox_escape"
+        ]
+      },
+      "ASI06": {
+        "name": "Memory & Context Poisoning",
+        "coverage_level": "partial",
+        "findings_count": 5,
+        "finding_ids": [
+          "memory_0001",
+          "memory_0002",
+          "memory_0003",
+          "memory_0004",
+          "memory_0005"
+        ],
+        "detectors": [
+          "memory_poisoning_patterns",
+          "context_manipulation_detection"
+        ],
+        "gap_note": "Axiom detects static patterns. Full coverage requires runtime memory monitoring."
+      },
+      "ASI07": {
+        "name": "Insecure Inter-Agent Communication",
+        "coverage_level": "partial",
+        "findings_count": 2,
+        "finding_ids": [
+          "transport_plain_http",
+          "transport_no_auth"
+        ],
+        "detectors": [
+          "transport_security",
+          "a2a_pattern_detection"
+        ],
+        "gap_note": "Axiom checks transport security. Full A2A protocol analysis requires runtime interception."
+      },
+      "ASI08": {
+        "name": "Cascading Failures",
+        "coverage_level": "partial",
+        "findings_count": 1,
+        "finding_ids": [
+          "cross_tool_get_checklist_rules_get_rule"
+        ],
+        "detectors": [
+          "blast_radius_estimation",
+          "dependency_chain_analysis"
+        ],
+        "gap_note": "Axiom estimates blast radius from tool capabilities. Full cascading failure analysis requires runtime topology mapping."
+      },
+      "ASI09": {
+        "name": "Human-Agent Trust Exploitation",
+        "coverage_level": "strong",
+        "findings_count": 1,
+        "finding_ids": [
+          "trust_0001"
+        ],
+        "detectors": [
+          "claimed_vs_actual",
+          "deceptive_output_detection",
+          "trust_manipulation_patterns"
+        ]
+      },
+      "ASI10": {
+        "name": "Rogue Agents",
+        "coverage_level": "partial",
+        "findings_count": 3,
+        "finding_ids": [
+          "code_0057",
+          "rogue_0001",
+          "mcp08_no_tool_logging"
+        ],
+        "detectors": [
+          "sleeper_patterns",
+          "behavioral_drift_indicators",
+          "persistence_detection"
+        ],
+        "gap_note": "Axiom detects static rogue indicators. Full rogue agent detection requires runtime behavioral monitoring."
+      }
+    },
+    "total_asi_categories_with_findings": 10
+  },
+  "owasp_mcp_coverage": {
+    "framework": "OWASP MCP Top 10",
+    "framework_version": "v0.1 beta",
+    "reference": "https://owasp.org/www-project-mcp-top-10/",
+    "coverage": {
+      "MCP01": {
+        "id": "MCP01:2025",
+        "name": "Token Mismanagement & Secret Exposure",
+        "coverage_level": "partial",
+        "reason": "Regex-based secret detection in server source and client configs plus env-var exposure checks; no entropy analysis, git-history scan, or token lifetime/passthrough checks.",
+        "findings_count": 4,
+        "finding_ids": [
+          "cross_tool_get_checklist_rules_get_rule",
+          "code_0040",
+          "code_0041",
+          "code_0042"
+        ],
+        "detectors": [
+          "credential_theft",
+          "cross_server",
+          "mcp01_hardcoded_secrets",
+          "config_hardcoded_secret",
+          "env_var_audit",
+          "env_dump"
+        ]
+      },
+      "MCP02": {
+        "id": "MCP02:2025",
+        "name": "Privilege Escalation via Scope Creep",
+        "coverage_level": "strong",
+        "reason": "Permission over-scope patterns, toxic tool-capability combinations, path-escape checks and env-var over-exposure in configs.",
+        "findings_count": 110,
+        "finding_ids": [
+          "cross_tool_get_checklist_rules_get_rule",
+          "code_0001",
+          "code_0002",
+          "code_0003",
+          "code_0004",
+          "code_0005",
+          "code_0006",
+          "code_0007",
+          "code_0008",
+          "code_0009"
+        ],
+        "detectors": [
+          "permission_overscope",
+          "toxic_tool_combo",
+          "identity_privilege",
+          "sandbox_escape",
+          "config_risk",
+          "cascading_failure",
+          "cross_server",
+          "excessive_scope",
+          "confused_deputy",
+          "file_read",
+          "file_write"
+        ]
+      },
+      "MCP03": {
+        "id": "MCP03:2025",
+        "name": "Tool Poisoning",
+        "coverage_level": "strong",
+        "reason": "Dedicated detector for hidden instructions in tool metadata, plus runtime rug-pull diffing between source and live tool definitions.",
+        "findings_count": 2,
+        "finding_ids": [
+          "code_0057",
+          "rogue_0001"
+        ],
+        "detectors": [
+          "tool_poisoning",
+          "obfuscation",
+          "rogue_agent",
+          "source_vs_runtime_diff",
+          "tool_shadowing",
+          "hidden_unicode",
+          "rug_pull_primitive",
+          "surface_mismatch"
+        ]
+      },
+      "MCP04": {
+        "id": "MCP04:2025",
+        "name": "Software Supply Chain Attacks & Dependency Tampering",
+        "coverage_level": "strong",
+        "reason": "Dependency CVE lookup, known MCP CVEs, install lifecycle hooks, and unpinned npx/uvx/pip/@latest install sources.",
+        "findings_count": 3,
+        "finding_ids": [
+          "code_0057",
+          "mcp04_unpinned_0001",
+          "mcp04_unpinned_0002"
+        ],
+        "detectors": [
+          "dependency_vuln",
+          "supply_chain",
+          "known_cve",
+          "obfuscation",
+          "lifecycle_hooks",
+          "mcp04_unpinned_install",
+          "homoglyph",
+          "rug_pull_primitive",
+          "surface_mismatch"
+        ]
+      },
+      "MCP05": {
+        "id": "MCP05:2025",
+        "name": "Command Injection & Execution",
+        "coverage_level": "partial",
+        "reason": "Regex, AST and Semgrep find exec/shell sinks and a heuristic flags sinks inside tool handlers, but there is no inter-procedural taint tracking from tool input to sink.",
+        "findings_count": 83,
+        "finding_ids": [
+          "code_0001",
+          "code_0002",
+          "code_0003",
+          "code_0004",
+          "code_0005",
+          "code_0006",
+          "code_0007",
+          "code_0008",
+          "code_0009",
+          "code_0010"
+        ],
+        "detectors": [
+          "command_injection",
+          "code_execution",
+          "code_generation",
+          "sandbox_escape",
+          "mcp05_tool_input_sink",
+          "shell_exec"
+        ]
+      },
+      "MCP06": {
+        "id": "MCP06:2025",
+        "name": "Prompt Injection via Contextual Payloads",
+        "coverage_level": "partial",
+        "reason": "Injection markers are detected in tool metadata, server instructions, resources, prompts and the strings a tool returns (static), and in instructions/resources/prompts read live; payloads produced by calling a tool at runtime are not inspected.",
+        "findings_count": 8,
+        "finding_ids": [
+          "memory_0001",
+          "memory_0002",
+          "memory_0003",
+          "memory_0004",
+          "memory_0005",
+          "trust_0001",
+          "instructions_tool_chaining",
+          "resource_ui_frontend-checklist_review-report_instruction_injection"
+        ],
+        "detectors": [
+          "prompt_injection",
+          "memory_poisoning",
+          "trust_exploitation",
+          "response_injection",
+          "tool_shadowing"
+        ]
+      },
+      "MCP07": {
+        "id": "MCP07:2025",
+        "name": "Insufficient Authentication & Authorization",
+        "coverage_level": "partial",
+        "reason": "Flags remote servers with no visible auth and servers bound to all interfaces; does not verify OAuth implementation or per-tool authorization logic.",
+        "findings_count": 2,
+        "finding_ids": [
+          "transport_plain_http",
+          "transport_no_auth"
+        ],
+        "detectors": [
+          "transport_security",
+          "inter_agent_comm",
+          "identity_privilege",
+          "transport_no_auth",
+          "config_no_auth",
+          "mcp07_bind_all_interfaces"
+        ]
+      },
+      "MCP08": {
+        "id": "MCP08:2025",
+        "name": "Lack of Audit and Telemetry",
+        "coverage_level": "gap",
+        "reason": "Only a low-confidence heuristic for missing logging in tool-defining files; actual audit trails and telemetry pipelines are not verified.",
+        "findings_count": 1,
+        "finding_ids": [
+          "mcp08_no_tool_logging"
+        ],
+        "detectors": [
+          "audit_telemetry",
+          "mcp08_no_tool_logging"
+        ]
+      },
+      "MCP09": {
+        "id": "MCP09:2025",
+        "name": "Shadow MCP Servers",
+        "coverage_level": "partial",
+        "reason": "Covered by `axiom discover` allowlist on the local machine; no network-wide or fleet discovery.",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "mcpguard_discover",
+          "shadow_mcp"
+        ]
+      },
+      "MCP10": {
+        "id": "MCP10:2025",
+        "name": "Context Injection & Over-Sharing",
+        "coverage_level": "partial",
+        "reason": "Hard-coded egress URLs, tools that send to caller-chosen destinations and bulk-exposure heuristics are detected statically and live; what context is actually shared at runtime is not observed.",
+        "findings_count": 7,
+        "finding_ids": [
+          "code_0028",
+          "code_0029",
+          "memory_0001",
+          "memory_0002",
+          "memory_0003",
+          "memory_0004",
+          "memory_0005"
+        ],
+        "detectors": [
+          "context_oversharing",
+          "data_exfiltration",
+          "memory_poisoning",
+          "mcp10_broad_data_exposure"
+        ]
+      }
+    },
+    "total_mcp_categories_with_findings": 9
+  },
+  "ai_analysis": null,
+  "tool_poisoning_report": null,
+  "prompt_injection_risk": null
+}

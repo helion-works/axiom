@@ -1,0 +1,820 @@
+{
+  "schema_version": "0.5",
+  "target": "10_krystonschwarze__coolicons",
+  "risk_score": 31.0,
+  "risk_level": "medium",
+  "tools_found": 5,
+  "findings_count": 8,
+  "findings": [
+    {
+      "id": "cross_tool_list_icons_describe_set",
+      "severity": "medium",
+      "category": "cross_server",
+      "title": "Tool 'list_icons' references tool 'describe_set'",
+      "description": "Tool description mentions another tool by name, which could enable tool chaining attacks.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP01",
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Verify this cross-reference is legitimate and necessary.",
+      "rule_id": "cross_tool_reference",
+      "evidence": "Tool 'list_icons' references tool 'describe_set'",
+      "location": "static:<corpus>/registry/10_krystonschwarze__coolicons:list_icons_describe_set",
+      "replay": "axiom scan <corpus>/registry/10_krystonschwarze__coolicons --output json --no-ai --no-history | jq '.findings[] | select(.id==\"cross_tool_list_icons_describe_set\")'"
+    },
+    {
+      "id": "code_0001",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in scripts\\build.mjs at line 80: `(icon) => `export { default as ${icon.component}, default as ${icon.component}Icon } from \"../../icons/${modules.get(ico`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "scripts\\build.mjs",
+      "line_number": 80,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "(icon) =>",
+      "location": "scripts\\build.mjs:80",
+      "replay": "axiom scan <corpus>/registry/10_krystonschwarze__coolicons --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0001\")'"
+    },
+    {
+      "id": "code_0002",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in scripts\\build.mjs at line 87: `writeFileSync(path.join(folder, \"index.d.ts\"), `import type { IconComponent } from \"../../types.js\";\\n\\nexport type { Ic`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "scripts\\build.mjs",
+      "line_number": 87,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "writeFileSync(path.join(folder, \"index.d.ts\"),",
+      "location": "scripts\\build.mjs:87",
+      "replay": "axiom scan <corpus>/registry/10_krystonschwarze__coolicons --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0002\")'"
+    },
+    {
+      "id": "code_0003",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in scripts\\icons.mjs at line 54: `const match = PATH.exec(line);`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "scripts\\icons.mjs",
+      "line_number": 54,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const match = PATH.exec(line);",
+      "location": "scripts\\icons.mjs:54",
+      "replay": "axiom scan <corpus>/registry/10_krystonschwarze__coolicons --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0003\")'"
+    },
+    {
+      "id": "code_0004",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in scripts\\release.mjs at line 17: `const match = VERSION.exec(version);`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "scripts\\release.mjs",
+      "line_number": 17,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const match = VERSION.exec(version);",
+      "location": "scripts\\release.mjs:17",
+      "replay": "axiom scan <corpus>/registry/10_krystonschwarze__coolicons --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0004\")'"
+    },
+    {
+      "id": "code_0005",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in scripts\\test-tools.mjs at line 12: `const cli = (...args) => spawnSync(process.execPath, [cliFile, ...args], { encoding: \"utf8\", maxBuffer: 1 << 26 });`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "scripts\\test-tools.mjs",
+      "line_number": 12,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const cli = (...args) => spawnSync(process.execPath, [cliFile, ...args], { encoding: \"utf8\", maxBuffer: 1 << 26 });",
+      "location": "scripts\\test-tools.mjs:12",
+      "replay": "axiom scan <corpus>/registry/10_krystonschwarze__coolicons --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0005\")'"
+    },
+    {
+      "id": "provenance_fresh_publish",
+      "severity": "medium",
+      "category": "supply_chain",
+      "title": "Registry entry 'io.github.krystonschwarze/coolicons' was published 1 day(s) ago",
+      "description": "'io.github.krystonschwarze/coolicons' version 5.3.0 appeared in the registry on 2026-11-10T17:44:53.040363Z. Nothing this new has been looked at by anyone; pin it and review it before an agent uses it.",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Pin the version and review the diff from the previous release.",
+      "rule_id": "provenance_rule",
+      "evidence": "publishedAt 2026-11-10T17:44:53.040363Z",
+      "location": "static:<corpus>/registry/10_krystonschwarze__coolicons:provenance",
+      "replay": "axiom scan <corpus>/registry/10_krystonschwarze__coolicons --output json --no-ai --no-history | jq '.findings[] | select(.id==\"provenance_fresh_publish\")'"
+    },
+    {
+      "id": "instructions_instruction_injection",
+      "severity": "medium",
+      "category": "prompt_injection",
+      "title": "Instruction injection in server instructions",
+      "description": "Steering language in tool description (imperative guidance aimed at the model). Matched 'Never' in server instructions. Excerpt: 'coolicons is an open source icon set (MIT) in five styles and three corner radii. Never guess an icon name: resolve every name with search_icons before writing '",
+      "owasp_asi": [
+        "ASI01"
+      ],
+      "owasp_mcp": [
+        "MCP06"
+      ],
+      "file_path": "packages\\mcp\\src\\server.js",
+      "line_number": 180,
+      "recommendation": "Review this content; an agent will follow it.",
+      "rule_id": "served_text_instruction_injection",
+      "evidence": "Never",
+      "location": "packages\\mcp\\src\\server.js:180",
+      "replay": "axiom scan <corpus>/registry/10_krystonschwarze__coolicons --output json --no-ai --no-history | jq '.findings[] | select(.id==\"instructions_instruction_injection\")'"
+    }
+  ],
+  "server_profile": {
+    "name": "10_krystonschwarze__coolicons",
+    "command": null,
+    "args": [],
+    "env_vars": [],
+    "transport": "unknown",
+    "tools": [
+      {
+        "name": "describe_set",
+        "description": "Counts, styles, corner radii, categories, packages and naming rules of coolicons. Call it once before choosing icons.",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "search_icons",
+        "description": "Find coolicons by name or meaning, ranked: exact name, then name parts, then tags like date for calendar. Separate several searches with commas to resolve many names in one call, like \"delete, settings, chevron down\".",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "query": {
+              "type": "string",
+              "description": "One search, or several separated by commas."
+            },
+            "limit": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 50,
+              "description": "Results per search. Default 5."
+            }
+          },
+          "required": [
+            "query"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "list_icons",
+        "description": "Browse the icons of one category a page at a time, with component names and tags. Categories and counts come from describe_set. Useful when a search is weak or to compare every option in a theme.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "category": {
+              "type": "string",
+              "description": "Category from describe_set, like Calendar or File."
+            },
+            "offset": {
+              "type": "integer",
+              "minimum": 0,
+              "description": "Start at this icon. Default 0, pass the returned next offset for the following page."
+            },
+            "limit": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 200,
+              "description": "Icons per page. Default 50."
+            }
+          },
+          "required": [
+            "category"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "get_icon",
+        "description": "The SVG source of one icon in the chosen style and corner radius. Paints with currentColor.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string",
+              "description": "Exact icon name from search_icons, like calendar-event."
+            },
+            "style": null,
+            "radius": null,
+            "size": {
+              "type": "integer",
+              "minimum": 1,
+              "description": "Width and height in pixels. Default 24."
+            },
+            "strokeWidth": {
+              "type": "number",
+              "minimum": 0.5,
+              "maximum": 4,
+              "description": "Stroke width for line, duocolor and duotone. Default 2."
+            }
+          },
+          "required": [
+            "name"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "get_usage",
+        "description": "Install command and import code for one or more icons in React, Vue, plain SVG or the shadcn/ui registry, using the entry for the chosen style and corner radius.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "names": {
+              "type": "string",
+              "description": "Exact icon names, separated by commas."
+            },
+            "framework": {
+              "type": "string",
+              "enum": [
+                "react",
+                "vue",
+                "svg",
+                "shadcn"
+              ],
+              "description": "Default react."
+            },
+            "style": null,
+            "radius": null
+          },
+          "required": [
+            "names"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      }
+    ],
+    "resources": [],
+    "prompts": [],
+    "repo_url": null,
+    "npm_package": null,
+    "capabilities_claimed": [],
+    "capabilities_actual": []
+  },
+  "fingerprint": "bbe9d89d17953cd8159741089033727720a3ecdb20b214f5a32d2b057dde8e36",
+  "surface_map": {
+    "server": {
+      "name": "coolicons",
+      "instructions": "coolicons is an open source icon set (MIT) in five styles and three corner radii. Never guess an icon name: resolve every name with search_icons before writing code, and look up several names in one call by separating them with commas. Results marked weak match only some words: check that they fit, and if nothing fits, tell the user instead of using a similar icon. To see every option in a theme, browse a category from describe_set with list_icons. Use get_usage for the exact import line, it applies the style and radius entry and the Icon suffix for names that clash with JavaScript or browser globals.",
+      "transport": "unknown",
+      "auth": "unknown",
+      "instructions_location": "packages\\mcp\\src\\server.js:180"
+    },
+    "tools": [
+      {
+        "name": "describe_set",
+        "description": "Counts, styles, corner radii, categories, packages and naming rules of coolicons. Call it once before choosing icons.",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "packages\\mcp\\src\\server.js:16"
+      },
+      {
+        "name": "search_icons",
+        "description": "Find coolicons by name or meaning, ranked: exact name, then name parts, then tags like date for calendar. Separate several searches with commas to resolve many names in one call, like \"delete, settings, chevron down\".",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "query": {
+              "type": "string",
+              "description": "One search, or several separated by commas."
+            },
+            "limit": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 50,
+              "description": "Results per search. Default 5."
+            }
+          },
+          "required": [
+            "query"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "packages\\mcp\\src\\server.js:23"
+      },
+      {
+        "name": "list_icons",
+        "description": "Browse the icons of one category a page at a time, with component names and tags. Categories and counts come from describe_set. Useful when a search is weak or to compare every option in a theme.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "category": {
+              "type": "string",
+              "description": "Category from describe_set, like Calendar or File."
+            },
+            "offset": {
+              "type": "integer",
+              "minimum": 0,
+              "description": "Start at this icon. Default 0, pass the returned next offset for the following page."
+            },
+            "limit": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 200,
+              "description": "Icons per page. Default 50."
+            }
+          },
+          "required": [
+            "category"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "packages\\mcp\\src\\server.js:38"
+      },
+      {
+        "name": "get_icon",
+        "description": "The SVG source of one icon in the chosen style and corner radius. Paints with currentColor.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string",
+              "description": "Exact icon name from search_icons, like calendar-event."
+            },
+            "style": null,
+            "radius": null,
+            "size": {
+              "type": "integer",
+              "minimum": 1,
+              "description": "Width and height in pixels. Default 24."
+            },
+            "strokeWidth": {
+              "type": "number",
+              "minimum": 0.5,
+              "maximum": 4,
+              "description": "Stroke width for line, duocolor and duotone. Default 2."
+            }
+          },
+          "required": [
+            "name"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "packages\\mcp\\src\\server.js:54"
+      },
+      {
+        "name": "get_usage",
+        "description": "Install command and import code for one or more icons in React, Vue, plain SVG or the shadcn/ui registry, using the entry for the chosen style and corner radius.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "names": {
+              "type": "string",
+              "description": "Exact icon names, separated by commas."
+            },
+            "framework": {
+              "type": "string",
+              "enum": [
+                "react",
+                "vue",
+                "svg",
+                "shadcn"
+              ],
+              "description": "Default react."
+            },
+            "style": null,
+            "radius": null
+          },
+          "required": [
+            "names"
+          ]
+        },
+        "capabilities": [
+          "install"
+        ],
+        "return_literals": [],
+        "registration": "static",
+        "location": "packages\\mcp\\src\\server.js:71"
+      }
+    ],
+    "resources": [],
+    "prompts": [],
+    "mutations": [],
+    "source": {
+      "kind": "static",
+      "target": "10_krystonschwarze__coolicons",
+      "languages": [
+        "javascript"
+      ]
+    },
+    "generated_at": "2026-11-11T22:30:27+00:00",
+    "fingerprint": "bbe9d89d17953cd8159741089033727720a3ecdb20b214f5a32d2b057dde8e36",
+    "schema": "axiom.surface/1"
+  },
+  "provenance": {
+    "identity": {
+      "npm": "coolicons",
+      "pypi": null,
+      "repository": "https://github.com/krystonschwarze/coolicons",
+      "server_name": "coolicons"
+    },
+    "registry": {
+      "status": "match",
+      "entry": "io.github.krystonschwarze/coolicons",
+      "repository": "https://github.com/krystonschwarze/coolicons",
+      "packages": [
+        "npm:@coolicons/mcp"
+      ],
+      "publishedAt": "2026-11-10T17:44:53.040363Z",
+      "version": "5.3.0"
+    },
+    "lookalikes": [],
+    "checked_at": "2026-11-11T22:30:28+00:00"
+  },
+  "owasp_coverage": {
+    "framework": "OWASP Top 10 for Agentic Applications 2026",
+    "reference": "https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/",
+    "coverage": {
+      "ASI01": {
+        "name": "Agent Goal Hijack",
+        "coverage_level": "strong",
+        "findings_count": 1,
+        "finding_ids": [
+          "instructions_instruction_injection"
+        ],
+        "detectors": [
+          "tool_poisoning",
+          "prompt_injection",
+          "instruction_injection"
+        ]
+      },
+      "ASI02": {
+        "name": "Tool Misuse & Exploitation",
+        "coverage_level": "strong",
+        "findings_count": 1,
+        "finding_ids": [
+          "cross_tool_list_icons_describe_set"
+        ],
+        "detectors": [
+          "toxic_tool_combo",
+          "tool_overscope",
+          "tool_chaining_detection"
+        ]
+      },
+      "ASI03": {
+        "name": "Identity & Privilege Abuse",
+        "coverage_level": "strong",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "credential_analysis",
+          "shared_credential_detection",
+          "env_var_audit"
+        ]
+      },
+      "ASI04": {
+        "name": "Agentic Supply Chain Vulnerabilities",
+        "coverage_level": "strong",
+        "findings_count": 1,
+        "finding_ids": [
+          "provenance_fresh_publish"
+        ],
+        "detectors": [
+          "dependency_cve",
+          "lifecycle_hooks",
+          "npx_unversioned",
+          "known_mcp_cves"
+        ]
+      },
+      "ASI05": {
+        "name": "Unexpected Code Execution",
+        "coverage_level": "strong",
+        "findings_count": 5,
+        "finding_ids": [
+          "code_0001",
+          "code_0002",
+          "code_0003",
+          "code_0004",
+          "code_0005"
+        ],
+        "detectors": [
+          "code_exec_patterns",
+          "code_generation_detection",
+          "sandbox_escape"
+        ]
+      },
+      "ASI06": {
+        "name": "Memory & Context Poisoning",
+        "coverage_level": "partial",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "memory_poisoning_patterns",
+          "context_manipulation_detection"
+        ],
+        "gap_note": "Axiom detects static patterns. Full coverage requires runtime memory monitoring."
+      },
+      "ASI07": {
+        "name": "Insecure Inter-Agent Communication",
+        "coverage_level": "partial",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "transport_security",
+          "a2a_pattern_detection"
+        ],
+        "gap_note": "Axiom checks transport security. Full A2A protocol analysis requires runtime interception."
+      },
+      "ASI08": {
+        "name": "Cascading Failures",
+        "coverage_level": "partial",
+        "findings_count": 1,
+        "finding_ids": [
+          "cross_tool_list_icons_describe_set"
+        ],
+        "detectors": [
+          "blast_radius_estimation",
+          "dependency_chain_analysis"
+        ],
+        "gap_note": "Axiom estimates blast radius from tool capabilities. Full cascading failure analysis requires runtime topology mapping."
+      },
+      "ASI09": {
+        "name": "Human-Agent Trust Exploitation",
+        "coverage_level": "strong",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "claimed_vs_actual",
+          "deceptive_output_detection",
+          "trust_manipulation_patterns"
+        ]
+      },
+      "ASI10": {
+        "name": "Rogue Agents",
+        "coverage_level": "partial",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "sleeper_patterns",
+          "behavioral_drift_indicators",
+          "persistence_detection"
+        ],
+        "gap_note": "Axiom detects static rogue indicators. Full rogue agent detection requires runtime behavioral monitoring."
+      }
+    },
+    "total_asi_categories_with_findings": 5
+  },
+  "owasp_mcp_coverage": {
+    "framework": "OWASP MCP Top 10",
+    "framework_version": "v0.1 beta",
+    "reference": "https://owasp.org/www-project-mcp-top-10/",
+    "coverage": {
+      "MCP01": {
+        "id": "MCP01:2025",
+        "name": "Token Mismanagement & Secret Exposure",
+        "coverage_level": "partial",
+        "reason": "Regex-based secret detection in server source and client configs plus env-var exposure checks; no entropy analysis, git-history scan, or token lifetime/passthrough checks.",
+        "findings_count": 1,
+        "finding_ids": [
+          "cross_tool_list_icons_describe_set"
+        ],
+        "detectors": [
+          "credential_theft",
+          "cross_server",
+          "mcp01_hardcoded_secrets",
+          "config_hardcoded_secret",
+          "env_var_audit",
+          "env_dump"
+        ]
+      },
+      "MCP02": {
+        "id": "MCP02:2025",
+        "name": "Privilege Escalation via Scope Creep",
+        "coverage_level": "strong",
+        "reason": "Permission over-scope patterns, toxic tool-capability combinations, path-escape checks and env-var over-exposure in configs.",
+        "findings_count": 3,
+        "finding_ids": [
+          "cross_tool_list_icons_describe_set",
+          "code_0001",
+          "code_0002"
+        ],
+        "detectors": [
+          "permission_overscope",
+          "toxic_tool_combo",
+          "identity_privilege",
+          "sandbox_escape",
+          "config_risk",
+          "cascading_failure",
+          "cross_server",
+          "excessive_scope",
+          "confused_deputy",
+          "file_read",
+          "file_write"
+        ]
+      },
+      "MCP03": {
+        "id": "MCP03:2025",
+        "name": "Tool Poisoning",
+        "coverage_level": "strong",
+        "reason": "Dedicated detector for hidden instructions in tool metadata, plus runtime rug-pull diffing between source and live tool definitions.",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "tool_poisoning",
+          "obfuscation",
+          "rogue_agent",
+          "source_vs_runtime_diff",
+          "tool_shadowing",
+          "hidden_unicode",
+          "rug_pull_primitive",
+          "surface_mismatch"
+        ]
+      },
+      "MCP04": {
+        "id": "MCP04:2025",
+        "name": "Software Supply Chain Attacks & Dependency Tampering",
+        "coverage_level": "strong",
+        "reason": "Dependency CVE lookup, known MCP CVEs, install lifecycle hooks, and unpinned npx/uvx/pip/@latest install sources.",
+        "findings_count": 1,
+        "finding_ids": [
+          "provenance_fresh_publish"
+        ],
+        "detectors": [
+          "dependency_vuln",
+          "supply_chain",
+          "known_cve",
+          "obfuscation",
+          "lifecycle_hooks",
+          "mcp04_unpinned_install",
+          "homoglyph",
+          "rug_pull_primitive",
+          "surface_mismatch"
+        ]
+      },
+      "MCP05": {
+        "id": "MCP05:2025",
+        "name": "Command Injection & Execution",
+        "coverage_level": "partial",
+        "reason": "Regex, AST and Semgrep find exec/shell sinks and a heuristic flags sinks inside tool handlers, but there is no inter-procedural taint tracking from tool input to sink.",
+        "findings_count": 5,
+        "finding_ids": [
+          "code_0001",
+          "code_0002",
+          "code_0003",
+          "code_0004",
+          "code_0005"
+        ],
+        "detectors": [
+          "command_injection",
+          "code_execution",
+          "code_generation",
+          "sandbox_escape",
+          "mcp05_tool_input_sink",
+          "shell_exec"
+        ]
+      },
+      "MCP06": {
+        "id": "MCP06:2025",
+        "name": "Prompt Injection via Contextual Payloads",
+        "coverage_level": "partial",
+        "reason": "Injection markers are detected in tool metadata, server instructions, resources, prompts and the strings a tool returns (static), and in instructions/resources/prompts read live; payloads produced by calling a tool at runtime are not inspected.",
+        "findings_count": 1,
+        "finding_ids": [
+          "instructions_instruction_injection"
+        ],
+        "detectors": [
+          "prompt_injection",
+          "memory_poisoning",
+          "trust_exploitation",
+          "response_injection",
+          "tool_shadowing"
+        ]
+      },
+      "MCP07": {
+        "id": "MCP07:2025",
+        "name": "Insufficient Authentication & Authorization",
+        "coverage_level": "partial",
+        "reason": "Flags remote servers with no visible auth and servers bound to all interfaces; does not verify OAuth implementation or per-tool authorization logic.",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "transport_security",
+          "inter_agent_comm",
+          "identity_privilege",
+          "transport_no_auth",
+          "config_no_auth",
+          "mcp07_bind_all_interfaces"
+        ]
+      },
+      "MCP08": {
+        "id": "MCP08:2025",
+        "name": "Lack of Audit and Telemetry",
+        "coverage_level": "gap",
+        "reason": "Only a low-confidence heuristic for missing logging in tool-defining files; actual audit trails and telemetry pipelines are not verified.",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "audit_telemetry",
+          "mcp08_no_tool_logging"
+        ]
+      },
+      "MCP09": {
+        "id": "MCP09:2025",
+        "name": "Shadow MCP Servers",
+        "coverage_level": "partial",
+        "reason": "Covered by `axiom discover` allowlist on the local machine; no network-wide or fleet discovery.",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "mcpguard_discover",
+          "shadow_mcp"
+        ]
+      },
+      "MCP10": {
+        "id": "MCP10:2025",
+        "name": "Context Injection & Over-Sharing",
+        "coverage_level": "partial",
+        "reason": "Hard-coded egress URLs, tools that send to caller-chosen destinations and bulk-exposure heuristics are detected statically and live; what context is actually shared at runtime is not observed.",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "context_oversharing",
+          "data_exfiltration",
+          "memory_poisoning",
+          "mcp10_broad_data_exposure"
+        ]
+      }
+    },
+    "total_mcp_categories_with_findings": 5
+  },
+  "ai_analysis": null,
+  "tool_poisoning_report": null,
+  "prompt_injection_risk": null
+}

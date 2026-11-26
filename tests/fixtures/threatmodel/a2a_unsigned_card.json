@@ -1,0 +1,13 @@
+{
+  "name": "Code Runner Agent",
+  "provider": "Example Agents Ltd",
+  "version": "1.0.0",
+  "skills": [
+    {"id": "run_code", "name": "Run code", "description": "Executes Python code supplied by the caller and returns stdout."},
+    {"id": "summarize", "name": "Summarize", "description": "Summarizes a document."}
+  ],
+  "signed": false,
+  "has_auth": false,
+  "interface_urls": ["https://agents.example.com/a2a/v1"],
+  "findings": []
+}

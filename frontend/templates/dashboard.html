@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Axiom — MCP Server Security Scanner</title>
+    <style>
+        :root {
+            --bg: #0a0e1a; --bg2: #111827; --bg3: #1a2035; --bg4: #1e2a42;
+            --text: #e2e8f0; --text2: #94a3b8; --muted: #64748b;
+            --accent: #8b5cf6; --accent2: #7c3aed;
+            --green: #22c55e; --yellow: #f59e0b; --red: #ef4444; --crit: #dc2626;
+            --border: #1e293b; --border2: #334155;
+            --r: 12px; --rs: 8px;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
+
+        .header { background: var(--bg2); border-bottom: 1px solid var(--border); padding: 14px 32px; display: flex; align-items: center; justify-content: space-between; }
+        .brand { display: flex; align-items: center; gap: 10px; font-size: 20px; font-weight: 700; }
+        .brand span { color: var(--accent); }
+        .header-sub { color: var(--muted); font-size: 13px; }
+
+        .main { max-width: 1100px; margin: 0 auto; padding: 28px 20px; }
+
+        /* Tabs */
+        .tabs { display: flex; gap: 4px; margin-bottom: 24px; background: var(--bg2); border-radius: var(--rs); padding: 4px; border: 1px solid var(--border); }
+        .tab { padding: 10px 20px; border-radius: 6px; cursor: pointer; font-size: 14px; font-weight: 600; color: var(--text2); transition: all 0.2s; }
+        .tab:hover { color: var(--text); }
+        .tab.active { background: var(--accent); color: white; }
+
+        /* Cards */
+        .card { background: var(--bg3); border: 1px solid var(--border); border-radius: var(--r); padding: 24px; margin-bottom: 20px; }
+        .card h2 { font-size: 16px; margin-bottom: 16px; }
+
+        /* Form */
+        .scan-form { display: grid; grid-template-columns: 1fr auto; gap: 12px; align-items: end; }
+        .form-group { display: flex; flex-direction: column; gap: 5px; }
+        .form-group label { font-size: 11px; font-weight: 700; color: var(--text2); text-transform: uppercase; letter-spacing: .5px; }
+        .form-group input { background: var(--bg4); border: 1px solid var(--border2); border-radius: var(--rs); padding: 10px 14px; color: var(--text); font-size: 14px; outline: none; }
+        .form-group input:focus { border-color: var(--accent); }
+        .btn { background: var(--accent); color: white; border: none; border-radius: var(--rs); padding: 10px 24px; font-size: 14px; font-weight: 600; cursor: pointer; transition: background .2s; height: 42px; white-space: nowrap; }
+        .btn:hover { background: var(--accent2); }
+        .btn:disabled { opacity: .5; cursor: not-allowed; }
+        .btn-outline { background: transparent; border: 1px solid var(--accent); color: var(--accent); }
+        .btn-outline:hover { background: rgba(139,92,246,.1); }
+
+        /* Stats */
+        .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 24px; }
+        .stat { background: var(--bg3); border: 1px solid var(--border); border-radius: var(--r); padding: 16px; text-align: center; }
+        .stat-val { font-size: 28px; font-weight: 800; }
+        .stat-label { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: .5px; }
+
+        /* Badges */
+        .badge { display: inline-block; padding: 3px 10px; border-radius: 4px; font-size: 11px; font-weight: 700; text-transform: uppercase; }
+        .risk-badge { padding: 5px 12px; border-radius: 16px; font-size: 12px; }
+        .sev-critical, .risk-critical { background: rgba(220,38,38,.18); color: #fca5a5; }
+        .sev-high, .risk-high { background: rgba(239,68,68,.18); color: #fca5a5; }
+        .sev-medium, .risk-medium { background: rgba(245,158,11,.18); color: #fde68a; }
+        .sev-low, .risk-low { background: rgba(34,197,94,.14); color: #86efac; }
+        .sev-info { background: rgba(59,130,246,.14); color: #93c5fd; }
+        .risk-safe { background: rgba(34,197,94,.18); color: #86efac; }
+
+        /* Score ring */
+        .score-ring { width: 90px; height: 90px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 8px; }
+        .score-ring.safe { background: conic-gradient(var(--green) calc(var(--pct)*1%), var(--border) 0); }
+        .score-ring.low { background: conic-gradient(var(--green) calc(var(--pct)*1%), var(--border) 0); }
+        .score-ring.medium { background: conic-gradient(var(--yellow) calc(var(--pct)*1%), var(--border) 0); }
+        .score-ring.high { background: conic-gradient(var(--red) calc(var(--pct)*1%), var(--border) 0); }
+        .score-ring.critical { background: conic-gradient(var(--crit) calc(var(--pct)*1%), var(--border) 0); }
+        .score-inner { width: 72px; height: 72px; border-radius: 50%; background: var(--bg3); display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 800; }
+
+        /* Result sections */
+        .result-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
+        .section { background: var(--bg4); border: 1px solid var(--border2); border-radius: var(--rs); padding: 16px; margin-top: 16px; line-height: 1.6; color: var(--text2); font-size: 14px; }
+        .section-label { font-size: 11px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: .5px; margin-bottom: 6px; }
+
+        .finding-row { display: grid; grid-template-columns: 80px 150px 1fr; gap: 10px; padding: 10px 0; border-bottom: 1px solid var(--border); font-size: 13px; align-items: center; }
+        .finding-row:last-child { border-bottom: none; }
+
+        .tool-row { display: grid; grid-template-columns: 180px 100px 1fr; gap: 10px; padding: 10px 0; border-bottom: 1px solid var(--border); font-size: 13px; align-items: center; }
+        .tool-row:last-child { border-bottom: none; }
+
+        .spinner { display: inline-block; width: 14px; height: 14px; border: 2px solid rgba(255,255,255,.3); border-top: 2px solid white; border-radius: 50%; animation: spin .8s linear infinite; margin-right: 6px; }
+        @keyframes spin { to { transform: rotate(360deg); } }
+
+        .empty { text-align: center; padding: 50px 20px; color: var(--muted); }
+        .empty .icon { font-size: 42px; margin-bottom: 12px; }
+
+        .hidden { display: none; }
+
+        @media (max-width: 768px) {
+            .scan-form { grid-template-columns: 1fr; }
+            .stats { grid-template-columns: repeat(2, 1fr); }
+            .finding-row { grid-template-columns: 70px 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <div class="brand">🛡️ MCP<span>Guard</span></div>
+    <div class="header-sub">MCP Server Security Scanner • v0.1.0</div>
+</div>
+
+<div class="main">
+    <!-- Tabs -->
+    <div class="tabs">
+        <div class="tab active" onclick="switchTab('scan')">🔍 Scan MCP Server</div>
+        <div class="tab" onclick="switchTab('local')">🏠 Local Config Audit</div>
+        <div class="tab" onclick="switchTab('history')">📋 Scan History</div>
+    </div>
+
+    <!-- Scan Tab -->
+    <div id="tab-scan">
+        <div class="card">
+            <h2>Scan an MCP Server</h2>
+            <div class="scan-form">
+                <div class="form-group">
+                    <label>GitHub Repo URL or MCP Server Name</label>
+                    <input type="text" id="scanTarget" placeholder="https://github.com/user/my-mcp-server">
+                </div>
+                <button class="btn" id="btnScan" onclick="runScan()">Scan</button>
+            </div>
+        </div>
+
+        <div class="stats">
+            <div class="stat"><div class="stat-val" style="color:var(--accent)" id="stTotal">0</div><div class="stat-label">Total Scans</div></div>
+            <div class="stat"><div class="stat-val" style="color:var(--green)" id="stSafe">0</div><div class="stat-label">Safe</div></div>
+            <div class="stat"><div class="stat-val" style="color:var(--yellow)" id="stWarn">0</div><div class="stat-label">Caution</div></div>
+            <div class="stat"><div class="stat-val" style="color:var(--red)" id="stDanger">0</div><div class="stat-label">Dangerous</div></div>
+        </div>
+
+        <div id="results">
+            <div class="empty"><div class="icon">🛡️</div><p>Enter a GitHub repo URL above to scan an MCP server for tool poisoning, prompt injection risks, credential theft, and more.</p></div>
+        </div>
+    </div>
+
+    <!-- Local Config Tab -->
+    <div id="tab-local" class="hidden">
+        <div class="card">
+            <h2>🏠 Scan Local MCP Configurations</h2>
+            <p style="color:var(--text2);margin-bottom:16px;font-size:14px">Discovers all MCP servers configured in Claude Desktop, Cursor, Windsurf, and VSCode on this machine.</p>
+            <button class="btn" id="btnLocal" onclick="runLocalScan()">Scan Local Configs</button>
+        </div>
+        <div id="localResults"></div>
+    </div>
+
+    <!-- History Tab -->
+    <div id="tab-history" class="hidden">
+        <div id="historyResults"><div class="empty"><p>Scan history will appear here.</p></div></div>
+    </div>
+</div>
+
+<script>
+const API = '/api/v1';
+let allScans = [];
+
+function switchTab(name) {
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    event.target.classList.add('active');
+    ['scan','local','history'].forEach(t => {
+        document.getElementById('tab-'+t).classList.toggle('hidden', t !== name);
+    });
+}
+
+async function runScan() {
+    const target = document.getElementById('scanTarget').value.trim();
+    if (!target) return alert('Enter a target');
+    const btn = document.getElementById('btnScan');
+    btn.disabled = true;
+    btn.innerHTML = '<span class="spinner"></span>Scanning...';
+
+    try {
+        const isUrl = target.startsWith('http');
+        const resp = await fetch(`${API}/scan`, {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+                target: isUrl ? target.split('/').pop() : target,
+                target_url: isUrl ? target : null,
+            }),
+        });
+        if (!resp.ok) throw new Error((await resp.json()).detail || 'Scan failed');
+        const result = await resp.json();
+        allScans.unshift(result);
+        updateStats();
+        renderResults();
+        document.getElementById('scanTarget').value = '';
+    } catch(e) { alert(e.message); }
+    finally { btn.disabled = false; btn.textContent = 'Scan'; }
+}
+
+async function runLocalScan() {
+    const btn = document.getElementById('btnLocal');
+    btn.disabled = true;
+    btn.innerHTML = '<span class="spinner"></span>Scanning...';
+    try {
+        const resp = await fetch(`${API}/scan/local`, { method: 'POST', headers: {'Content-Type':'application/json'}, body: '{}' });
+        if (!resp.ok) throw new Error('Local scan failed');
+        const result = await resp.json();
+        renderLocalResults(result);
+    } catch(e) { alert(e.message); }
+    finally { btn.disabled = false; btn.textContent = 'Scan Local Configs'; }
+}
+
+function updateStats() {
+    document.getElementById('stTotal').textContent = allScans.length;
+    document.getElementById('stSafe').textContent = allScans.filter(s => ['safe','low'].includes(s.risk_level)).length;
+    document.getElementById('stWarn').textContent = allScans.filter(s => s.risk_level === 'medium').length;
+    document.getElementById('stDanger').textContent = allScans.filter(s => ['critical','high'].includes(s.risk_level)).length;
+}
+
+function renderResults() {
+    const c = document.getElementById('results');
+    if (!allScans.length) { c.innerHTML = '<div class="empty"><div class="icon">🛡️</div><p>No scans yet.</p></div>'; return; }
+    c.innerHTML = allScans.map(s => {
+        const tools = s.server_profile?.tools || [];
+        const toolsHtml = tools.length ? tools.map(t => `
+            <div class="tool-row">
+                <strong>${t.name}</strong>
+                <span class="badge risk-${t.poisoning_risk}">${t.poisoning_risk}</span>
+                <span style="color:var(--text2)">${(t.description||'').substring(0,80)}</span>
+            </div>`).join('') : '<p style="color:var(--muted)">No tool definitions extracted.</p>';
+
+        const findingsHtml = (s.findings||[]).map(f => `
+            <div class="finding-row">
+                <span class="badge sev-${f.severity}">${f.severity}</span>
+                <span style="color:var(--muted)">${(f.category||'').replace(/_/g,' ')}</span>
+                <span>${f.title}</span>
+            </div>`).join('');
+
+        const sections = ['ai_analysis','tool_poisoning_report','prompt_injection_risk','claimed_vs_actual']
+            .filter(k => s[k])
+            .map(k => {
+                const labels = {ai_analysis:'🤖 Overall Assessment', tool_poisoning_report:'🎣 Tool Poisoning', prompt_injection_risk:'💉 Prompt Injection', claimed_vs_actual:'🔍 Claimed vs. Actual'};
+                return `<div class="section"><div class="section-label">${labels[k]}</div>${s[k]}</div>`;
+            }).join('');
+
+        return `<div class="card">
+            <div class="result-header">
+                <div><h2>${s.target}</h2><span style="color:var(--muted);font-size:12px">${s.id} • ${s.scan_duration_seconds?.toFixed(1)||''}s</span></div>
+                <div style="text-align:center">
+                    <div class="score-ring ${s.risk_level}" style="--pct:${s.risk_score}"><div class="score-inner">${Math.round(s.risk_score)}</div></div>
+                    <span class="risk-badge risk-${s.risk_level}">${s.risk_level}</span>
+                </div>
+            </div>
+            ${tools.length ? `<h3 style="font-size:13px;color:var(--text2);margin:12px 0 8px">MCP Tools (${tools.length})</h3>${toolsHtml}` : ''}
+            ${findingsHtml ? `<h3 style="font-size:13px;color:var(--text2);margin:16px 0 8px">Findings (${s.findings.length})</h3>${findingsHtml}` : '<p style="color:var(--muted);margin-top:12px">✅ No security findings.</p>'}
+            ${sections}
+        </div>`;
+    }).join('');
+}
+
+function renderLocalResults(r) {
+    const c = document.getElementById('localResults');
+    if (!r.total_servers) { c.innerHTML = '<div class="card"><p style="color:var(--muted)">No MCP configuration files found on this machine. This scanner checks Claude Desktop, Cursor, Windsurf, and VSCode config locations.</p></div>'; return; }
+
+    const serversHtml = r.servers_discovered.map(s => `
+        <div class="tool-row">
+            <strong>${s.name}</strong>
+            <span class="badge sev-info">${s.transport}</span>
+            <span style="color:var(--muted);font-family:monospace;font-size:12px">${s.command} ${(s.args||[]).slice(0,2).join(' ')}</span>
+        </div>`).join('');
+
+    const findingsHtml = (r.findings||[]).map(f => `
+        <div class="finding-row">
+            <span class="badge sev-${f.severity}">${f.severity}</span>
+            <span style="color:var(--muted)">${(f.category||'').replace(/_/g,' ')}</span>
+            <span>${f.title}</span>
+        </div>`).join('');
+
+    c.innerHTML = `
+        <div class="card"><h2>Discovered ${r.total_servers} MCP Servers</h2><p style="color:var(--muted);margin-bottom:12px;font-size:13px">From ${r.config_files_found.length} config files</p>${serversHtml}</div>
+        ${findingsHtml ? `<div class="card"><h2>Findings (${r.findings.length})</h2>${findingsHtml}</div>` : '<div class="card"><p style="color:var(--green)">✅ No security issues found in local MCP configs.</p></div>'}`;
+}
+
+document.getElementById('scanTarget').addEventListener('keypress', e => { if(e.key==='Enter') runScan(); });
+
+// Load history
+fetch(`${API}/scans`).then(r=>r.json()).then(d=>{ allScans=d.scans||[]; updateStats(); renderResults(); }).catch(()=>{});
+</script>
+</body>
+</html>

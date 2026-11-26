@@ -1,0 +1,4195 @@
+{
+  "schema_version": "0.5",
+  "target": "02_brightdata__brightdata-mcp",
+  "risk_score": 45.0,
+  "risk_level": "medium",
+  "tools_found": 15,
+  "findings_count": 158,
+  "findings": [
+    {
+      "id": "cross_tool_scraping_browser_snapshot_scraping_browser_get_text",
+      "severity": "medium",
+      "category": "cross_server",
+      "title": "Tool 'scraping_browser_snapshot' references tool 'scraping_browser_get_text'",
+      "description": "Tool description mentions another tool by name, which could enable tool chaining attacks.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP01",
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Verify this cross-reference is legitimate and necessary.",
+      "rule_id": "cross_tool_reference",
+      "evidence": "Tool 'scraping_browser_snapshot' references tool 'scraping_browser_get_text'",
+      "location": "static:<corpus>/registry2/02_brightdata__brightdata-mcp:scraping_browser_snapshot_scraping_browser_get_text",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"cross_tool_scraping_browser_snapshot_scraping_browser_get_text\")'"
+    },
+    {
+      "id": "cross_tool_scraping_browser_click_ref_scraping_browser_snapshot",
+      "severity": "medium",
+      "category": "cross_server",
+      "title": "Tool 'scraping_browser_click_ref' references tool 'scraping_browser_snapshot'",
+      "description": "Tool description mentions another tool by name, which could enable tool chaining attacks.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP01",
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Verify this cross-reference is legitimate and necessary.",
+      "rule_id": "cross_tool_reference",
+      "evidence": "Tool 'scraping_browser_click_ref' references tool 'scraping_browser_snapshot'",
+      "location": "static:<corpus>/registry2/02_brightdata__brightdata-mcp:scraping_browser_click_ref_scraping_browser_snapshot",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"cross_tool_scraping_browser_click_ref_scraping_browser_snapshot\")'"
+    },
+    {
+      "id": "cross_tool_scraping_browser_type_ref_scraping_browser_snapshot",
+      "severity": "medium",
+      "category": "cross_server",
+      "title": "Tool 'scraping_browser_type_ref' references tool 'scraping_browser_snapshot'",
+      "description": "Tool description mentions another tool by name, which could enable tool chaining attacks.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP01",
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Verify this cross-reference is legitimate and necessary.",
+      "rule_id": "cross_tool_reference",
+      "evidence": "Tool 'scraping_browser_type_ref' references tool 'scraping_browser_snapshot'",
+      "location": "static:<corpus>/registry2/02_brightdata__brightdata-mcp:scraping_browser_type_ref_scraping_browser_snapshot",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"cross_tool_scraping_browser_type_ref_scraping_browser_snapshot\")'"
+    },
+    {
+      "id": "cross_tool_scraping_browser_scroll_to_ref_scraping_browser_snapshot",
+      "severity": "medium",
+      "category": "cross_server",
+      "title": "Tool 'scraping_browser_scroll_to_ref' references tool 'scraping_browser_snapshot'",
+      "description": "Tool description mentions another tool by name, which could enable tool chaining attacks.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP01",
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Verify this cross-reference is legitimate and necessary.",
+      "rule_id": "cross_tool_reference",
+      "evidence": "Tool 'scraping_browser_scroll_to_ref' references tool 'scraping_browser_snapshot'",
+      "location": "static:<corpus>/registry2/02_brightdata__brightdata-mcp:scraping_browser_scroll_to_ref_scraping_browser_snapshot",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"cross_tool_scraping_browser_scroll_to_ref_scraping_browser_snapshot\")'"
+    },
+    {
+      "id": "cross_tool_scraping_browser_wait_for_ref_scraping_browser_snapshot",
+      "severity": "medium",
+      "category": "cross_server",
+      "title": "Tool 'scraping_browser_wait_for_ref' references tool 'scraping_browser_snapshot'",
+      "description": "Tool description mentions another tool by name, which could enable tool chaining attacks.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP01",
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Verify this cross-reference is legitimate and necessary.",
+      "rule_id": "cross_tool_reference",
+      "evidence": "Tool 'scraping_browser_wait_for_ref' references tool 'scraping_browser_snapshot'",
+      "location": "static:<corpus>/registry2/02_brightdata__brightdata-mcp:scraping_browser_wait_for_ref_scraping_browser_snapshot",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"cross_tool_scraping_browser_wait_for_ref_scraping_browser_snapshot\")'"
+    },
+    {
+      "id": "cross_tool_scraping_browser_fill_form_scraping_browser_snapshot",
+      "severity": "medium",
+      "category": "cross_server",
+      "title": "Tool 'scraping_browser_fill_form' references tool 'scraping_browser_snapshot'",
+      "description": "Tool description mentions another tool by name, which could enable tool chaining attacks.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP01",
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Verify this cross-reference is legitimate and necessary.",
+      "rule_id": "cross_tool_reference",
+      "evidence": "Tool 'scraping_browser_fill_form' references tool 'scraping_browser_snapshot'",
+      "location": "static:<corpus>/registry2/02_brightdata__brightdata-mcp:scraping_browser_fill_form_scraping_browser_snapshot",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"cross_tool_scraping_browser_fill_form_scraping_browser_snapshot\")'"
+    },
+    {
+      "id": "code_0001",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in browser_tools.js at line 279: `return await page.$eval('body', body=>body.innerHTML);`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "browser_tools.js",
+      "line_number": 279,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "return await page.$eval('body', body=>body.innerHTML);",
+      "location": "browser_tools.js:279",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0001\")'"
+    },
+    {
+      "id": "code_0002",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in browser_tools.js at line 299: `return await page.$eval('body', body=>body.innerText);`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "browser_tools.js",
+      "line_number": 299,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "return await page.$eval('body', body=>body.innerText);",
+      "location": "browser_tools.js:299",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0002\")'"
+    },
+    {
+      "id": "code_0003",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in content_gate.js at line 37: `const m = pattern.exec(value);`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "content_gate.js",
+      "line_number": 37,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const m = pattern.exec(value);",
+      "location": "content_gate.js:37",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0003\")'"
+    },
+    {
+      "id": "code_0004",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in fetch_api.js at line 120: `.exec(headers?.['content-disposition']||'')?.[1];`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "fetch_api.js",
+      "line_number": 120,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": ".exec(headers?.['content-disposition']||'')?.[1];",
+      "location": "fetch_api.js:120",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0004\")'"
+    },
+    {
+      "id": "code_0005",
+      "severity": "info",
+      "category": "data_exfiltration",
+      "title": "Server makes outbound network requests (capability note)",
+      "description": "Pattern matched in scraper_catalog.js at line 55: `const res = await axios.get(`${docs_url}/scrapers.json`,`",
+      "owasp_asi": [
+        "ASI01",
+        "ASI02"
+      ],
+      "owasp_mcp": [
+        "MCP10"
+      ],
+      "file_path": "scraper_catalog.js",
+      "line_number": 55,
+      "recommendation": "Review this data exfiltration pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const res = await axios.get(",
+      "location": "scraper_catalog.js:55",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0005\")'"
+    },
+    {
+      "id": "code_0006",
+      "severity": "info",
+      "category": "data_exfiltration",
+      "title": "Server makes outbound network requests (capability note)",
+      "description": "Pattern matched in scraper_catalog.js at line 86: `const res = await axios.get(`${api_url}/datasets/v3/scrapers`,`",
+      "owasp_asi": [
+        "ASI01",
+        "ASI02"
+      ],
+      "owasp_mcp": [
+        "MCP10"
+      ],
+      "file_path": "scraper_catalog.js",
+      "line_number": 86,
+      "recommendation": "Review this data exfiltration pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const res = await axios.get(",
+      "location": "scraper_catalog.js:86",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0006\")'"
+    },
+    {
+      "id": "code_0007",
+      "severity": "info",
+      "category": "data_exfiltration",
+      "title": "Server makes outbound network requests (capability note)",
+      "description": "Pattern matched in scraper_catalog.js at line 99: `const res = await axios.get(`${docs_url}/scrapers/${id}.json`,`",
+      "owasp_asi": [
+        "ASI01",
+        "ASI02"
+      ],
+      "owasp_mcp": [
+        "MCP10"
+      ],
+      "file_path": "scraper_catalog.js",
+      "line_number": 99,
+      "recommendation": "Review this data exfiltration pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const res = await axios.get(",
+      "location": "scraper_catalog.js:99",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0007\")'"
+    },
+    {
+      "id": "code_0008",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in test-helpers\\untrusted.js at line 7: `export const unwrap = text=>WRAPPED_RE.exec(text)?.[1] ?? text;`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "test-helpers\\untrusted.js",
+      "line_number": 7,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "export const unwrap = text=>WRAPPED_RE.exec(text)?.[1] ?? text;",
+      "location": "test-helpers\\untrusted.js:7",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0008\")'"
+    },
+    {
+      "id": "GHSA-345p-7cg4-v4c7",
+      "severity": "medium",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency @modelcontextprotocol/sdk@1.21.2: GHSA-345p-7cg4-v4c7",
+      "description": "Known vulnerability (advisory severity: unrated; direct dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update @modelcontextprotocol/sdk to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-345p-7cg4-v4c7",
+      "location": "static:<corpus>/registry2/02_brightdata__brightdata-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-345p-7cg4-v4c7\")'"
+    },
+    {
+      "id": "GHSA-46jr-4wx8-v453",
+      "severity": "medium",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency @modelcontextprotocol/sdk@1.21.2: GHSA-46jr-4wx8-v453",
+      "description": "Known vulnerability (advisory severity: unrated; direct dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update @modelcontextprotocol/sdk to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-46jr-4wx8-v453",
+      "location": "static:<corpus>/registry2/02_brightdata__brightdata-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-46jr-4wx8-v453\")'"
+    },
+    {
+      "id": "GHSA-6prh-2h8m-c8cw",
+      "severity": "medium",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency @modelcontextprotocol/sdk@1.21.2: GHSA-6prh-2h8m-c8cw",
+      "description": "Known vulnerability (advisory severity: unrated; direct dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update @modelcontextprotocol/sdk to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-6prh-2h8m-c8cw",
+      "location": "static:<corpus>/registry2/02_brightdata__brightdata-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-6prh-2h8m-c8cw\")'"
+    },
+    {
+      "id": "GHSA-6qxp-vccf-f47h",
+      "severity": "medium",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency @modelcontextprotocol/sdk@1.21.2: GHSA-6qxp-vccf-f47h",
+      "description": "Known vulnerability (advisory severity: unrated; direct dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update @modelcontextprotocol/sdk to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-6qxp-vccf-f47h",
+      "location": "static:<corpus>/registry2/02_brightdata__brightdata-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-6qxp-vccf-f47h\")'"
+    },
+    {
+      "id": "GHSA-8r9q-7v3j-jr4g",
+      "severity": "medium",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency @modelcontextprotocol/sdk@1.21.2: GHSA-8r9q-7v3j-jr4g",
+      "description": "Known vulnerability (advisory severity: unrated; direct dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update @modelcontextprotocol/sdk to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-8r9q-7v3j-jr4g",
+      "location": "static:<corpus>/registry2/02_brightdata__brightdata-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-8r9q-7v3j-jr4g\")'"
+    },
+    {
+      "id": "GHSA-f897-62hf-6gxq",
+      "severity": "medium",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency @modelcontextprotocol/sdk@1.21.2: GHSA-f897-62hf-6gxq",
+      "description": "Known vulnerability (advisory severity: unrated; direct dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update @modelcontextprotocol/sdk to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-f897-62hf-6gxq",
+      "location": "static:<corpus>/registry2/02_brightdata__brightdata-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-f897-62hf-6gxq\")'"
+    },
+    {
+      "id": "GHSA-rvq5-wwqv-78pq",
+      "severity": "medium",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency @modelcontextprotocol/sdk@1.21.2: GHSA-rvq5-wwqv-78pq",
+      "description": "Known vulnerability (advisory severity: unrated; direct dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update @modelcontextprotocol/sdk to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-rvq5-wwqv-78pq",
+      "location": "static:<corpus>/registry2/02_brightdata__brightdata-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-rvq5-wwqv-78pq\")'"
+    },
+    {
+      "id": "GHSA-w48q-cv73-mx4w",
+      "severity": "medium",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency @modelcontextprotocol/sdk@1.21.2: GHSA-w48q-cv73-mx4w",
+      "description": "Known vulnerability (advisory severity: unrated; direct dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update @modelcontextprotocol/sdk to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-w48q-cv73-mx4w",
+      "location": "static:<corpus>/registry2/02_brightdata__brightdata-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-w48q-cv73-mx4w\")'"
+    },
+    {
+      "id": "GHSA-35jp-ww65-95wh",
+      "severity": "medium",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency axios@1.11.0: GHSA-35jp-ww65-95wh",
+      "description": "Known vulnerability (advisory severity: unrated; direct dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update axios to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-35jp-ww65-95wh",
+      "location": "static:<corpus>/registry2/02_brightdata__brightdata-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-35jp-ww65-95wh\")'"
+    },
+    {
+      "id": "GHSA-3g43-6gmg-66jw",
+      "severity": "medium",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency axios@1.11.0: GHSA-3g43-6gmg-66jw",
+      "description": "Known vulnerability (advisory severity: unrated; direct dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update axios to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-3g43-6gmg-66jw",
+      "location": "static:<corpus>/registry2/02_brightdata__brightdata-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-3g43-6gmg-66jw\")'"
+    },
+    {
+      "id": "GHSA-3p68-rc4w-qgx5",
+      "severity": "medium",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency axios@1.11.0: GHSA-3p68-rc4w-qgx5",
+      "description": "Known vulnerability (advisory severity: unrated; direct dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update axios to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-3p68-rc4w-qgx5",
+      "location": "static:<corpus>/registry2/02_brightdata__brightdata-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-3p68-rc4w-qgx5\")'"
+    },
+    {
+      "id": "GHSA-3w6x-2g7m-8v23",
+      "severity": "medium",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency axios@1.11.0: GHSA-3w6x-2g7m-8v23",
+      "description": "Known vulnerability (advisory severity: unrated; direct dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update axios to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-3w6x-2g7m-8v23",
+      "location": "static:<corpus>/registry2/02_brightdata__brightdata-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-3w6x-2g7m-8v23\")'"
+    },
+    {
+      "id": "GHSA-42h9-826w-cgv3",
+      "severity": "medium",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency axios@1.11.0: GHSA-42h9-826w-cgv3",
+      "description": "Known vulnerability (advisory severity: unrated; direct dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update axios to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-42h9-826w-cgv3",
+      "location": "static:<corpus>/registry2/02_brightdata__brightdata-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-42h9-826w-cgv3\")'"
+    },
+    {
+      "id": "GHSA-43fc-jf86-j433",
+      "severity": "medium",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency axios@1.11.0: GHSA-43fc-jf86-j433",
+      "description": "Known vulnerability (advisory severity: unrated; direct dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update axios to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-43fc-jf86-j433",
+      "location": "static:<corpus>/registry2/02_brightdata__brightdata-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-43fc-jf86-j433\")'"
+    },
+    {
+      "id": "GHSA-445q-vr5w-6q77",
+      "severity": "medium",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency axios@1.11.0: GHSA-445q-vr5w-6q77",
+      "description": "Known vulnerability (advisory severity: unrated; direct dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update axios to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-445q-vr5w-6q77",
+      "location": "static:<corpus>/registry2/02_brightdata__brightdata-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-445q-vr5w-6q77\")'"
+    },
+    {
+      "id": "GHSA-4hjh-wcwx-xvwj",
+      "severity": "medium",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency axios@1.11.0: GHSA-4hjh-wcwx-xvwj",
+      "description": "Known vulnerability (advisory severity: unrated; direct dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update axios to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-4hjh-wcwx-xvwj",
+      "location": "static:<corpus>/registry2/02_brightdata__brightdata-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-4hjh-wcwx-xvwj\")'"
+    },
+    {
+      "id": "GHSA-5c9x-8gcm-mpgx",
+      "severity": "medium",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency axios@1.11.0: GHSA-5c9x-8gcm-mpgx",
+      "description": "Known vulnerability (advisory severity: unrated; direct dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update axios to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-5c9x-8gcm-mpgx",
+      "location": "static:<corpus>/registry2/02_brightdata__brightdata-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-5c9x-8gcm-mpgx\")'"
+    },
+    {
+      "id": "GHSA-62hf-57xw-28j9",
+      "severity": "medium",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency axios@1.11.0: GHSA-62hf-57xw-28j9",
+      "description": "Known vulnerability (advisory severity: unrated; direct dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update axios to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-62hf-57xw-28j9",
+      "location": "static:<corpus>/registry2/02_brightdata__brightdata-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-62hf-57xw-28j9\")'"
+    },
+    {
+      "id": "GHSA-6chq-wfr3-2hj9",
+      "severity": "medium",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency axios@1.11.0: GHSA-6chq-wfr3-2hj9",
+      "description": "Known vulnerability (advisory severity: unrated; direct dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update axios to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-6chq-wfr3-2hj9",
+      "location": "static:<corpus>/registry2/02_brightdata__brightdata-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-6chq-wfr3-2hj9\")'"
+    },
+    {
+      "id": "GHSA-777c-7fjr-54vf",
+      "severity": "medium",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency axios@1.11.0: GHSA-777c-7fjr-54vf",
+      "description": "Known vulnerability (advisory severity: unrated; direct dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update axios to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-777c-7fjr-54vf",
+      "location": "static:<corpus>/registry2/02_brightdata__brightdata-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-777c-7fjr-54vf\")'"
+    },
+    {
+      "id": "GHSA-7q8q-rj6j-mhjq",
+      "severity": "medium",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency axios@1.11.0: GHSA-7q8q-rj6j-mhjq",
+      "description": "Known vulnerability (advisory severity: unrated; direct dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update axios to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-7q8q-rj6j-mhjq",
+      "location": "static:<corpus>/registry2/02_brightdata__brightdata-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-7q8q-rj6j-mhjq\")'"
+    },
+    {
+      "id": "GHSA-898c-q2cr-xwhg",
+      "severity": "medium",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency axios@1.11.0: GHSA-898c-q2cr-xwhg",
+      "description": "Known vulnerability (advisory severity: unrated; direct dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update axios to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-898c-q2cr-xwhg",
+      "location": "static:<corpus>/registry2/02_brightdata__brightdata-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-898c-q2cr-xwhg\")'"
+    },
+    {
+      "id": "GHSA-9fr6-4gfg-395g",
+      "severity": "medium",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency axios@1.11.0: GHSA-9fr6-4gfg-395g",
+      "description": "Known vulnerability (advisory severity: unrated; direct dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update axios to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-9fr6-4gfg-395g",
+      "location": "static:<corpus>/registry2/02_brightdata__brightdata-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-9fr6-4gfg-395g\")'"
+    },
+    {
+      "id": "GHSA-fvcv-3m26-pcqx",
+      "severity": "medium",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency axios@1.11.0: GHSA-fvcv-3m26-pcqx",
+      "description": "Known vulnerability (advisory severity: unrated; direct dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update axios to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-fvcv-3m26-pcqx",
+      "location": "static:<corpus>/registry2/02_brightdata__brightdata-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-fvcv-3m26-pcqx\")'"
+    },
+    {
+      "id": "GHSA-hfxv-24rg-xrqf",
+      "severity": "medium",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency axios@1.11.0: GHSA-hfxv-24rg-xrqf",
+      "description": "Known vulnerability (advisory severity: unrated; direct dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update axios to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-hfxv-24rg-xrqf",
+      "location": "static:<corpus>/registry2/02_brightdata__brightdata-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-hfxv-24rg-xrqf\")'"
+    },
+    {
+      "id": "GHSA-j5f8-grm9-p9fc",
+      "severity": "medium",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency axios@1.11.0: GHSA-j5f8-grm9-p9fc",
+      "description": "Known vulnerability (advisory severity: unrated; direct dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update axios to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-j5f8-grm9-p9fc",
+      "location": "static:<corpus>/registry2/02_brightdata__brightdata-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-j5f8-grm9-p9fc\")'"
+    },
+    {
+      "id": "GHSA-j8rh-479h-cp32",
+      "severity": "medium",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency axios@1.11.0: GHSA-j8rh-479h-cp32",
+      "description": "Known vulnerability (advisory severity: unrated; direct dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update axios to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-j8rh-479h-cp32",
+      "location": "static:<corpus>/registry2/02_brightdata__brightdata-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-j8rh-479h-cp32\")'"
+    },
+    {
+      "id": "GHSA-jqh4-m9w3-8hp9",
+      "severity": "medium",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency axios@1.11.0: GHSA-jqh4-m9w3-8hp9",
+      "description": "Known vulnerability (advisory severity: unrated; direct dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update axios to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-jqh4-m9w3-8hp9",
+      "location": "static:<corpus>/registry2/02_brightdata__brightdata-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-jqh4-m9w3-8hp9\")'"
+    },
+    {
+      "id": "GHSA-m7pr-hjqh-92cm",
+      "severity": "medium",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency axios@1.11.0: GHSA-m7pr-hjqh-92cm",
+      "description": "Known vulnerability (advisory severity: unrated; direct dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update axios to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-m7pr-hjqh-92cm",
+      "location": "static:<corpus>/registry2/02_brightdata__brightdata-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-m7pr-hjqh-92cm\")'"
+    },
+    {
+      "id": "GHSA-mmx7-hfxf-jppx",
+      "severity": "medium",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency axios@1.11.0: GHSA-mmx7-hfxf-jppx",
+      "description": "Known vulnerability (advisory severity: unrated; direct dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update axios to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-mmx7-hfxf-jppx",
+      "location": "static:<corpus>/registry2/02_brightdata__brightdata-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-mmx7-hfxf-jppx\")'"
+    },
+    {
+      "id": "GHSA-p92q-9vqr-4j8v",
+      "severity": "medium",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency axios@1.11.0: GHSA-p92q-9vqr-4j8v",
+      "description": "Known vulnerability (advisory severity: unrated; direct dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update axios to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-p92q-9vqr-4j8v",
+      "location": "static:<corpus>/registry2/02_brightdata__brightdata-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-p92q-9vqr-4j8v\")'"
+    },
+    {
+      "id": "GHSA-pf86-5x62-jrwf",
+      "severity": "medium",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency axios@1.11.0: GHSA-pf86-5x62-jrwf",
+      "description": "Known vulnerability (advisory severity: unrated; direct dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update axios to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-pf86-5x62-jrwf",
+      "location": "static:<corpus>/registry2/02_brightdata__brightdata-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-pf86-5x62-jrwf\")'"
+    },
+    {
+      "id": "GHSA-pmv8-rq9r-6j72",
+      "severity": "medium",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency axios@1.11.0: GHSA-pmv8-rq9r-6j72",
+      "description": "Known vulnerability (advisory severity: unrated; direct dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update axios to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-pmv8-rq9r-6j72",
+      "location": "static:<corpus>/registry2/02_brightdata__brightdata-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-pmv8-rq9r-6j72\")'"
+    },
+    {
+      "id": "GHSA-pmwg-cvhr-8vh7",
+      "severity": "medium",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency axios@1.11.0: GHSA-pmwg-cvhr-8vh7",
+      "description": "Known vulnerability (advisory severity: unrated; direct dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update axios to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-pmwg-cvhr-8vh7",
+      "location": "static:<corpus>/registry2/02_brightdata__brightdata-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-pmwg-cvhr-8vh7\")'"
+    },
+    {
+      "id": "GHSA-q8qp-cvcw-x6jj",
+      "severity": "medium",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency axios@1.11.0: GHSA-q8qp-cvcw-x6jj",
+      "description": "Known vulnerability (advisory severity: unrated; direct dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update axios to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-q8qp-cvcw-x6jj",
+      "location": "static:<corpus>/registry2/02_brightdata__brightdata-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-q8qp-cvcw-x6jj\")'"
+    },
+    {
+      "id": "GHSA-vf2m-468p-8v99",
+      "severity": "medium",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency axios@1.11.0: GHSA-vf2m-468p-8v99",
+      "description": "Known vulnerability (advisory severity: unrated; direct dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update axios to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-vf2m-468p-8v99",
+      "location": "static:<corpus>/registry2/02_brightdata__brightdata-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-vf2m-468p-8v99\")'"
+    },
+    {
+      "id": "GHSA-vh66-26gq-q6x8",
+      "severity": "medium",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency axios@1.11.0: GHSA-vh66-26gq-q6x8",
+      "description": "Known vulnerability (advisory severity: unrated; direct dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update axios to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-vh66-26gq-q6x8",
+      "location": "static:<corpus>/registry2/02_brightdata__brightdata-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-vh66-26gq-q6x8\")'"
+    },
+    {
+      "id": "GHSA-w9j2-pvgh-6h63",
+      "severity": "medium",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency axios@1.11.0: GHSA-w9j2-pvgh-6h63",
+      "description": "Known vulnerability (advisory severity: unrated; direct dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update axios to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-w9j2-pvgh-6h63",
+      "location": "static:<corpus>/registry2/02_brightdata__brightdata-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-w9j2-pvgh-6h63\")'"
+    },
+    {
+      "id": "GHSA-xhjh-pmcv-23jw",
+      "severity": "medium",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency axios@1.11.0: GHSA-xhjh-pmcv-23jw",
+      "description": "Known vulnerability (advisory severity: unrated; direct dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update axios to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-xhjh-pmcv-23jw",
+      "location": "static:<corpus>/registry2/02_brightdata__brightdata-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-xhjh-pmcv-23jw\")'"
+    },
+    {
+      "id": "GHSA-xx6v-rp6x-q39c",
+      "severity": "medium",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency axios@1.11.0: GHSA-xx6v-rp6x-q39c",
+      "description": "Known vulnerability (advisory severity: unrated; direct dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update axios to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-xx6v-rp6x-q39c",
+      "location": "static:<corpus>/registry2/02_brightdata__brightdata-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-xx6v-rp6x-q39c\")'"
+    },
+    {
+      "id": "GHSA-mrhx-c7xc-m3w5",
+      "severity": "medium",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency zod@3.24.2: GHSA-mrhx-c7xc-m3w5",
+      "description": "Known vulnerability (advisory severity: unrated; direct dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update zod to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-mrhx-c7xc-m3w5",
+      "location": "static:<corpus>/registry2/02_brightdata__brightdata-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-mrhx-c7xc-m3w5\")'"
+    },
+    {
+      "id": "GHSA-92pp-h63x-v22m",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency @hono/node-server@1.19.10: GHSA-92pp-h63x-v22m",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update @hono/node-server to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-92pp-h63x-v22m",
+      "location": "static:<corpus>/registry2/02_brightdata__brightdata-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-92pp-h63x-v22m\")'"
+    },
+    {
+      "id": "GHSA-frvp-7c67-39w9",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency @hono/node-server@1.19.10: GHSA-frvp-7c67-39w9",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update @hono/node-server to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-frvp-7c67-39w9",
+      "location": "static:<corpus>/registry2/02_brightdata__brightdata-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-frvp-7c67-39w9\")'"
+    },
+    {
+      "id": "GHSA-rmxm-3fg6-px4f",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency @hono/node-server@1.19.10: GHSA-rmxm-3fg6-px4f",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update @hono/node-server to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-rmxm-3fg6-px4f",
+      "location": "static:<corpus>/registry2/02_brightdata__brightdata-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-rmxm-3fg6-px4f\")'"
+    },
+    {
+      "id": "GHSA-2g4f-4pwh-qvx6",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency ajv@8.17.1: GHSA-2g4f-4pwh-qvx6",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update ajv to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-2g4f-4pwh-qvx6",
+      "location": "static:<corpus>/registry2/02_brightdata__brightdata-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-2g4f-4pwh-qvx6\")'"
+    },
+    {
+      "id": "GHSA-27r3-jxmh-p828",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency body-parser@2.2.2: GHSA-27r3-jxmh-p828",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update body-parser to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-27r3-jxmh-p828",
+      "location": "static:<corpus>/registry2/02_brightdata__brightdata-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-27r3-jxmh-p828\")'"
+    },
+    {
+      "id": "GHSA-v422-hmwv-36x6",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency body-parser@2.2.2: GHSA-v422-hmwv-36x6",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update body-parser to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-v422-hmwv-36x6",
+      "location": "static:<corpus>/registry2/02_brightdata__brightdata-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-v422-hmwv-36x6\")'"
+    },
+    {
+      "id": "GHSA-333x-w4r6-6crp",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency fast-uri@3.1.0: GHSA-333x-w4r6-6crp",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update fast-uri to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-333x-w4r6-6crp",
+      "location": "static:<corpus>/registry2/02_brightdata__brightdata-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-333x-w4r6-6crp\")'"
+    },
+    {
+      "id": "GHSA-4c8g-83qw-93j6",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency fast-uri@3.1.0: GHSA-4c8g-83qw-93j6",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update fast-uri to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-4c8g-83qw-93j6",
+      "location": "static:<corpus>/registry2/02_brightdata__brightdata-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-4c8g-83qw-93j6\")'"
+    },
+    {
+      "id": "GHSA-7p8r-x3mc-p8w7",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency fast-uri@3.1.0: GHSA-7p8r-x3mc-p8w7",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update fast-uri to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-7p8r-x3mc-p8w7",
+      "location": "static:<corpus>/registry2/02_brightdata__brightdata-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-7p8r-x3mc-p8w7\")'"
+    },
+    {
+      "id": "GHSA-f65p-4m7j-42xc",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency fast-uri@3.1.0: GHSA-f65p-4m7j-42xc",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update fast-uri to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-f65p-4m7j-42xc",
+      "location": "static:<corpus>/registry2/02_brightdata__brightdata-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-f65p-4m7j-42xc\")'"
+    },
+    {
+      "id": "GHSA-hrr3-gc8f-f4qj",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency fast-uri@3.1.0: GHSA-hrr3-gc8f-f4qj",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update fast-uri to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-hrr3-gc8f-f4qj",
+      "location": "static:<corpus>/registry2/02_brightdata__brightdata-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-hrr3-gc8f-f4qj\")'"
+    },
+    {
+      "id": "GHSA-jqff-g426-hqxp",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency fast-uri@3.1.0: GHSA-jqff-g426-hqxp",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update fast-uri to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-jqff-g426-hqxp",
+      "location": "static:<corpus>/registry2/02_brightdata__brightdata-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-jqff-g426-hqxp\")'"
+    },
+    {
+      "id": "GHSA-q3j6-qgpj-74h6",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency fast-uri@3.1.0: GHSA-q3j6-qgpj-74h6",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update fast-uri to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-q3j6-qgpj-74h6",
+      "location": "static:<corpus>/registry2/02_brightdata__brightdata-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-q3j6-qgpj-74h6\")'"
+    },
+    {
+      "id": "GHSA-qw65-cvwx-89v3",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency fast-uri@3.1.0: GHSA-qw65-cvwx-89v3",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update fast-uri to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-qw65-cvwx-89v3",
+      "location": "static:<corpus>/registry2/02_brightdata__brightdata-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-qw65-cvwx-89v3\")'"
+    },
+    {
+      "id": "GHSA-v2hh-gcrm-f6hx",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency fast-uri@3.1.0: GHSA-v2hh-gcrm-f6hx",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update fast-uri to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-v2hh-gcrm-f6hx",
+      "location": "static:<corpus>/registry2/02_brightdata__brightdata-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-v2hh-gcrm-f6hx\")'"
+    },
+    {
+      "id": "GHSA-v39h-62p7-jpjc",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency fast-uri@3.1.0: GHSA-v39h-62p7-jpjc",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update fast-uri to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-v39h-62p7-jpjc",
+      "location": "static:<corpus>/registry2/02_brightdata__brightdata-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-v39h-62p7-jpjc\")'"
+    },
+    {
+      "id": "GHSA-w74x-v6f9-j3xg",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency fast-uri@3.1.0: GHSA-w74x-v6f9-j3xg",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update fast-uri to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-w74x-v6f9-j3xg",
+      "location": "static:<corpus>/registry2/02_brightdata__brightdata-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-w74x-v6f9-j3xg\")'"
+    },
+    {
+      "id": "GHSA-xhq7-xmqj-769h",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency fast-uri@3.1.0: GHSA-xhq7-xmqj-769h",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update fast-uri to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-xhq7-xmqj-769h",
+      "location": "static:<corpus>/registry2/02_brightdata__brightdata-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-xhq7-xmqj-769h\")'"
+    },
+    {
+      "id": "GHSA-5v7r-6r5c-r473",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency file-type@21.3.0: GHSA-5v7r-6r5c-r473",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update file-type to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-5v7r-6r5c-r473",
+      "location": "static:<corpus>/registry2/02_brightdata__brightdata-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-5v7r-6r5c-r473\")'"
+    },
+    {
+      "id": "GHSA-j47w-4g3g-c36v",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency file-type@21.3.0: GHSA-j47w-4g3g-c36v",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update file-type to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-j47w-4g3g-c36v",
+      "location": "static:<corpus>/registry2/02_brightdata__brightdata-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-j47w-4g3g-c36v\")'"
+    },
+    {
+      "id": "GHSA-r4q5-vmmm-2653",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency follow-redirects@1.15.11: GHSA-r4q5-vmmm-2653",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update follow-redirects to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-r4q5-vmmm-2653",
+      "location": "static:<corpus>/registry2/02_brightdata__brightdata-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-r4q5-vmmm-2653\")'"
+    },
+    {
+      "id": "GHSA-hmw2-7cc7-3qxx",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency form-data@4.0.4: GHSA-hmw2-7cc7-3qxx",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update form-data to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-hmw2-7cc7-3qxx",
+      "location": "static:<corpus>/registry2/02_brightdata__brightdata-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-hmw2-7cc7-3qxx\")'"
+    },
+    {
+      "id": "GHSA-26pp-8wgv-hjvm",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency hono@4.12.4: GHSA-26pp-8wgv-hjvm",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update hono to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-26pp-8wgv-hjvm",
+      "location": "static:<corpus>/registry2/02_brightdata__brightdata-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-26pp-8wgv-hjvm\")'"
+    },
+    {
+      "id": "GHSA-2gcr-mfcq-wcc3",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency hono@4.12.4: GHSA-2gcr-mfcq-wcc3",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update hono to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-2gcr-mfcq-wcc3",
+      "location": "static:<corpus>/registry2/02_brightdata__brightdata-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-2gcr-mfcq-wcc3\")'"
+    },
+    {
+      "id": "GHSA-3hrh-pfw6-9m5x",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency hono@4.12.4: GHSA-3hrh-pfw6-9m5x",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update hono to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-3hrh-pfw6-9m5x",
+      "location": "static:<corpus>/registry2/02_brightdata__brightdata-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-3hrh-pfw6-9m5x\")'"
+    },
+    {
+      "id": "GHSA-458j-xx4x-4375",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency hono@4.12.4: GHSA-458j-xx4x-4375",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update hono to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-458j-xx4x-4375",
+      "location": "static:<corpus>/registry2/02_brightdata__brightdata-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-458j-xx4x-4375\")'"
+    },
+    {
+      "id": "GHSA-54fx-42gc-7vw4",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency hono@4.12.4: GHSA-54fx-42gc-7vw4",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update hono to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-54fx-42gc-7vw4",
+      "location": "static:<corpus>/registry2/02_brightdata__brightdata-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-54fx-42gc-7vw4\")'"
+    },
+    {
+      "id": "GHSA-5r4p-p66f-jhc7",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency hono@4.12.4: GHSA-5r4p-p66f-jhc7",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update hono to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-5r4p-p66f-jhc7",
+      "location": "static:<corpus>/registry2/02_brightdata__brightdata-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-5r4p-p66f-jhc7\")'"
+    },
+    {
+      "id": "GHSA-69xw-7hcm-h432",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency hono@4.12.4: GHSA-69xw-7hcm-h432",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update hono to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-69xw-7hcm-h432",
+      "location": "static:<corpus>/registry2/02_brightdata__brightdata-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-69xw-7hcm-h432\")'"
+    },
+    {
+      "id": "GHSA-79qm-7rj5-m7r9",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency hono@4.12.4: GHSA-79qm-7rj5-m7r9",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update hono to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-79qm-7rj5-m7r9",
+      "location": "static:<corpus>/registry2/02_brightdata__brightdata-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-79qm-7rj5-m7r9\")'"
+    },
+    {
+      "id": "GHSA-88fw-hqm2-52qc",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency hono@4.12.4: GHSA-88fw-hqm2-52qc",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update hono to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-88fw-hqm2-52qc",
+      "location": "static:<corpus>/registry2/02_brightdata__brightdata-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-88fw-hqm2-52qc\")'"
+    },
+    {
+      "id": "GHSA-8j4g-w8fx-2239",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency hono@4.12.4: GHSA-8j4g-w8fx-2239",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update hono to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-8j4g-w8fx-2239",
+      "location": "static:<corpus>/registry2/02_brightdata__brightdata-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-8j4g-w8fx-2239\")'"
+    },
+    {
+      "id": "GHSA-9vqf-7f2p-gf9v",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency hono@4.12.4: GHSA-9vqf-7f2p-gf9v",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update hono to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-9vqf-7f2p-gf9v",
+      "location": "static:<corpus>/registry2/02_brightdata__brightdata-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-9vqf-7f2p-gf9v\")'"
+    },
+    {
+      "id": "GHSA-crvj-82cr-hjcx",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency hono@4.12.4: GHSA-crvj-82cr-hjcx",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update hono to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-crvj-82cr-hjcx",
+      "location": "static:<corpus>/registry2/02_brightdata__brightdata-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-crvj-82cr-hjcx\")'"
+    },
+    {
+      "id": "GHSA-f23p-vx2j-j53r",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency hono@4.12.4: GHSA-f23p-vx2j-j53r",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update hono to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-f23p-vx2j-j53r",
+      "location": "static:<corpus>/registry2/02_brightdata__brightdata-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-f23p-vx2j-j53r\")'"
+    },
+    {
+      "id": "GHSA-f577-qrjj-4474",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency hono@4.12.4: GHSA-f577-qrjj-4474",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update hono to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-f577-qrjj-4474",
+      "location": "static:<corpus>/registry2/02_brightdata__brightdata-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-f577-qrjj-4474\")'"
+    },
+    {
+      "id": "GHSA-g6gw-c38x-mqfc",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency hono@4.12.4: GHSA-g6gw-c38x-mqfc",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update hono to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-g6gw-c38x-mqfc",
+      "location": "static:<corpus>/registry2/02_brightdata__brightdata-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-g6gw-c38x-mqfc\")'"
+    },
+    {
+      "id": "GHSA-gqvv-2mrq-wpjv",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency hono@4.12.4: GHSA-gqvv-2mrq-wpjv",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update hono to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-gqvv-2mrq-wpjv",
+      "location": "static:<corpus>/registry2/02_brightdata__brightdata-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-gqvv-2mrq-wpjv\")'"
+    },
+    {
+      "id": "GHSA-hm8q-7f3q-5f36",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency hono@4.12.4: GHSA-hm8q-7f3q-5f36",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update hono to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-hm8q-7f3q-5f36",
+      "location": "static:<corpus>/registry2/02_brightdata__brightdata-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-hm8q-7f3q-5f36\")'"
+    },
+    {
+      "id": "GHSA-hvrm-45r6-mjfj",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency hono@4.12.4: GHSA-hvrm-45r6-mjfj",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update hono to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-hvrm-45r6-mjfj",
+      "location": "static:<corpus>/registry2/02_brightdata__brightdata-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-hvrm-45r6-mjfj\")'"
+    },
+    {
+      "id": "GHSA-hxh3-vqpv-xpqv",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency hono@4.12.4: GHSA-hxh3-vqpv-xpqv",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update hono to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-hxh3-vqpv-xpqv",
+      "location": "static:<corpus>/registry2/02_brightdata__brightdata-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-hxh3-vqpv-xpqv\")'"
+    },
+    {
+      "id": "GHSA-j6c9-x7qj-28xf",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency hono@4.12.4: GHSA-j6c9-x7qj-28xf",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update hono to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-j6c9-x7qj-28xf",
+      "location": "static:<corpus>/registry2/02_brightdata__brightdata-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-j6c9-x7qj-28xf\")'"
+    },
+    {
+      "id": "GHSA-p77w-8qqv-26rm",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency hono@4.12.4: GHSA-p77w-8qqv-26rm",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update hono to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-p77w-8qqv-26rm",
+      "location": "static:<corpus>/registry2/02_brightdata__brightdata-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-p77w-8qqv-26rm\")'"
+    },
+    {
+      "id": "GHSA-qp7p-654g-cw7p",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency hono@4.12.4: GHSA-qp7p-654g-cw7p",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update hono to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-qp7p-654g-cw7p",
+      "location": "static:<corpus>/registry2/02_brightdata__brightdata-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-qp7p-654g-cw7p\")'"
+    },
+    {
+      "id": "GHSA-r5rp-j6wh-rvv4",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency hono@4.12.4: GHSA-r5rp-j6wh-rvv4",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update hono to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-r5rp-j6wh-rvv4",
+      "location": "static:<corpus>/registry2/02_brightdata__brightdata-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-r5rp-j6wh-rvv4\")'"
+    },
+    {
+      "id": "GHSA-rv63-4mwf-qqc2",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency hono@4.12.4: GHSA-rv63-4mwf-qqc2",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update hono to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-rv63-4mwf-qqc2",
+      "location": "static:<corpus>/registry2/02_brightdata__brightdata-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-rv63-4mwf-qqc2\")'"
+    },
+    {
+      "id": "GHSA-v8w9-8mx6-g223",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency hono@4.12.4: GHSA-v8w9-8mx6-g223",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update hono to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-v8w9-8mx6-g223",
+      "location": "static:<corpus>/registry2/02_brightdata__brightdata-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-v8w9-8mx6-g223\")'"
+    },
+    {
+      "id": "GHSA-w62v-xxxg-mg59",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency hono@4.12.4: GHSA-w62v-xxxg-mg59",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update hono to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-w62v-xxxg-mg59",
+      "location": "static:<corpus>/registry2/02_brightdata__brightdata-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-w62v-xxxg-mg59\")'"
+    },
+    {
+      "id": "GHSA-wgpf-jwqj-8h8p",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency hono@4.12.4: GHSA-wgpf-jwqj-8h8p",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update hono to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-wgpf-jwqj-8h8p",
+      "location": "static:<corpus>/registry2/02_brightdata__brightdata-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-wgpf-jwqj-8h8p\")'"
+    },
+    {
+      "id": "GHSA-wmmm-f939-6g9c",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency hono@4.12.4: GHSA-wmmm-f939-6g9c",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update hono to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-wmmm-f939-6g9c",
+      "location": "static:<corpus>/registry2/02_brightdata__brightdata-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-wmmm-f939-6g9c\")'"
+    },
+    {
+      "id": "GHSA-wwfh-h76j-fc44",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency hono@4.12.4: GHSA-wwfh-h76j-fc44",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update hono to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-wwfh-h76j-fc44",
+      "location": "static:<corpus>/registry2/02_brightdata__brightdata-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-wwfh-h76j-fc44\")'"
+    },
+    {
+      "id": "GHSA-xf4j-xp2r-rqqx",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency hono@4.12.4: GHSA-xf4j-xp2r-rqqx",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update hono to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-xf4j-xp2r-rqqx",
+      "location": "static:<corpus>/registry2/02_brightdata__brightdata-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-xf4j-xp2r-rqqx\")'"
+    },
+    {
+      "id": "GHSA-xgm2-5f3f-mvvc",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency hono@4.12.4: GHSA-xgm2-5f3f-mvvc",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update hono to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-xgm2-5f3f-mvvc",
+      "location": "static:<corpus>/registry2/02_brightdata__brightdata-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-xgm2-5f3f-mvvc\")'"
+    },
+    {
+      "id": "GHSA-xpcf-pg52-r92g",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency hono@4.12.4: GHSA-xpcf-pg52-r92g",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update hono to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-xpcf-pg52-r92g",
+      "location": "static:<corpus>/registry2/02_brightdata__brightdata-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-xpcf-pg52-r92g\")'"
+    },
+    {
+      "id": "GHSA-xrhx-7g5j-rcj5",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency hono@4.12.4: GHSA-xrhx-7g5j-rcj5",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update hono to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-xrhx-7g5j-rcj5",
+      "location": "static:<corpus>/registry2/02_brightdata__brightdata-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-xrhx-7g5j-rcj5\")'"
+    },
+    {
+      "id": "GHSA-h3mg-xc3c-68pw",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency ip-address@10.0.1: GHSA-h3mg-xc3c-68pw",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update ip-address to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-h3mg-xc3c-68pw",
+      "location": "static:<corpus>/registry2/02_brightdata__brightdata-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-h3mg-xc3c-68pw\")'"
+    },
+    {
+      "id": "GHSA-j6r3-76f7-8jcv",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency ip-address@10.0.1: GHSA-j6r3-76f7-8jcv",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update ip-address to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-j6r3-76f7-8jcv",
+      "location": "static:<corpus>/registry2/02_brightdata__brightdata-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-j6r3-76f7-8jcv\")'"
+    },
+    {
+      "id": "GHSA-mwp4-54f8-5fhr",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency ip-address@10.0.1: GHSA-mwp4-54f8-5fhr",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update ip-address to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-mwp4-54f8-5fhr",
+      "location": "static:<corpus>/registry2/02_brightdata__brightdata-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-mwp4-54f8-5fhr\")'"
+    },
+    {
+      "id": "GHSA-rpw4-54j3-4h4q",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency ip-address@10.0.1: GHSA-rpw4-54j3-4h4q",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update ip-address to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-rpw4-54j3-4h4q",
+      "location": "static:<corpus>/registry2/02_brightdata__brightdata-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-rpw4-54j3-4h4q\")'"
+    },
+    {
+      "id": "GHSA-rxp7-6hxx-x8q5",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency ip-address@10.0.1: GHSA-rxp7-6hxx-x8q5",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update ip-address to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-rxp7-6hxx-x8q5",
+      "location": "static:<corpus>/registry2/02_brightdata__brightdata-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-rxp7-6hxx-x8q5\")'"
+    },
+    {
+      "id": "GHSA-v2v4-37r5-5v8g",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency ip-address@10.0.1: GHSA-v2v4-37r5-5v8g",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update ip-address to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-v2v4-37r5-5v8g",
+      "location": "static:<corpus>/registry2/02_brightdata__brightdata-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-v2v4-37r5-5v8g\")'"
+    },
+    {
+      "id": "GHSA-27v5-c462-wpq7",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency path-to-regexp@8.3.0: GHSA-27v5-c462-wpq7",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update path-to-regexp to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-27v5-c462-wpq7",
+      "location": "static:<corpus>/registry2/02_brightdata__brightdata-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-27v5-c462-wpq7\")'"
+    },
+    {
+      "id": "GHSA-j3q9-mxjg-w52f",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency path-to-regexp@8.3.0: GHSA-j3q9-mxjg-w52f",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update path-to-regexp to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-j3q9-mxjg-w52f",
+      "location": "static:<corpus>/registry2/02_brightdata__brightdata-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-j3q9-mxjg-w52f\")'"
+    },
+    {
+      "id": "GHSA-jqcg-44mw-7w3h",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency proxy-addr@2.0.7: GHSA-jqcg-44mw-7w3h",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update proxy-addr to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-jqcg-44mw-7w3h",
+      "location": "static:<corpus>/registry2/02_brightdata__brightdata-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-jqcg-44mw-7w3h\")'"
+    },
+    {
+      "id": "GHSA-4mjr-xmp4-gh2g",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency qs@6.15.0: GHSA-4mjr-xmp4-gh2g",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update qs to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-4mjr-xmp4-gh2g",
+      "location": "static:<corpus>/registry2/02_brightdata__brightdata-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-4mjr-xmp4-gh2g\")'"
+    },
+    {
+      "id": "GHSA-6pq8-jhm2-2vcw",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency qs@6.15.0: GHSA-6pq8-jhm2-2vcw",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update qs to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-6pq8-jhm2-2vcw",
+      "location": "static:<corpus>/registry2/02_brightdata__brightdata-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-6pq8-jhm2-2vcw\")'"
+    },
+    {
+      "id": "GHSA-q8mj-m7cp-5q26",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency qs@6.15.0: GHSA-q8mj-m7cp-5q26",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update qs to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-q8mj-m7cp-5q26",
+      "location": "static:<corpus>/registry2/02_brightdata__brightdata-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-q8mj-m7cp-5q26\")'"
+    },
+    {
+      "id": "GHSA-x5fp-wj9c-mxmx",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency qs@6.15.0: GHSA-x5fp-wj9c-mxmx",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update qs to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-x5fp-wj9c-mxmx",
+      "location": "static:<corpus>/registry2/02_brightdata__brightdata-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-x5fp-wj9c-mxmx\")'"
+    },
+    {
+      "id": "GHSA-2gqq-gqf2-x968",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency undici@7.16.0: GHSA-2gqq-gqf2-x968",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update undici to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-2gqq-gqf2-x968",
+      "location": "static:<corpus>/registry2/02_brightdata__brightdata-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-2gqq-gqf2-x968\")'"
+    },
+    {
+      "id": "GHSA-2jfj-6hjv-fm6j",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency undici@7.16.0: GHSA-2jfj-6hjv-fm6j",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update undici to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-2jfj-6hjv-fm6j",
+      "location": "static:<corpus>/registry2/02_brightdata__brightdata-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-2jfj-6hjv-fm6j\")'"
+    },
+    {
+      "id": "GHSA-2m5v-pch6-74hx",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency undici@7.16.0: GHSA-2m5v-pch6-74hx",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update undici to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-2m5v-pch6-74hx",
+      "location": "static:<corpus>/registry2/02_brightdata__brightdata-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-2m5v-pch6-74hx\")'"
+    },
+    {
+      "id": "GHSA-2mjp-6q6p-2qxm",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency undici@7.16.0: GHSA-2mjp-6q6p-2qxm",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update undici to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-2mjp-6q6p-2qxm",
+      "location": "static:<corpus>/registry2/02_brightdata__brightdata-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-2mjp-6q6p-2qxm\")'"
+    },
+    {
+      "id": "GHSA-35p6-xmwp-9g52",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency undici@7.16.0: GHSA-35p6-xmwp-9g52",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update undici to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-35p6-xmwp-9g52",
+      "location": "static:<corpus>/registry2/02_brightdata__brightdata-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-35p6-xmwp-9g52\")'"
+    },
+    {
+      "id": "GHSA-3xpg-4rpp-hhhm",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency undici@7.16.0: GHSA-3xpg-4rpp-hhhm",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update undici to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-3xpg-4rpp-hhhm",
+      "location": "static:<corpus>/registry2/02_brightdata__brightdata-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-3xpg-4rpp-hhhm\")'"
+    },
+    {
+      "id": "GHSA-4992-7rv2-5pvq",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency undici@7.16.0: GHSA-4992-7rv2-5pvq",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update undici to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-4992-7rv2-5pvq",
+      "location": "static:<corpus>/registry2/02_brightdata__brightdata-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-4992-7rv2-5pvq\")'"
+    },
+    {
+      "id": "GHSA-4cwx-7wf7-3272",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency undici@7.16.0: GHSA-4cwx-7wf7-3272",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update undici to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-4cwx-7wf7-3272",
+      "location": "static:<corpus>/registry2/02_brightdata__brightdata-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-4cwx-7wf7-3272\")'"
+    },
+    {
+      "id": "GHSA-4qv8-2p9j-2685",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency undici@7.16.0: GHSA-4qv8-2p9j-2685",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update undici to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-4qv8-2p9j-2685",
+      "location": "static:<corpus>/registry2/02_brightdata__brightdata-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-4qv8-2p9j-2685\")'"
+    },
+    {
+      "id": "GHSA-4w7w-5xrc-9h26",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency undici@7.16.0: GHSA-4w7w-5xrc-9h26",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update undici to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-4w7w-5xrc-9h26",
+      "location": "static:<corpus>/registry2/02_brightdata__brightdata-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-4w7w-5xrc-9h26\")'"
+    },
+    {
+      "id": "GHSA-55wc-3pg8-jfw6",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency undici@7.16.0: GHSA-55wc-3pg8-jfw6",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update undici to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-55wc-3pg8-jfw6",
+      "location": "static:<corpus>/registry2/02_brightdata__brightdata-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-55wc-3pg8-jfw6\")'"
+    },
+    {
+      "id": "GHSA-8436-99hf-9mmv",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency undici@7.16.0: GHSA-8436-99hf-9mmv",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update undici to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-8436-99hf-9mmv",
+      "location": "static:<corpus>/registry2/02_brightdata__brightdata-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-8436-99hf-9mmv\")'"
+    },
+    {
+      "id": "GHSA-8xcm-r25x-g524",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency undici@7.16.0: GHSA-8xcm-r25x-g524",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update undici to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-8xcm-r25x-g524",
+      "location": "static:<corpus>/registry2/02_brightdata__brightdata-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-8xcm-r25x-g524\")'"
+    },
+    {
+      "id": "GHSA-9fm3-97px-rjf6",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency undici@7.16.0: GHSA-9fm3-97px-rjf6",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update undici to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-9fm3-97px-rjf6",
+      "location": "static:<corpus>/registry2/02_brightdata__brightdata-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-9fm3-97px-rjf6\")'"
+    },
+    {
+      "id": "GHSA-f269-vfmq-vjvj",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency undici@7.16.0: GHSA-f269-vfmq-vjvj",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update undici to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-f269-vfmq-vjvj",
+      "location": "static:<corpus>/registry2/02_brightdata__brightdata-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-f269-vfmq-vjvj\")'"
+    },
+    {
+      "id": "GHSA-f72v-6w45-q472",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency undici@7.16.0: GHSA-f72v-6w45-q472",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update undici to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-f72v-6w45-q472",
+      "location": "static:<corpus>/registry2/02_brightdata__brightdata-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-f72v-6w45-q472\")'"
+    },
+    {
+      "id": "GHSA-g8m3-5g58-fq7m",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency undici@7.16.0: GHSA-g8m3-5g58-fq7m",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update undici to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-g8m3-5g58-fq7m",
+      "location": "static:<corpus>/registry2/02_brightdata__brightdata-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-g8m3-5g58-fq7m\")'"
+    },
+    {
+      "id": "GHSA-g9mf-h72j-4rw9",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency undici@7.16.0: GHSA-g9mf-h72j-4rw9",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update undici to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-g9mf-h72j-4rw9",
+      "location": "static:<corpus>/registry2/02_brightdata__brightdata-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-g9mf-h72j-4rw9\")'"
+    },
+    {
+      "id": "GHSA-jr45-8vmc-qm54",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency undici@7.16.0: GHSA-jr45-8vmc-qm54",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update undici to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-jr45-8vmc-qm54",
+      "location": "static:<corpus>/registry2/02_brightdata__brightdata-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-jr45-8vmc-qm54\")'"
+    },
+    {
+      "id": "GHSA-m8rv-5g2x-5cg5",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency undici@7.16.0: GHSA-m8rv-5g2x-5cg5",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update undici to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-m8rv-5g2x-5cg5",
+      "location": "static:<corpus>/registry2/02_brightdata__brightdata-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-m8rv-5g2x-5cg5\")'"
+    },
+    {
+      "id": "GHSA-p88m-4jfj-68fv",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency undici@7.16.0: GHSA-p88m-4jfj-68fv",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update undici to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-p88m-4jfj-68fv",
+      "location": "static:<corpus>/registry2/02_brightdata__brightdata-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-p88m-4jfj-68fv\")'"
+    },
+    {
+      "id": "GHSA-pmjh-fq2x-6v4x",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency undici@7.16.0: GHSA-pmjh-fq2x-6v4x",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update undici to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-pmjh-fq2x-6v4x",
+      "location": "static:<corpus>/registry2/02_brightdata__brightdata-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-pmjh-fq2x-6v4x\")'"
+    },
+    {
+      "id": "GHSA-pr7r-676h-xcf6",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency undici@7.16.0: GHSA-pr7r-676h-xcf6",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update undici to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-pr7r-676h-xcf6",
+      "location": "static:<corpus>/registry2/02_brightdata__brightdata-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-pr7r-676h-xcf6\")'"
+    },
+    {
+      "id": "GHSA-qrxm-fqhp-jwvm",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency undici@7.16.0: GHSA-qrxm-fqhp-jwvm",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update undici to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-qrxm-fqhp-jwvm",
+      "location": "static:<corpus>/registry2/02_brightdata__brightdata-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-qrxm-fqhp-jwvm\")'"
+    },
+    {
+      "id": "GHSA-r53p-7pc4-xj5r",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency undici@7.16.0: GHSA-r53p-7pc4-xj5r",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update undici to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-r53p-7pc4-xj5r",
+      "location": "static:<corpus>/registry2/02_brightdata__brightdata-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-r53p-7pc4-xj5r\")'"
+    },
+    {
+      "id": "GHSA-rfgv-xxqx-mfg5",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency undici@7.16.0: GHSA-rfgv-xxqx-mfg5",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update undici to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-rfgv-xxqx-mfg5",
+      "location": "static:<corpus>/registry2/02_brightdata__brightdata-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-rfgv-xxqx-mfg5\")'"
+    },
+    {
+      "id": "GHSA-rx4f-c7p8-82vq",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency undici@7.16.0: GHSA-rx4f-c7p8-82vq",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update undici to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-rx4f-c7p8-82vq",
+      "location": "static:<corpus>/registry2/02_brightdata__brightdata-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-rx4f-c7p8-82vq\")'"
+    },
+    {
+      "id": "GHSA-v3r7-h72x-cjcm",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency undici@7.16.0: GHSA-v3r7-h72x-cjcm",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update undici to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-v3r7-h72x-cjcm",
+      "location": "static:<corpus>/registry2/02_brightdata__brightdata-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-v3r7-h72x-cjcm\")'"
+    },
+    {
+      "id": "GHSA-v9p9-hfj2-hcw8",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency undici@7.16.0: GHSA-v9p9-hfj2-hcw8",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update undici to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-v9p9-hfj2-hcw8",
+      "location": "static:<corpus>/registry2/02_brightdata__brightdata-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-v9p9-hfj2-hcw8\")'"
+    },
+    {
+      "id": "GHSA-vrm6-8vpv-qv8q",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency undici@7.16.0: GHSA-vrm6-8vpv-qv8q",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update undici to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-vrm6-8vpv-qv8q",
+      "location": "static:<corpus>/registry2/02_brightdata__brightdata-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-vrm6-8vpv-qv8q\")'"
+    },
+    {
+      "id": "GHSA-vxpw-j846-p89q",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency undici@7.16.0: GHSA-vxpw-j846-p89q",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update undici to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-vxpw-j846-p89q",
+      "location": "static:<corpus>/registry2/02_brightdata__brightdata-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-vxpw-j846-p89q\")'"
+    },
+    {
+      "id": "memory_0001",
+      "severity": "low",
+      "category": "memory_poisoning",
+      "title": "Memory/context modification capability detected",
+      "description": "Pattern in test\\browser-session-references.test.js near line 47: `PersistentContext`. MCP servers that modify agent memory or context can poison long-term behavior.",
+      "owasp_asi": [
+        "ASI06"
+      ],
+      "owasp_mcp": [
+        "MCP06",
+        "MCP10"
+      ],
+      "file_path": "test\\browser-session-references.test.js",
+      "line_number": 47,
+      "recommendation": "Validate all data before writing to agent memory. Implement integrity checks on persistent context. Log all memory modifications for audit.",
+      "rule_id": "memory_poisoning_pattern",
+      "evidence": "Memory/context modification capability detected",
+      "location": "test\\browser-session-references.test.js:47",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"memory_0001\")'"
+    },
+    {
+      "id": "mcp04_unpinned_0001",
+      "severity": "medium",
+      "category": "supply_chain",
+      "title": "Unpinned install source",
+      "description": "`npx @brightdata/mcp` without a pinned version in manifest.json at line 27. Without an exact version the next install silently picks up whatever is published, including a compromised release.",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": "manifest.json",
+      "line_number": 27,
+      "recommendation": "Pin an exact version (pkg@1.2.3, pkg==1.2.3) and prefer a lockfile or hash-checked requirements.",
+      "rule_id": "unpinned_install_source",
+      "evidence": "Unpinned install source",
+      "location": "manifest.json:27",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"mcp04_unpinned_0001\")'"
+    },
+    {
+      "id": "mcp04_unpinned_0002",
+      "severity": "medium",
+      "category": "supply_chain",
+      "title": "Unpinned install source",
+      "description": "`npx playwright` without a pinned version in .github\\workflows\\release.yml at line 20. Without an exact version the next install silently picks up whatever is published, including a compromised release.",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": ".github\\workflows\\release.yml",
+      "line_number": 20,
+      "recommendation": "Pin an exact version (pkg@1.2.3, pkg==1.2.3) and prefer a lockfile or hash-checked requirements.",
+      "rule_id": "unpinned_install_source",
+      "evidence": "Unpinned install source",
+      "location": ".github\\workflows\\release.yml:20",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"mcp04_unpinned_0002\")'"
+    },
+    {
+      "id": "mcp04_unpinned_0003",
+      "severity": "medium",
+      "category": "supply_chain",
+      "title": "Unpinned install source",
+      "description": "`npx playwright` without a pinned version in .github\\workflows\\test.yml at line 26. Without an exact version the next install silently picks up whatever is published, including a compromised release.",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": ".github\\workflows\\test.yml",
+      "line_number": 26,
+      "recommendation": "Pin an exact version (pkg@1.2.3, pkg==1.2.3) and prefer a lockfile or hash-checked requirements.",
+      "rule_id": "unpinned_install_source",
+      "evidence": "Unpinned install source",
+      "location": ".github\\workflows\\test.yml:26",
+      "replay": "axiom scan <corpus>/registry2/02_brightdata__brightdata-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"mcp04_unpinned_0003\")'"
+    }
+  ],
+  "server_profile": {
+    "name": "02_brightdata__brightdata-mcp",
+    "command": null,
+    "args": [],
+    "env_vars": [],
+    "transport": "unknown",
+    "tools": [
+      {
+        "name": "scraping_browser_navigate",
+        "description": "Navigate a scraping browser session to a new URL",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "url": {
+              "type": "string",
+              "description": "The URL to navigate to"
+            },
+            "country": {
+              "type": "string",
+              "description": "Optional 2-letter ISO country code to route the browser session (e.g., \"US\", \"GB\")"
+            }
+          },
+          "required": [
+            "url"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "scraping_browser_go_back",
+        "description": "Go back to the previous page",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "scraping_browser_go_forward",
+        "description": "Go forward to the next page",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "scraping_browser_snapshot",
+        "description": "Capture an ARIA snapshot of the current page showing all interactive elements with their refs.\nThis provides accurate element references that can be used with ref-based tools.\nUse this before interacting with elements to get proper refs instead of guessing selectors.\nA filtered snapshot does not include page text; If necessary, call scraping_browser_get_text to read it.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "filtered": {
+              "type": "boolean",
+              "description": "List only buttons, links and fields (default: false). Saves tokens. Use true for sensitive actions (payments, account changes) so page text cannot pose as an element."
+            }
+          },
+          "required": []
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "scraping_browser_click_ref",
+        "description": "Click on an element using its ref from the ARIA snapshot.\nUse scraping_browser_snapshot first to get the correct ref values.\nThis is more reliable than CSS selectors.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "ref": {
+              "type": "string",
+              "description": "The ref attribute from the ARIA snapshot (e.g., \"23\")"
+            },
+            "element": {
+              "type": "string",
+              "description": "Description of the element being clicked for context"
+            }
+          },
+          "required": [
+            "ref",
+            "element"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "scraping_browser_type_ref",
+        "description": "Type text into an element using its ref from the ARIA snapshot.\nUse scraping_browser_snapshot first to get the correct ref values.\nThis is more reliable than CSS selectors.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "ref": {
+              "type": "string",
+              "description": "The ref attribute from the ARIA snapshot (e.g., \"23\")"
+            },
+            "element": {
+              "type": "string",
+              "description": "Description of the element being typed into for context"
+            },
+            "text": {
+              "type": "string",
+              "description": "Text to type"
+            },
+            "submit": {
+              "type": "boolean",
+              "description": "Whether to submit the form after typing (press Enter)"
+            }
+          },
+          "required": [
+            "ref",
+            "element",
+            "text"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "scraping_browser_screenshot",
+        "description": "Take a screenshot of the current page. Set full_page to capture the whole scrollable page.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "full_page": {
+              "type": "boolean",
+              "description": "Whether to screenshot the full page (default: false)\nYou should avoid fullscreen if it's not important, since the images can be quite large"
+            }
+          },
+          "required": []
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "scraping_browser_get_html",
+        "description": "Get the HTML content of the current page. Avoid using this tool and if used, use full_page option unless it is important to see things like script tags since this can be large",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "full_page": {
+              "type": "boolean",
+              "description": "Whether to get the full page HTML including head and script tags\nAvoid this if you only need the extra HTML, since it can be quite large"
+            }
+          },
+          "required": []
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "scraping_browser_get_text",
+        "description": "Get the text content of the current page",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "scraping_browser_scroll",
+        "description": "Scroll to the bottom of the current page",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "scraping_browser_scroll_to_ref",
+        "description": "Scroll to a specific element using its ref from the ARIA snapshot.\nUse scraping_browser_snapshot first to get the correct ref values.\nThis is more reliable than CSS selectors.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "ref": {
+              "type": "string",
+              "description": "The ref attribute from the ARIA snapshot (e.g., \"23\")"
+            },
+            "element": {
+              "type": "string",
+              "description": "Description of the element to scroll to"
+            }
+          },
+          "required": [
+            "ref",
+            "element"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "scraping_browser_network_requests",
+        "description": "Get all network requests made since loading the current page.\nShows HTTP method, URL, status code and status text for each request.\nUseful for debugging API calls, tracking data fetching, and understanding page behavior.",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "scraping_browser_wait_for_ref",
+        "description": "Wait for an element to be visible using its ref from the ARIA snapshot.\nUse scraping_browser_snapshot first to get the correct ref values.\nThis is more reliable than CSS selectors.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "ref": {
+              "type": "string",
+              "description": "The ref attribute from the ARIA snapshot (e.g., \"23\")"
+            },
+            "element": {
+              "type": "string",
+              "description": "Description of the element being waited for"
+            },
+            "timeout": {
+              "type": "number",
+              "description": "Maximum time to wait in milliseconds (default: 30000)"
+            }
+          },
+          "required": [
+            "ref",
+            "element"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "scraping_browser_fill_form",
+        "description": "Fill multiple form fields in one operation.\nUse scraping_browser_snapshot first to get the correct ref values.\nThis is more efficient than filling fields one by one.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "fields": {
+              "type": "array",
+              "description": "Fields to fill in"
+            }
+          },
+          "required": [
+            "fields"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "ask_brightdata_assistant",
+        "description": "Ask Bright Data's support assistant (Sophie) a question about Bright Data products, APIs, MCP usage, zones, scraping, or account setup. Use when the user asks \"how do I...\" about Bright Data, when you hit a Bright Data error you don't recognize, or when deciding between products (Web Unlocker vs. Scraping Browser vs. dataset tools). Supports threaded follow-ups via dialog_id.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "question": {
+              "type": "string",
+              "description": "The question to ask. Max 20480 chars."
+            },
+            "dialog_id": {
+              "type": "string",
+              "description": "Optional 24-char dialog_id from a previous call to continue the same thread."
+            }
+          },
+          "required": [
+            "question"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      }
+    ],
+    "resources": [],
+    "prompts": [],
+    "repo_url": null,
+    "npm_package": null,
+    "capabilities_claimed": [],
+    "capabilities_actual": []
+  },
+  "fingerprint": "50efa59c32e936504b3d57f071711c8aa18680c55b8c5349da657411694f9de4",
+  "surface_map": {
+    "server": {
+      "name": "@brightdata/mcp",
+      "instructions": "",
+      "transport": "unknown",
+      "auth": "unknown"
+    },
+    "tools": [
+      {
+        "name": "scraping_browser_navigate",
+        "description": "Navigate a scraping browser session to a new URL",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "url": {
+              "type": "string",
+              "description": "The URL to navigate to"
+            },
+            "country": {
+              "type": "string",
+              "description": "Optional 2-letter ISO country code to route the browser session (e.g., \"US\", \"GB\")"
+            }
+          },
+          "required": [
+            "url"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "browser_tools.js:54"
+      },
+      {
+        "name": "scraping_browser_go_back",
+        "description": "Go back to the previous page",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "browser_tools.js:89"
+      },
+      {
+        "name": "scraping_browser_go_forward",
+        "description": "Go forward to the next page",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "browser_tools.js:110"
+      },
+      {
+        "name": "scraping_browser_snapshot",
+        "description": "Capture an ARIA snapshot of the current page showing all interactive elements with their refs.\nThis provides accurate element references that can be used with ref-based tools.\nUse this before interacting with elements to get proper refs instead of guessing selectors.\nA filtered snapshot does not include page text; If necessary, call scraping_browser_get_text to read it.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "filtered": {
+              "type": "boolean",
+              "description": "List only buttons, links and fields (default: false). Saves tokens. Use true for sensitive actions (payments, account changes) so page text cannot pose as an element."
+            }
+          },
+          "required": []
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "browser_tools.js:131"
+      },
+      {
+        "name": "scraping_browser_click_ref",
+        "description": "Click on an element using its ref from the ARIA snapshot.\nUse scraping_browser_snapshot first to get the correct ref values.\nThis is more reliable than CSS selectors.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "ref": {
+              "type": "string",
+              "description": "The ref attribute from the ARIA snapshot (e.g., \"23\")"
+            },
+            "element": {
+              "type": "string",
+              "description": "Description of the element being clicked for context"
+            }
+          },
+          "required": [
+            "ref",
+            "element"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "browser_tools.js:177"
+      },
+      {
+        "name": "scraping_browser_type_ref",
+        "description": "Type text into an element using its ref from the ARIA snapshot.\nUse scraping_browser_snapshot first to get the correct ref values.\nThis is more reliable than CSS selectors.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "ref": {
+              "type": "string",
+              "description": "The ref attribute from the ARIA snapshot (e.g., \"23\")"
+            },
+            "element": {
+              "type": "string",
+              "description": "Description of the element being typed into for context"
+            },
+            "text": {
+              "type": "string",
+              "description": "Text to type"
+            },
+            "submit": {
+              "type": "boolean",
+              "description": "Whether to submit the form after typing (press Enter)"
+            }
+          },
+          "required": [
+            "ref",
+            "element",
+            "text"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "browser_tools.js:202"
+      },
+      {
+        "name": "scraping_browser_screenshot",
+        "description": "Take a screenshot of the current page. Set full_page to capture the whole scrollable page.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "full_page": {
+              "type": "boolean",
+              "description": "Whether to screenshot the full page (default: false)\nYou should avoid fullscreen if it's not important, since the images can be quite large"
+            }
+          },
+          "required": []
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "browser_tools.js:234"
+      },
+      {
+        "name": "scraping_browser_get_html",
+        "description": "Get the HTML content of the current page. Avoid using this tool and if used, use full_page option unless it is important to see things like script tags since this can be large",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "full_page": {
+              "type": "boolean",
+              "description": "Whether to get the full page HTML including head and script tags\nAvoid this if you only need the extra HTML, since it can be quite large"
+            }
+          },
+          "required": []
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "browser_tools.js:258"
+      },
+      {
+        "name": "scraping_browser_get_text",
+        "description": "Get the text content of the current page",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "browser_tools.js:287"
+      },
+      {
+        "name": "scraping_browser_scroll",
+        "description": "Scroll to the bottom of the current page",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "browser_tools.js:303"
+      },
+      {
+        "name": "scraping_browser_scroll_to_ref",
+        "description": "Scroll to a specific element using its ref from the ARIA snapshot.\nUse scraping_browser_snapshot first to get the correct ref values.\nThis is more reliable than CSS selectors.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "ref": {
+              "type": "string",
+              "description": "The ref attribute from the ARIA snapshot (e.g., \"23\")"
+            },
+            "element": {
+              "type": "string",
+              "description": "Description of the element to scroll to"
+            }
+          },
+          "required": [
+            "ref",
+            "element"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "browser_tools.js:322"
+      },
+      {
+        "name": "scraping_browser_network_requests",
+        "description": "Get all network requests made since loading the current page.\nShows HTTP method, URL, status code and status text for each request.\nUseful for debugging API calls, tracking data fetching, and understanding page behavior.",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "browser_tools.js:347"
+      },
+      {
+        "name": "scraping_browser_wait_for_ref",
+        "description": "Wait for an element to be visible using its ref from the ARIA snapshot.\nUse scraping_browser_snapshot first to get the correct ref values.\nThis is more reliable than CSS selectors.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "ref": {
+              "type": "string",
+              "description": "The ref attribute from the ARIA snapshot (e.g., \"23\")"
+            },
+            "element": {
+              "type": "string",
+              "description": "Description of the element being waited for"
+            },
+            "timeout": {
+              "type": "number",
+              "description": "Maximum time to wait in milliseconds (default: 30000)"
+            }
+          },
+          "required": [
+            "ref",
+            "element"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "browser_tools.js:386"
+      },
+      {
+        "name": "scraping_browser_fill_form",
+        "description": "Fill multiple form fields in one operation.\nUse scraping_browser_snapshot first to get the correct ref values.\nThis is more efficient than filling fields one by one.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "fields": {
+              "type": "array",
+              "description": "Fields to fill in"
+            }
+          },
+          "required": [
+            "fields"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "browser_tools.js:413"
+      },
+      {
+        "name": "ask_brightdata_assistant",
+        "description": "Ask Bright Data's support assistant (Sophie) a question about Bright Data products, APIs, MCP usage, zones, scraping, or account setup. Use when the user asks \"how do I...\" about Bright Data, when you hit a Bright Data error you don't recognize, or when deciding between products (Web Unlocker vs. Scraping Browser vs. dataset tools). Supports threaded follow-ups via dialog_id.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "question": {
+              "type": "string",
+              "description": "The question to ask. Max 20480 chars."
+            },
+            "dialog_id": {
+              "type": "string",
+              "description": "Optional 24-char dialog_id from a previous call to continue the same thread."
+            }
+          },
+          "required": [
+            "question"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "sophie_assistant.js:63"
+      }
+    ],
+    "resources": [],
+    "prompts": [],
+    "mutations": [],
+    "source": {
+      "kind": "static",
+      "target": "02_brightdata__brightdata-mcp",
+      "languages": [
+        "javascript"
+      ]
+    },
+    "generated_at": "2026-11-11T22:35:50+00:00",
+    "fingerprint": "50efa59c32e936504b3d57f071711c8aa18680c55b8c5349da657411694f9de4",
+    "schema": "axiom.surface/1"
+  },
+  "provenance": {
+    "identity": {
+      "npm": "@brightdata/mcp",
+      "pypi": null,
+      "repository": "https://github.com/brightdata/brightdata-mcp",
+      "server_name": "@brightdata/mcp"
+    },
+    "registry": {
+      "status": "match",
+      "entry": "ac.inference.sh/mcp",
+      "repository": "",
+      "packages": [],
+      "publishedAt": "2026-07-27T10:44:51.359634Z",
+      "version": "2.0.1"
+    },
+    "lookalikes": [],
+    "checked_at": "2026-11-11T22:35:52+00:00"
+  },
+  "owasp_coverage": {
+    "framework": "OWASP Top 10 for Agentic Applications 2026",
+    "reference": "https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/",
+    "coverage": {
+      "ASI01": {
+        "name": "Agent Goal Hijack",
+        "coverage_level": "strong",
+        "findings_count": 3,
+        "finding_ids": [
+          "code_0005",
+          "code_0006",
+          "code_0007"
+        ],
+        "detectors": [
+          "tool_poisoning",
+          "prompt_injection",
+          "instruction_injection"
+        ]
+      },
+      "ASI02": {
+        "name": "Tool Misuse & Exploitation",
+        "coverage_level": "strong",
+        "findings_count": 9,
+        "finding_ids": [
+          "cross_tool_scraping_browser_snapshot_scraping_browser_get_text",
+          "cross_tool_scraping_browser_click_ref_scraping_browser_snapshot",
+          "cross_tool_scraping_browser_type_ref_scraping_browser_snapshot",
+          "cross_tool_scraping_browser_scroll_to_ref_scraping_browser_snapshot",
+          "cross_tool_scraping_browser_wait_for_ref_scraping_browser_snapshot",
+          "cross_tool_scraping_browser_fill_form_scraping_browser_snapshot",
+          "code_0005",
+          "code_0006",
+          "code_0007"
+        ],
+        "detectors": [
+          "toxic_tool_combo",
+          "tool_overscope",
+          "tool_chaining_detection"
+        ]
+      },
+      "ASI03": {
+        "name": "Identity & Privilege Abuse",
+        "coverage_level": "strong",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "credential_analysis",
+          "shared_credential_detection",
+          "env_var_audit"
+        ]
+      },
+      "ASI04": {
+        "name": "Agentic Supply Chain Vulnerabilities",
+        "coverage_level": "strong",
+        "findings_count": 143,
+        "finding_ids": [
+          "GHSA-345p-7cg4-v4c7",
+          "GHSA-46jr-4wx8-v453",
+          "GHSA-6prh-2h8m-c8cw",
+          "GHSA-6qxp-vccf-f47h",
+          "GHSA-8r9q-7v3j-jr4g",
+          "GHSA-f897-62hf-6gxq",
+          "GHSA-rvq5-wwqv-78pq",
+          "GHSA-w48q-cv73-mx4w",
+          "GHSA-35jp-ww65-95wh",
+          "GHSA-3g43-6gmg-66jw"
+        ],
+        "detectors": [
+          "dependency_cve",
+          "lifecycle_hooks",
+          "npx_unversioned",
+          "known_mcp_cves"
+        ]
+      },
+      "ASI05": {
+        "name": "Unexpected Code Execution",
+        "coverage_level": "strong",
+        "findings_count": 5,
+        "finding_ids": [
+          "code_0001",
+          "code_0002",
+          "code_0003",
+          "code_0004",
+          "code_0008"
+        ],
+        "detectors": [
+          "code_exec_patterns",
+          "code_generation_detection",
+          "sandbox_escape"
+        ]
+      },
+      "ASI06": {
+        "name": "Memory & Context Poisoning",
+        "coverage_level": "partial",
+        "findings_count": 1,
+        "finding_ids": [
+          "memory_0001"
+        ],
+        "detectors": [
+          "memory_poisoning_patterns",
+          "context_manipulation_detection"
+        ],
+        "gap_note": "Axiom detects static patterns. Full coverage requires runtime memory monitoring."
+      },
+      "ASI07": {
+        "name": "Insecure Inter-Agent Communication",
+        "coverage_level": "partial",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "transport_security",
+          "a2a_pattern_detection"
+        ],
+        "gap_note": "Axiom checks transport security. Full A2A protocol analysis requires runtime interception."
+      },
+      "ASI08": {
+        "name": "Cascading Failures",
+        "coverage_level": "partial",
+        "findings_count": 6,
+        "finding_ids": [
+          "cross_tool_scraping_browser_snapshot_scraping_browser_get_text",
+          "cross_tool_scraping_browser_click_ref_scraping_browser_snapshot",
+          "cross_tool_scraping_browser_type_ref_scraping_browser_snapshot",
+          "cross_tool_scraping_browser_scroll_to_ref_scraping_browser_snapshot",
+          "cross_tool_scraping_browser_wait_for_ref_scraping_browser_snapshot",
+          "cross_tool_scraping_browser_fill_form_scraping_browser_snapshot"
+        ],
+        "detectors": [
+          "blast_radius_estimation",
+          "dependency_chain_analysis"
+        ],
+        "gap_note": "Axiom estimates blast radius from tool capabilities. Full cascading failure analysis requires runtime topology mapping."
+      },
+      "ASI09": {
+        "name": "Human-Agent Trust Exploitation",
+        "coverage_level": "strong",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "claimed_vs_actual",
+          "deceptive_output_detection",
+          "trust_manipulation_patterns"
+        ]
+      },
+      "ASI10": {
+        "name": "Rogue Agents",
+        "coverage_level": "partial",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "sleeper_patterns",
+          "behavioral_drift_indicators",
+          "persistence_detection"
+        ],
+        "gap_note": "Axiom detects static rogue indicators. Full rogue agent detection requires runtime behavioral monitoring."
+      }
+    },
+    "total_asi_categories_with_findings": 6
+  },
+  "owasp_mcp_coverage": {
+    "framework": "OWASP MCP Top 10",
+    "framework_version": "v0.1 beta",
+    "reference": "https://owasp.org/www-project-mcp-top-10/",
+    "coverage": {
+      "MCP01": {
+        "id": "MCP01:2025",
+        "name": "Token Mismanagement & Secret Exposure",
+        "coverage_level": "partial",
+        "reason": "Regex-based secret detection in server source and client configs plus env-var exposure checks; no entropy analysis, git-history scan, or token lifetime/passthrough checks.",
+        "findings_count": 6,
+        "finding_ids": [
+          "cross_tool_scraping_browser_snapshot_scraping_browser_get_text",
+          "cross_tool_scraping_browser_click_ref_scraping_browser_snapshot",
+          "cross_tool_scraping_browser_type_ref_scraping_browser_snapshot",
+          "cross_tool_scraping_browser_scroll_to_ref_scraping_browser_snapshot",
+          "cross_tool_scraping_browser_wait_for_ref_scraping_browser_snapshot",
+          "cross_tool_scraping_browser_fill_form_scraping_browser_snapshot"
+        ],
+        "detectors": [
+          "credential_theft",
+          "cross_server",
+          "mcp01_hardcoded_secrets",
+          "config_hardcoded_secret",
+          "env_var_audit",
+          "env_dump"
+        ]
+      },
+      "MCP02": {
+        "id": "MCP02:2025",
+        "name": "Privilege Escalation via Scope Creep",
+        "coverage_level": "strong",
+        "reason": "Permission over-scope patterns, toxic tool-capability combinations, path-escape checks and env-var over-exposure in configs.",
+        "findings_count": 6,
+        "finding_ids": [
+          "cross_tool_scraping_browser_snapshot_scraping_browser_get_text",
+          "cross_tool_scraping_browser_click_ref_scraping_browser_snapshot",
+          "cross_tool_scraping_browser_type_ref_scraping_browser_snapshot",
+          "cross_tool_scraping_browser_scroll_to_ref_scraping_browser_snapshot",
+          "cross_tool_scraping_browser_wait_for_ref_scraping_browser_snapshot",
+          "cross_tool_scraping_browser_fill_form_scraping_browser_snapshot"
+        ],
+        "detectors": [
+          "permission_overscope",
+          "toxic_tool_combo",
+          "identity_privilege",
+          "sandbox_escape",
+          "config_risk",
+          "cascading_failure",
+          "cross_server",
+          "excessive_scope",
+          "confused_deputy",
+          "file_read",
+          "file_write"
+        ]
+      },
+      "MCP03": {
+        "id": "MCP03:2025",
+        "name": "Tool Poisoning",
+        "coverage_level": "strong",
+        "reason": "Dedicated detector for hidden instructions in tool metadata, plus runtime rug-pull diffing between source and live tool definitions.",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "tool_poisoning",
+          "obfuscation",
+          "rogue_agent",
+          "source_vs_runtime_diff",
+          "tool_shadowing",
+          "hidden_unicode",
+          "rug_pull_primitive",
+          "surface_mismatch"
+        ]
+      },
+      "MCP04": {
+        "id": "MCP04:2025",
+        "name": "Software Supply Chain Attacks & Dependency Tampering",
+        "coverage_level": "strong",
+        "reason": "Dependency CVE lookup, known MCP CVEs, install lifecycle hooks, and unpinned npx/uvx/pip/@latest install sources.",
+        "findings_count": 143,
+        "finding_ids": [
+          "GHSA-345p-7cg4-v4c7",
+          "GHSA-46jr-4wx8-v453",
+          "GHSA-6prh-2h8m-c8cw",
+          "GHSA-6qxp-vccf-f47h",
+          "GHSA-8r9q-7v3j-jr4g",
+          "GHSA-f897-62hf-6gxq",
+          "GHSA-rvq5-wwqv-78pq",
+          "GHSA-w48q-cv73-mx4w",
+          "GHSA-35jp-ww65-95wh",
+          "GHSA-3g43-6gmg-66jw"
+        ],
+        "detectors": [
+          "dependency_vuln",
+          "supply_chain",
+          "known_cve",
+          "obfuscation",
+          "lifecycle_hooks",
+          "mcp04_unpinned_install",
+          "homoglyph",
+          "rug_pull_primitive",
+          "surface_mismatch"
+        ]
+      },
+      "MCP05": {
+        "id": "MCP05:2025",
+        "name": "Command Injection & Execution",
+        "coverage_level": "partial",
+        "reason": "Regex, AST and Semgrep find exec/shell sinks and a heuristic flags sinks inside tool handlers, but there is no inter-procedural taint tracking from tool input to sink.",
+        "findings_count": 5,
+        "finding_ids": [
+          "code_0001",
+          "code_0002",
+          "code_0003",
+          "code_0004",
+          "code_0008"
+        ],
+        "detectors": [
+          "command_injection",
+          "code_execution",
+          "code_generation",
+          "sandbox_escape",
+          "mcp05_tool_input_sink",
+          "shell_exec"
+        ]
+      },
+      "MCP06": {
+        "id": "MCP06:2025",
+        "name": "Prompt Injection via Contextual Payloads",
+        "coverage_level": "partial",
+        "reason": "Injection markers are detected in tool metadata, server instructions, resources, prompts and the strings a tool returns (static), and in instructions/resources/prompts read live; payloads produced by calling a tool at runtime are not inspected.",
+        "findings_count": 1,
+        "finding_ids": [
+          "memory_0001"
+        ],
+        "detectors": [
+          "prompt_injection",
+          "memory_poisoning",
+          "trust_exploitation",
+          "response_injection",
+          "tool_shadowing"
+        ]
+      },
+      "MCP07": {
+        "id": "MCP07:2025",
+        "name": "Insufficient Authentication & Authorization",
+        "coverage_level": "partial",
+        "reason": "Flags remote servers with no visible auth and servers bound to all interfaces; does not verify OAuth implementation or per-tool authorization logic.",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "transport_security",
+          "inter_agent_comm",
+          "identity_privilege",
+          "transport_no_auth",
+          "config_no_auth",
+          "mcp07_bind_all_interfaces"
+        ]
+      },
+      "MCP08": {
+        "id": "MCP08:2025",
+        "name": "Lack of Audit and Telemetry",
+        "coverage_level": "gap",
+        "reason": "Only a low-confidence heuristic for missing logging in tool-defining files; actual audit trails and telemetry pipelines are not verified.",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "audit_telemetry",
+          "mcp08_no_tool_logging"
+        ]
+      },
+      "MCP09": {
+        "id": "MCP09:2025",
+        "name": "Shadow MCP Servers",
+        "coverage_level": "partial",
+        "reason": "Covered by `axiom discover` allowlist on the local machine; no network-wide or fleet discovery.",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "mcpguard_discover",
+          "shadow_mcp"
+        ]
+      },
+      "MCP10": {
+        "id": "MCP10:2025",
+        "name": "Context Injection & Over-Sharing",
+        "coverage_level": "partial",
+        "reason": "Hard-coded egress URLs, tools that send to caller-chosen destinations and bulk-exposure heuristics are detected statically and live; what context is actually shared at runtime is not observed.",
+        "findings_count": 4,
+        "finding_ids": [
+          "code_0005",
+          "code_0006",
+          "code_0007",
+          "memory_0001"
+        ],
+        "detectors": [
+          "context_oversharing",
+          "data_exfiltration",
+          "memory_poisoning",
+          "mcp10_broad_data_exposure"
+        ]
+      }
+    },
+    "total_mcp_categories_with_findings": 6
+  },
+  "ai_analysis": null,
+  "tool_poisoning_report": null,
+  "prompt_injection_risk": null
+}

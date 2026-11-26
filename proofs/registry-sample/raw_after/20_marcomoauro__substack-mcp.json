@@ -1,0 +1,2774 @@
+{
+  "schema_version": "0.5",
+  "target": "20_marcomoauro__substack-mcp",
+  "risk_score": 43.0,
+  "risk_level": "medium",
+  "tools_found": 0,
+  "findings_count": 114,
+  "findings": [
+    {
+      "id": "code_0001",
+      "severity": "info",
+      "category": "credential_theft",
+      "title": "Server reads environment variables or credential-file paths (capability note)",
+      "description": "Pattern matched in src\\index.js at line 9: `const missingEnv = REQUIRED_ENV.filter((name) => !process.env[name]);`",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP01"
+      ],
+      "file_path": "src\\index.js",
+      "line_number": 9,
+      "recommendation": "Review this credential harvesting pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const missingEnv = REQUIRED_ENV.filter((name) => !process.env[name]);",
+      "location": "src\\index.js:9",
+      "replay": "axiom scan <corpus>/registry/20_marcomoauro__substack-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0001\")'"
+    },
+    {
+      "id": "code_0002",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in src\\api\\substack\\comment.spec.js at line 4: `import {setTestEnv} from '../../../test/helpers/env.js';`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\api\\substack\\comment.spec.js",
+      "line_number": 4,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "import {setTestEnv} from '../../../test/helpers/env.js';",
+      "location": "src\\api\\substack\\comment.spec.js:4",
+      "replay": "axiom scan <corpus>/registry/20_marcomoauro__substack-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0002\")'"
+    },
+    {
+      "id": "code_0003",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in src\\api\\substack\\document.spec.js at line 5: `import {setTestEnv} from '../../../test/helpers/env.js';`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\api\\substack\\document.spec.js",
+      "line_number": 5,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "import {setTestEnv} from '../../../test/helpers/env.js';",
+      "location": "src\\api\\substack\\document.spec.js:5",
+      "replay": "axiom scan <corpus>/registry/20_marcomoauro__substack-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0003\")'"
+    },
+    {
+      "id": "code_0004",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in src\\api\\substack\\feed.spec.js at line 4: `import {READER_FEED_RESPONSE} from '../../../test/helpers/msw-server.js';`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\api\\substack\\feed.spec.js",
+      "line_number": 4,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "import {READER_FEED_RESPONSE} from '../../../test/helpers/msw-server.js';",
+      "location": "src\\api\\substack\\feed.spec.js:4",
+      "replay": "axiom scan <corpus>/registry/20_marcomoauro__substack-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0004\")'"
+    },
+    {
+      "id": "code_0005",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in src\\api\\substack\\feed.spec.js at line 5: `import {setTestEnv} from '../../../test/helpers/env.js';`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\api\\substack\\feed.spec.js",
+      "line_number": 5,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "import {setTestEnv} from '../../../test/helpers/env.js';",
+      "location": "src\\api\\substack\\feed.spec.js:5",
+      "replay": "axiom scan <corpus>/registry/20_marcomoauro__substack-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0005\")'"
+    },
+    {
+      "id": "code_0006",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in src\\api\\substack\\SubscriberQuery.js at line 1: `import {logger} from \"../../logger.js\";`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\api\\substack\\SubscriberQuery.js",
+      "line_number": 1,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "import {logger} from \"../../logger.js\";",
+      "location": "src\\api\\substack\\SubscriberQuery.js:1",
+      "replay": "axiom scan <corpus>/registry/20_marcomoauro__substack-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0006\")'"
+    },
+    {
+      "id": "code_0007",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in src\\api\\substack\\SubscriberQuery.spec.js at line 10: `import {setTestEnv} from '../../../test/helpers/env.js';`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\api\\substack\\SubscriberQuery.spec.js",
+      "line_number": 10,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "import {setTestEnv} from '../../../test/helpers/env.js';",
+      "location": "src\\api\\substack\\SubscriberQuery.spec.js:10",
+      "replay": "axiom scan <corpus>/registry/20_marcomoauro__substack-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0007\")'"
+    },
+    {
+      "id": "code_0008",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in src\\api\\substack\\SubscriberQuery.spec.js at line 11: `import {captureLogs} from '../../../test/helpers/capture-logs.js';`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\api\\substack\\SubscriberQuery.spec.js",
+      "line_number": 11,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "import {captureLogs} from '../../../test/helpers/capture-logs.js';",
+      "location": "src\\api\\substack\\SubscriberQuery.spec.js:11",
+      "replay": "axiom scan <corpus>/registry/20_marcomoauro__substack-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0008\")'"
+    },
+    {
+      "id": "code_0009",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in src\\api\\substack\\SubstackApi.js at line 1: `import {logger} from \"../../logger.js\";`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\api\\substack\\SubstackApi.js",
+      "line_number": 1,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "import {logger} from \"../../logger.js\";",
+      "location": "src\\api\\substack\\SubstackApi.js:1",
+      "replay": "axiom scan <corpus>/registry/20_marcomoauro__substack-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0009\")'"
+    },
+    {
+      "id": "code_0010",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in src\\api\\substack\\SubstackApi.spec.js at line 23: `} from '../../../test/helpers/msw-server.js';`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\api\\substack\\SubstackApi.spec.js",
+      "line_number": 23,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "} from '../../../test/helpers/msw-server.js';",
+      "location": "src\\api\\substack\\SubstackApi.spec.js:23",
+      "replay": "axiom scan <corpus>/registry/20_marcomoauro__substack-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0010\")'"
+    },
+    {
+      "id": "code_0011",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in src\\api\\substack\\SubstackApi.spec.js at line 24: `import {TEST_ENV, setTestEnv} from '../../../test/helpers/env.js';`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\api\\substack\\SubstackApi.spec.js",
+      "line_number": 24,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "import {TEST_ENV, setTestEnv} from '../../../test/helpers/env.js';",
+      "location": "src\\api\\substack\\SubstackApi.spec.js:24",
+      "replay": "axiom scan <corpus>/registry/20_marcomoauro__substack-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0011\")'"
+    },
+    {
+      "id": "code_0012",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in src\\api\\substack\\SubstackApi.spec.js at line 25: `import {captureLogs} from '../../../test/helpers/capture-logs.js';`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\api\\substack\\SubstackApi.spec.js",
+      "line_number": 25,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "import {captureLogs} from '../../../test/helpers/capture-logs.js';",
+      "location": "src\\api\\substack\\SubstackApi.spec.js:25",
+      "replay": "axiom scan <corpus>/registry/20_marcomoauro__substack-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0012\")'"
+    },
+    {
+      "id": "code_0013",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in src\\api\\substack\\SubstackPost.js at line 1: `import {logger} from \"../../logger.js\";`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\api\\substack\\SubstackPost.js",
+      "line_number": 1,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "import {logger} from \"../../logger.js\";",
+      "location": "src\\api\\substack\\SubstackPost.js:1",
+      "replay": "axiom scan <corpus>/registry/20_marcomoauro__substack-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0013\")'"
+    },
+    {
+      "id": "code_0014",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in src\\api\\substack\\SubstackPost.spec.js at line 4: `import {setTestEnv} from '../../../test/helpers/env.js';`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\api\\substack\\SubstackPost.spec.js",
+      "line_number": 4,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "import {setTestEnv} from '../../../test/helpers/env.js';",
+      "location": "src\\api\\substack\\SubstackPost.spec.js:4",
+      "replay": "axiom scan <corpus>/registry/20_marcomoauro__substack-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0014\")'"
+    },
+    {
+      "id": "code_0015",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in src\\api\\substack\\SubstackPost.spec.js at line 5: `import {captureLogs} from '../../../test/helpers/capture-logs.js';`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\api\\substack\\SubstackPost.spec.js",
+      "line_number": 5,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "import {captureLogs} from '../../../test/helpers/capture-logs.js';",
+      "location": "src\\api\\substack\\SubstackPost.spec.js:5",
+      "replay": "axiom scan <corpus>/registry/20_marcomoauro__substack-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0015\")'"
+    },
+    {
+      "id": "code_0016",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in src\\tools\\add_tag_to_post.spec.js at line 6: `import {createMswServer, POST_TAG_ASSOCIATIONS_RESPONSE} from '../../test/helpers/msw-server.js';`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\tools\\add_tag_to_post.spec.js",
+      "line_number": 6,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "import {createMswServer, POST_TAG_ASSOCIATIONS_RESPONSE} from '../../test/helpers/msw-server.js';",
+      "location": "src\\tools\\add_tag_to_post.spec.js:6",
+      "replay": "axiom scan <corpus>/registry/20_marcomoauro__substack-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0016\")'"
+    },
+    {
+      "id": "code_0017",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in src\\tools\\add_tag_to_post.spec.js at line 7: `import {setTestEnv} from '../../test/helpers/env.js';`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\tools\\add_tag_to_post.spec.js",
+      "line_number": 7,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "import {setTestEnv} from '../../test/helpers/env.js';",
+      "location": "src\\tools\\add_tag_to_post.spec.js:7",
+      "replay": "axiom scan <corpus>/registry/20_marcomoauro__substack-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0017\")'"
+    },
+    {
+      "id": "code_0018",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in src\\tools\\comment_on_post.spec.js at line 6: `import {createMswServer} from '../../test/helpers/msw-server.js';`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\tools\\comment_on_post.spec.js",
+      "line_number": 6,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "import {createMswServer} from '../../test/helpers/msw-server.js';",
+      "location": "src\\tools\\comment_on_post.spec.js:6",
+      "replay": "axiom scan <corpus>/registry/20_marcomoauro__substack-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0018\")'"
+    },
+    {
+      "id": "code_0019",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in src\\tools\\comment_on_post.spec.js at line 7: `import {setTestEnv} from '../../test/helpers/env.js';`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\tools\\comment_on_post.spec.js",
+      "line_number": 7,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "import {setTestEnv} from '../../test/helpers/env.js';",
+      "location": "src\\tools\\comment_on_post.spec.js:7",
+      "replay": "axiom scan <corpus>/registry/20_marcomoauro__substack-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0019\")'"
+    },
+    {
+      "id": "code_0020",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in src\\tools\\comment_on_post.spec.js at line 8: `import {captureLogs} from '../../test/helpers/capture-logs.js';`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\tools\\comment_on_post.spec.js",
+      "line_number": 8,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "import {captureLogs} from '../../test/helpers/capture-logs.js';",
+      "location": "src\\tools\\comment_on_post.spec.js:8",
+      "replay": "axiom scan <corpus>/registry/20_marcomoauro__substack-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0020\")'"
+    },
+    {
+      "id": "code_0021",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in src\\tools\\create_draft_post.spec.js at line 6: `import {createMswServer, DRAFTS_URL} from '../../test/helpers/msw-server.js';`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\tools\\create_draft_post.spec.js",
+      "line_number": 6,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "import {createMswServer, DRAFTS_URL} from '../../test/helpers/msw-server.js';",
+      "location": "src\\tools\\create_draft_post.spec.js:6",
+      "replay": "axiom scan <corpus>/registry/20_marcomoauro__substack-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0021\")'"
+    },
+    {
+      "id": "code_0022",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in src\\tools\\create_draft_post.spec.js at line 7: `import {setTestEnv} from '../../test/helpers/env.js';`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\tools\\create_draft_post.spec.js",
+      "line_number": 7,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "import {setTestEnv} from '../../test/helpers/env.js';",
+      "location": "src\\tools\\create_draft_post.spec.js:7",
+      "replay": "axiom scan <corpus>/registry/20_marcomoauro__substack-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0022\")'"
+    },
+    {
+      "id": "code_0023",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in src\\tools\\create_draft_post.spec.js at line 8: `import {captureLogs} from '../../test/helpers/capture-logs.js';`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\tools\\create_draft_post.spec.js",
+      "line_number": 8,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "import {captureLogs} from '../../test/helpers/capture-logs.js';",
+      "location": "src\\tools\\create_draft_post.spec.js:8",
+      "replay": "axiom scan <corpus>/registry/20_marcomoauro__substack-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0023\")'"
+    },
+    {
+      "id": "code_0024",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in src\\tools\\delete_draft.spec.js at line 6: `import {createMswServer, DRAFTS_URL, DRAFT_DETAIL_RESPONSE} from '../../test/helpers/msw-server.js';`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\tools\\delete_draft.spec.js",
+      "line_number": 6,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "import {createMswServer, DRAFTS_URL, DRAFT_DETAIL_RESPONSE} from '../../test/helpers/msw-server.js';",
+      "location": "src\\tools\\delete_draft.spec.js:6",
+      "replay": "axiom scan <corpus>/registry/20_marcomoauro__substack-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0024\")'"
+    },
+    {
+      "id": "code_0025",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in src\\tools\\delete_draft.spec.js at line 7: `import {setTestEnv} from '../../test/helpers/env.js';`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\tools\\delete_draft.spec.js",
+      "line_number": 7,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "import {setTestEnv} from '../../test/helpers/env.js';",
+      "location": "src\\tools\\delete_draft.spec.js:7",
+      "replay": "axiom scan <corpus>/registry/20_marcomoauro__substack-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0025\")'"
+    },
+    {
+      "id": "code_0026",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in src\\tools\\export_subscribers.spec.js at line 17: `} from '../../test/helpers/msw-server.js';`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\tools\\export_subscribers.spec.js",
+      "line_number": 17,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "} from '../../test/helpers/msw-server.js';",
+      "location": "src\\tools\\export_subscribers.spec.js:17",
+      "replay": "axiom scan <corpus>/registry/20_marcomoauro__substack-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0026\")'"
+    },
+    {
+      "id": "code_0027",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in src\\tools\\export_subscribers.spec.js at line 18: `import {setTestEnv} from '../../test/helpers/env.js';`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\tools\\export_subscribers.spec.js",
+      "line_number": 18,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "import {setTestEnv} from '../../test/helpers/env.js';",
+      "location": "src\\tools\\export_subscribers.spec.js:18",
+      "replay": "axiom scan <corpus>/registry/20_marcomoauro__substack-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0027\")'"
+    },
+    {
+      "id": "code_0028",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in src\\tools\\export_subscribers.spec.js at line 19: `import {captureLogs} from '../../test/helpers/capture-logs.js';`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\tools\\export_subscribers.spec.js",
+      "line_number": 19,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "import {captureLogs} from '../../test/helpers/capture-logs.js';",
+      "location": "src\\tools\\export_subscribers.spec.js:19",
+      "replay": "axiom scan <corpus>/registry/20_marcomoauro__substack-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0028\")'"
+    },
+    {
+      "id": "code_0029",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in src\\tools\\get_analytics.spec.js at line 6: `import {createMswServer, ANALYTICS_RESPONSE} from '../../test/helpers/msw-server.js';`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\tools\\get_analytics.spec.js",
+      "line_number": 6,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "import {createMswServer, ANALYTICS_RESPONSE} from '../../test/helpers/msw-server.js';",
+      "location": "src\\tools\\get_analytics.spec.js:6",
+      "replay": "axiom scan <corpus>/registry/20_marcomoauro__substack-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0029\")'"
+    },
+    {
+      "id": "code_0030",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in src\\tools\\get_analytics.spec.js at line 7: `import {setTestEnv} from '../../test/helpers/env.js';`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\tools\\get_analytics.spec.js",
+      "line_number": 7,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "import {setTestEnv} from '../../test/helpers/env.js';",
+      "location": "src\\tools\\get_analytics.spec.js:7",
+      "replay": "axiom scan <corpus>/registry/20_marcomoauro__substack-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0030\")'"
+    },
+    {
+      "id": "code_0031",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in src\\tools\\get_analytics.spec.js at line 8: `import {captureLogs} from '../../test/helpers/capture-logs.js';`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\tools\\get_analytics.spec.js",
+      "line_number": 8,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "import {captureLogs} from '../../test/helpers/capture-logs.js';",
+      "location": "src\\tools\\get_analytics.spec.js:8",
+      "replay": "axiom scan <corpus>/registry/20_marcomoauro__substack-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0031\")'"
+    },
+    {
+      "id": "code_0032",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in src\\tools\\get_comment_thread.spec.js at line 6: `import {createMswServer} from '../../test/helpers/msw-server.js';`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\tools\\get_comment_thread.spec.js",
+      "line_number": 6,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "import {createMswServer} from '../../test/helpers/msw-server.js';",
+      "location": "src\\tools\\get_comment_thread.spec.js:6",
+      "replay": "axiom scan <corpus>/registry/20_marcomoauro__substack-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0032\")'"
+    },
+    {
+      "id": "code_0033",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in src\\tools\\get_comment_thread.spec.js at line 7: `import {setTestEnv} from '../../test/helpers/env.js';`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\tools\\get_comment_thread.spec.js",
+      "line_number": 7,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "import {setTestEnv} from '../../test/helpers/env.js';",
+      "location": "src\\tools\\get_comment_thread.spec.js:7",
+      "replay": "axiom scan <corpus>/registry/20_marcomoauro__substack-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0033\")'"
+    },
+    {
+      "id": "code_0034",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in src\\tools\\get_draft.spec.js at line 6: `import {createMswServer, DRAFT_DETAIL_RESPONSE} from '../../test/helpers/msw-server.js';`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\tools\\get_draft.spec.js",
+      "line_number": 6,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "import {createMswServer, DRAFT_DETAIL_RESPONSE} from '../../test/helpers/msw-server.js';",
+      "location": "src\\tools\\get_draft.spec.js:6",
+      "replay": "axiom scan <corpus>/registry/20_marcomoauro__substack-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0034\")'"
+    },
+    {
+      "id": "code_0035",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in src\\tools\\get_draft.spec.js at line 7: `import {setTestEnv} from '../../test/helpers/env.js';`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\tools\\get_draft.spec.js",
+      "line_number": 7,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "import {setTestEnv} from '../../test/helpers/env.js';",
+      "location": "src\\tools\\get_draft.spec.js:7",
+      "replay": "axiom scan <corpus>/registry/20_marcomoauro__substack-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0035\")'"
+    },
+    {
+      "id": "code_0036",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in src\\tools\\get_draft.spec.js at line 8: `import {captureLogs} from '../../test/helpers/capture-logs.js';`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\tools\\get_draft.spec.js",
+      "line_number": 8,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "import {captureLogs} from '../../test/helpers/capture-logs.js';",
+      "location": "src\\tools\\get_draft.spec.js:8",
+      "replay": "axiom scan <corpus>/registry/20_marcomoauro__substack-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0036\")'"
+    },
+    {
+      "id": "code_0037",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in src\\tools\\get_post_comments.spec.js at line 6: `import {createMswServer, POST_COMMENTS_RESPONSE} from '../../test/helpers/msw-server.js';`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\tools\\get_post_comments.spec.js",
+      "line_number": 6,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "import {createMswServer, POST_COMMENTS_RESPONSE} from '../../test/helpers/msw-server.js';",
+      "location": "src\\tools\\get_post_comments.spec.js:6",
+      "replay": "axiom scan <corpus>/registry/20_marcomoauro__substack-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0037\")'"
+    },
+    {
+      "id": "code_0038",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in src\\tools\\get_post_comments.spec.js at line 7: `import {setTestEnv} from '../../test/helpers/env.js';`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\tools\\get_post_comments.spec.js",
+      "line_number": 7,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "import {setTestEnv} from '../../test/helpers/env.js';",
+      "location": "src\\tools\\get_post_comments.spec.js:7",
+      "replay": "axiom scan <corpus>/registry/20_marcomoauro__substack-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0038\")'"
+    },
+    {
+      "id": "code_0039",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in src\\tools\\get_post_stats.spec.js at line 6: `import {createMswServer, EMAIL_STATS_URL, POST_STATS_RESPONSE} from '../../test/helpers/msw-server.js';`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\tools\\get_post_stats.spec.js",
+      "line_number": 6,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "import {createMswServer, EMAIL_STATS_URL, POST_STATS_RESPONSE} from '../../test/helpers/msw-server.js';",
+      "location": "src\\tools\\get_post_stats.spec.js:6",
+      "replay": "axiom scan <corpus>/registry/20_marcomoauro__substack-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0039\")'"
+    },
+    {
+      "id": "code_0040",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in src\\tools\\get_post_stats.spec.js at line 7: `import {setTestEnv} from '../../test/helpers/env.js';`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\tools\\get_post_stats.spec.js",
+      "line_number": 7,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "import {setTestEnv} from '../../test/helpers/env.js';",
+      "location": "src\\tools\\get_post_stats.spec.js:7",
+      "replay": "axiom scan <corpus>/registry/20_marcomoauro__substack-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0040\")'"
+    },
+    {
+      "id": "code_0041",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in src\\tools\\get_post_stats.spec.js at line 8: `import {captureLogs} from '../../test/helpers/capture-logs.js';`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\tools\\get_post_stats.spec.js",
+      "line_number": 8,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "import {captureLogs} from '../../test/helpers/capture-logs.js';",
+      "location": "src\\tools\\get_post_stats.spec.js:8",
+      "replay": "axiom scan <corpus>/registry/20_marcomoauro__substack-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0041\")'"
+    },
+    {
+      "id": "code_0042",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in src\\tools\\get_post_tags.spec.js at line 10: `} from '../../test/helpers/msw-server.js';`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\tools\\get_post_tags.spec.js",
+      "line_number": 10,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "} from '../../test/helpers/msw-server.js';",
+      "location": "src\\tools\\get_post_tags.spec.js:10",
+      "replay": "axiom scan <corpus>/registry/20_marcomoauro__substack-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0042\")'"
+    },
+    {
+      "id": "code_0043",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in src\\tools\\get_post_tags.spec.js at line 11: `import {setTestEnv} from '../../test/helpers/env.js';`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\tools\\get_post_tags.spec.js",
+      "line_number": 11,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "import {setTestEnv} from '../../test/helpers/env.js';",
+      "location": "src\\tools\\get_post_tags.spec.js:11",
+      "replay": "axiom scan <corpus>/registry/20_marcomoauro__substack-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0043\")'"
+    },
+    {
+      "id": "code_0044",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in src\\tools\\get_profile_feed.spec.js at line 6: `import {createMswServer, READER_FEED_RESPONSE} from '../../test/helpers/msw-server.js';`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\tools\\get_profile_feed.spec.js",
+      "line_number": 6,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "import {createMswServer, READER_FEED_RESPONSE} from '../../test/helpers/msw-server.js';",
+      "location": "src\\tools\\get_profile_feed.spec.js:6",
+      "replay": "axiom scan <corpus>/registry/20_marcomoauro__substack-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0044\")'"
+    },
+    {
+      "id": "code_0045",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in src\\tools\\get_profile_feed.spec.js at line 7: `import {setTestEnv, TEST_ENV} from '../../test/helpers/env.js';`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\tools\\get_profile_feed.spec.js",
+      "line_number": 7,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "import {setTestEnv, TEST_ENV} from '../../test/helpers/env.js';",
+      "location": "src\\tools\\get_profile_feed.spec.js:7",
+      "replay": "axiom scan <corpus>/registry/20_marcomoauro__substack-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0045\")'"
+    },
+    {
+      "id": "code_0046",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in src\\tools\\get_publication.spec.js at line 6: `import {createMswServer, PUBLICATION_URL, PUBLICATION_RESPONSE} from '../../test/helpers/msw-server.js';`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\tools\\get_publication.spec.js",
+      "line_number": 6,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "import {createMswServer, PUBLICATION_URL, PUBLICATION_RESPONSE} from '../../test/helpers/msw-server.js';",
+      "location": "src\\tools\\get_publication.spec.js:6",
+      "replay": "axiom scan <corpus>/registry/20_marcomoauro__substack-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0046\")'"
+    },
+    {
+      "id": "code_0047",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in src\\tools\\get_publication.spec.js at line 7: `import {setTestEnv} from '../../test/helpers/env.js';`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\tools\\get_publication.spec.js",
+      "line_number": 7,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "import {setTestEnv} from '../../test/helpers/env.js';",
+      "location": "src\\tools\\get_publication.spec.js:7",
+      "replay": "axiom scan <corpus>/registry/20_marcomoauro__substack-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0047\")'"
+    },
+    {
+      "id": "code_0048",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in src\\tools\\get_publication_stats.spec.js at line 11: `} from '../../test/helpers/msw-server.js';`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\tools\\get_publication_stats.spec.js",
+      "line_number": 11,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "} from '../../test/helpers/msw-server.js';",
+      "location": "src\\tools\\get_publication_stats.spec.js:11",
+      "replay": "axiom scan <corpus>/registry/20_marcomoauro__substack-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0048\")'"
+    },
+    {
+      "id": "code_0049",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in src\\tools\\get_publication_stats.spec.js at line 12: `import {setTestEnv} from '../../test/helpers/env.js';`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\tools\\get_publication_stats.spec.js",
+      "line_number": 12,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "import {setTestEnv} from '../../test/helpers/env.js';",
+      "location": "src\\tools\\get_publication_stats.spec.js:12",
+      "replay": "axiom scan <corpus>/registry/20_marcomoauro__substack-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0049\")'"
+    },
+    {
+      "id": "code_0050",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in src\\tools\\get_publication_stats.spec.js at line 13: `import {captureLogs} from '../../test/helpers/capture-logs.js';`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\tools\\get_publication_stats.spec.js",
+      "line_number": 13,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "import {captureLogs} from '../../test/helpers/capture-logs.js';",
+      "location": "src\\tools\\get_publication_stats.spec.js:13",
+      "replay": "axiom scan <corpus>/registry/20_marcomoauro__substack-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0050\")'"
+    },
+    {
+      "id": "code_0051",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in src\\tools\\get_reader_feed.spec.js at line 6: `import {createMswServer} from '../../test/helpers/msw-server.js';`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\tools\\get_reader_feed.spec.js",
+      "line_number": 6,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "import {createMswServer} from '../../test/helpers/msw-server.js';",
+      "location": "src\\tools\\get_reader_feed.spec.js:6",
+      "replay": "axiom scan <corpus>/registry/20_marcomoauro__substack-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0051\")'"
+    },
+    {
+      "id": "code_0052",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in src\\tools\\get_reader_feed.spec.js at line 7: `import {setTestEnv} from '../../test/helpers/env.js';`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\tools\\get_reader_feed.spec.js",
+      "line_number": 7,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "import {setTestEnv} from '../../test/helpers/env.js';",
+      "location": "src\\tools\\get_reader_feed.spec.js:7",
+      "replay": "axiom scan <corpus>/registry/20_marcomoauro__substack-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0052\")'"
+    },
+    {
+      "id": "code_0053",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in src\\tools\\get_reader_post.spec.js at line 6: `import {createMswServer, POST_BY_ID_RESPONSE} from '../../test/helpers/msw-server.js';`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\tools\\get_reader_post.spec.js",
+      "line_number": 6,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "import {createMswServer, POST_BY_ID_RESPONSE} from '../../test/helpers/msw-server.js';",
+      "location": "src\\tools\\get_reader_post.spec.js:6",
+      "replay": "axiom scan <corpus>/registry/20_marcomoauro__substack-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0053\")'"
+    },
+    {
+      "id": "code_0054",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in src\\tools\\get_reader_post.spec.js at line 7: `import {setTestEnv} from '../../test/helpers/env.js';`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\tools\\get_reader_post.spec.js",
+      "line_number": 7,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "import {setTestEnv} from '../../test/helpers/env.js';",
+      "location": "src\\tools\\get_reader_post.spec.js:7",
+      "replay": "axiom scan <corpus>/registry/20_marcomoauro__substack-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0054\")'"
+    },
+    {
+      "id": "code_0055",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in src\\tools\\get_user_profile.spec.js at line 6: `import {createMswServer, USER_PROFILE_URL, USER_PROFILE_RESPONSE} from '../../test/helpers/msw-server.js';`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\tools\\get_user_profile.spec.js",
+      "line_number": 6,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "import {createMswServer, USER_PROFILE_URL, USER_PROFILE_RESPONSE} from '../../test/helpers/msw-server.js';",
+      "location": "src\\tools\\get_user_profile.spec.js:6",
+      "replay": "axiom scan <corpus>/registry/20_marcomoauro__substack-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0055\")'"
+    },
+    {
+      "id": "code_0056",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in src\\tools\\get_user_profile.spec.js at line 7: `import {setTestEnv} from '../../test/helpers/env.js';`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\tools\\get_user_profile.spec.js",
+      "line_number": 7,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "import {setTestEnv} from '../../test/helpers/env.js';",
+      "location": "src\\tools\\get_user_profile.spec.js:7",
+      "replay": "axiom scan <corpus>/registry/20_marcomoauro__substack-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0056\")'"
+    },
+    {
+      "id": "code_0057",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in src\\tools\\list_posts.spec.js at line 6: `import {createMswServer, POSTS_RESPONSE} from '../../test/helpers/msw-server.js';`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\tools\\list_posts.spec.js",
+      "line_number": 6,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "import {createMswServer, POSTS_RESPONSE} from '../../test/helpers/msw-server.js';",
+      "location": "src\\tools\\list_posts.spec.js:6",
+      "replay": "axiom scan <corpus>/registry/20_marcomoauro__substack-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0057\")'"
+    },
+    {
+      "id": "code_0058",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in src\\tools\\list_posts.spec.js at line 7: `import {setTestEnv} from '../../test/helpers/env.js';`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\tools\\list_posts.spec.js",
+      "line_number": 7,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "import {setTestEnv} from '../../test/helpers/env.js';",
+      "location": "src\\tools\\list_posts.spec.js:7",
+      "replay": "axiom scan <corpus>/registry/20_marcomoauro__substack-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0058\")'"
+    },
+    {
+      "id": "code_0059",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in src\\tools\\list_posts.spec.js at line 8: `import {captureLogs} from '../../test/helpers/capture-logs.js';`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\tools\\list_posts.spec.js",
+      "line_number": 8,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "import {captureLogs} from '../../test/helpers/capture-logs.js';",
+      "location": "src\\tools\\list_posts.spec.js:8",
+      "replay": "axiom scan <corpus>/registry/20_marcomoauro__substack-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0059\")'"
+    },
+    {
+      "id": "code_0060",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in src\\tools\\list_publication_tags.spec.js at line 6: `import {createMswServer, POST_TAG_URL} from '../../test/helpers/msw-server.js';`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\tools\\list_publication_tags.spec.js",
+      "line_number": 6,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "import {createMswServer, POST_TAG_URL} from '../../test/helpers/msw-server.js';",
+      "location": "src\\tools\\list_publication_tags.spec.js:6",
+      "replay": "axiom scan <corpus>/registry/20_marcomoauro__substack-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0060\")'"
+    },
+    {
+      "id": "code_0061",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in src\\tools\\list_publication_tags.spec.js at line 7: `import {setTestEnv} from '../../test/helpers/env.js';`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\tools\\list_publication_tags.spec.js",
+      "line_number": 7,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "import {setTestEnv} from '../../test/helpers/env.js';",
+      "location": "src\\tools\\list_publication_tags.spec.js:7",
+      "replay": "axiom scan <corpus>/registry/20_marcomoauro__substack-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0061\")'"
+    },
+    {
+      "id": "code_0062",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in src\\tools\\list_reader_posts.spec.js at line 6: `import {createMswServer, READER_POSTS_RESPONSE} from '../../test/helpers/msw-server.js';`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\tools\\list_reader_posts.spec.js",
+      "line_number": 6,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "import {createMswServer, READER_POSTS_RESPONSE} from '../../test/helpers/msw-server.js';",
+      "location": "src\\tools\\list_reader_posts.spec.js:6",
+      "replay": "axiom scan <corpus>/registry/20_marcomoauro__substack-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0062\")'"
+    },
+    {
+      "id": "code_0063",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in src\\tools\\list_reader_posts.spec.js at line 7: `import {setTestEnv} from '../../test/helpers/env.js';`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\tools\\list_reader_posts.spec.js",
+      "line_number": 7,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "import {setTestEnv} from '../../test/helpers/env.js';",
+      "location": "src\\tools\\list_reader_posts.spec.js:7",
+      "replay": "axiom scan <corpus>/registry/20_marcomoauro__substack-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0063\")'"
+    },
+    {
+      "id": "code_0064",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in src\\tools\\list_subscribers.spec.js at line 10: `} from '../../test/helpers/msw-server.js';`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\tools\\list_subscribers.spec.js",
+      "line_number": 10,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "} from '../../test/helpers/msw-server.js';",
+      "location": "src\\tools\\list_subscribers.spec.js:10",
+      "replay": "axiom scan <corpus>/registry/20_marcomoauro__substack-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0064\")'"
+    },
+    {
+      "id": "code_0065",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in src\\tools\\list_subscribers.spec.js at line 11: `import {setTestEnv} from '../../test/helpers/env.js';`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\tools\\list_subscribers.spec.js",
+      "line_number": 11,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "import {setTestEnv} from '../../test/helpers/env.js';",
+      "location": "src\\tools\\list_subscribers.spec.js:11",
+      "replay": "axiom scan <corpus>/registry/20_marcomoauro__substack-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0065\")'"
+    },
+    {
+      "id": "code_0066",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in src\\tools\\list_subscribers.spec.js at line 12: `import {captureLogs} from '../../test/helpers/capture-logs.js';`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\tools\\list_subscribers.spec.js",
+      "line_number": 12,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "import {captureLogs} from '../../test/helpers/capture-logs.js';",
+      "location": "src\\tools\\list_subscribers.spec.js:12",
+      "replay": "axiom scan <corpus>/registry/20_marcomoauro__substack-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0066\")'"
+    },
+    {
+      "id": "code_0067",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in src\\tools\\list_subscriptions.spec.js at line 6: `import {createMswServer, SUBSCRIPTIONS_URL, SUBSCRIPTIONS_RESPONSE} from '../../test/helpers/msw-server.js';`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\tools\\list_subscriptions.spec.js",
+      "line_number": 6,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "import {createMswServer, SUBSCRIPTIONS_URL, SUBSCRIPTIONS_RESPONSE} from '../../test/helpers/msw-server.js';",
+      "location": "src\\tools\\list_subscriptions.spec.js:6",
+      "replay": "axiom scan <corpus>/registry/20_marcomoauro__substack-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0067\")'"
+    },
+    {
+      "id": "code_0068",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in src\\tools\\list_subscriptions.spec.js at line 7: `import {setTestEnv} from '../../test/helpers/env.js';`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\tools\\list_subscriptions.spec.js",
+      "line_number": 7,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "import {setTestEnv} from '../../test/helpers/env.js';",
+      "location": "src\\tools\\list_subscriptions.spec.js:7",
+      "replay": "axiom scan <corpus>/registry/20_marcomoauro__substack-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0068\")'"
+    },
+    {
+      "id": "code_0069",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in src\\tools\\publish_draft.spec.js at line 6: `import {createMswServer, DRAFTS_URL} from '../../test/helpers/msw-server.js';`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\tools\\publish_draft.spec.js",
+      "line_number": 6,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "import {createMswServer, DRAFTS_URL} from '../../test/helpers/msw-server.js';",
+      "location": "src\\tools\\publish_draft.spec.js:6",
+      "replay": "axiom scan <corpus>/registry/20_marcomoauro__substack-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0069\")'"
+    },
+    {
+      "id": "code_0070",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in src\\tools\\publish_draft.spec.js at line 7: `import {setTestEnv} from '../../test/helpers/env.js';`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\tools\\publish_draft.spec.js",
+      "line_number": 7,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "import {setTestEnv} from '../../test/helpers/env.js';",
+      "location": "src\\tools\\publish_draft.spec.js:7",
+      "replay": "axiom scan <corpus>/registry/20_marcomoauro__substack-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0070\")'"
+    },
+    {
+      "id": "code_0071",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in src\\tools\\restack_item.spec.js at line 6: `import {createMswServer} from '../../test/helpers/msw-server.js';`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\tools\\restack_item.spec.js",
+      "line_number": 6,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "import {createMswServer} from '../../test/helpers/msw-server.js';",
+      "location": "src\\tools\\restack_item.spec.js:6",
+      "replay": "axiom scan <corpus>/registry/20_marcomoauro__substack-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0071\")'"
+    },
+    {
+      "id": "code_0072",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in src\\tools\\restack_item.spec.js at line 7: `import {setTestEnv} from '../../test/helpers/env.js';`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\tools\\restack_item.spec.js",
+      "line_number": 7,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "import {setTestEnv} from '../../test/helpers/env.js';",
+      "location": "src\\tools\\restack_item.spec.js:7",
+      "replay": "axiom scan <corpus>/registry/20_marcomoauro__substack-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0072\")'"
+    },
+    {
+      "id": "code_0073",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in src\\tools\\restack_item.spec.js at line 8: `import {captureLogs} from '../../test/helpers/capture-logs.js';`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\tools\\restack_item.spec.js",
+      "line_number": 8,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "import {captureLogs} from '../../test/helpers/capture-logs.js';",
+      "location": "src\\tools\\restack_item.spec.js:8",
+      "replay": "axiom scan <corpus>/registry/20_marcomoauro__substack-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0073\")'"
+    },
+    {
+      "id": "code_0074",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in src\\tools\\set_post_body.spec.js at line 6: `import {createMswServer} from '../../test/helpers/msw-server.js';`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\tools\\set_post_body.spec.js",
+      "line_number": 6,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "import {createMswServer} from '../../test/helpers/msw-server.js';",
+      "location": "src\\tools\\set_post_body.spec.js:6",
+      "replay": "axiom scan <corpus>/registry/20_marcomoauro__substack-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0074\")'"
+    },
+    {
+      "id": "code_0075",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in src\\tools\\set_post_body.spec.js at line 7: `import {setTestEnv} from '../../test/helpers/env.js';`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\tools\\set_post_body.spec.js",
+      "line_number": 7,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "import {setTestEnv} from '../../test/helpers/env.js';",
+      "location": "src\\tools\\set_post_body.spec.js:7",
+      "replay": "axiom scan <corpus>/registry/20_marcomoauro__substack-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0075\")'"
+    },
+    {
+      "id": "code_0076",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in src\\tools\\set_post_body.spec.js at line 8: `import {captureLogs} from '../../test/helpers/capture-logs.js';`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\tools\\set_post_body.spec.js",
+      "line_number": 8,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "import {captureLogs} from '../../test/helpers/capture-logs.js';",
+      "location": "src\\tools\\set_post_body.spec.js:8",
+      "replay": "axiom scan <corpus>/registry/20_marcomoauro__substack-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0076\")'"
+    },
+    {
+      "id": "code_0077",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in src\\tools\\update_draft.spec.js at line 6: `import {createMswServer, DRAFTS_URL, IMAGE_UPLOAD_RESPONSE} from '../../test/helpers/msw-server.js';`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\tools\\update_draft.spec.js",
+      "line_number": 6,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "import {createMswServer, DRAFTS_URL, IMAGE_UPLOAD_RESPONSE} from '../../test/helpers/msw-server.js';",
+      "location": "src\\tools\\update_draft.spec.js:6",
+      "replay": "axiom scan <corpus>/registry/20_marcomoauro__substack-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0077\")'"
+    },
+    {
+      "id": "code_0078",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in src\\tools\\update_draft.spec.js at line 7: `import {setTestEnv} from '../../test/helpers/env.js';`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\tools\\update_draft.spec.js",
+      "line_number": 7,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "import {setTestEnv} from '../../test/helpers/env.js';",
+      "location": "src\\tools\\update_draft.spec.js:7",
+      "replay": "axiom scan <corpus>/registry/20_marcomoauro__substack-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0078\")'"
+    },
+    {
+      "id": "code_0079",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in src\\tools\\upload_image.spec.js at line 8: `import {createMswServer, IMAGE_URL, IMAGE_UPLOAD_RESPONSE} from '../../test/helpers/msw-server.js';`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\tools\\upload_image.spec.js",
+      "line_number": 8,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "import {createMswServer, IMAGE_URL, IMAGE_UPLOAD_RESPONSE} from '../../test/helpers/msw-server.js';",
+      "location": "src\\tools\\upload_image.spec.js:8",
+      "replay": "axiom scan <corpus>/registry/20_marcomoauro__substack-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0079\")'"
+    },
+    {
+      "id": "code_0080",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in src\\tools\\upload_image.spec.js at line 9: `import {setTestEnv} from '../../test/helpers/env.js';`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\tools\\upload_image.spec.js",
+      "line_number": 9,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "import {setTestEnv} from '../../test/helpers/env.js';",
+      "location": "src\\tools\\upload_image.spec.js:9",
+      "replay": "axiom scan <corpus>/registry/20_marcomoauro__substack-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0080\")'"
+    },
+    {
+      "id": "code_0081",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in src\\tools\\upload_image.spec.js at line 10: `import {captureLogs} from '../../test/helpers/capture-logs.js';`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\tools\\upload_image.spec.js",
+      "line_number": 10,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "import {captureLogs} from '../../test/helpers/capture-logs.js';",
+      "location": "src\\tools\\upload_image.spec.js:10",
+      "replay": "axiom scan <corpus>/registry/20_marcomoauro__substack-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0081\")'"
+    },
+    {
+      "id": "GHSA-22jm-h49p-29qw",
+      "severity": "medium",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency @modelcontextprotocol/sdk@1.30.0: GHSA-22jm-h49p-29qw",
+      "description": "Known vulnerability (advisory severity: unrated; direct dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update @modelcontextprotocol/sdk to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-22jm-h49p-29qw",
+      "location": "static:<corpus>/registry/20_marcomoauro__substack-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry/20_marcomoauro__substack-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-22jm-h49p-29qw\")'"
+    },
+    {
+      "id": "GHSA-46jr-4wx8-v453",
+      "severity": "medium",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency @modelcontextprotocol/sdk@1.30.0: GHSA-46jr-4wx8-v453",
+      "description": "Known vulnerability (advisory severity: unrated; direct dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update @modelcontextprotocol/sdk to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-46jr-4wx8-v453",
+      "location": "static:<corpus>/registry/20_marcomoauro__substack-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry/20_marcomoauro__substack-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-46jr-4wx8-v453\")'"
+    },
+    {
+      "id": "GHSA-6prh-2h8m-c8cw",
+      "severity": "medium",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency @modelcontextprotocol/sdk@1.30.0: GHSA-6prh-2h8m-c8cw",
+      "description": "Known vulnerability (advisory severity: unrated; direct dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update @modelcontextprotocol/sdk to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-6prh-2h8m-c8cw",
+      "location": "static:<corpus>/registry/20_marcomoauro__substack-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry/20_marcomoauro__substack-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-6prh-2h8m-c8cw\")'"
+    },
+    {
+      "id": "GHSA-6qxp-vccf-f47h",
+      "severity": "medium",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency @modelcontextprotocol/sdk@1.30.0: GHSA-6qxp-vccf-f47h",
+      "description": "Known vulnerability (advisory severity: unrated; direct dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update @modelcontextprotocol/sdk to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-6qxp-vccf-f47h",
+      "location": "static:<corpus>/registry/20_marcomoauro__substack-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry/20_marcomoauro__substack-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-6qxp-vccf-f47h\")'"
+    },
+    {
+      "id": "GHSA-f897-62hf-6gxq",
+      "severity": "medium",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency @modelcontextprotocol/sdk@1.30.0: GHSA-f897-62hf-6gxq",
+      "description": "Known vulnerability (advisory severity: unrated; direct dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update @modelcontextprotocol/sdk to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-f897-62hf-6gxq",
+      "location": "static:<corpus>/registry/20_marcomoauro__substack-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry/20_marcomoauro__substack-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-f897-62hf-6gxq\")'"
+    },
+    {
+      "id": "GHSA-rvq5-wwqv-78pq",
+      "severity": "medium",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency @modelcontextprotocol/sdk@1.30.0: GHSA-rvq5-wwqv-78pq",
+      "description": "Known vulnerability (advisory severity: unrated; direct dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update @modelcontextprotocol/sdk to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-rvq5-wwqv-78pq",
+      "location": "static:<corpus>/registry/20_marcomoauro__substack-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry/20_marcomoauro__substack-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-rvq5-wwqv-78pq\")'"
+    },
+    {
+      "id": "GHSA-mrhx-c7xc-m3w5",
+      "severity": "medium",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency zod@4.4.3: GHSA-mrhx-c7xc-m3w5",
+      "description": "Known vulnerability (advisory severity: unrated; direct dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update zod to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-mrhx-c7xc-m3w5",
+      "location": "static:<corpus>/registry/20_marcomoauro__substack-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry/20_marcomoauro__substack-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-mrhx-c7xc-m3w5\")'"
+    },
+    {
+      "id": "GHSA-rmxm-3fg6-px4f",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency @hono/node-server@2.1.0: GHSA-rmxm-3fg6-px4f",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update @hono/node-server to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-rmxm-3fg6-px4f",
+      "location": "static:<corpus>/registry/20_marcomoauro__substack-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry/20_marcomoauro__substack-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-rmxm-3fg6-px4f\")'"
+    },
+    {
+      "id": "GHSA-27r3-jxmh-p828",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency body-parser@2.3.0: GHSA-27r3-jxmh-p828",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update body-parser to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-27r3-jxmh-p828",
+      "location": "static:<corpus>/registry/20_marcomoauro__substack-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry/20_marcomoauro__substack-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-27r3-jxmh-p828\")'"
+    },
+    {
+      "id": "GHSA-333x-w4r6-6crp",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency fast-uri@3.1.5: GHSA-333x-w4r6-6crp",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update fast-uri to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-333x-w4r6-6crp",
+      "location": "static:<corpus>/registry/20_marcomoauro__substack-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry/20_marcomoauro__substack-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-333x-w4r6-6crp\")'"
+    },
+    {
+      "id": "GHSA-5jgf-p345-68v8",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency fast-uri@3.1.5: GHSA-5jgf-p345-68v8",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update fast-uri to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-5jgf-p345-68v8",
+      "location": "static:<corpus>/registry/20_marcomoauro__substack-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry/20_marcomoauro__substack-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-5jgf-p345-68v8\")'"
+    },
+    {
+      "id": "GHSA-f65p-4m7j-42xc",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency fast-uri@3.1.5: GHSA-f65p-4m7j-42xc",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update fast-uri to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-f65p-4m7j-42xc",
+      "location": "static:<corpus>/registry/20_marcomoauro__substack-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry/20_marcomoauro__substack-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-f65p-4m7j-42xc\")'"
+    },
+    {
+      "id": "GHSA-fph4-wmhf-6fwf",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency fast-uri@3.1.5: GHSA-fph4-wmhf-6fwf",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update fast-uri to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-fph4-wmhf-6fwf",
+      "location": "static:<corpus>/registry/20_marcomoauro__substack-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry/20_marcomoauro__substack-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-fph4-wmhf-6fwf\")'"
+    },
+    {
+      "id": "GHSA-hrr3-gc8f-f4qj",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency fast-uri@3.1.5: GHSA-hrr3-gc8f-f4qj",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update fast-uri to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-hrr3-gc8f-f4qj",
+      "location": "static:<corpus>/registry/20_marcomoauro__substack-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry/20_marcomoauro__substack-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-hrr3-gc8f-f4qj\")'"
+    },
+    {
+      "id": "GHSA-jqff-g426-hqxp",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency fast-uri@3.1.5: GHSA-jqff-g426-hqxp",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update fast-uri to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-jqff-g426-hqxp",
+      "location": "static:<corpus>/registry/20_marcomoauro__substack-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry/20_marcomoauro__substack-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-jqff-g426-hqxp\")'"
+    },
+    {
+      "id": "GHSA-qw65-cvwx-89v3",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency fast-uri@3.1.5: GHSA-qw65-cvwx-89v3",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update fast-uri to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-qw65-cvwx-89v3",
+      "location": "static:<corpus>/registry/20_marcomoauro__substack-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry/20_marcomoauro__substack-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-qw65-cvwx-89v3\")'"
+    },
+    {
+      "id": "GHSA-w74x-v6f9-j3xg",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency fast-uri@3.1.5: GHSA-w74x-v6f9-j3xg",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update fast-uri to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-w74x-v6f9-j3xg",
+      "location": "static:<corpus>/registry/20_marcomoauro__substack-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry/20_marcomoauro__substack-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-w74x-v6f9-j3xg\")'"
+    },
+    {
+      "id": "GHSA-wjr9-j795-jxcr",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency fast-uri@3.1.5: GHSA-wjr9-j795-jxcr",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update fast-uri to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-wjr9-j795-jxcr",
+      "location": "static:<corpus>/registry/20_marcomoauro__substack-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry/20_marcomoauro__substack-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-wjr9-j795-jxcr\")'"
+    },
+    {
+      "id": "GHSA-xhq7-xmqj-769h",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency fast-uri@3.1.5: GHSA-xhq7-xmqj-769h",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update fast-uri to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-xhq7-xmqj-769h",
+      "location": "static:<corpus>/registry/20_marcomoauro__substack-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry/20_marcomoauro__substack-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-xhq7-xmqj-769h\")'"
+    },
+    {
+      "id": "GHSA-5r4p-p66f-jhc7",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency hono@4.13.0: GHSA-5r4p-p66f-jhc7",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update hono to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-5r4p-p66f-jhc7",
+      "location": "static:<corpus>/registry/20_marcomoauro__substack-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry/20_marcomoauro__substack-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-5r4p-p66f-jhc7\")'"
+    },
+    {
+      "id": "GHSA-crvj-82cr-hjcx",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency hono@4.13.0: GHSA-crvj-82cr-hjcx",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update hono to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-crvj-82cr-hjcx",
+      "location": "static:<corpus>/registry/20_marcomoauro__substack-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry/20_marcomoauro__substack-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-crvj-82cr-hjcx\")'"
+    },
+    {
+      "id": "GHSA-g6gw-c38x-mqfc",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency hono@4.13.0: GHSA-g6gw-c38x-mqfc",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update hono to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-g6gw-c38x-mqfc",
+      "location": "static:<corpus>/registry/20_marcomoauro__substack-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry/20_marcomoauro__substack-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-g6gw-c38x-mqfc\")'"
+    },
+    {
+      "id": "GHSA-gqvv-2mrq-wpjv",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency hono@4.13.0: GHSA-gqvv-2mrq-wpjv",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update hono to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-gqvv-2mrq-wpjv",
+      "location": "static:<corpus>/registry/20_marcomoauro__substack-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry/20_marcomoauro__substack-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-gqvv-2mrq-wpjv\")'"
+    },
+    {
+      "id": "GHSA-hxh3-vqpv-xpqv",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency hono@4.13.0: GHSA-hxh3-vqpv-xpqv",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update hono to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-hxh3-vqpv-xpqv",
+      "location": "static:<corpus>/registry/20_marcomoauro__substack-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry/20_marcomoauro__substack-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-hxh3-vqpv-xpqv\")'"
+    },
+    {
+      "id": "GHSA-2vr4-cq9g-pvrc",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency ip-address@10.4.0: GHSA-2vr4-cq9g-pvrc",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update ip-address to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-2vr4-cq9g-pvrc",
+      "location": "static:<corpus>/registry/20_marcomoauro__substack-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry/20_marcomoauro__substack-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-2vr4-cq9g-pvrc\")'"
+    },
+    {
+      "id": "GHSA-h3mg-xc3c-68pw",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency ip-address@10.4.0: GHSA-h3mg-xc3c-68pw",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update ip-address to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-h3mg-xc3c-68pw",
+      "location": "static:<corpus>/registry/20_marcomoauro__substack-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry/20_marcomoauro__substack-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-h3mg-xc3c-68pw\")'"
+    },
+    {
+      "id": "GHSA-j6r3-76f7-8jcv",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency ip-address@10.4.0: GHSA-j6r3-76f7-8jcv",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update ip-address to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-j6r3-76f7-8jcv",
+      "location": "static:<corpus>/registry/20_marcomoauro__substack-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry/20_marcomoauro__substack-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-j6r3-76f7-8jcv\")'"
+    },
+    {
+      "id": "GHSA-rpw4-54j3-4h4q",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency ip-address@10.4.0: GHSA-rpw4-54j3-4h4q",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update ip-address to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-rpw4-54j3-4h4q",
+      "location": "static:<corpus>/registry/20_marcomoauro__substack-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry/20_marcomoauro__substack-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-rpw4-54j3-4h4q\")'"
+    },
+    {
+      "id": "GHSA-rxp7-6hxx-x8q5",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency ip-address@10.4.0: GHSA-rxp7-6hxx-x8q5",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update ip-address to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-rxp7-6hxx-x8q5",
+      "location": "static:<corpus>/registry/20_marcomoauro__substack-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry/20_marcomoauro__substack-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-rxp7-6hxx-x8q5\")'"
+    },
+    {
+      "id": "GHSA-jqcg-44mw-7w3h",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency proxy-addr@2.0.7: GHSA-jqcg-44mw-7w3h",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update proxy-addr to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-jqcg-44mw-7w3h",
+      "location": "static:<corpus>/registry/20_marcomoauro__substack-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry/20_marcomoauro__substack-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-jqcg-44mw-7w3h\")'"
+    },
+    {
+      "id": "GHSA-4mjr-xmp4-gh2g",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency qs@6.15.3: GHSA-4mjr-xmp4-gh2g",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update qs to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-4mjr-xmp4-gh2g",
+      "location": "static:<corpus>/registry/20_marcomoauro__substack-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry/20_marcomoauro__substack-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-4mjr-xmp4-gh2g\")'"
+    },
+    {
+      "id": "GHSA-6pq8-jhm2-2vcw",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency qs@6.15.3: GHSA-6pq8-jhm2-2vcw",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update qs to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-6pq8-jhm2-2vcw",
+      "location": "static:<corpus>/registry/20_marcomoauro__substack-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry/20_marcomoauro__substack-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-6pq8-jhm2-2vcw\")'"
+    },
+    {
+      "id": "GHSA-x5fp-wj9c-mxmx",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency qs@6.15.3: GHSA-x5fp-wj9c-mxmx",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update qs to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-x5fp-wj9c-mxmx",
+      "location": "static:<corpus>/registry/20_marcomoauro__substack-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry/20_marcomoauro__substack-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-x5fp-wj9c-mxmx\")'"
+    }
+  ],
+  "server_profile": {
+    "name": "20_marcomoauro__substack-mcp",
+    "command": null,
+    "args": [],
+    "env_vars": [],
+    "transport": "stdio",
+    "tools": [],
+    "resources": [],
+    "prompts": [],
+    "repo_url": null,
+    "npm_package": null,
+    "capabilities_claimed": [],
+    "capabilities_actual": []
+  },
+  "fingerprint": "e498b97c37656b596d8b93bc1fb01bfa568ae69f61435908d643dc6cb386a256",
+  "surface_map": {
+    "server": {
+      "name": "substack-mcp",
+      "instructions": "",
+      "transport": "unknown",
+      "auth": "unknown"
+    },
+    "tools": [],
+    "resources": [],
+    "prompts": [],
+    "mutations": [],
+    "source": {
+      "kind": "static",
+      "target": "20_marcomoauro__substack-mcp",
+      "languages": []
+    },
+    "generated_at": "2026-11-11T22:32:47+00:00",
+    "fingerprint": "e498b97c37656b596d8b93bc1fb01bfa568ae69f61435908d643dc6cb386a256",
+    "schema": "axiom.surface/1"
+  },
+  "provenance": {
+    "identity": {
+      "npm": "substack-mcp",
+      "pypi": null,
+      "repository": "https://github.com/marcomoauro/substack-mcp",
+      "server_name": "substack-mcp"
+    },
+    "registry": {
+      "status": "match",
+      "entry": "io.github.marcomoauro/substack-mcp",
+      "repository": "https://github.com/marcomoauro/substack-mcp",
+      "packages": [
+        "npm:substack-mcp",
+        "oci:docker.io/marcomoauro/substack-mcp:v1.3.2"
+      ],
+      "publishedAt": "2026-09-03T13:55:39.782649Z",
+      "version": "1.3.2"
+    },
+    "lookalikes": [],
+    "checked_at": "2026-11-11T22:32:50+00:00"
+  },
+  "owasp_coverage": {
+    "framework": "OWASP Top 10 for Agentic Applications 2026",
+    "reference": "https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/",
+    "coverage": {
+      "ASI01": {
+        "name": "Agent Goal Hijack",
+        "coverage_level": "strong",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "tool_poisoning",
+          "prompt_injection",
+          "instruction_injection"
+        ]
+      },
+      "ASI02": {
+        "name": "Tool Misuse & Exploitation",
+        "coverage_level": "strong",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "toxic_tool_combo",
+          "tool_overscope",
+          "tool_chaining_detection"
+        ]
+      },
+      "ASI03": {
+        "name": "Identity & Privilege Abuse",
+        "coverage_level": "strong",
+        "findings_count": 1,
+        "finding_ids": [
+          "code_0001"
+        ],
+        "detectors": [
+          "credential_analysis",
+          "shared_credential_detection",
+          "env_var_audit"
+        ]
+      },
+      "ASI04": {
+        "name": "Agentic Supply Chain Vulnerabilities",
+        "coverage_level": "strong",
+        "findings_count": 33,
+        "finding_ids": [
+          "GHSA-22jm-h49p-29qw",
+          "GHSA-46jr-4wx8-v453",
+          "GHSA-6prh-2h8m-c8cw",
+          "GHSA-6qxp-vccf-f47h",
+          "GHSA-f897-62hf-6gxq",
+          "GHSA-rvq5-wwqv-78pq",
+          "GHSA-mrhx-c7xc-m3w5",
+          "GHSA-rmxm-3fg6-px4f",
+          "GHSA-27r3-jxmh-p828",
+          "GHSA-333x-w4r6-6crp"
+        ],
+        "detectors": [
+          "dependency_cve",
+          "lifecycle_hooks",
+          "npx_unversioned",
+          "known_mcp_cves"
+        ]
+      },
+      "ASI05": {
+        "name": "Unexpected Code Execution",
+        "coverage_level": "strong",
+        "findings_count": 80,
+        "finding_ids": [
+          "code_0002",
+          "code_0003",
+          "code_0004",
+          "code_0005",
+          "code_0006",
+          "code_0007",
+          "code_0008",
+          "code_0009",
+          "code_0010",
+          "code_0011"
+        ],
+        "detectors": [
+          "code_exec_patterns",
+          "code_generation_detection",
+          "sandbox_escape"
+        ]
+      },
+      "ASI06": {
+        "name": "Memory & Context Poisoning",
+        "coverage_level": "partial",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "memory_poisoning_patterns",
+          "context_manipulation_detection"
+        ],
+        "gap_note": "Axiom detects static patterns. Full coverage requires runtime memory monitoring."
+      },
+      "ASI07": {
+        "name": "Insecure Inter-Agent Communication",
+        "coverage_level": "partial",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "transport_security",
+          "a2a_pattern_detection"
+        ],
+        "gap_note": "Axiom checks transport security. Full A2A protocol analysis requires runtime interception."
+      },
+      "ASI08": {
+        "name": "Cascading Failures",
+        "coverage_level": "partial",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "blast_radius_estimation",
+          "dependency_chain_analysis"
+        ],
+        "gap_note": "Axiom estimates blast radius from tool capabilities. Full cascading failure analysis requires runtime topology mapping."
+      },
+      "ASI09": {
+        "name": "Human-Agent Trust Exploitation",
+        "coverage_level": "strong",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "claimed_vs_actual",
+          "deceptive_output_detection",
+          "trust_manipulation_patterns"
+        ]
+      },
+      "ASI10": {
+        "name": "Rogue Agents",
+        "coverage_level": "partial",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "sleeper_patterns",
+          "behavioral_drift_indicators",
+          "persistence_detection"
+        ],
+        "gap_note": "Axiom detects static rogue indicators. Full rogue agent detection requires runtime behavioral monitoring."
+      }
+    },
+    "total_asi_categories_with_findings": 3
+  },
+  "owasp_mcp_coverage": {
+    "framework": "OWASP MCP Top 10",
+    "framework_version": "v0.1 beta",
+    "reference": "https://owasp.org/www-project-mcp-top-10/",
+    "coverage": {
+      "MCP01": {
+        "id": "MCP01:2025",
+        "name": "Token Mismanagement & Secret Exposure",
+        "coverage_level": "partial",
+        "reason": "Regex-based secret detection in server source and client configs plus env-var exposure checks; no entropy analysis, git-history scan, or token lifetime/passthrough checks.",
+        "findings_count": 1,
+        "finding_ids": [
+          "code_0001"
+        ],
+        "detectors": [
+          "credential_theft",
+          "cross_server",
+          "mcp01_hardcoded_secrets",
+          "config_hardcoded_secret",
+          "env_var_audit",
+          "env_dump"
+        ]
+      },
+      "MCP02": {
+        "id": "MCP02:2025",
+        "name": "Privilege Escalation via Scope Creep",
+        "coverage_level": "strong",
+        "reason": "Permission over-scope patterns, toxic tool-capability combinations, path-escape checks and env-var over-exposure in configs.",
+        "findings_count": 80,
+        "finding_ids": [
+          "code_0002",
+          "code_0003",
+          "code_0004",
+          "code_0005",
+          "code_0006",
+          "code_0007",
+          "code_0008",
+          "code_0009",
+          "code_0010",
+          "code_0011"
+        ],
+        "detectors": [
+          "permission_overscope",
+          "toxic_tool_combo",
+          "identity_privilege",
+          "sandbox_escape",
+          "config_risk",
+          "cascading_failure",
+          "cross_server",
+          "excessive_scope",
+          "confused_deputy",
+          "file_read",
+          "file_write"
+        ]
+      },
+      "MCP03": {
+        "id": "MCP03:2025",
+        "name": "Tool Poisoning",
+        "coverage_level": "strong",
+        "reason": "Dedicated detector for hidden instructions in tool metadata, plus runtime rug-pull diffing between source and live tool definitions.",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "tool_poisoning",
+          "obfuscation",
+          "rogue_agent",
+          "source_vs_runtime_diff",
+          "tool_shadowing",
+          "hidden_unicode",
+          "rug_pull_primitive",
+          "surface_mismatch"
+        ]
+      },
+      "MCP04": {
+        "id": "MCP04:2025",
+        "name": "Software Supply Chain Attacks & Dependency Tampering",
+        "coverage_level": "strong",
+        "reason": "Dependency CVE lookup, known MCP CVEs, install lifecycle hooks, and unpinned npx/uvx/pip/@latest install sources.",
+        "findings_count": 33,
+        "finding_ids": [
+          "GHSA-22jm-h49p-29qw",
+          "GHSA-46jr-4wx8-v453",
+          "GHSA-6prh-2h8m-c8cw",
+          "GHSA-6qxp-vccf-f47h",
+          "GHSA-f897-62hf-6gxq",
+          "GHSA-rvq5-wwqv-78pq",
+          "GHSA-mrhx-c7xc-m3w5",
+          "GHSA-rmxm-3fg6-px4f",
+          "GHSA-27r3-jxmh-p828",
+          "GHSA-333x-w4r6-6crp"
+        ],
+        "detectors": [
+          "dependency_vuln",
+          "supply_chain",
+          "known_cve",
+          "obfuscation",
+          "lifecycle_hooks",
+          "mcp04_unpinned_install",
+          "homoglyph",
+          "rug_pull_primitive",
+          "surface_mismatch"
+        ]
+      },
+      "MCP05": {
+        "id": "MCP05:2025",
+        "name": "Command Injection & Execution",
+        "coverage_level": "partial",
+        "reason": "Regex, AST and Semgrep find exec/shell sinks and a heuristic flags sinks inside tool handlers, but there is no inter-procedural taint tracking from tool input to sink.",
+        "findings_count": 80,
+        "finding_ids": [
+          "code_0002",
+          "code_0003",
+          "code_0004",
+          "code_0005",
+          "code_0006",
+          "code_0007",
+          "code_0008",
+          "code_0009",
+          "code_0010",
+          "code_0011"
+        ],
+        "detectors": [
+          "command_injection",
+          "code_execution",
+          "code_generation",
+          "sandbox_escape",
+          "mcp05_tool_input_sink",
+          "shell_exec"
+        ]
+      },
+      "MCP06": {
+        "id": "MCP06:2025",
+        "name": "Prompt Injection via Contextual Payloads",
+        "coverage_level": "partial",
+        "reason": "Injection markers are detected in tool metadata, server instructions, resources, prompts and the strings a tool returns (static), and in instructions/resources/prompts read live; payloads produced by calling a tool at runtime are not inspected.",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "prompt_injection",
+          "memory_poisoning",
+          "trust_exploitation",
+          "response_injection",
+          "tool_shadowing"
+        ]
+      },
+      "MCP07": {
+        "id": "MCP07:2025",
+        "name": "Insufficient Authentication & Authorization",
+        "coverage_level": "partial",
+        "reason": "Flags remote servers with no visible auth and servers bound to all interfaces; does not verify OAuth implementation or per-tool authorization logic.",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "transport_security",
+          "inter_agent_comm",
+          "identity_privilege",
+          "transport_no_auth",
+          "config_no_auth",
+          "mcp07_bind_all_interfaces"
+        ]
+      },
+      "MCP08": {
+        "id": "MCP08:2025",
+        "name": "Lack of Audit and Telemetry",
+        "coverage_level": "gap",
+        "reason": "Only a low-confidence heuristic for missing logging in tool-defining files; actual audit trails and telemetry pipelines are not verified.",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "audit_telemetry",
+          "mcp08_no_tool_logging"
+        ]
+      },
+      "MCP09": {
+        "id": "MCP09:2025",
+        "name": "Shadow MCP Servers",
+        "coverage_level": "partial",
+        "reason": "Covered by `axiom discover` allowlist on the local machine; no network-wide or fleet discovery.",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "mcpguard_discover",
+          "shadow_mcp"
+        ]
+      },
+      "MCP10": {
+        "id": "MCP10:2025",
+        "name": "Context Injection & Over-Sharing",
+        "coverage_level": "partial",
+        "reason": "Hard-coded egress URLs, tools that send to caller-chosen destinations and bulk-exposure heuristics are detected statically and live; what context is actually shared at runtime is not observed.",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "context_oversharing",
+          "data_exfiltration",
+          "memory_poisoning",
+          "mcp10_broad_data_exposure"
+        ]
+      }
+    },
+    "total_mcp_categories_with_findings": 4
+  },
+  "ai_analysis": null,
+  "tool_poisoning_report": null,
+  "prompt_injection_risk": null
+}

@@ -1,0 +1,1344 @@
+{
+  "schema_version": "0.5",
+  "target": "<corpus>/registry/29_malkreide__swiss-snb-mcp",
+  "risk_score": 100.0,
+  "risk_level": "critical",
+  "tools_found": 11,
+  "findings_count": 28,
+  "findings": [
+    {
+      "id": "poison_snb_get_exchange_rates_long_desc",
+      "severity": "medium",
+      "category": "tool_poisoning",
+      "title": "Unusually long tool description for 'snb_get_exchange_rates'",
+      "description": "Tool description is 1226 characters. Long descriptions can hide malicious instructions.",
+      "owasp_asi": [
+        "ASI01"
+      ],
+      "owasp_mcp": [
+        "MCP03"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Review the full tool description for hidden instructions."
+    },
+    {
+      "id": "poison_snb_get_annual_exchange_rates_long_desc",
+      "severity": "medium",
+      "category": "tool_poisoning",
+      "title": "Unusually long tool description for 'snb_get_annual_exchange_rates'",
+      "description": "Tool description is 660 characters. Long descriptions can hide malicious instructions.",
+      "owasp_asi": [
+        "ASI01"
+      ],
+      "owasp_mcp": [
+        "MCP03"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Review the full tool description for hidden instructions."
+    },
+    {
+      "id": "poison_snb_get_balance_sheet_long_desc",
+      "severity": "medium",
+      "category": "tool_poisoning",
+      "title": "Unusually long tool description for 'snb_get_balance_sheet'",
+      "description": "Tool description is 984 characters. Long descriptions can hide malicious instructions.",
+      "owasp_asi": [
+        "ASI01"
+      ],
+      "owasp_mcp": [
+        "MCP03"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Review the full tool description for hidden instructions."
+    },
+    {
+      "id": "poison_snb_convert_currency_long_desc",
+      "severity": "medium",
+      "category": "tool_poisoning",
+      "title": "Unusually long tool description for 'snb_convert_currency'",
+      "description": "Tool description is 689 characters. Long descriptions can hide malicious instructions.",
+      "owasp_asi": [
+        "ASI01"
+      ],
+      "owasp_mcp": [
+        "MCP03"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Review the full tool description for hidden instructions."
+    },
+    {
+      "id": "egress_snb_get_cube_data_desc_1",
+      "severity": "medium",
+      "category": "data_exfiltration",
+      "title": "Hard-coded egress URL in description of tool 'snb_get_cube_data': data.snb.ch",
+      "description": "The description of 'snb_get_cube_data' names an external endpoint (https://data.snb.ch). A tool that tells the agent where to send data is an exfiltration channel.",
+      "owasp_asi": [
+        "ASI01",
+        "ASI02"
+      ],
+      "owasp_mcp": [
+        "MCP10"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Remove the endpoint from the description; make egress destinations explicit, user-approved configuration."
+    },
+    {
+      "id": "poison_snb_get_cube_data_long_desc",
+      "severity": "medium",
+      "category": "tool_poisoning",
+      "title": "Unusually long tool description for 'snb_get_cube_data'",
+      "description": "Tool description is 615 characters. Long descriptions can hide malicious instructions.",
+      "owasp_asi": [
+        "ASI01"
+      ],
+      "owasp_mcp": [
+        "MCP03"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Review the full tool description for hidden instructions."
+    },
+    {
+      "id": "poison_snb_get_warehouse_data_long_desc",
+      "severity": "medium",
+      "category": "tool_poisoning",
+      "title": "Unusually long tool description for 'snb_get_warehouse_data'",
+      "description": "Tool description is 594 characters. Long descriptions can hide malicious instructions.",
+      "owasp_asi": [
+        "ASI01"
+      ],
+      "owasp_mcp": [
+        "MCP03"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Review the full tool description for hidden instructions."
+    },
+    {
+      "id": "poison_snb_get_banking_balance_sheet_long_desc",
+      "severity": "medium",
+      "category": "tool_poisoning",
+      "title": "Unusually long tool description for 'snb_get_banking_balance_sheet'",
+      "description": "Tool description is 646 characters. Long descriptions can hide malicious instructions.",
+      "owasp_asi": [
+        "ASI01"
+      ],
+      "owasp_mcp": [
+        "MCP03"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Review the full tool description for hidden instructions."
+    },
+    {
+      "id": "poison_snb_get_banking_income_long_desc",
+      "severity": "medium",
+      "category": "tool_poisoning",
+      "title": "Unusually long tool description for 'snb_get_banking_income'",
+      "description": "Tool description is 501 characters. Long descriptions can hide malicious instructions.",
+      "owasp_asi": [
+        "ASI01"
+      ],
+      "owasp_mcp": [
+        "MCP03"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Review the full tool description for hidden instructions."
+    },
+    {
+      "id": "cross_tool_snb_get_cube_data_snb_get_cube_metadata",
+      "severity": "medium",
+      "category": "cross_server",
+      "title": "Tool 'snb_get_cube_data' references tool 'snb_get_cube_metadata'",
+      "description": "Tool description mentions another tool by name, which could enable tool chaining attacks.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP01",
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Verify this cross-reference is legitimate and necessary."
+    },
+    {
+      "id": "cross_tool_snb_get_cube_metadata_snb_get_cube_data",
+      "severity": "medium",
+      "category": "cross_server",
+      "title": "Tool 'snb_get_cube_metadata' references tool 'snb_get_cube_data'",
+      "description": "Tool description mentions another tool by name, which could enable tool chaining attacks.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP01",
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Verify this cross-reference is legitimate and necessary."
+    },
+    {
+      "id": "cross_tool_snb_get_warehouse_data_snb_get_warehouse_metadata",
+      "severity": "medium",
+      "category": "cross_server",
+      "title": "Tool 'snb_get_warehouse_data' references tool 'snb_get_warehouse_metadata'",
+      "description": "Tool description mentions another tool by name, which could enable tool chaining attacks.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP01",
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Verify this cross-reference is legitimate and necessary."
+    },
+    {
+      "id": "cross_tool_snb_get_warehouse_metadata_snb_get_warehouse_data",
+      "severity": "medium",
+      "category": "cross_server",
+      "title": "Tool 'snb_get_warehouse_metadata' references tool 'snb_get_warehouse_data'",
+      "description": "Tool description mentions another tool by name, which could enable tool chaining attacks.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP01",
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Verify this cross-reference is legitimate and necessary."
+    },
+    {
+      "id": "ast_0001",
+      "severity": "high",
+      "category": "credential_theft",
+      "title": "Environment variable access via os.environ.get()",
+      "description": "Call to `os.environ.get()` reads credentials/secrets in scripts\\classify_live_scenarios.py at line 241",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP01"
+      ],
+      "file_path": "scripts\\classify_live_scenarios.py",
+      "line_number": 241,
+      "recommendation": "Document which env vars are needed. Avoid reading arbitrary env vars."
+    },
+    {
+      "id": "GHSA-h8pj-cxx2-jfg2",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: httpx",
+      "description": "Improper Input Validation in httpx",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update httpx to a patched version."
+    },
+    {
+      "id": "PYSEC-2022-183",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: httpx",
+      "description": "Known vulnerability",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update httpx to a patched version."
+    },
+    {
+      "id": "GHSA-5jqp-qgf6-3pvh",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: pydantic",
+      "description": "Use of \"infinity\" as an input to datetime and date fields causes infinite loop in pydantic",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pydantic to a patched version."
+    },
+    {
+      "id": "GHSA-mr82-8j83-vxmv",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: pydantic",
+      "description": "Pydantic regular expression denial of service",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pydantic to a patched version."
+    },
+    {
+      "id": "PYSEC-2021-47",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: pydantic",
+      "description": "Known vulnerability",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pydantic to a patched version."
+    },
+    {
+      "id": "PYSEC-2026-1812",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: pydantic",
+      "description": "Pydantic regular expression denial of service",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pydantic to a patched version."
+    },
+    {
+      "id": "toxic_combo_data_read_network_external",
+      "severity": "high",
+      "category": "toxic_tool_combo",
+      "title": "Data read + external network = exfiltration path",
+      "description": "Tools that can read internal data AND make external network requests create a direct exfiltration channel. A hijacked agent could read sensitive data then forward it to an attacker-controlled endpoint. Provided by: snb_get_exchange_rates, snb_get_annual_exchange_rates, snb_get_balance_sheet, snb_convert_currency, snb_get_cube_data, snb_get_cube_metadata, snb_get_balance_of_payments, snb_get_warehouse_data, snb_get_warehouse_metadata, snb_get_banking_balance_sheet, snb_get_banking_income (data_read) + snb_get_cube_data (network_external).",
+      "owasp_asi": [
+        "ASI02"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Implement tool-level permission scoping. Consider whether both capabilities are necessary or if one can be restricted."
+    },
+    {
+      "id": "toxic_combo_credential_access_network_external",
+      "severity": "critical",
+      "category": "toxic_tool_combo",
+      "title": "Credential access + external network = credential theft path",
+      "description": "Tools that access credentials AND make external requests can exfiltrate tokens, API keys, and secrets to remote servers. Provided by: snb_get_balance_sheet, snb_get_banking_income (credential_access) + snb_get_cube_data (network_external).",
+      "owasp_asi": [
+        "ASI02"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Implement tool-level permission scoping. Consider whether both capabilities are necessary or if one can be restricted."
+    },
+    {
+      "id": "toxic_combo_code_execute_network_external",
+      "severity": "critical",
+      "category": "toxic_tool_combo",
+      "title": "Code execution + external network = remote code execution path",
+      "description": "Tools that execute code AND fetch external content can download and run attacker-controlled payloads. Provided by: snb_get_balance_sheet (code_execute) + snb_get_cube_data (network_external).",
+      "owasp_asi": [
+        "ASI02"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Implement tool-level permission scoping. Consider whether both capabilities are necessary or if one can be restricted."
+    },
+    {
+      "id": "toxic_combo_data_read_data_write",
+      "severity": "medium",
+      "category": "toxic_tool_combo",
+      "title": "Broad data read + write = data manipulation risk",
+      "description": "Tools that can both read and write data could be manipulated to corrupt, overwrite, or delete information. Provided by: snb_get_exchange_rates, snb_get_annual_exchange_rates, snb_get_balance_sheet, snb_convert_currency, snb_get_cube_data, snb_get_cube_metadata, snb_get_balance_of_payments, snb_get_warehouse_data, snb_get_warehouse_metadata, snb_get_banking_balance_sheet, snb_get_banking_income (data_read) + snb_get_exchange_rates, snb_get_annual_exchange_rates, snb_get_balance_sheet, snb_convert_currency, snb_get_cube_data, snb_get_cube_metadata, snb_get_balance_of_payments, snb_get_warehouse_data, snb_get_warehouse_metadata, snb_get_banking_balance_sheet, snb_get_banking_income (data_write).",
+      "owasp_asi": [
+        "ASI02"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Implement tool-level permission scoping. Consider whether both capabilities are necessary or if one can be restricted."
+    },
+    {
+      "id": "toxic_combo_credential_access_data_write",
+      "severity": "high",
+      "category": "toxic_tool_combo",
+      "title": "Credential access + data write = privilege persistence",
+      "description": "Tools that access credentials AND write data could persist stolen credentials or create backdoor accounts. Provided by: snb_get_balance_sheet, snb_get_banking_income (credential_access) + snb_get_exchange_rates, snb_get_annual_exchange_rates, snb_get_balance_sheet, snb_convert_currency, snb_get_cube_data, snb_get_cube_metadata, snb_get_balance_of_payments, snb_get_warehouse_data, snb_get_warehouse_metadata, snb_get_banking_balance_sheet, snb_get_banking_income (data_write).",
+      "owasp_asi": [
+        "ASI02"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Implement tool-level permission scoping. Consider whether both capabilities are necessary or if one can be restricted."
+    },
+    {
+      "id": "mcp04_unpinned_0001",
+      "severity": "medium",
+      "category": "supply_chain",
+      "title": "Unpinned install source",
+      "description": "`pip install` of unpinned package(s) uv in .github\\workflows\\ci.yml at line 36. Without an exact version the next install silently picks up whatever is published, including a compromised release.",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": ".github\\workflows\\ci.yml",
+      "line_number": 36,
+      "recommendation": "Pin an exact version (pkg@1.2.3, pkg==1.2.3) and prefer a lockfile or hash-checked requirements."
+    },
+    {
+      "id": "mcp04_unpinned_0002",
+      "severity": "medium",
+      "category": "supply_chain",
+      "title": "Unpinned install source",
+      "description": "`pip install` of unpinned package(s) hatch in .github\\workflows\\publish.yml at line 50. Without an exact version the next install silently picks up whatever is published, including a compromised release.",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": ".github\\workflows\\publish.yml",
+      "line_number": 50,
+      "recommendation": "Pin an exact version (pkg@1.2.3, pkg==1.2.3) and prefer a lockfile or hash-checked requirements."
+    },
+    {
+      "id": "blast_radius_estimate",
+      "severity": "high",
+      "category": "cascading_failure",
+      "title": "Blast radius: HIGH \u2014 compromise of this server has broad impact",
+      "description": "If this MCP server is compromised, the blast radius is HIGH due to: arbitrary code execution, external network access, credential access, 11 tools (large attack surface). A single tool poisoning or supply chain attack could cascade across all connected systems.",
+      "owasp_asi": [
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Apply least-privilege to this server. Isolate it from other MCP servers. Implement kill switches and behavioral monitoring. Limit env vars to the minimum required."
+    }
+  ],
+  "server_profile": {
+    "name": "<corpus>/registry/29_malkreide__swiss-snb-mcp",
+    "command": null,
+    "args": [],
+    "env_vars": [],
+    "transport": "unknown",
+    "tools": [
+      {
+        "name": "snb_get_exchange_rates",
+        "description": "Retrieve monthly CHF exchange rates from the Swiss National Bank (data.snb.ch).\n\nReturns monthly average rates (and optionally month-end rates) for all major\ncurrencies against the Swiss Franc (CHF). Data source: SNB cube 'devkum'.\nRates are expressed as the CHF value of the stated foreign currency unit\n(e.g. EUR1: 1 EUR = 0.9416 CHF; JPY100: 100 JPY = 0.58 CHF).\n\nArgs:\n    params (ExchangeRatesInput):\n        - currencies: List of currency IDs (e.g. ['EUR1', 'USD1']). Default: all.\n        - from_date: Start month YYYY-MM. Default: 12 months ago.\n        - to_date: End month YYYY-MM. Default: current month.\n        - include_month_end: Also include month-end rates. Default: False.\n        - lang: Response language (de/en/fr). Default: de.\n\nReturns:\n    str: Markdown table with dates and CHF exchange rates per currency.\n         Includes publication date and data source metadata.\n\nSchema:\n    {\n      \"cube_id\": \"devkum\",\n      \"publishing_date\": \"YYYY-MM-DD HH:MM\",\n      \"currencies_returned\": int,\n      \"timeseries\": [\n        {\n          \"currency\": str,\n          \"type\": \"Monatsmittel\" | \"Monatsende\",\n          \"unit\": str,\n          \"values\": [{\"date\": \"YYYY-MM\", \"value\": float}]\n        }\n      ]\n    }",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "params": {}
+          },
+          "required": [
+            "params"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "medium",
+        "poisoning_detail": "Tool description is 1226 characters. Long descriptions can hide malicious instructions."
+      },
+      {
+        "name": "snb_get_annual_exchange_rates",
+        "description": "Retrieve annual average CHF exchange rates from the SNB (cube 'devkua').\n\nReturns yearly average exchange rates for all major currencies against CHF.\nUseful for multi-year trend analysis, budget planning, and financial reporting.\nData goes back to 1980 for most currencies.\n\nArgs:\n    params (AnnualExchangeRatesInput):\n        - currencies: List of currency IDs (e.g. ['EUR1', 'USD1']). Default: all.\n        - from_year: Start year, e.g. '2015'. Default: 5 years ago.\n        - to_year: End year, e.g. '2025'. Default: current year.\n        - lang: Response language. Default: de.\n\nReturns:\n    str: Markdown summary and JSON data with annual exchange rates.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "params": {}
+          },
+          "required": [
+            "params"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "medium",
+        "poisoning_detail": "Tool description is 660 characters. Long descriptions can hide malicious instructions."
+      },
+      {
+        "name": "snb_get_balance_sheet",
+        "description": "Retrieve SNB balance sheet (Bilanz) data from the data portal (cube 'snbbipo').\n\nReturns monthly balance sheet positions of the Swiss National Bank in millions\nof CHF. Covers assets (gold, foreign exchange reserves, repos) and liabilities\n(banknotes in circulation, sight deposits of domestic banks, government deposits).\n\nKey positions:\n- GFG: Gold und Forderungen aus Goldgesch\u00e4ften\n- D: Devisenanlagen (foreign exchange reserves \u2014 the world's largest relative to GDP)\n- N: Notenumlauf (banknotes in circulation)\n- GB: Girokonten inl\u00e4ndischer Banken (sight deposits)\n- T0/T1: Total Aktiven / Total Passiven\n\nArgs:\n    params (BalanceSheetInput):\n        - positions: List of position IDs. Default: key positions (GFG, D, N, GB, T0, T1).\n        - from_date: Start month YYYY-MM. Default: 24 months ago.\n        - to_date: End month YYYY-MM. Default: latest available.\n        - lang: Response language. Default: de.\n\nReturns:\n    str: Markdown summary and JSON data in millions CHF.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "params": {}
+          },
+          "required": [
+            "params"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "medium",
+        "poisoning_detail": "Tool description is 984 characters. Long descriptions can hide malicious instructions."
+      },
+      {
+        "name": "snb_convert_currency",
+        "description": "Convert a foreign currency amount to CHF using official SNB exchange rates.\n\nUses the monthly average rate (Monatsmittel) from the SNB data portal.\nSuitable for budget calculations, cost estimations, and financial planning.\n\nArgs:\n    params (ConvertCurrencyInput):\n        - amount: Amount in foreign currency to convert.\n        - currency_id: SNB currency ID (e.g. 'EUR1', 'USD1', 'JPY100').\n        - reference_month: Month YYYY-MM for the rate. Default: most recent.\n\nReturns:\n    str: CHF equivalent, exchange rate used, and reference date.\n\nExample:\n    amount=45000, currency_id='USD1' \u2192 CHF equivalent of USD 45,000\n    amount=100, currency_id='JPY100' \u2192 CHF equivalent of JPY 100",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "params": {}
+          },
+          "required": [
+            "params"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "medium",
+        "poisoning_detail": "Tool description is 689 characters. Long descriptions can hide malicious instructions."
+      },
+      {
+        "name": "snb_get_cube_data",
+        "description": "Retrieve raw data from any SNB data cube by ID.\n\nGeneric tool for accessing SNB cubes beyond the dedicated tools.\nUse snb_get_cube_metadata first to understand the cube structure.\nBrowse https://data.snb.ch to discover cube IDs from the URL pattern:\ndata.snb.ch/de/topics/{topic}/cube/{cubeId}\n\nArgs:\n    params (CubeDataInput):\n        - cube_id: SNB cube identifier (lowercase), e.g. 'devkum', 'snbbipo'.\n        - from_date: Start date (YYYY-MM for monthly, YYYY for annual).\n        - to_date: End date.\n        - lang: Response language (de/en/fr).\n\nReturns:\n    str: Raw timeseries data from the cube as JSON.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "params": {}
+          },
+          "required": [
+            "params"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "medium",
+        "poisoning_detail": "The description of 'snb_get_cube_data' names an external endpoint (https://data.snb.ch). A tool that tells the agent where to send data is an exfiltration channel."
+      },
+      {
+        "name": "snb_get_cube_metadata",
+        "description": "Get metadata and dimension structure for any SNB data cube.\n\nRetrieves the cube's dimension definitions, available filter values,\nand structure. Use this before querying snb_get_cube_data to understand\nwhat parameters and filters are available.\n\nArgs:\n    params (CubeMetadataInput):\n        - cube_id: SNB cube identifier, e.g. 'devkum', 'snbbipo'.\n        - lang: Language for labels (de/en/fr).\n\nReturns:\n    str: Cube ID, dimensions, and all available dimension item IDs with labels.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "params": {}
+          },
+          "required": [
+            "params"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "snb_get_balance_of_payments",
+        "description": "Retrieve balance-of-payments or international investment position data.\n\nCategories:\n  - overview: Zahlungsbilanz \u2014 \u00dcbersicht (cube bopoverq)\n  - iip: Auslandverm\u00f6gen \u2014 Komponenten (cube auvekomq)\n\nArgs:\n    params (BalanceOfPaymentsInput):\n        - category: 'overview' or 'iip'.\n        - from_date: Start date, e.g. '2020-Q1' or '2020'.\n        - to_date: End date.\n        - lang: Response language (de/en/fr).\n\nReturns:\n    str: Markdown summary with JSON data.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "params": {}
+          },
+          "required": [
+            "params"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "snb_get_warehouse_data",
+        "description": "Retrieve raw data from any SNB Warehouse cube by ID.\n\nGeneric tool for accessing SNB Warehouse cubes (BSTA banking statistics).\nUse snb_get_warehouse_metadata first to understand the cube structure.\nUse snb_list_warehouse_cubes to discover available cube IDs.\n\nArgs:\n    params (WarehouseDataInput):\n        - cube_id: SNB Warehouse cube ID (uppercase, dot-separated).\n        - from_date: Start date (YYYY for annual, YYYY-MM for monthly).\n        - to_date: End date.\n        - lang: Response language (de/en/fr).\n\nReturns:\n    str: Timeseries data from the warehouse cube as Markdown + JSON.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "params": {}
+          },
+          "required": [
+            "params"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "medium",
+        "poisoning_detail": "Tool description is 594 characters. Long descriptions can hide malicious instructions."
+      },
+      {
+        "name": "snb_get_warehouse_metadata",
+        "description": "Get metadata and dimension structure for any SNB Warehouse cube.\n\nRetrieves the cube's dimension definitions and last update date.\nUse this before querying snb_get_warehouse_data to understand\nwhat dimensions and filter values are available.\n\nArgs:\n    params (WarehouseMetadataInput):\n        - cube_id: SNB Warehouse cube ID to inspect.\n        - lang: Language for labels (de/en/fr).\n\nReturns:\n    str: Cube ID, edition date, dimensions and their items.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "params": {}
+          },
+          "required": [
+            "params"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "snb_get_banking_balance_sheet",
+        "description": "Retrieve banking balance sheet data from SNB Warehouse (BSTA BIL cubes).\n\nReturns total assets and/or liabilities for selected bank groups from the\nSwiss banking statistics. Values are converted to millions of CHF.\n\nArgs:\n    params (BankingBalanceSheetInput):\n        - side: 'assets', 'liabilities', or 'both'.\n        - bank_groups: Bank group IDs (default: ['A30'] = all banks).\n        - frequency: 'annual' or 'monthly'.\n        - currency: Currency filter (default: 'T' = Total).\n        - from_date / to_date: Date range.\n        - lang: Response language.\n\nReturns:\n    str: Markdown summary with values in Millionen CHF, plus JSON data.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "params": {}
+          },
+          "required": [
+            "params"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "medium",
+        "poisoning_detail": "Tool description is 646 characters. Long descriptions can hide malicious instructions."
+      },
+      {
+        "name": "snb_get_banking_income",
+        "description": "Retrieve banking income statement data from SNB Warehouse (BSTA EFR cubes).\n\nReturns key income statement positions (Gesch\u00e4ftsertrag, Gesch\u00e4ftsaufwand,\netc.) for selected bank groups. Values are converted to millions of CHF.\n\nArgs:\n    params (BankingIncomeInput):\n        - bank_groups: Bank group IDs (default: ['A30'] = all banks).\n        - from_year / to_year: Year range (YYYY).\n        - lang: Response language.\n\nReturns:\n    str: Markdown summary with values in Millionen CHF, plus JSON data.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "params": {}
+          },
+          "required": [
+            "params"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "medium",
+        "poisoning_detail": "Tool description is 501 characters. Long descriptions can hide malicious instructions."
+      }
+    ],
+    "resources": [
+      {
+        "uri": "data://snb/currencies",
+        "name": "snb_list_currencies",
+        "description": "List all currency IDs available in SNB exchange rate cubes.\n\nReturns the full list of currency identifiers that can be used as filter\nvalues in snb_get_exchange_rates, snb_get_annual_exchange_rates, and\nsnb_convert_currency.\n\nNote on units: some currencies are quoted per 100 units (e.g. JPY100 = 100 JPY).\nThe rate value always represents CHF per the stated unit quantity.\n\nReturns:\n    str: Markdown table of currency IDs, names, and unit multipliers.",
+        "mime_type": null
+      },
+      {
+        "uri": "data://snb/balance-sheet-positions",
+        "name": "snb_list_balance_sheet_positions",
+        "description": "List all balance sheet position IDs for the SNB balance sheet cube (snbbipo).\n\nReturns asset (Aktiven) and liability (Passiven) position IDs with German labels.\nUse these IDs as filter values in snb_get_balance_sheet.\n\nReturns:\n    str: Markdown table of position IDs and labels, grouped by Aktiven/Passiven.",
+        "mime_type": null
+      },
+      {
+        "uri": "data://snb/cubes",
+        "name": "snb_list_known_cubes",
+        "description": "List all verified SNB data cube IDs with descriptions and available tools.\n\nReturns Phase 1 cubes (dedicated tools) and Phase 2 cubes (accessible via\nsnb_get_cube_data + snb_get_cube_metadata without any code changes).\n\nPhase 1 cubes: devkum (monthly FX), devkua (annual FX), snbbipo (balance sheet)\nPhase 2 cubes: snbgwdzid (Leitzins/SARON daily), zirepo (SARON compound rates),\n               zimoma (international money market rates), snboffzisa (central bank\n               rates comparison), snbmonagg (M1/M2/M3 aggregates)\n\nAdditional cube IDs can be discovered by browsing data.snb.ch and reading the\nURL pattern: .../topics/{topic}/cube/{cubeId}\n\nReturns:\n    str: Markdown tables of cube IDs grouped by phase, with descriptions,\n         tools, frequency, and discovery guidance.",
+        "mime_type": null
+      },
+      {
+        "uri": "data://snb/bank-groups",
+        "name": "snb_list_bank_groups",
+        "description": "List all bank group IDs used in SNB Warehouse banking statistics (BSTA).\n\nReturns the 12 bank group identifiers (Bankengruppen) with their German\nlabels. Use these IDs as filter values for the BANKENGRUPPE dimension\nin warehouse cube queries.\n\nReturns:\n    str: Markdown table of bank group IDs and labels.",
+        "mime_type": null
+      },
+      {
+        "uri": "data://snb/warehouse-cubes",
+        "name": "snb_list_warehouse_cubes",
+        "description": "List available SNB Warehouse cube IDs for banking statistics (BSTA).\n\nReturns an overview of all supported Warehouse cubes grouped by type:\n- BSTA Bilanz (BIL): Balance sheet data (monthly and annual)\n- BSTA Erfolgsrechnung (EFR): Income statement data (annual)\n\nIncludes cube ID schema explanation, dimension info, and usage notes.\n\nReturns:\n    str: Markdown overview of warehouse cubes with IDs and dimensions.",
+        "mime_type": null
+      }
+    ],
+    "prompts": [],
+    "repo_url": null,
+    "npm_package": null,
+    "capabilities_claimed": [],
+    "capabilities_actual": []
+  },
+  "fingerprint": "fc90b9d5ff4c274023cb326ae08e9866e99bec6a2ef69cc4fd24d88d50c937ed",
+  "surface_map": {
+    "server": {
+      "name": "<corpus>/registry/29_malkreide__swiss-snb-mcp",
+      "instructions": "MCP server for the Swiss National Bank (SNB) data portal at data.snb.ch. Provides access to official Swiss monetary statistics: exchange rates (monthly and annual), SNB balance sheet positions, SNB policy rate (Leitzins), SARON and repo compound rates, international money market rates, official central bank rates in comparison (Fed, ECB, BoE, BoJ), monetary aggregates M1/M2/M3, and a generic cube data tool for additional datasets. All monetary data is in CHF. No authentication required.",
+      "transport": "stdio",
+      "auth": "unknown",
+      "instructions_location": "src\\swiss_snb_mcp\\server.py:275"
+    },
+    "tools": [
+      {
+        "name": "snb_get_exchange_rates",
+        "description": "Retrieve monthly CHF exchange rates from the Swiss National Bank (data.snb.ch).\n\nReturns monthly average rates (and optionally month-end rates) for all major\ncurrencies against the Swiss Franc (CHF). Data source: SNB cube 'devkum'.\nRates are expressed as the CHF value of the stated foreign currency unit\n(e.g. EUR1: 1 EUR = 0.9416 CHF; JPY100: 100 JPY = 0.58 CHF).\n\nArgs:\n    params (ExchangeRatesInput):\n        - currencies: List of currency IDs (e.g. ['EUR1', 'USD1']). Default: all.\n        - from_date: Start month YYYY-MM. Default: 12 months ago.\n        - to_date: End month YYYY-MM. Default: current month.\n        - include_month_end: Also include month-end rates. Default: False.\n        - lang: Response language (de/en/fr). Default: de.\n\nReturns:\n    str: Markdown table with dates and CHF exchange rates per currency.\n         Includes publication date and data source metadata.\n\nSchema:\n    {\n      \"cube_id\": \"devkum\",\n      \"publishing_date\": \"YYYY-MM-DD HH:MM\",\n      \"currencies_returned\": int,\n      \"timeseries\": [\n        {\n          \"currency\": str,\n          \"type\": \"Monatsmittel\" | \"Monatsende\",\n          \"unit\": str,\n          \"values\": [{\"date\": \"YYYY-MM\", \"value\": float}]\n        }\n      ]\n    }",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "params": {}
+          },
+          "required": [
+            "params"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [
+          "\n",
+          "Keine Daten f\u00fcr die gew\u00e4hlten Parameter gefunden. Pr\u00fcfen Sie die W\u00e4hrungs-IDs mit snb_list_currencies."
+        ],
+        "registration": "static",
+        "location": "src\\swiss_snb_mcp\\server.py:609"
+      },
+      {
+        "name": "snb_get_annual_exchange_rates",
+        "description": "Retrieve annual average CHF exchange rates from the SNB (cube 'devkua').\n\nReturns yearly average exchange rates for all major currencies against CHF.\nUseful for multi-year trend analysis, budget planning, and financial reporting.\nData goes back to 1980 for most currencies.\n\nArgs:\n    params (AnnualExchangeRatesInput):\n        - currencies: List of currency IDs (e.g. ['EUR1', 'USD1']). Default: all.\n        - from_year: Start year, e.g. '2015'. Default: 5 years ago.\n        - to_year: End year, e.g. '2025'. Default: current year.\n        - lang: Response language. Default: de.\n\nReturns:\n    str: Markdown summary and JSON data with annual exchange rates.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "params": {}
+          },
+          "required": [
+            "params"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [
+          "\n",
+          "Keine Daten f\u00fcr die gew\u00e4hlten Parameter. Pr\u00fcfen Sie die W\u00e4hrungs-IDs mit snb_list_currencies."
+        ],
+        "registration": "static",
+        "location": "src\\swiss_snb_mcp\\server.py:774"
+      },
+      {
+        "name": "snb_get_balance_sheet",
+        "description": "Retrieve SNB balance sheet (Bilanz) data from the data portal (cube 'snbbipo').\n\nReturns monthly balance sheet positions of the Swiss National Bank in millions\nof CHF. Covers assets (gold, foreign exchange reserves, repos) and liabilities\n(banknotes in circulation, sight deposits of domestic banks, government deposits).\n\nKey positions:\n- GFG: Gold und Forderungen aus Goldgesch\u00e4ften\n- D: Devisenanlagen (foreign exchange reserves \u2014 the world's largest relative to GDP)\n- N: Notenumlauf (banknotes in circulation)\n- GB: Girokonten inl\u00e4ndischer Banken (sight deposits)\n- T0/T1: Total Aktiven / Total Passiven\n\nArgs:\n    params (BalanceSheetInput):\n        - positions: List of position IDs. Default: key positions (GFG, D, N, GB, T0, T1).\n        - from_date: Start month YYYY-MM. Default: 24 months ago.\n        - to_date: End month YYYY-MM. Default: latest available.\n        - lang: Response language. Default: de.\n\nReturns:\n    str: Markdown summary and JSON data in millions CHF.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "params": {}
+          },
+          "required": [
+            "params"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [
+          "\n",
+          "Keine Daten f\u00fcr die gew\u00e4hlten Positionen. Pr\u00fcfen Sie die Positions-IDs mit snb_list_balance_sheet_positions."
+        ],
+        "registration": "static",
+        "location": "src\\swiss_snb_mcp\\server.py:878"
+      },
+      {
+        "name": "snb_convert_currency",
+        "description": "Convert a foreign currency amount to CHF using official SNB exchange rates.\n\nUses the monthly average rate (Monatsmittel) from the SNB data portal.\nSuitable for budget calculations, cost estimations, and financial planning.\n\nArgs:\n    params (ConvertCurrencyInput):\n        - amount: Amount in foreign currency to convert.\n        - currency_id: SNB currency ID (e.g. 'EUR1', 'USD1', 'JPY100').\n        - reference_month: Month YYYY-MM for the rate. Default: most recent.\n\nReturns:\n    str: CHF equivalent, exchange rate used, and reference date.\n\nExample:\n    amount=45000, currency_id='USD1' \u2192 CHF equivalent of USD 45,000\n    amount=100, currency_id='JPY100' \u2192 CHF equivalent of JPY 100",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "params": {}
+          },
+          "required": [
+            "params"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [
+          "\n",
+          "Error: W\u00e4hrung '{cid}' nicht gefunden. Verf\u00fcgbare W\u00e4hrungs-IDs: {...}. Vollst\u00e4ndige Liste mit snb_list_currencies.",
+          "Error: Keine Kursdaten f\u00fcr '{cid}' im angegebenen Zeitraum.",
+          "Error: Einheit f\u00fcr '{cid}' widerspricht der Quelle \u2014 hier {unit}, laut Reihenbeschriftung \u00ab{source_label}\u00bb aber {source_unit}. Die Umrechnung wird nicht geraten; CURRENCY_UNITS pr\u00fcfen."
+        ],
+        "registration": "static",
+        "location": "src\\swiss_snb_mcp\\server.py:995"
+      },
+      {
+        "name": "snb_get_cube_data",
+        "description": "Retrieve raw data from any SNB data cube by ID.\n\nGeneric tool for accessing SNB cubes beyond the dedicated tools.\nUse snb_get_cube_metadata first to understand the cube structure.\nBrowse https://data.snb.ch to discover cube IDs from the URL pattern:\ndata.snb.ch/de/topics/{topic}/cube/{cubeId}\n\nArgs:\n    params (CubeDataInput):\n        - cube_id: SNB cube identifier (lowercase), e.g. 'devkum', 'snbbipo'.\n        - from_date: Start date (YYYY-MM for monthly, YYYY for annual).\n        - to_date: End date.\n        - lang: Response language (de/en/fr).\n\nReturns:\n    str: Raw timeseries data from the cube as JSON.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "params": {}
+          },
+          "required": [
+            "params"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [
+          "\n"
+        ],
+        "registration": "static",
+        "location": "src\\swiss_snb_mcp\\server.py:1129"
+      },
+      {
+        "name": "snb_get_cube_metadata",
+        "description": "Get metadata and dimension structure for any SNB data cube.\n\nRetrieves the cube's dimension definitions, available filter values,\nand structure. Use this before querying snb_get_cube_data to understand\nwhat parameters and filters are available.\n\nArgs:\n    params (CubeMetadataInput):\n        - cube_id: SNB cube identifier, e.g. 'devkum', 'snbbipo'.\n        - lang: Language for labels (de/en/fr).\n\nReturns:\n    str: Cube ID, dimensions, and all available dimension item IDs with labels.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "params": {}
+          },
+          "required": [
+            "params"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [
+          "\n"
+        ],
+        "registration": "static",
+        "location": "src\\swiss_snb_mcp\\server.py:1199"
+      },
+      {
+        "name": "snb_get_balance_of_payments",
+        "description": "Retrieve balance-of-payments or international investment position data.\n\nCategories:\n  - overview: Zahlungsbilanz \u2014 \u00dcbersicht (cube bopoverq)\n  - iip: Auslandverm\u00f6gen \u2014 Komponenten (cube auvekomq)\n\nArgs:\n    params (BalanceOfPaymentsInput):\n        - category: 'overview' or 'iip'.\n        - from_date: Start date, e.g. '2020-Q1' or '2020'.\n        - to_date: End date.\n        - lang: Response language (de/en/fr).\n\nReturns:\n    str: Markdown summary with JSON data.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "params": {}
+          },
+          "required": [
+            "params"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [
+          "\n"
+        ],
+        "registration": "static",
+        "location": "src\\swiss_snb_mcp\\server.py:1257"
+      },
+      {
+        "name": "snb_get_warehouse_data",
+        "description": "Retrieve raw data from any SNB Warehouse cube by ID.\n\nGeneric tool for accessing SNB Warehouse cubes (BSTA banking statistics).\nUse snb_get_warehouse_metadata first to understand the cube structure.\nUse snb_list_warehouse_cubes to discover available cube IDs.\n\nArgs:\n    params (WarehouseDataInput):\n        - cube_id: SNB Warehouse cube ID (uppercase, dot-separated).\n        - from_date: Start date (YYYY for annual, YYYY-MM for monthly).\n        - to_date: End date.\n        - lang: Response language (de/en/fr).\n\nReturns:\n    str: Timeseries data from the warehouse cube as Markdown + JSON.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "params": {}
+          },
+          "required": [
+            "params"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [
+          "\n"
+        ],
+        "registration": "static",
+        "location": "src\\swiss_snb_mcp\\warehouse.py:437"
+      },
+      {
+        "name": "snb_get_warehouse_metadata",
+        "description": "Get metadata and dimension structure for any SNB Warehouse cube.\n\nRetrieves the cube's dimension definitions and last update date.\nUse this before querying snb_get_warehouse_data to understand\nwhat dimensions and filter values are available.\n\nArgs:\n    params (WarehouseMetadataInput):\n        - cube_id: SNB Warehouse cube ID to inspect.\n        - lang: Language for labels (de/en/fr).\n\nReturns:\n    str: Cube ID, edition date, dimensions and their items.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "params": {}
+          },
+          "required": [
+            "params"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [
+          "\n"
+        ],
+        "registration": "static",
+        "location": "src\\swiss_snb_mcp\\warehouse.py:520"
+      },
+      {
+        "name": "snb_get_banking_balance_sheet",
+        "description": "Retrieve banking balance sheet data from SNB Warehouse (BSTA BIL cubes).\n\nReturns total assets and/or liabilities for selected bank groups from the\nSwiss banking statistics. Values are converted to millions of CHF.\n\nArgs:\n    params (BankingBalanceSheetInput):\n        - side: 'assets', 'liabilities', or 'both'.\n        - bank_groups: Bank group IDs (default: ['A30'] = all banks).\n        - frequency: 'annual' or 'monthly'.\n        - currency: Currency filter (default: 'T' = Total).\n        - from_date / to_date: Date range.\n        - lang: Response language.\n\nReturns:\n    str: Markdown summary with values in Millionen CHF, plus JSON data.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "params": {}
+          },
+          "required": [
+            "params"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [
+          "\n"
+        ],
+        "registration": "static",
+        "location": "src\\swiss_snb_mcp\\warehouse.py:703"
+      },
+      {
+        "name": "snb_get_banking_income",
+        "description": "Retrieve banking income statement data from SNB Warehouse (BSTA EFR cubes).\n\nReturns key income statement positions (Gesch\u00e4ftsertrag, Gesch\u00e4ftsaufwand,\netc.) for selected bank groups. Values are converted to millions of CHF.\n\nArgs:\n    params (BankingIncomeInput):\n        - bank_groups: Bank group IDs (default: ['A30'] = all banks).\n        - from_year / to_year: Year range (YYYY).\n        - lang: Response language.\n\nReturns:\n    str: Markdown summary with values in Millionen CHF, plus JSON data.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "params": {}
+          },
+          "required": [
+            "params"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [
+          "\n"
+        ],
+        "registration": "static",
+        "location": "src\\swiss_snb_mcp\\warehouse.py:889"
+      }
+    ],
+    "resources": [
+      {
+        "uri": "data://snb/currencies",
+        "name": "snb_list_currencies",
+        "description": "List all currency IDs available in SNB exchange rate cubes.\n\nReturns the full list of currency identifiers that can be used as filter\nvalues in snb_get_exchange_rates, snb_get_annual_exchange_rates, and\nsnb_convert_currency.\n\nNote on units: some currencies are quoted per 100 units (e.g. JPY100 = 100 JPY).\nThe rate value always represents CHF per the stated unit quantity.\n\nReturns:\n    str: Markdown table of currency IDs, names, and unit multipliers.",
+        "mime_type": null,
+        "content_literals": [
+          "\n"
+        ],
+        "location": "src\\swiss_snb_mcp\\server.py:1323"
+      },
+      {
+        "uri": "data://snb/balance-sheet-positions",
+        "name": "snb_list_balance_sheet_positions",
+        "description": "List all balance sheet position IDs for the SNB balance sheet cube (snbbipo).\n\nReturns asset (Aktiven) and liability (Passiven) position IDs with German labels.\nUse these IDs as filter values in snb_get_balance_sheet.\n\nReturns:\n    str: Markdown table of position IDs and labels, grouped by Aktiven/Passiven.",
+        "mime_type": null,
+        "content_literals": [
+          "\n"
+        ],
+        "location": "src\\swiss_snb_mcp\\server.py:1358"
+      },
+      {
+        "uri": "data://snb/cubes",
+        "name": "snb_list_known_cubes",
+        "description": "List all verified SNB data cube IDs with descriptions and available tools.\n\nReturns Phase 1 cubes (dedicated tools) and Phase 2 cubes (accessible via\nsnb_get_cube_data + snb_get_cube_metadata without any code changes).\n\nPhase 1 cubes: devkum (monthly FX), devkua (annual FX), snbbipo (balance sheet)\nPhase 2 cubes: snbgwdzid (Leitzins/SARON daily), zirepo (SARON compound rates),\n               zimoma (international money market rates), snboffzisa (central bank\n               rates comparison), snbmonagg (M1/M2/M3 aggregates)\n\nAdditional cube IDs can be discovered by browsing data.snb.ch and reading the\nURL pattern: .../topics/{topic}/cube/{cubeId}\n\nReturns:\n    str: Markdown tables of cube IDs grouped by phase, with descriptions,\n         tools, frequency, and discovery guidance.",
+        "mime_type": null,
+        "content_literals": [
+          "\n"
+        ],
+        "location": "src\\swiss_snb_mcp\\server.py:1419"
+      },
+      {
+        "uri": "data://snb/bank-groups",
+        "name": "snb_list_bank_groups",
+        "description": "List all bank group IDs used in SNB Warehouse banking statistics (BSTA).\n\nReturns the 12 bank group identifiers (Bankengruppen) with their German\nlabels. Use these IDs as filter values for the BANKENGRUPPE dimension\nin warehouse cube queries.\n\nReturns:\n    str: Markdown table of bank group IDs and labels.",
+        "mime_type": null,
+        "content_literals": [
+          "\n"
+        ],
+        "location": "src\\swiss_snb_mcp\\warehouse.py:354"
+      },
+      {
+        "uri": "data://snb/warehouse-cubes",
+        "name": "snb_list_warehouse_cubes",
+        "description": "List available SNB Warehouse cube IDs for banking statistics (BSTA).\n\nReturns an overview of all supported Warehouse cubes grouped by type:\n- BSTA Bilanz (BIL): Balance sheet data (monthly and annual)\n- BSTA Erfolgsrechnung (EFR): Income statement data (annual)\n\nIncludes cube ID schema explanation, dimension info, and usage notes.\n\nReturns:\n    str: Markdown overview of warehouse cubes with IDs and dimensions.",
+        "mime_type": null,
+        "content_literals": [
+          "\n"
+        ],
+        "location": "src\\swiss_snb_mcp\\warehouse.py:595"
+      }
+    ],
+    "prompts": [],
+    "mutations": [],
+    "source": {
+      "kind": "static",
+      "target": "<corpus>/registry/29_malkreide__swiss-snb-mcp",
+      "languages": [
+        "python"
+      ]
+    },
+    "generated_at": "2026-11-04T02:43:52+00:00",
+    "fingerprint": "fc90b9d5ff4c274023cb326ae08e9866e99bec6a2ef69cc4fd24d88d50c937ed",
+    "schema": "axiom.surface/1"
+  },
+  "owasp_coverage": {
+    "framework": "OWASP Top 10 for Agentic Applications 2026",
+    "reference": "https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/",
+    "coverage": {
+      "ASI01": {
+        "name": "Agent Goal Hijack",
+        "coverage_level": "strong",
+        "findings_count": 9,
+        "finding_ids": [
+          "poison_snb_get_exchange_rates_long_desc",
+          "poison_snb_get_annual_exchange_rates_long_desc",
+          "poison_snb_get_balance_sheet_long_desc",
+          "poison_snb_convert_currency_long_desc",
+          "egress_snb_get_cube_data_desc_1",
+          "poison_snb_get_cube_data_long_desc",
+          "poison_snb_get_warehouse_data_long_desc",
+          "poison_snb_get_banking_balance_sheet_long_desc",
+          "poison_snb_get_banking_income_long_desc"
+        ],
+        "detectors": [
+          "tool_poisoning",
+          "prompt_injection",
+          "instruction_injection"
+        ]
+      },
+      "ASI02": {
+        "name": "Tool Misuse & Exploitation",
+        "coverage_level": "strong",
+        "findings_count": 10,
+        "finding_ids": [
+          "egress_snb_get_cube_data_desc_1",
+          "cross_tool_snb_get_cube_data_snb_get_cube_metadata",
+          "cross_tool_snb_get_cube_metadata_snb_get_cube_data",
+          "cross_tool_snb_get_warehouse_data_snb_get_warehouse_metadata",
+          "cross_tool_snb_get_warehouse_metadata_snb_get_warehouse_data",
+          "toxic_combo_data_read_network_external",
+          "toxic_combo_credential_access_network_external",
+          "toxic_combo_code_execute_network_external",
+          "toxic_combo_data_read_data_write",
+          "toxic_combo_credential_access_data_write"
+        ],
+        "detectors": [
+          "toxic_tool_combo",
+          "tool_overscope",
+          "tool_chaining_detection"
+        ]
+      },
+      "ASI03": {
+        "name": "Identity & Privilege Abuse",
+        "coverage_level": "strong",
+        "findings_count": 1,
+        "finding_ids": [
+          "ast_0001"
+        ],
+        "detectors": [
+          "credential_analysis",
+          "shared_credential_detection",
+          "env_var_audit"
+        ]
+      },
+      "ASI04": {
+        "name": "Agentic Supply Chain Vulnerabilities",
+        "coverage_level": "strong",
+        "findings_count": 8,
+        "finding_ids": [
+          "GHSA-h8pj-cxx2-jfg2",
+          "PYSEC-2022-183",
+          "GHSA-5jqp-qgf6-3pvh",
+          "GHSA-mr82-8j83-vxmv",
+          "PYSEC-2021-47",
+          "PYSEC-2026-1812",
+          "mcp04_unpinned_0001",
+          "mcp04_unpinned_0002"
+        ],
+        "detectors": [
+          "dependency_cve",
+          "lifecycle_hooks",
+          "npx_unversioned",
+          "known_mcp_cves"
+        ]
+      },
+      "ASI05": {
+        "name": "Unexpected Code Execution",
+        "coverage_level": "strong",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "code_exec_patterns",
+          "code_generation_detection",
+          "sandbox_escape"
+        ]
+      },
+      "ASI06": {
+        "name": "Memory & Context Poisoning",
+        "coverage_level": "partial",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "memory_poisoning_patterns",
+          "context_manipulation_detection"
+        ],
+        "gap_note": "Axiom detects static patterns. Full coverage requires runtime memory monitoring."
+      },
+      "ASI07": {
+        "name": "Insecure Inter-Agent Communication",
+        "coverage_level": "partial",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "transport_security",
+          "a2a_pattern_detection"
+        ],
+        "gap_note": "Axiom checks transport security. Full A2A protocol analysis requires runtime interception."
+      },
+      "ASI08": {
+        "name": "Cascading Failures",
+        "coverage_level": "partial",
+        "findings_count": 5,
+        "finding_ids": [
+          "cross_tool_snb_get_cube_data_snb_get_cube_metadata",
+          "cross_tool_snb_get_cube_metadata_snb_get_cube_data",
+          "cross_tool_snb_get_warehouse_data_snb_get_warehouse_metadata",
+          "cross_tool_snb_get_warehouse_metadata_snb_get_warehouse_data",
+          "blast_radius_estimate"
+        ],
+        "detectors": [
+          "blast_radius_estimation",
+          "dependency_chain_analysis"
+        ],
+        "gap_note": "Axiom estimates blast radius from tool capabilities. Full cascading failure analysis requires runtime topology mapping."
+      },
+      "ASI09": {
+        "name": "Human-Agent Trust Exploitation",
+        "coverage_level": "strong",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "claimed_vs_actual",
+          "deceptive_output_detection",
+          "trust_manipulation_patterns"
+        ]
+      },
+      "ASI10": {
+        "name": "Rogue Agents",
+        "coverage_level": "partial",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "sleeper_patterns",
+          "behavioral_drift_indicators",
+          "persistence_detection"
+        ],
+        "gap_note": "Axiom detects static rogue indicators. Full rogue agent detection requires runtime behavioral monitoring."
+      }
+    },
+    "total_asi_categories_with_findings": 5
+  },
+  "owasp_mcp_coverage": {
+    "framework": "OWASP MCP Top 10",
+    "framework_version": "v0.1 beta",
+    "reference": "https://owasp.org/www-project-mcp-top-10/",
+    "coverage": {
+      "MCP01": {
+        "id": "MCP01:2025",
+        "name": "Token Mismanagement & Secret Exposure",
+        "coverage_level": "partial",
+        "reason": "Regex-based secret detection in server source and client configs plus env-var exposure checks; no entropy analysis, git-history scan, or token lifetime/passthrough checks.",
+        "findings_count": 5,
+        "finding_ids": [
+          "cross_tool_snb_get_cube_data_snb_get_cube_metadata",
+          "cross_tool_snb_get_cube_metadata_snb_get_cube_data",
+          "cross_tool_snb_get_warehouse_data_snb_get_warehouse_metadata",
+          "cross_tool_snb_get_warehouse_metadata_snb_get_warehouse_data",
+          "ast_0001"
+        ],
+        "detectors": [
+          "credential_theft",
+          "cross_server",
+          "mcp01_hardcoded_secrets",
+          "config_hardcoded_secret",
+          "env_var_audit",
+          "env_dump"
+        ]
+      },
+      "MCP02": {
+        "id": "MCP02:2025",
+        "name": "Privilege Escalation via Scope Creep",
+        "coverage_level": "strong",
+        "reason": "Permission over-scope patterns, toxic tool-capability combinations, path-escape checks and env-var over-exposure in configs.",
+        "findings_count": 10,
+        "finding_ids": [
+          "cross_tool_snb_get_cube_data_snb_get_cube_metadata",
+          "cross_tool_snb_get_cube_metadata_snb_get_cube_data",
+          "cross_tool_snb_get_warehouse_data_snb_get_warehouse_metadata",
+          "cross_tool_snb_get_warehouse_metadata_snb_get_warehouse_data",
+          "toxic_combo_data_read_network_external",
+          "toxic_combo_credential_access_network_external",
+          "toxic_combo_code_execute_network_external",
+          "toxic_combo_data_read_data_write",
+          "toxic_combo_credential_access_data_write",
+          "blast_radius_estimate"
+        ],
+        "detectors": [
+          "permission_overscope",
+          "toxic_tool_combo",
+          "identity_privilege",
+          "sandbox_escape",
+          "config_risk",
+          "cascading_failure",
+          "cross_server",
+          "excessive_scope",
+          "confused_deputy",
+          "file_read",
+          "file_write"
+        ]
+      },
+      "MCP03": {
+        "id": "MCP03:2025",
+        "name": "Tool Poisoning",
+        "coverage_level": "strong",
+        "reason": "Dedicated detector for hidden instructions in tool metadata, plus runtime rug-pull diffing between source and live tool definitions.",
+        "findings_count": 8,
+        "finding_ids": [
+          "poison_snb_get_exchange_rates_long_desc",
+          "poison_snb_get_annual_exchange_rates_long_desc",
+          "poison_snb_get_balance_sheet_long_desc",
+          "poison_snb_convert_currency_long_desc",
+          "poison_snb_get_cube_data_long_desc",
+          "poison_snb_get_warehouse_data_long_desc",
+          "poison_snb_get_banking_balance_sheet_long_desc",
+          "poison_snb_get_banking_income_long_desc"
+        ],
+        "detectors": [
+          "tool_poisoning",
+          "obfuscation",
+          "rogue_agent",
+          "source_vs_runtime_diff",
+          "tool_shadowing",
+          "hidden_unicode",
+          "rug_pull_primitive",
+          "surface_mismatch"
+        ]
+      },
+      "MCP04": {
+        "id": "MCP04:2025",
+        "name": "Software Supply Chain Attacks & Dependency Tampering",
+        "coverage_level": "strong",
+        "reason": "Dependency CVE lookup, known MCP CVEs, install lifecycle hooks, and unpinned npx/uvx/pip/@latest install sources.",
+        "findings_count": 8,
+        "finding_ids": [
+          "GHSA-h8pj-cxx2-jfg2",
+          "PYSEC-2022-183",
+          "GHSA-5jqp-qgf6-3pvh",
+          "GHSA-mr82-8j83-vxmv",
+          "PYSEC-2021-47",
+          "PYSEC-2026-1812",
+          "mcp04_unpinned_0001",
+          "mcp04_unpinned_0002"
+        ],
+        "detectors": [
+          "dependency_vuln",
+          "supply_chain",
+          "known_cve",
+          "obfuscation",
+          "lifecycle_hooks",
+          "mcp04_unpinned_install",
+          "homoglyph",
+          "rug_pull_primitive",
+          "surface_mismatch"
+        ]
+      },
+      "MCP05": {
+        "id": "MCP05:2025",
+        "name": "Command Injection & Execution",
+        "coverage_level": "partial",
+        "reason": "Regex, AST and Semgrep find exec/shell sinks and a heuristic flags sinks inside tool handlers, but there is no inter-procedural taint tracking from tool input to sink.",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "command_injection",
+          "code_execution",
+          "code_generation",
+          "sandbox_escape",
+          "mcp05_tool_input_sink",
+          "shell_exec"
+        ]
+      },
+      "MCP06": {
+        "id": "MCP06:2025",
+        "name": "Prompt Injection via Contextual Payloads",
+        "coverage_level": "partial",
+        "reason": "Injection markers are detected in tool metadata, server instructions, resources, prompts and the strings a tool returns (static), and in instructions/resources/prompts read live; payloads produced by calling a tool at runtime are not inspected.",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "prompt_injection",
+          "memory_poisoning",
+          "trust_exploitation",
+          "response_injection",
+          "tool_shadowing"
+        ]
+      },
+      "MCP07": {
+        "id": "MCP07:2025",
+        "name": "Insufficient Authentication & Authorization",
+        "coverage_level": "partial",
+        "reason": "Flags remote servers with no visible auth and servers bound to all interfaces; does not verify OAuth implementation or per-tool authorization logic.",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "transport_security",
+          "inter_agent_comm",
+          "identity_privilege",
+          "transport_no_auth",
+          "config_no_auth",
+          "mcp07_bind_all_interfaces"
+        ]
+      },
+      "MCP08": {
+        "id": "MCP08:2025",
+        "name": "Lack of Audit and Telemetry",
+        "coverage_level": "gap",
+        "reason": "Only a low-confidence heuristic for missing logging in tool-defining files; actual audit trails and telemetry pipelines are not verified.",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "audit_telemetry",
+          "mcp08_no_tool_logging"
+        ]
+      },
+      "MCP09": {
+        "id": "MCP09:2025",
+        "name": "Shadow MCP Servers",
+        "coverage_level": "partial",
+        "reason": "Covered by `axiom discover` allowlist on the local machine; no network-wide or fleet discovery.",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "mcpguard_discover",
+          "shadow_mcp"
+        ]
+      },
+      "MCP10": {
+        "id": "MCP10:2025",
+        "name": "Context Injection & Over-Sharing",
+        "coverage_level": "partial",
+        "reason": "Hard-coded egress URLs, tools that send to caller-chosen destinations and bulk-exposure heuristics are detected statically and live; what context is actually shared at runtime is not observed.",
+        "findings_count": 1,
+        "finding_ids": [
+          "egress_snb_get_cube_data_desc_1"
+        ],
+        "detectors": [
+          "context_oversharing",
+          "data_exfiltration",
+          "memory_poisoning",
+          "mcp10_broad_data_exposure"
+        ]
+      }
+    },
+    "total_mcp_categories_with_findings": 5
+  },
+  "ai_analysis": null,
+  "tool_poisoning_report": null,
+  "prompt_injection_risk": null
+}

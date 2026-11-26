@@ -1,0 +1,1144 @@
+{
+  "schema_version": "0.5",
+  "target": "44_lineofflight__frankfurter-mcp",
+  "risk_score": 45.0,
+  "risk_level": "medium",
+  "tools_found": 4,
+  "findings_count": 27,
+  "findings": [
+    {
+      "id": "cross_tool_list_providers_get_rates",
+      "severity": "medium",
+      "category": "cross_server",
+      "title": "Tool 'list_providers' references tool 'get_rates'",
+      "description": "Tool description mentions another tool by name, which could enable tool chaining attacks.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP01",
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Verify this cross-reference is legitimate and necessary.",
+      "rule_id": "cross_tool_reference",
+      "evidence": "Tool 'list_providers' references tool 'get_rates'",
+      "location": "static:<corpus>/registry2/44_lineofflight__frankfurter-mcp:list_providers_get_rates",
+      "replay": "axiom scan <corpus>/registry2/44_lineofflight__frankfurter-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"cross_tool_list_providers_get_rates\")'"
+    },
+    {
+      "id": "cross_tool_list_providers_convert",
+      "severity": "medium",
+      "category": "cross_server",
+      "title": "Tool 'list_providers' references tool 'convert'",
+      "description": "Tool description mentions another tool by name, which could enable tool chaining attacks.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP01",
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Verify this cross-reference is legitimate and necessary.",
+      "rule_id": "cross_tool_reference",
+      "evidence": "Tool 'list_providers' references tool 'convert'",
+      "location": "static:<corpus>/registry2/44_lineofflight__frankfurter-mcp:list_providers_convert",
+      "replay": "axiom scan <corpus>/registry2/44_lineofflight__frankfurter-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"cross_tool_list_providers_convert\")'"
+    },
+    {
+      "id": "GHSA-345p-7cg4-v4c7",
+      "severity": "medium",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency @modelcontextprotocol/sdk@1.12.0: GHSA-345p-7cg4-v4c7",
+      "description": "Known vulnerability (advisory severity: unrated; direct dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update @modelcontextprotocol/sdk to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-345p-7cg4-v4c7",
+      "location": "static:<corpus>/registry2/44_lineofflight__frankfurter-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/44_lineofflight__frankfurter-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-345p-7cg4-v4c7\")'"
+    },
+    {
+      "id": "GHSA-46jr-4wx8-v453",
+      "severity": "medium",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency @modelcontextprotocol/sdk@1.12.0: GHSA-46jr-4wx8-v453",
+      "description": "Known vulnerability (advisory severity: unrated; direct dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update @modelcontextprotocol/sdk to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-46jr-4wx8-v453",
+      "location": "static:<corpus>/registry2/44_lineofflight__frankfurter-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/44_lineofflight__frankfurter-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-46jr-4wx8-v453\")'"
+    },
+    {
+      "id": "GHSA-6prh-2h8m-c8cw",
+      "severity": "medium",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency @modelcontextprotocol/sdk@1.12.0: GHSA-6prh-2h8m-c8cw",
+      "description": "Known vulnerability (advisory severity: unrated; direct dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update @modelcontextprotocol/sdk to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-6prh-2h8m-c8cw",
+      "location": "static:<corpus>/registry2/44_lineofflight__frankfurter-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/44_lineofflight__frankfurter-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-6prh-2h8m-c8cw\")'"
+    },
+    {
+      "id": "GHSA-6qxp-vccf-f47h",
+      "severity": "medium",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency @modelcontextprotocol/sdk@1.12.0: GHSA-6qxp-vccf-f47h",
+      "description": "Known vulnerability (advisory severity: unrated; direct dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update @modelcontextprotocol/sdk to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-6qxp-vccf-f47h",
+      "location": "static:<corpus>/registry2/44_lineofflight__frankfurter-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/44_lineofflight__frankfurter-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-6qxp-vccf-f47h\")'"
+    },
+    {
+      "id": "GHSA-8r9q-7v3j-jr4g",
+      "severity": "medium",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency @modelcontextprotocol/sdk@1.12.0: GHSA-8r9q-7v3j-jr4g",
+      "description": "Known vulnerability (advisory severity: unrated; direct dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update @modelcontextprotocol/sdk to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-8r9q-7v3j-jr4g",
+      "location": "static:<corpus>/registry2/44_lineofflight__frankfurter-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/44_lineofflight__frankfurter-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-8r9q-7v3j-jr4g\")'"
+    },
+    {
+      "id": "GHSA-f897-62hf-6gxq",
+      "severity": "medium",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency @modelcontextprotocol/sdk@1.12.0: GHSA-f897-62hf-6gxq",
+      "description": "Known vulnerability (advisory severity: unrated; direct dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update @modelcontextprotocol/sdk to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-f897-62hf-6gxq",
+      "location": "static:<corpus>/registry2/44_lineofflight__frankfurter-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/44_lineofflight__frankfurter-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-f897-62hf-6gxq\")'"
+    },
+    {
+      "id": "GHSA-rvq5-wwqv-78pq",
+      "severity": "medium",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency @modelcontextprotocol/sdk@1.12.0: GHSA-rvq5-wwqv-78pq",
+      "description": "Known vulnerability (advisory severity: unrated; direct dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update @modelcontextprotocol/sdk to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-rvq5-wwqv-78pq",
+      "location": "static:<corpus>/registry2/44_lineofflight__frankfurter-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/44_lineofflight__frankfurter-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-rvq5-wwqv-78pq\")'"
+    },
+    {
+      "id": "GHSA-w48q-cv73-mx4w",
+      "severity": "medium",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency @modelcontextprotocol/sdk@1.12.0: GHSA-w48q-cv73-mx4w",
+      "description": "Known vulnerability (advisory severity: unrated; direct dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update @modelcontextprotocol/sdk to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-w48q-cv73-mx4w",
+      "location": "static:<corpus>/registry2/44_lineofflight__frankfurter-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/44_lineofflight__frankfurter-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-w48q-cv73-mx4w\")'"
+    },
+    {
+      "id": "GHSA-mrhx-c7xc-m3w5",
+      "severity": "medium",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency zod@3.23.8: GHSA-mrhx-c7xc-m3w5",
+      "description": "Known vulnerability (advisory severity: unrated; direct dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update zod to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-mrhx-c7xc-m3w5",
+      "location": "static:<corpus>/registry2/44_lineofflight__frankfurter-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/44_lineofflight__frankfurter-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-mrhx-c7xc-m3w5\")'"
+    },
+    {
+      "id": "GHSA-82fw-gwwq-j7x9",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency @vitest/mocker@2.1.9: GHSA-82fw-gwwq-j7x9",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update @vitest/mocker to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-82fw-gwwq-j7x9",
+      "location": "static:<corpus>/registry2/44_lineofflight__frankfurter-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/44_lineofflight__frankfurter-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-82fw-gwwq-j7x9\")'"
+    },
+    {
+      "id": "GHSA-qxg6-89mg-rqv8",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency @vitest/mocker@2.1.9: GHSA-qxg6-89mg-rqv8",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update @vitest/mocker to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-qxg6-89mg-rqv8",
+      "location": "static:<corpus>/registry2/44_lineofflight__frankfurter-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/44_lineofflight__frankfurter-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-qxg6-89mg-rqv8\")'"
+    },
+    {
+      "id": "GHSA-5gmw-xhrv-c9v3",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency tinypool@1.1.1: GHSA-5gmw-xhrv-c9v3",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update tinypool to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-5gmw-xhrv-c9v3",
+      "location": "static:<corpus>/registry2/44_lineofflight__frankfurter-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/44_lineofflight__frankfurter-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-5gmw-xhrv-c9v3\")'"
+    },
+    {
+      "id": "GHSA-85c8-ppgw-ccpr",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency tinypool@1.1.1: GHSA-85c8-ppgw-ccpr",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update tinypool to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-85c8-ppgw-ccpr",
+      "location": "static:<corpus>/registry2/44_lineofflight__frankfurter-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/44_lineofflight__frankfurter-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-85c8-ppgw-ccpr\")'"
+    },
+    {
+      "id": "GHSA-4w7w-66w2-5vf9",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency vite@5.4.21: GHSA-4w7w-66w2-5vf9",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update vite to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-4w7w-66w2-5vf9",
+      "location": "static:<corpus>/registry2/44_lineofflight__frankfurter-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/44_lineofflight__frankfurter-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-4w7w-66w2-5vf9\")'"
+    },
+    {
+      "id": "GHSA-587h-7wmj-h5pm",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency vite@5.4.21: GHSA-587h-7wmj-h5pm",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update vite to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-587h-7wmj-h5pm",
+      "location": "static:<corpus>/registry2/44_lineofflight__frankfurter-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/44_lineofflight__frankfurter-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-587h-7wmj-h5pm\")'"
+    },
+    {
+      "id": "GHSA-698v-4r3x-3vcv",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency vite@5.4.21: GHSA-698v-4r3x-3vcv",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update vite to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-698v-4r3x-3vcv",
+      "location": "static:<corpus>/registry2/44_lineofflight__frankfurter-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/44_lineofflight__frankfurter-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-698v-4r3x-3vcv\")'"
+    },
+    {
+      "id": "GHSA-9jrq-w75r-8gcw",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency vite@5.4.21: GHSA-9jrq-w75r-8gcw",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update vite to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-9jrq-w75r-8gcw",
+      "location": "static:<corpus>/registry2/44_lineofflight__frankfurter-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/44_lineofflight__frankfurter-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-9jrq-w75r-8gcw\")'"
+    },
+    {
+      "id": "GHSA-fx2h-pf6j-xcff",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency vite@5.4.21: GHSA-fx2h-pf6j-xcff",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update vite to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-fx2h-pf6j-xcff",
+      "location": "static:<corpus>/registry2/44_lineofflight__frankfurter-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/44_lineofflight__frankfurter-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-fx2h-pf6j-xcff\")'"
+    },
+    {
+      "id": "GHSA-r825-w8mm-5pxw",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency vite@5.4.21: GHSA-r825-w8mm-5pxw",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update vite to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-r825-w8mm-5pxw",
+      "location": "static:<corpus>/registry2/44_lineofflight__frankfurter-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/44_lineofflight__frankfurter-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-r825-w8mm-5pxw\")'"
+    },
+    {
+      "id": "GHSA-rq7h-c2jc-7f22",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency vite@5.4.21: GHSA-rq7h-c2jc-7f22",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update vite to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-rq7h-c2jc-7f22",
+      "location": "static:<corpus>/registry2/44_lineofflight__frankfurter-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/44_lineofflight__frankfurter-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-rq7h-c2jc-7f22\")'"
+    },
+    {
+      "id": "GHSA-v6wh-96g9-6wx3",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency vite@5.4.21: GHSA-v6wh-96g9-6wx3",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update vite to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-v6wh-96g9-6wx3",
+      "location": "static:<corpus>/registry2/44_lineofflight__frankfurter-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/44_lineofflight__frankfurter-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-v6wh-96g9-6wx3\")'"
+    },
+    {
+      "id": "GHSA-5xrq-8626-4rwp",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency vitest@2.1.9: GHSA-5xrq-8626-4rwp",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update vitest to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-5xrq-8626-4rwp",
+      "location": "static:<corpus>/registry2/44_lineofflight__frankfurter-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/44_lineofflight__frankfurter-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-5xrq-8626-4rwp\")'"
+    },
+    {
+      "id": "GHSA-82fw-gwwq-j7x9",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency vitest@2.1.9: GHSA-82fw-gwwq-j7x9",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update vitest to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-82fw-gwwq-j7x9",
+      "location": "static:<corpus>/registry2/44_lineofflight__frankfurter-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/44_lineofflight__frankfurter-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-82fw-gwwq-j7x9\")'"
+    },
+    {
+      "id": "transport_no_auth",
+      "severity": "low",
+      "category": "transport_security",
+      "title": "HTTP/SSE transport defined without visible authentication",
+      "description": "src\\index.ts sets up an HTTP/SSE transport and no authentication middleware is visible; the host is not known from the source; verify where this server is deployed.",
+      "owasp_asi": [
+        "ASI07"
+      ],
+      "owasp_mcp": [
+        "MCP07"
+      ],
+      "file_path": "src\\index.ts",
+      "line_number": null,
+      "recommendation": "Require OAuth 2.1 / bearer authentication on any endpoint that is not bound to localhost.",
+      "rule_id": "transport_no_auth",
+      "evidence": "HTTP/SSE transport defined without visible authentication",
+      "location": "src\\index.ts",
+      "replay": "axiom scan <corpus>/registry2/44_lineofflight__frankfurter-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"transport_no_auth\")'"
+    },
+    {
+      "id": "mcp08_no_tool_logging",
+      "severity": "info",
+      "category": "audit_telemetry",
+      "title": "No logging found in files that define MCP tools (low confidence)",
+      "description": "None of the tool-defining files (src\\tools\\convert.ts, src\\tools\\getRates.ts, src\\tools\\listCurrencies.ts, src\\tools\\listProviders.ts) reference a logging library or logger call. Tool invocations may leave no audit trail. Confidence is low: logging could be configured elsewhere or by the host.",
+      "owasp_asi": [
+        "ASI10"
+      ],
+      "owasp_mcp": [
+        "MCP08"
+      ],
+      "file_path": "src\\tools\\convert.ts",
+      "line_number": null,
+      "recommendation": "Log each tool invocation (tool name, caller/session, outcome, and redacted arguments) to a durable, tamper-evident sink.",
+      "rule_id": "no_tool_logging",
+      "evidence": "No logging found in files that define MCP tools (low confidence)",
+      "location": "src\\tools\\convert.ts",
+      "replay": "axiom scan <corpus>/registry2/44_lineofflight__frankfurter-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"mcp08_no_tool_logging\")'"
+    }
+  ],
+  "server_profile": {
+    "name": "44_lineofflight__frankfurter-mcp",
+    "command": null,
+    "args": [],
+    "env_vars": [],
+    "transport": "http",
+    "tools": [
+      {
+        "name": "convert",
+        "description": "Convert money using a reference rate. Returns {amount,currency}, rounded to the target's minor units (8 significant figures for metals/crypto). Set details for the rate and effective date too; identity conversions have rate 1 and date null.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "amount": {
+              "type": "number",
+              "description": "Numeric amount in the source currency; normalize localized input first."
+            },
+            "from": {
+              "description": "Source currency or asset code, e.g. USD, XAU or BTC."
+            },
+            "to": {
+              "description": "Target currency or asset code."
+            },
+            "date": {
+              "description": "Date YYYY-MM-DD for a past rate; omit for latest."
+            },
+            "provider": {
+              "type": "string",
+              "description": "Provider or dataset key, e.g. ECB or NBP.B; omit for blended rates."
+            },
+            "details": {
+              "type": "boolean",
+              "description": "Include rate, effective date and provider if selected. Default false."
+            }
+          },
+          "required": [
+            "amount",
+            "from",
+            "to"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "get_rates",
+        "description": "Latest or dated reference rates. Provider rates retain published digits on their own base. Returns rate records; if any provider fails, returns {rates,errors} preserving successes. Retry only failed providers.",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "list_currencies",
+        "description": "Find currency, metal and crypto codes by code or name. Returns {code:name}; omit query for all, including historical currencies.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "query": {
+              "type": "string",
+              "description": "Code or name fragment, case-insensitive. Exact codes take priority."
+            }
+          },
+          "required": []
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "list_providers",
+        "description": "Find rate providers with keys, rate types, base currencies, frequency and coverage dates. Filters combine; omit for all. Use a key as provider in convert or get_rates; a provider publishing several series lists datasets, whose keys select one.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "query": {
+              "type": "string",
+              "description": "Key or name fragment, case-insensitive. Exact keys take priority."
+            },
+            "country": {
+              "type": "string",
+              "description": "Country code, e.g. US."
+            },
+            "currency": {
+              "type": "string",
+              "description": "Supported currency code, including the provider's base."
+            }
+          },
+          "required": []
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      }
+    ],
+    "resources": [],
+    "prompts": [],
+    "repo_url": null,
+    "npm_package": null,
+    "capabilities_claimed": [],
+    "capabilities_actual": []
+  },
+  "fingerprint": "dd782ab8ee7131362b4419970f11777fe8d41eaabdded504f32acd3368148ae2",
+  "surface_map": {
+    "server": {
+      "name": "frankfurter-mcp",
+      "instructions": "",
+      "transport": "unknown",
+      "auth": "unknown"
+    },
+    "tools": [
+      {
+        "name": "convert",
+        "description": "Convert money using a reference rate. Returns {amount,currency}, rounded to the target's minor units (8 significant figures for metals/crypto). Set details for the rate and effective date too; identity conversions have rate 1 and date null.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "amount": {
+              "type": "number",
+              "description": "Numeric amount in the source currency; normalize localized input first."
+            },
+            "from": {
+              "description": "Source currency or asset code, e.g. USD, XAU or BTC."
+            },
+            "to": {
+              "description": "Target currency or asset code."
+            },
+            "date": {
+              "description": "Date YYYY-MM-DD for a past rate; omit for latest."
+            },
+            "provider": {
+              "type": "string",
+              "description": "Provider or dataset key, e.g. ECB or NBP.B; omit for blended rates."
+            },
+            "details": {
+              "type": "boolean",
+              "description": "Include rate, effective date and provider if selected. Default false."
+            }
+          },
+          "required": [
+            "amount",
+            "from",
+            "to"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [
+          "text",
+          "Error: {msg}"
+        ],
+        "registration": "static",
+        "location": "src\\tools\\convert.ts:89"
+      },
+      {
+        "name": "get_rates",
+        "description": "Latest or dated reference rates. Provider rates retain published digits on their own base. Returns rate records; if any provider fails, returns {rates,errors} preserving successes. Retry only failed providers.",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "capabilities": [],
+        "return_literals": [
+          "text",
+          "Error: {msg}"
+        ],
+        "registration": "static",
+        "location": "src\\tools\\getRates.ts:36"
+      },
+      {
+        "name": "list_currencies",
+        "description": "Find currency, metal and crypto codes by code or name. Returns {code:name}; omit query for all, including historical currencies.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "query": {
+              "type": "string",
+              "description": "Code or name fragment, case-insensitive. Exact codes take priority."
+            }
+          },
+          "required": []
+        },
+        "capabilities": [],
+        "return_literals": [
+          "text",
+          "Error: {msg}"
+        ],
+        "registration": "static",
+        "location": "src\\tools\\listCurrencies.ts:6"
+      },
+      {
+        "name": "list_providers",
+        "description": "Find rate providers with keys, rate types, base currencies, frequency and coverage dates. Filters combine; omit for all. Use a key as provider in convert or get_rates; a provider publishing several series lists datasets, whose keys select one.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "query": {
+              "type": "string",
+              "description": "Key or name fragment, case-insensitive. Exact keys take priority."
+            },
+            "country": {
+              "type": "string",
+              "description": "Country code, e.g. US."
+            },
+            "currency": {
+              "type": "string",
+              "description": "Supported currency code, including the provider's base."
+            }
+          },
+          "required": []
+        },
+        "capabilities": [],
+        "return_literals": [
+          "text",
+          "Error: {msg}"
+        ],
+        "registration": "static",
+        "location": "src\\tools\\listProviders.ts:54"
+      }
+    ],
+    "resources": [],
+    "prompts": [],
+    "mutations": [],
+    "source": {
+      "kind": "static",
+      "target": "44_lineofflight__frankfurter-mcp",
+      "languages": [
+        "typescript"
+      ]
+    },
+    "generated_at": "2026-11-11T22:38:59+00:00",
+    "fingerprint": "dd782ab8ee7131362b4419970f11777fe8d41eaabdded504f32acd3368148ae2",
+    "schema": "axiom.surface/1"
+  },
+  "provenance": {
+    "identity": {
+      "npm": "frankfurter-mcp",
+      "pypi": null,
+      "repository": "https://github.com/lineofflight/frankfurter-mcp",
+      "server_name": "frankfurter-mcp"
+    },
+    "registry": {
+      "status": "name_match_different_repo",
+      "entry": "io.github.mrfentmen/frankfurter-mcp",
+      "repository": "https://github.com/mrfentmen/awesome-servers",
+      "packages": [
+        "npm:@mrfentmen/frankfurter-mcp"
+      ],
+      "publishedAt": "2026-11-08T10:26:18.283367Z",
+      "version": "1.0.1"
+    },
+    "lookalikes": [],
+    "checked_at": "2026-11-11T22:39:01+00:00"
+  },
+  "owasp_coverage": {
+    "framework": "OWASP Top 10 for Agentic Applications 2026",
+    "reference": "https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/",
+    "coverage": {
+      "ASI01": {
+        "name": "Agent Goal Hijack",
+        "coverage_level": "strong",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "tool_poisoning",
+          "prompt_injection",
+          "instruction_injection"
+        ]
+      },
+      "ASI02": {
+        "name": "Tool Misuse & Exploitation",
+        "coverage_level": "strong",
+        "findings_count": 2,
+        "finding_ids": [
+          "cross_tool_list_providers_get_rates",
+          "cross_tool_list_providers_convert"
+        ],
+        "detectors": [
+          "toxic_tool_combo",
+          "tool_overscope",
+          "tool_chaining_detection"
+        ]
+      },
+      "ASI03": {
+        "name": "Identity & Privilege Abuse",
+        "coverage_level": "strong",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "credential_analysis",
+          "shared_credential_detection",
+          "env_var_audit"
+        ]
+      },
+      "ASI04": {
+        "name": "Agentic Supply Chain Vulnerabilities",
+        "coverage_level": "strong",
+        "findings_count": 23,
+        "finding_ids": [
+          "GHSA-345p-7cg4-v4c7",
+          "GHSA-46jr-4wx8-v453",
+          "GHSA-6prh-2h8m-c8cw",
+          "GHSA-6qxp-vccf-f47h",
+          "GHSA-8r9q-7v3j-jr4g",
+          "GHSA-f897-62hf-6gxq",
+          "GHSA-rvq5-wwqv-78pq",
+          "GHSA-w48q-cv73-mx4w",
+          "GHSA-mrhx-c7xc-m3w5",
+          "GHSA-82fw-gwwq-j7x9"
+        ],
+        "detectors": [
+          "dependency_cve",
+          "lifecycle_hooks",
+          "npx_unversioned",
+          "known_mcp_cves"
+        ]
+      },
+      "ASI05": {
+        "name": "Unexpected Code Execution",
+        "coverage_level": "strong",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "code_exec_patterns",
+          "code_generation_detection",
+          "sandbox_escape"
+        ]
+      },
+      "ASI06": {
+        "name": "Memory & Context Poisoning",
+        "coverage_level": "partial",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "memory_poisoning_patterns",
+          "context_manipulation_detection"
+        ],
+        "gap_note": "Axiom detects static patterns. Full coverage requires runtime memory monitoring."
+      },
+      "ASI07": {
+        "name": "Insecure Inter-Agent Communication",
+        "coverage_level": "partial",
+        "findings_count": 1,
+        "finding_ids": [
+          "transport_no_auth"
+        ],
+        "detectors": [
+          "transport_security",
+          "a2a_pattern_detection"
+        ],
+        "gap_note": "Axiom checks transport security. Full A2A protocol analysis requires runtime interception."
+      },
+      "ASI08": {
+        "name": "Cascading Failures",
+        "coverage_level": "partial",
+        "findings_count": 2,
+        "finding_ids": [
+          "cross_tool_list_providers_get_rates",
+          "cross_tool_list_providers_convert"
+        ],
+        "detectors": [
+          "blast_radius_estimation",
+          "dependency_chain_analysis"
+        ],
+        "gap_note": "Axiom estimates blast radius from tool capabilities. Full cascading failure analysis requires runtime topology mapping."
+      },
+      "ASI09": {
+        "name": "Human-Agent Trust Exploitation",
+        "coverage_level": "strong",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "claimed_vs_actual",
+          "deceptive_output_detection",
+          "trust_manipulation_patterns"
+        ]
+      },
+      "ASI10": {
+        "name": "Rogue Agents",
+        "coverage_level": "partial",
+        "findings_count": 1,
+        "finding_ids": [
+          "mcp08_no_tool_logging"
+        ],
+        "detectors": [
+          "sleeper_patterns",
+          "behavioral_drift_indicators",
+          "persistence_detection"
+        ],
+        "gap_note": "Axiom detects static rogue indicators. Full rogue agent detection requires runtime behavioral monitoring."
+      }
+    },
+    "total_asi_categories_with_findings": 5
+  },
+  "owasp_mcp_coverage": {
+    "framework": "OWASP MCP Top 10",
+    "framework_version": "v0.1 beta",
+    "reference": "https://owasp.org/www-project-mcp-top-10/",
+    "coverage": {
+      "MCP01": {
+        "id": "MCP01:2025",
+        "name": "Token Mismanagement & Secret Exposure",
+        "coverage_level": "partial",
+        "reason": "Regex-based secret detection in server source and client configs plus env-var exposure checks; no entropy analysis, git-history scan, or token lifetime/passthrough checks.",
+        "findings_count": 2,
+        "finding_ids": [
+          "cross_tool_list_providers_get_rates",
+          "cross_tool_list_providers_convert"
+        ],
+        "detectors": [
+          "credential_theft",
+          "cross_server",
+          "mcp01_hardcoded_secrets",
+          "config_hardcoded_secret",
+          "env_var_audit",
+          "env_dump"
+        ]
+      },
+      "MCP02": {
+        "id": "MCP02:2025",
+        "name": "Privilege Escalation via Scope Creep",
+        "coverage_level": "strong",
+        "reason": "Permission over-scope patterns, toxic tool-capability combinations, path-escape checks and env-var over-exposure in configs.",
+        "findings_count": 2,
+        "finding_ids": [
+          "cross_tool_list_providers_get_rates",
+          "cross_tool_list_providers_convert"
+        ],
+        "detectors": [
+          "permission_overscope",
+          "toxic_tool_combo",
+          "identity_privilege",
+          "sandbox_escape",
+          "config_risk",
+          "cascading_failure",
+          "cross_server",
+          "excessive_scope",
+          "confused_deputy",
+          "file_read",
+          "file_write"
+        ]
+      },
+      "MCP03": {
+        "id": "MCP03:2025",
+        "name": "Tool Poisoning",
+        "coverage_level": "strong",
+        "reason": "Dedicated detector for hidden instructions in tool metadata, plus runtime rug-pull diffing between source and live tool definitions.",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "tool_poisoning",
+          "obfuscation",
+          "rogue_agent",
+          "source_vs_runtime_diff",
+          "tool_shadowing",
+          "hidden_unicode",
+          "rug_pull_primitive",
+          "surface_mismatch"
+        ]
+      },
+      "MCP04": {
+        "id": "MCP04:2025",
+        "name": "Software Supply Chain Attacks & Dependency Tampering",
+        "coverage_level": "strong",
+        "reason": "Dependency CVE lookup, known MCP CVEs, install lifecycle hooks, and unpinned npx/uvx/pip/@latest install sources.",
+        "findings_count": 23,
+        "finding_ids": [
+          "GHSA-345p-7cg4-v4c7",
+          "GHSA-46jr-4wx8-v453",
+          "GHSA-6prh-2h8m-c8cw",
+          "GHSA-6qxp-vccf-f47h",
+          "GHSA-8r9q-7v3j-jr4g",
+          "GHSA-f897-62hf-6gxq",
+          "GHSA-rvq5-wwqv-78pq",
+          "GHSA-w48q-cv73-mx4w",
+          "GHSA-mrhx-c7xc-m3w5",
+          "GHSA-82fw-gwwq-j7x9"
+        ],
+        "detectors": [
+          "dependency_vuln",
+          "supply_chain",
+          "known_cve",
+          "obfuscation",
+          "lifecycle_hooks",
+          "mcp04_unpinned_install",
+          "homoglyph",
+          "rug_pull_primitive",
+          "surface_mismatch"
+        ]
+      },
+      "MCP05": {
+        "id": "MCP05:2025",
+        "name": "Command Injection & Execution",
+        "coverage_level": "partial",
+        "reason": "Regex, AST and Semgrep find exec/shell sinks and a heuristic flags sinks inside tool handlers, but there is no inter-procedural taint tracking from tool input to sink.",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "command_injection",
+          "code_execution",
+          "code_generation",
+          "sandbox_escape",
+          "mcp05_tool_input_sink",
+          "shell_exec"
+        ]
+      },
+      "MCP06": {
+        "id": "MCP06:2025",
+        "name": "Prompt Injection via Contextual Payloads",
+        "coverage_level": "partial",
+        "reason": "Injection markers are detected in tool metadata, server instructions, resources, prompts and the strings a tool returns (static), and in instructions/resources/prompts read live; payloads produced by calling a tool at runtime are not inspected.",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "prompt_injection",
+          "memory_poisoning",
+          "trust_exploitation",
+          "response_injection",
+          "tool_shadowing"
+        ]
+      },
+      "MCP07": {
+        "id": "MCP07:2025",
+        "name": "Insufficient Authentication & Authorization",
+        "coverage_level": "partial",
+        "reason": "Flags remote servers with no visible auth and servers bound to all interfaces; does not verify OAuth implementation or per-tool authorization logic.",
+        "findings_count": 1,
+        "finding_ids": [
+          "transport_no_auth"
+        ],
+        "detectors": [
+          "transport_security",
+          "inter_agent_comm",
+          "identity_privilege",
+          "transport_no_auth",
+          "config_no_auth",
+          "mcp07_bind_all_interfaces"
+        ]
+      },
+      "MCP08": {
+        "id": "MCP08:2025",
+        "name": "Lack of Audit and Telemetry",
+        "coverage_level": "gap",
+        "reason": "Only a low-confidence heuristic for missing logging in tool-defining files; actual audit trails and telemetry pipelines are not verified.",
+        "findings_count": 1,
+        "finding_ids": [
+          "mcp08_no_tool_logging"
+        ],
+        "detectors": [
+          "audit_telemetry",
+          "mcp08_no_tool_logging"
+        ]
+      },
+      "MCP09": {
+        "id": "MCP09:2025",
+        "name": "Shadow MCP Servers",
+        "coverage_level": "partial",
+        "reason": "Covered by `axiom discover` allowlist on the local machine; no network-wide or fleet discovery.",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "mcpguard_discover",
+          "shadow_mcp"
+        ]
+      },
+      "MCP10": {
+        "id": "MCP10:2025",
+        "name": "Context Injection & Over-Sharing",
+        "coverage_level": "partial",
+        "reason": "Hard-coded egress URLs, tools that send to caller-chosen destinations and bulk-exposure heuristics are detected statically and live; what context is actually shared at runtime is not observed.",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "context_oversharing",
+          "data_exfiltration",
+          "memory_poisoning",
+          "mcp10_broad_data_exposure"
+        ]
+      }
+    },
+    "total_mcp_categories_with_findings": 5
+  },
+  "ai_analysis": null,
+  "tool_poisoning_report": null,
+  "prompt_injection_risk": null
+}

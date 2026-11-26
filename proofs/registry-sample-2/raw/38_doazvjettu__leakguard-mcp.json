@@ -1,0 +1,3584 @@
+{
+  "schema_version": "0.5",
+  "target": "38_doazvjettu__leakguard-mcp",
+  "risk_score": 25.0,
+  "risk_level": "medium",
+  "tools_found": 0,
+  "findings_count": 160,
+  "findings": [
+    {
+      "id": "ast_0001",
+      "severity": "info",
+      "category": "credential_theft",
+      "title": "Environment variable access via os.environ.get()",
+      "description": "Call to `os.environ.get()` reads an environment variable (capability note) in leakguard\\cli.py at line 63",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP01"
+      ],
+      "file_path": "leakguard\\cli.py",
+      "line_number": 63,
+      "recommendation": "Document which env vars are needed. Avoid reading arbitrary env vars.",
+      "rule_id": "code_pattern_ast",
+      "evidence": "os.environ.get()",
+      "location": "leakguard\\cli.py:63",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"ast_0001\")'"
+    },
+    {
+      "id": "GHSA-7xgj-8392-5q4r",
+      "severity": "medium",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency fastmcp@3.4.2: GHSA-7xgj-8392-5q4r",
+      "description": "Known vulnerability (advisory severity: unrated; direct dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update fastmcp to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-7xgj-8392-5q4r",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-7xgj-8392-5q4r\")'"
+    },
+    {
+      "id": "GHSA-5p39-cfhj-2xmp",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency anyio@4.13.0: GHSA-5p39-cfhj-2xmp",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update anyio to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-5p39-cfhj-2xmp",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-5p39-cfhj-2xmp\")'"
+    },
+    {
+      "id": "GHSA-82r6-8w77-94w6",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency anyio@4.13.0: GHSA-82r6-8w77-94w6",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update anyio to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-82r6-8w77-94w6",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-82r6-8w77-94w6\")'"
+    },
+    {
+      "id": "PYSEC-2026-4024",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency anyio@4.13.0: PYSEC-2026-4024",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update anyio to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "PYSEC-2026-4024",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"PYSEC-2026-4024\")'"
+    },
+    {
+      "id": "PYSEC-2026-4025",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency anyio@4.13.0: PYSEC-2026-4025",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update anyio to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "PYSEC-2026-4025",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"PYSEC-2026-4025\")'"
+    },
+    {
+      "id": "GHSA-6v38-4h7w-rj9h",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency authlib@1.7.2: GHSA-6v38-4h7w-rj9h",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update authlib to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-6v38-4h7w-rj9h",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-6v38-4h7w-rj9h\")'"
+    },
+    {
+      "id": "GHSA-7vr2-2fgp-9w7p",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency authlib@1.7.2: GHSA-7vr2-2fgp-9w7p",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update authlib to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-7vr2-2fgp-9w7p",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-7vr2-2fgp-9w7p\")'"
+    },
+    {
+      "id": "GHSA-8m4g-j4wp-wgcg",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency authlib@1.7.2: GHSA-8m4g-j4wp-wgcg",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update authlib to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-8m4g-j4wp-wgcg",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-8m4g-j4wp-wgcg\")'"
+    },
+    {
+      "id": "GHSA-c5mf-xmp2-59rc",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency authlib@1.7.2: GHSA-c5mf-xmp2-59rc",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update authlib to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-c5mf-xmp2-59rc",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-c5mf-xmp2-59rc\")'"
+    },
+    {
+      "id": "GHSA-c73q-w75p-j82v",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency authlib@1.7.2: GHSA-c73q-w75p-j82v",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update authlib to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-c73q-w75p-j82v",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-c73q-w75p-j82v\")'"
+    },
+    {
+      "id": "GHSA-fch4-3c6x-j4gc",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency authlib@1.7.2: GHSA-fch4-3c6x-j4gc",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update authlib to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-fch4-3c6x-j4gc",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-fch4-3c6x-j4gc\")'"
+    },
+    {
+      "id": "GHSA-jj7h-c3hg-m23x",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency authlib@1.7.2: GHSA-jj7h-c3hg-m23x",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update authlib to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-jj7h-c3hg-m23x",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-jj7h-c3hg-m23x\")'"
+    },
+    {
+      "id": "GHSA-q686-2qmg-hqc7",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency authlib@1.7.2: GHSA-q686-2qmg-hqc7",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update authlib to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-q686-2qmg-hqc7",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-q686-2qmg-hqc7\")'"
+    },
+    {
+      "id": "GHSA-x4rv-c3wx-4cr8",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency authlib@1.7.2: GHSA-x4rv-c3wx-4cr8",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update authlib to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-x4rv-c3wx-4cr8",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-x4rv-c3wx-4cr8\")'"
+    },
+    {
+      "id": "PYSEC-2026-4354",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency authlib@1.7.2: PYSEC-2026-4354",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update authlib to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "PYSEC-2026-4354",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"PYSEC-2026-4354\")'"
+    },
+    {
+      "id": "PYSEC-2026-4355",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency authlib@1.7.2: PYSEC-2026-4355",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update authlib to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "PYSEC-2026-4355",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"PYSEC-2026-4355\")'"
+    },
+    {
+      "id": "PYSEC-2026-4356",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency authlib@1.7.2: PYSEC-2026-4356",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update authlib to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "PYSEC-2026-4356",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"PYSEC-2026-4356\")'"
+    },
+    {
+      "id": "PYSEC-2026-4357",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency authlib@1.7.2: PYSEC-2026-4357",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update authlib to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "PYSEC-2026-4357",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"PYSEC-2026-4357\")'"
+    },
+    {
+      "id": "PYSEC-2026-4358",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency authlib@1.7.2: PYSEC-2026-4358",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update authlib to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "PYSEC-2026-4358",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"PYSEC-2026-4358\")'"
+    },
+    {
+      "id": "PYSEC-2026-4359",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency authlib@1.7.2: PYSEC-2026-4359",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update authlib to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "PYSEC-2026-4359",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"PYSEC-2026-4359\")'"
+    },
+    {
+      "id": "PYSEC-2026-4360",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency authlib@1.7.2: PYSEC-2026-4360",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update authlib to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "PYSEC-2026-4360",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"PYSEC-2026-4360\")'"
+    },
+    {
+      "id": "GHSA-6q48-6c7w-9gw2",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency certifi@2026.5.20: GHSA-6q48-6c7w-9gw2",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update certifi to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-6q48-6c7w-9gw2",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-6q48-6c7w-9gw2\")'"
+    },
+    {
+      "id": "PYSEC-2026-4320",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency certifi@2026.5.20: PYSEC-2026-4320",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update certifi to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "PYSEC-2026-4320",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"PYSEC-2026-4320\")'"
+    },
+    {
+      "id": "GHSA-g6cj-pr64-35w5",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency cryptography@48.0.1: GHSA-g6cj-pr64-35w5",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update cryptography to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-g6cj-pr64-35w5",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-g6cj-pr64-35w5\")'"
+    },
+    {
+      "id": "GHSA-jwv3-5hgf-82ww",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency cryptography@48.0.1: GHSA-jwv3-5hgf-82ww",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update cryptography to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-jwv3-5hgf-82ww",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-jwv3-5hgf-82ww\")'"
+    },
+    {
+      "id": "GHSA-m2h6-j472-rp4c",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency cryptography@48.0.1: GHSA-m2h6-j472-rp4c",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update cryptography to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-m2h6-j472-rp4c",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-m2h6-j472-rp4c\")'"
+    },
+    {
+      "id": "PYSEC-2026-3552",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency cryptography@48.0.1: PYSEC-2026-3552",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update cryptography to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "PYSEC-2026-3552",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"PYSEC-2026-3552\")'"
+    },
+    {
+      "id": "PYSEC-2026-3553",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency cryptography@48.0.1: PYSEC-2026-3553",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update cryptography to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "PYSEC-2026-3553",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"PYSEC-2026-3553\")'"
+    },
+    {
+      "id": "PYSEC-2026-3554",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency cryptography@48.0.1: PYSEC-2026-3554",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update cryptography to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "PYSEC-2026-3554",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"PYSEC-2026-3554\")'"
+    },
+    {
+      "id": "GHSA-45c3-73f7-pv4m",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency dnspython@2.8.0: GHSA-45c3-73f7-pv4m",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update dnspython to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-45c3-73f7-pv4m",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-45c3-73f7-pv4m\")'"
+    },
+    {
+      "id": "GHSA-7xgj-8392-5q4r",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency fastmcp-slim@3.4.2: GHSA-7xgj-8392-5q4r",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update fastmcp-slim to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-7xgj-8392-5q4r",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-7xgj-8392-5q4r\")'"
+    },
+    {
+      "id": "GHSA-9pg5-8c7x-5hfx",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency joserfc@1.7.1: GHSA-9pg5-8c7x-5hfx",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update joserfc to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-9pg5-8c7x-5hfx",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-9pg5-8c7x-5hfx\")'"
+    },
+    {
+      "id": "GHSA-jpxq-7h8p-2q76",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency joserfc@1.7.1: GHSA-jpxq-7h8p-2q76",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update joserfc to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-jpxq-7h8p-2q76",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-jpxq-7h8p-2q76\")'"
+    },
+    {
+      "id": "GHSA-5h93-6whr-6q8j",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency mcp@1.27.2: GHSA-5h93-6whr-6q8j",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update mcp to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-5h93-6whr-6q8j",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-5h93-6whr-6q8j\")'"
+    },
+    {
+      "id": "GHSA-84m7-p3x7-pcfv",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency mcp@1.27.2: GHSA-84m7-p3x7-pcfv",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update mcp to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-84m7-p3x7-pcfv",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-84m7-p3x7-pcfv\")'"
+    },
+    {
+      "id": "GHSA-rwrf-2pqf-9j8j",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency mcp@1.27.2: GHSA-rwrf-2pqf-9j8j",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update mcp to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-rwrf-2pqf-9j8j",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-rwrf-2pqf-9j8j\")'"
+    },
+    {
+      "id": "GHSA-vj7q-gjh5-988w",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency mcp@1.27.2: GHSA-vj7q-gjh5-988w",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update mcp to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-vj7q-gjh5-988w",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-vj7q-gjh5-988w\")'"
+    },
+    {
+      "id": "GHSA-w4fh-qvv9-3v23",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency mcp@1.27.2: GHSA-w4fh-qvv9-3v23",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update mcp to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-w4fh-qvv9-3v23",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-w4fh-qvv9-3v23\")'"
+    },
+    {
+      "id": "PYSEC-2026-3483",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency mcp@1.27.2: PYSEC-2026-3483",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update mcp to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "PYSEC-2026-3483",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"PYSEC-2026-3483\")'"
+    },
+    {
+      "id": "GHSA-xcq7-p3pf-p88h",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency opentelemetry-api@1.42.1: GHSA-xcq7-p3pf-p88h",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update opentelemetry-api to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-xcq7-p3pf-p88h",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-xcq7-p3pf-p88h\")'"
+    },
+    {
+      "id": "GHSA-22hg-r758-rrw9",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pillow@12.2.0: GHSA-22hg-r758-rrw9",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pillow to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-22hg-r758-rrw9",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-22hg-r758-rrw9\")'"
+    },
+    {
+      "id": "GHSA-24rc-8hj2-v98c",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pillow@12.2.0: GHSA-24rc-8hj2-v98c",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pillow to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-24rc-8hj2-v98c",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-24rc-8hj2-v98c\")'"
+    },
+    {
+      "id": "GHSA-254f-3936-288h",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pillow@12.2.0: GHSA-254f-3936-288h",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pillow to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-254f-3936-288h",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-254f-3936-288h\")'"
+    },
+    {
+      "id": "GHSA-27h8-gf7j-v5hc",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pillow@12.2.0: GHSA-27h8-gf7j-v5hc",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pillow to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-27h8-gf7j-v5hc",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-27h8-gf7j-v5hc\")'"
+    },
+    {
+      "id": "GHSA-332p-7hrc-92wf",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pillow@12.2.0: GHSA-332p-7hrc-92wf",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pillow to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-332p-7hrc-92wf",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-332p-7hrc-92wf\")'"
+    },
+    {
+      "id": "GHSA-3j72-p6qg-6xp7",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pillow@12.2.0: GHSA-3j72-p6qg-6xp7",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pillow to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-3j72-p6qg-6xp7",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-3j72-p6qg-6xp7\")'"
+    },
+    {
+      "id": "GHSA-4558-3h8r-v8xp",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pillow@12.2.0: GHSA-4558-3h8r-v8xp",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pillow to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-4558-3h8r-v8xp",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-4558-3h8r-v8xp\")'"
+    },
+    {
+      "id": "GHSA-45hq-cxwh-f6vc",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pillow@12.2.0: GHSA-45hq-cxwh-f6vc",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pillow to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-45hq-cxwh-f6vc",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-45hq-cxwh-f6vc\")'"
+    },
+    {
+      "id": "GHSA-462x-pgg6-55fp",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pillow@12.2.0: GHSA-462x-pgg6-55fp",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pillow to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-462x-pgg6-55fp",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-462x-pgg6-55fp\")'"
+    },
+    {
+      "id": "GHSA-4rm8-3hmm-39fg",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pillow@12.2.0: GHSA-4rm8-3hmm-39fg",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pillow to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-4rm8-3hmm-39fg",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-4rm8-3hmm-39fg\")'"
+    },
+    {
+      "id": "GHSA-4rr5-89j8-mwwm",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pillow@12.2.0: GHSA-4rr5-89j8-mwwm",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pillow to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-4rr5-89j8-mwwm",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-4rr5-89j8-mwwm\")'"
+    },
+    {
+      "id": "GHSA-4x4j-2g7c-83w6",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pillow@12.2.0: GHSA-4x4j-2g7c-83w6",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pillow to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-4x4j-2g7c-83w6",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-4x4j-2g7c-83w6\")'"
+    },
+    {
+      "id": "GHSA-58r4-6rv3-gfh8",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pillow@12.2.0: GHSA-58r4-6rv3-gfh8",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pillow to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-58r4-6rv3-gfh8",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-58r4-6rv3-gfh8\")'"
+    },
+    {
+      "id": "GHSA-5x8w-8jj5-q52h",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pillow@12.2.0: GHSA-5x8w-8jj5-q52h",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pillow to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-5x8w-8jj5-q52h",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-5x8w-8jj5-q52h\")'"
+    },
+    {
+      "id": "GHSA-5x94-69rx-g8h2",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pillow@12.2.0: GHSA-5x94-69rx-g8h2",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pillow to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-5x94-69rx-g8h2",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-5x94-69rx-g8h2\")'"
+    },
+    {
+      "id": "GHSA-5xm2-6676-qcp9",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pillow@12.2.0: GHSA-5xm2-6676-qcp9",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pillow to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-5xm2-6676-qcp9",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-5xm2-6676-qcp9\")'"
+    },
+    {
+      "id": "GHSA-62p4-gmf7-7g93",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pillow@12.2.0: GHSA-62p4-gmf7-7g93",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pillow to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-62p4-gmf7-7g93",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-62p4-gmf7-7g93\")'"
+    },
+    {
+      "id": "GHSA-654x-cwwv-5j9c",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pillow@12.2.0: GHSA-654x-cwwv-5j9c",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pillow to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-654x-cwwv-5j9c",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-654x-cwwv-5j9c\")'"
+    },
+    {
+      "id": "GHSA-65qm-jvmh-6pqg",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pillow@12.2.0: GHSA-65qm-jvmh-6pqg",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pillow to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-65qm-jvmh-6pqg",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-65qm-jvmh-6pqg\")'"
+    },
+    {
+      "id": "GHSA-6r8x-57c9-28j4",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pillow@12.2.0: GHSA-6r8x-57c9-28j4",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pillow to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-6r8x-57c9-28j4",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-6r8x-57c9-28j4\")'"
+    },
+    {
+      "id": "GHSA-74r2-7ff9-mjj2",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pillow@12.2.0: GHSA-74r2-7ff9-mjj2",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pillow to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-74r2-7ff9-mjj2",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-74r2-7ff9-mjj2\")'"
+    },
+    {
+      "id": "GHSA-78g4-xqwv-q3g8",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pillow@12.2.0: GHSA-78g4-xqwv-q3g8",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pillow to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-78g4-xqwv-q3g8",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-78g4-xqwv-q3g8\")'"
+    },
+    {
+      "id": "GHSA-7mwm-ghpf-9vrm",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pillow@12.2.0: GHSA-7mwm-ghpf-9vrm",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pillow to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-7mwm-ghpf-9vrm",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-7mwm-ghpf-9vrm\")'"
+    },
+    {
+      "id": "GHSA-8g5g-8vmr-9782",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pillow@12.2.0: GHSA-8g5g-8vmr-9782",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pillow to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-8g5g-8vmr-9782",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-8g5g-8vmr-9782\")'"
+    },
+    {
+      "id": "GHSA-8v84-f9pq-wr9x",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pillow@12.2.0: GHSA-8v84-f9pq-wr9x",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pillow to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-8v84-f9pq-wr9x",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-8v84-f9pq-wr9x\")'"
+    },
+    {
+      "id": "GHSA-9hw9-ch79-4vh6",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pillow@12.2.0: GHSA-9hw9-ch79-4vh6",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pillow to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-9hw9-ch79-4vh6",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-9hw9-ch79-4vh6\")'"
+    },
+    {
+      "id": "GHSA-9v9v-9qvf-h2hj",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pillow@12.2.0: GHSA-9v9v-9qvf-h2hj",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pillow to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-9v9v-9qvf-h2hj",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-9v9v-9qvf-h2hj\")'"
+    },
+    {
+      "id": "GHSA-c6hw-5grf-ff96",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pillow@12.2.0: GHSA-c6hw-5grf-ff96",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pillow to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-c6hw-5grf-ff96",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-c6hw-5grf-ff96\")'"
+    },
+    {
+      "id": "GHSA-cp9v-662q-vvx9",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pillow@12.2.0: GHSA-cp9v-662q-vvx9",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pillow to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-cp9v-662q-vvx9",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-cp9v-662q-vvx9\")'"
+    },
+    {
+      "id": "GHSA-f2g6-542v-9j58",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pillow@12.2.0: GHSA-f2g6-542v-9j58",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pillow to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-f2g6-542v-9j58",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-f2g6-542v-9j58\")'"
+    },
+    {
+      "id": "GHSA-fc9g-5qg7-mf45",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pillow@12.2.0: GHSA-fc9g-5qg7-mf45",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pillow to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-fc9g-5qg7-mf45",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-fc9g-5qg7-mf45\")'"
+    },
+    {
+      "id": "GHSA-fj7v-r99m-22gq",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pillow@12.2.0: GHSA-fj7v-r99m-22gq",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pillow to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-fj7v-r99m-22gq",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-fj7v-r99m-22gq\")'"
+    },
+    {
+      "id": "GHSA-g4qv-2jxx-769h",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pillow@12.2.0: GHSA-g4qv-2jxx-769h",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pillow to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-g4qv-2jxx-769h",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-g4qv-2jxx-769h\")'"
+    },
+    {
+      "id": "GHSA-g7cr-3p24-7wf7",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pillow@12.2.0: GHSA-g7cr-3p24-7wf7",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pillow to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-g7cr-3p24-7wf7",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-g7cr-3p24-7wf7\")'"
+    },
+    {
+      "id": "GHSA-g842-9rc4-69pw",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pillow@12.2.0: GHSA-g842-9rc4-69pw",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pillow to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-g842-9rc4-69pw",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-g842-9rc4-69pw\")'"
+    },
+    {
+      "id": "GHSA-gg2r-wvfm-q9rx",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pillow@12.2.0: GHSA-gg2r-wvfm-q9rx",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pillow to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-gg2r-wvfm-q9rx",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-gg2r-wvfm-q9rx\")'"
+    },
+    {
+      "id": "GHSA-j4m9-6w36-pw47",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pillow@12.2.0: GHSA-j4m9-6w36-pw47",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pillow to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-j4m9-6w36-pw47",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-j4m9-6w36-pw47\")'"
+    },
+    {
+      "id": "GHSA-jg86-v3jv-hrpm",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pillow@12.2.0: GHSA-jg86-v3jv-hrpm",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pillow to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-jg86-v3jv-hrpm",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-jg86-v3jv-hrpm\")'"
+    },
+    {
+      "id": "GHSA-jjj6-mw9f-p565",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pillow@12.2.0: GHSA-jjj6-mw9f-p565",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pillow to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-jjj6-mw9f-p565",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-jjj6-mw9f-p565\")'"
+    },
+    {
+      "id": "GHSA-mrfp-p49p-3hf2",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pillow@12.2.0: GHSA-mrfp-p49p-3hf2",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pillow to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-mrfp-p49p-3hf2",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-mrfp-p49p-3hf2\")'"
+    },
+    {
+      "id": "GHSA-p4wg-p73j-c528",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pillow@12.2.0: GHSA-p4wg-p73j-c528",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pillow to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-p4wg-p73j-c528",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-p4wg-p73j-c528\")'"
+    },
+    {
+      "id": "GHSA-p8hx-v2p6-rp84",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pillow@12.2.0: GHSA-p8hx-v2p6-rp84",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pillow to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-p8hx-v2p6-rp84",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-p8hx-v2p6-rp84\")'"
+    },
+    {
+      "id": "GHSA-pchr-8j38-3x4p",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pillow@12.2.0: GHSA-pchr-8j38-3x4p",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pillow to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-pchr-8j38-3x4p",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-pchr-8j38-3x4p\")'"
+    },
+    {
+      "id": "GHSA-pg7v-jwj7-p798",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pillow@12.2.0: GHSA-pg7v-jwj7-p798",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pillow to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-pg7v-jwj7-p798",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-pg7v-jwj7-p798\")'"
+    },
+    {
+      "id": "GHSA-phj9-mv4w-65pm",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pillow@12.2.0: GHSA-phj9-mv4w-65pm",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pillow to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-phj9-mv4w-65pm",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-phj9-mv4w-65pm\")'"
+    },
+    {
+      "id": "GHSA-q45j-58j2-45rg",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pillow@12.2.0: GHSA-q45j-58j2-45rg",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pillow to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-q45j-58j2-45rg",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-q45j-58j2-45rg\")'"
+    },
+    {
+      "id": "GHSA-rfgq-q3w2-pmv2",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pillow@12.2.0: GHSA-rfgq-q3w2-pmv2",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pillow to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-rfgq-q3w2-pmv2",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-rfgq-q3w2-pmv2\")'"
+    },
+    {
+      "id": "GHSA-v9pv-5gc8-w2m6",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pillow@12.2.0: GHSA-v9pv-5gc8-w2m6",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pillow to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-v9pv-5gc8-w2m6",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-v9pv-5gc8-w2m6\")'"
+    },
+    {
+      "id": "GHSA-vjc4-5qp5-m44j",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pillow@12.2.0: GHSA-vjc4-5qp5-m44j",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pillow to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-vjc4-5qp5-m44j",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-vjc4-5qp5-m44j\")'"
+    },
+    {
+      "id": "GHSA-vx6w-vv9f-6gvg",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pillow@12.2.0: GHSA-vx6w-vv9f-6gvg",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pillow to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-vx6w-vv9f-6gvg",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-vx6w-vv9f-6gvg\")'"
+    },
+    {
+      "id": "GHSA-w889-685w-c8fh",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pillow@12.2.0: GHSA-w889-685w-c8fh",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pillow to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-w889-685w-c8fh",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-w889-685w-c8fh\")'"
+    },
+    {
+      "id": "GHSA-xgh8-jp6q-p5x8",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pillow@12.2.0: GHSA-xgh8-jp6q-p5x8",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pillow to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-xgh8-jp6q-p5x8",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-xgh8-jp6q-p5x8\")'"
+    },
+    {
+      "id": "GHSA-xj96-63gp-2gmr",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pillow@12.2.0: GHSA-xj96-63gp-2gmr",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pillow to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-xj96-63gp-2gmr",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-xj96-63gp-2gmr\")'"
+    },
+    {
+      "id": "GHSA-xvh5-g6gv-559v",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pillow@12.2.0: GHSA-xvh5-g6gv-559v",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pillow to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-xvh5-g6gv-559v",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-xvh5-g6gv-559v\")'"
+    },
+    {
+      "id": "PYSEC-2026-2253",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pillow@12.2.0: PYSEC-2026-2253",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pillow to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "PYSEC-2026-2253",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"PYSEC-2026-2253\")'"
+    },
+    {
+      "id": "PYSEC-2026-2254",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pillow@12.2.0: PYSEC-2026-2254",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pillow to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "PYSEC-2026-2254",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"PYSEC-2026-2254\")'"
+    },
+    {
+      "id": "PYSEC-2026-2255",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pillow@12.2.0: PYSEC-2026-2255",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pillow to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "PYSEC-2026-2255",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"PYSEC-2026-2255\")'"
+    },
+    {
+      "id": "PYSEC-2026-2256",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pillow@12.2.0: PYSEC-2026-2256",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pillow to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "PYSEC-2026-2256",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"PYSEC-2026-2256\")'"
+    },
+    {
+      "id": "PYSEC-2026-2257",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pillow@12.2.0: PYSEC-2026-2257",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pillow to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "PYSEC-2026-2257",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"PYSEC-2026-2257\")'"
+    },
+    {
+      "id": "PYSEC-2026-3451",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pillow@12.2.0: PYSEC-2026-3451",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pillow to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "PYSEC-2026-3451",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"PYSEC-2026-3451\")'"
+    },
+    {
+      "id": "PYSEC-2026-3452",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pillow@12.2.0: PYSEC-2026-3452",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pillow to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "PYSEC-2026-3452",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"PYSEC-2026-3452\")'"
+    },
+    {
+      "id": "PYSEC-2026-3453",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pillow@12.2.0: PYSEC-2026-3453",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pillow to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "PYSEC-2026-3453",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"PYSEC-2026-3453\")'"
+    },
+    {
+      "id": "PYSEC-2026-3454",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pillow@12.2.0: PYSEC-2026-3454",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pillow to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "PYSEC-2026-3454",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"PYSEC-2026-3454\")'"
+    },
+    {
+      "id": "PYSEC-2026-3493",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pillow@12.2.0: PYSEC-2026-3493",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pillow to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "PYSEC-2026-3493",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"PYSEC-2026-3493\")'"
+    },
+    {
+      "id": "PYSEC-2026-3494",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pillow@12.2.0: PYSEC-2026-3494",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pillow to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "PYSEC-2026-3494",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"PYSEC-2026-3494\")'"
+    },
+    {
+      "id": "PYSEC-2026-3495",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pillow@12.2.0: PYSEC-2026-3495",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pillow to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "PYSEC-2026-3495",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"PYSEC-2026-3495\")'"
+    },
+    {
+      "id": "PYSEC-2026-3496",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pillow@12.2.0: PYSEC-2026-3496",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pillow to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "PYSEC-2026-3496",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"PYSEC-2026-3496\")'"
+    },
+    {
+      "id": "PYSEC-2026-4326",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pillow@12.2.0: PYSEC-2026-4326",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pillow to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "PYSEC-2026-4326",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"PYSEC-2026-4326\")'"
+    },
+    {
+      "id": "PYSEC-2026-4327",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pillow@12.2.0: PYSEC-2026-4327",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pillow to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "PYSEC-2026-4327",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"PYSEC-2026-4327\")'"
+    },
+    {
+      "id": "PYSEC-2026-4328",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pillow@12.2.0: PYSEC-2026-4328",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pillow to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "PYSEC-2026-4328",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"PYSEC-2026-4328\")'"
+    },
+    {
+      "id": "PYSEC-2026-4329",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pillow@12.2.0: PYSEC-2026-4329",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pillow to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "PYSEC-2026-4329",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"PYSEC-2026-4329\")'"
+    },
+    {
+      "id": "PYSEC-2026-4330",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pillow@12.2.0: PYSEC-2026-4330",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pillow to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "PYSEC-2026-4330",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"PYSEC-2026-4330\")'"
+    },
+    {
+      "id": "PYSEC-2026-4331",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pillow@12.2.0: PYSEC-2026-4331",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pillow to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "PYSEC-2026-4331",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"PYSEC-2026-4331\")'"
+    },
+    {
+      "id": "PYSEC-2026-4332",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pillow@12.2.0: PYSEC-2026-4332",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pillow to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "PYSEC-2026-4332",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"PYSEC-2026-4332\")'"
+    },
+    {
+      "id": "PYSEC-2026-4333",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pillow@12.2.0: PYSEC-2026-4333",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pillow to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "PYSEC-2026-4333",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"PYSEC-2026-4333\")'"
+    },
+    {
+      "id": "PYSEC-2026-4334",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pillow@12.2.0: PYSEC-2026-4334",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pillow to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "PYSEC-2026-4334",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"PYSEC-2026-4334\")'"
+    },
+    {
+      "id": "PYSEC-2026-4335",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pillow@12.2.0: PYSEC-2026-4335",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pillow to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "PYSEC-2026-4335",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"PYSEC-2026-4335\")'"
+    },
+    {
+      "id": "PYSEC-2026-4336",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pillow@12.2.0: PYSEC-2026-4336",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pillow to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "PYSEC-2026-4336",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"PYSEC-2026-4336\")'"
+    },
+    {
+      "id": "PYSEC-2026-4337",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pillow@12.2.0: PYSEC-2026-4337",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pillow to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "PYSEC-2026-4337",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"PYSEC-2026-4337\")'"
+    },
+    {
+      "id": "PYSEC-2026-4338",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pillow@12.2.0: PYSEC-2026-4338",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pillow to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "PYSEC-2026-4338",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"PYSEC-2026-4338\")'"
+    },
+    {
+      "id": "PYSEC-2026-4339",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pillow@12.2.0: PYSEC-2026-4339",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pillow to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "PYSEC-2026-4339",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"PYSEC-2026-4339\")'"
+    },
+    {
+      "id": "PYSEC-2026-4340",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pillow@12.2.0: PYSEC-2026-4340",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pillow to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "PYSEC-2026-4340",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"PYSEC-2026-4340\")'"
+    },
+    {
+      "id": "PYSEC-2026-4341",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pillow@12.2.0: PYSEC-2026-4341",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pillow to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "PYSEC-2026-4341",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"PYSEC-2026-4341\")'"
+    },
+    {
+      "id": "PYSEC-2026-4342",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pillow@12.2.0: PYSEC-2026-4342",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pillow to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "PYSEC-2026-4342",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"PYSEC-2026-4342\")'"
+    },
+    {
+      "id": "PYSEC-2026-4343",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pillow@12.2.0: PYSEC-2026-4343",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pillow to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "PYSEC-2026-4343",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"PYSEC-2026-4343\")'"
+    },
+    {
+      "id": "PYSEC-2026-4363",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pillow@12.2.0: PYSEC-2026-4363",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pillow to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "PYSEC-2026-4363",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"PYSEC-2026-4363\")'"
+    },
+    {
+      "id": "GHSA-4xgf-cpjx-pc3j",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pydantic-settings@2.14.1: GHSA-4xgf-cpjx-pc3j",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pydantic-settings to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-4xgf-cpjx-pc3j",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-4xgf-cpjx-pc3j\")'"
+    },
+    {
+      "id": "GHSA-2gx3-rcp4-g85q",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pyjwt@2.13.0: GHSA-2gx3-rcp4-g85q",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pyjwt to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-2gx3-rcp4-g85q",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-2gx3-rcp4-g85q\")'"
+    },
+    {
+      "id": "GHSA-42vr-xj54-vc7v",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pyjwt@2.13.0: GHSA-42vr-xj54-vc7v",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pyjwt to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-42vr-xj54-vc7v",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-42vr-xj54-vc7v\")'"
+    },
+    {
+      "id": "GHSA-8wjv-2p76-3863",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pyjwt@2.13.0: GHSA-8wjv-2p76-3863",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pyjwt to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-8wjv-2p76-3863",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-8wjv-2p76-3863\")'"
+    },
+    {
+      "id": "GHSA-9j54-fg26-wv3r",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pyjwt@2.13.0: GHSA-9j54-fg26-wv3r",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pyjwt to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-9j54-fg26-wv3r",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-9j54-fg26-wv3r\")'"
+    },
+    {
+      "id": "GHSA-9v7f-9g4p-ffgj",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pyjwt@2.13.0: GHSA-9v7f-9g4p-ffgj",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pyjwt to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-9v7f-9g4p-ffgj",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-9v7f-9g4p-ffgj\")'"
+    },
+    {
+      "id": "GHSA-ffc3-869f-jxw9",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pyjwt@2.13.0: GHSA-ffc3-869f-jxw9",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pyjwt to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-ffc3-869f-jxw9",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-ffc3-869f-jxw9\")'"
+    },
+    {
+      "id": "GHSA-gvp8-978c-rx2q",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pyjwt@2.13.0: GHSA-gvp8-978c-rx2q",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pyjwt to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-gvp8-978c-rx2q",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-gvp8-978c-rx2q\")'"
+    },
+    {
+      "id": "GHSA-hxm8-2xgr-2p9m",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pyjwt@2.13.0: GHSA-hxm8-2xgr-2p9m",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pyjwt to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-hxm8-2xgr-2p9m",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-hxm8-2xgr-2p9m\")'"
+    },
+    {
+      "id": "GHSA-jwrc-g2q2-pq5p",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pyjwt@2.13.0: GHSA-jwrc-g2q2-pq5p",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pyjwt to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-jwrc-g2q2-pq5p",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-jwrc-g2q2-pq5p\")'"
+    },
+    {
+      "id": "GHSA-p4g4-x82p-q773",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pyjwt@2.13.0: GHSA-p4g4-x82p-q773",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pyjwt to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-p4g4-x82p-q773",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-p4g4-x82p-q773\")'"
+    },
+    {
+      "id": "GHSA-pxh4-856f-4h89",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pyjwt@2.13.0: GHSA-pxh4-856f-4h89",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pyjwt to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-pxh4-856f-4h89",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-pxh4-856f-4h89\")'"
+    },
+    {
+      "id": "GHSA-r6x4-923q-g947",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pyjwt@2.13.0: GHSA-r6x4-923q-g947",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pyjwt to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-r6x4-923q-g947",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-r6x4-923q-g947\")'"
+    },
+    {
+      "id": "GHSA-w2cx-738m-mc7w",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pyjwt@2.13.0: GHSA-w2cx-738m-mc7w",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pyjwt to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-w2cx-738m-mc7w",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-w2cx-738m-mc7w\")'"
+    },
+    {
+      "id": "GHSA-w6j9-cwv2-h6wq",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pyjwt@2.13.0: GHSA-w6j9-cwv2-h6wq",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pyjwt to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-w6j9-cwv2-h6wq",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-w6j9-cwv2-h6wq\")'"
+    },
+    {
+      "id": "GHSA-x33g-cr3x-6449",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pyjwt@2.13.0: GHSA-x33g-cr3x-6449",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pyjwt to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-x33g-cr3x-6449",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-x33g-cr3x-6449\")'"
+    },
+    {
+      "id": "PYSEC-2026-4140",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pyjwt@2.13.0: PYSEC-2026-4140",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pyjwt to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "PYSEC-2026-4140",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"PYSEC-2026-4140\")'"
+    },
+    {
+      "id": "PYSEC-2026-4141",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pyjwt@2.13.0: PYSEC-2026-4141",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pyjwt to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "PYSEC-2026-4141",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"PYSEC-2026-4141\")'"
+    },
+    {
+      "id": "PYSEC-2026-4142",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pyjwt@2.13.0: PYSEC-2026-4142",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pyjwt to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "PYSEC-2026-4142",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"PYSEC-2026-4142\")'"
+    },
+    {
+      "id": "PYSEC-2026-4143",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pyjwt@2.13.0: PYSEC-2026-4143",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pyjwt to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "PYSEC-2026-4143",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"PYSEC-2026-4143\")'"
+    },
+    {
+      "id": "PYSEC-2026-4144",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pyjwt@2.13.0: PYSEC-2026-4144",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pyjwt to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "PYSEC-2026-4144",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"PYSEC-2026-4144\")'"
+    },
+    {
+      "id": "PYSEC-2026-4145",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pyjwt@2.13.0: PYSEC-2026-4145",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pyjwt to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "PYSEC-2026-4145",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"PYSEC-2026-4145\")'"
+    },
+    {
+      "id": "PYSEC-2026-4146",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pyjwt@2.13.0: PYSEC-2026-4146",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pyjwt to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "PYSEC-2026-4146",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"PYSEC-2026-4146\")'"
+    },
+    {
+      "id": "PYSEC-2026-4147",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pyjwt@2.13.0: PYSEC-2026-4147",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pyjwt to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "PYSEC-2026-4147",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"PYSEC-2026-4147\")'"
+    },
+    {
+      "id": "PYSEC-2026-4148",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pyjwt@2.13.0: PYSEC-2026-4148",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pyjwt to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "PYSEC-2026-4148",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"PYSEC-2026-4148\")'"
+    },
+    {
+      "id": "PYSEC-2026-4149",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pyjwt@2.13.0: PYSEC-2026-4149",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pyjwt to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "PYSEC-2026-4149",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"PYSEC-2026-4149\")'"
+    },
+    {
+      "id": "PYSEC-2026-4150",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pyjwt@2.13.0: PYSEC-2026-4150",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pyjwt to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "PYSEC-2026-4150",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"PYSEC-2026-4150\")'"
+    },
+    {
+      "id": "PYSEC-2026-4151",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pyjwt@2.13.0: PYSEC-2026-4151",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pyjwt to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "PYSEC-2026-4151",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"PYSEC-2026-4151\")'"
+    },
+    {
+      "id": "PYSEC-2026-4152",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pyjwt@2.13.0: PYSEC-2026-4152",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pyjwt to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "PYSEC-2026-4152",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"PYSEC-2026-4152\")'"
+    },
+    {
+      "id": "PYSEC-2026-4183",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pyjwt@2.13.0: PYSEC-2026-4183",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pyjwt to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "PYSEC-2026-4183",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"PYSEC-2026-4183\")'"
+    },
+    {
+      "id": "GHSA-82w8-qh3p-5jfq",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency starlette@1.3.0: GHSA-82w8-qh3p-5jfq",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update starlette to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-82w8-qh3p-5jfq",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-82w8-qh3p-5jfq\")'"
+    },
+    {
+      "id": "PYSEC-2026-249",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency starlette@1.3.0: PYSEC-2026-249",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update starlette to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "PYSEC-2026-249",
+      "location": "static:<corpus>/registry2/38_doazvjettu__leakguard-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"PYSEC-2026-249\")'"
+    },
+    {
+      "id": "rogue_0001",
+      "severity": "low",
+      "category": "rogue_agent",
+      "title": "Rogue agent indicator detected",
+      "description": "Pattern in leakguard\\core\\findings.py near line 17: `human review`. This could indicate self-modifying behavior, persistence mechanisms, or evasion capabilities.",
+      "owasp_asi": [
+        "ASI10"
+      ],
+      "owasp_mcp": [
+        "MCP03"
+      ],
+      "file_path": "leakguard\\core\\findings.py",
+      "line_number": 17,
+      "recommendation": "Implement behavioral monitoring and kill switches. Ensure all agent actions are logged and auditable. Run in sandboxed environments with strict resource limits.",
+      "rule_id": "rogue_agent_pattern",
+      "evidence": "Rogue agent indicator detected",
+      "location": "leakguard\\core\\findings.py:17",
+      "replay": "axiom scan <corpus>/registry2/38_doazvjettu__leakguard-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"rogue_0001\")'"
+    }
+  ],
+  "server_profile": {
+    "name": "38_doazvjettu__leakguard-mcp",
+    "command": null,
+    "args": [],
+    "env_vars": [],
+    "transport": "unknown",
+    "tools": [],
+    "resources": [],
+    "prompts": [],
+    "repo_url": null,
+    "npm_package": null,
+    "capabilities_claimed": [],
+    "capabilities_actual": []
+  },
+  "fingerprint": "e498b97c37656b596d8b93bc1fb01bfa568ae69f61435908d643dc6cb386a256",
+  "surface_map": {
+    "server": {
+      "name": "leakguard-mcp",
+      "instructions": "",
+      "transport": "unknown",
+      "auth": "unknown"
+    },
+    "tools": [],
+    "resources": [],
+    "prompts": [],
+    "mutations": [],
+    "source": {
+      "kind": "static",
+      "target": "38_doazvjettu__leakguard-mcp",
+      "languages": []
+    },
+    "generated_at": "2026-11-11T22:38:35+00:00",
+    "fingerprint": "e498b97c37656b596d8b93bc1fb01bfa568ae69f61435908d643dc6cb386a256",
+    "schema": "axiom.surface/1"
+  },
+  "provenance": {
+    "identity": {
+      "npm": null,
+      "pypi": "leakguard-mcp",
+      "repository": "https://github.com/doazvjettu/leakguard-mcp",
+      "server_name": "leakguard-mcp"
+    },
+    "registry": {
+      "status": "match",
+      "entry": "io.github.doazvjettu/leakguard-mcp",
+      "repository": "https://github.com/doazvjettu/leakguard-mcp",
+      "packages": [
+        "pypi:leakguard-mcp"
+      ],
+      "publishedAt": "2026-06-13T04:07:50.521586Z",
+      "version": "0.1.1"
+    },
+    "lookalikes": [],
+    "checked_at": "2026-11-11T22:38:37+00:00"
+  },
+  "owasp_coverage": {
+    "framework": "OWASP Top 10 for Agentic Applications 2026",
+    "reference": "https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/",
+    "coverage": {
+      "ASI01": {
+        "name": "Agent Goal Hijack",
+        "coverage_level": "strong",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "tool_poisoning",
+          "prompt_injection",
+          "instruction_injection"
+        ]
+      },
+      "ASI02": {
+        "name": "Tool Misuse & Exploitation",
+        "coverage_level": "strong",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "toxic_tool_combo",
+          "tool_overscope",
+          "tool_chaining_detection"
+        ]
+      },
+      "ASI03": {
+        "name": "Identity & Privilege Abuse",
+        "coverage_level": "strong",
+        "findings_count": 1,
+        "finding_ids": [
+          "ast_0001"
+        ],
+        "detectors": [
+          "credential_analysis",
+          "shared_credential_detection",
+          "env_var_audit"
+        ]
+      },
+      "ASI04": {
+        "name": "Agentic Supply Chain Vulnerabilities",
+        "coverage_level": "strong",
+        "findings_count": 158,
+        "finding_ids": [
+          "GHSA-7xgj-8392-5q4r",
+          "GHSA-5p39-cfhj-2xmp",
+          "GHSA-82r6-8w77-94w6",
+          "PYSEC-2026-4024",
+          "PYSEC-2026-4025",
+          "GHSA-6v38-4h7w-rj9h",
+          "GHSA-7vr2-2fgp-9w7p",
+          "GHSA-8m4g-j4wp-wgcg",
+          "GHSA-c5mf-xmp2-59rc",
+          "GHSA-c73q-w75p-j82v"
+        ],
+        "detectors": [
+          "dependency_cve",
+          "lifecycle_hooks",
+          "npx_unversioned",
+          "known_mcp_cves"
+        ]
+      },
+      "ASI05": {
+        "name": "Unexpected Code Execution",
+        "coverage_level": "strong",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "code_exec_patterns",
+          "code_generation_detection",
+          "sandbox_escape"
+        ]
+      },
+      "ASI06": {
+        "name": "Memory & Context Poisoning",
+        "coverage_level": "partial",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "memory_poisoning_patterns",
+          "context_manipulation_detection"
+        ],
+        "gap_note": "Axiom detects static patterns. Full coverage requires runtime memory monitoring."
+      },
+      "ASI07": {
+        "name": "Insecure Inter-Agent Communication",
+        "coverage_level": "partial",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "transport_security",
+          "a2a_pattern_detection"
+        ],
+        "gap_note": "Axiom checks transport security. Full A2A protocol analysis requires runtime interception."
+      },
+      "ASI08": {
+        "name": "Cascading Failures",
+        "coverage_level": "partial",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "blast_radius_estimation",
+          "dependency_chain_analysis"
+        ],
+        "gap_note": "Axiom estimates blast radius from tool capabilities. Full cascading failure analysis requires runtime topology mapping."
+      },
+      "ASI09": {
+        "name": "Human-Agent Trust Exploitation",
+        "coverage_level": "strong",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "claimed_vs_actual",
+          "deceptive_output_detection",
+          "trust_manipulation_patterns"
+        ]
+      },
+      "ASI10": {
+        "name": "Rogue Agents",
+        "coverage_level": "partial",
+        "findings_count": 1,
+        "finding_ids": [
+          "rogue_0001"
+        ],
+        "detectors": [
+          "sleeper_patterns",
+          "behavioral_drift_indicators",
+          "persistence_detection"
+        ],
+        "gap_note": "Axiom detects static rogue indicators. Full rogue agent detection requires runtime behavioral monitoring."
+      }
+    },
+    "total_asi_categories_with_findings": 3
+  },
+  "owasp_mcp_coverage": {
+    "framework": "OWASP MCP Top 10",
+    "framework_version": "v0.1 beta",
+    "reference": "https://owasp.org/www-project-mcp-top-10/",
+    "coverage": {
+      "MCP01": {
+        "id": "MCP01:2025",
+        "name": "Token Mismanagement & Secret Exposure",
+        "coverage_level": "partial",
+        "reason": "Regex-based secret detection in server source and client configs plus env-var exposure checks; no entropy analysis, git-history scan, or token lifetime/passthrough checks.",
+        "findings_count": 1,
+        "finding_ids": [
+          "ast_0001"
+        ],
+        "detectors": [
+          "credential_theft",
+          "cross_server",
+          "mcp01_hardcoded_secrets",
+          "config_hardcoded_secret",
+          "env_var_audit",
+          "env_dump"
+        ]
+      },
+      "MCP02": {
+        "id": "MCP02:2025",
+        "name": "Privilege Escalation via Scope Creep",
+        "coverage_level": "strong",
+        "reason": "Permission over-scope patterns, toxic tool-capability combinations, path-escape checks and env-var over-exposure in configs.",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "permission_overscope",
+          "toxic_tool_combo",
+          "identity_privilege",
+          "sandbox_escape",
+          "config_risk",
+          "cascading_failure",
+          "cross_server",
+          "excessive_scope",
+          "confused_deputy",
+          "file_read",
+          "file_write"
+        ]
+      },
+      "MCP03": {
+        "id": "MCP03:2025",
+        "name": "Tool Poisoning",
+        "coverage_level": "strong",
+        "reason": "Dedicated detector for hidden instructions in tool metadata, plus runtime rug-pull diffing between source and live tool definitions.",
+        "findings_count": 1,
+        "finding_ids": [
+          "rogue_0001"
+        ],
+        "detectors": [
+          "tool_poisoning",
+          "obfuscation",
+          "rogue_agent",
+          "source_vs_runtime_diff",
+          "tool_shadowing",
+          "hidden_unicode",
+          "rug_pull_primitive",
+          "surface_mismatch"
+        ]
+      },
+      "MCP04": {
+        "id": "MCP04:2025",
+        "name": "Software Supply Chain Attacks & Dependency Tampering",
+        "coverage_level": "strong",
+        "reason": "Dependency CVE lookup, known MCP CVEs, install lifecycle hooks, and unpinned npx/uvx/pip/@latest install sources.",
+        "findings_count": 158,
+        "finding_ids": [
+          "GHSA-7xgj-8392-5q4r",
+          "GHSA-5p39-cfhj-2xmp",
+          "GHSA-82r6-8w77-94w6",
+          "PYSEC-2026-4024",
+          "PYSEC-2026-4025",
+          "GHSA-6v38-4h7w-rj9h",
+          "GHSA-7vr2-2fgp-9w7p",
+          "GHSA-8m4g-j4wp-wgcg",
+          "GHSA-c5mf-xmp2-59rc",
+          "GHSA-c73q-w75p-j82v"
+        ],
+        "detectors": [
+          "dependency_vuln",
+          "supply_chain",
+          "known_cve",
+          "obfuscation",
+          "lifecycle_hooks",
+          "mcp04_unpinned_install",
+          "homoglyph",
+          "rug_pull_primitive",
+          "surface_mismatch"
+        ]
+      },
+      "MCP05": {
+        "id": "MCP05:2025",
+        "name": "Command Injection & Execution",
+        "coverage_level": "partial",
+        "reason": "Regex, AST and Semgrep find exec/shell sinks and a heuristic flags sinks inside tool handlers, but there is no inter-procedural taint tracking from tool input to sink.",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "command_injection",
+          "code_execution",
+          "code_generation",
+          "sandbox_escape",
+          "mcp05_tool_input_sink",
+          "shell_exec"
+        ]
+      },
+      "MCP06": {
+        "id": "MCP06:2025",
+        "name": "Prompt Injection via Contextual Payloads",
+        "coverage_level": "partial",
+        "reason": "Injection markers are detected in tool metadata, server instructions, resources, prompts and the strings a tool returns (static), and in instructions/resources/prompts read live; payloads produced by calling a tool at runtime are not inspected.",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "prompt_injection",
+          "memory_poisoning",
+          "trust_exploitation",
+          "response_injection",
+          "tool_shadowing"
+        ]
+      },
+      "MCP07": {
+        "id": "MCP07:2025",
+        "name": "Insufficient Authentication & Authorization",
+        "coverage_level": "partial",
+        "reason": "Flags remote servers with no visible auth and servers bound to all interfaces; does not verify OAuth implementation or per-tool authorization logic.",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "transport_security",
+          "inter_agent_comm",
+          "identity_privilege",
+          "transport_no_auth",
+          "config_no_auth",
+          "mcp07_bind_all_interfaces"
+        ]
+      },
+      "MCP08": {
+        "id": "MCP08:2025",
+        "name": "Lack of Audit and Telemetry",
+        "coverage_level": "gap",
+        "reason": "Only a low-confidence heuristic for missing logging in tool-defining files; actual audit trails and telemetry pipelines are not verified.",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "audit_telemetry",
+          "mcp08_no_tool_logging"
+        ]
+      },
+      "MCP09": {
+        "id": "MCP09:2025",
+        "name": "Shadow MCP Servers",
+        "coverage_level": "partial",
+        "reason": "Covered by `axiom discover` allowlist on the local machine; no network-wide or fleet discovery.",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "mcpguard_discover",
+          "shadow_mcp"
+        ]
+      },
+      "MCP10": {
+        "id": "MCP10:2025",
+        "name": "Context Injection & Over-Sharing",
+        "coverage_level": "partial",
+        "reason": "Hard-coded egress URLs, tools that send to caller-chosen destinations and bulk-exposure heuristics are detected statically and live; what context is actually shared at runtime is not observed.",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "context_oversharing",
+          "data_exfiltration",
+          "memory_poisoning",
+          "mcp10_broad_data_exposure"
+        ]
+      }
+    },
+    "total_mcp_categories_with_findings": 3
+  },
+  "ai_analysis": null,
+  "tool_poisoning_report": null,
+  "prompt_injection_risk": null
+}

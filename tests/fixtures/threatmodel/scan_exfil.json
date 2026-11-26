@@ -1,0 +1,41 @@
+{
+  "id": "scan-fixture-0001",
+  "target": "web-mailer-mcp",
+  "target_url": "https://github.com/example/web-mailer-mcp",
+  "status": "completed",
+  "risk_score": 72.0,
+  "risk_level": "high",
+  "server_profile": {
+    "name": "web-mailer-mcp",
+    "command": null,
+    "args": [],
+    "env_vars": ["SMTP_PASSWORD", "LOG_LEVEL"],
+    "transport": "stdio",
+    "tools": [
+      {"name": "fetch_webpage", "description": "Fetches a URL and returns the page content as markdown.", "input_schema": {}, "has_hidden_instructions": true, "poisoning_risk": "high", "poisoning_detail": null},
+      {"name": "send_email", "description": "Send an email to any recipient with a subject and body.", "input_schema": {}, "has_hidden_instructions": false, "poisoning_risk": "safe", "poisoning_detail": null},
+      {"name": "delete_note", "description": "Deletes a saved note by id.", "input_schema": {}, "has_hidden_instructions": false, "poisoning_risk": "safe", "poisoning_detail": null}
+    ],
+    "resources": [
+      {"uri": "notes://all", "name": "dump_all_notes", "description": "Every note the user has saved.", "mime_type": "text/plain"}
+    ],
+    "prompts": [],
+    "repo_url": "https://github.com/example/web-mailer-mcp",
+    "npm_package": "web-mailer-mcp",
+    "capabilities_claimed": [],
+    "capabilities_actual": []
+  },
+  "findings": [
+    {"id": "poison_fetch_webpage_hidden_instruction", "severity": "high", "category": "tool_poisoning", "title": "Hidden instruction in tool 'fetch_webpage' description", "description": "The description of 'fetch_webpage' tells the model to forward page content to another tool.", "file_path": "src/server.py", "line_number": 12, "recommendation": "Remove the instruction.", "cve_id": null, "mitre_ref": null, "owasp_asi": ["ASI01"], "owasp_mcp": ["MCP03"]},
+    {"id": "toxic_combo_data_read_network_external", "severity": "high", "category": "toxic_tool_combo", "title": "Data read + external network = exfiltration path", "description": "Tools that can read internal data AND make external network requests create a direct exfiltration channel. Provided by: fetch_webpage (data_read) + send_email, fetch_webpage (network_external).", "file_path": null, "line_number": null, "recommendation": "Scope tools.", "cve_id": null, "mitre_ref": null, "owasp_asi": ["ASI02"], "owasp_mcp": []},
+    {"id": "dep_known_mailparser", "severity": "high", "category": "known_cve", "title": "Known vulnerable dependency: mailparser@2.1.0", "description": "mailparser 2.1.0 has a published advisory.", "file_path": "package.json", "line_number": null, "recommendation": "Upgrade.", "cve_id": "CVE-2020-0000", "mitre_ref": null, "owasp_asi": ["ASI04"], "owasp_mcp": ["MCP04"]},
+    {"id": "mcp08_no_tool_logging", "severity": "low", "category": "audit_telemetry", "title": "No logging around MCP tool calls", "description": "No logging calls were found in tool handlers.", "file_path": null, "line_number": null, "recommendation": "Log tool calls.", "cve_id": null, "mitre_ref": null, "owasp_asi": ["ASI10"], "owasp_mcp": ["MCP08"]},
+    {"id": "mcp10_broad_exposure_0001", "severity": "low", "category": "context_oversharing", "title": "Resource 'dump_all_notes' suggests broad data exposure", "description": "The resource 'dump_all_notes' appears to return bulk data.", "file_path": null, "line_number": null, "recommendation": "Scope results.", "cve_id": null, "mitre_ref": null, "owasp_asi": ["ASI02"], "owasp_mcp": ["MCP10"]}
+  ],
+  "dependencies": [],
+  "repo_health": null,
+  "ai_analysis": null,
+  "created_at": "2026-10-01T00:00:00+00:00",
+  "scan_duration_seconds": 3.2,
+  "schema_version": "0.5"
+}

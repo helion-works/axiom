@@ -1,0 +1,1602 @@
+{
+  "schema_version": "0.5",
+  "target": "07_ihor-sokoliuk__mcp-searxng",
+  "risk_score": 40.0,
+  "risk_level": "medium",
+  "tools_found": 4,
+  "findings_count": 38,
+  "findings": [
+    {
+      "id": "poison_searxng_web_search_instruction_injection",
+      "severity": "medium",
+      "category": "tool_poisoning",
+      "title": "Steering language (instruction injection) in 'searxng_web_search'",
+      "description": "Steering language in tool description (imperative guidance aimed at the model). Matched pattern in tool 'searxng_web_search': 'always'",
+      "owasp_asi": [
+        "ASI01"
+      ],
+      "owasp_mcp": [
+        "MCP03"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Review tool description carefully. Compare claimed functionality with actual code behavior. Consider removing this MCP server.",
+      "rule_id": "poison_instruction_injection",
+      "evidence": "always",
+      "location": "static:<corpus>/registry/07_ihor-sokoliuk__mcp-searxng:searxng_web_search",
+      "replay": "axiom scan <corpus>/registry/07_ihor-sokoliuk__mcp-searxng --output json --no-ai --no-history | jq '.findings[] | select(.id==\"poison_searxng_web_search_instruction_injection\")'"
+    },
+    {
+      "id": "poison_searxng_web_search_tool_chaining",
+      "severity": "medium",
+      "category": "tool_poisoning",
+      "title": "Steering language (tool chaining) in 'searxng_web_search'",
+      "description": "Tool description sequences other tools around itself. Matched pattern in tool 'searxng_web_search': 'follow up with'",
+      "owasp_asi": [
+        "ASI02"
+      ],
+      "owasp_mcp": [
+        "MCP03"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Review tool description carefully. Compare claimed functionality with actual code behavior. Consider removing this MCP server.",
+      "rule_id": "poison_tool_chaining",
+      "evidence": "follow up with",
+      "location": "static:<corpus>/registry/07_ihor-sokoliuk__mcp-searxng:searxng_web_search",
+      "replay": "axiom scan <corpus>/registry/07_ihor-sokoliuk__mcp-searxng --output json --no-ai --no-history | jq '.findings[] | select(.id==\"poison_searxng_web_search_tool_chaining\")'"
+    },
+    {
+      "id": "poison_searxng_web_search_long_desc",
+      "severity": "medium",
+      "category": "tool_poisoning",
+      "title": "Unusually long tool description for 'searxng_web_search'",
+      "description": "Tool description is 641 characters. Long descriptions can hide malicious instructions.",
+      "owasp_asi": [
+        "ASI01"
+      ],
+      "owasp_mcp": [
+        "MCP03"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Review the full tool description for hidden instructions.",
+      "rule_id": "long_description",
+      "evidence": "Unusually long tool description for 'searxng_web_search'",
+      "location": "static:<corpus>/registry/07_ihor-sokoliuk__mcp-searxng:searxng_web_search",
+      "replay": "axiom scan <corpus>/registry/07_ihor-sokoliuk__mcp-searxng --output json --no-ai --no-history | jq '.findings[] | select(.id==\"poison_searxng_web_search_long_desc\")'"
+    },
+    {
+      "id": "cross_tool_searxng_web_search_web_url_read",
+      "severity": "medium",
+      "category": "cross_server",
+      "title": "Tool 'searxng_web_search' references tool 'web_url_read'",
+      "description": "Tool description mentions another tool by name, which could enable tool chaining attacks.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP01",
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Verify this cross-reference is legitimate and necessary.",
+      "rule_id": "cross_tool_reference",
+      "evidence": "Tool 'searxng_web_search' references tool 'web_url_read'",
+      "location": "static:<corpus>/registry/07_ihor-sokoliuk__mcp-searxng:searxng_web_search_web_url_read",
+      "replay": "axiom scan <corpus>/registry/07_ihor-sokoliuk__mcp-searxng --output json --no-ai --no-history | jq '.findings[] | select(.id==\"cross_tool_searxng_web_search_web_url_read\")'"
+    },
+    {
+      "id": "code_0001",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in scripts\\packed-consumer-contracts.mjs at line 33: `const match = /^(\\d+)\\.(\\d+)\\.(\\d+)(?:\\+[0-9A-Za-z.-]+)?$/.exec(value);`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "scripts\\packed-consumer-contracts.mjs",
+      "line_number": 33,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const match = /^(\\d+)\\.(\\d+)\\.(\\d+)(?:\\+[0-9A-Za-z.-]+)?$/.exec(value);",
+      "location": "scripts\\packed-consumer-contracts.mjs:33",
+      "replay": "axiom scan <corpus>/registry/07_ihor-sokoliuk__mcp-searxng --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0001\")'"
+    },
+    {
+      "id": "code_0002",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in scripts\\publish-mcp-registry.test.mjs at line 306: `const invoke = () => spawnSync(process.execPath, [executable, '--validate'], { env, encoding: 'utf8', timeout: 5000, win`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "scripts\\publish-mcp-registry.test.mjs",
+      "line_number": 306,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const invoke = () => spawnSync(process.execPath, [executable, '--validate'], { env, encoding: 'utf8', timeout: 5000, win",
+      "location": "scripts\\publish-mcp-registry.test.mjs:306",
+      "replay": "axiom scan <corpus>/registry/07_ihor-sokoliuk__mcp-searxng --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0002\")'"
+    },
+    {
+      "id": "code_0003",
+      "severity": "info",
+      "category": "permission_overscope",
+      "title": "Filesystem operations in MCP server source (capability note)",
+      "description": "Pattern matched in scripts\\update-version.js at line 21: `let content = fs.readFileSync(versionPath, 'utf8');`",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": "scripts\\update-version.js",
+      "line_number": 21,
+      "recommendation": "Review this file system broad access pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "let content = fs.readFileSync(versionPath, 'utf8');",
+      "location": "scripts\\update-version.js:21",
+      "replay": "axiom scan <corpus>/registry/07_ihor-sokoliuk__mcp-searxng --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0003\")'"
+    },
+    {
+      "id": "code_0004",
+      "severity": "info",
+      "category": "permission_overscope",
+      "title": "Filesystem operations in MCP server source (capability note)",
+      "description": "Pattern matched in scripts\\update-version.js at line 31: `fs.writeFileSync(versionPath, content);`",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": "scripts\\update-version.js",
+      "line_number": 31,
+      "recommendation": "Review this file system broad access pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "fs.writeFileSync(versionPath, content);",
+      "location": "scripts\\update-version.js:31",
+      "replay": "axiom scan <corpus>/registry/07_ihor-sokoliuk__mcp-searxng --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0004\")'"
+    },
+    {
+      "id": "code_0005",
+      "severity": "info",
+      "category": "permission_overscope",
+      "title": "Filesystem operations in MCP server source (capability note)",
+      "description": "Pattern matched in scripts\\update-version.js at line 44: `fs.writeFileSync(serverJsonPath, JSON.stringify(serverJson, null, 2) + '\\n');`",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": "scripts\\update-version.js",
+      "line_number": 44,
+      "recommendation": "Review this file system broad access pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "fs.writeFileSync(serverJsonPath, JSON.stringify(serverJson, null, 2) + '\\n');",
+      "location": "scripts\\update-version.js:44",
+      "replay": "axiom scan <corpus>/registry/07_ihor-sokoliuk__mcp-searxng --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0005\")'"
+    },
+    {
+      "id": "code_0006",
+      "severity": "info",
+      "category": "credential_theft",
+      "title": "Server reads environment variables or credential-file paths (capability note)",
+      "description": "Pattern matched in scripts\\verify-packed-consumer.mjs at line 110: `const userConfig = path.join(root, 'user.npmrc');`",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP01"
+      ],
+      "file_path": "scripts\\verify-packed-consumer.mjs",
+      "line_number": 110,
+      "recommendation": "Review this credential harvesting pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const userConfig = path.join(root, 'user.npmrc');",
+      "location": "scripts\\verify-packed-consumer.mjs:110",
+      "replay": "axiom scan <corpus>/registry/07_ihor-sokoliuk__mcp-searxng --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0006\")'"
+    },
+    {
+      "id": "code_0007",
+      "severity": "info",
+      "category": "credential_theft",
+      "title": "Server reads environment variables or credential-file paths (capability note)",
+      "description": "Pattern matched in scripts\\verify-packed-consumer.mjs at line 111: `const globalConfig = path.join(root, 'global.npmrc');`",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP01"
+      ],
+      "file_path": "scripts\\verify-packed-consumer.mjs",
+      "line_number": 111,
+      "recommendation": "Review this credential harvesting pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const globalConfig = path.join(root, 'global.npmrc');",
+      "location": "scripts\\verify-packed-consumer.mjs:111",
+      "replay": "axiom scan <corpus>/registry/07_ihor-sokoliuk__mcp-searxng --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0007\")'"
+    },
+    {
+      "id": "code_0008",
+      "severity": "low",
+      "category": "obfuscation",
+      "title": "Encoded or obfuscated content in MCP server source",
+      "description": "Pattern matched in scripts\\verify-packed-consumer.mjs at line 185: ``const bytes = new Uint8Array(Buffer.from('${fixture}', 'base64'));`,`",
+      "owasp_asi": [
+        "ASI01",
+        "ASI10"
+      ],
+      "owasp_mcp": [
+        "MCP03",
+        "MCP04"
+      ],
+      "file_path": "scripts\\verify-packed-consumer.mjs",
+      "line_number": 185,
+      "recommendation": "Review this obfuscation pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "`const bytes = new Uint8Array(Buffer.from('${fixture}', 'base64'));",
+      "location": "scripts\\verify-packed-consumer.mjs:185",
+      "replay": "axiom scan <corpus>/registry/07_ihor-sokoliuk__mcp-searxng --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0008\")'"
+    },
+    {
+      "id": "code_0009",
+      "severity": "info",
+      "category": "credential_theft",
+      "title": "Server reads environment variables or credential-file paths (capability note)",
+      "description": "Pattern matched in src\\browser-solver-config.ts at line 19: `const value = process.env[name];`",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP01"
+      ],
+      "file_path": "src\\browser-solver-config.ts",
+      "line_number": 19,
+      "recommendation": "Review this credential harvesting pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const value = process.env[name];",
+      "location": "src\\browser-solver-config.ts:19",
+      "replay": "axiom scan <corpus>/registry/07_ihor-sokoliuk__mcp-searxng --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0009\")'"
+    },
+    {
+      "id": "code_0010",
+      "severity": "low",
+      "category": "obfuscation",
+      "title": "Encoded or obfuscated content in MCP server source",
+      "description": "Pattern matched in src\\browser-solver-content.ts at line 78: `const bytes = Buffer.from(body, \"base64\");`",
+      "owasp_asi": [
+        "ASI01",
+        "ASI10"
+      ],
+      "owasp_mcp": [
+        "MCP03",
+        "MCP04"
+      ],
+      "file_path": "src\\browser-solver-content.ts",
+      "line_number": 78,
+      "recommendation": "Review this obfuscation pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const bytes = Buffer.from(body, \"base64\");",
+      "location": "src\\browser-solver-content.ts:78",
+      "replay": "axiom scan <corpus>/registry/07_ihor-sokoliuk__mcp-searxng --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0010\")'"
+    },
+    {
+      "id": "code_0011",
+      "severity": "info",
+      "category": "credential_theft",
+      "title": "Server reads environment variables or credential-file paths (capability note)",
+      "description": "Pattern matched in src\\browser-solver.ts at line 80: `const rawValue = process.env[name];`",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP01"
+      ],
+      "file_path": "src\\browser-solver.ts",
+      "line_number": 80,
+      "recommendation": "Review this credential harvesting pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const rawValue = process.env[name];",
+      "location": "src\\browser-solver.ts:80",
+      "replay": "axiom scan <corpus>/registry/07_ihor-sokoliuk__mcp-searxng --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0011\")'"
+    },
+    {
+      "id": "code_0012",
+      "severity": "low",
+      "category": "obfuscation",
+      "title": "Encoded or obfuscated content in MCP server source",
+      "description": "Pattern matched in src\\diagnostic-sanitizer.ts at line 42: `(escape) => String.fromCharCode(Number.parseInt(escape.slice(1), 16)));`",
+      "owasp_asi": [
+        "ASI01",
+        "ASI10"
+      ],
+      "owasp_mcp": [
+        "MCP03",
+        "MCP04"
+      ],
+      "file_path": "src\\diagnostic-sanitizer.ts",
+      "line_number": 42,
+      "recommendation": "Review this obfuscation pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "(escape) => String.fromCharCode(Number.parseInt(escape.slice(1), 16)));",
+      "location": "src\\diagnostic-sanitizer.ts:42",
+      "replay": "axiom scan <corpus>/registry/07_ihor-sokoliuk__mcp-searxng --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0012\")'"
+    },
+    {
+      "id": "code_0013",
+      "severity": "info",
+      "category": "credential_theft",
+      "title": "Server reads environment variables or credential-file paths (capability note)",
+      "description": "Pattern matched in src\\error-handler.ts at line 51: `return 'Run: sudo security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keychain /path/to/ca.crt';`",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP01"
+      ],
+      "file_path": "src\\error-handler.ts",
+      "line_number": 51,
+      "recommendation": "Review this credential harvesting pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "return 'Run: sudo security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keychain /path/to/ca.crt';",
+      "location": "src\\error-handler.ts:51",
+      "replay": "axiom scan <corpus>/registry/07_ihor-sokoliuk__mcp-searxng --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0013\")'"
+    },
+    {
+      "id": "code_0014",
+      "severity": "info",
+      "category": "credential_theft",
+      "title": "Server reads environment variables or credential-file paths (capability note)",
+      "description": "Pattern matched in src\\http-server.ts at line 401: `const raw = process.env[name];`",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP01"
+      ],
+      "file_path": "src\\http-server.ts",
+      "line_number": 401,
+      "recommendation": "Review this credential harvesting pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const raw = process.env[name];",
+      "location": "src\\http-server.ts:401",
+      "replay": "axiom scan <corpus>/registry/07_ihor-sokoliuk__mcp-searxng --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0014\")'"
+    },
+    {
+      "id": "code_0015",
+      "severity": "info",
+      "category": "credential_theft",
+      "title": "Server reads environment variables or credential-file paths (capability note)",
+      "description": "Pattern matched in src\\http-server.ts at line 421: `const raw = process.env[name];`",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP01"
+      ],
+      "file_path": "src\\http-server.ts",
+      "line_number": 421,
+      "recommendation": "Review this credential harvesting pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const raw = process.env[name];",
+      "location": "src\\http-server.ts:421",
+      "replay": "axiom scan <corpus>/registry/07_ihor-sokoliuk__mcp-searxng --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0015\")'"
+    },
+    {
+      "id": "code_0016",
+      "severity": "info",
+      "category": "credential_theft",
+      "title": "Server reads environment variables or credential-file paths (capability note)",
+      "description": "Pattern matched in src\\index.ts at line 111: `const parsed = parseBoundedInteger(process.env[name], fallback, minimum, maximum);`",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP01"
+      ],
+      "file_path": "src\\index.ts",
+      "line_number": 111,
+      "recommendation": "Review this credential harvesting pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const parsed = parseBoundedInteger(process.env[name], fallback, minimum, maximum);",
+      "location": "src\\index.ts:111",
+      "replay": "axiom scan <corpus>/registry/07_ihor-sokoliuk__mcp-searxng --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0016\")'"
+    },
+    {
+      "id": "code_0017",
+      "severity": "info",
+      "category": "credential_theft",
+      "title": "Server reads environment variables or credential-file paths (capability note)",
+      "description": "Pattern matched in src\\oauth-http.ts at line 19: `const value = process.env[name]?.trim();`",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP01"
+      ],
+      "file_path": "src\\oauth-http.ts",
+      "line_number": 19,
+      "recommendation": "Review this credential harvesting pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const value = process.env[name]?.trim();",
+      "location": "src\\oauth-http.ts:19",
+      "replay": "axiom scan <corpus>/registry/07_ihor-sokoliuk__mcp-searxng --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0017\")'"
+    },
+    {
+      "id": "code_0018",
+      "severity": "info",
+      "category": "credential_theft",
+      "title": "Server reads environment variables or credential-file paths (capability note)",
+      "description": "Pattern matched in src\\oauth-http.ts at line 44: `if (names.some(name => process.env[name] !== undefined)) throw new Error(\"OAuth settings require MCP_HTTP_AUTH_MODE=oaut`",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP01"
+      ],
+      "file_path": "src\\oauth-http.ts",
+      "line_number": 44,
+      "recommendation": "Review this credential harvesting pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "if (names.some(name => process.env[name] !== undefined)) throw new Error(\"OAuth settings require MCP_HTTP_AUTH_MODE=oaut",
+      "location": "src\\oauth-http.ts:44",
+      "replay": "axiom scan <corpus>/registry/07_ihor-sokoliuk__mcp-searxng --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0018\")'"
+    },
+    {
+      "id": "code_0019",
+      "severity": "info",
+      "category": "data_exfiltration",
+      "title": "Server makes outbound network requests (capability note)",
+      "description": "Pattern matched in src\\pdf-network-guard.ts at line 16: `net: { connect: typeof net.connect; createConnection: typeof net.createConnection };`",
+      "owasp_asi": [
+        "ASI01",
+        "ASI02"
+      ],
+      "owasp_mcp": [
+        "MCP10"
+      ],
+      "file_path": "src\\pdf-network-guard.ts",
+      "line_number": 16,
+      "recommendation": "Review this data exfiltration pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "net: { connect: typeof net.connect; createConnection: typeof net.createConnection };",
+      "location": "src\\pdf-network-guard.ts:16",
+      "replay": "axiom scan <corpus>/registry/07_ihor-sokoliuk__mcp-searxng --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0019\")'"
+    },
+    {
+      "id": "code_0020",
+      "severity": "info",
+      "category": "data_exfiltration",
+      "title": "Server makes outbound network requests (capability note)",
+      "description": "Pattern matched in src\\pdf-network-guard.ts at line 29: `netCreateConnection: modules.net.createConnection,`",
+      "owasp_asi": [
+        "ASI01",
+        "ASI02"
+      ],
+      "owasp_mcp": [
+        "MCP10"
+      ],
+      "file_path": "src\\pdf-network-guard.ts",
+      "line_number": 29,
+      "recommendation": "Review this data exfiltration pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "netCreateConnection: modules.net.createConnection,",
+      "location": "src\\pdf-network-guard.ts:29",
+      "replay": "axiom scan <corpus>/registry/07_ihor-sokoliuk__mcp-searxng --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0020\")'"
+    },
+    {
+      "id": "code_0021",
+      "severity": "info",
+      "category": "data_exfiltration",
+      "title": "Server makes outbound network requests (capability note)",
+      "description": "Pattern matched in src\\pdf-network-guard.ts at line 39: `& typeof net.createConnection`",
+      "owasp_asi": [
+        "ASI01",
+        "ASI02"
+      ],
+      "owasp_mcp": [
+        "MCP10"
+      ],
+      "file_path": "src\\pdf-network-guard.ts",
+      "line_number": 39,
+      "recommendation": "Review this data exfiltration pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "& typeof net.createConnection",
+      "location": "src\\pdf-network-guard.ts:39",
+      "replay": "axiom scan <corpus>/registry/07_ihor-sokoliuk__mcp-searxng --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0021\")'"
+    },
+    {
+      "id": "code_0022",
+      "severity": "info",
+      "category": "data_exfiltration",
+      "title": "Server makes outbound network requests (capability note)",
+      "description": "Pattern matched in src\\pdf-network-guard.ts at line 48: `modules.net.createConnection = blocked;`",
+      "owasp_asi": [
+        "ASI01",
+        "ASI02"
+      ],
+      "owasp_mcp": [
+        "MCP10"
+      ],
+      "file_path": "src\\pdf-network-guard.ts",
+      "line_number": 48,
+      "recommendation": "Review this data exfiltration pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "modules.net.createConnection = blocked;",
+      "location": "src\\pdf-network-guard.ts:48",
+      "replay": "axiom scan <corpus>/registry/07_ihor-sokoliuk__mcp-searxng --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0022\")'"
+    },
+    {
+      "id": "code_0023",
+      "severity": "info",
+      "category": "data_exfiltration",
+      "title": "Server makes outbound network requests (capability note)",
+      "description": "Pattern matched in src\\pdf-network-guard.ts at line 58: `modules.net.createConnection = originals.netCreateConnection;`",
+      "owasp_asi": [
+        "ASI01",
+        "ASI02"
+      ],
+      "owasp_mcp": [
+        "MCP10"
+      ],
+      "file_path": "src\\pdf-network-guard.ts",
+      "line_number": 58,
+      "recommendation": "Review this data exfiltration pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "modules.net.createConnection = originals.netCreateConnection;",
+      "location": "src\\pdf-network-guard.ts:58",
+      "replay": "axiom scan <corpus>/registry/07_ihor-sokoliuk__mcp-searxng --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0023\")'"
+    },
+    {
+      "id": "code_0024",
+      "severity": "low",
+      "category": "obfuscation",
+      "title": "Encoded or obfuscated content in MCP server source",
+      "description": "Pattern matched in src\\pdf-worker.ts at line 79: `return text.replace(/[\\x00-\\x08\\x0b\\x0c\\x0e-\\x1f\\x7f]/g, \"\");`",
+      "owasp_asi": [
+        "ASI01",
+        "ASI10"
+      ],
+      "owasp_mcp": [
+        "MCP03",
+        "MCP04"
+      ],
+      "file_path": "src\\pdf-worker.ts",
+      "line_number": 79,
+      "recommendation": "Review this obfuscation pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "return text.replace(/[\\x00-\\x08\\x0b\\x0c\\x0e-\\x1f\\x7f]/g, \"\");",
+      "location": "src\\pdf-worker.ts:79",
+      "replay": "axiom scan <corpus>/registry/07_ihor-sokoliuk__mcp-searxng --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0024\")'"
+    },
+    {
+      "id": "code_0025",
+      "severity": "info",
+      "category": "credential_theft",
+      "title": "Server reads environment variables or credential-file paths (capability note)",
+      "description": "Pattern matched in src\\resources.ts at line 65: `return PROXY_ENVIRONMENT_KEYS.some((key) => Boolean(process.env[key]));`",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP01"
+      ],
+      "file_path": "src\\resources.ts",
+      "line_number": 65,
+      "recommendation": "Review this credential harvesting pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "return PROXY_ENVIRONMENT_KEYS.some((key) => Boolean(process.env[key]));",
+      "location": "src\\resources.ts:65",
+      "replay": "axiom scan <corpus>/registry/07_ihor-sokoliuk__mcp-searxng --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0025\")'"
+    },
+    {
+      "id": "GHSA-3g3m-2fjr-6pw4",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency glob@13.0.6: GHSA-3g3m-2fjr-6pw4",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update glob to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-3g3m-2fjr-6pw4",
+      "location": "static:<corpus>/registry/07_ihor-sokoliuk__mcp-searxng:dependencies",
+      "replay": "axiom scan <corpus>/registry/07_ihor-sokoliuk__mcp-searxng --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-3g3m-2fjr-6pw4\")'"
+    },
+    {
+      "id": "GHSA-g3hv-75wg-m249",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency minimatch@10.2.6: GHSA-g3hv-75wg-m249",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update minimatch to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-g3hv-75wg-m249",
+      "location": "static:<corpus>/registry/07_ihor-sokoliuk__mcp-searxng:dependencies",
+      "replay": "axiom scan <corpus>/registry/07_ihor-sokoliuk__mcp-searxng --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-g3hv-75wg-m249\")'"
+    },
+    {
+      "id": "provenance_fresh_publish",
+      "severity": "medium",
+      "category": "supply_chain",
+      "title": "Registry entry 'io.github.ihor-sokoliuk/mcp-searxng' was published 0 day(s) ago",
+      "description": "'io.github.ihor-sokoliuk/mcp-searxng' version 2.10.1 appeared in the registry on 2026-11-11T21:54:04.912054Z. Nothing this new has been looked at by anyone; pin it and review it before an agent uses it.",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Pin the version and review the diff from the previous release.",
+      "rule_id": "provenance_rule",
+      "evidence": "publishedAt 2026-11-11T21:54:04.912054Z",
+      "location": "static:<corpus>/registry/07_ihor-sokoliuk__mcp-searxng:provenance",
+      "replay": "axiom scan <corpus>/registry/07_ihor-sokoliuk__mcp-searxng --output json --no-ai --no-history | jq '.findings[] | select(.id==\"provenance_fresh_publish\")'"
+    },
+    {
+      "id": "transport_plain_http",
+      "severity": "info",
+      "category": "transport_security",
+      "title": "MCP server listens on plain HTTP",
+      "description": "src\\error-handler.ts binds or references http://localhost; the server is on the loopback interface; only this machine can reach it.",
+      "owasp_asi": [
+        "ASI07"
+      ],
+      "owasp_mcp": [
+        "MCP07"
+      ],
+      "file_path": "src\\error-handler.ts",
+      "line_number": null,
+      "recommendation": "Use HTTPS with valid TLS certificates for anything reachable beyond this machine.",
+      "rule_id": "transport_plain_http",
+      "evidence": "MCP server listens on plain HTTP",
+      "location": "src\\error-handler.ts",
+      "replay": "axiom scan <corpus>/registry/07_ihor-sokoliuk__mcp-searxng --output json --no-ai --no-history | jq '.findings[] | select(.id==\"transport_plain_http\")'"
+    },
+    {
+      "id": "trust_0001",
+      "severity": "low",
+      "category": "trust_exploitation",
+      "title": "Trust exploitation pattern: consent bypass",
+      "description": "Pattern in src\\browser-solver-config.ts near line 48: `without user`. This could enable a compromised agent to mislead users.",
+      "owasp_asi": [
+        "ASI09"
+      ],
+      "owasp_mcp": [
+        "MCP06"
+      ],
+      "file_path": "src\\browser-solver-config.ts",
+      "line_number": 48,
+      "recommendation": "Implement output verification. Require human confirmation for high-impact actions. Mark agent-generated content as such.",
+      "rule_id": "trust_exploitation_pattern",
+      "evidence": "Trust exploitation pattern: consent bypass",
+      "location": "src\\browser-solver-config.ts:48",
+      "replay": "axiom scan <corpus>/registry/07_ihor-sokoliuk__mcp-searxng --output json --no-ai --no-history | jq '.findings[] | select(.id==\"trust_0001\")'"
+    },
+    {
+      "id": "trust_0002",
+      "severity": "low",
+      "category": "trust_exploitation",
+      "title": "Trust exploitation pattern: consent bypass",
+      "description": "Pattern in __tests__\\integration\\cli.test.ts near line 164: `without user`. This could enable a compromised agent to mislead users.",
+      "owasp_asi": [
+        "ASI09"
+      ],
+      "owasp_mcp": [
+        "MCP06"
+      ],
+      "file_path": "__tests__\\integration\\cli.test.ts",
+      "line_number": 164,
+      "recommendation": "Implement output verification. Require human confirmation for high-impact actions. Mark agent-generated content as such.",
+      "rule_id": "trust_exploitation_pattern",
+      "evidence": "Trust exploitation pattern: consent bypass",
+      "location": "__tests__\\integration\\cli.test.ts:164",
+      "replay": "axiom scan <corpus>/registry/07_ihor-sokoliuk__mcp-searxng --output json --no-ai --no-history | jq '.findings[] | select(.id==\"trust_0002\")'"
+    },
+    {
+      "id": "trust_0003",
+      "severity": "low",
+      "category": "trust_exploitation",
+      "title": "Trust exploitation pattern: consent bypass",
+      "description": "Pattern in __tests__\\unit\\error-handler.test.ts near line 238: `without user`. This could enable a compromised agent to mislead users.",
+      "owasp_asi": [
+        "ASI09"
+      ],
+      "owasp_mcp": [
+        "MCP06"
+      ],
+      "file_path": "__tests__\\unit\\error-handler.test.ts",
+      "line_number": 238,
+      "recommendation": "Implement output verification. Require human confirmation for high-impact actions. Mark agent-generated content as such.",
+      "rule_id": "trust_exploitation_pattern",
+      "evidence": "Trust exploitation pattern: consent bypass",
+      "location": "__tests__\\unit\\error-handler.test.ts:238",
+      "replay": "axiom scan <corpus>/registry/07_ihor-sokoliuk__mcp-searxng --output json --no-ai --no-history | jq '.findings[] | select(.id==\"trust_0003\")'"
+    },
+    {
+      "id": "trust_0004",
+      "severity": "low",
+      "category": "trust_exploitation",
+      "title": "Trust exploitation pattern: deceptive output",
+      "description": "Pattern in __tests__\\unit\\search.test.ts near line 2413: `forge result`. This could enable a compromised agent to mislead users.",
+      "owasp_asi": [
+        "ASI09"
+      ],
+      "owasp_mcp": [
+        "MCP06"
+      ],
+      "file_path": "__tests__\\unit\\search.test.ts",
+      "line_number": 2413,
+      "recommendation": "Implement output verification. Require human confirmation for high-impact actions. Mark agent-generated content as such.",
+      "rule_id": "trust_exploitation_pattern",
+      "evidence": "Trust exploitation pattern: deceptive output",
+      "location": "__tests__\\unit\\search.test.ts:2413",
+      "replay": "axiom scan <corpus>/registry/07_ihor-sokoliuk__mcp-searxng --output json --no-ai --no-history | jq '.findings[] | select(.id==\"trust_0004\")'"
+    },
+    {
+      "id": "mcp04_unpinned_0001",
+      "severity": "medium",
+      "category": "supply_chain",
+      "title": "Unpinned install source",
+      "description": "`npx mcp-searxng` without a pinned version in .github\\ISSUE_TEMPLATE\\bug_report.yml at line 54. Without an exact version the next install silently picks up whatever is published, including a compromised release.",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": ".github\\ISSUE_TEMPLATE\\bug_report.yml",
+      "line_number": 54,
+      "recommendation": "Pin an exact version (pkg@1.2.3, pkg==1.2.3) and prefer a lockfile or hash-checked requirements.",
+      "rule_id": "unpinned_install_source",
+      "evidence": "Unpinned install source",
+      "location": ".github\\ISSUE_TEMPLATE\\bug_report.yml:54",
+      "replay": "axiom scan <corpus>/registry/07_ihor-sokoliuk__mcp-searxng --output json --no-ai --no-history | jq '.findings[] | select(.id==\"mcp04_unpinned_0001\")'"
+    }
+  ],
+  "server_profile": {
+    "name": "07_ihor-sokoliuk__mcp-searxng",
+    "command": null,
+    "args": [],
+    "env_vars": [],
+    "transport": "http",
+    "tools": [
+      {
+        "name": "searxng_web_search",
+        "description": "Searches the web using SearXNG and returns a list of results, each with a title, URL, and content snippet. CRITICAL: The required parameter name is exactly `query` (not `prompt`, `q`, or any other name). Calls an external SearXNG instance; availability depends on the `SEARXNG_URL` configuration. Use `pageno` to paginate results; combine `time_range` and `language` to narrow scope. When `engines` and `time_range` are both provided, every selected engine must explicitly advertise time-range support via SearXNG /config; otherwise the request is rejected before search. To read the full text of a result URL, follow up with `web_url_read`.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "query": {
+              "type": "string",
+              "description": "The search query string. This is the required parameter name \u2014 use exactly `query`, not `prompt` or `q`."
+            },
+            "pageno": {
+              "type": "integer",
+              "description": "Search page number (starts at 1)",
+              "minimum": 1,
+              "default": 1
+            },
+            "pages": {
+              "type": "integer",
+              "description": "Fetch 1 to 5 consecutive pages concurrently starting at pageno; merge and deduplicate before applying the result limit. Failed pages are reported in failedPages in JSON output.",
+              "minimum": 1,
+              "maximum": 5,
+              "default": 1
+            },
+            "time_range": {
+              "type": "string",
+              "description": "Time range of search (day, week, month, year). With explicit engines, all selected engines must confirm time_range_support=true via /config.",
+              "enum": [
+                "day",
+                "week",
+                "month",
+                "year"
+              ]
+            },
+            "language": {
+              "type": "string",
+              "description": "Language code for search results (e.g., 'en', 'fr', 'de'). Default is instance-dependent.",
+              "default": "all"
+            },
+            "safesearch": {
+              "type": "string",
+              "description": "Safe search filter level (0: None, 1: Moderate, 2: Strict)",
+              "enum": [
+                "0",
+                "1",
+                "2"
+              ]
+            },
+            "min_score": {
+              "type": "number",
+              "description": "Minimum relevance score threshold from 0.0 to 1.0. Results below this score are filtered out.",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "num_results": {
+              "type": "number",
+              "description": "Maximum number of results to return (1-20). Operator cap SEARXNG_MAX_RESULTS applies as a ceiling.",
+              "minimum": 1,
+              "maximum": 20
+            },
+            "categories": {
+              "type": "string",
+              "description": "Comma-separated SearXNG categories. Live /config capabilities are aggregated across reachable instances; prefer searxng_instance_info categories.common for consistent multi-instance results. Values in categories.available are best-effort and may only be honored by some instances. Known values are normalized case-insensitively; unknown values are forwarded trimmed so SearXNG can ignore or honor them. If /config is unavailable, values are forwarded as-is with a warning. If omitted, each instance uses its server-side default."
+            },
+            "engines": {
+              "type": "string",
+              "description": "Comma-separated SearXNG engine names to query (e.g. 'google,bing,ddg'). Live /config capabilities are aggregated across reachable instances; prefer searxng_instance_info engines.common.enabled for consistent multi-instance results. Values in engines.available.enabled are best-effort and may only be honored by some instances. Known values are normalized case-insensitively; unknown values are forwarded trimmed so SearXNG can ignore or honor them. If /config is unavailable, values are forwarded as-is with a warning. If omitted, each instance uses its server-side default."
+            },
+            "response_format": {
+              "type": "string",
+              "description": "Response format: formatted text for agents or raw JSON for programmatic clients. If omitted, SEARXNG_DEFAULT_RESPONSE_FORMAT applies; if unset or invalid, text is used. An explicit response_format always takes precedence.",
+              "enum": [
+                "text",
+                "json"
+              ]
+            },
+            "result_detail": {
+              "type": "string",
+              "description": "Result detail: full preserves SearXNG metadata and search signals; compact returns only title, URL, and content-snippet fields for each result (JSON keys: title, url, content). If omitted, full is used.",
+              "enum": [
+                "compact",
+                "full"
+              ]
+            }
+          },
+          "required": [
+            "query"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "medium",
+        "poisoning_detail": "Steering language in tool description (imperative guidance aimed at the model). Matched pattern in tool 'searxng_web_search': 'always'"
+      },
+      {
+        "name": "searxng_search_suggestions",
+        "description": "Returns autocomplete suggestions from the configured SearXNG instance. Use this to refine vague or partial queries before searching.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "query": {
+              "type": "string",
+              "description": "Partial or complete query to autocomplete."
+            },
+            "language": {
+              "type": "string",
+              "description": "Language code for suggestions (e.g., 'en', 'fr', 'de') or 'all'. Default: all.",
+              "default": "all"
+            }
+          },
+          "required": [
+            "query"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "searxng_instance_info",
+        "description": "Discovers capabilities from all reachable configured SearXNG instances via /config, including categories.common/available, engines.common/available, defaults, locales, and plugins.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "includeEngines": {
+              "type": "boolean",
+              "description": "Include enabled engine names in the response.",
+              "default": false
+            },
+            "includeDisabled": {
+              "type": "boolean",
+              "description": "Include disabled engine names when includeEngines is true.",
+              "default": false
+            },
+            "category": {
+              "type": "string",
+              "description": "Filter categories and engines to a single category name."
+            },
+            "refresh": {
+              "type": "boolean",
+              "description": "Bypass the process cache and fetch fresh /config data.",
+              "default": false
+            }
+          },
+          "required": []
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "web_url_read",
+        "description": "Fetch URL. Converts HTML to markdown; returns explicit JSON, plain text, YAML, TOML, and XML as readable markdown; supports bounded PDF text extraction; other binary/media/archive downloads are rejected. When browser solvers are configured, mcp-searxng attempts FlareSolverr first and then Byparr only after a busy or transient-unavailable acquisition; after a final busy or unavailable provider it uses one uncached direct read.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "url": {
+              "type": "string",
+              "description": "URL to fetch."
+            }
+          },
+          "required": [
+            "url"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      }
+    ],
+    "resources": [
+      {
+        "uri": "config://server-config",
+        "name": "Server Configuration",
+        "description": "Current server configuration and environment variables",
+        "mime_type": null
+      },
+      {
+        "uri": "help://usage-guide",
+        "name": "Usage Guide",
+        "description": "How to use the MCP SearXNG server effectively",
+        "mime_type": null
+      }
+    ],
+    "prompts": [],
+    "repo_url": null,
+    "npm_package": null,
+    "capabilities_claimed": [],
+    "capabilities_actual": []
+  },
+  "fingerprint": "e32d1faf5fb6781efafad15f8a8a517ddfd054a65246c3c295c0781e37ffa56c",
+  "surface_map": {
+    "server": {
+      "name": "mcp-searxng",
+      "instructions": "",
+      "transport": "unknown",
+      "auth": "unknown"
+    },
+    "tools": [
+      {
+        "name": "searxng_web_search",
+        "description": "Searches the web using SearXNG and returns a list of results, each with a title, URL, and content snippet. CRITICAL: The required parameter name is exactly `query` (not `prompt`, `q`, or any other name). Calls an external SearXNG instance; availability depends on the `SEARXNG_URL` configuration. Use `pageno` to paginate results; combine `time_range` and `language` to narrow scope. When `engines` and `time_range` are both provided, every selected engine must explicitly advertise time-range support via SearXNG /config; otherwise the request is rejected before search. To read the full text of a result URL, follow up with `web_url_read`.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "query": {
+              "type": "string",
+              "description": "The search query string. This is the required parameter name \u2014 use exactly `query`, not `prompt` or `q`."
+            },
+            "pageno": {
+              "type": "integer",
+              "description": "Search page number (starts at 1)",
+              "minimum": 1,
+              "default": 1
+            },
+            "pages": {
+              "type": "integer",
+              "description": "Fetch 1 to 5 consecutive pages concurrently starting at pageno; merge and deduplicate before applying the result limit. Failed pages are reported in failedPages in JSON output.",
+              "minimum": 1,
+              "maximum": 5,
+              "default": 1
+            },
+            "time_range": {
+              "type": "string",
+              "description": "Time range of search (day, week, month, year). With explicit engines, all selected engines must confirm time_range_support=true via /config.",
+              "enum": [
+                "day",
+                "week",
+                "month",
+                "year"
+              ]
+            },
+            "language": {
+              "type": "string",
+              "description": "Language code for search results (e.g., 'en', 'fr', 'de'). Default is instance-dependent.",
+              "default": "all"
+            },
+            "safesearch": {
+              "type": "string",
+              "description": "Safe search filter level (0: None, 1: Moderate, 2: Strict)",
+              "enum": [
+                "0",
+                "1",
+                "2"
+              ]
+            },
+            "min_score": {
+              "type": "number",
+              "description": "Minimum relevance score threshold from 0.0 to 1.0. Results below this score are filtered out.",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "num_results": {
+              "type": "number",
+              "description": "Maximum number of results to return (1-20). Operator cap SEARXNG_MAX_RESULTS applies as a ceiling.",
+              "minimum": 1,
+              "maximum": 20
+            },
+            "categories": {
+              "type": "string",
+              "description": "Comma-separated SearXNG categories. Live /config capabilities are aggregated across reachable instances; prefer searxng_instance_info categories.common for consistent multi-instance results. Values in categories.available are best-effort and may only be honored by some instances. Known values are normalized case-insensitively; unknown values are forwarded trimmed so SearXNG can ignore or honor them. If /config is unavailable, values are forwarded as-is with a warning. If omitted, each instance uses its server-side default."
+            },
+            "engines": {
+              "type": "string",
+              "description": "Comma-separated SearXNG engine names to query (e.g. 'google,bing,ddg'). Live /config capabilities are aggregated across reachable instances; prefer searxng_instance_info engines.common.enabled for consistent multi-instance results. Values in engines.available.enabled are best-effort and may only be honored by some instances. Known values are normalized case-insensitively; unknown values are forwarded trimmed so SearXNG can ignore or honor them. If /config is unavailable, values are forwarded as-is with a warning. If omitted, each instance uses its server-side default."
+            },
+            "response_format": {
+              "type": "string",
+              "description": "Response format: formatted text for agents or raw JSON for programmatic clients. If omitted, SEARXNG_DEFAULT_RESPONSE_FORMAT applies; if unset or invalid, text is used. An explicit response_format always takes precedence.",
+              "enum": [
+                "text",
+                "json"
+              ]
+            },
+            "result_detail": {
+              "type": "string",
+              "description": "Result detail: full preserves SearXNG metadata and search signals; compact returns only title, URL, and content-snippet fields for each result (JSON keys: title, url, content). If omitted, full is used.",
+              "enum": [
+                "compact",
+                "full"
+              ]
+            }
+          },
+          "required": [
+            "query"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "src\\types.ts:198"
+      },
+      {
+        "name": "searxng_search_suggestions",
+        "description": "Returns autocomplete suggestions from the configured SearXNG instance. Use this to refine vague or partial queries before searching.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "query": {
+              "type": "string",
+              "description": "Partial or complete query to autocomplete."
+            },
+            "language": {
+              "type": "string",
+              "description": "Language code for suggestions (e.g., 'en', 'fr', 'de') or 'all'. Default: all.",
+              "default": "all"
+            }
+          },
+          "required": [
+            "query"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "src\\types.ts:288"
+      },
+      {
+        "name": "searxng_instance_info",
+        "description": "Discovers capabilities from all reachable configured SearXNG instances via /config, including categories.common/available, engines.common/available, defaults, locales, and plugins.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "includeEngines": {
+              "type": "boolean",
+              "description": "Include enabled engine names in the response.",
+              "default": false
+            },
+            "includeDisabled": {
+              "type": "boolean",
+              "description": "Include disabled engine names when includeEngines is true.",
+              "default": false
+            },
+            "category": {
+              "type": "string",
+              "description": "Filter categories and engines to a single category name."
+            },
+            "refresh": {
+              "type": "boolean",
+              "description": "Bypass the process cache and fetch fresh /config data.",
+              "default": false
+            }
+          },
+          "required": []
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "src\\types.ts:314"
+      },
+      {
+        "name": "web_url_read",
+        "description": "Fetch URL. Converts HTML to markdown; returns explicit JSON, plain text, YAML, TOML, and XML as readable markdown; supports bounded PDF text extraction; other binary/media/archive downloads are rejected. When browser solvers are configured, mcp-searxng attempts FlareSolverr first and then Byparr only after a busy or transient-unavailable acquisition; after a final busy or unavailable provider it uses one uncached direct read.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "url": {
+              "type": "string",
+              "description": "URL to fetch."
+            }
+          },
+          "required": [
+            "url"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "src\\types.ts:379"
+      }
+    ],
+    "resources": [
+      {
+        "uri": "config://server-config",
+        "name": "Server Configuration",
+        "description": "Current server configuration and environment variables",
+        "mime_type": null,
+        "content_literals": [],
+        "location": "src\\index.ts:386"
+      },
+      {
+        "uri": "help://usage-guide",
+        "name": "Usage Guide",
+        "description": "How to use the MCP SearXNG server effectively",
+        "mime_type": null,
+        "content_literals": [],
+        "location": "src\\index.ts:392"
+      }
+    ],
+    "prompts": [],
+    "mutations": [],
+    "source": {
+      "kind": "static",
+      "target": "07_ihor-sokoliuk__mcp-searxng",
+      "languages": [
+        "typescript"
+      ]
+    },
+    "generated_at": "2026-11-11T22:30:09+00:00",
+    "fingerprint": "e32d1faf5fb6781efafad15f8a8a517ddfd054a65246c3c295c0781e37ffa56c",
+    "schema": "axiom.surface/1"
+  },
+  "provenance": {
+    "identity": {
+      "npm": "mcp-searxng",
+      "pypi": null,
+      "repository": "https://github.com/ihor-sokoliuk/mcp-searxng",
+      "server_name": "mcp-searxng"
+    },
+    "registry": {
+      "status": "match",
+      "entry": "io.github.ihor-sokoliuk/mcp-searxng",
+      "repository": "https://github.com/ihor-sokoliuk/mcp-searxng",
+      "packages": [
+        "npm:mcp-searxng"
+      ],
+      "publishedAt": "2026-11-11T21:54:04.912054Z",
+      "version": "2.10.1"
+    },
+    "lookalikes": [],
+    "checked_at": "2026-11-11T22:30:09+00:00"
+  },
+  "owasp_coverage": {
+    "framework": "OWASP Top 10 for Agentic Applications 2026",
+    "reference": "https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/",
+    "coverage": {
+      "ASI01": {
+        "name": "Agent Goal Hijack",
+        "coverage_level": "strong",
+        "findings_count": 11,
+        "finding_ids": [
+          "poison_searxng_web_search_instruction_injection",
+          "poison_searxng_web_search_long_desc",
+          "code_0008",
+          "code_0010",
+          "code_0012",
+          "code_0019",
+          "code_0020",
+          "code_0021",
+          "code_0022",
+          "code_0023"
+        ],
+        "detectors": [
+          "tool_poisoning",
+          "prompt_injection",
+          "instruction_injection"
+        ]
+      },
+      "ASI02": {
+        "name": "Tool Misuse & Exploitation",
+        "coverage_level": "strong",
+        "findings_count": 7,
+        "finding_ids": [
+          "poison_searxng_web_search_tool_chaining",
+          "cross_tool_searxng_web_search_web_url_read",
+          "code_0019",
+          "code_0020",
+          "code_0021",
+          "code_0022",
+          "code_0023"
+        ],
+        "detectors": [
+          "toxic_tool_combo",
+          "tool_overscope",
+          "tool_chaining_detection"
+        ]
+      },
+      "ASI03": {
+        "name": "Identity & Privilege Abuse",
+        "coverage_level": "strong",
+        "findings_count": 14,
+        "finding_ids": [
+          "code_0003",
+          "code_0004",
+          "code_0005",
+          "code_0006",
+          "code_0007",
+          "code_0009",
+          "code_0011",
+          "code_0013",
+          "code_0014",
+          "code_0015"
+        ],
+        "detectors": [
+          "credential_analysis",
+          "shared_credential_detection",
+          "env_var_audit"
+        ]
+      },
+      "ASI04": {
+        "name": "Agentic Supply Chain Vulnerabilities",
+        "coverage_level": "strong",
+        "findings_count": 4,
+        "finding_ids": [
+          "GHSA-3g3m-2fjr-6pw4",
+          "GHSA-g3hv-75wg-m249",
+          "provenance_fresh_publish",
+          "mcp04_unpinned_0001"
+        ],
+        "detectors": [
+          "dependency_cve",
+          "lifecycle_hooks",
+          "npx_unversioned",
+          "known_mcp_cves"
+        ]
+      },
+      "ASI05": {
+        "name": "Unexpected Code Execution",
+        "coverage_level": "strong",
+        "findings_count": 2,
+        "finding_ids": [
+          "code_0001",
+          "code_0002"
+        ],
+        "detectors": [
+          "code_exec_patterns",
+          "code_generation_detection",
+          "sandbox_escape"
+        ]
+      },
+      "ASI06": {
+        "name": "Memory & Context Poisoning",
+        "coverage_level": "partial",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "memory_poisoning_patterns",
+          "context_manipulation_detection"
+        ],
+        "gap_note": "Axiom detects static patterns. Full coverage requires runtime memory monitoring."
+      },
+      "ASI07": {
+        "name": "Insecure Inter-Agent Communication",
+        "coverage_level": "partial",
+        "findings_count": 1,
+        "finding_ids": [
+          "transport_plain_http"
+        ],
+        "detectors": [
+          "transport_security",
+          "a2a_pattern_detection"
+        ],
+        "gap_note": "Axiom checks transport security. Full A2A protocol analysis requires runtime interception."
+      },
+      "ASI08": {
+        "name": "Cascading Failures",
+        "coverage_level": "partial",
+        "findings_count": 1,
+        "finding_ids": [
+          "cross_tool_searxng_web_search_web_url_read"
+        ],
+        "detectors": [
+          "blast_radius_estimation",
+          "dependency_chain_analysis"
+        ],
+        "gap_note": "Axiom estimates blast radius from tool capabilities. Full cascading failure analysis requires runtime topology mapping."
+      },
+      "ASI09": {
+        "name": "Human-Agent Trust Exploitation",
+        "coverage_level": "strong",
+        "findings_count": 4,
+        "finding_ids": [
+          "trust_0001",
+          "trust_0002",
+          "trust_0003",
+          "trust_0004"
+        ],
+        "detectors": [
+          "claimed_vs_actual",
+          "deceptive_output_detection",
+          "trust_manipulation_patterns"
+        ]
+      },
+      "ASI10": {
+        "name": "Rogue Agents",
+        "coverage_level": "partial",
+        "findings_count": 4,
+        "finding_ids": [
+          "code_0008",
+          "code_0010",
+          "code_0012",
+          "code_0024"
+        ],
+        "detectors": [
+          "sleeper_patterns",
+          "behavioral_drift_indicators",
+          "persistence_detection"
+        ],
+        "gap_note": "Axiom detects static rogue indicators. Full rogue agent detection requires runtime behavioral monitoring."
+      }
+    },
+    "total_asi_categories_with_findings": 9
+  },
+  "owasp_mcp_coverage": {
+    "framework": "OWASP MCP Top 10",
+    "framework_version": "v0.1 beta",
+    "reference": "https://owasp.org/www-project-mcp-top-10/",
+    "coverage": {
+      "MCP01": {
+        "id": "MCP01:2025",
+        "name": "Token Mismanagement & Secret Exposure",
+        "coverage_level": "partial",
+        "reason": "Regex-based secret detection in server source and client configs plus env-var exposure checks; no entropy analysis, git-history scan, or token lifetime/passthrough checks.",
+        "findings_count": 12,
+        "finding_ids": [
+          "cross_tool_searxng_web_search_web_url_read",
+          "code_0006",
+          "code_0007",
+          "code_0009",
+          "code_0011",
+          "code_0013",
+          "code_0014",
+          "code_0015",
+          "code_0016",
+          "code_0017"
+        ],
+        "detectors": [
+          "credential_theft",
+          "cross_server",
+          "mcp01_hardcoded_secrets",
+          "config_hardcoded_secret",
+          "env_var_audit",
+          "env_dump"
+        ]
+      },
+      "MCP02": {
+        "id": "MCP02:2025",
+        "name": "Privilege Escalation via Scope Creep",
+        "coverage_level": "strong",
+        "reason": "Permission over-scope patterns, toxic tool-capability combinations, path-escape checks and env-var over-exposure in configs.",
+        "findings_count": 4,
+        "finding_ids": [
+          "cross_tool_searxng_web_search_web_url_read",
+          "code_0003",
+          "code_0004",
+          "code_0005"
+        ],
+        "detectors": [
+          "permission_overscope",
+          "toxic_tool_combo",
+          "identity_privilege",
+          "sandbox_escape",
+          "config_risk",
+          "cascading_failure",
+          "cross_server",
+          "excessive_scope",
+          "confused_deputy",
+          "file_read",
+          "file_write"
+        ]
+      },
+      "MCP03": {
+        "id": "MCP03:2025",
+        "name": "Tool Poisoning",
+        "coverage_level": "strong",
+        "reason": "Dedicated detector for hidden instructions in tool metadata, plus runtime rug-pull diffing between source and live tool definitions.",
+        "findings_count": 7,
+        "finding_ids": [
+          "poison_searxng_web_search_instruction_injection",
+          "poison_searxng_web_search_tool_chaining",
+          "poison_searxng_web_search_long_desc",
+          "code_0008",
+          "code_0010",
+          "code_0012",
+          "code_0024"
+        ],
+        "detectors": [
+          "tool_poisoning",
+          "obfuscation",
+          "rogue_agent",
+          "source_vs_runtime_diff",
+          "tool_shadowing",
+          "hidden_unicode",
+          "rug_pull_primitive",
+          "surface_mismatch"
+        ]
+      },
+      "MCP04": {
+        "id": "MCP04:2025",
+        "name": "Software Supply Chain Attacks & Dependency Tampering",
+        "coverage_level": "strong",
+        "reason": "Dependency CVE lookup, known MCP CVEs, install lifecycle hooks, and unpinned npx/uvx/pip/@latest install sources.",
+        "findings_count": 8,
+        "finding_ids": [
+          "code_0008",
+          "code_0010",
+          "code_0012",
+          "code_0024",
+          "GHSA-3g3m-2fjr-6pw4",
+          "GHSA-g3hv-75wg-m249",
+          "provenance_fresh_publish",
+          "mcp04_unpinned_0001"
+        ],
+        "detectors": [
+          "dependency_vuln",
+          "supply_chain",
+          "known_cve",
+          "obfuscation",
+          "lifecycle_hooks",
+          "mcp04_unpinned_install",
+          "homoglyph",
+          "rug_pull_primitive",
+          "surface_mismatch"
+        ]
+      },
+      "MCP05": {
+        "id": "MCP05:2025",
+        "name": "Command Injection & Execution",
+        "coverage_level": "partial",
+        "reason": "Regex, AST and Semgrep find exec/shell sinks and a heuristic flags sinks inside tool handlers, but there is no inter-procedural taint tracking from tool input to sink.",
+        "findings_count": 2,
+        "finding_ids": [
+          "code_0001",
+          "code_0002"
+        ],
+        "detectors": [
+          "command_injection",
+          "code_execution",
+          "code_generation",
+          "sandbox_escape",
+          "mcp05_tool_input_sink",
+          "shell_exec"
+        ]
+      },
+      "MCP06": {
+        "id": "MCP06:2025",
+        "name": "Prompt Injection via Contextual Payloads",
+        "coverage_level": "partial",
+        "reason": "Injection markers are detected in tool metadata, server instructions, resources, prompts and the strings a tool returns (static), and in instructions/resources/prompts read live; payloads produced by calling a tool at runtime are not inspected.",
+        "findings_count": 4,
+        "finding_ids": [
+          "trust_0001",
+          "trust_0002",
+          "trust_0003",
+          "trust_0004"
+        ],
+        "detectors": [
+          "prompt_injection",
+          "memory_poisoning",
+          "trust_exploitation",
+          "response_injection",
+          "tool_shadowing"
+        ]
+      },
+      "MCP07": {
+        "id": "MCP07:2025",
+        "name": "Insufficient Authentication & Authorization",
+        "coverage_level": "partial",
+        "reason": "Flags remote servers with no visible auth and servers bound to all interfaces; does not verify OAuth implementation or per-tool authorization logic.",
+        "findings_count": 1,
+        "finding_ids": [
+          "transport_plain_http"
+        ],
+        "detectors": [
+          "transport_security",
+          "inter_agent_comm",
+          "identity_privilege",
+          "transport_no_auth",
+          "config_no_auth",
+          "mcp07_bind_all_interfaces"
+        ]
+      },
+      "MCP08": {
+        "id": "MCP08:2025",
+        "name": "Lack of Audit and Telemetry",
+        "coverage_level": "gap",
+        "reason": "Only a low-confidence heuristic for missing logging in tool-defining files; actual audit trails and telemetry pipelines are not verified.",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "audit_telemetry",
+          "mcp08_no_tool_logging"
+        ]
+      },
+      "MCP09": {
+        "id": "MCP09:2025",
+        "name": "Shadow MCP Servers",
+        "coverage_level": "partial",
+        "reason": "Covered by `axiom discover` allowlist on the local machine; no network-wide or fleet discovery.",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "mcpguard_discover",
+          "shadow_mcp"
+        ]
+      },
+      "MCP10": {
+        "id": "MCP10:2025",
+        "name": "Context Injection & Over-Sharing",
+        "coverage_level": "partial",
+        "reason": "Hard-coded egress URLs, tools that send to caller-chosen destinations and bulk-exposure heuristics are detected statically and live; what context is actually shared at runtime is not observed.",
+        "findings_count": 5,
+        "finding_ids": [
+          "code_0019",
+          "code_0020",
+          "code_0021",
+          "code_0022",
+          "code_0023"
+        ],
+        "detectors": [
+          "context_oversharing",
+          "data_exfiltration",
+          "memory_poisoning",
+          "mcp10_broad_data_exposure"
+        ]
+      }
+    },
+    "total_mcp_categories_with_findings": 8
+  },
+  "ai_analysis": null,
+  "tool_poisoning_report": null,
+  "prompt_injection_risk": null
+}

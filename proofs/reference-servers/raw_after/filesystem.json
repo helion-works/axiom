@@ -1,0 +1,1750 @@
+{
+  "schema_version": "0.5",
+  "target": "filesystem",
+  "risk_score": 45.0,
+  "risk_level": "medium",
+  "tools_found": 16,
+  "findings_count": 29,
+  "findings": [
+    {
+      "id": "poison_read_text_file_instruction_injection",
+      "severity": "medium",
+      "category": "tool_poisoning",
+      "title": "Steering language (instruction injection) in 'read_text_file'",
+      "description": "Steering language in tool description (imperative guidance aimed at the model). Matched pattern in tool 'read_text_file': 'you need to'",
+      "owasp_asi": [
+        "ASI01"
+      ],
+      "owasp_mcp": [
+        "MCP03"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Review tool description carefully. Compare claimed functionality with actual code behavior. Consider removing this MCP server.",
+      "rule_id": "poison_instruction_injection",
+      "evidence": "you need to",
+      "location": "static:<corpus>/reference-servers/src/filesystem:read_text_file",
+      "replay": "axiom scan <corpus>/reference-servers/src/filesystem --output json --no-ai --no-history | jq '.findings[] | select(.id==\"poison_read_text_file_instruction_injection\")'"
+    },
+    {
+      "id": "poison_read_multiple_files_instruction_injection",
+      "severity": "medium",
+      "category": "tool_poisoning",
+      "title": "Steering language (instruction injection) in 'read_multiple_files'",
+      "description": "Steering language in tool description (imperative guidance aimed at the model). Matched pattern in tool 'read_multiple_files': 'you need to'",
+      "owasp_asi": [
+        "ASI01"
+      ],
+      "owasp_mcp": [
+        "MCP03"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Review tool description carefully. Compare claimed functionality with actual code behavior. Consider removing this MCP server.",
+      "rule_id": "poison_instruction_injection",
+      "evidence": "you need to",
+      "location": "static:<corpus>/reference-servers/src/filesystem:read_multiple_files",
+      "replay": "axiom scan <corpus>/reference-servers/src/filesystem --output json --no-ai --no-history | jq '.findings[] | select(.id==\"poison_read_multiple_files_instruction_injection\")'"
+    },
+    {
+      "id": "poison_append_file_instruction_injection",
+      "severity": "medium",
+      "category": "tool_poisoning",
+      "title": "Steering language (instruction injection) in 'append_file'",
+      "description": "Steering language in tool description (imperative guidance aimed at the model). Matched pattern in tool 'append_file': 'never'",
+      "owasp_asi": [
+        "ASI01"
+      ],
+      "owasp_mcp": [
+        "MCP03"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Review tool description carefully. Compare claimed functionality with actual code behavior. Consider removing this MCP server.",
+      "rule_id": "poison_instruction_injection",
+      "evidence": "never",
+      "location": "static:<corpus>/reference-servers/src/filesystem:append_file",
+      "replay": "axiom scan <corpus>/reference-servers/src/filesystem --output json --no-ai --no-history | jq '.findings[] | select(.id==\"poison_append_file_instruction_injection\")'"
+    },
+    {
+      "id": "poison_edit_file_instruction_injection",
+      "severity": "medium",
+      "category": "tool_poisoning",
+      "title": "Steering language (instruction injection) in 'edit_file'",
+      "description": "Steering language in tool description (imperative guidance aimed at the model). Matched pattern in tool 'edit_file': 'never'",
+      "owasp_asi": [
+        "ASI01"
+      ],
+      "owasp_mcp": [
+        "MCP03"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Review tool description carefully. Compare claimed functionality with actual code behavior. Consider removing this MCP server.",
+      "rule_id": "poison_instruction_injection",
+      "evidence": "never",
+      "location": "static:<corpus>/reference-servers/src/filesystem:edit_file",
+      "replay": "axiom scan <corpus>/reference-servers/src/filesystem --output json --no-ai --no-history | jq '.findings[] | select(.id==\"poison_edit_file_instruction_injection\")'"
+    },
+    {
+      "id": "poison_edit_file_long_desc",
+      "severity": "medium",
+      "category": "tool_poisoning",
+      "title": "Unusually long tool description for 'edit_file'",
+      "description": "Tool description is 693 characters. Long descriptions can hide malicious instructions.",
+      "owasp_asi": [
+        "ASI01"
+      ],
+      "owasp_mcp": [
+        "MCP03"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Review the full tool description for hidden instructions.",
+      "rule_id": "long_description",
+      "evidence": "Unusually long tool description for 'edit_file'",
+      "location": "static:<corpus>/reference-servers/src/filesystem:edit_file",
+      "replay": "axiom scan <corpus>/reference-servers/src/filesystem --output json --no-ai --no-history | jq '.findings[] | select(.id==\"poison_edit_file_long_desc\")'"
+    },
+    {
+      "id": "poison_directory_tree_instruction_injection",
+      "severity": "medium",
+      "category": "tool_poisoning",
+      "title": "Steering language (instruction injection) in 'directory_tree'",
+      "description": "Steering language in tool description (imperative guidance aimed at the model). Matched pattern in tool 'directory_tree': 'always'",
+      "owasp_asi": [
+        "ASI01"
+      ],
+      "owasp_mcp": [
+        "MCP03"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Review tool description carefully. Compare claimed functionality with actual code behavior. Consider removing this MCP server.",
+      "rule_id": "poison_instruction_injection",
+      "evidence": "always",
+      "location": "static:<corpus>/reference-servers/src/filesystem:directory_tree",
+      "replay": "axiom scan <corpus>/reference-servers/src/filesystem --output json --no-ai --no-history | jq '.findings[] | select(.id==\"poison_directory_tree_instruction_injection\")'"
+    },
+    {
+      "id": "poison_copy_file_instruction_injection",
+      "severity": "medium",
+      "category": "tool_poisoning",
+      "title": "Steering language (instruction injection) in 'copy_file'",
+      "description": "Steering language in tool description (imperative guidance aimed at the model). Matched pattern in tool 'copy_file': 'never'",
+      "owasp_asi": [
+        "ASI01"
+      ],
+      "owasp_mcp": [
+        "MCP03"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Review tool description carefully. Compare claimed functionality with actual code behavior. Consider removing this MCP server.",
+      "rule_id": "poison_instruction_injection",
+      "evidence": "never",
+      "location": "static:<corpus>/reference-servers/src/filesystem:copy_file",
+      "replay": "axiom scan <corpus>/reference-servers/src/filesystem --output json --no-ai --no-history | jq '.findings[] | select(.id==\"poison_copy_file_instruction_injection\")'"
+    },
+    {
+      "id": "poison_search_files_instruction_injection",
+      "severity": "medium",
+      "category": "tool_poisoning",
+      "title": "Steering language (instruction injection) in 'search_files'",
+      "description": "Steering language in tool description (imperative guidance aimed at the model). Matched pattern in tool 'search_files': 'never'",
+      "owasp_asi": [
+        "ASI01"
+      ],
+      "owasp_mcp": [
+        "MCP03"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Review tool description carefully. Compare claimed functionality with actual code behavior. Consider removing this MCP server.",
+      "rule_id": "poison_instruction_injection",
+      "evidence": "never",
+      "location": "static:<corpus>/reference-servers/src/filesystem:search_files",
+      "replay": "axiom scan <corpus>/reference-servers/src/filesystem --output json --no-ai --no-history | jq '.findings[] | select(.id==\"poison_search_files_instruction_injection\")'"
+    },
+    {
+      "id": "cross_tool_read_file_read_text_file",
+      "severity": "medium",
+      "category": "cross_server",
+      "title": "Tool 'read_file' references tool 'read_text_file'",
+      "description": "Tool description mentions another tool by name, which could enable tool chaining attacks.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP01",
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Verify this cross-reference is legitimate and necessary.",
+      "rule_id": "cross_tool_reference",
+      "evidence": "Tool 'read_file' references tool 'read_text_file'",
+      "location": "static:<corpus>/reference-servers/src/filesystem:read_file_read_text_file",
+      "replay": "axiom scan <corpus>/reference-servers/src/filesystem --output json --no-ai --no-history | jq '.findings[] | select(.id==\"cross_tool_read_file_read_text_file\")'"
+    },
+    {
+      "id": "cross_tool_list_directory_directory_tree",
+      "severity": "medium",
+      "category": "cross_server",
+      "title": "Tool 'list_directory' references tool 'directory_tree'",
+      "description": "Tool description mentions another tool by name, which could enable tool chaining attacks.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP01",
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Verify this cross-reference is legitimate and necessary.",
+      "rule_id": "cross_tool_reference",
+      "evidence": "Tool 'list_directory' references tool 'directory_tree'",
+      "location": "static:<corpus>/reference-servers/src/filesystem:list_directory_directory_tree",
+      "replay": "axiom scan <corpus>/reference-servers/src/filesystem --output json --no-ai --no-history | jq '.findings[] | select(.id==\"cross_tool_list_directory_directory_tree\")'"
+    },
+    {
+      "id": "cross_tool_list_directory_list_directory_with_sizes",
+      "severity": "medium",
+      "category": "cross_server",
+      "title": "Tool 'list_directory' references tool 'list_directory_with_sizes'",
+      "description": "Tool description mentions another tool by name, which could enable tool chaining attacks.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP01",
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Verify this cross-reference is legitimate and necessary.",
+      "rule_id": "cross_tool_reference",
+      "evidence": "Tool 'list_directory' references tool 'list_directory_with_sizes'",
+      "location": "static:<corpus>/reference-servers/src/filesystem:list_directory_list_directory_with_sizes",
+      "replay": "axiom scan <corpus>/reference-servers/src/filesystem --output json --no-ai --no-history | jq '.findings[] | select(.id==\"cross_tool_list_directory_list_directory_with_sizes\")'"
+    },
+    {
+      "id": "cross_tool_list_directory_with_sizes_list_directory",
+      "severity": "medium",
+      "category": "cross_server",
+      "title": "Tool 'list_directory_with_sizes' references tool 'list_directory'",
+      "description": "Tool description mentions another tool by name, which could enable tool chaining attacks.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP01",
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Verify this cross-reference is legitimate and necessary.",
+      "rule_id": "cross_tool_reference",
+      "evidence": "Tool 'list_directory_with_sizes' references tool 'list_directory'",
+      "location": "static:<corpus>/reference-servers/src/filesystem:list_directory_with_sizes_list_directory",
+      "replay": "axiom scan <corpus>/reference-servers/src/filesystem --output json --no-ai --no-history | jq '.findings[] | select(.id==\"cross_tool_list_directory_with_sizes_list_directory\")'"
+    },
+    {
+      "id": "code_0001",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in path-validation.ts at line 22: `const drive = WINDOWS_DRIVE_PREFIX.exec(normalizedPath);`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "path-validation.ts",
+      "line_number": 22,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const drive = WINDOWS_DRIVE_PREFIX.exec(normalizedPath);",
+      "location": "path-validation.ts:22",
+      "replay": "axiom scan <corpus>/reference-servers/src/filesystem --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0001\")'"
+    },
+    {
+      "id": "code_0002",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in path-validation.ts at line 54: `const match = WINDOWS_UNC_ROOT.exec(windowsPath);`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "path-validation.ts",
+      "line_number": 54,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const match = WINDOWS_UNC_ROOT.exec(windowsPath);",
+      "location": "path-validation.ts:54",
+      "replay": "axiom scan <corpus>/reference-servers/src/filesystem --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0002\")'"
+    },
+    {
+      "id": "code_0003",
+      "severity": "info",
+      "category": "permission_overscope",
+      "title": "Filesystem operations in MCP server source (capability note)",
+      "description": "Pattern matched in pinned-directory.ts at line 374: `fs.unlinkSync(staged);`",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": "pinned-directory.ts",
+      "line_number": 374,
+      "recommendation": "Review this file system broad access pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "fs.unlinkSync(staged);",
+      "location": "pinned-directory.ts:374",
+      "replay": "axiom scan <corpus>/reference-servers/src/filesystem --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0003\")'"
+    },
+    {
+      "id": "code_0004",
+      "severity": "info",
+      "category": "permission_overscope",
+      "title": "Filesystem operations in MCP server source (capability note)",
+      "description": "Pattern matched in pinned-directory.ts at line 711: `fs.unlinkSync(name);`",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": "pinned-directory.ts",
+      "line_number": 711,
+      "recommendation": "Review this file system broad access pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "fs.unlinkSync(name);",
+      "location": "pinned-directory.ts:711",
+      "replay": "axiom scan <corpus>/reference-servers/src/filesystem --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0004\")'"
+    },
+    {
+      "id": "GHSA-mrhx-c7xc-m3w5",
+      "severity": "medium",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency zod@4.2.0: GHSA-mrhx-c7xc-m3w5",
+      "description": "Known vulnerability (advisory severity: unrated; direct dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update zod to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-mrhx-c7xc-m3w5",
+      "location": "static:<corpus>/reference-servers/src/filesystem:dependencies",
+      "replay": "axiom scan <corpus>/reference-servers/src/filesystem --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-mrhx-c7xc-m3w5\")'"
+    },
+    {
+      "id": "cap_read_file_file_read",
+      "severity": "low",
+      "category": "file_read",
+      "title": "Tool 'read_file' reads files (file_read)",
+      "description": "Tool 'read_file' reads files. Evidence: 'read_file'. Description: 'Read the complete contents of a file as text. DEPRECATED: Use read_text_file instead.'",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Scope the tool to the narrowest operation and location it needs, and require explicit user approval per call.",
+      "rule_id": "cap_file_read",
+      "evidence": "read_file",
+      "location": "static:<corpus>/reference-servers/src/filesystem:read_file",
+      "replay": "axiom scan <corpus>/reference-servers/src/filesystem --output json --no-ai --no-history | jq '.findings[] | select(.id==\"cap_read_file_file_read\")'"
+    },
+    {
+      "id": "cap_read_text_file_file_read",
+      "severity": "low",
+      "category": "file_read",
+      "title": "Tool 'read_text_file' reads files (file_read)",
+      "description": "Tool 'read_text_file' reads files. Evidence: 'Read the complete contents of a file'. Description: 'Read the complete contents of a file from the file system as text. Handles various text encodings and provides detailed error messages if th'",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Scope the tool to the narrowest operation and location it needs, and require explicit user approval per call.",
+      "rule_id": "cap_file_read",
+      "evidence": "Read the complete contents of a file",
+      "location": "static:<corpus>/reference-servers/src/filesystem:read_text_file",
+      "replay": "axiom scan <corpus>/reference-servers/src/filesystem --output json --no-ai --no-history | jq '.findings[] | select(.id==\"cap_read_text_file_file_read\")'"
+    },
+    {
+      "id": "cap_read_media_file_file_read",
+      "severity": "low",
+      "category": "file_read",
+      "title": "Tool 'read_media_file' reads files (file_read)",
+      "description": "Tool 'read_media_file' reads files. Evidence: 'Read a file'. Description: 'Read a file and return it as a base64-encoded content block with its MIME type. Image and audio files are returned as image/audio content; a'",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Scope the tool to the narrowest operation and location it needs, and require explicit user approval per call.",
+      "rule_id": "cap_file_read",
+      "evidence": "Read a file",
+      "location": "static:<corpus>/reference-servers/src/filesystem:read_media_file",
+      "replay": "axiom scan <corpus>/reference-servers/src/filesystem --output json --no-ai --no-history | jq '.findings[] | select(.id==\"cap_read_media_file_file_read\")'"
+    },
+    {
+      "id": "cap_read_multiple_files_file_read",
+      "severity": "low",
+      "category": "file_read",
+      "title": "Tool 'read_multiple_files' reads files (file_read)",
+      "description": "Tool 'read_multiple_files' reads files. Evidence: 'Read the contents of multiple files'. Description: 'Read the contents of multiple files simultaneously. This is more efficient than reading files one by one when you need to analyze or compare'",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Scope the tool to the narrowest operation and location it needs, and require explicit user approval per call.",
+      "rule_id": "cap_file_read",
+      "evidence": "Read the contents of multiple files",
+      "location": "static:<corpus>/reference-servers/src/filesystem:read_multiple_files",
+      "replay": "axiom scan <corpus>/reference-servers/src/filesystem --output json --no-ai --no-history | jq '.findings[] | select(.id==\"cap_read_multiple_files_file_read\")'"
+    },
+    {
+      "id": "cap_write_file_file_write",
+      "severity": "low",
+      "category": "file_write",
+      "title": "Tool 'write_file' writes or deletes files (file_write)",
+      "description": "Tool 'write_file' writes or deletes files. Evidence: 'write_file'. Description: 'Create a new file or completely overwrite an existing file with new content. Use with caution as it will overwrite existing files without wa'",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Scope the tool to the narrowest operation and location it needs, and require explicit user approval per call.",
+      "rule_id": "cap_file_write",
+      "evidence": "write_file",
+      "location": "static:<corpus>/reference-servers/src/filesystem:write_file",
+      "replay": "axiom scan <corpus>/reference-servers/src/filesystem --output json --no-ai --no-history | jq '.findings[] | select(.id==\"cap_write_file_file_write\")'"
+    },
+    {
+      "id": "cap_search_files_file_read",
+      "severity": "low",
+      "category": "file_read",
+      "title": "Tool 'search_files' reads files (file_read)",
+      "description": "Tool 'search_files' reads files. Evidence: 'reads or searches inside files'. Description: 'Find files and directories by NAME, not by content: this tool never reads or searches inside files. It walks the tree under 'path' and match'",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Scope the tool to the narrowest operation and location it needs, and require explicit user approval per call.",
+      "rule_id": "cap_file_read",
+      "evidence": "reads or searches inside files",
+      "location": "static:<corpus>/reference-servers/src/filesystem:search_files",
+      "replay": "axiom scan <corpus>/reference-servers/src/filesystem --output json --no-ai --no-history | jq '.findings[] | select(.id==\"cap_search_files_file_read\")'"
+    },
+    {
+      "id": "flow_list_directory_path_file_read",
+      "severity": "low",
+      "category": "file_read",
+      "title": "Tool 'list_directory' opens a file at a caller-supplied path ('path' -> fs.readdir) after validation",
+      "description": "server.ts line 723: parameter 'path' of 'list_directory' reaches `fs.readdir` through a value produced by a validating call.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": "server.ts",
+      "line_number": 723,
+      "recommendation": "Constrain the parameter before the sink (allowlisted roots, hosts or commands) and reject anything outside them.",
+      "rule_id": "flow_file_read",
+      "evidence": "fs.readdir",
+      "location": "server.ts:723",
+      "replay": "axiom scan <corpus>/reference-servers/src/filesystem --output json --no-ai --no-history | jq '.findings[] | select(.id==\"flow_list_directory_path_file_read\")'"
+    },
+    {
+      "id": "flow_list_directory_with_sizes_path_file_read",
+      "severity": "low",
+      "category": "file_read",
+      "title": "Tool 'list_directory_with_sizes' opens a file at a caller-supplied path ('path' -> fs.readdir) after validation",
+      "description": "server.ts line 762: parameter 'path' of 'list_directory_with_sizes' reaches `fs.readdir` through a value produced by a validating call.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": "server.ts",
+      "line_number": 762,
+      "recommendation": "Constrain the parameter before the sink (allowlisted roots, hosts or commands) and reject anything outside them.",
+      "rule_id": "flow_file_read",
+      "evidence": "fs.readdir",
+      "location": "server.ts:762",
+      "replay": "axiom scan <corpus>/reference-servers/src/filesystem --output json --no-ai --no-history | jq '.findings[] | select(.id==\"flow_list_directory_with_sizes_path_file_read\")'"
+    },
+    {
+      "id": "mcp10_broad_exposure_0001",
+      "severity": "low",
+      "category": "context_oversharing",
+      "title": "Tool 'read_file' suggests broad data exposure",
+      "description": "The tool 'read_file' (description phrase 'complete contents') appears to return bulk data into the model context, where it can be over-shared with other tools, sessions or users. What is actually returned at runtime is not checked (runtime over-sharing remains a coverage gap).",
+      "owasp_asi": [
+        "ASI02"
+      ],
+      "owasp_mcp": [
+        "MCP10"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Scope results (pagination, filters, per-user access checks) and avoid returning whole tables, histories or file trees to the model.",
+      "rule_id": "broad_data_exposure",
+      "evidence": "Tool 'read_file' suggests broad data exposure",
+      "location": "static:<corpus>/reference-servers/src/filesystem",
+      "replay": "axiom scan <corpus>/reference-servers/src/filesystem --output json --no-ai --no-history | jq '.findings[] | select(.id==\"mcp10_broad_exposure_0001\")'"
+    },
+    {
+      "id": "mcp10_broad_exposure_0002",
+      "severity": "low",
+      "category": "context_oversharing",
+      "title": "Tool 'read_text_file' suggests broad data exposure",
+      "description": "The tool 'read_text_file' (description phrase 'complete contents') appears to return bulk data into the model context, where it can be over-shared with other tools, sessions or users. What is actually returned at runtime is not checked (runtime over-sharing remains a coverage gap).",
+      "owasp_asi": [
+        "ASI02"
+      ],
+      "owasp_mcp": [
+        "MCP10"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Scope results (pagination, filters, per-user access checks) and avoid returning whole tables, histories or file trees to the model.",
+      "rule_id": "broad_data_exposure",
+      "evidence": "Tool 'read_text_file' suggests broad data exposure",
+      "location": "static:<corpus>/reference-servers/src/filesystem",
+      "replay": "axiom scan <corpus>/reference-servers/src/filesystem --output json --no-ai --no-history | jq '.findings[] | select(.id==\"mcp10_broad_exposure_0002\")'"
+    },
+    {
+      "id": "mcp10_broad_exposure_0003",
+      "severity": "low",
+      "category": "context_oversharing",
+      "title": "Tool 'list_allowed_directories' suggests broad data exposure",
+      "description": "The tool 'list_allowed_directories' (name tokens ['listall']) appears to return bulk data into the model context, where it can be over-shared with other tools, sessions or users. What is actually returned at runtime is not checked (runtime over-sharing remains a coverage gap).",
+      "owasp_asi": [
+        "ASI02"
+      ],
+      "owasp_mcp": [
+        "MCP10"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Scope results (pagination, filters, per-user access checks) and avoid returning whole tables, histories or file trees to the model.",
+      "rule_id": "broad_data_exposure",
+      "evidence": "Tool 'list_allowed_directories' suggests broad data exposure",
+      "location": "static:<corpus>/reference-servers/src/filesystem",
+      "replay": "axiom scan <corpus>/reference-servers/src/filesystem --output json --no-ai --no-history | jq '.findings[] | select(.id==\"mcp10_broad_exposure_0003\")'"
+    },
+    {
+      "id": "blast_radius_estimate",
+      "severity": "medium",
+      "category": "cascading_failure",
+      "title": "Blast radius: MEDIUM \u2014 compromise of this server has broad impact",
+      "description": "If this MCP server is compromised, the blast radius is MEDIUM due to: filesystem access, 16 tools (large attack surface). A single tool poisoning or supply chain attack could cascade across all connected systems.",
+      "owasp_asi": [
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Apply least-privilege to this server. Isolate it from other MCP servers. Implement kill switches and behavioral monitoring. Limit env vars to the minimum required.",
+      "rule_id": "blast_radius",
+      "evidence": "Blast radius: MEDIUM \u2014 compromise of this server has broad impact",
+      "location": "static:<corpus>/reference-servers/src/filesystem:tools",
+      "replay": "axiom scan <corpus>/reference-servers/src/filesystem --output json --no-ai --no-history | jq '.findings[] | select(.id==\"blast_radius_estimate\")'"
+    }
+  ],
+  "server_profile": {
+    "name": "filesystem",
+    "command": null,
+    "args": [],
+    "env_vars": [],
+    "transport": "stdio",
+    "tools": [
+      {
+        "name": "read_file",
+        "description": "Read the complete contents of a file as text. DEPRECATED: Use read_text_file instead.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "path": {},
+            "tail": {
+              "type": "number",
+              "description": "If provided, returns only the last N lines of the file"
+            },
+            "head": {
+              "type": "number",
+              "description": "If provided, returns only the first N lines of the file"
+            }
+          },
+          "required": [
+            "path"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "read_text_file",
+        "description": "Read the complete contents of a file from the file system as text. Handles various text encodings and provides detailed error messages if the file cannot be read. Use this tool when you need to examine the contents of a single file. Use the 'head' parameter to read only the first N lines of a file, or the 'tail' parameter to read only the last N lines of a file. Operates on the file as text regardless of extension. Only works within allowed directories.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "path": {},
+            "tail": {
+              "type": "number",
+              "description": "If provided, returns only the last N lines of the file"
+            },
+            "head": {
+              "type": "number",
+              "description": "If provided, returns only the first N lines of the file"
+            }
+          },
+          "required": [
+            "path"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "medium",
+        "poisoning_detail": "Steering language in tool description (imperative guidance aimed at the model). Matched pattern in tool 'read_text_file': 'you need to'"
+      },
+      {
+        "name": "read_media_file",
+        "description": "Read a file and return it as a base64-encoded content block with its MIME type. Image and audio files are returned as image/audio content; any other file type is returned as an embedded resource. Only works within allowed directories.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "path": {}
+          },
+          "required": [
+            "path"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "read_multiple_files",
+        "description": "Read the contents of multiple files simultaneously. This is more efficient than reading files one by one when you need to analyze or compare multiple files. Each file's content is returned with its path as a reference. Failed reads for individual files won't stop the entire operation. Only works within allowed directories.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "paths": {
+              "type": "array",
+              "description": "Array of file paths to read. Each path must be a string pointing to a valid file within allowed directories."
+            }
+          },
+          "required": [
+            "paths"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "medium",
+        "poisoning_detail": "Steering language in tool description (imperative guidance aimed at the model). Matched pattern in tool 'read_multiple_files': 'you need to'"
+      },
+      {
+        "name": "write_file",
+        "description": "Create a new file or completely overwrite an existing file with new content. Use with caution as it will overwrite existing files without warning. Handles text content with proper encoding. Only works within allowed directories.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "path": {},
+            "content": {
+              "type": "string",
+              "description": "The complete text the file will contain, replacing any it had"
+            }
+          },
+          "required": [
+            "path",
+            "content"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "append_file",
+        "description": "Append text to the end of a file, creating the file if it does not exist. The existing content is never changed or replaced. The text is appended exactly as given, with no newline added before or after it, so end it with a newline if the next append should start on a new line. Only works within allowed directories.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "path": {},
+            "content": {
+              "type": "string",
+              "description": "Text to append, exactly as given. No newline is added: end it with \\n if the next append should start on a new line."
+            }
+          },
+          "required": [
+            "path",
+            "content"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "medium",
+        "poisoning_detail": "Steering language in tool description (imperative guidance aimed at the model). Matched pattern in tool 'append_file': 'never'"
+      },
+      {
+        "name": "edit_file",
+        "description": "Make line-based edits to a text file. Edits apply in order, each to the result of the ones before it, and each replaces the first match of its oldText with newText. oldText must match the file's text exactly, except that line endings (LF or CRLF) never matter and, when there is no exact match, a run of whole lines matches if each line is equal once leading and trailing whitespace is ignored (newText then takes the file's indentation). Whitespace inside a line must match. If any edit has no match, nothing is written and the error shows the closest lines of the file, numbered, to copy oldText from. Returns a git-style diff showing the changes made. Only works within allowed directories.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "path": {},
+            "edits": {
+              "type": "array",
+              "description": "The replacements to make, applied in order, each to the result of the ones before it. If any one has no match, none is written."
+            },
+            "dryRun": {
+              "type": "boolean",
+              "default": false,
+              "description": "Preview changes using git-style diff format"
+            }
+          },
+          "required": [
+            "path",
+            "edits"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "medium",
+        "poisoning_detail": "Steering language in tool description (imperative guidance aimed at the model). Matched pattern in tool 'edit_file': 'never'"
+      },
+      {
+        "name": "create_directory",
+        "description": "Create a new directory or ensure a directory exists. Can create multiple nested directories in one operation. If the directory already exists, this operation will succeed silently. Perfect for setting up directory structures for projects or ensuring required paths exist. Only works within allowed directories.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "path": {}
+          },
+          "required": [
+            "path"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "list_directory",
+        "description": "List the files and directories directly inside a path, each marked [FILE] or [DIR]. Use it to see what a directory contains; when you also need each entry's size or want entries sorted by size, use list_directory_with_sizes instead, and for a recursive view use directory_tree. Returns one line per entry. Only works within allowed directories.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "path": {}
+          },
+          "required": [
+            "path"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "list_directory_with_sizes",
+        "description": "List the files and directories directly inside a path with each file's size, marked [FILE] or [DIR], sorted by name or by size, largest first (sortBy). Use it when sizes matter, such as finding the largest files; for names only, use list_directory, which returns less text. Returns one line per entry, followed by the totals. Only works within allowed directories.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "path": {},
+            "sortBy": {
+              "type": "string",
+              "default": "name",
+              "description": "Sort entries by name or size",
+              "enum": [
+                "name",
+                "size"
+              ]
+            }
+          },
+          "required": [
+            "path"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "directory_tree",
+        "description": "Get a recursive tree view of files and directories as a JSON structure. Each entry includes 'name', 'type' (file/directory), and 'children' for directories. Files have no children array, while directories always have a children array (which may be empty), except at the last level when 'depth' limits the tree: those directories are not read and have no children array. The output is formatted with 2-space indentation for readability. Only works within allowed directories.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "path": {},
+            "excludePatterns": {
+              "type": "array",
+              "default": [],
+              "description": "Patterns for entries to leave out, with their contents, matched against each entry's path relative to path. A pattern with no '*' matches that name at any depth ('node_modules' leaves out every node_modules directory); a pattern with '*' is a glob matched as written, and one ending in '/**' also leaves out the directory it names."
+            },
+            "depth": {
+              "type": "number",
+              "description": "How many levels to descend: 1 lists only the entries directly in path. Directories at the last level have no children array. Omit for the whole tree."
+            }
+          },
+          "required": [
+            "path"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "medium",
+        "poisoning_detail": "Steering language in tool description (imperative guidance aimed at the model). Matched pattern in tool 'directory_tree': 'always'"
+      },
+      {
+        "name": "move_file",
+        "description": "Move or rename files and directories. Can move files between directories and rename them in a single operation. If the destination exists, the operation will fail. Works across different directories and can be used for simple renaming within the same directory. Both source and destination must be within allowed directories.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "source": {},
+            "destination": {}
+          },
+          "required": [
+            "source",
+            "destination"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "copy_file",
+        "description": "Copy a file to a new location, without reading its content into the conversation. Copies one regular file, keeping its permissions and modification time; directories are not copied. If the destination exists, the operation will fail: it never overwrites. Both source and destination must be within allowed directories.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "source": {
+              "type": "string",
+              "description": "The file to copy"
+            },
+            "destination": {
+              "type": "string",
+              "description": "Where to create the copy; nothing may exist there yet"
+            }
+          },
+          "required": [
+            "source",
+            "destination"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "medium",
+        "poisoning_detail": "Steering language in tool description (imperative guidance aimed at the model). Matched pattern in tool 'copy_file': 'never'"
+      },
+      {
+        "name": "search_files",
+        "description": "Find files and directories by NAME, not by content: this tool never reads or searches inside files. It walks the tree under 'path' and matches a glob pattern against each entry's path relative to 'path' (case-sensitive). Use '*.ext' to match entries directly under 'path', and '**/*.ext' or '**/name' to match at any depth. Returns full paths to all matching items. Great for finding files when you don't know their exact location. Only searches within allowed directories.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "path": {},
+            "pattern": {
+              "type": "string",
+              "description": "Glob matched against each entry's path relative to path, never its content: '*.ts' matches directly under path, '**/*.ts' at any depth."
+            },
+            "excludePatterns": {
+              "type": "array",
+              "default": [],
+              "description": "Patterns for entries to leave out, with their contents, matched against each entry's path relative to path. A pattern with no '*' matches that name at any depth ('node_modules' leaves out every node_modules directory); a pattern with '*' is a glob matched as written, and one ending in '/**' also leaves out the directory it names."
+            }
+          },
+          "required": [
+            "path",
+            "pattern"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "medium",
+        "poisoning_detail": "Steering language in tool description (imperative guidance aimed at the model). Matched pattern in tool 'search_files': 'never'"
+      },
+      {
+        "name": "get_file_info",
+        "description": "Retrieve detailed metadata about a file or directory. Returns comprehensive information including size, creation time, last modified time, permissions, type and hard-link count. This tool is perfect for understanding file characteristics without reading the actual content. Only works within allowed directories.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "path": {}
+          },
+          "required": [
+            "path"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "list_allowed_directories",
+        "description": "Returns the list of directories that this server is allowed to access. Subdirectories within these allowed directories are also accessible. Use this to understand which directories and their nested paths are available before trying to access files.",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      }
+    ],
+    "resources": [
+      {
+        "uri": "file://{+path}",
+        "name": "file",
+        "description": "A file inside the allowed directories, by its absolute file:// URI (for example file://<local>/README.md). Text files are returned as text, other files as a base64 blob with their MIME type. Directories are not resources; use the list_directory tool to find files.",
+        "mime_type": null
+      }
+    ],
+    "prompts": [],
+    "repo_url": null,
+    "npm_package": null,
+    "capabilities_claimed": [],
+    "capabilities_actual": []
+  },
+  "fingerprint": "192ce7d1b6c222f9393dd7047a1558f8382f353287e090c53b306b91c855c170",
+  "surface_map": {
+    "server": {
+      "name": "@modelcontextprotocol/server-filesystem",
+      "instructions": "",
+      "transport": "unknown",
+      "auth": "unknown"
+    },
+    "tools": [
+      {
+        "name": "read_file",
+        "description": "Read the complete contents of a file as text. DEPRECATED: Use read_text_file instead.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "path": {},
+            "tail": {
+              "type": "number",
+              "description": "If provided, returns only the last N lines of the file"
+            },
+            "head": {
+              "type": "number",
+              "description": "If provided, returns only the first N lines of the file"
+            }
+          },
+          "required": [
+            "path"
+          ]
+        },
+        "capabilities": [
+          "fs.read"
+        ],
+        "return_literals": [],
+        "registration": "static",
+        "location": "server.ts:388"
+      },
+      {
+        "name": "read_text_file",
+        "description": "Read the complete contents of a file from the file system as text. Handles various text encodings and provides detailed error messages if the file cannot be read. Use this tool when you need to examine the contents of a single file. Use the 'head' parameter to read only the first N lines of a file, or the 'tail' parameter to read only the last N lines of a file. Operates on the file as text regardless of extension. Only works within allowed directories.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "path": {},
+            "tail": {
+              "type": "number",
+              "description": "If provided, returns only the last N lines of the file"
+            },
+            "head": {
+              "type": "number",
+              "description": "If provided, returns only the first N lines of the file"
+            }
+          },
+          "required": [
+            "path"
+          ]
+        },
+        "capabilities": [
+          "fs.read"
+        ],
+        "return_literals": [],
+        "registration": "static",
+        "location": "server.ts:406"
+      },
+      {
+        "name": "read_media_file",
+        "description": "Read a file and return it as a base64-encoded content block with its MIME type. Image and audio files are returned as image/audio content; any other file type is returned as an embedded resource. Only works within allowed directories.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "path": {}
+          },
+          "required": [
+            "path"
+          ]
+        },
+        "capabilities": [
+          "fs.read"
+        ],
+        "return_literals": [],
+        "registration": "static",
+        "location": "server.ts:430"
+      },
+      {
+        "name": "read_multiple_files",
+        "description": "Read the contents of multiple files simultaneously. This is more efficient than reading files one by one when you need to analyze or compare multiple files. Each file's content is returned with its path as a reference. Failed reads for individual files won't stop the entire operation. Only works within allowed directories.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "paths": {
+              "type": "array",
+              "description": "Array of file paths to read. Each path must be a string pointing to a valid file within allowed directories."
+            }
+          },
+          "required": [
+            "paths"
+          ]
+        },
+        "capabilities": [
+          "fs.read"
+        ],
+        "return_literals": [
+          "text"
+        ],
+        "registration": "static",
+        "location": "server.ts:513"
+      },
+      {
+        "name": "write_file",
+        "description": "Create a new file or completely overwrite an existing file with new content. Use with caution as it will overwrite existing files without warning. Handles text content with proper encoding. Only works within allowed directories.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "path": {},
+            "content": {
+              "type": "string",
+              "description": "The complete text the file will contain, replacing any it had"
+            }
+          },
+          "required": [
+            "path",
+            "content"
+          ]
+        },
+        "capabilities": [
+          "fs.write"
+        ],
+        "return_literals": [
+          "text",
+          "Successfully wrote to {args.path}"
+        ],
+        "registration": "static",
+        "location": "server.ts:558"
+      },
+      {
+        "name": "append_file",
+        "description": "Append text to the end of a file, creating the file if it does not exist. The existing content is never changed or replaced. The text is appended exactly as given, with no newline added before or after it, so end it with a newline if the next append should start on a new line. Only works within allowed directories.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "path": {},
+            "content": {
+              "type": "string",
+              "description": "Text to append, exactly as given. No newline is added: end it with \\n if the next append should start on a new line."
+            }
+          },
+          "required": [
+            "path",
+            "content"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [
+          "text",
+          "Successfully appended to {args.path}"
+        ],
+        "registration": "static",
+        "location": "server.ts:591"
+      },
+      {
+        "name": "edit_file",
+        "description": "Make line-based edits to a text file. Edits apply in order, each to the result of the ones before it, and each replaces the first match of its oldText with newText. oldText must match the file's text exactly, except that line endings (LF or CRLF) never matter and, when there is no exact match, a run of whole lines matches if each line is equal once leading and trailing whitespace is ignored (newText then takes the file's indentation). Whitespace inside a line must match. If any edit has no match, nothing is written and the error shows the closest lines of the file, numbered, to copy oldText from. Returns a git-style diff showing the changes made. Only works within allowed directories.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "path": {},
+            "edits": {
+              "type": "array",
+              "description": "The replacements to make, applied in order, each to the result of the ones before it. If any one has no match, none is written."
+            },
+            "dryRun": {
+              "type": "boolean",
+              "default": false,
+              "description": "Preview changes using git-style diff format"
+            }
+          },
+          "required": [
+            "path",
+            "edits"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [
+          "text"
+        ],
+        "registration": "static",
+        "location": "server.ts:625"
+      },
+      {
+        "name": "create_directory",
+        "description": "Create a new directory or ensure a directory exists. Can create multiple nested directories in one operation. If the directory already exists, this operation will succeed silently. Perfect for setting up directory structures for projects or ensuring required paths exist. Only works within allowed directories.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "path": {}
+          },
+          "required": [
+            "path"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [
+          "text",
+          "Successfully created directory {args.path}"
+        ],
+        "registration": "static",
+        "location": "server.ts:664"
+      },
+      {
+        "name": "list_directory",
+        "description": "List the files and directories directly inside a path, each marked [FILE] or [DIR]. Use it to see what a directory contains; when you also need each entry's size or want entries sorted by size, use list_directory_with_sizes instead, and for a recursive view use directory_tree. Returns one line per entry. Only works within allowed directories.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "path": {}
+          },
+          "required": [
+            "path"
+          ]
+        },
+        "capabilities": [
+          "fs.read"
+        ],
+        "return_literals": [
+          "text"
+        ],
+        "registration": "static",
+        "location": "server.ts:698"
+      },
+      {
+        "name": "list_directory_with_sizes",
+        "description": "List the files and directories directly inside a path with each file's size, marked [FILE] or [DIR], sorted by name or by size, largest first (sortBy). Use it when sizes matter, such as finding the largest files; for names only, use list_directory, which returns less text. Returns one line per entry, followed by the totals. Only works within allowed directories.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "path": {},
+            "sortBy": {
+              "type": "string",
+              "default": "name",
+              "description": "Sort entries by name or size",
+              "enum": [
+                "name",
+                "size"
+              ]
+            }
+          },
+          "required": [
+            "path"
+          ]
+        },
+        "capabilities": [
+          "fs.read"
+        ],
+        "return_literals": [],
+        "registration": "static",
+        "location": "server.ts:737"
+      },
+      {
+        "name": "directory_tree",
+        "description": "Get a recursive tree view of files and directories as a JSON structure. Each entry includes 'name', 'type' (file/directory), and 'children' for directories. Files have no children array, while directories always have a children array (which may be empty), except at the last level when 'depth' limits the tree: those directories are not read and have no children array. The output is formatted with 2-space indentation for readability. Only works within allowed directories.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "path": {},
+            "excludePatterns": {
+              "type": "array",
+              "default": [],
+              "description": "Patterns for entries to leave out, with their contents, matched against each entry's path relative to path. A pattern with no '*' matches that name at any depth ('node_modules' leaves out every node_modules directory); a pattern with '*' is a glob matched as written, and one ending in '/**' also leaves out the directory it names."
+            },
+            "depth": {
+              "type": "number",
+              "description": "How many levels to descend: 1 lists only the entries directly in path. Directories at the last level have no children array. Omit for the whole tree."
+            }
+          },
+          "required": [
+            "path"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "server.ts:856"
+      },
+      {
+        "name": "move_file",
+        "description": "Move or rename files and directories. Can move files between directories and rename them in a single operation. If the destination exists, the operation will fail. Works across different directories and can be used for simple renaming within the same directory. Both source and destination must be within allowed directories.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "source": {},
+            "destination": {}
+          },
+          "required": [
+            "source",
+            "destination"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [
+          "Successfully moved {args.source} to {args.destination}"
+        ],
+        "registration": "static",
+        "location": "server.ts:947"
+      },
+      {
+        "name": "copy_file",
+        "description": "Copy a file to a new location, without reading its content into the conversation. Copies one regular file, keeping its permissions and modification time; directories are not copied. If the destination exists, the operation will fail: it never overwrites. Both source and destination must be within allowed directories.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "source": {
+              "type": "string",
+              "description": "The file to copy"
+            },
+            "destination": {
+              "type": "string",
+              "description": "Where to create the copy; nothing may exist there yet"
+            }
+          },
+          "required": [
+            "source",
+            "destination"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [
+          "text",
+          "Successfully copied {args.source} to {args.destination}"
+        ],
+        "registration": "static",
+        "location": "server.ts:988"
+      },
+      {
+        "name": "search_files",
+        "description": "Find files and directories by NAME, not by content: this tool never reads or searches inside files. It walks the tree under 'path' and matches a glob pattern against each entry's path relative to 'path' (case-sensitive). Use '*.ext' to match entries directly under 'path', and '**/*.ext' or '**/name' to match at any depth. Returns full paths to all matching items. Great for finding files when you don't know their exact location. Only searches within allowed directories.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "path": {},
+            "pattern": {
+              "type": "string",
+              "description": "Glob matched against each entry's path relative to path, never its content: '*.ts' matches directly under path, '**/*.ts' at any depth."
+            },
+            "excludePatterns": {
+              "type": "array",
+              "default": [],
+              "description": "Patterns for entries to leave out, with their contents, matched against each entry's path relative to path. A pattern with no '*' matches that name at any depth ('node_modules' leaves out every node_modules directory); a pattern with '*' is a glob matched as written, and one ending in '/**' also leaves out the directory it names."
+            }
+          },
+          "required": [
+            "path",
+            "pattern"
+          ]
+        },
+        "capabilities": [
+          "fs.read"
+        ],
+        "return_literals": [
+          "text",
+          "No matches found"
+        ],
+        "registration": "static",
+        "location": "server.ts:1027"
+      },
+      {
+        "name": "get_file_info",
+        "description": "Retrieve detailed metadata about a file or directory. Returns comprehensive information including size, creation time, last modified time, permissions, type and hard-link count. This tool is perfect for understanding file characteristics without reading the actual content. Only works within allowed directories.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "path": {}
+          },
+          "required": [
+            "path"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [
+          "text"
+        ],
+        "registration": "static",
+        "location": "server.ts:1082"
+      },
+      {
+        "name": "list_allowed_directories",
+        "description": "Returns the list of directories that this server is allowed to access. Subdirectories within these allowed directories are also accessible. Use this to understand which directories and their nested paths are available before trying to access files.",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "capabilities": [],
+        "return_literals": [
+          "text",
+          "Allowed directories:\n{allowedDirectories.join(\"\\n\")}\n\n{describeReadOnlyDirectories(readOnlyDirectories)}"
+        ],
+        "registration": "static",
+        "location": "server.ts:1117"
+      }
+    ],
+    "resources": [
+      {
+        "uri": "file://{+path}",
+        "name": "file",
+        "description": "A file inside the allowed directories, by its absolute file:// URI (for example file://<local>/README.md). Text files are returned as text, other files as a base64 blob with their MIME type. Directories are not resources; use the list_directory tool to find files.",
+        "mime_type": null,
+        "content_literals": [],
+        "location": "file-resources.ts:160"
+      }
+    ],
+    "prompts": [],
+    "mutations": [],
+    "source": {
+      "kind": "static",
+      "target": "filesystem",
+      "languages": [
+        "typescript"
+      ]
+    },
+    "generated_at": "2026-11-11T22:29:17+00:00",
+    "fingerprint": "192ce7d1b6c222f9393dd7047a1558f8382f353287e090c53b306b91c855c170",
+    "schema": "axiom.surface/1"
+  },
+  "provenance": {
+    "identity": {
+      "npm": "@modelcontextprotocol/server-filesystem",
+      "pypi": null,
+      "repository": "https://github.com/modelcontextprotocol/servers",
+      "server_name": "@modelcontextprotocol/server-filesystem"
+    },
+    "registry": {
+      "status": "not_in_registry"
+    },
+    "lookalikes": [],
+    "checked_at": "2026-11-11T22:29:18+00:00"
+  },
+  "owasp_coverage": {
+    "framework": "OWASP Top 10 for Agentic Applications 2026",
+    "reference": "https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/",
+    "coverage": {
+      "ASI01": {
+        "name": "Agent Goal Hijack",
+        "coverage_level": "strong",
+        "findings_count": 8,
+        "finding_ids": [
+          "poison_read_text_file_instruction_injection",
+          "poison_read_multiple_files_instruction_injection",
+          "poison_append_file_instruction_injection",
+          "poison_edit_file_instruction_injection",
+          "poison_edit_file_long_desc",
+          "poison_directory_tree_instruction_injection",
+          "poison_copy_file_instruction_injection",
+          "poison_search_files_instruction_injection"
+        ],
+        "detectors": [
+          "tool_poisoning",
+          "prompt_injection",
+          "instruction_injection"
+        ]
+      },
+      "ASI02": {
+        "name": "Tool Misuse & Exploitation",
+        "coverage_level": "strong",
+        "findings_count": 9,
+        "finding_ids": [
+          "cross_tool_read_file_read_text_file",
+          "cross_tool_list_directory_directory_tree",
+          "cross_tool_list_directory_list_directory_with_sizes",
+          "cross_tool_list_directory_with_sizes_list_directory",
+          "flow_list_directory_path_file_read",
+          "flow_list_directory_with_sizes_path_file_read",
+          "mcp10_broad_exposure_0001",
+          "mcp10_broad_exposure_0002",
+          "mcp10_broad_exposure_0003"
+        ],
+        "detectors": [
+          "toxic_tool_combo",
+          "tool_overscope",
+          "tool_chaining_detection"
+        ]
+      },
+      "ASI03": {
+        "name": "Identity & Privilege Abuse",
+        "coverage_level": "strong",
+        "findings_count": 10,
+        "finding_ids": [
+          "code_0003",
+          "code_0004",
+          "cap_read_file_file_read",
+          "cap_read_text_file_file_read",
+          "cap_read_media_file_file_read",
+          "cap_read_multiple_files_file_read",
+          "cap_write_file_file_write",
+          "cap_search_files_file_read",
+          "flow_list_directory_path_file_read",
+          "flow_list_directory_with_sizes_path_file_read"
+        ],
+        "detectors": [
+          "credential_analysis",
+          "shared_credential_detection",
+          "env_var_audit"
+        ]
+      },
+      "ASI04": {
+        "name": "Agentic Supply Chain Vulnerabilities",
+        "coverage_level": "strong",
+        "findings_count": 1,
+        "finding_ids": [
+          "GHSA-mrhx-c7xc-m3w5"
+        ],
+        "detectors": [
+          "dependency_cve",
+          "lifecycle_hooks",
+          "npx_unversioned",
+          "known_mcp_cves"
+        ]
+      },
+      "ASI05": {
+        "name": "Unexpected Code Execution",
+        "coverage_level": "strong",
+        "findings_count": 2,
+        "finding_ids": [
+          "code_0001",
+          "code_0002"
+        ],
+        "detectors": [
+          "code_exec_patterns",
+          "code_generation_detection",
+          "sandbox_escape"
+        ]
+      },
+      "ASI06": {
+        "name": "Memory & Context Poisoning",
+        "coverage_level": "partial",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "memory_poisoning_patterns",
+          "context_manipulation_detection"
+        ],
+        "gap_note": "Axiom detects static patterns. Full coverage requires runtime memory monitoring."
+      },
+      "ASI07": {
+        "name": "Insecure Inter-Agent Communication",
+        "coverage_level": "partial",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "transport_security",
+          "a2a_pattern_detection"
+        ],
+        "gap_note": "Axiom checks transport security. Full A2A protocol analysis requires runtime interception."
+      },
+      "ASI08": {
+        "name": "Cascading Failures",
+        "coverage_level": "partial",
+        "findings_count": 5,
+        "finding_ids": [
+          "cross_tool_read_file_read_text_file",
+          "cross_tool_list_directory_directory_tree",
+          "cross_tool_list_directory_list_directory_with_sizes",
+          "cross_tool_list_directory_with_sizes_list_directory",
+          "blast_radius_estimate"
+        ],
+        "detectors": [
+          "blast_radius_estimation",
+          "dependency_chain_analysis"
+        ],
+        "gap_note": "Axiom estimates blast radius from tool capabilities. Full cascading failure analysis requires runtime topology mapping."
+      },
+      "ASI09": {
+        "name": "Human-Agent Trust Exploitation",
+        "coverage_level": "strong",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "claimed_vs_actual",
+          "deceptive_output_detection",
+          "trust_manipulation_patterns"
+        ]
+      },
+      "ASI10": {
+        "name": "Rogue Agents",
+        "coverage_level": "partial",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "sleeper_patterns",
+          "behavioral_drift_indicators",
+          "persistence_detection"
+        ],
+        "gap_note": "Axiom detects static rogue indicators. Full rogue agent detection requires runtime behavioral monitoring."
+      }
+    },
+    "total_asi_categories_with_findings": 6
+  },
+  "owasp_mcp_coverage": {
+    "framework": "OWASP MCP Top 10",
+    "framework_version": "v0.1 beta",
+    "reference": "https://owasp.org/www-project-mcp-top-10/",
+    "coverage": {
+      "MCP01": {
+        "id": "MCP01:2025",
+        "name": "Token Mismanagement & Secret Exposure",
+        "coverage_level": "partial",
+        "reason": "Regex-based secret detection in server source and client configs plus env-var exposure checks; no entropy analysis, git-history scan, or token lifetime/passthrough checks.",
+        "findings_count": 4,
+        "finding_ids": [
+          "cross_tool_read_file_read_text_file",
+          "cross_tool_list_directory_directory_tree",
+          "cross_tool_list_directory_list_directory_with_sizes",
+          "cross_tool_list_directory_with_sizes_list_directory"
+        ],
+        "detectors": [
+          "credential_theft",
+          "cross_server",
+          "mcp01_hardcoded_secrets",
+          "config_hardcoded_secret",
+          "env_var_audit",
+          "env_dump"
+        ]
+      },
+      "MCP02": {
+        "id": "MCP02:2025",
+        "name": "Privilege Escalation via Scope Creep",
+        "coverage_level": "strong",
+        "reason": "Permission over-scope patterns, toxic tool-capability combinations, path-escape checks and env-var over-exposure in configs.",
+        "findings_count": 15,
+        "finding_ids": [
+          "cross_tool_read_file_read_text_file",
+          "cross_tool_list_directory_directory_tree",
+          "cross_tool_list_directory_list_directory_with_sizes",
+          "cross_tool_list_directory_with_sizes_list_directory",
+          "code_0003",
+          "code_0004",
+          "cap_read_file_file_read",
+          "cap_read_text_file_file_read",
+          "cap_read_media_file_file_read",
+          "cap_read_multiple_files_file_read"
+        ],
+        "detectors": [
+          "permission_overscope",
+          "toxic_tool_combo",
+          "identity_privilege",
+          "sandbox_escape",
+          "config_risk",
+          "cascading_failure",
+          "cross_server",
+          "excessive_scope",
+          "confused_deputy",
+          "file_read",
+          "file_write"
+        ]
+      },
+      "MCP03": {
+        "id": "MCP03:2025",
+        "name": "Tool Poisoning",
+        "coverage_level": "strong",
+        "reason": "Dedicated detector for hidden instructions in tool metadata, plus runtime rug-pull diffing between source and live tool definitions.",
+        "findings_count": 8,
+        "finding_ids": [
+          "poison_read_text_file_instruction_injection",
+          "poison_read_multiple_files_instruction_injection",
+          "poison_append_file_instruction_injection",
+          "poison_edit_file_instruction_injection",
+          "poison_edit_file_long_desc",
+          "poison_directory_tree_instruction_injection",
+          "poison_copy_file_instruction_injection",
+          "poison_search_files_instruction_injection"
+        ],
+        "detectors": [
+          "tool_poisoning",
+          "obfuscation",
+          "rogue_agent",
+          "source_vs_runtime_diff",
+          "tool_shadowing",
+          "hidden_unicode",
+          "rug_pull_primitive",
+          "surface_mismatch"
+        ]
+      },
+      "MCP04": {
+        "id": "MCP04:2025",
+        "name": "Software Supply Chain Attacks & Dependency Tampering",
+        "coverage_level": "strong",
+        "reason": "Dependency CVE lookup, known MCP CVEs, install lifecycle hooks, and unpinned npx/uvx/pip/@latest install sources.",
+        "findings_count": 1,
+        "finding_ids": [
+          "GHSA-mrhx-c7xc-m3w5"
+        ],
+        "detectors": [
+          "dependency_vuln",
+          "supply_chain",
+          "known_cve",
+          "obfuscation",
+          "lifecycle_hooks",
+          "mcp04_unpinned_install",
+          "homoglyph",
+          "rug_pull_primitive",
+          "surface_mismatch"
+        ]
+      },
+      "MCP05": {
+        "id": "MCP05:2025",
+        "name": "Command Injection & Execution",
+        "coverage_level": "partial",
+        "reason": "Regex, AST and Semgrep find exec/shell sinks and a heuristic flags sinks inside tool handlers, but there is no inter-procedural taint tracking from tool input to sink.",
+        "findings_count": 2,
+        "finding_ids": [
+          "code_0001",
+          "code_0002"
+        ],
+        "detectors": [
+          "command_injection",
+          "code_execution",
+          "code_generation",
+          "sandbox_escape",
+          "mcp05_tool_input_sink",
+          "shell_exec"
+        ]
+      },
+      "MCP06": {
+        "id": "MCP06:2025",
+        "name": "Prompt Injection via Contextual Payloads",
+        "coverage_level": "partial",
+        "reason": "Injection markers are detected in tool metadata, server instructions, resources, prompts and the strings a tool returns (static), and in instructions/resources/prompts read live; payloads produced by calling a tool at runtime are not inspected.",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "prompt_injection",
+          "memory_poisoning",
+          "trust_exploitation",
+          "response_injection",
+          "tool_shadowing"
+        ]
+      },
+      "MCP07": {
+        "id": "MCP07:2025",
+        "name": "Insufficient Authentication & Authorization",
+        "coverage_level": "partial",
+        "reason": "Flags remote servers with no visible auth and servers bound to all interfaces; does not verify OAuth implementation or per-tool authorization logic.",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "transport_security",
+          "inter_agent_comm",
+          "identity_privilege",
+          "transport_no_auth",
+          "config_no_auth",
+          "mcp07_bind_all_interfaces"
+        ]
+      },
+      "MCP08": {
+        "id": "MCP08:2025",
+        "name": "Lack of Audit and Telemetry",
+        "coverage_level": "gap",
+        "reason": "Only a low-confidence heuristic for missing logging in tool-defining files; actual audit trails and telemetry pipelines are not verified.",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "audit_telemetry",
+          "mcp08_no_tool_logging"
+        ]
+      },
+      "MCP09": {
+        "id": "MCP09:2025",
+        "name": "Shadow MCP Servers",
+        "coverage_level": "partial",
+        "reason": "Covered by `axiom discover` allowlist on the local machine; no network-wide or fleet discovery.",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "mcpguard_discover",
+          "shadow_mcp"
+        ]
+      },
+      "MCP10": {
+        "id": "MCP10:2025",
+        "name": "Context Injection & Over-Sharing",
+        "coverage_level": "partial",
+        "reason": "Hard-coded egress URLs, tools that send to caller-chosen destinations and bulk-exposure heuristics are detected statically and live; what context is actually shared at runtime is not observed.",
+        "findings_count": 3,
+        "finding_ids": [
+          "mcp10_broad_exposure_0001",
+          "mcp10_broad_exposure_0002",
+          "mcp10_broad_exposure_0003"
+        ],
+        "detectors": [
+          "context_oversharing",
+          "data_exfiltration",
+          "memory_poisoning",
+          "mcp10_broad_data_exposure"
+        ]
+      }
+    },
+    "total_mcp_categories_with_findings": 6
+  },
+  "ai_analysis": null,
+  "tool_poisoning_report": null,
+  "prompt_injection_risk": null
+}

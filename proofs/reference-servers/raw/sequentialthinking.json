@@ -1,0 +1,779 @@
+{
+  "schema_version": "0.5",
+  "target": "<corpus>/reference-servers/src/sequentialthinking",
+  "risk_score": 100.0,
+  "risk_level": "critical",
+  "tools_found": 1,
+  "findings_count": 18,
+  "findings": [
+    {
+      "id": "poison_sequentialthinking_instruction_injection",
+      "severity": "critical",
+      "category": "tool_poisoning",
+      "title": "Tool poisoning: instruction injection in 'sequentialthinking'",
+      "description": "Hidden instruction detected in tool description that could manipulate AI behavior. Matched pattern in tool 'sequentialthinking': 'You should'",
+      "owasp_asi": [
+        "ASI01"
+      ],
+      "owasp_mcp": [
+        "MCP03"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Review tool description carefully. Compare claimed functionality with actual code behavior. Consider removing this MCP server."
+    },
+    {
+      "id": "poison_sequentialthinking_priv_escalation",
+      "severity": "critical",
+      "category": "tool_poisoning",
+      "title": "Tool poisoning: priv escalation in 'sequentialthinking'",
+      "description": "Tool description attempts privilege escalation. Matched pattern in tool 'sequentialthinking': '('full', 'scope')'",
+      "owasp_asi": [
+        "ASI01",
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP03"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Review tool description carefully. Compare claimed functionality with actual code behavior. Consider removing this MCP server."
+    },
+    {
+      "id": "poison_sequentialthinking_long_desc",
+      "severity": "medium",
+      "category": "tool_poisoning",
+      "title": "Unusually long tool description for 'sequentialthinking'",
+      "description": "Tool description is 2781 characters. Long descriptions can hide malicious instructions.",
+      "owasp_asi": [
+        "ASI01"
+      ],
+      "owasp_mcp": [
+        "MCP03"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Review the full tool description for hidden instructions."
+    },
+    {
+      "id": "code_0001",
+      "severity": "critical",
+      "category": "sandbox_escape",
+      "title": "Potential sandbox/path escape in MCP server",
+      "description": "Pattern matched in index.ts at line 12: `import { realpathSync } from \"node:fs\";`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "index.ts",
+      "line_number": 12,
+      "recommendation": "Review this sandbox escape pattern."
+    },
+    {
+      "id": "code_0002",
+      "severity": "critical",
+      "category": "sandbox_escape",
+      "title": "Potential sandbox/path escape in MCP server",
+      "description": "Pattern matched in index.ts at line 208: `* sides go through realpath, so the bin still starts when it is reached`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "index.ts",
+      "line_number": 208,
+      "recommendation": "Review this sandbox escape pattern."
+    },
+    {
+      "id": "code_0003",
+      "severity": "critical",
+      "category": "sandbox_escape",
+      "title": "Potential sandbox/path escape in MCP server",
+      "description": "Pattern matched in index.ts at line 209: `* through a symlink, as `npx` and `node_modules/.bin` do.`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "index.ts",
+      "line_number": 209,
+      "recommendation": "Review this sandbox escape pattern."
+    },
+    {
+      "id": "code_0004",
+      "severity": "critical",
+      "category": "sandbox_escape",
+      "title": "Potential sandbox/path escape in MCP server",
+      "description": "Pattern matched in index.ts at line 219: `return realpathSync(argv1) === realpathSync(fileURLToPath(moduleUrl));`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "index.ts",
+      "line_number": 219,
+      "recommendation": "Review this sandbox escape pattern."
+    },
+    {
+      "id": "code_0005",
+      "severity": "critical",
+      "category": "sandbox_escape",
+      "title": "Potential sandbox/path escape in MCP server",
+      "description": "Pattern matched in version.ts at line 16: `path.join(moduleDir, \"..\", \"package.json\"),`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "version.ts",
+      "line_number": 16,
+      "recommendation": "Review this sandbox escape pattern."
+    },
+    {
+      "id": "GHSA-46jr-4wx8-v453",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: @modelcontextprotocol/server",
+      "description": "MCP TypeScript SDK: One HTTP request within the default size limit could exhaust server memory during validation",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update @modelcontextprotocol/server to a patched version."
+    },
+    {
+      "id": "GHSA-f897-62hf-6gxq",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: @modelcontextprotocol/server",
+      "description": "MCP TypeScript SDK: HTTP server transports and handlers did not limit request body size or JSON-RPC batch length",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update @modelcontextprotocol/server to a patched version."
+    },
+    {
+      "id": "GHSA-jm63-cq47-j5jp",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: @modelcontextprotocol/server",
+      "description": "MCP  TypeScript server SDK: Shared transport or server instances delivered one HTTP client's messages to another",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update @modelcontextprotocol/server to a patched version."
+    },
+    {
+      "id": "GHSA-rvq5-wwqv-78pq",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: @modelcontextprotocol/server",
+      "description": "MCP TypeScript SDK: Server bearer authentication accepted tokens issued for another service",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update @modelcontextprotocol/server to a patched version."
+    },
+    {
+      "id": "MAL-2025-46969",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: chalk",
+      "description": "Malicious code in chalk (npm)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update chalk to a patched version."
+    },
+    {
+      "id": "GHSA-m95q-7qp3-xv42",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: zod",
+      "description": "Zod denial of service vulnerability",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update zod to a patched version."
+    },
+    {
+      "id": "GHSA-mrhx-c7xc-m3w5",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: zod",
+      "description": "Zod can exhaust memory while validating oversized constrained collections",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update zod to a patched version."
+    },
+    {
+      "id": "toxic_combo_data_read_data_write",
+      "severity": "medium",
+      "category": "toxic_tool_combo",
+      "title": "Broad data read + write = data manipulation risk",
+      "description": "Tools that can both read and write data could be manipulated to corrupt, overwrite, or delete information. Provided by: sequentialthinking (data_read) + sequentialthinking (data_write).",
+      "owasp_asi": [
+        "ASI02"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Implement tool-level permission scoping. Consider whether both capabilities are necessary or if one can be restricted."
+    },
+    {
+      "id": "toxic_combo_credential_access_data_write",
+      "severity": "high",
+      "category": "toxic_tool_combo",
+      "title": "Credential access + data write = privilege persistence",
+      "description": "Tools that access credentials AND write data could persist stolen credentials or create backdoor accounts. Provided by: sequentialthinking (credential_access) + sequentialthinking (data_write).",
+      "owasp_asi": [
+        "ASI02"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Implement tool-level permission scoping. Consider whether both capabilities are necessary or if one can be restricted."
+    },
+    {
+      "id": "blast_radius_estimate",
+      "severity": "high",
+      "category": "cascading_failure",
+      "title": "Blast radius: HIGH \u2014 compromise of this server has broad impact",
+      "description": "If this MCP server is compromised, the blast radius is HIGH due to: filesystem access, credential access, 7 critical findings. A single tool poisoning or supply chain attack could cascade across all connected systems.",
+      "owasp_asi": [
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Apply least-privilege to this server. Isolate it from other MCP servers. Implement kill switches and behavioral monitoring. Limit env vars to the minimum required."
+    }
+  ],
+  "server_profile": {
+    "name": "<corpus>/reference-servers/src/sequentialthinking",
+    "command": null,
+    "args": [],
+    "env_vars": [],
+    "transport": "unknown",
+    "tools": [
+      {
+        "name": "sequentialthinking",
+        "description": "A detailed tool for dynamic and reflective problem-solving through thoughts.\nThis tool helps analyze problems through a flexible thinking process that can adapt and evolve.\nEach thought can build on, question, or revise previous insights as understanding deepens.\n\nWhen to use this tool:\n- Breaking down complex problems into steps\n- Planning and design with room for revision\n- Analysis that might need course correction\n- Problems where the full scope might not be clear initially\n- Problems that require a multi-step solution\n- Tasks that need to maintain context over multiple steps\n- Situations where irrelevant information needs to be filtered out\n\nKey features:\n- You can adjust total_thoughts up or down as you progress\n- You can question or revise previous thoughts\n- You can add more thoughts even after reaching what seemed like the end\n- You can express uncertainty and explore alternative approaches\n- Not every thought needs to build linearly - you can branch or backtrack\n- Generates a solution hypothesis\n- Verifies the hypothesis based on the Chain of Thought steps\n- Repeats the process until satisfied\n- Provides a correct answer\n\nParameters explained:\n- thought: Your current thinking step, which can include:\n  * Regular analytical steps\n  * Revisions of previous thoughts\n  * Questions about previous decisions\n  * Realizations about needing more analysis\n  * Changes in approach\n  * Hypothesis generation\n  * Hypothesis verification\n- nextThoughtNeeded: True if you need more thinking, even if at what seemed like the end\n- thoughtNumber: Current number in sequence (can go beyond initial total if needed)\n- totalThoughts: Current estimate of thoughts needed (can be adjusted up/down)\n- isRevision: A boolean indicating if this thought revises previous thinking\n- revisesThought: If is_revision is true, which thought number is being reconsidered\n- branchFromThought: If branching, which thought number is the branching point\n- branchId: Identifier for the current branch (if any)\n- needsMoreThoughts: If reaching end but realizing more thoughts needed\n\nYou should:\n1. Start with an initial estimate of needed thoughts, but be ready to adjust\n2. Feel free to question or revise previous thoughts\n3. Don't hesitate to add more thoughts if needed, even at the \"end\"\n4. Express uncertainty when present\n5. Mark thoughts that revise previous thinking or branch into new paths\n6. Ignore information that is irrelevant to the current step\n7. Generate a solution hypothesis when appropriate\n8. Verify the hypothesis based on the Chain of Thought steps\n9. Repeat the process until satisfied with the solution\n10. Provide a single, ideally correct answer as the final output\n11. Only set nextThoughtNeeded to false when truly done and a satisfactory answer is reached",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "thought": {
+              "type": "string",
+              "description": "Your current thinking step"
+            },
+            "nextThoughtNeeded": {
+              "description": "Whether another thought step is needed"
+            },
+            "thoughtNumber": {
+              "description": "Current thought number (numeric value, e.g., 1, 2, 3)"
+            },
+            "totalThoughts": {
+              "description": "Estimated total thoughts needed (numeric value, e.g., 5, 10)"
+            },
+            "isRevision": {
+              "description": "Whether this revises previous thinking"
+            },
+            "revisesThought": {
+              "description": "Which thought is being reconsidered"
+            },
+            "branchFromThought": {
+              "description": "Branching point thought number"
+            },
+            "branchId": {
+              "type": "string",
+              "description": "Branch identifier"
+            },
+            "needsMoreThoughts": {
+              "description": "If more thoughts are needed"
+            }
+          },
+          "required": [
+            "thought",
+            "nextThoughtNeeded",
+            "thoughtNumber",
+            "totalThoughts"
+          ]
+        },
+        "has_hidden_instructions": true,
+        "poisoning_risk": "critical",
+        "poisoning_detail": "Hidden instruction detected in tool description that could manipulate AI behavior. Matched pattern in tool 'sequentialthinking': 'You should'"
+      }
+    ],
+    "resources": [],
+    "prompts": [],
+    "repo_url": null,
+    "npm_package": null,
+    "capabilities_claimed": [],
+    "capabilities_actual": []
+  },
+  "fingerprint": "a68347da0656c8a136afd8b4fda70c7382a7b0d7a49e28dc51bf3b9461775698",
+  "surface_map": {
+    "server": {
+      "name": "<corpus>/reference-servers/src/sequentialthinking",
+      "instructions": "",
+      "transport": "unknown",
+      "auth": "unknown"
+    },
+    "tools": [
+      {
+        "name": "sequentialthinking",
+        "description": "A detailed tool for dynamic and reflective problem-solving through thoughts.\nThis tool helps analyze problems through a flexible thinking process that can adapt and evolve.\nEach thought can build on, question, or revise previous insights as understanding deepens.\n\nWhen to use this tool:\n- Breaking down complex problems into steps\n- Planning and design with room for revision\n- Analysis that might need course correction\n- Problems where the full scope might not be clear initially\n- Problems that require a multi-step solution\n- Tasks that need to maintain context over multiple steps\n- Situations where irrelevant information needs to be filtered out\n\nKey features:\n- You can adjust total_thoughts up or down as you progress\n- You can question or revise previous thoughts\n- You can add more thoughts even after reaching what seemed like the end\n- You can express uncertainty and explore alternative approaches\n- Not every thought needs to build linearly - you can branch or backtrack\n- Generates a solution hypothesis\n- Verifies the hypothesis based on the Chain of Thought steps\n- Repeats the process until satisfied\n- Provides a correct answer\n\nParameters explained:\n- thought: Your current thinking step, which can include:\n  * Regular analytical steps\n  * Revisions of previous thoughts\n  * Questions about previous decisions\n  * Realizations about needing more analysis\n  * Changes in approach\n  * Hypothesis generation\n  * Hypothesis verification\n- nextThoughtNeeded: True if you need more thinking, even if at what seemed like the end\n- thoughtNumber: Current number in sequence (can go beyond initial total if needed)\n- totalThoughts: Current estimate of thoughts needed (can be adjusted up/down)\n- isRevision: A boolean indicating if this thought revises previous thinking\n- revisesThought: If is_revision is true, which thought number is being reconsidered\n- branchFromThought: If branching, which thought number is the branching point\n- branchId: Identifier for the current branch (if any)\n- needsMoreThoughts: If reaching end but realizing more thoughts needed\n\nYou should:\n1. Start with an initial estimate of needed thoughts, but be ready to adjust\n2. Feel free to question or revise previous thoughts\n3. Don't hesitate to add more thoughts if needed, even at the \"end\"\n4. Express uncertainty when present\n5. Mark thoughts that revise previous thinking or branch into new paths\n6. Ignore information that is irrelevant to the current step\n7. Generate a solution hypothesis when appropriate\n8. Verify the hypothesis based on the Chain of Thought steps\n9. Repeat the process until satisfied with the solution\n10. Provide a single, ideally correct answer as the final output\n11. Only set nextThoughtNeeded to false when truly done and a satisfactory answer is reached",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "thought": {
+              "type": "string",
+              "description": "Your current thinking step"
+            },
+            "nextThoughtNeeded": {
+              "description": "Whether another thought step is needed"
+            },
+            "thoughtNumber": {
+              "description": "Current thought number (numeric value, e.g., 1, 2, 3)"
+            },
+            "totalThoughts": {
+              "description": "Estimated total thoughts needed (numeric value, e.g., 5, 10)"
+            },
+            "isRevision": {
+              "description": "Whether this revises previous thinking"
+            },
+            "revisesThought": {
+              "description": "Which thought is being reconsidered"
+            },
+            "branchFromThought": {
+              "description": "Branching point thought number"
+            },
+            "branchId": {
+              "type": "string",
+              "description": "Branch identifier"
+            },
+            "needsMoreThoughts": {
+              "description": "If more thoughts are needed"
+            }
+          },
+          "required": [
+            "thought",
+            "nextThoughtNeeded",
+            "thoughtNumber",
+            "totalThoughts"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "index.ts:53"
+      }
+    ],
+    "resources": [],
+    "prompts": [],
+    "mutations": [],
+    "source": {
+      "kind": "static",
+      "target": "<corpus>/reference-servers/src/sequentialthinking",
+      "languages": [
+        "typescript"
+      ]
+    },
+    "generated_at": "2026-11-04T02:10:20+00:00",
+    "fingerprint": "a68347da0656c8a136afd8b4fda70c7382a7b0d7a49e28dc51bf3b9461775698",
+    "schema": "axiom.surface/1"
+  },
+  "owasp_coverage": {
+    "framework": "OWASP Top 10 for Agentic Applications 2026",
+    "reference": "https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/",
+    "coverage": {
+      "ASI01": {
+        "name": "Agent Goal Hijack",
+        "coverage_level": "strong",
+        "findings_count": 3,
+        "finding_ids": [
+          "poison_sequentialthinking_instruction_injection",
+          "poison_sequentialthinking_priv_escalation",
+          "poison_sequentialthinking_long_desc"
+        ],
+        "detectors": [
+          "tool_poisoning",
+          "prompt_injection",
+          "instruction_injection"
+        ]
+      },
+      "ASI02": {
+        "name": "Tool Misuse & Exploitation",
+        "coverage_level": "strong",
+        "findings_count": 2,
+        "finding_ids": [
+          "toxic_combo_data_read_data_write",
+          "toxic_combo_credential_access_data_write"
+        ],
+        "detectors": [
+          "toxic_tool_combo",
+          "tool_overscope",
+          "tool_chaining_detection"
+        ]
+      },
+      "ASI03": {
+        "name": "Identity & Privilege Abuse",
+        "coverage_level": "strong",
+        "findings_count": 1,
+        "finding_ids": [
+          "poison_sequentialthinking_priv_escalation"
+        ],
+        "detectors": [
+          "credential_analysis",
+          "shared_credential_detection",
+          "env_var_audit"
+        ]
+      },
+      "ASI04": {
+        "name": "Agentic Supply Chain Vulnerabilities",
+        "coverage_level": "strong",
+        "findings_count": 7,
+        "finding_ids": [
+          "GHSA-46jr-4wx8-v453",
+          "GHSA-f897-62hf-6gxq",
+          "GHSA-jm63-cq47-j5jp",
+          "GHSA-rvq5-wwqv-78pq",
+          "MAL-2025-46969",
+          "GHSA-m95q-7qp3-xv42",
+          "GHSA-mrhx-c7xc-m3w5"
+        ],
+        "detectors": [
+          "dependency_cve",
+          "lifecycle_hooks",
+          "npx_unversioned",
+          "known_mcp_cves"
+        ]
+      },
+      "ASI05": {
+        "name": "Unexpected Code Execution",
+        "coverage_level": "strong",
+        "findings_count": 5,
+        "finding_ids": [
+          "code_0001",
+          "code_0002",
+          "code_0003",
+          "code_0004",
+          "code_0005"
+        ],
+        "detectors": [
+          "code_exec_patterns",
+          "code_generation_detection",
+          "sandbox_escape"
+        ]
+      },
+      "ASI06": {
+        "name": "Memory & Context Poisoning",
+        "coverage_level": "partial",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "memory_poisoning_patterns",
+          "context_manipulation_detection"
+        ],
+        "gap_note": "Axiom detects static patterns. Full coverage requires runtime memory monitoring."
+      },
+      "ASI07": {
+        "name": "Insecure Inter-Agent Communication",
+        "coverage_level": "partial",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "transport_security",
+          "a2a_pattern_detection"
+        ],
+        "gap_note": "Axiom checks transport security. Full A2A protocol analysis requires runtime interception."
+      },
+      "ASI08": {
+        "name": "Cascading Failures",
+        "coverage_level": "partial",
+        "findings_count": 1,
+        "finding_ids": [
+          "blast_radius_estimate"
+        ],
+        "detectors": [
+          "blast_radius_estimation",
+          "dependency_chain_analysis"
+        ],
+        "gap_note": "Axiom estimates blast radius from tool capabilities. Full cascading failure analysis requires runtime topology mapping."
+      },
+      "ASI09": {
+        "name": "Human-Agent Trust Exploitation",
+        "coverage_level": "strong",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "claimed_vs_actual",
+          "deceptive_output_detection",
+          "trust_manipulation_patterns"
+        ]
+      },
+      "ASI10": {
+        "name": "Rogue Agents",
+        "coverage_level": "partial",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "sleeper_patterns",
+          "behavioral_drift_indicators",
+          "persistence_detection"
+        ],
+        "gap_note": "Axiom detects static rogue indicators. Full rogue agent detection requires runtime behavioral monitoring."
+      }
+    },
+    "total_asi_categories_with_findings": 6
+  },
+  "owasp_mcp_coverage": {
+    "framework": "OWASP MCP Top 10",
+    "framework_version": "v0.1 beta",
+    "reference": "https://owasp.org/www-project-mcp-top-10/",
+    "coverage": {
+      "MCP01": {
+        "id": "MCP01:2025",
+        "name": "Token Mismanagement & Secret Exposure",
+        "coverage_level": "partial",
+        "reason": "Regex-based secret detection in server source and client configs plus env-var exposure checks; no entropy analysis, git-history scan, or token lifetime/passthrough checks.",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "credential_theft",
+          "cross_server",
+          "mcp01_hardcoded_secrets",
+          "config_hardcoded_secret",
+          "env_var_audit",
+          "env_dump"
+        ]
+      },
+      "MCP02": {
+        "id": "MCP02:2025",
+        "name": "Privilege Escalation via Scope Creep",
+        "coverage_level": "strong",
+        "reason": "Permission over-scope patterns, toxic tool-capability combinations, path-escape checks and env-var over-exposure in configs.",
+        "findings_count": 8,
+        "finding_ids": [
+          "code_0001",
+          "code_0002",
+          "code_0003",
+          "code_0004",
+          "code_0005",
+          "toxic_combo_data_read_data_write",
+          "toxic_combo_credential_access_data_write",
+          "blast_radius_estimate"
+        ],
+        "detectors": [
+          "permission_overscope",
+          "toxic_tool_combo",
+          "identity_privilege",
+          "sandbox_escape",
+          "config_risk",
+          "cascading_failure",
+          "cross_server",
+          "excessive_scope",
+          "confused_deputy",
+          "file_read",
+          "file_write"
+        ]
+      },
+      "MCP03": {
+        "id": "MCP03:2025",
+        "name": "Tool Poisoning",
+        "coverage_level": "strong",
+        "reason": "Dedicated detector for hidden instructions in tool metadata, plus runtime rug-pull diffing between source and live tool definitions.",
+        "findings_count": 3,
+        "finding_ids": [
+          "poison_sequentialthinking_instruction_injection",
+          "poison_sequentialthinking_priv_escalation",
+          "poison_sequentialthinking_long_desc"
+        ],
+        "detectors": [
+          "tool_poisoning",
+          "obfuscation",
+          "rogue_agent",
+          "source_vs_runtime_diff",
+          "tool_shadowing",
+          "hidden_unicode",
+          "rug_pull_primitive",
+          "surface_mismatch"
+        ]
+      },
+      "MCP04": {
+        "id": "MCP04:2025",
+        "name": "Software Supply Chain Attacks & Dependency Tampering",
+        "coverage_level": "strong",
+        "reason": "Dependency CVE lookup, known MCP CVEs, install lifecycle hooks, and unpinned npx/uvx/pip/@latest install sources.",
+        "findings_count": 7,
+        "finding_ids": [
+          "GHSA-46jr-4wx8-v453",
+          "GHSA-f897-62hf-6gxq",
+          "GHSA-jm63-cq47-j5jp",
+          "GHSA-rvq5-wwqv-78pq",
+          "MAL-2025-46969",
+          "GHSA-m95q-7qp3-xv42",
+          "GHSA-mrhx-c7xc-m3w5"
+        ],
+        "detectors": [
+          "dependency_vuln",
+          "supply_chain",
+          "known_cve",
+          "obfuscation",
+          "lifecycle_hooks",
+          "mcp04_unpinned_install",
+          "homoglyph",
+          "rug_pull_primitive",
+          "surface_mismatch"
+        ]
+      },
+      "MCP05": {
+        "id": "MCP05:2025",
+        "name": "Command Injection & Execution",
+        "coverage_level": "partial",
+        "reason": "Regex, AST and Semgrep find exec/shell sinks and a heuristic flags sinks inside tool handlers, but there is no inter-procedural taint tracking from tool input to sink.",
+        "findings_count": 5,
+        "finding_ids": [
+          "code_0001",
+          "code_0002",
+          "code_0003",
+          "code_0004",
+          "code_0005"
+        ],
+        "detectors": [
+          "command_injection",
+          "code_execution",
+          "code_generation",
+          "sandbox_escape",
+          "mcp05_tool_input_sink",
+          "shell_exec"
+        ]
+      },
+      "MCP06": {
+        "id": "MCP06:2025",
+        "name": "Prompt Injection via Contextual Payloads",
+        "coverage_level": "partial",
+        "reason": "Injection markers are detected in tool metadata, server instructions, resources, prompts and the strings a tool returns (static), and in instructions/resources/prompts read live; payloads produced by calling a tool at runtime are not inspected.",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "prompt_injection",
+          "memory_poisoning",
+          "trust_exploitation",
+          "response_injection",
+          "tool_shadowing"
+        ]
+      },
+      "MCP07": {
+        "id": "MCP07:2025",
+        "name": "Insufficient Authentication & Authorization",
+        "coverage_level": "partial",
+        "reason": "Flags remote servers with no visible auth and servers bound to all interfaces; does not verify OAuth implementation or per-tool authorization logic.",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "transport_security",
+          "inter_agent_comm",
+          "identity_privilege",
+          "transport_no_auth",
+          "config_no_auth",
+          "mcp07_bind_all_interfaces"
+        ]
+      },
+      "MCP08": {
+        "id": "MCP08:2025",
+        "name": "Lack of Audit and Telemetry",
+        "coverage_level": "gap",
+        "reason": "Only a low-confidence heuristic for missing logging in tool-defining files; actual audit trails and telemetry pipelines are not verified.",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "audit_telemetry",
+          "mcp08_no_tool_logging"
+        ]
+      },
+      "MCP09": {
+        "id": "MCP09:2025",
+        "name": "Shadow MCP Servers",
+        "coverage_level": "partial",
+        "reason": "Covered by `axiom discover` allowlist on the local machine; no network-wide or fleet discovery.",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "mcpguard_discover",
+          "shadow_mcp"
+        ]
+      },
+      "MCP10": {
+        "id": "MCP10:2025",
+        "name": "Context Injection & Over-Sharing",
+        "coverage_level": "partial",
+        "reason": "Hard-coded egress URLs, tools that send to caller-chosen destinations and bulk-exposure heuristics are detected statically and live; what context is actually shared at runtime is not observed.",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "context_oversharing",
+          "data_exfiltration",
+          "memory_poisoning",
+          "mcp10_broad_data_exposure"
+        ]
+      }
+    },
+    "total_mcp_categories_with_findings": 4
+  },
+  "ai_analysis": null,
+  "tool_poisoning_report": null,
+  "prompt_injection_risk": null
+}

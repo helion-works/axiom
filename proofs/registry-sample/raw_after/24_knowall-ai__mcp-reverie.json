@@ -1,0 +1,4119 @@
+{
+  "schema_version": "0.5",
+  "target": "24_knowall-ai__mcp-reverie",
+  "risk_score": 45.0,
+  "risk_level": "medium",
+  "tools_found": 12,
+  "findings_count": 150,
+  "findings": [
+    {
+      "id": "code_0001",
+      "severity": "low",
+      "category": "obfuscation",
+      "title": "Encoded or obfuscated content in MCP server source",
+      "description": "Pattern matched in .smithery\\index.cjs at line 129: `const decoded = JSON.parse(atob(base64));`",
+      "owasp_asi": [
+        "ASI01",
+        "ASI10"
+      ],
+      "owasp_mcp": [
+        "MCP03",
+        "MCP04"
+      ],
+      "file_path": ".smithery\\index.cjs",
+      "line_number": 129,
+      "recommendation": "Review this obfuscation pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const decoded = JSON.parse(atob(base64));",
+      "location": ".smithery\\index.cjs:129",
+      "replay": "axiom scan <corpus>/registry/24_knowall-ai__mcp-reverie --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0001\")'"
+    },
+    {
+      "id": "code_0002",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in .smithery\\index.cjs at line 7752: `this._loggerFunction(ERROR, message);`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": ".smithery\\index.cjs",
+      "line_number": 7752,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "this._loggerFunction(ERROR, message);",
+      "location": ".smithery\\index.cjs:7752",
+      "replay": "axiom scan <corpus>/registry/24_knowall-ai__mcp-reverie --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0002\")'"
+    },
+    {
+      "id": "code_0003",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in .smithery\\index.cjs at line 7760: `this._loggerFunction(WARN, message);`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": ".smithery\\index.cjs",
+      "line_number": 7760,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "this._loggerFunction(WARN, message);",
+      "location": ".smithery\\index.cjs:7760",
+      "replay": "axiom scan <corpus>/registry/24_knowall-ai__mcp-reverie --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0003\")'"
+    },
+    {
+      "id": "code_0004",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in .smithery\\index.cjs at line 7768: `this._loggerFunction(INFO, message);`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": ".smithery\\index.cjs",
+      "line_number": 7768,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "this._loggerFunction(INFO, message);",
+      "location": ".smithery\\index.cjs:7768",
+      "replay": "axiom scan <corpus>/registry/24_knowall-ai__mcp-reverie --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0004\")'"
+    },
+    {
+      "id": "code_0005",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in .smithery\\index.cjs at line 7776: `this._loggerFunction(DEBUG, message);`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": ".smithery\\index.cjs",
+      "line_number": 7776,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "this._loggerFunction(DEBUG, message);",
+      "location": ".smithery\\index.cjs:7776",
+      "replay": "axiom scan <corpus>/registry/24_knowall-ai__mcp-reverie --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0005\")'"
+    },
+    {
+      "id": "code_0006",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in .smithery\\index.cjs at line 8993: `return resolve(_this._resolverFunction(seedRouter.asHostPort()));`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": ".smithery\\index.cjs",
+      "line_number": 8993,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "return resolve(_this._resolverFunction(seedRouter.asHostPort()));",
+      "location": ".smithery\\index.cjs:8993",
+      "replay": "axiom scan <corpus>/registry/24_knowall-ai__mcp-reverie --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0006\")'"
+    },
+    {
+      "id": "code_0007",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in .smithery\\index.cjs at line 14474: `function isFunction(value) {`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": ".smithery\\index.cjs",
+      "line_number": 14474,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "function isFunction(value) {",
+      "location": ".smithery\\index.cjs:14474",
+      "replay": "axiom scan <corpus>/registry/24_knowall-ai__mcp-reverie --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0007\")'"
+    },
+    {
+      "id": "code_0008",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in .smithery\\index.cjs at line 14576: `var isFunction_1 = require_isFunction();`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": ".smithery\\index.cjs",
+      "line_number": 14576,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "var isFunction_1 = require_isFunction();",
+      "location": ".smithery\\index.cjs:14576",
+      "replay": "axiom scan <corpus>/registry/24_knowall-ai__mcp-reverie --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0008\")'"
+    },
+    {
+      "id": "code_0009",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in .smithery\\index.cjs at line 14614: `if (isFunction_1.isFunction(initialFinalizer)) {`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": ".smithery\\index.cjs",
+      "line_number": 14614,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "if (isFunction_1.isFunction(initialFinalizer)) {",
+      "location": ".smithery\\index.cjs:14614",
+      "replay": "axiom scan <corpus>/registry/24_knowall-ai__mcp-reverie --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0009\")'"
+    },
+    {
+      "id": "code_0010",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in .smithery\\index.cjs at line 14702: `return value instanceof Subscription || value && \"closed\" in value && isFunction_1.isFunction(value.remove) && isFunctio`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": ".smithery\\index.cjs",
+      "line_number": 14702,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "return value instanceof Subscription || value && \"closed\" in value && isFunction_1.isFunction(value.remove) && isFunctio",
+      "location": ".smithery\\index.cjs:14702",
+      "replay": "axiom scan <corpus>/registry/24_knowall-ai__mcp-reverie --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0010\")'"
+    },
+    {
+      "id": "code_0011",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in .smithery\\index.cjs at line 14706: `if (isFunction_1.isFunction(finalizer)) {`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": ".smithery\\index.cjs",
+      "line_number": 14706,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "if (isFunction_1.isFunction(finalizer)) {",
+      "location": ".smithery\\index.cjs:14706",
+      "replay": "axiom scan <corpus>/registry/24_knowall-ai__mcp-reverie --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0011\")'"
+    },
+    {
+      "id": "code_0012",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in .smithery\\index.cjs at line 14904: `var isFunction_1 = require_isFunction();`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": ".smithery\\index.cjs",
+      "line_number": 14904,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "var isFunction_1 = require_isFunction();",
+      "location": ".smithery\\index.cjs:14904",
+      "replay": "axiom scan <corpus>/registry/24_knowall-ai__mcp-reverie --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0012\")'"
+    },
+    {
+      "id": "code_0013",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in .smithery\\index.cjs at line 15027: `if (isFunction_1.isFunction(observerOrNext) || !observerOrNext) {`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": ".smithery\\index.cjs",
+      "line_number": 15027,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "if (isFunction_1.isFunction(observerOrNext) || !observerOrNext) {",
+      "location": ".smithery\\index.cjs:15027",
+      "replay": "axiom scan <corpus>/registry/24_knowall-ai__mcp-reverie --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0013\")'"
+    },
+    {
+      "id": "code_0014",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in .smithery\\index.cjs at line 15148: `var isFunction_1 = require_isFunction();`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": ".smithery\\index.cjs",
+      "line_number": 15148,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "var isFunction_1 = require_isFunction();",
+      "location": ".smithery\\index.cjs:15148",
+      "replay": "axiom scan <corpus>/registry/24_knowall-ai__mcp-reverie --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0014\")'"
+    },
+    {
+      "id": "code_0015",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in .smithery\\index.cjs at line 15236: `return value && isFunction_1.isFunction(value.next) && isFunction_1.isFunction(value.error) && isFunction_1.isFunction(v`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": ".smithery\\index.cjs",
+      "line_number": 15236,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "return value && isFunction_1.isFunction(value.next) && isFunction_1.isFunction(value.error) && isFunction_1.isFunction(v",
+      "location": ".smithery\\index.cjs:15236",
+      "replay": "axiom scan <corpus>/registry/24_knowall-ai__mcp-reverie --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0015\")'"
+    },
+    {
+      "id": "code_0016",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in .smithery\\index.cjs at line 15250: `var isFunction_1 = require_isFunction();`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": ".smithery\\index.cjs",
+      "line_number": 15250,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "var isFunction_1 = require_isFunction();",
+      "location": ".smithery\\index.cjs:15250",
+      "replay": "axiom scan <corpus>/registry/24_knowall-ai__mcp-reverie --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0016\")'"
+    },
+    {
+      "id": "code_0017",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in .smithery\\index.cjs at line 15252: `return isFunction_1.isFunction(source === null || source === void 0 ? void 0 : source.lift);`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": ".smithery\\index.cjs",
+      "line_number": 15252,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "return isFunction_1.isFunction(source === null || source === void 0 ? void 0 : source.lift);",
+      "location": ".smithery\\index.cjs:15252",
+      "replay": "axiom scan <corpus>/registry/24_knowall-ai__mcp-reverie --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0017\")'"
+    },
+    {
+      "id": "code_0018",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in .smithery\\index.cjs at line 17014: `var isFunction_1 = require_isFunction();`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": ".smithery\\index.cjs",
+      "line_number": 17014,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "var isFunction_1 = require_isFunction();",
+      "location": ".smithery\\index.cjs:17014",
+      "replay": "axiom scan <corpus>/registry/24_knowall-ai__mcp-reverie --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0018\")'"
+    },
+    {
+      "id": "code_0019",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in .smithery\\index.cjs at line 17016: `return value && isFunction_1.isFunction(value.schedule);`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": ".smithery\\index.cjs",
+      "line_number": 17016,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "return value && isFunction_1.isFunction(value.schedule);",
+      "location": ".smithery\\index.cjs:17016",
+      "replay": "axiom scan <corpus>/registry/24_knowall-ai__mcp-reverie --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0019\")'"
+    },
+    {
+      "id": "code_0020",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in .smithery\\index.cjs at line 17028: `var isFunction_1 = require_isFunction();`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": ".smithery\\index.cjs",
+      "line_number": 17028,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "var isFunction_1 = require_isFunction();",
+      "location": ".smithery\\index.cjs:17028",
+      "replay": "axiom scan <corpus>/registry/24_knowall-ai__mcp-reverie --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0020\")'"
+    },
+    {
+      "id": "code_0021",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in .smithery\\index.cjs at line 17034: `return isFunction_1.isFunction(last(args)) ? args.pop() : void 0;`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": ".smithery\\index.cjs",
+      "line_number": 17034,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "return isFunction_1.isFunction(last(args)) ? args.pop() : void 0;",
+      "location": ".smithery\\index.cjs:17034",
+      "replay": "axiom scan <corpus>/registry/24_knowall-ai__mcp-reverie --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0021\")'"
+    },
+    {
+      "id": "code_0022",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in .smithery\\index.cjs at line 17066: `var isFunction_1 = require_isFunction();`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": ".smithery\\index.cjs",
+      "line_number": 17066,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "var isFunction_1 = require_isFunction();",
+      "location": ".smithery\\index.cjs:17066",
+      "replay": "axiom scan <corpus>/registry/24_knowall-ai__mcp-reverie --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0022\")'"
+    },
+    {
+      "id": "code_0023",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in .smithery\\index.cjs at line 17068: `return isFunction_1.isFunction(value === null || value === void 0 ? void 0 : value.then);`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": ".smithery\\index.cjs",
+      "line_number": 17068,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "return isFunction_1.isFunction(value === null || value === void 0 ? void 0 : value.then);",
+      "location": ".smithery\\index.cjs:17068",
+      "replay": "axiom scan <corpus>/registry/24_knowall-ai__mcp-reverie --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0023\")'"
+    },
+    {
+      "id": "code_0024",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in .smithery\\index.cjs at line 17081: `var isFunction_1 = require_isFunction();`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": ".smithery\\index.cjs",
+      "line_number": 17081,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "var isFunction_1 = require_isFunction();",
+      "location": ".smithery\\index.cjs:17081",
+      "replay": "axiom scan <corpus>/registry/24_knowall-ai__mcp-reverie --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0024\")'"
+    },
+    {
+      "id": "code_0025",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in .smithery\\index.cjs at line 17083: `return isFunction_1.isFunction(input[observable_1.observable]);`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": ".smithery\\index.cjs",
+      "line_number": 17083,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "return isFunction_1.isFunction(input[observable_1.observable]);",
+      "location": ".smithery\\index.cjs:17083",
+      "replay": "axiom scan <corpus>/registry/24_knowall-ai__mcp-reverie --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0025\")'"
+    },
+    {
+      "id": "code_0026",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in .smithery\\index.cjs at line 17095: `var isFunction_1 = require_isFunction();`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": ".smithery\\index.cjs",
+      "line_number": 17095,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "var isFunction_1 = require_isFunction();",
+      "location": ".smithery\\index.cjs:17095",
+      "replay": "axiom scan <corpus>/registry/24_knowall-ai__mcp-reverie --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0026\")'"
+    },
+    {
+      "id": "code_0027",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in .smithery\\index.cjs at line 17097: `return Symbol.asyncIterator && isFunction_1.isFunction(obj === null || obj === void 0 ? void 0 : obj[Symbol.asyncIterato`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": ".smithery\\index.cjs",
+      "line_number": 17097,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "return Symbol.asyncIterator && isFunction_1.isFunction(obj === null || obj === void 0 ? void 0 : obj[Symbol.asyncIterato",
+      "location": ".smithery\\index.cjs:17097",
+      "replay": "axiom scan <corpus>/registry/24_knowall-ai__mcp-reverie --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0027\")'"
+    },
+    {
+      "id": "code_0028",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in .smithery\\index.cjs at line 17140: `var isFunction_1 = require_isFunction();`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": ".smithery\\index.cjs",
+      "line_number": 17140,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "var isFunction_1 = require_isFunction();",
+      "location": ".smithery\\index.cjs:17140",
+      "replay": "axiom scan <corpus>/registry/24_knowall-ai__mcp-reverie --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0028\")'"
+    },
+    {
+      "id": "code_0029",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in .smithery\\index.cjs at line 17142: `return isFunction_1.isFunction(input === null || input === void 0 ? void 0 : input[iterator_1.iterator]);`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": ".smithery\\index.cjs",
+      "line_number": 17142,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "return isFunction_1.isFunction(input === null || input === void 0 ? void 0 : input[iterator_1.iterator]);",
+      "location": ".smithery\\index.cjs:17142",
+      "replay": "axiom scan <corpus>/registry/24_knowall-ai__mcp-reverie --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0029\")'"
+    },
+    {
+      "id": "code_0030",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in .smithery\\index.cjs at line 17259: `var isFunction_1 = require_isFunction();`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": ".smithery\\index.cjs",
+      "line_number": 17259,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "var isFunction_1 = require_isFunction();",
+      "location": ".smithery\\index.cjs:17259",
+      "replay": "axiom scan <corpus>/registry/24_knowall-ai__mcp-reverie --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0030\")'"
+    },
+    {
+      "id": "code_0031",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in .smithery\\index.cjs at line 17300: `return isFunction_1.isFunction(obj === null || obj === void 0 ? void 0 : obj.getReader);`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": ".smithery\\index.cjs",
+      "line_number": 17300,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "return isFunction_1.isFunction(obj === null || obj === void 0 ? void 0 : obj.getReader);",
+      "location": ".smithery\\index.cjs:17300",
+      "replay": "axiom scan <corpus>/registry/24_knowall-ai__mcp-reverie --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0031\")'"
+    },
+    {
+      "id": "code_0032",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in .smithery\\index.cjs at line 17446: `var isFunction_1 = require_isFunction();`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": ".smithery\\index.cjs",
+      "line_number": 17446,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "var isFunction_1 = require_isFunction();",
+      "location": ".smithery\\index.cjs:17446",
+      "replay": "axiom scan <corpus>/registry/24_knowall-ai__mcp-reverie --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0032\")'"
+    },
+    {
+      "id": "code_0033",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in .smithery\\index.cjs at line 17479: `if (isFunction_1.isFunction(obs.subscribe)) {`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": ".smithery\\index.cjs",
+      "line_number": 17479,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "if (isFunction_1.isFunction(obs.subscribe)) {",
+      "location": ".smithery\\index.cjs:17479",
+      "replay": "axiom scan <corpus>/registry/24_knowall-ai__mcp-reverie --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0033\")'"
+    },
+    {
+      "id": "code_0034",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in .smithery\\index.cjs at line 17747: `var isFunction_1 = require_isFunction();`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": ".smithery\\index.cjs",
+      "line_number": 17747,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "var isFunction_1 = require_isFunction();",
+      "location": ".smithery\\index.cjs:17747",
+      "replay": "axiom scan <corpus>/registry/24_knowall-ai__mcp-reverie --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0034\")'"
+    },
+    {
+      "id": "code_0035",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in .smithery\\index.cjs at line 17772: `return isFunction_1.isFunction(iterator === null || iterator === void 0 ? void 0 : iterator.return) && iterator.return()`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": ".smithery\\index.cjs",
+      "line_number": 17772,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "return isFunction_1.isFunction(iterator === null || iterator === void 0 ? void 0 : iterator.return) && iterator.return()",
+      "location": ".smithery\\index.cjs:17772",
+      "replay": "axiom scan <corpus>/registry/24_knowall-ai__mcp-reverie --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0035\")'"
+    },
+    {
+      "id": "code_0036",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in .smithery\\index.cjs at line 17914: `var isFunction_1 = require_isFunction();`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": ".smithery\\index.cjs",
+      "line_number": 17914,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "var isFunction_1 = require_isFunction();",
+      "location": ".smithery\\index.cjs:17914",
+      "replay": "axiom scan <corpus>/registry/24_knowall-ai__mcp-reverie --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0036\")'"
+    },
+    {
+      "id": "code_0037",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in .smithery\\index.cjs at line 17916: `var errorFactory = isFunction_1.isFunction(errorOrErrorFactory) ? errorOrErrorFactory : function() {`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": ".smithery\\index.cjs",
+      "line_number": 17916,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "var errorFactory = isFunction_1.isFunction(errorOrErrorFactory) ? errorOrErrorFactory : function() {",
+      "location": ".smithery\\index.cjs:17916",
+      "replay": "axiom scan <corpus>/registry/24_knowall-ai__mcp-reverie --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0037\")'"
+    },
+    {
+      "id": "code_0038",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in .smithery\\index.cjs at line 17939: `var isFunction_1 = require_isFunction();`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": ".smithery\\index.cjs",
+      "line_number": 17939,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "var isFunction_1 = require_isFunction();",
+      "location": ".smithery\\index.cjs:17939",
+      "replay": "axiom scan <corpus>/registry/24_knowall-ai__mcp-reverie --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0038\")'"
+    },
+    {
+      "id": "code_0039",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in .smithery\\index.cjs at line 17962: `return isFunction_1.isFunction((_a = nextOrObserver) === null || _a === void 0 ? void 0 : _a.next) ? this.observe(nextOr`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": ".smithery\\index.cjs",
+      "line_number": 17962,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "return isFunction_1.isFunction((_a = nextOrObserver) === null || _a === void 0 ? void 0 : _a.next) ? this.observe(nextOr",
+      "location": ".smithery\\index.cjs:17962",
+      "replay": "axiom scan <corpus>/registry/24_knowall-ai__mcp-reverie --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0039\")'"
+    },
+    {
+      "id": "code_0040",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in .smithery\\index.cjs at line 18006: `var isFunction_1 = require_isFunction();`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": ".smithery\\index.cjs",
+      "line_number": 18006,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "var isFunction_1 = require_isFunction();",
+      "location": ".smithery\\index.cjs:18006",
+      "replay": "axiom scan <corpus>/registry/24_knowall-ai__mcp-reverie --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0040\")'"
+    },
+    {
+      "id": "code_0041",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in .smithery\\index.cjs at line 18008: `return !!obj && (obj instanceof Observable_1.Observable || isFunction_1.isFunction(obj.lift) && isFunction_1.isFunction(`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": ".smithery\\index.cjs",
+      "line_number": 18008,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "return !!obj && (obj instanceof Observable_1.Observable || isFunction_1.isFunction(obj.lift) && isFunction_1.isFunction(",
+      "location": ".smithery\\index.cjs:18008",
+      "replay": "axiom scan <corpus>/registry/24_knowall-ai__mcp-reverie --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0041\")'"
+    },
+    {
+      "id": "code_0042",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in .smithery\\index.cjs at line 18634: `var isFunction_1 = require_isFunction();`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": ".smithery\\index.cjs",
+      "line_number": 18634,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "var isFunction_1 = require_isFunction();",
+      "location": ".smithery\\index.cjs:18634",
+      "replay": "axiom scan <corpus>/registry/24_knowall-ai__mcp-reverie --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0042\")'"
+    },
+    {
+      "id": "code_0043",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in .smithery\\index.cjs at line 18639: `if (isFunction_1.isFunction(resultSelector)) {`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": ".smithery\\index.cjs",
+      "line_number": 18639,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "if (isFunction_1.isFunction(resultSelector)) {",
+      "location": ".smithery\\index.cjs:18639",
+      "replay": "axiom scan <corpus>/registry/24_knowall-ai__mcp-reverie --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0043\")'"
+    },
+    {
+      "id": "code_0044",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in .smithery\\index.cjs at line 18854: `var isFunction_1 = require_isFunction();`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": ".smithery\\index.cjs",
+      "line_number": 18854,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "var isFunction_1 = require_isFunction();",
+      "location": ".smithery\\index.cjs:18854",
+      "replay": "axiom scan <corpus>/registry/24_knowall-ai__mcp-reverie --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0044\")'"
+    },
+    {
+      "id": "code_0045",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in .smithery\\index.cjs at line 18860: `if (isFunction_1.isFunction(options)) {`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": ".smithery\\index.cjs",
+      "line_number": 18860,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "if (isFunction_1.isFunction(options)) {",
+      "location": ".smithery\\index.cjs:18860",
+      "replay": "axiom scan <corpus>/registry/24_knowall-ai__mcp-reverie --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0045\")'"
+    },
+    {
+      "id": "code_0046",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in .smithery\\index.cjs at line 18905: `return isFunction_1.isFunction(target.addListener) && isFunction_1.isFunction(target.removeListener);`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": ".smithery\\index.cjs",
+      "line_number": 18905,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "return isFunction_1.isFunction(target.addListener) && isFunction_1.isFunction(target.removeListener);",
+      "location": ".smithery\\index.cjs:18905",
+      "replay": "axiom scan <corpus>/registry/24_knowall-ai__mcp-reverie --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0046\")'"
+    },
+    {
+      "id": "code_0047",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in .smithery\\index.cjs at line 18908: `return isFunction_1.isFunction(target.on) && isFunction_1.isFunction(target.off);`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": ".smithery\\index.cjs",
+      "line_number": 18908,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "return isFunction_1.isFunction(target.on) && isFunction_1.isFunction(target.off);",
+      "location": ".smithery\\index.cjs:18908",
+      "replay": "axiom scan <corpus>/registry/24_knowall-ai__mcp-reverie --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0047\")'"
+    },
+    {
+      "id": "code_0048",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in .smithery\\index.cjs at line 18911: `return isFunction_1.isFunction(target.addEventListener) && isFunction_1.isFunction(target.removeEventListener);`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": ".smithery\\index.cjs",
+      "line_number": 18911,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "return isFunction_1.isFunction(target.addEventListener) && isFunction_1.isFunction(target.removeEventListener);",
+      "location": ".smithery\\index.cjs:18911",
+      "replay": "axiom scan <corpus>/registry/24_knowall-ai__mcp-reverie --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0048\")'"
+    },
+    {
+      "id": "code_0049",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in .smithery\\index.cjs at line 18923: `var isFunction_1 = require_isFunction();`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": ".smithery\\index.cjs",
+      "line_number": 18923,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "var isFunction_1 = require_isFunction();",
+      "location": ".smithery\\index.cjs:18923",
+      "replay": "axiom scan <corpus>/registry/24_knowall-ai__mcp-reverie --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0049\")'"
+    },
+    {
+      "id": "code_0050",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in .smithery\\index.cjs at line 18938: `return isFunction_1.isFunction(removeHandler) ? function() {`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": ".smithery\\index.cjs",
+      "line_number": 18938,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "return isFunction_1.isFunction(removeHandler) ? function() {",
+      "location": ".smithery\\index.cjs:18938",
+      "replay": "axiom scan <corpus>/registry/24_knowall-ai__mcp-reverie --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0050\")'"
+    },
+    {
+      "id": "code_0051",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in .smithery\\index.cjs at line 20151: `var isFunction_1 = require_isFunction();`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": ".smithery\\index.cjs",
+      "line_number": 20151,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "var isFunction_1 = require_isFunction();",
+      "location": ".smithery\\index.cjs:20151",
+      "replay": "axiom scan <corpus>/registry/24_knowall-ai__mcp-reverie --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0051\")'"
+    },
+    {
+      "id": "code_0052",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in .smithery\\index.cjs at line 20153: `return isFunction_1.isFunction(resultSelector) ? mergeMap_1.mergeMap(project, resultSelector, 1) : mergeMap_1.mergeMap(p`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": ".smithery\\index.cjs",
+      "line_number": 20153,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "return isFunction_1.isFunction(resultSelector) ? mergeMap_1.mergeMap(project, resultSelector, 1) : mergeMap_1.mergeMap(p",
+      "location": ".smithery\\index.cjs:20153",
+      "replay": "axiom scan <corpus>/registry/24_knowall-ai__mcp-reverie --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0052\")'"
+    },
+    {
+      "id": "code_0053",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in .smithery\\index.cjs at line 20166: `var isFunction_1 = require_isFunction();`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": ".smithery\\index.cjs",
+      "line_number": 20166,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "var isFunction_1 = require_isFunction();",
+      "location": ".smithery\\index.cjs:20166",
+      "replay": "axiom scan <corpus>/registry/24_knowall-ai__mcp-reverie --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0053\")'"
+    },
+    {
+      "id": "code_0054",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in .smithery\\index.cjs at line 20168: `return isFunction_1.isFunction(resultSelector) ? concatMap_1.concatMap(function() {`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": ".smithery\\index.cjs",
+      "line_number": 20168,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "return isFunction_1.isFunction(resultSelector) ? concatMap_1.concatMap(function() {",
+      "location": ".smithery\\index.cjs:20168",
+      "replay": "axiom scan <corpus>/registry/24_knowall-ai__mcp-reverie --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0054\")'"
+    },
+    {
+      "id": "code_0055",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in .smithery\\index.cjs at line 21186: `var isFunction_1 = require_isFunction();`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": ".smithery\\index.cjs",
+      "line_number": 21186,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "var isFunction_1 = require_isFunction();",
+      "location": ".smithery\\index.cjs:21186",
+      "replay": "axiom scan <corpus>/registry/24_knowall-ai__mcp-reverie --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0055\")'"
+    },
+    {
+      "id": "code_0056",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in .smithery\\index.cjs at line 21188: `return reduce_1.reduce(isFunction_1.isFunction(comparer) ? function(x, y) {`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": ".smithery\\index.cjs",
+      "line_number": 21188,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "return reduce_1.reduce(isFunction_1.isFunction(comparer) ? function(x, y) {",
+      "location": ".smithery\\index.cjs:21188",
+      "replay": "axiom scan <corpus>/registry/24_knowall-ai__mcp-reverie --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0056\")'"
+    },
+    {
+      "id": "code_0057",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in .smithery\\index.cjs at line 21216: `var isFunction_1 = require_isFunction();`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": ".smithery\\index.cjs",
+      "line_number": 21216,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "var isFunction_1 = require_isFunction();",
+      "location": ".smithery\\index.cjs:21216",
+      "replay": "axiom scan <corpus>/registry/24_knowall-ai__mcp-reverie --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0057\")'"
+    },
+    {
+      "id": "code_0058",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in .smithery\\index.cjs at line 21221: `if (isFunction_1.isFunction(resultSelector)) {`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": ".smithery\\index.cjs",
+      "line_number": 21221,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "if (isFunction_1.isFunction(resultSelector)) {",
+      "location": ".smithery\\index.cjs:21221",
+      "replay": "axiom scan <corpus>/registry/24_knowall-ai__mcp-reverie --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0058\")'"
+    },
+    {
+      "id": "code_0059",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in .smithery\\index.cjs at line 21360: `var isFunction_1 = require_isFunction();`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": ".smithery\\index.cjs",
+      "line_number": 21360,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "var isFunction_1 = require_isFunction();",
+      "location": ".smithery\\index.cjs:21360",
+      "replay": "axiom scan <corpus>/registry/24_knowall-ai__mcp-reverie --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0059\")'"
+    },
+    {
+      "id": "code_0060",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in .smithery\\index.cjs at line 21362: `return reduce_1.reduce(isFunction_1.isFunction(comparer) ? function(x, y) {`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": ".smithery\\index.cjs",
+      "line_number": 21362,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "return reduce_1.reduce(isFunction_1.isFunction(comparer) ? function(x, y) {",
+      "location": ".smithery\\index.cjs:21362",
+      "replay": "axiom scan <corpus>/registry/24_knowall-ai__mcp-reverie --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0060\")'"
+    },
+    {
+      "id": "code_0061",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in .smithery\\index.cjs at line 21379: `var isFunction_1 = require_isFunction();`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": ".smithery\\index.cjs",
+      "line_number": 21379,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "var isFunction_1 = require_isFunction();",
+      "location": ".smithery\\index.cjs:21379",
+      "replay": "axiom scan <corpus>/registry/24_knowall-ai__mcp-reverie --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0061\")'"
+    },
+    {
+      "id": "code_0062",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in .smithery\\index.cjs at line 21382: `var subjectFactory = isFunction_1.isFunction(subjectOrSubjectFactory) ? subjectOrSubjectFactory : function() {`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": ".smithery\\index.cjs",
+      "line_number": 21382,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "var subjectFactory = isFunction_1.isFunction(subjectOrSubjectFactory) ? subjectOrSubjectFactory : function() {",
+      "location": ".smithery\\index.cjs:21382",
+      "replay": "axiom scan <corpus>/registry/24_knowall-ai__mcp-reverie --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0062\")'"
+    },
+    {
+      "id": "code_0063",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in .smithery\\index.cjs at line 21385: `if (isFunction_1.isFunction(selector)) {`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": ".smithery\\index.cjs",
+      "line_number": 21385,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "if (isFunction_1.isFunction(selector)) {",
+      "location": ".smithery\\index.cjs:21385",
+      "replay": "axiom scan <corpus>/registry/24_knowall-ai__mcp-reverie --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0063\")'"
+    },
+    {
+      "id": "code_0064",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in .smithery\\index.cjs at line 21568: `var isFunction_1 = require_isFunction();`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": ".smithery\\index.cjs",
+      "line_number": 21568,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "var isFunction_1 = require_isFunction();",
+      "location": ".smithery\\index.cjs:21568",
+      "replay": "axiom scan <corpus>/registry/24_knowall-ai__mcp-reverie --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0064\")'"
+    },
+    {
+      "id": "code_0065",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in .smithery\\index.cjs at line 21570: `if (selectorOrScheduler && !isFunction_1.isFunction(selectorOrScheduler)) {`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": ".smithery\\index.cjs",
+      "line_number": 21570,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "if (selectorOrScheduler && !isFunction_1.isFunction(selectorOrScheduler)) {",
+      "location": ".smithery\\index.cjs:21570",
+      "replay": "axiom scan <corpus>/registry/24_knowall-ai__mcp-reverie --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0065\")'"
+    },
+    {
+      "id": "code_0066",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in .smithery\\index.cjs at line 21573: `var selector = isFunction_1.isFunction(selectorOrScheduler) ? selectorOrScheduler : void 0;`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": ".smithery\\index.cjs",
+      "line_number": 21573,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "var selector = isFunction_1.isFunction(selectorOrScheduler) ? selectorOrScheduler : void 0;",
+      "location": ".smithery\\index.cjs:21573",
+      "replay": "axiom scan <corpus>/registry/24_knowall-ai__mcp-reverie --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0066\")'"
+    },
+    {
+      "id": "code_0067",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in .smithery\\index.cjs at line 22347: `var isFunction_1 = require_isFunction();`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": ".smithery\\index.cjs",
+      "line_number": 22347,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "var isFunction_1 = require_isFunction();",
+      "location": ".smithery\\index.cjs:22347",
+      "replay": "axiom scan <corpus>/registry/24_knowall-ai__mcp-reverie --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0067\")'"
+    },
+    {
+      "id": "code_0068",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in .smithery\\index.cjs at line 22349: `return isFunction_1.isFunction(resultSelector) ? switchMap_1.switchMap(function() {`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": ".smithery\\index.cjs",
+      "line_number": 22349,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "return isFunction_1.isFunction(resultSelector) ? switchMap_1.switchMap(function() {",
+      "location": ".smithery\\index.cjs:22349",
+      "replay": "axiom scan <corpus>/registry/24_knowall-ai__mcp-reverie --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0068\")'"
+    },
+    {
+      "id": "code_0069",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in .smithery\\index.cjs at line 22437: `var isFunction_1 = require_isFunction();`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": ".smithery\\index.cjs",
+      "line_number": 22437,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "var isFunction_1 = require_isFunction();",
+      "location": ".smithery\\index.cjs:22437",
+      "replay": "axiom scan <corpus>/registry/24_knowall-ai__mcp-reverie --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0069\")'"
+    },
+    {
+      "id": "code_0070",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in .smithery\\index.cjs at line 22442: `var tapObserver = isFunction_1.isFunction(observerOrNext) || error || complete ? { next: observerOrNext, error, complete`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": ".smithery\\index.cjs",
+      "line_number": 22442,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "var tapObserver = isFunction_1.isFunction(observerOrNext) || error || complete ? { next: observerOrNext, error, complete",
+      "location": ".smithery\\index.cjs:22442",
+      "replay": "axiom scan <corpus>/registry/24_knowall-ai__mcp-reverie --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0070\")'"
+    },
+    {
+      "id": "code_0071",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in .smithery\\index.cjs at line 27329: `this._discardFunction(this._queryId, this);`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": ".smithery\\index.cjs",
+      "line_number": 27329,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "this._discardFunction(this._queryId, this);",
+      "location": ".smithery\\index.cjs:27329",
+      "replay": "axiom scan <corpus>/registry/24_knowall-ai__mcp-reverie --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0071\")'"
+    },
+    {
+      "id": "code_0072",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in .smithery\\index.cjs at line 27332: `this._moreFunction(this._queryId, this._fetchSize, this);`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": ".smithery\\index.cjs",
+      "line_number": 27332,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "this._moreFunction(this._queryId, this._fetchSize, this);",
+      "location": ".smithery\\index.cjs:27332",
+      "replay": "axiom scan <corpus>/registry/24_knowall-ai__mcp-reverie --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0072\")'"
+    },
+    {
+      "id": "code_0073",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in .smithery\\index.cjs at line 32917: `return logger._loggerFunction(level, \"\".concat(connection, \" \").concat(message));`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": ".smithery\\index.cjs",
+      "line_number": 32917,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "return logger._loggerFunction(level, \"\".concat(connection, \" \").concat(message));",
+      "location": ".smithery\\index.cjs:32917",
+      "replay": "axiom scan <corpus>/registry/24_knowall-ai__mcp-reverie --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0073\")'"
+    },
+    {
+      "id": "code_0074",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in .smithery\\index.cjs at line 36061: `return new driver_1.Driver(meta, config2, createConnectionProviderFunction());`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": ".smithery\\index.cjs",
+      "line_number": 36061,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "return new driver_1.Driver(meta, config2, createConnectionProviderFunction());",
+      "location": ".smithery\\index.cjs:36061",
+      "replay": "axiom scan <corpus>/registry/24_knowall-ai__mcp-reverie --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0074\")'"
+    },
+    {
+      "id": "code_0075",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in .smithery\\index.cjs at line 36062: `function createConnectionProviderFunction() {`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": ".smithery\\index.cjs",
+      "line_number": 36062,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "function createConnectionProviderFunction() {",
+      "location": ".smithery\\index.cjs:36062",
+      "replay": "axiom scan <corpus>/registry/24_knowall-ai__mcp-reverie --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0075\")'"
+    },
+    {
+      "id": "code_0076",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in .smithery\\index.cjs at line 37590: `var root = freeGlobal || freeSelf || Function(\"return this\")();`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": ".smithery\\index.cjs",
+      "line_number": 37590,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "var root = freeGlobal || freeSelf || Function(\"return this\")();",
+      "location": ".smithery\\index.cjs:37590",
+      "replay": "axiom scan <corpus>/registry/24_knowall-ai__mcp-reverie --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0076\")'"
+    },
+    {
+      "id": "code_0077",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in .smithery\\index.cjs at line 37959: `var uid = /[^.]+$/.exec(coreJsData && coreJsData.keys && coreJsData.keys.IE_PROTO || \"\");`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": ".smithery\\index.cjs",
+      "line_number": 37959,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "var uid = /[^.]+$/.exec(coreJsData && coreJsData.keys && coreJsData.keys.IE_PROTO || \"\");",
+      "location": ".smithery\\index.cjs:37959",
+      "replay": "axiom scan <corpus>/registry/24_knowall-ai__mcp-reverie --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0077\")'"
+    },
+    {
+      "id": "code_0078",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in .smithery\\index.cjs at line 38588: `return isFunction(object[key]);`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": ".smithery\\index.cjs",
+      "line_number": 38588,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "return isFunction(object[key]);",
+      "location": ".smithery\\index.cjs:38588",
+      "replay": "axiom scan <corpus>/registry/24_knowall-ai__mcp-reverie --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0078\")'"
+    },
+    {
+      "id": "code_0079",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in .smithery\\index.cjs at line 38751: `var pattern = isFunction(value) ? reIsNative : reIsHostCtor;`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": ".smithery\\index.cjs",
+      "line_number": 38751,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "var pattern = isFunction(value) ? reIsNative : reIsHostCtor;",
+      "location": ".smithery\\index.cjs:38751",
+      "replay": "axiom scan <corpus>/registry/24_knowall-ai__mcp-reverie --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0079\")'"
+    },
+    {
+      "id": "code_0080",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in .smithery\\index.cjs at line 38873: `} else if (!isObject(objValue) || isFunction(objValue)) {`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": ".smithery\\index.cjs",
+      "line_number": 38873,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "} else if (!isObject(objValue) || isFunction(objValue)) {",
+      "location": ".smithery\\index.cjs:38873",
+      "replay": "axiom scan <corpus>/registry/24_knowall-ai__mcp-reverie --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0080\")'"
+    },
+    {
+      "id": "code_0081",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in .smithery\\index.cjs at line 39242: `function castFunction(value) {`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": ".smithery\\index.cjs",
+      "line_number": 39242,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "function castFunction(value) {",
+      "location": ".smithery\\index.cjs:39242",
+      "replay": "axiom scan <corpus>/registry/24_knowall-ai__mcp-reverie --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0081\")'"
+    },
+    {
+      "id": "code_0082",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in .smithery\\index.cjs at line 39278: `var result2 = new regexp.constructor(regexp.source, reFlags.exec(regexp));`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": ".smithery\\index.cjs",
+      "line_number": 39278,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "var result2 = new regexp.constructor(regexp.source, reFlags.exec(regexp));",
+      "location": ".smithery\\index.cjs:39278",
+      "replay": "axiom scan <corpus>/registry/24_knowall-ai__mcp-reverie --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0082\")'"
+    },
+    {
+      "id": "code_0083",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in .smithery\\index.cjs at line 41269: `return partial(castFunction(wrapper), value);`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": ".smithery\\index.cjs",
+      "line_number": 41269,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "return partial(castFunction(wrapper), value);",
+      "location": ".smithery\\index.cjs:41269",
+      "replay": "axiom scan <corpus>/registry/24_knowall-ai__mcp-reverie --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0083\")'"
+    },
+    {
+      "id": "code_0084",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in .smithery\\index.cjs at line 41310: `return value != null && isLength(value.length) && !isFunction(value);`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": ".smithery\\index.cjs",
+      "line_number": 41310,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "return value != null && isLength(value.length) && !isFunction(value);",
+      "location": ".smithery\\index.cjs:41310",
+      "replay": "axiom scan <corpus>/registry/24_knowall-ai__mcp-reverie --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0084\")'"
+    },
+    {
+      "id": "code_0085",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in .smithery\\index.cjs at line 41362: `function isFunction(value) {`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": ".smithery\\index.cjs",
+      "line_number": 41362,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "function isFunction(value) {",
+      "location": ".smithery\\index.cjs:41362",
+      "replay": "axiom scan <corpus>/registry/24_knowall-ai__mcp-reverie --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0085\")'"
+    },
+    {
+      "id": "code_0086",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in .smithery\\index.cjs at line 41685: `object = isFunction(value) ? value.call(object) : value;`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": ".smithery\\index.cjs",
+      "line_number": 41685,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "object = isFunction(value) ? value.call(object) : value;",
+      "location": ".smithery\\index.cjs:41685",
+      "replay": "axiom scan <corpus>/registry/24_knowall-ai__mcp-reverie --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0086\")'"
+    },
+    {
+      "id": "code_0087",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in .smithery\\index.cjs at line 41706: `accumulator = isFunction(Ctor) ? baseCreate(getPrototype(object)) : {};`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": ".smithery\\index.cjs",
+      "line_number": 41706,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "accumulator = isFunction(Ctor) ? baseCreate(getPrototype(object)) : {};",
+      "location": ".smithery\\index.cjs:41706",
+      "replay": "axiom scan <corpus>/registry/24_knowall-ai__mcp-reverie --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0087\")'"
+    },
+    {
+      "id": "code_0088",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in .smithery\\index.cjs at line 41720: `return object == null ? object : baseUpdate(object, path, castFunction(updater));`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": ".smithery\\index.cjs",
+      "line_number": 41720,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "return object == null ? object : baseUpdate(object, path, castFunction(updater));",
+      "location": ".smithery\\index.cjs:41720",
+      "replay": "axiom scan <corpus>/registry/24_knowall-ai__mcp-reverie --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0088\")'"
+    },
+    {
+      "id": "code_0089",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in .smithery\\index.cjs at line 41724: `return object == null ? object : baseUpdate(object, path, castFunction(updater), customizer);`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": ".smithery\\index.cjs",
+      "line_number": 41724,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "return object == null ? object : baseUpdate(object, path, castFunction(updater), customizer);",
+      "location": ".smithery\\index.cjs:41724",
+      "replay": "axiom scan <corpus>/registry/24_knowall-ai__mcp-reverie --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0089\")'"
+    },
+    {
+      "id": "code_0090",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in .smithery\\index.cjs at line 42019: `separator = RegExp2(separator.source, toString(reFlags.exec(separator)) + \"g\");`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": ".smithery\\index.cjs",
+      "line_number": 42019,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "separator = RegExp2(separator.source, toString(reFlags.exec(separator)) + \"g\");",
+      "location": ".smithery\\index.cjs:42019",
+      "replay": "axiom scan <corpus>/registry/24_knowall-ai__mcp-reverie --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0090\")'"
+    },
+    {
+      "id": "code_0091",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in .smithery\\index.cjs at line 42022: `while (match = separator.exec(substring)) {`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": ".smithery\\index.cjs",
+      "line_number": 42022,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "while (match = separator.exec(substring)) {",
+      "location": ".smithery\\index.cjs:42022",
+      "replay": "axiom scan <corpus>/registry/24_knowall-ai__mcp-reverie --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0091\")'"
+    },
+    {
+      "id": "code_0092",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in .smithery\\index.cjs at line 42126: `var chain2 = !(isObject(options) && \"chain\" in options) || !!options.chain, isFunc = isFunction(object);`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": ".smithery\\index.cjs",
+      "line_number": 42126,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "var chain2 = !(isObject(options) && \"chain\" in options) || !!options.chain, isFunc = isFunction(object);",
+      "location": ".smithery\\index.cjs:42126",
+      "replay": "axiom scan <corpus>/registry/24_knowall-ai__mcp-reverie --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0092\")'"
+    },
+    {
+      "id": "code_0093",
+      "severity": "low",
+      "category": "obfuscation",
+      "title": "Encoded or obfuscated content in MCP server source",
+      "description": "Pattern matched in .smithery\\index.cjs at line 43619: `const decoded = JSON.parse(atob(base64));`",
+      "owasp_asi": [
+        "ASI01",
+        "ASI10"
+      ],
+      "owasp_mcp": [
+        "MCP03",
+        "MCP04"
+      ],
+      "file_path": ".smithery\\index.cjs",
+      "line_number": 43619,
+      "recommendation": "Review this obfuscation pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const decoded = JSON.parse(atob(base64));",
+      "location": ".smithery\\index.cjs:43619",
+      "replay": "axiom scan <corpus>/registry/24_knowall-ai__mcp-reverie --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0093\")'"
+    },
+    {
+      "id": "code_0094",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in .smithery\\index.cjs at line 45977: `return new _ZodFunction({`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": ".smithery\\index.cjs",
+      "line_number": 45977,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "return new _ZodFunction({",
+      "location": ".smithery\\index.cjs:45977",
+      "replay": "axiom scan <corpus>/registry/24_knowall-ai__mcp-reverie --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0094\")'"
+    },
+    {
+      "id": "code_0095",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in .smithery\\index.cjs at line 45983: `return new _ZodFunction({`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": ".smithery\\index.cjs",
+      "line_number": 45983,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "return new _ZodFunction({",
+      "location": ".smithery\\index.cjs:45983",
+      "replay": "axiom scan <corpus>/registry/24_knowall-ai__mcp-reverie --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0095\")'"
+    },
+    {
+      "id": "code_0096",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in .smithery\\index.cjs at line 45997: `return new _ZodFunction({`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": ".smithery\\index.cjs",
+      "line_number": 45997,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "return new _ZodFunction({",
+      "location": ".smithery\\index.cjs:45997",
+      "replay": "axiom scan <corpus>/registry/24_knowall-ai__mcp-reverie --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0096\")'"
+    },
+    {
+      "id": "code_0097",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in scripts\\check-version.mjs at line 12: `const pa = SEMVER.exec(a), pb = SEMVER.exec(b);`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "scripts\\check-version.mjs",
+      "line_number": 12,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const pa = SEMVER.exec(a), pb = SEMVER.exec(b);",
+      "location": "scripts\\check-version.mjs:12",
+      "replay": "axiom scan <corpus>/registry/24_knowall-ai__mcp-reverie --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0097\")'"
+    },
+    {
+      "id": "code_0098",
+      "severity": "info",
+      "category": "permission_overscope",
+      "title": "Filesystem operations in MCP server source (capability note)",
+      "description": "Pattern matched in scripts\\check-version.mjs at line 49: `const read = (f) => JSON.parse(fs.readFileSync(f, 'utf8'));`",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": "scripts\\check-version.mjs",
+      "line_number": 49,
+      "recommendation": "Review this file system broad access pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const read = (f) => JSON.parse(fs.readFileSync(f, 'utf8'));",
+      "location": "scripts\\check-version.mjs:49",
+      "replay": "axiom scan <corpus>/registry/24_knowall-ai__mcp-reverie --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0098\")'"
+    },
+    {
+      "id": "code_0099",
+      "severity": "info",
+      "category": "permission_overscope",
+      "title": "Filesystem operations in MCP server source (capability note)",
+      "description": "Pattern matched in src\\brain.ts at line 293: `for (const entry of fs.readdirSync(dir)) {`",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": "src\\brain.ts",
+      "line_number": 293,
+      "recommendation": "Review this file system broad access pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "for (const entry of fs.readdirSync(dir)) {",
+      "location": "src\\brain.ts:293",
+      "replay": "axiom scan <corpus>/registry/24_knowall-ai__mcp-reverie --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0099\")'"
+    },
+    {
+      "id": "code_0100",
+      "severity": "info",
+      "category": "permission_overscope",
+      "title": "Filesystem operations in MCP server source (capability note)",
+      "description": "Pattern matched in src\\brain.ts at line 314: `fields = fs.readFileSync('/proc/stat', 'utf8').split('\\n')[0].trim().split(/\\s+/).slice(1, 8).map(Number);`",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": "src\\brain.ts",
+      "line_number": 314,
+      "recommendation": "Review this file system broad access pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "fields = fs.readFileSync('/proc/stat', 'utf8').split('\\n')[0].trim().split(/\\s+/).slice(1, 8).map(Number);",
+      "location": "src\\brain.ts:314",
+      "replay": "axiom scan <corpus>/registry/24_knowall-ai__mcp-reverie --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0100\")'"
+    },
+    {
+      "id": "code_0101",
+      "severity": "info",
+      "category": "permission_overscope",
+      "title": "Filesystem operations in MCP server source (capability note)",
+      "description": "Pattern matched in src\\brain.ts at line 341: `for (const line of fs.readFileSync('/proc/meminfo', 'utf8').split('\\n')) {`",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": "src\\brain.ts",
+      "line_number": 341,
+      "recommendation": "Review this file system broad access pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "for (const line of fs.readFileSync('/proc/meminfo', 'utf8').split('\\n')) {",
+      "location": "src\\brain.ts:341",
+      "replay": "axiom scan <corpus>/registry/24_knowall-ai__mcp-reverie --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0101\")'"
+    },
+    {
+      "id": "code_0102",
+      "severity": "info",
+      "category": "permission_overscope",
+      "title": "Filesystem operations in MCP server source (capability note)",
+      "description": "Pattern matched in src\\brain.ts at line 374: `const parsed = JSON.parse(fs.readFileSync(file, 'utf8'));`",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": "src\\brain.ts",
+      "line_number": 374,
+      "recommendation": "Review this file system broad access pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const parsed = JSON.parse(fs.readFileSync(file, 'utf8'));",
+      "location": "src\\brain.ts:374",
+      "replay": "axiom scan <corpus>/registry/24_knowall-ai__mcp-reverie --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0102\")'"
+    },
+    {
+      "id": "code_0103",
+      "severity": "info",
+      "category": "permission_overscope",
+      "title": "Filesystem operations in MCP server source (capability note)",
+      "description": "Pattern matched in src\\events.ts at line 102: `buffer = fs.readFileSync(file);`",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": "src\\events.ts",
+      "line_number": 102,
+      "recommendation": "Review this file system broad access pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "buffer = fs.readFileSync(file);",
+      "location": "src\\events.ts:102",
+      "replay": "axiom scan <corpus>/registry/24_knowall-ai__mcp-reverie --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0103\")'"
+    },
+    {
+      "id": "code_0104",
+      "severity": "info",
+      "category": "permission_overscope",
+      "title": "Filesystem operations in MCP server source (capability note)",
+      "description": "Pattern matched in src\\events.ts at line 162: `const observed = fs.readFileSync(lock, 'utf8');`",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": "src\\events.ts",
+      "line_number": 162,
+      "recommendation": "Review this file system broad access pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const observed = fs.readFileSync(lock, 'utf8');",
+      "location": "src\\events.ts:162",
+      "replay": "axiom scan <corpus>/registry/24_knowall-ai__mcp-reverie --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0104\")'"
+    },
+    {
+      "id": "code_0105",
+      "severity": "info",
+      "category": "permission_overscope",
+      "title": "Filesystem operations in MCP server source (capability note)",
+      "description": "Pattern matched in src\\events.ts at line 168: `if (fs.readFileSync(stale, 'utf8') === observed) {`",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": "src\\events.ts",
+      "line_number": 168,
+      "recommendation": "Review this file system broad access pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "if (fs.readFileSync(stale, 'utf8') === observed) {",
+      "location": "src\\events.ts:168",
+      "replay": "axiom scan <corpus>/registry/24_knowall-ai__mcp-reverie --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0105\")'"
+    },
+    {
+      "id": "code_0106",
+      "severity": "info",
+      "category": "permission_overscope",
+      "title": "Filesystem operations in MCP server source (capability note)",
+      "description": "Pattern matched in src\\events.ts at line 169: `fs.unlinkSync(stale); // it was the dead lock we saw: reclaimed`",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": "src\\events.ts",
+      "line_number": 169,
+      "recommendation": "Review this file system broad access pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "fs.unlinkSync(stale); // it was the dead lock we saw: reclaimed",
+      "location": "src\\events.ts:169",
+      "replay": "axiom scan <corpus>/registry/24_knowall-ai__mcp-reverie --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0106\")'"
+    },
+    {
+      "id": "code_0107",
+      "severity": "info",
+      "category": "permission_overscope",
+      "title": "Filesystem operations in MCP server source (capability note)",
+      "description": "Pattern matched in src\\events.ts at line 190: `if (fs.readFileSync(lock, 'utf8') === token) {`",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": "src\\events.ts",
+      "line_number": 190,
+      "recommendation": "Review this file system broad access pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "if (fs.readFileSync(lock, 'utf8') === token) {",
+      "location": "src\\events.ts:190",
+      "replay": "axiom scan <corpus>/registry/24_knowall-ai__mcp-reverie --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0107\")'"
+    },
+    {
+      "id": "code_0108",
+      "severity": "info",
+      "category": "permission_overscope",
+      "title": "Filesystem operations in MCP server source (capability note)",
+      "description": "Pattern matched in src\\events.ts at line 191: `fs.unlinkSync(lock);`",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": "src\\events.ts",
+      "line_number": 191,
+      "recommendation": "Review this file system broad access pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "fs.unlinkSync(lock);",
+      "location": "src\\events.ts:191",
+      "replay": "axiom scan <corpus>/registry/24_knowall-ai__mcp-reverie --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0108\")'"
+    },
+    {
+      "id": "code_0109",
+      "severity": "info",
+      "category": "permission_overscope",
+      "title": "Filesystem operations in MCP server source (capability note)",
+      "description": "Pattern matched in src\\events.ts at line 203: `const lines = fs.readFileSync(file, 'utf8').split('\\n').filter((line) => line.trim()).slice(-MAX_LINES);`",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": "src\\events.ts",
+      "line_number": 203,
+      "recommendation": "Review this file system broad access pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const lines = fs.readFileSync(file, 'utf8').split('\\n').filter((line) => line.trim()).slice(-MAX_LINES);",
+      "location": "src\\events.ts:203",
+      "replay": "axiom scan <corpus>/registry/24_knowall-ai__mcp-reverie --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0109\")'"
+    },
+    {
+      "id": "code_0110",
+      "severity": "info",
+      "category": "permission_overscope",
+      "title": "Filesystem operations in MCP server source (capability note)",
+      "description": "Pattern matched in src\\events.ts at line 213: `fs.writeFileSync(tmp, kept.length ? kept.join('\\n') + '\\n' : '', { encoding: 'utf8', mode: 0o600 });`",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": "src\\events.ts",
+      "line_number": 213,
+      "recommendation": "Review this file system broad access pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "fs.writeFileSync(tmp, kept.length ? kept.join('\\n') + '\\n' : '', { encoding: 'utf8', mode: 0o600 });",
+      "location": "src\\events.ts:213",
+      "replay": "axiom scan <corpus>/registry/24_knowall-ai__mcp-reverie --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0110\")'"
+    },
+    {
+      "id": "code_0111",
+      "severity": "info",
+      "category": "permission_overscope",
+      "title": "Filesystem operations in MCP server source (capability note)",
+      "description": "Pattern matched in src\\events.ts at line 300: `text = fs.readFileSync(file, 'utf8');`",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": "src\\events.ts",
+      "line_number": 300,
+      "recommendation": "Review this file system broad access pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "text = fs.readFileSync(file, 'utf8');",
+      "location": "src\\events.ts:300",
+      "replay": "axiom scan <corpus>/registry/24_knowall-ai__mcp-reverie --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0111\")'"
+    },
+    {
+      "id": "code_0112",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in src\\http-server.ts at line 76: `const match = /^Bearer\\s+(\\S+)$/i.exec(header.trim());`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "src\\http-server.ts",
+      "line_number": 76,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const match = /^Bearer\\s+(\\S+)$/i.exec(header.trim());",
+      "location": "src\\http-server.ts:76",
+      "replay": "axiom scan <corpus>/registry/24_knowall-ai__mcp-reverie --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0112\")'"
+    },
+    {
+      "id": "GHSA-22jm-h49p-29qw",
+      "severity": "medium",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency @modelcontextprotocol/sdk@1.30.0: GHSA-22jm-h49p-29qw",
+      "description": "Known vulnerability (advisory severity: unrated; direct dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update @modelcontextprotocol/sdk to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-22jm-h49p-29qw",
+      "location": "static:<corpus>/registry/24_knowall-ai__mcp-reverie:dependencies",
+      "replay": "axiom scan <corpus>/registry/24_knowall-ai__mcp-reverie --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-22jm-h49p-29qw\")'"
+    },
+    {
+      "id": "GHSA-46jr-4wx8-v453",
+      "severity": "medium",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency @modelcontextprotocol/sdk@1.30.0: GHSA-46jr-4wx8-v453",
+      "description": "Known vulnerability (advisory severity: unrated; direct dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update @modelcontextprotocol/sdk to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-46jr-4wx8-v453",
+      "location": "static:<corpus>/registry/24_knowall-ai__mcp-reverie:dependencies",
+      "replay": "axiom scan <corpus>/registry/24_knowall-ai__mcp-reverie --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-46jr-4wx8-v453\")'"
+    },
+    {
+      "id": "GHSA-6prh-2h8m-c8cw",
+      "severity": "medium",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency @modelcontextprotocol/sdk@1.30.0: GHSA-6prh-2h8m-c8cw",
+      "description": "Known vulnerability (advisory severity: unrated; direct dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update @modelcontextprotocol/sdk to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-6prh-2h8m-c8cw",
+      "location": "static:<corpus>/registry/24_knowall-ai__mcp-reverie:dependencies",
+      "replay": "axiom scan <corpus>/registry/24_knowall-ai__mcp-reverie --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-6prh-2h8m-c8cw\")'"
+    },
+    {
+      "id": "GHSA-6qxp-vccf-f47h",
+      "severity": "medium",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency @modelcontextprotocol/sdk@1.30.0: GHSA-6qxp-vccf-f47h",
+      "description": "Known vulnerability (advisory severity: unrated; direct dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update @modelcontextprotocol/sdk to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-6qxp-vccf-f47h",
+      "location": "static:<corpus>/registry/24_knowall-ai__mcp-reverie:dependencies",
+      "replay": "axiom scan <corpus>/registry/24_knowall-ai__mcp-reverie --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-6qxp-vccf-f47h\")'"
+    },
+    {
+      "id": "GHSA-f897-62hf-6gxq",
+      "severity": "medium",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency @modelcontextprotocol/sdk@1.30.0: GHSA-f897-62hf-6gxq",
+      "description": "Known vulnerability (advisory severity: unrated; direct dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update @modelcontextprotocol/sdk to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-f897-62hf-6gxq",
+      "location": "static:<corpus>/registry/24_knowall-ai__mcp-reverie:dependencies",
+      "replay": "axiom scan <corpus>/registry/24_knowall-ai__mcp-reverie --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-f897-62hf-6gxq\")'"
+    },
+    {
+      "id": "GHSA-rvq5-wwqv-78pq",
+      "severity": "medium",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency @modelcontextprotocol/sdk@1.30.0: GHSA-rvq5-wwqv-78pq",
+      "description": "Known vulnerability (advisory severity: unrated; direct dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update @modelcontextprotocol/sdk to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-rvq5-wwqv-78pq",
+      "location": "static:<corpus>/registry/24_knowall-ai__mcp-reverie:dependencies",
+      "replay": "axiom scan <corpus>/registry/24_knowall-ai__mcp-reverie --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-rvq5-wwqv-78pq\")'"
+    },
+    {
+      "id": "GHSA-w5hq-g745-h8pq",
+      "severity": "medium",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency uuid@11.0.4: GHSA-w5hq-g745-h8pq",
+      "description": "Known vulnerability (advisory severity: unrated; direct dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update uuid to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-w5hq-g745-h8pq",
+      "location": "static:<corpus>/registry/24_knowall-ai__mcp-reverie:dependencies",
+      "replay": "axiom scan <corpus>/registry/24_knowall-ai__mcp-reverie --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-w5hq-g745-h8pq\")'"
+    },
+    {
+      "id": "GHSA-mrhx-c7xc-m3w5",
+      "severity": "medium",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency zod@3.25.76: GHSA-mrhx-c7xc-m3w5",
+      "description": "Known vulnerability (advisory severity: unrated; direct dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update zod to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-mrhx-c7xc-m3w5",
+      "location": "static:<corpus>/registry/24_knowall-ai__mcp-reverie:dependencies",
+      "replay": "axiom scan <corpus>/registry/24_knowall-ai__mcp-reverie --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-mrhx-c7xc-m3w5\")'"
+    },
+    {
+      "id": "GHSA-rmxm-3fg6-px4f",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency @hono/node-server@2.1.1: GHSA-rmxm-3fg6-px4f",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update @hono/node-server to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-rmxm-3fg6-px4f",
+      "location": "static:<corpus>/registry/24_knowall-ai__mcp-reverie:dependencies",
+      "replay": "axiom scan <corpus>/registry/24_knowall-ai__mcp-reverie --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-rmxm-3fg6-px4f\")'"
+    },
+    {
+      "id": "GHSA-27r3-jxmh-p828",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency body-parser@2.3.0: GHSA-27r3-jxmh-p828",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update body-parser to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-27r3-jxmh-p828",
+      "location": "static:<corpus>/registry/24_knowall-ai__mcp-reverie:dependencies",
+      "replay": "axiom scan <corpus>/registry/24_knowall-ai__mcp-reverie --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-27r3-jxmh-p828\")'"
+    },
+    {
+      "id": "GHSA-6j4f-fj2g-mc7p",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency brace-expansion@5.0.9: GHSA-6j4f-fj2g-mc7p",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update brace-expansion to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-6j4f-fj2g-mc7p",
+      "location": "static:<corpus>/registry/24_knowall-ai__mcp-reverie:dependencies",
+      "replay": "axiom scan <corpus>/registry/24_knowall-ai__mcp-reverie --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-6j4f-fj2g-mc7p\")'"
+    },
+    {
+      "id": "GHSA-q2hr-2g5m-vwhr",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency brace-expansion@5.0.9: GHSA-q2hr-2g5m-vwhr",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update brace-expansion to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-q2hr-2g5m-vwhr",
+      "location": "static:<corpus>/registry/24_knowall-ai__mcp-reverie:dependencies",
+      "replay": "axiom scan <corpus>/registry/24_knowall-ai__mcp-reverie --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-q2hr-2g5m-vwhr\")'"
+    },
+    {
+      "id": "GHSA-qhr7-859c-m2p7",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency brace-expansion@5.0.9: GHSA-qhr7-859c-m2p7",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update brace-expansion to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-qhr7-859c-m2p7",
+      "location": "static:<corpus>/registry/24_knowall-ai__mcp-reverie:dependencies",
+      "replay": "axiom scan <corpus>/registry/24_knowall-ai__mcp-reverie --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-qhr7-859c-m2p7\")'"
+    },
+    {
+      "id": "GHSA-73rr-hh4g-fpgx",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency diff@4.0.2: GHSA-73rr-hh4g-fpgx",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update diff to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-73rr-hh4g-fpgx",
+      "location": "static:<corpus>/registry/24_knowall-ai__mcp-reverie:dependencies",
+      "replay": "axiom scan <corpus>/registry/24_knowall-ai__mcp-reverie --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-73rr-hh4g-fpgx\")'"
+    },
+    {
+      "id": "GHSA-333x-w4r6-6crp",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency fast-uri@3.1.7: GHSA-333x-w4r6-6crp",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update fast-uri to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-333x-w4r6-6crp",
+      "location": "static:<corpus>/registry/24_knowall-ai__mcp-reverie:dependencies",
+      "replay": "axiom scan <corpus>/registry/24_knowall-ai__mcp-reverie --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-333x-w4r6-6crp\")'"
+    },
+    {
+      "id": "GHSA-hrr3-gc8f-f4qj",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency fast-uri@3.1.7: GHSA-hrr3-gc8f-f4qj",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update fast-uri to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-hrr3-gc8f-f4qj",
+      "location": "static:<corpus>/registry/24_knowall-ai__mcp-reverie:dependencies",
+      "replay": "axiom scan <corpus>/registry/24_knowall-ai__mcp-reverie --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-hrr3-gc8f-f4qj\")'"
+    },
+    {
+      "id": "GHSA-w74x-v6f9-j3xg",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency fast-uri@3.1.7: GHSA-w74x-v6f9-j3xg",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update fast-uri to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-w74x-v6f9-j3xg",
+      "location": "static:<corpus>/registry/24_knowall-ai__mcp-reverie:dependencies",
+      "replay": "axiom scan <corpus>/registry/24_knowall-ai__mcp-reverie --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-w74x-v6f9-j3xg\")'"
+    },
+    {
+      "id": "GHSA-wjr9-j795-jxcr",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency fast-uri@3.1.7: GHSA-wjr9-j795-jxcr",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update fast-uri to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-wjr9-j795-jxcr",
+      "location": "static:<corpus>/registry/24_knowall-ai__mcp-reverie:dependencies",
+      "replay": "axiom scan <corpus>/registry/24_knowall-ai__mcp-reverie --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-wjr9-j795-jxcr\")'"
+    },
+    {
+      "id": "GHSA-xhq7-xmqj-769h",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency fast-uri@3.1.7: GHSA-xhq7-xmqj-769h",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update fast-uri to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-xhq7-xmqj-769h",
+      "location": "static:<corpus>/registry/24_knowall-ai__mcp-reverie:dependencies",
+      "replay": "axiom scan <corpus>/registry/24_knowall-ai__mcp-reverie --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-xhq7-xmqj-769h\")'"
+    },
+    {
+      "id": "GHSA-3g3m-2fjr-6pw4",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency glob@10.5.0: GHSA-3g3m-2fjr-6pw4",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update glob to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-3g3m-2fjr-6pw4",
+      "location": "static:<corpus>/registry/24_knowall-ai__mcp-reverie:dependencies",
+      "replay": "axiom scan <corpus>/registry/24_knowall-ai__mcp-reverie --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-3g3m-2fjr-6pw4\")'"
+    },
+    {
+      "id": "GHSA-g3hv-75wg-m249",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency minimatch@9.0.9: GHSA-g3hv-75wg-m249",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update minimatch to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-g3hv-75wg-m249",
+      "location": "static:<corpus>/registry/24_knowall-ai__mcp-reverie:dependencies",
+      "replay": "axiom scan <corpus>/registry/24_knowall-ai__mcp-reverie --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-g3hv-75wg-m249\")'"
+    },
+    {
+      "id": "GHSA-5r4p-p66f-jhc7",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency hono@4.13.7: GHSA-5r4p-p66f-jhc7",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update hono to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-5r4p-p66f-jhc7",
+      "location": "static:<corpus>/registry/24_knowall-ai__mcp-reverie:dependencies",
+      "replay": "axiom scan <corpus>/registry/24_knowall-ai__mcp-reverie --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-5r4p-p66f-jhc7\")'"
+    },
+    {
+      "id": "GHSA-h3mg-xc3c-68pw",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency ip-address@10.7.0: GHSA-h3mg-xc3c-68pw",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update ip-address to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-h3mg-xc3c-68pw",
+      "location": "static:<corpus>/registry/24_knowall-ai__mcp-reverie:dependencies",
+      "replay": "axiom scan <corpus>/registry/24_knowall-ai__mcp-reverie --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-h3mg-xc3c-68pw\")'"
+    },
+    {
+      "id": "GHSA-j6r3-76f7-8jcv",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency ip-address@10.7.0: GHSA-j6r3-76f7-8jcv",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update ip-address to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-j6r3-76f7-8jcv",
+      "location": "static:<corpus>/registry/24_knowall-ai__mcp-reverie:dependencies",
+      "replay": "axiom scan <corpus>/registry/24_knowall-ai__mcp-reverie --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-j6r3-76f7-8jcv\")'"
+    },
+    {
+      "id": "GHSA-rxp7-6hxx-x8q5",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency ip-address@10.7.0: GHSA-rxp7-6hxx-x8q5",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update ip-address to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-rxp7-6hxx-x8q5",
+      "location": "static:<corpus>/registry/24_knowall-ai__mcp-reverie:dependencies",
+      "replay": "axiom scan <corpus>/registry/24_knowall-ai__mcp-reverie --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-rxp7-6hxx-x8q5\")'"
+    },
+    {
+      "id": "GHSA-jqcg-44mw-7w3h",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency proxy-addr@2.0.7: GHSA-jqcg-44mw-7w3h",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update proxy-addr to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-jqcg-44mw-7w3h",
+      "location": "static:<corpus>/registry/24_knowall-ai__mcp-reverie:dependencies",
+      "replay": "axiom scan <corpus>/registry/24_knowall-ai__mcp-reverie --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-jqcg-44mw-7w3h\")'"
+    },
+    {
+      "id": "GHSA-6pq8-jhm2-2vcw",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency qs@6.16.0: GHSA-6pq8-jhm2-2vcw",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update qs to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-6pq8-jhm2-2vcw",
+      "location": "static:<corpus>/registry/24_knowall-ai__mcp-reverie:dependencies",
+      "replay": "axiom scan <corpus>/registry/24_knowall-ai__mcp-reverie --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-6pq8-jhm2-2vcw\")'"
+    },
+    {
+      "id": "GHSA-f88m-g3jw-g9cj",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency sharp@0.34.5: GHSA-f88m-g3jw-g9cj",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update sharp to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-f88m-g3jw-g9cj",
+      "location": "static:<corpus>/registry/24_knowall-ai__mcp-reverie:dependencies",
+      "replay": "axiom scan <corpus>/registry/24_knowall-ai__mcp-reverie --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-f88m-g3jw-g9cj\")'"
+    },
+    {
+      "id": "GHSA-rgj7-g3m4-5g8c",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency sharp@0.34.5: GHSA-rgj7-g3m4-5g8c",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update sharp to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-rgj7-g3m4-5g8c",
+      "location": "static:<corpus>/registry/24_knowall-ai__mcp-reverie:dependencies",
+      "replay": "axiom scan <corpus>/registry/24_knowall-ai__mcp-reverie --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-rgj7-g3m4-5g8c\")'"
+    },
+    {
+      "id": "GHSA-wq5f-xc86-pv6w",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency sharp@0.34.5: GHSA-wq5f-xc86-pv6w",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update sharp to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-wq5f-xc86-pv6w",
+      "location": "static:<corpus>/registry/24_knowall-ai__mcp-reverie:dependencies",
+      "replay": "axiom scan <corpus>/registry/24_knowall-ai__mcp-reverie --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-wq5f-xc86-pv6w\")'"
+    },
+    {
+      "id": "provenance_fresh_publish",
+      "severity": "medium",
+      "category": "supply_chain",
+      "title": "Registry entry 'ai.knowall/reverie' was published 5 day(s) ago",
+      "description": "'ai.knowall/reverie' version 0.5.4 appeared in the registry on 2026-11-06T18:33:21.217424Z. Nothing this new has been looked at by anyone; pin it and review it before an agent uses it.",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Pin the version and review the diff from the previous release.",
+      "rule_id": "provenance_rule",
+      "evidence": "publishedAt 2026-11-06T18:33:21.217424Z",
+      "location": "static:<corpus>/registry/24_knowall-ai__mcp-reverie:provenance",
+      "replay": "axiom scan <corpus>/registry/24_knowall-ai__mcp-reverie --output json --no-ai --no-history | jq '.findings[] | select(.id==\"provenance_fresh_publish\")'"
+    },
+    {
+      "id": "transport_plain_http",
+      "severity": "info",
+      "category": "transport_security",
+      "title": "MCP server listens on plain HTTP",
+      "description": "src\\embeddings.ts binds or references http://127.0.0.1; the server is on the loopback interface; only this machine can reach it.",
+      "owasp_asi": [
+        "ASI07"
+      ],
+      "owasp_mcp": [
+        "MCP07"
+      ],
+      "file_path": "src\\embeddings.ts",
+      "line_number": null,
+      "recommendation": "Use HTTPS with valid TLS certificates for anything reachable beyond this machine.",
+      "rule_id": "transport_plain_http",
+      "evidence": "MCP server listens on plain HTTP",
+      "location": "src\\embeddings.ts",
+      "replay": "axiom scan <corpus>/registry/24_knowall-ai__mcp-reverie --output json --no-ai --no-history | jq '.findings[] | select(.id==\"transport_plain_http\")'"
+    },
+    {
+      "id": "memory_0001",
+      "severity": "low",
+      "category": "memory_poisoning",
+      "title": "Memory/context modification capability detected",
+      "description": "Pattern in .smithery\\index.cjs near line 36825: `UpdateMemory`. MCP servers that modify agent memory or context can poison long-term behavior.",
+      "owasp_asi": [
+        "ASI06"
+      ],
+      "owasp_mcp": [
+        "MCP06",
+        "MCP10"
+      ],
+      "file_path": ".smithery\\index.cjs",
+      "line_number": 36825,
+      "recommendation": "Validate all data before writing to agent memory. Implement integrity checks on persistent context. Log all memory modifications for audit.",
+      "rule_id": "memory_poisoning_pattern",
+      "evidence": "Memory/context modification capability detected",
+      "location": ".smithery\\index.cjs:36825",
+      "replay": "axiom scan <corpus>/registry/24_knowall-ai__mcp-reverie --output json --no-ai --no-history | jq '.findings[] | select(.id==\"memory_0001\")'"
+    },
+    {
+      "id": "memory_0002",
+      "severity": "low",
+      "category": "memory_poisoning",
+      "title": "Memory/context modification capability detected",
+      "description": "Pattern in src\\types.ts near line 33: `UpdateMemory`. MCP servers that modify agent memory or context can poison long-term behavior.",
+      "owasp_asi": [
+        "ASI06"
+      ],
+      "owasp_mcp": [
+        "MCP06",
+        "MCP10"
+      ],
+      "file_path": "src\\types.ts",
+      "line_number": 33,
+      "recommendation": "Validate all data before writing to agent memory. Implement integrity checks on persistent context. Log all memory modifications for audit.",
+      "rule_id": "memory_poisoning_pattern",
+      "evidence": "Memory/context modification capability detected",
+      "location": "src\\types.ts:33",
+      "replay": "axiom scan <corpus>/registry/24_knowall-ai__mcp-reverie --output json --no-ai --no-history | jq '.findings[] | select(.id==\"memory_0002\")'"
+    },
+    {
+      "id": "memory_0003",
+      "severity": "low",
+      "category": "memory_poisoning",
+      "title": "Memory/context modification capability detected",
+      "description": "Pattern in src\\handlers\\index.ts near line 21: `UpdateMemory`. MCP servers that modify agent memory or context can poison long-term behavior.",
+      "owasp_asi": [
+        "ASI06"
+      ],
+      "owasp_mcp": [
+        "MCP06",
+        "MCP10"
+      ],
+      "file_path": "src\\handlers\\index.ts",
+      "line_number": 21,
+      "recommendation": "Validate all data before writing to agent memory. Implement integrity checks on persistent context. Log all memory modifications for audit.",
+      "rule_id": "memory_poisoning_pattern",
+      "evidence": "Memory/context modification capability detected",
+      "location": "src\\handlers\\index.ts:21",
+      "replay": "axiom scan <corpus>/registry/24_knowall-ai__mcp-reverie --output json --no-ai --no-history | jq '.findings[] | select(.id==\"memory_0003\")'"
+    },
+    {
+      "id": "trust_0001",
+      "severity": "low",
+      "category": "trust_exploitation",
+      "title": "Trust exploitation pattern: authority impersonation",
+      "description": "Pattern in .smithery\\index.cjs near line 4288: `representing`. This could enable a compromised agent to mislead users.",
+      "owasp_asi": [
+        "ASI09"
+      ],
+      "owasp_mcp": [
+        "MCP06"
+      ],
+      "file_path": ".smithery\\index.cjs",
+      "line_number": 4288,
+      "recommendation": "Implement output verification. Require human confirmation for high-impact actions. Mark agent-generated content as such.",
+      "rule_id": "trust_exploitation_pattern",
+      "evidence": "Trust exploitation pattern: authority impersonation",
+      "location": ".smithery\\index.cjs:4288",
+      "replay": "axiom scan <corpus>/registry/24_knowall-ai__mcp-reverie --output json --no-ai --no-history | jq '.findings[] | select(.id==\"trust_0001\")'"
+    },
+    {
+      "id": "rogue_0001",
+      "severity": "low",
+      "category": "rogue_agent",
+      "title": "Rogue agent indicator detected",
+      "description": "Pattern in .smithery\\index.cjs near line 17603: `Schedule(parentSubscription, scheduler, work, delay, repeat`. This could indicate self-modifying behavior, persistence mechanisms, or evasion capabilities.",
+      "owasp_asi": [
+        "ASI10"
+      ],
+      "owasp_mcp": [
+        "MCP03"
+      ],
+      "file_path": ".smithery\\index.cjs",
+      "line_number": 17603,
+      "recommendation": "Implement behavioral monitoring and kill switches. Ensure all agent actions are logged and auditable. Run in sandboxed environments with strict resource limits.",
+      "rule_id": "rogue_agent_pattern",
+      "evidence": "Rogue agent indicator detected",
+      "location": ".smithery\\index.cjs:17603",
+      "replay": "axiom scan <corpus>/registry/24_knowall-ai__mcp-reverie --output json --no-ai --no-history | jq '.findings[] | select(.id==\"rogue_0001\")'"
+    },
+    {
+      "id": "mcp04_unpinned_0001",
+      "severity": "medium",
+      "category": "supply_chain",
+      "title": "Unpinned install source",
+      "description": "`npx @modelcontextprotocol/inspector` without a pinned version in run-inspector.sh at line 25. Without an exact version the next install silently picks up whatever is published, including a compromised release.",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": "run-inspector.sh",
+      "line_number": 25,
+      "recommendation": "Pin an exact version (pkg@1.2.3, pkg==1.2.3) and prefer a lockfile or hash-checked requirements.",
+      "rule_id": "unpinned_install_source",
+      "evidence": "Unpinned install source",
+      "location": "run-inspector.sh:25",
+      "replay": "axiom scan <corpus>/registry/24_knowall-ai__mcp-reverie --output json --no-ai --no-history | jq '.findings[] | select(.id==\"mcp04_unpinned_0001\")'"
+    }
+  ],
+  "server_profile": {
+    "name": "24_knowall-ai__mcp-reverie",
+    "command": null,
+    "args": [],
+    "env_vars": [],
+    "transport": "stdio",
+    "tools": [
+      {
+        "name": "search_memories",
+        "description": "Hybrid keyword + semantic + fuzzy name search across the knowledge graph. \"Ben Wicks\" can find \"Benjamin Weeks\". Each result's memory carries _score (0-1: exact = 1, keyword = share of query words found, semantic = cosine similarity, fuzzy = name similarity), _match (exact | keyword | semantic | fuzzy) and, for fuzzy hits, _matched (the stored name or alias that matched: \"did you mean <_matched>?\"). A semantic-only hit below about 0.5 is weak and often unrelated.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "query": {
+              "type": "string",
+              "description": "Search text to find in any property. Keyword mode matches any word, while semantic mode can surface close meanings and name variants."
+            },
+            "label": {
+              "type": "string",
+              "description": "Filter by memory label"
+            },
+            "depth": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 5,
+              "description": "Relationship depth to include, 0 to 5, defaults to 1"
+            },
+            "order_by": {
+              "type": "string",
+              "description": "Sort order such as created_at DESC, name ASC"
+            },
+            "limit": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 200,
+              "description": "Maximum results to return, 1 to 200, defaults to 10"
+            },
+            "since_date": {
+              "type": "string",
+              "description": "ISO date string to filter memories created after this date (e.g., \"2024-01-01\" or \"2024-01-01T00:00:00Z\")"
+            },
+            "search_mode": {
+              "type": "string",
+              "enum": [
+                "hybrid",
+                "keyword",
+                "semantic",
+                "exact",
+                "fuzzy"
+              ],
+              "description": "Search mode: hybrid (default), keyword-only, semantic-only, fuzzy name matching, or exact (case-insensitive equality on name/aliases/email: use before creating a memory)."
+            },
+            "fuzzy_threshold": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1,
+              "default": 0.85,
+              "description": "Fuzzy name-match cut-off for misspelled or misheard names"
+            },
+            "similarity_threshold": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1,
+              "description": "Semantic similarity threshold, 0 to 1 inclusive, defaults to 0.4."
+            },
+            "include_archived": {
+              "type": "boolean",
+              "description": "Include memories with status \"archived\" (excluded by default)."
+            }
+          },
+          "required": []
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "create_memory",
+        "description": "Create a new memory in the knowledge graph. Consider that the memory might already exist, so Search \u2192 Create \u2192 Connect (its important to try and connect memories)",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "label": {
+              "type": "string",
+              "description": "Memory label: a plain identifier, Capitalised singular by convention (Person, Place, Organization, Project, Event, Topic, Object, Animal, Concept, Meeting, Decision\u2026). Use list_memory_labels first for consistency; dream canonicalises lowercase labels."
+            },
+            "properties": {
+              "type": "object",
+              "description": "Information to store about this memory (use \"name\" as primary identifier, e.g. {name: \"John Smith\", age: 30, occupation: \"Engineer\"})",
+              "additionalProperties": true
+            }
+          },
+          "required": [
+            "label",
+            "properties"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "create_connection",
+        "description": "Create a connection between two memories (its good to have connected memories)",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "fromMemoryId": {
+              "type": "number",
+              "description": "ID of the source memory"
+            },
+            "toMemoryId": {
+              "type": "number",
+              "description": "ID of the target memory"
+            },
+            "type": {
+              "type": "string",
+              "description": "Relationship type such as KNOWS, WORKS_ON, LIVES_IN, HAS_SKILL, PARTICIPATES_IN"
+            },
+            "properties": {
+              "type": "object",
+              "description": "Optional relationship metadata (e.g. {since: \"2023-01\", role: \"Manager\", status: \"active\"})",
+              "additionalProperties": true
+            }
+          },
+          "required": [
+            "fromMemoryId",
+            "toMemoryId",
+            "type"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "update_memory",
+        "description": "Update properties of an existing memory such as adding more detail or make a change when you find out something new",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "nodeId": {
+              "type": "number",
+              "description": "ID of the memory to update"
+            },
+            "properties": {
+              "type": "object",
+              "description": "Properties to update/add",
+              "additionalProperties": true
+            }
+          },
+          "required": [
+            "nodeId",
+            "properties"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "update_connection",
+        "description": "Update properties of an existing connection between memories",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "fromMemoryId": {
+              "type": "number",
+              "description": "ID of the source memory"
+            },
+            "toMemoryId": {
+              "type": "number",
+              "description": "ID of the target memory"
+            },
+            "type": {
+              "type": "string",
+              "description": "Relationship type to identify which connection to update (e.g. WORKS_AT, KNOWS, MANAGES)"
+            },
+            "properties": {
+              "type": "object",
+              "description": "Properties to update/add (e.g. {status: \"completed\", end_date: \"2024-01\"})",
+              "additionalProperties": true
+            }
+          },
+          "required": [
+            "fromMemoryId",
+            "toMemoryId",
+            "type",
+            "properties"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "delete_memory",
+        "description": "Delete a memory and all its connections (use with caution - this permanently removes the memory and all its connections)",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "nodeId": {
+              "type": "number",
+              "description": "ID of the memory to delete"
+            }
+          },
+          "required": [
+            "nodeId"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "delete_connection",
+        "description": "Delete a specific connection between two memories (use with caution - this permanently removes the relationship)",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "fromMemoryId": {
+              "type": "number",
+              "description": "ID of the source memory"
+            },
+            "toMemoryId": {
+              "type": "number",
+              "description": "ID of the target memory"
+            },
+            "type": {
+              "type": "string",
+              "description": "Exact relationship type to delete (e.g. WORKS_AT, KNOWS, MANAGES)"
+            }
+          },
+          "required": [
+            "fromMemoryId",
+            "toMemoryId",
+            "type"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "list_memory_labels",
+        "description": "List all unique memory labels currently in use with their counts (useful for getting an overview of the knowledge graph)",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "include_archived": {
+              "type": "boolean",
+              "description": "Include labels of archived memories (excluded by default)."
+            }
+          },
+          "required": []
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "query_memories",
+        "description": "Run a read-only Cypher query and return up to 200 scrubbed rows.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "cypher": {
+              "type": "string",
+              "description": "Read-only Cypher to execute."
+            },
+            "params": {
+              "type": "object",
+              "description": "Optional parameter map for the Cypher query.",
+              "additionalProperties": true
+            }
+          },
+          "required": [
+            "cypher"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "memory_stats",
+        "description": "Summarize node, relationship, label, embedding, and orphan counts for the graph.",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "dream",
+        "description": "Deterministically relabel, merge duplicates, and refresh embeddings, with an optional dry run report.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "dry_run": {
+              "type": "boolean",
+              "description": "If true, report planned changes without writing them."
+            }
+          },
+          "required": []
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "get_guidance",
+        "description": "Get help on using the memory tools effectively",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "topic": {
+              "type": "string",
+              "description": "Topic: connections, labels, relationships, best-practices, examples, or leave empty for all"
+            }
+          },
+          "required": []
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      }
+    ],
+    "resources": [],
+    "prompts": [],
+    "repo_url": null,
+    "npm_package": null,
+    "capabilities_claimed": [],
+    "capabilities_actual": []
+  },
+  "fingerprint": "6ceb1c0e73066809e352812f65f75e60e77ea9726f3a448ebd29a10008f1fdc3",
+  "surface_map": {
+    "server": {
+      "name": "@knowall-ai/reverie",
+      "instructions": "",
+      "transport": "stdio",
+      "auth": "unknown"
+    },
+    "tools": [
+      {
+        "name": "search_memories",
+        "description": "Hybrid keyword + semantic + fuzzy name search across the knowledge graph. \"Ben Wicks\" can find \"Benjamin Weeks\". Each result's memory carries _score (0-1: exact = 1, keyword = share of query words found, semantic = cosine similarity, fuzzy = name similarity), _match (exact | keyword | semantic | fuzzy) and, for fuzzy hits, _matched (the stored name or alias that matched: \"did you mean <_matched>?\"). A semantic-only hit below about 0.5 is weak and often unrelated.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "query": {
+              "type": "string",
+              "description": "Search text to find in any property. Keyword mode matches any word, while semantic mode can surface close meanings and name variants."
+            },
+            "label": {
+              "type": "string",
+              "description": "Filter by memory label"
+            },
+            "depth": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 5,
+              "description": "Relationship depth to include, 0 to 5, defaults to 1"
+            },
+            "order_by": {
+              "type": "string",
+              "description": "Sort order such as created_at DESC, name ASC"
+            },
+            "limit": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 200,
+              "description": "Maximum results to return, 1 to 200, defaults to 10"
+            },
+            "since_date": {
+              "type": "string",
+              "description": "ISO date string to filter memories created after this date (e.g., \"2024-01-01\" or \"2024-01-01T00:00:00Z\")"
+            },
+            "search_mode": {
+              "type": "string",
+              "enum": [
+                "hybrid",
+                "keyword",
+                "semantic",
+                "exact",
+                "fuzzy"
+              ],
+              "description": "Search mode: hybrid (default), keyword-only, semantic-only, fuzzy name matching, or exact (case-insensitive equality on name/aliases/email: use before creating a memory)."
+            },
+            "fuzzy_threshold": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1,
+              "default": 0.85,
+              "description": "Fuzzy name-match cut-off for misspelled or misheard names"
+            },
+            "similarity_threshold": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1,
+              "description": "Semantic similarity threshold, 0 to 1 inclusive, defaults to 0.4."
+            },
+            "include_archived": {
+              "type": "boolean",
+              "description": "Include memories with status \"archived\" (excluded by default)."
+            }
+          },
+          "required": []
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "src\\tools\\definitions.ts:11"
+      },
+      {
+        "name": "create_memory",
+        "description": "Create a new memory in the knowledge graph. Consider that the memory might already exist, so Search \u2192 Create \u2192 Connect (its important to try and connect memories)",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "label": {
+              "type": "string",
+              "description": "Memory label: a plain identifier, Capitalised singular by convention (Person, Place, Organization, Project, Event, Topic, Object, Animal, Concept, Meeting, Decision\u2026). Use list_memory_labels first for consistency; dream canonicalises lowercase labels."
+            },
+            "properties": {
+              "type": "object",
+              "description": "Information to store about this memory (use \"name\" as primary identifier, e.g. {name: \"John Smith\", age: 30, occupation: \"Engineer\"})",
+              "additionalProperties": true
+            }
+          },
+          "required": [
+            "label",
+            "properties"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "src\\tools\\definitions.ts:72"
+      },
+      {
+        "name": "create_connection",
+        "description": "Create a connection between two memories (its good to have connected memories)",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "fromMemoryId": {
+              "type": "number",
+              "description": "ID of the source memory"
+            },
+            "toMemoryId": {
+              "type": "number",
+              "description": "ID of the target memory"
+            },
+            "type": {
+              "type": "string",
+              "description": "Relationship type such as KNOWS, WORKS_ON, LIVES_IN, HAS_SKILL, PARTICIPATES_IN"
+            },
+            "properties": {
+              "type": "object",
+              "description": "Optional relationship metadata (e.g. {since: \"2023-01\", role: \"Manager\", status: \"active\"})",
+              "additionalProperties": true
+            }
+          },
+          "required": [
+            "fromMemoryId",
+            "toMemoryId",
+            "type"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "src\\tools\\definitions.ts:91"
+      },
+      {
+        "name": "update_memory",
+        "description": "Update properties of an existing memory such as adding more detail or make a change when you find out something new",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "nodeId": {
+              "type": "number",
+              "description": "ID of the memory to update"
+            },
+            "properties": {
+              "type": "object",
+              "description": "Properties to update/add",
+              "additionalProperties": true
+            }
+          },
+          "required": [
+            "nodeId",
+            "properties"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "src\\tools\\definitions.ts:118"
+      },
+      {
+        "name": "update_connection",
+        "description": "Update properties of an existing connection between memories",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "fromMemoryId": {
+              "type": "number",
+              "description": "ID of the source memory"
+            },
+            "toMemoryId": {
+              "type": "number",
+              "description": "ID of the target memory"
+            },
+            "type": {
+              "type": "string",
+              "description": "Relationship type to identify which connection to update (e.g. WORKS_AT, KNOWS, MANAGES)"
+            },
+            "properties": {
+              "type": "object",
+              "description": "Properties to update/add (e.g. {status: \"completed\", end_date: \"2024-01\"})",
+              "additionalProperties": true
+            }
+          },
+          "required": [
+            "fromMemoryId",
+            "toMemoryId",
+            "type",
+            "properties"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "src\\tools\\definitions.ts:137"
+      },
+      {
+        "name": "delete_memory",
+        "description": "Delete a memory and all its connections (use with caution - this permanently removes the memory and all its connections)",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "nodeId": {
+              "type": "number",
+              "description": "ID of the memory to delete"
+            }
+          },
+          "required": [
+            "nodeId"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "src\\tools\\definitions.ts:164"
+      },
+      {
+        "name": "delete_connection",
+        "description": "Delete a specific connection between two memories (use with caution - this permanently removes the relationship)",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "fromMemoryId": {
+              "type": "number",
+              "description": "ID of the source memory"
+            },
+            "toMemoryId": {
+              "type": "number",
+              "description": "ID of the target memory"
+            },
+            "type": {
+              "type": "string",
+              "description": "Exact relationship type to delete (e.g. WORKS_AT, KNOWS, MANAGES)"
+            }
+          },
+          "required": [
+            "fromMemoryId",
+            "toMemoryId",
+            "type"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "src\\tools\\definitions.ts:178"
+      },
+      {
+        "name": "list_memory_labels",
+        "description": "List all unique memory labels currently in use with their counts (useful for getting an overview of the knowledge graph)",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "include_archived": {
+              "type": "boolean",
+              "description": "Include labels of archived memories (excluded by default)."
+            }
+          },
+          "required": []
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "src\\tools\\definitions.ts:200"
+      },
+      {
+        "name": "query_memories",
+        "description": "Run a read-only Cypher query and return up to 200 scrubbed rows.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "cypher": {
+              "type": "string",
+              "description": "Read-only Cypher to execute."
+            },
+            "params": {
+              "type": "object",
+              "description": "Optional parameter map for the Cypher query.",
+              "additionalProperties": true
+            }
+          },
+          "required": [
+            "cypher"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "src\\tools\\definitions.ts:214"
+      },
+      {
+        "name": "memory_stats",
+        "description": "Summarize node, relationship, label, embedding, and orphan counts for the graph.",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "src\\tools\\definitions.ts:234"
+      },
+      {
+        "name": "dream",
+        "description": "Deterministically relabel, merge duplicates, and refresh embeddings, with an optional dry run report.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "dry_run": {
+              "type": "boolean",
+              "description": "If true, report planned changes without writing them."
+            }
+          },
+          "required": []
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "src\\tools\\definitions.ts:244"
+      },
+      {
+        "name": "get_guidance",
+        "description": "Get help on using the memory tools effectively",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "topic": {
+              "type": "string",
+              "description": "Topic: connections, labels, relationships, best-practices, examples, or leave empty for all"
+            }
+          },
+          "required": []
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "src\\tools\\guidance-tool.ts:3"
+      }
+    ],
+    "resources": [],
+    "prompts": [],
+    "mutations": [],
+    "source": {
+      "kind": "static",
+      "target": "24_knowall-ai__mcp-reverie",
+      "languages": [
+        "typescript"
+      ]
+    },
+    "generated_at": "2026-11-11T22:33:46+00:00",
+    "fingerprint": "6ceb1c0e73066809e352812f65f75e60e77ea9726f3a448ebd29a10008f1fdc3",
+    "schema": "axiom.surface/1"
+  },
+  "provenance": {
+    "identity": {
+      "npm": "@knowall-ai/reverie",
+      "pypi": null,
+      "repository": "https://github.com/knowall-ai/mcp-reverie",
+      "server_name": "@knowall-ai/reverie"
+    },
+    "registry": {
+      "status": "match",
+      "entry": "ai.knowall/reverie",
+      "repository": "https://github.com/knowall-ai/mcp-reverie",
+      "packages": [
+        "npm:@knowall-ai/reverie"
+      ],
+      "publishedAt": "2026-11-06T18:33:21.217424Z",
+      "version": "0.5.4"
+    },
+    "lookalikes": [],
+    "checked_at": "2026-11-11T22:33:50+00:00"
+  },
+  "owasp_coverage": {
+    "framework": "OWASP Top 10 for Agentic Applications 2026",
+    "reference": "https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/",
+    "coverage": {
+      "ASI01": {
+        "name": "Agent Goal Hijack",
+        "coverage_level": "strong",
+        "findings_count": 2,
+        "finding_ids": [
+          "code_0001",
+          "code_0093"
+        ],
+        "detectors": [
+          "tool_poisoning",
+          "prompt_injection",
+          "instruction_injection"
+        ]
+      },
+      "ASI02": {
+        "name": "Tool Misuse & Exploitation",
+        "coverage_level": "strong",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "toxic_tool_combo",
+          "tool_overscope",
+          "tool_chaining_detection"
+        ]
+      },
+      "ASI03": {
+        "name": "Identity & Privilege Abuse",
+        "coverage_level": "strong",
+        "findings_count": 14,
+        "finding_ids": [
+          "code_0098",
+          "code_0099",
+          "code_0100",
+          "code_0101",
+          "code_0102",
+          "code_0103",
+          "code_0104",
+          "code_0105",
+          "code_0106",
+          "code_0107"
+        ],
+        "detectors": [
+          "credential_analysis",
+          "shared_credential_detection",
+          "env_var_audit"
+        ]
+      },
+      "ASI04": {
+        "name": "Agentic Supply Chain Vulnerabilities",
+        "coverage_level": "strong",
+        "findings_count": 32,
+        "finding_ids": [
+          "GHSA-22jm-h49p-29qw",
+          "GHSA-46jr-4wx8-v453",
+          "GHSA-6prh-2h8m-c8cw",
+          "GHSA-6qxp-vccf-f47h",
+          "GHSA-f897-62hf-6gxq",
+          "GHSA-rvq5-wwqv-78pq",
+          "GHSA-w5hq-g745-h8pq",
+          "GHSA-mrhx-c7xc-m3w5",
+          "GHSA-rmxm-3fg6-px4f",
+          "GHSA-27r3-jxmh-p828"
+        ],
+        "detectors": [
+          "dependency_cve",
+          "lifecycle_hooks",
+          "npx_unversioned",
+          "known_mcp_cves"
+        ]
+      },
+      "ASI05": {
+        "name": "Unexpected Code Execution",
+        "coverage_level": "strong",
+        "findings_count": 96,
+        "finding_ids": [
+          "code_0002",
+          "code_0003",
+          "code_0004",
+          "code_0005",
+          "code_0006",
+          "code_0007",
+          "code_0008",
+          "code_0009",
+          "code_0010",
+          "code_0011"
+        ],
+        "detectors": [
+          "code_exec_patterns",
+          "code_generation_detection",
+          "sandbox_escape"
+        ]
+      },
+      "ASI06": {
+        "name": "Memory & Context Poisoning",
+        "coverage_level": "partial",
+        "findings_count": 3,
+        "finding_ids": [
+          "memory_0001",
+          "memory_0002",
+          "memory_0003"
+        ],
+        "detectors": [
+          "memory_poisoning_patterns",
+          "context_manipulation_detection"
+        ],
+        "gap_note": "Axiom detects static patterns. Full coverage requires runtime memory monitoring."
+      },
+      "ASI07": {
+        "name": "Insecure Inter-Agent Communication",
+        "coverage_level": "partial",
+        "findings_count": 1,
+        "finding_ids": [
+          "transport_plain_http"
+        ],
+        "detectors": [
+          "transport_security",
+          "a2a_pattern_detection"
+        ],
+        "gap_note": "Axiom checks transport security. Full A2A protocol analysis requires runtime interception."
+      },
+      "ASI08": {
+        "name": "Cascading Failures",
+        "coverage_level": "partial",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "blast_radius_estimation",
+          "dependency_chain_analysis"
+        ],
+        "gap_note": "Axiom estimates blast radius from tool capabilities. Full cascading failure analysis requires runtime topology mapping."
+      },
+      "ASI09": {
+        "name": "Human-Agent Trust Exploitation",
+        "coverage_level": "strong",
+        "findings_count": 1,
+        "finding_ids": [
+          "trust_0001"
+        ],
+        "detectors": [
+          "claimed_vs_actual",
+          "deceptive_output_detection",
+          "trust_manipulation_patterns"
+        ]
+      },
+      "ASI10": {
+        "name": "Rogue Agents",
+        "coverage_level": "partial",
+        "findings_count": 3,
+        "finding_ids": [
+          "code_0001",
+          "code_0093",
+          "rogue_0001"
+        ],
+        "detectors": [
+          "sleeper_patterns",
+          "behavioral_drift_indicators",
+          "persistence_detection"
+        ],
+        "gap_note": "Axiom detects static rogue indicators. Full rogue agent detection requires runtime behavioral monitoring."
+      }
+    },
+    "total_asi_categories_with_findings": 8
+  },
+  "owasp_mcp_coverage": {
+    "framework": "OWASP MCP Top 10",
+    "framework_version": "v0.1 beta",
+    "reference": "https://owasp.org/www-project-mcp-top-10/",
+    "coverage": {
+      "MCP01": {
+        "id": "MCP01:2025",
+        "name": "Token Mismanagement & Secret Exposure",
+        "coverage_level": "partial",
+        "reason": "Regex-based secret detection in server source and client configs plus env-var exposure checks; no entropy analysis, git-history scan, or token lifetime/passthrough checks.",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "credential_theft",
+          "cross_server",
+          "mcp01_hardcoded_secrets",
+          "config_hardcoded_secret",
+          "env_var_audit",
+          "env_dump"
+        ]
+      },
+      "MCP02": {
+        "id": "MCP02:2025",
+        "name": "Privilege Escalation via Scope Creep",
+        "coverage_level": "strong",
+        "reason": "Permission over-scope patterns, toxic tool-capability combinations, path-escape checks and env-var over-exposure in configs.",
+        "findings_count": 14,
+        "finding_ids": [
+          "code_0098",
+          "code_0099",
+          "code_0100",
+          "code_0101",
+          "code_0102",
+          "code_0103",
+          "code_0104",
+          "code_0105",
+          "code_0106",
+          "code_0107"
+        ],
+        "detectors": [
+          "permission_overscope",
+          "toxic_tool_combo",
+          "identity_privilege",
+          "sandbox_escape",
+          "config_risk",
+          "cascading_failure",
+          "cross_server",
+          "excessive_scope",
+          "confused_deputy",
+          "file_read",
+          "file_write"
+        ]
+      },
+      "MCP03": {
+        "id": "MCP03:2025",
+        "name": "Tool Poisoning",
+        "coverage_level": "strong",
+        "reason": "Dedicated detector for hidden instructions in tool metadata, plus runtime rug-pull diffing between source and live tool definitions.",
+        "findings_count": 3,
+        "finding_ids": [
+          "code_0001",
+          "code_0093",
+          "rogue_0001"
+        ],
+        "detectors": [
+          "tool_poisoning",
+          "obfuscation",
+          "rogue_agent",
+          "source_vs_runtime_diff",
+          "tool_shadowing",
+          "hidden_unicode",
+          "rug_pull_primitive",
+          "surface_mismatch"
+        ]
+      },
+      "MCP04": {
+        "id": "MCP04:2025",
+        "name": "Software Supply Chain Attacks & Dependency Tampering",
+        "coverage_level": "strong",
+        "reason": "Dependency CVE lookup, known MCP CVEs, install lifecycle hooks, and unpinned npx/uvx/pip/@latest install sources.",
+        "findings_count": 34,
+        "finding_ids": [
+          "code_0001",
+          "code_0093",
+          "GHSA-22jm-h49p-29qw",
+          "GHSA-46jr-4wx8-v453",
+          "GHSA-6prh-2h8m-c8cw",
+          "GHSA-6qxp-vccf-f47h",
+          "GHSA-f897-62hf-6gxq",
+          "GHSA-rvq5-wwqv-78pq",
+          "GHSA-w5hq-g745-h8pq",
+          "GHSA-mrhx-c7xc-m3w5"
+        ],
+        "detectors": [
+          "dependency_vuln",
+          "supply_chain",
+          "known_cve",
+          "obfuscation",
+          "lifecycle_hooks",
+          "mcp04_unpinned_install",
+          "homoglyph",
+          "rug_pull_primitive",
+          "surface_mismatch"
+        ]
+      },
+      "MCP05": {
+        "id": "MCP05:2025",
+        "name": "Command Injection & Execution",
+        "coverage_level": "partial",
+        "reason": "Regex, AST and Semgrep find exec/shell sinks and a heuristic flags sinks inside tool handlers, but there is no inter-procedural taint tracking from tool input to sink.",
+        "findings_count": 96,
+        "finding_ids": [
+          "code_0002",
+          "code_0003",
+          "code_0004",
+          "code_0005",
+          "code_0006",
+          "code_0007",
+          "code_0008",
+          "code_0009",
+          "code_0010",
+          "code_0011"
+        ],
+        "detectors": [
+          "command_injection",
+          "code_execution",
+          "code_generation",
+          "sandbox_escape",
+          "mcp05_tool_input_sink",
+          "shell_exec"
+        ]
+      },
+      "MCP06": {
+        "id": "MCP06:2025",
+        "name": "Prompt Injection via Contextual Payloads",
+        "coverage_level": "partial",
+        "reason": "Injection markers are detected in tool metadata, server instructions, resources, prompts and the strings a tool returns (static), and in instructions/resources/prompts read live; payloads produced by calling a tool at runtime are not inspected.",
+        "findings_count": 4,
+        "finding_ids": [
+          "memory_0001",
+          "memory_0002",
+          "memory_0003",
+          "trust_0001"
+        ],
+        "detectors": [
+          "prompt_injection",
+          "memory_poisoning",
+          "trust_exploitation",
+          "response_injection",
+          "tool_shadowing"
+        ]
+      },
+      "MCP07": {
+        "id": "MCP07:2025",
+        "name": "Insufficient Authentication & Authorization",
+        "coverage_level": "partial",
+        "reason": "Flags remote servers with no visible auth and servers bound to all interfaces; does not verify OAuth implementation or per-tool authorization logic.",
+        "findings_count": 1,
+        "finding_ids": [
+          "transport_plain_http"
+        ],
+        "detectors": [
+          "transport_security",
+          "inter_agent_comm",
+          "identity_privilege",
+          "transport_no_auth",
+          "config_no_auth",
+          "mcp07_bind_all_interfaces"
+        ]
+      },
+      "MCP08": {
+        "id": "MCP08:2025",
+        "name": "Lack of Audit and Telemetry",
+        "coverage_level": "gap",
+        "reason": "Only a low-confidence heuristic for missing logging in tool-defining files; actual audit trails and telemetry pipelines are not verified.",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "audit_telemetry",
+          "mcp08_no_tool_logging"
+        ]
+      },
+      "MCP09": {
+        "id": "MCP09:2025",
+        "name": "Shadow MCP Servers",
+        "coverage_level": "partial",
+        "reason": "Covered by `axiom discover` allowlist on the local machine; no network-wide or fleet discovery.",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "mcpguard_discover",
+          "shadow_mcp"
+        ]
+      },
+      "MCP10": {
+        "id": "MCP10:2025",
+        "name": "Context Injection & Over-Sharing",
+        "coverage_level": "partial",
+        "reason": "Hard-coded egress URLs, tools that send to caller-chosen destinations and bulk-exposure heuristics are detected statically and live; what context is actually shared at runtime is not observed.",
+        "findings_count": 3,
+        "finding_ids": [
+          "memory_0001",
+          "memory_0002",
+          "memory_0003"
+        ],
+        "detectors": [
+          "context_oversharing",
+          "data_exfiltration",
+          "memory_poisoning",
+          "mcp10_broad_data_exposure"
+        ]
+      }
+    },
+    "total_mcp_categories_with_findings": 7
+  },
+  "ai_analysis": null,
+  "tool_poisoning_report": null,
+  "prompt_injection_risk": null
+}

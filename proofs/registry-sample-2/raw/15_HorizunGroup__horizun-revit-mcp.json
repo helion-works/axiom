@@ -1,0 +1,1041 @@
+{
+  "schema_version": "0.5",
+  "target": "15_HorizunGroup__horizun-revit-mcp",
+  "risk_score": 20.0,
+  "risk_level": "low",
+  "tools_found": 0,
+  "findings_count": 31,
+  "findings": [
+    {
+      "id": "ast_0001",
+      "severity": "info",
+      "category": "credential_theft",
+      "title": "Environment variable access via os.environ.get()",
+      "description": "Call to `os.environ.get()` reads an environment variable (capability note) in examples\\dwg-revision-update\\make-fixture.py at line 30",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP01"
+      ],
+      "file_path": "examples\\dwg-revision-update\\make-fixture.py",
+      "line_number": 30,
+      "recommendation": "Document which env vars are needed. Avoid reading arbitrary env vars.",
+      "rule_id": "code_pattern_ast",
+      "evidence": "os.environ.get()",
+      "location": "examples\\dwg-revision-update\\make-fixture.py:30",
+      "replay": "axiom scan <corpus>/registry2/15_HorizunGroup__horizun-revit-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"ast_0001\")'"
+    },
+    {
+      "id": "ast_0001",
+      "severity": "info",
+      "category": "credential_theft",
+      "title": "Environment variable access via os.environ.get()",
+      "description": "Call to `os.environ.get()` reads an environment variable (capability note) in scripts\\consolidate-live-session.py at line 36",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP01"
+      ],
+      "file_path": "scripts\\consolidate-live-session.py",
+      "line_number": 36,
+      "recommendation": "Document which env vars are needed. Avoid reading arbitrary env vars.",
+      "rule_id": "code_pattern_ast",
+      "evidence": "os.environ.get()",
+      "location": "scripts\\consolidate-live-session.py:36",
+      "replay": "axiom scan <corpus>/registry2/15_HorizunGroup__horizun-revit-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"ast_0001\")'"
+    },
+    {
+      "id": "ast_0002",
+      "severity": "info",
+      "category": "credential_theft",
+      "title": "Environment variable access via os.environ.get()",
+      "description": "Call to `os.environ.get()` reads an environment variable (capability note) in scripts\\consolidate-live-session.py at line 36",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP01"
+      ],
+      "file_path": "scripts\\consolidate-live-session.py",
+      "line_number": 36,
+      "recommendation": "Document which env vars are needed. Avoid reading arbitrary env vars.",
+      "rule_id": "code_pattern_ast",
+      "evidence": "os.environ.get()",
+      "location": "scripts\\consolidate-live-session.py:36",
+      "replay": "axiom scan <corpus>/registry2/15_HorizunGroup__horizun-revit-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"ast_0002\")'"
+    },
+    {
+      "id": "ast_0001",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path traversal literal detected",
+      "description": "String literal `../../Horizun.Contracts/Contract.cs` contains path traversal in scripts\\model-doctor-mutation-harness.py at line 550",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "scripts\\model-doctor-mutation-harness.py",
+      "line_number": 550,
+      "recommendation": "Never use relative path traversal. Validate and canonicalize paths.",
+      "rule_id": "code_pattern_ast",
+      "evidence": "Path traversal literal detected",
+      "location": "scripts\\model-doctor-mutation-harness.py:550",
+      "replay": "axiom scan <corpus>/registry2/15_HorizunGroup__horizun-revit-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"ast_0001\")'"
+    },
+    {
+      "id": "ast_0002",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path traversal literal detected",
+      "description": "String literal `../../Horizun.Contracts/Contract.cs` contains path traversal in scripts\\model-doctor-mutation-harness.py at line 556",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "scripts\\model-doctor-mutation-harness.py",
+      "line_number": 556,
+      "recommendation": "Never use relative path traversal. Validate and canonicalize paths.",
+      "rule_id": "code_pattern_ast",
+      "evidence": "Path traversal literal detected",
+      "location": "scripts\\model-doctor-mutation-harness.py:556",
+      "replay": "axiom scan <corpus>/registry2/15_HorizunGroup__horizun-revit-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"ast_0002\")'"
+    },
+    {
+      "id": "ast_0003",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path traversal literal detected",
+      "description": "String literal `../../Horizun.Contracts/Contract.cs` contains path traversal in scripts\\model-doctor-mutation-harness.py at line 661",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "scripts\\model-doctor-mutation-harness.py",
+      "line_number": 661,
+      "recommendation": "Never use relative path traversal. Validate and canonicalize paths.",
+      "rule_id": "code_pattern_ast",
+      "evidence": "Path traversal literal detected",
+      "location": "scripts\\model-doctor-mutation-harness.py:661",
+      "replay": "axiom scan <corpus>/registry2/15_HorizunGroup__horizun-revit-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"ast_0003\")'"
+    },
+    {
+      "id": "ast_0004",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path traversal literal detected",
+      "description": "String literal `../../Horizun.Contracts/Contract.cs` contains path traversal in scripts\\model-doctor-mutation-harness.py at line 669",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "scripts\\model-doctor-mutation-harness.py",
+      "line_number": 669,
+      "recommendation": "Never use relative path traversal. Validate and canonicalize paths.",
+      "rule_id": "code_pattern_ast",
+      "evidence": "Path traversal literal detected",
+      "location": "scripts\\model-doctor-mutation-harness.py:669",
+      "replay": "axiom scan <corpus>/registry2/15_HorizunGroup__horizun-revit-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"ast_0004\")'"
+    },
+    {
+      "id": "ast_0001",
+      "severity": "info",
+      "category": "permission_overscope",
+      "title": "Filesystem enumeration via os.walk()",
+      "description": "Call to `os.walk()` recursively enumerates directories in scripts\\rfa-provenance.py at line 85",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": "scripts\\rfa-provenance.py",
+      "line_number": 85,
+      "recommendation": "Ensure the walk is constrained to expected directories.",
+      "rule_id": "code_pattern_ast",
+      "evidence": "os.walk()",
+      "location": "scripts\\rfa-provenance.py:85",
+      "replay": "axiom scan <corpus>/registry2/15_HorizunGroup__horizun-revit-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"ast_0001\")'"
+    },
+    {
+      "id": "ast_0001",
+      "severity": "info",
+      "category": "permission_overscope",
+      "title": "Broad filesystem operation: shutil.rmtree()",
+      "description": "Call to `shutil.rmtree()` performs bulk filesystem operations in scripts\\dwg-bim\\identity_chain_test.py at line 32",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": "scripts\\dwg-bim\\identity_chain_test.py",
+      "line_number": 32,
+      "recommendation": "Ensure paths are validated and constrained.",
+      "rule_id": "code_pattern_ast",
+      "evidence": "shutil.rmtree()",
+      "location": "scripts\\dwg-bim\\identity_chain_test.py:32",
+      "replay": "axiom scan <corpus>/registry2/15_HorizunGroup__horizun-revit-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"ast_0001\")'"
+    },
+    {
+      "id": "ast_0001",
+      "severity": "info",
+      "category": "credential_theft",
+      "title": "Environment variable access via os.environ.get()",
+      "description": "Call to `os.environ.get()` reads an environment variable (capability note) in scripts\\dwg-bim\\independent_mep.py at line 229",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP01"
+      ],
+      "file_path": "scripts\\dwg-bim\\independent_mep.py",
+      "line_number": 229,
+      "recommendation": "Document which env vars are needed. Avoid reading arbitrary env vars.",
+      "rule_id": "code_pattern_ast",
+      "evidence": "os.environ.get()",
+      "location": "scripts\\dwg-bim\\independent_mep.py:229",
+      "replay": "axiom scan <corpus>/registry2/15_HorizunGroup__horizun-revit-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"ast_0001\")'"
+    },
+    {
+      "id": "ast_0001",
+      "severity": "info",
+      "category": "permission_overscope",
+      "title": "Broad filesystem operation: shutil.rmtree()",
+      "description": "Call to `shutil.rmtree()` performs bulk filesystem operations in scripts\\dwg-bim\\independent_mep_test.py at line 35",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": "scripts\\dwg-bim\\independent_mep_test.py",
+      "line_number": 35,
+      "recommendation": "Ensure paths are validated and constrained.",
+      "rule_id": "code_pattern_ast",
+      "evidence": "shutil.rmtree()",
+      "location": "scripts\\dwg-bim\\independent_mep_test.py:35",
+      "replay": "axiom scan <corpus>/registry2/15_HorizunGroup__horizun-revit-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"ast_0001\")'"
+    },
+    {
+      "id": "ast_0001",
+      "severity": "info",
+      "category": "credential_theft",
+      "title": "Environment variable access via os.environ[]",
+      "description": "Direct access to `os.environ[]` reads an environment variable (capability note) in scripts\\dwg-bim\\run_spec.py at line 218",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP01"
+      ],
+      "file_path": "scripts\\dwg-bim\\run_spec.py",
+      "line_number": 218,
+      "recommendation": "Document which env vars are needed. Avoid reading arbitrary env vars.",
+      "rule_id": "code_pattern_ast",
+      "evidence": "Environment variable access via os.environ[]",
+      "location": "scripts\\dwg-bim\\run_spec.py:218",
+      "replay": "axiom scan <corpus>/registry2/15_HorizunGroup__horizun-revit-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"ast_0001\")'"
+    },
+    {
+      "id": "ast_0001",
+      "severity": "info",
+      "category": "credential_theft",
+      "title": "Environment variable access via os.environ.get()",
+      "description": "Call to `os.environ.get()` reads an environment variable (capability note) in scripts\\dwg-bim\\session_hooks.py at line 19",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP01"
+      ],
+      "file_path": "scripts\\dwg-bim\\session_hooks.py",
+      "line_number": 19,
+      "recommendation": "Document which env vars are needed. Avoid reading arbitrary env vars.",
+      "rule_id": "code_pattern_ast",
+      "evidence": "os.environ.get()",
+      "location": "scripts\\dwg-bim\\session_hooks.py:19",
+      "replay": "axiom scan <corpus>/registry2/15_HorizunGroup__horizun-revit-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"ast_0001\")'"
+    },
+    {
+      "id": "ast_0002",
+      "severity": "info",
+      "category": "credential_theft",
+      "title": "Environment variable access via os.environ.get()",
+      "description": "Call to `os.environ.get()` reads an environment variable (capability note) in scripts\\dwg-bim\\session_hooks.py at line 32",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP01"
+      ],
+      "file_path": "scripts\\dwg-bim\\session_hooks.py",
+      "line_number": 32,
+      "recommendation": "Document which env vars are needed. Avoid reading arbitrary env vars.",
+      "rule_id": "code_pattern_ast",
+      "evidence": "os.environ.get()",
+      "location": "scripts\\dwg-bim\\session_hooks.py:32",
+      "replay": "axiom scan <corpus>/registry2/15_HorizunGroup__horizun-revit-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"ast_0002\")'"
+    },
+    {
+      "id": "ast_0001",
+      "severity": "info",
+      "category": "credential_theft",
+      "title": "Environment variable access via os.environ[]",
+      "description": "Direct access to `os.environ[]` reads an environment variable (capability note) in scripts\\dwg-bim\\split_openings.py at line 59",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP01"
+      ],
+      "file_path": "scripts\\dwg-bim\\split_openings.py",
+      "line_number": 59,
+      "recommendation": "Document which env vars are needed. Avoid reading arbitrary env vars.",
+      "rule_id": "code_pattern_ast",
+      "evidence": "Environment variable access via os.environ[]",
+      "location": "scripts\\dwg-bim\\split_openings.py:59",
+      "replay": "axiom scan <corpus>/registry2/15_HorizunGroup__horizun-revit-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"ast_0001\")'"
+    },
+    {
+      "id": "ast_0002",
+      "severity": "info",
+      "category": "credential_theft",
+      "title": "Environment variable access via os.environ[]",
+      "description": "Direct access to `os.environ[]` reads an environment variable (capability note) in scripts\\dwg-bim\\split_openings.py at line 60",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP01"
+      ],
+      "file_path": "scripts\\dwg-bim\\split_openings.py",
+      "line_number": 60,
+      "recommendation": "Document which env vars are needed. Avoid reading arbitrary env vars.",
+      "rule_id": "code_pattern_ast",
+      "evidence": "Environment variable access via os.environ[]",
+      "location": "scripts\\dwg-bim\\split_openings.py:60",
+      "replay": "axiom scan <corpus>/registry2/15_HorizunGroup__horizun-revit-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"ast_0002\")'"
+    },
+    {
+      "id": "ast_0003",
+      "severity": "info",
+      "category": "credential_theft",
+      "title": "Environment variable access via os.environ.get()",
+      "description": "Call to `os.environ.get()` reads an environment variable (capability note) in scripts\\dwg-bim\\split_openings.py at line 269",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP01"
+      ],
+      "file_path": "scripts\\dwg-bim\\split_openings.py",
+      "line_number": 269,
+      "recommendation": "Document which env vars are needed. Avoid reading arbitrary env vars.",
+      "rule_id": "code_pattern_ast",
+      "evidence": "os.environ.get()",
+      "location": "scripts\\dwg-bim\\split_openings.py:269",
+      "replay": "axiom scan <corpus>/registry2/15_HorizunGroup__horizun-revit-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"ast_0003\")'"
+    },
+    {
+      "id": "ast_0001",
+      "severity": "info",
+      "category": "data_exfiltration",
+      "title": "Outbound HTTP request via urllib.request.urlopen()",
+      "description": "Call to `urllib.request.urlopen()` makes outbound network request in scripts\\eval\\small-model-battery.py at line 170",
+      "owasp_asi": [
+        "ASI01",
+        "ASI02"
+      ],
+      "owasp_mcp": [
+        "MCP10"
+      ],
+      "file_path": "scripts\\eval\\small-model-battery.py",
+      "line_number": 170,
+      "recommendation": "Verify this is expected. Outbound requests can exfiltrate data.",
+      "rule_id": "code_pattern_ast",
+      "evidence": "urllib.request.urlopen()",
+      "location": "scripts\\eval\\small-model-battery.py:170",
+      "replay": "axiom scan <corpus>/registry2/15_HorizunGroup__horizun-revit-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"ast_0001\")'"
+    },
+    {
+      "id": "ast_0002",
+      "severity": "info",
+      "category": "permission_overscope",
+      "title": "Broad filesystem operation: shutil.rmtree()",
+      "description": "Call to `shutil.rmtree()` performs bulk filesystem operations in scripts\\eval\\small-model-battery.py at line 251",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": "scripts\\eval\\small-model-battery.py",
+      "line_number": 251,
+      "recommendation": "Ensure paths are validated and constrained.",
+      "rule_id": "code_pattern_ast",
+      "evidence": "shutil.rmtree()",
+      "location": "scripts\\eval\\small-model-battery.py:251",
+      "replay": "axiom scan <corpus>/registry2/15_HorizunGroup__horizun-revit-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"ast_0002\")'"
+    },
+    {
+      "id": "ast_0001",
+      "severity": "info",
+      "category": "permission_overscope",
+      "title": "Broad filesystem operation: shutil.rmtree()",
+      "description": "Call to `shutil.rmtree()` performs bulk filesystem operations in scripts\\eval\\small-model-diagnostics.py at line 108",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": "scripts\\eval\\small-model-diagnostics.py",
+      "line_number": 108,
+      "recommendation": "Ensure paths are validated and constrained.",
+      "rule_id": "code_pattern_ast",
+      "evidence": "shutil.rmtree()",
+      "location": "scripts\\eval\\small-model-diagnostics.py:108",
+      "replay": "axiom scan <corpus>/registry2/15_HorizunGroup__horizun-revit-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"ast_0001\")'"
+    },
+    {
+      "id": "ast_0001",
+      "severity": "info",
+      "category": "credential_theft",
+      "title": "Environment variable access via os.environ.get()",
+      "description": "Call to `os.environ.get()` reads an environment variable (capability note) in scripts\\live\\dwg-ocs-fixture.py at line 7",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP01"
+      ],
+      "file_path": "scripts\\live\\dwg-ocs-fixture.py",
+      "line_number": 7,
+      "recommendation": "Document which env vars are needed. Avoid reading arbitrary env vars.",
+      "rule_id": "code_pattern_ast",
+      "evidence": "os.environ.get()",
+      "location": "scripts\\live\\dwg-ocs-fixture.py:7",
+      "replay": "axiom scan <corpus>/registry2/15_HorizunGroup__horizun-revit-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"ast_0001\")'"
+    },
+    {
+      "id": "ast_0002",
+      "severity": "info",
+      "category": "credential_theft",
+      "title": "Environment variable access via os.environ.get()",
+      "description": "Call to `os.environ.get()` reads an environment variable (capability note) in scripts\\live\\dwg-ocs-fixture.py at line 9",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP01"
+      ],
+      "file_path": "scripts\\live\\dwg-ocs-fixture.py",
+      "line_number": 9,
+      "recommendation": "Document which env vars are needed. Avoid reading arbitrary env vars.",
+      "rule_id": "code_pattern_ast",
+      "evidence": "os.environ.get()",
+      "location": "scripts\\live\\dwg-ocs-fixture.py:9",
+      "replay": "axiom scan <corpus>/registry2/15_HorizunGroup__horizun-revit-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"ast_0002\")'"
+    },
+    {
+      "id": "code_0001",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in src\\Horizun.Server\\Apps\\impact-preview-adapter.js at line 181: `var m = /^create:([0-9]+)$/.exec(p.unique_id || '');`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "src\\Horizun.Server\\Apps\\impact-preview-adapter.js",
+      "line_number": 181,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "var m = /^create:([0-9]+)$/.exec(p.unique_id || '');",
+      "location": "src\\Horizun.Server\\Apps\\impact-preview-adapter.js:181",
+      "replay": "axiom scan <corpus>/registry2/15_HorizunGroup__horizun-revit-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0001\")'"
+    },
+    {
+      "id": "codegen_0001",
+      "severity": "low",
+      "category": "code_generation",
+      "title": "Dynamic code generation from input detected",
+      "description": "Pattern in scripts\\mutation-preflight.py at line 40: `return ast.literal_eval(node)`. Tools that generate code from agent inputs can execute attacker-controlled payloads.",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "scripts\\mutation-preflight.py",
+      "line_number": 40,
+      "recommendation": "Sandbox code execution. Validate and sanitize all inputs before code generation. Use AST-based analysis instead of string-based code construction.",
+      "rule_id": "code_generation_pattern",
+      "evidence": "Dynamic code generation from input detected",
+      "location": "scripts\\mutation-preflight.py:40",
+      "replay": "axiom scan <corpus>/registry2/15_HorizunGroup__horizun-revit-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"codegen_0001\")'"
+    },
+    {
+      "id": "codegen_0002",
+      "severity": "low",
+      "category": "code_generation",
+      "title": "Dynamic code generation from input detected",
+      "description": "Pattern in scripts\\mutation-preflight.py at line 53: `for node in ast.parse(src).body:`. Tools that generate code from agent inputs can execute attacker-controlled payloads.",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "scripts\\mutation-preflight.py",
+      "line_number": 53,
+      "recommendation": "Sandbox code execution. Validate and sanitize all inputs before code generation. Use AST-based analysis instead of string-based code construction.",
+      "rule_id": "code_generation_pattern",
+      "evidence": "Dynamic code generation from input detected",
+      "location": "scripts\\mutation-preflight.py:53",
+      "replay": "axiom scan <corpus>/registry2/15_HorizunGroup__horizun-revit-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"codegen_0002\")'"
+    },
+    {
+      "id": "codegen_0003",
+      "severity": "low",
+      "category": "code_generation",
+      "title": "Dynamic code generation from input detected",
+      "description": "Pattern in scripts\\mutation-preflight.py at line 93: `tree = ast.parse(src)`. Tools that generate code from agent inputs can execute attacker-controlled payloads.",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "scripts\\mutation-preflight.py",
+      "line_number": 93,
+      "recommendation": "Sandbox code execution. Validate and sanitize all inputs before code generation. Use AST-based analysis instead of string-based code construction.",
+      "rule_id": "code_generation_pattern",
+      "evidence": "Dynamic code generation from input detected",
+      "location": "scripts\\mutation-preflight.py:93",
+      "replay": "axiom scan <corpus>/registry2/15_HorizunGroup__horizun-revit-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"codegen_0003\")'"
+    },
+    {
+      "id": "codegen_0004",
+      "severity": "low",
+      "category": "code_generation",
+      "title": "Dynamic code generation from input detected",
+      "description": "Pattern in scripts\\mutation-preflight.py at line 113: `tree = ast.parse(src)`. Tools that generate code from agent inputs can execute attacker-controlled payloads.",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "scripts\\mutation-preflight.py",
+      "line_number": 113,
+      "recommendation": "Sandbox code execution. Validate and sanitize all inputs before code generation. Use AST-based analysis instead of string-based code construction.",
+      "rule_id": "code_generation_pattern",
+      "evidence": "Dynamic code generation from input detected",
+      "location": "scripts\\mutation-preflight.py:113",
+      "replay": "axiom scan <corpus>/registry2/15_HorizunGroup__horizun-revit-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"codegen_0004\")'"
+    },
+    {
+      "id": "codegen_0005",
+      "severity": "low",
+      "category": "code_generation",
+      "title": "Dynamic code generation from input detected",
+      "description": "Pattern in scripts\\live\\wallsplit-fixture2.py at line 197: `opts = __import__('Autodesk.Revit.DB', fromlist=['Options']).Options()`. Tools that generate code from agent inputs can execute attacker-controlled payloads.",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "scripts\\live\\wallsplit-fixture2.py",
+      "line_number": 197,
+      "recommendation": "Sandbox code execution. Validate and sanitize all inputs before code generation. Use AST-based analysis instead of string-based code construction.",
+      "rule_id": "code_generation_pattern",
+      "evidence": "Dynamic code generation from input detected",
+      "location": "scripts\\live\\wallsplit-fixture2.py:197",
+      "replay": "axiom scan <corpus>/registry2/15_HorizunGroup__horizun-revit-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"codegen_0005\")'"
+    },
+    {
+      "id": "codegen_0006",
+      "severity": "low",
+      "category": "code_generation",
+      "title": "Dynamic code generation from input detected",
+      "description": "Pattern in tests\\Horizun.Server.Tests\\McpApps\\app-handshake.test.js at line 95: `vm.createContext(context);`. Tools that generate code from agent inputs can execute attacker-controlled payloads.",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "tests\\Horizun.Server.Tests\\McpApps\\app-handshake.test.js",
+      "line_number": 95,
+      "recommendation": "Sandbox code execution. Validate and sanitize all inputs before code generation. Use AST-based analysis instead of string-based code construction.",
+      "rule_id": "code_generation_pattern",
+      "evidence": "Dynamic code generation from input detected",
+      "location": "tests\\Horizun.Server.Tests\\McpApps\\app-handshake.test.js:95",
+      "replay": "axiom scan <corpus>/registry2/15_HorizunGroup__horizun-revit-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"codegen_0006\")'"
+    },
+    {
+      "id": "memory_0001",
+      "severity": "low",
+      "category": "memory_poisoning",
+      "title": "Memory/context modification capability detected",
+      "description": "Pattern in src\\Horizun.Server\\Apps\\impact-preview-view.js near line 238: `context update`. MCP servers that modify agent memory or context can poison long-term behavior.",
+      "owasp_asi": [
+        "ASI06"
+      ],
+      "owasp_mcp": [
+        "MCP06",
+        "MCP10"
+      ],
+      "file_path": "src\\Horizun.Server\\Apps\\impact-preview-view.js",
+      "line_number": 238,
+      "recommendation": "Validate all data before writing to agent memory. Implement integrity checks on persistent context. Log all memory modifications for audit.",
+      "rule_id": "memory_poisoning_pattern",
+      "evidence": "Memory/context modification capability detected",
+      "location": "src\\Horizun.Server\\Apps\\impact-preview-view.js:238",
+      "replay": "axiom scan <corpus>/registry2/15_HorizunGroup__horizun-revit-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"memory_0001\")'"
+    },
+    {
+      "id": "trust_0001",
+      "severity": "low",
+      "category": "trust_exploitation",
+      "title": "Trust exploitation pattern: consent bypass",
+      "description": "Pattern in src\\Horizun.Server\\Apps\\impact-preview-adapter.js near line 345: `no confirm`. This could enable a compromised agent to mislead users.",
+      "owasp_asi": [
+        "ASI09"
+      ],
+      "owasp_mcp": [
+        "MCP06"
+      ],
+      "file_path": "src\\Horizun.Server\\Apps\\impact-preview-adapter.js",
+      "line_number": 345,
+      "recommendation": "Implement output verification. Require human confirmation for high-impact actions. Mark agent-generated content as such.",
+      "rule_id": "trust_exploitation_pattern",
+      "evidence": "Trust exploitation pattern: consent bypass",
+      "location": "src\\Horizun.Server\\Apps\\impact-preview-adapter.js:345",
+      "replay": "axiom scan <corpus>/registry2/15_HorizunGroup__horizun-revit-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"trust_0001\")'"
+    }
+  ],
+  "server_profile": {
+    "name": "15_HorizunGroup__horizun-revit-mcp",
+    "command": null,
+    "args": [],
+    "env_vars": [],
+    "transport": "unknown",
+    "tools": [],
+    "resources": [],
+    "prompts": [],
+    "repo_url": null,
+    "npm_package": null,
+    "capabilities_claimed": [],
+    "capabilities_actual": []
+  },
+  "fingerprint": "e498b97c37656b596d8b93bc1fb01bfa568ae69f61435908d643dc6cb386a256",
+  "surface_map": {
+    "server": {
+      "name": "15_HorizunGroup__horizun-revit-mcp",
+      "instructions": "",
+      "transport": "unknown",
+      "auth": "unknown"
+    },
+    "tools": [],
+    "resources": [],
+    "prompts": [],
+    "mutations": [],
+    "source": {
+      "kind": "static",
+      "target": "15_HorizunGroup__horizun-revit-mcp",
+      "languages": []
+    },
+    "generated_at": "2026-11-11T22:36:45+00:00",
+    "fingerprint": "e498b97c37656b596d8b93bc1fb01bfa568ae69f61435908d643dc6cb386a256",
+    "schema": "axiom.surface/1"
+  },
+  "provenance": {
+    "identity": {
+      "npm": null,
+      "pypi": null,
+      "repository": "https://github.com/horizungroup/horizun-revit-mcp",
+      "server_name": "15_HorizunGroup__horizun-revit-mcp"
+    },
+    "registry": {
+      "status": "not_in_registry"
+    },
+    "lookalikes": [],
+    "checked_at": "2026-11-11T22:36:47+00:00"
+  },
+  "owasp_coverage": {
+    "framework": "OWASP Top 10 for Agentic Applications 2026",
+    "reference": "https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/",
+    "coverage": {
+      "ASI01": {
+        "name": "Agent Goal Hijack",
+        "coverage_level": "strong",
+        "findings_count": 1,
+        "finding_ids": [
+          "ast_0001"
+        ],
+        "detectors": [
+          "tool_poisoning",
+          "prompt_injection",
+          "instruction_injection"
+        ]
+      },
+      "ASI02": {
+        "name": "Tool Misuse & Exploitation",
+        "coverage_level": "strong",
+        "findings_count": 1,
+        "finding_ids": [
+          "ast_0001"
+        ],
+        "detectors": [
+          "toxic_tool_combo",
+          "tool_overscope",
+          "tool_chaining_detection"
+        ]
+      },
+      "ASI03": {
+        "name": "Identity & Privilege Abuse",
+        "coverage_level": "strong",
+        "findings_count": 17,
+        "finding_ids": [
+          "ast_0001",
+          "ast_0001",
+          "ast_0002",
+          "ast_0001",
+          "ast_0001",
+          "ast_0001",
+          "ast_0001",
+          "ast_0001",
+          "ast_0001",
+          "ast_0002"
+        ],
+        "detectors": [
+          "credential_analysis",
+          "shared_credential_detection",
+          "env_var_audit"
+        ]
+      },
+      "ASI04": {
+        "name": "Agentic Supply Chain Vulnerabilities",
+        "coverage_level": "strong",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "dependency_cve",
+          "lifecycle_hooks",
+          "npx_unversioned",
+          "known_mcp_cves"
+        ]
+      },
+      "ASI05": {
+        "name": "Unexpected Code Execution",
+        "coverage_level": "strong",
+        "findings_count": 11,
+        "finding_ids": [
+          "ast_0001",
+          "ast_0002",
+          "ast_0003",
+          "ast_0004",
+          "code_0001",
+          "codegen_0001",
+          "codegen_0002",
+          "codegen_0003",
+          "codegen_0004",
+          "codegen_0005"
+        ],
+        "detectors": [
+          "code_exec_patterns",
+          "code_generation_detection",
+          "sandbox_escape"
+        ]
+      },
+      "ASI06": {
+        "name": "Memory & Context Poisoning",
+        "coverage_level": "partial",
+        "findings_count": 1,
+        "finding_ids": [
+          "memory_0001"
+        ],
+        "detectors": [
+          "memory_poisoning_patterns",
+          "context_manipulation_detection"
+        ],
+        "gap_note": "Axiom detects static patterns. Full coverage requires runtime memory monitoring."
+      },
+      "ASI07": {
+        "name": "Insecure Inter-Agent Communication",
+        "coverage_level": "partial",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "transport_security",
+          "a2a_pattern_detection"
+        ],
+        "gap_note": "Axiom checks transport security. Full A2A protocol analysis requires runtime interception."
+      },
+      "ASI08": {
+        "name": "Cascading Failures",
+        "coverage_level": "partial",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "blast_radius_estimation",
+          "dependency_chain_analysis"
+        ],
+        "gap_note": "Axiom estimates blast radius from tool capabilities. Full cascading failure analysis requires runtime topology mapping."
+      },
+      "ASI09": {
+        "name": "Human-Agent Trust Exploitation",
+        "coverage_level": "strong",
+        "findings_count": 1,
+        "finding_ids": [
+          "trust_0001"
+        ],
+        "detectors": [
+          "claimed_vs_actual",
+          "deceptive_output_detection",
+          "trust_manipulation_patterns"
+        ]
+      },
+      "ASI10": {
+        "name": "Rogue Agents",
+        "coverage_level": "partial",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "sleeper_patterns",
+          "behavioral_drift_indicators",
+          "persistence_detection"
+        ],
+        "gap_note": "Axiom detects static rogue indicators. Full rogue agent detection requires runtime behavioral monitoring."
+      }
+    },
+    "total_asi_categories_with_findings": 6
+  },
+  "owasp_mcp_coverage": {
+    "framework": "OWASP MCP Top 10",
+    "framework_version": "v0.1 beta",
+    "reference": "https://owasp.org/www-project-mcp-top-10/",
+    "coverage": {
+      "MCP01": {
+        "id": "MCP01:2025",
+        "name": "Token Mismanagement & Secret Exposure",
+        "coverage_level": "partial",
+        "reason": "Regex-based secret detection in server source and client configs plus env-var exposure checks; no entropy analysis, git-history scan, or token lifetime/passthrough checks.",
+        "findings_count": 12,
+        "finding_ids": [
+          "ast_0001",
+          "ast_0001",
+          "ast_0002",
+          "ast_0001",
+          "ast_0001",
+          "ast_0001",
+          "ast_0002",
+          "ast_0001",
+          "ast_0002",
+          "ast_0003"
+        ],
+        "detectors": [
+          "credential_theft",
+          "cross_server",
+          "mcp01_hardcoded_secrets",
+          "config_hardcoded_secret",
+          "env_var_audit",
+          "env_dump"
+        ]
+      },
+      "MCP02": {
+        "id": "MCP02:2025",
+        "name": "Privilege Escalation via Scope Creep",
+        "coverage_level": "strong",
+        "reason": "Permission over-scope patterns, toxic tool-capability combinations, path-escape checks and env-var over-exposure in configs.",
+        "findings_count": 9,
+        "finding_ids": [
+          "ast_0001",
+          "ast_0002",
+          "ast_0003",
+          "ast_0004",
+          "ast_0001",
+          "ast_0001",
+          "ast_0001",
+          "ast_0002",
+          "ast_0001"
+        ],
+        "detectors": [
+          "permission_overscope",
+          "toxic_tool_combo",
+          "identity_privilege",
+          "sandbox_escape",
+          "config_risk",
+          "cascading_failure",
+          "cross_server",
+          "excessive_scope",
+          "confused_deputy",
+          "file_read",
+          "file_write"
+        ]
+      },
+      "MCP03": {
+        "id": "MCP03:2025",
+        "name": "Tool Poisoning",
+        "coverage_level": "strong",
+        "reason": "Dedicated detector for hidden instructions in tool metadata, plus runtime rug-pull diffing between source and live tool definitions.",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "tool_poisoning",
+          "obfuscation",
+          "rogue_agent",
+          "source_vs_runtime_diff",
+          "tool_shadowing",
+          "hidden_unicode",
+          "rug_pull_primitive",
+          "surface_mismatch"
+        ]
+      },
+      "MCP04": {
+        "id": "MCP04:2025",
+        "name": "Software Supply Chain Attacks & Dependency Tampering",
+        "coverage_level": "strong",
+        "reason": "Dependency CVE lookup, known MCP CVEs, install lifecycle hooks, and unpinned npx/uvx/pip/@latest install sources.",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "dependency_vuln",
+          "supply_chain",
+          "known_cve",
+          "obfuscation",
+          "lifecycle_hooks",
+          "mcp04_unpinned_install",
+          "homoglyph",
+          "rug_pull_primitive",
+          "surface_mismatch"
+        ]
+      },
+      "MCP05": {
+        "id": "MCP05:2025",
+        "name": "Command Injection & Execution",
+        "coverage_level": "partial",
+        "reason": "Regex, AST and Semgrep find exec/shell sinks and a heuristic flags sinks inside tool handlers, but there is no inter-procedural taint tracking from tool input to sink.",
+        "findings_count": 11,
+        "finding_ids": [
+          "ast_0001",
+          "ast_0002",
+          "ast_0003",
+          "ast_0004",
+          "code_0001",
+          "codegen_0001",
+          "codegen_0002",
+          "codegen_0003",
+          "codegen_0004",
+          "codegen_0005"
+        ],
+        "detectors": [
+          "command_injection",
+          "code_execution",
+          "code_generation",
+          "sandbox_escape",
+          "mcp05_tool_input_sink",
+          "shell_exec"
+        ]
+      },
+      "MCP06": {
+        "id": "MCP06:2025",
+        "name": "Prompt Injection via Contextual Payloads",
+        "coverage_level": "partial",
+        "reason": "Injection markers are detected in tool metadata, server instructions, resources, prompts and the strings a tool returns (static), and in instructions/resources/prompts read live; payloads produced by calling a tool at runtime are not inspected.",
+        "findings_count": 2,
+        "finding_ids": [
+          "memory_0001",
+          "trust_0001"
+        ],
+        "detectors": [
+          "prompt_injection",
+          "memory_poisoning",
+          "trust_exploitation",
+          "response_injection",
+          "tool_shadowing"
+        ]
+      },
+      "MCP07": {
+        "id": "MCP07:2025",
+        "name": "Insufficient Authentication & Authorization",
+        "coverage_level": "partial",
+        "reason": "Flags remote servers with no visible auth and servers bound to all interfaces; does not verify OAuth implementation or per-tool authorization logic.",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "transport_security",
+          "inter_agent_comm",
+          "identity_privilege",
+          "transport_no_auth",
+          "config_no_auth",
+          "mcp07_bind_all_interfaces"
+        ]
+      },
+      "MCP08": {
+        "id": "MCP08:2025",
+        "name": "Lack of Audit and Telemetry",
+        "coverage_level": "gap",
+        "reason": "Only a low-confidence heuristic for missing logging in tool-defining files; actual audit trails and telemetry pipelines are not verified.",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "audit_telemetry",
+          "mcp08_no_tool_logging"
+        ]
+      },
+      "MCP09": {
+        "id": "MCP09:2025",
+        "name": "Shadow MCP Servers",
+        "coverage_level": "partial",
+        "reason": "Covered by `axiom discover` allowlist on the local machine; no network-wide or fleet discovery.",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "mcpguard_discover",
+          "shadow_mcp"
+        ]
+      },
+      "MCP10": {
+        "id": "MCP10:2025",
+        "name": "Context Injection & Over-Sharing",
+        "coverage_level": "partial",
+        "reason": "Hard-coded egress URLs, tools that send to caller-chosen destinations and bulk-exposure heuristics are detected statically and live; what context is actually shared at runtime is not observed.",
+        "findings_count": 2,
+        "finding_ids": [
+          "ast_0001",
+          "memory_0001"
+        ],
+        "detectors": [
+          "context_oversharing",
+          "data_exfiltration",
+          "memory_poisoning",
+          "mcp10_broad_data_exposure"
+        ]
+      }
+    },
+    "total_mcp_categories_with_findings": 5
+  },
+  "ai_analysis": null,
+  "tool_poisoning_report": null,
+  "prompt_injection_risk": null
+}

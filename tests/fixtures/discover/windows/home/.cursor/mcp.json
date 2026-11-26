@@ -1,0 +1,14 @@
+{
+  "mcpServers": {
+    "remote-docs": {
+      "type": "sse",
+      "url": "https://user:hunter2@example.com/sse?token=abc123def456"
+    },
+    "fetch": {
+      "command": "uvx",
+      "args": [
+        "mcp-server-fetch"
+      ]
+    }
+  }
+}

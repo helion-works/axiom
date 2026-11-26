@@ -1,0 +1,251 @@
+name: 'Axiom Scan'
+description: 'Scan MCP servers for security vulnerabilities — tool poisoning, prompt injection, credential theft, supply chain attacks. Aligned with OWASP Agentic AI Top 10.'
+author: 'Axiom'
+
+branding:
+  icon: 'shield'
+  color: 'blue'
+
+inputs:
+  target:
+    description: 'MCP server to scan. Accepts: GitHub URL, npm package name, PyPI package name'
+    required: false
+    default: ''
+  scan-local:
+    description: 'Scan local MCP config files in the repository (.mcp.json, .cursor/mcp.json, etc.)'
+    required: false
+    default: 'true'
+  config-path:
+    description: 'Custom path to MCP config file(s), comma-separated'
+    required: false
+    default: ''
+  fail-on:
+    description: 'Risk level that fails the action: critical, high, medium, low, none'
+    required: false
+    default: 'high'
+  output-format:
+    description: 'Output format: table, json, sarif'
+    required: false
+    default: 'table'
+  sarif-file:
+    description: 'Path to write SARIF output (for GitHub Code Scanning)'
+    required: false
+    default: 'axiom-results.sarif'
+  anthropic-api-key:
+    description: 'Anthropic API key for AI-powered analysis (optional)'
+    required: false
+    default: ''
+  github-token:
+    description: 'GitHub token for repo health checks and higher rate limits'
+    required: false
+    default: ''
+  python-version:
+    description: 'Python version to use'
+    required: false
+    default: '3.12'
+
+outputs:
+  risk-score:
+    description: 'Aggregate risk score (0-100)'
+    value: ${{ steps.scan.outputs.risk-score }}
+  risk-level:
+    description: 'Risk level: safe, low, medium, high, critical'
+    value: ${{ steps.scan.outputs.risk-level }}
+  findings-count:
+    description: 'Total number of security findings'
+    value: ${{ steps.scan.outputs.findings-count }}
+  critical-count:
+    description: 'Number of critical findings'
+    value: ${{ steps.scan.outputs.critical-count }}
+  sarif-file:
+    description: 'Path to SARIF results file'
+    value: ${{ steps.scan.outputs.sarif-file }}
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: ${{ inputs.python-version }}
+
+    - name: Install Axiom
+      shell: bash
+      run: pip install "${{ github.action_path }}"   # install the bundled source, not a PyPI release, so the pinned ref is what runs
+
+    - name: Run Axiom Scan
+      id: scan
+      shell: bash
+      env:
+        ANTHROPIC_API_KEY: ${{ inputs.anthropic-api-key }}
+        GITHUB_TOKEN: ${{ inputs.github-token || github.token }}
+      run: |
+        set +e  # Don't exit on non-zero — we handle exit codes
+
+        RESULTS=""
+        EXIT_CODE=0
+        RISK_SCORE=0
+        RISK_LEVEL="safe"
+        FINDINGS=0
+        CRITICALS=0
+
+        # --- Scan specific target ---
+        if [ -n "${{ inputs.target }}" ]; then
+          echo "::group::Scanning target: ${{ inputs.target }}"
+          OUTPUT=$(axiom scan "${{ inputs.target }}" --output json --no-ai 2>&1)
+          SCAN_EXIT=$?
+          echo "$OUTPUT"
+          echo "::endgroup::"
+
+          RISK_SCORE=$(echo "$OUTPUT" | python3 -c "import sys,json; d=json.load(sys.stdin); print(d.get('risk_score',0))" 2>/dev/null || echo "0")
+          RISK_LEVEL=$(echo "$OUTPUT" | python3 -c "import sys,json; d=json.load(sys.stdin); print(d.get('risk_level','safe'))" 2>/dev/null || echo "safe")
+          FINDINGS=$(echo "$OUTPUT" | python3 -c "import sys,json; d=json.load(sys.stdin); print(d.get('findings_count',0))" 2>/dev/null || echo "0")
+          CRITICALS=$(echo "$OUTPUT" | python3 -c "import sys,json; d=json.load(sys.stdin); print(sum(1 for f in d.get('findings',[]) if f.get('severity')=='critical'))" 2>/dev/null || echo "0")
+          RESULTS="$OUTPUT"
+
+          if [ $SCAN_EXIT -gt $EXIT_CODE ]; then
+            EXIT_CODE=$SCAN_EXIT
+          fi
+        fi
+
+        # --- Scan local configs ---
+        if [ "${{ inputs.scan-local }}" = "true" ]; then
+          echo "::group::Scanning local MCP configurations"
+
+          CONFIG_ARGS=""
+          if [ -n "${{ inputs.config-path }}" ]; then
+            IFS=',' read -ra PATHS <<< "${{ inputs.config-path }}"
+            for p in "${PATHS[@]}"; do
+              CONFIG_ARGS="$CONFIG_ARGS --path $p"
+            done
+          fi
+
+          LOCAL_OUTPUT=$(axiom local $CONFIG_ARGS --output json 2>&1)
+          LOCAL_EXIT=$?
+          echo "$LOCAL_OUTPUT"
+          echo "::endgroup::"
+
+          LOCAL_FINDINGS=$(echo "$LOCAL_OUTPUT" | python3 -c "import sys,json; d=json.load(sys.stdin); print(len(d.get('findings',[])))" 2>/dev/null || echo "0")
+          LOCAL_CRITICALS=$(echo "$LOCAL_OUTPUT" | python3 -c "import sys,json; d=json.load(sys.stdin); print(sum(1 for f in d.get('findings',[]) if f.get('severity')=='critical'))" 2>/dev/null || echo "0")
+
+          FINDINGS=$((FINDINGS + LOCAL_FINDINGS))
+          CRITICALS=$((CRITICALS + LOCAL_CRITICALS))
+        fi
+
+        # --- Set outputs ---
+        echo "risk-score=$RISK_SCORE" >> $GITHUB_OUTPUT
+        echo "risk-level=$RISK_LEVEL" >> $GITHUB_OUTPUT
+        echo "findings-count=$FINDINGS" >> $GITHUB_OUTPUT
+        echo "critical-count=$CRITICALS" >> $GITHUB_OUTPUT
+
+        # --- Create annotations ---
+        if [ "$CRITICALS" -gt 0 ]; then
+          echo "::error::Axiom found $CRITICALS critical security finding(s)"
+        fi
+        if [ "$FINDINGS" -gt 0 ]; then
+          echo "::warning::Axiom found $FINDINGS total security finding(s) (risk: $RISK_LEVEL, score: $RISK_SCORE/100)"
+        fi
+
+        # --- Generate SARIF if requested ---
+        if [ "${{ inputs.output-format }}" = "sarif" ] || [ -n "${{ inputs.sarif-file }}" ]; then
+          echo "$RESULTS" | python3 -c "
+        import sys, json
+
+        try:
+            scan = json.load(sys.stdin)
+        except:
+            scan = {'findings': []}
+
+        severity_map = {
+            'critical': 'error',
+            'high': 'error',
+            'medium': 'warning',
+            'low': 'note',
+            'info': 'note',
+        }
+
+        rules = []
+        results = []
+        seen_rules = set()
+
+        for f in scan.get('findings', []):
+            fid = f.get('id', 'unknown')
+            rule_id = f.get('category', fid)
+
+            if rule_id not in seen_rules:
+                seen_rules.add(rule_id)
+                owasp = f.get('owasp_asi', [])
+                tags = ['security', 'mcp'] + (owasp if owasp else [])
+                rules.append({
+                    'id': rule_id,
+                    'shortDescription': {'text': f.get('category', '').replace('_', ' ').title()},
+                    'fullDescription': {'text': f.get('title', '')},
+                    'help': {'text': f.get('recommendation', 'Review this finding.'), 'markdown': f.get('recommendation', '')},
+                    'properties': {'tags': tags},
+                })
+
+            location = {}
+            if f.get('file_path'):
+                location = {
+                    'physicalLocation': {
+                        'artifactLocation': {'uri': f['file_path']},
+                        'region': {'startLine': f.get('line_number', 1)} if f.get('line_number') else {},
+                    }
+                }
+
+            results.append({
+                'ruleId': rule_id,
+                'level': severity_map.get(f.get('severity', 'info'), 'note'),
+                'message': {'text': f.get('title', '') + '. ' + f.get('description', '')[:200]},
+                'locations': [location] if location else [],
+            })
+
+        sarif = {
+            '\$schema': 'https://json.schemastore.org/sarif-2.1.0.json',
+            'version': '2.1.0',
+            'runs': [{
+                'tool': {
+                    'driver': {
+                        'name': 'Axiom',
+                        'version': '0.5.0',
+                        'informationUri': 'https://github.com/helion-works/axiom',
+                        'rules': rules,
+                    }
+                },
+                'results': results,
+            }],
+        }
+        print(json.dumps(sarif, indent=2))
+        " > "${{ inputs.sarif-file }}"
+          echo "sarif-file=${{ inputs.sarif-file }}" >> $GITHUB_OUTPUT
+          echo "::notice::SARIF results written to ${{ inputs.sarif-file }}"
+        fi
+
+        # --- Determine failure ---
+        FAIL_ON="${{ inputs.fail-on }}"
+        SHOULD_FAIL=0
+
+        case "$FAIL_ON" in
+          critical)
+            [ "$RISK_LEVEL" = "critical" ] && SHOULD_FAIL=1
+            ;;
+          high)
+            [ "$RISK_LEVEL" = "critical" ] || [ "$RISK_LEVEL" = "high" ] && SHOULD_FAIL=1
+            ;;
+          medium)
+            [ "$RISK_LEVEL" = "critical" ] || [ "$RISK_LEVEL" = "high" ] || [ "$RISK_LEVEL" = "medium" ] && SHOULD_FAIL=1
+            ;;
+          low)
+            [ "$RISK_LEVEL" = "critical" ] || [ "$RISK_LEVEL" = "high" ] || [ "$RISK_LEVEL" = "medium" ] || [ "$RISK_LEVEL" = "low" ] && SHOULD_FAIL=1
+            ;;
+          none)
+            SHOULD_FAIL=0
+            ;;
+        esac
+
+        if [ "$SHOULD_FAIL" -eq 1 ]; then
+          echo "::error::Axiom scan failed — risk level '$RISK_LEVEL' meets or exceeds threshold '$FAIL_ON'"
+          exit 1
+        fi
+
+        exit 0

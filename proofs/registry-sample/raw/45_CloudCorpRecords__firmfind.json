@@ -1,0 +1,1029 @@
+{
+  "schema_version": "0.5",
+  "target": "<corpus>/registry/45_CloudCorpRecords__firmfind",
+  "risk_score": 100.0,
+  "risk_level": "critical",
+  "tools_found": 3,
+  "findings_count": 14,
+  "findings": [
+    {
+      "id": "poison_company_search_exfil_instruction",
+      "severity": "critical",
+      "category": "tool_poisoning",
+      "title": "Tool poisoning: exfil instruction in 'company_search'",
+      "description": "Tool description contains instructions that could cause data exfiltration. Matched pattern in tool 'company_search': 'Phone number'",
+      "owasp_asi": [
+        "ASI01",
+        "ASI02"
+      ],
+      "owasp_mcp": [
+        "MCP03"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Review tool description carefully. Compare claimed functionality with actual code behavior. Consider removing this MCP server."
+    },
+    {
+      "id": "GHSA-22jm-h49p-29qw",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: @modelcontextprotocol/sdk",
+      "description": "MCP TypeScript SDK: Experimental tasks were not tied to the session that created them",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update @modelcontextprotocol/sdk to a patched version."
+    },
+    {
+      "id": "GHSA-345p-7cg4-v4c7",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: @modelcontextprotocol/sdk",
+      "description": "@modelcontextprotocol/sdk has cross-client data leak via shared server/transport instance reuse",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update @modelcontextprotocol/sdk to a patched version."
+    },
+    {
+      "id": "GHSA-46jr-4wx8-v453",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: @modelcontextprotocol/sdk",
+      "description": "MCP TypeScript SDK: One HTTP request within the default size limit could exhaust server memory during validation",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update @modelcontextprotocol/sdk to a patched version."
+    },
+    {
+      "id": "GHSA-6prh-2h8m-c8cw",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: @modelcontextprotocol/sdk",
+      "description": "MCP TypeScript client SDK: HTTP client transports and OAuth requests followed cross-origin redirects and re-sent custom headers and request bodies",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update @modelcontextprotocol/sdk to a patched version."
+    },
+    {
+      "id": "GHSA-6qxp-vccf-f47h",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: @modelcontextprotocol/sdk",
+      "description": "MCP TypeScript SDK: OAuth client could send credentials to an authorization server chosen by the MCP server",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update @modelcontextprotocol/sdk to a patched version."
+    },
+    {
+      "id": "GHSA-8r9q-7v3j-jr4g",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: @modelcontextprotocol/sdk",
+      "description": "Anthropic's MCP TypeScript SDK has a ReDoS vulnerability",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update @modelcontextprotocol/sdk to a patched version."
+    },
+    {
+      "id": "GHSA-f897-62hf-6gxq",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: @modelcontextprotocol/sdk",
+      "description": "MCP TypeScript SDK: HTTP server transports and handlers did not limit request body size or JSON-RPC batch length",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update @modelcontextprotocol/sdk to a patched version."
+    },
+    {
+      "id": "GHSA-rvq5-wwqv-78pq",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: @modelcontextprotocol/sdk",
+      "description": "MCP TypeScript SDK: Server bearer authentication accepted tokens issued for another service",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update @modelcontextprotocol/sdk to a patched version."
+    },
+    {
+      "id": "GHSA-w48q-cv73-mx4w",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: @modelcontextprotocol/sdk",
+      "description": "Model Context Protocol (MCP) TypeScript SDK does not enable DNS rebinding protection by default",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update @modelcontextprotocol/sdk to a patched version."
+    },
+    {
+      "id": "GHSA-m95q-7qp3-xv42",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: zod",
+      "description": "Zod denial of service vulnerability",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update zod to a patched version."
+    },
+    {
+      "id": "GHSA-mrhx-c7xc-m3w5",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: zod",
+      "description": "Zod can exhaust memory while validating oversized constrained collections",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update zod to a patched version."
+    },
+    {
+      "id": "mcp08_no_tool_logging",
+      "severity": "info",
+      "category": "audit_telemetry",
+      "title": "No logging found in files that define MCP tools (low confidence)",
+      "description": "None of the tool-defining files (src\\mcp.ts) reference a logging library or logger call. Tool invocations may leave no audit trail. Confidence is low: logging could be configured elsewhere or by the host.",
+      "owasp_asi": [
+        "ASI10"
+      ],
+      "owasp_mcp": [
+        "MCP08"
+      ],
+      "file_path": "src\\mcp.ts",
+      "line_number": null,
+      "recommendation": "Log each tool invocation (tool name, caller/session, outcome, and redacted arguments) to a durable, tamper-evident sink."
+    },
+    {
+      "id": "mcp10_broad_exposure_0001",
+      "severity": "low",
+      "category": "context_oversharing",
+      "title": "Tool 'company_enrich' suggests broad data exposure",
+      "description": "The tool 'company_enrich' (description phrase 'Export') appears to return bulk data into the model context, where it can be over-shared with other tools, sessions or users. What is actually returned at runtime is not checked (runtime over-sharing remains a coverage gap).",
+      "owasp_asi": [
+        "ASI02"
+      ],
+      "owasp_mcp": [
+        "MCP10"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Scope results (pagination, filters, per-user access checks) and avoid returning whole tables, histories or file trees to the model."
+    }
+  ],
+  "server_profile": {
+    "name": "<corpus>/registry/45_CloudCorpRecords__firmfind",
+    "command": null,
+    "args": [],
+    "env_vars": [],
+    "transport": "stdio",
+    "tools": [
+      {
+        "name": "company_search",
+        "description": "Search companies in official business registers by name, location, industry, size and contact filters.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "page": {
+              "type": "integer",
+              "description": "Page number for paginated results (optional)."
+            },
+            "pageSize": {
+              "type": "integer",
+              "description": "The page size for this call."
+            },
+            "ID": {
+              "type": "string",
+              "description": "The identifier for this call."
+            },
+            "search": {
+              "type": "string",
+              "description": "Search text filter (optional)."
+            },
+            "sic4Digits": {
+              "type": "string",
+              "description": "The sic4 digits for this call."
+            },
+            "importExportCode": {
+              "type": "string",
+              "description": "The import export code for this call."
+            },
+            "legalStatus": {
+              "type": "string",
+              "description": "The legal status for this call."
+            },
+            "statusCode": {
+              "type": "string",
+              "description": "The status code for this call."
+            },
+            "subsidiaryCode": {
+              "type": "string",
+              "description": "The subsidiary code for this call."
+            },
+            "countryCode": {
+              "type": "string",
+              "description": "The country code for this call."
+            },
+            "provinceName": {
+              "type": "string",
+              "description": "The province name for this call."
+            },
+            "cityName": {
+              "type": "string",
+              "description": "The city name for this call."
+            },
+            "streetName": {
+              "type": "string",
+              "description": "The street name for this call."
+            },
+            "regionName": {
+              "type": "string",
+              "description": "The region name for this call."
+            },
+            "countryName": {
+              "type": "string",
+              "description": "The country name for this call."
+            },
+            "postalCode": {
+              "type": "string",
+              "description": "The postal code for this call."
+            },
+            "postalCodeIntegerMin": {
+              "type": "integer",
+              "description": "The postal code integer minimum for this call."
+            },
+            "postalCodeIntegerMax": {
+              "type": "integer",
+              "description": "The postal code integer maximum for this call."
+            },
+            "employeesHereMin": {
+              "type": "integer",
+              "description": "The employees here minimum for this call."
+            },
+            "employeesHereMax": {
+              "type": "integer",
+              "description": "The employees here maximum for this call."
+            },
+            "employeesTotalMin": {
+              "type": "integer",
+              "description": "The employees total minimum for this call."
+            },
+            "employeesTotalMax": {
+              "type": "integer",
+              "description": "The employees total maximum for this call."
+            },
+            "annualSalesMin": {
+              "type": "integer",
+              "description": "The annual sales minimum for this call."
+            },
+            "annualSalesMax": {
+              "type": "integer",
+              "description": "The annual sales maximum for this call."
+            },
+            "foundingYearsMin": {
+              "type": "integer",
+              "description": "The founding years minimum for this call."
+            },
+            "foundingYearsMax": {
+              "type": "integer",
+              "description": "The founding years maximum for this call."
+            },
+            "phoneNumber": {
+              "type": "string",
+              "description": "Phone number (optional)."
+            },
+            "email": {
+              "type": "string",
+              "description": "Email address."
+            },
+            "worldwideHeadquarterID": {
+              "type": "string",
+              "description": "The worldwide headquarter identifier for this call."
+            },
+            "nationalId": {
+              "type": "string",
+              "description": "National ID value (optional)."
+            },
+            "website": {
+              "type": "string",
+              "description": "Website URL (optional)."
+            },
+            "hasEmail": {
+              "type": "boolean",
+              "description": "Filter to records that have an email address (optional)."
+            },
+            "hasMarketability": {
+              "type": "boolean",
+              "description": "Filter to marketable records (optional)."
+            },
+            "hasPhone": {
+              "type": "boolean",
+              "description": "Filter to records that have a phone number (optional)."
+            },
+            "hasWebsite": {
+              "type": "boolean",
+              "description": "Filter to records that have a website (optional)."
+            },
+            "hasNationalID": {
+              "type": "boolean",
+              "description": "Filter to records that have a national ID (optional)."
+            },
+            "hasCEOName": {
+              "type": "boolean",
+              "description": "Filter to records that have a CEO name (optional)."
+            },
+            "strictCountry": {
+              "type": "boolean",
+              "description": "Require strict country matching (optional)."
+            }
+          },
+          "required": []
+        },
+        "has_hidden_instructions": true,
+        "poisoning_risk": "critical",
+        "poisoning_detail": "Tool description contains instructions that could cause data exfiltration. Matched pattern in tool 'company_search': 'Phone number'"
+      },
+      {
+        "name": "company_enrich",
+        "description": "Export (enrich) one company by its CompanyData ID.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "ID": {
+              "type": "string",
+              "description": "The identifier for this call."
+            }
+          },
+          "required": [
+            "ID"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "field_lookup",
+        "description": "Look up city suggestions for a place-name search.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "search": {
+              "type": "string",
+              "description": "Search text filter (optional)."
+            },
+            "countries": {
+              "type": "string",
+              "description": "Country codes to include."
+            },
+            "limit": {
+              "type": "integer",
+              "description": "Maximum number of results to return (optional)."
+            }
+          },
+          "required": [
+            "search"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      }
+    ],
+    "resources": [],
+    "prompts": [],
+    "repo_url": null,
+    "npm_package": null,
+    "capabilities_claimed": [],
+    "capabilities_actual": []
+  },
+  "fingerprint": "82231a03e18a6a578b9535051c25a355b3234fb8e362b49ccd2791c913772aba",
+  "surface_map": {
+    "server": {
+      "name": "<corpus>/registry/45_CloudCorpRecords__firmfind",
+      "instructions": "",
+      "transport": "stdio",
+      "auth": "unknown"
+    },
+    "tools": [
+      {
+        "name": "company_search",
+        "description": "Search companies in official business registers by name, location, industry, size and contact filters.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "page": {
+              "type": "integer",
+              "description": "Page number for paginated results (optional)."
+            },
+            "pageSize": {
+              "type": "integer",
+              "description": "The page size for this call."
+            },
+            "ID": {
+              "type": "string",
+              "description": "The identifier for this call."
+            },
+            "search": {
+              "type": "string",
+              "description": "Search text filter (optional)."
+            },
+            "sic4Digits": {
+              "type": "string",
+              "description": "The sic4 digits for this call."
+            },
+            "importExportCode": {
+              "type": "string",
+              "description": "The import export code for this call."
+            },
+            "legalStatus": {
+              "type": "string",
+              "description": "The legal status for this call."
+            },
+            "statusCode": {
+              "type": "string",
+              "description": "The status code for this call."
+            },
+            "subsidiaryCode": {
+              "type": "string",
+              "description": "The subsidiary code for this call."
+            },
+            "countryCode": {
+              "type": "string",
+              "description": "The country code for this call."
+            },
+            "provinceName": {
+              "type": "string",
+              "description": "The province name for this call."
+            },
+            "cityName": {
+              "type": "string",
+              "description": "The city name for this call."
+            },
+            "streetName": {
+              "type": "string",
+              "description": "The street name for this call."
+            },
+            "regionName": {
+              "type": "string",
+              "description": "The region name for this call."
+            },
+            "countryName": {
+              "type": "string",
+              "description": "The country name for this call."
+            },
+            "postalCode": {
+              "type": "string",
+              "description": "The postal code for this call."
+            },
+            "postalCodeIntegerMin": {
+              "type": "integer",
+              "description": "The postal code integer minimum for this call."
+            },
+            "postalCodeIntegerMax": {
+              "type": "integer",
+              "description": "The postal code integer maximum for this call."
+            },
+            "employeesHereMin": {
+              "type": "integer",
+              "description": "The employees here minimum for this call."
+            },
+            "employeesHereMax": {
+              "type": "integer",
+              "description": "The employees here maximum for this call."
+            },
+            "employeesTotalMin": {
+              "type": "integer",
+              "description": "The employees total minimum for this call."
+            },
+            "employeesTotalMax": {
+              "type": "integer",
+              "description": "The employees total maximum for this call."
+            },
+            "annualSalesMin": {
+              "type": "integer",
+              "description": "The annual sales minimum for this call."
+            },
+            "annualSalesMax": {
+              "type": "integer",
+              "description": "The annual sales maximum for this call."
+            },
+            "foundingYearsMin": {
+              "type": "integer",
+              "description": "The founding years minimum for this call."
+            },
+            "foundingYearsMax": {
+              "type": "integer",
+              "description": "The founding years maximum for this call."
+            },
+            "phoneNumber": {
+              "type": "string",
+              "description": "Phone number (optional)."
+            },
+            "email": {
+              "type": "string",
+              "description": "Email address."
+            },
+            "worldwideHeadquarterID": {
+              "type": "string",
+              "description": "The worldwide headquarter identifier for this call."
+            },
+            "nationalId": {
+              "type": "string",
+              "description": "National ID value (optional)."
+            },
+            "website": {
+              "type": "string",
+              "description": "Website URL (optional)."
+            },
+            "hasEmail": {
+              "type": "boolean",
+              "description": "Filter to records that have an email address (optional)."
+            },
+            "hasMarketability": {
+              "type": "boolean",
+              "description": "Filter to marketable records (optional)."
+            },
+            "hasPhone": {
+              "type": "boolean",
+              "description": "Filter to records that have a phone number (optional)."
+            },
+            "hasWebsite": {
+              "type": "boolean",
+              "description": "Filter to records that have a website (optional)."
+            },
+            "hasNationalID": {
+              "type": "boolean",
+              "description": "Filter to records that have a national ID (optional)."
+            },
+            "hasCEOName": {
+              "type": "boolean",
+              "description": "Filter to records that have a CEO name (optional)."
+            },
+            "strictCountry": {
+              "type": "boolean",
+              "description": "Require strict country matching (optional)."
+            }
+          },
+          "required": []
+        },
+        "capabilities": [],
+        "return_literals": [
+          "company_search"
+        ],
+        "registration": "static",
+        "location": "src\\mcp.ts:34"
+      },
+      {
+        "name": "company_enrich",
+        "description": "Export (enrich) one company by its CompanyData ID.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "ID": {
+              "type": "string",
+              "description": "The identifier for this call."
+            }
+          },
+          "required": [
+            "ID"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [
+          "company_enrich"
+        ],
+        "registration": "static",
+        "location": "src\\mcp.ts:158"
+      },
+      {
+        "name": "field_lookup",
+        "description": "Look up city suggestions for a place-name search.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "search": {
+              "type": "string",
+              "description": "Search text filter (optional)."
+            },
+            "countries": {
+              "type": "string",
+              "description": "Country codes to include."
+            },
+            "limit": {
+              "type": "integer",
+              "description": "Maximum number of results to return (optional)."
+            }
+          },
+          "required": [
+            "search"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [
+          "field_lookup"
+        ],
+        "registration": "static",
+        "location": "src\\mcp.ts:172"
+      }
+    ],
+    "resources": [],
+    "prompts": [],
+    "mutations": [],
+    "source": {
+      "kind": "static",
+      "target": "<corpus>/registry/45_CloudCorpRecords__firmfind",
+      "languages": [
+        "typescript"
+      ]
+    },
+    "generated_at": "2026-11-04T02:45:00+00:00",
+    "fingerprint": "82231a03e18a6a578b9535051c25a355b3234fb8e362b49ccd2791c913772aba",
+    "schema": "axiom.surface/1"
+  },
+  "owasp_coverage": {
+    "framework": "OWASP Top 10 for Agentic Applications 2026",
+    "reference": "https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/",
+    "coverage": {
+      "ASI01": {
+        "name": "Agent Goal Hijack",
+        "coverage_level": "strong",
+        "findings_count": 1,
+        "finding_ids": [
+          "poison_company_search_exfil_instruction"
+        ],
+        "detectors": [
+          "tool_poisoning",
+          "prompt_injection",
+          "instruction_injection"
+        ]
+      },
+      "ASI02": {
+        "name": "Tool Misuse & Exploitation",
+        "coverage_level": "strong",
+        "findings_count": 2,
+        "finding_ids": [
+          "poison_company_search_exfil_instruction",
+          "mcp10_broad_exposure_0001"
+        ],
+        "detectors": [
+          "toxic_tool_combo",
+          "tool_overscope",
+          "tool_chaining_detection"
+        ]
+      },
+      "ASI03": {
+        "name": "Identity & Privilege Abuse",
+        "coverage_level": "strong",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "credential_analysis",
+          "shared_credential_detection",
+          "env_var_audit"
+        ]
+      },
+      "ASI04": {
+        "name": "Agentic Supply Chain Vulnerabilities",
+        "coverage_level": "strong",
+        "findings_count": 11,
+        "finding_ids": [
+          "GHSA-22jm-h49p-29qw",
+          "GHSA-345p-7cg4-v4c7",
+          "GHSA-46jr-4wx8-v453",
+          "GHSA-6prh-2h8m-c8cw",
+          "GHSA-6qxp-vccf-f47h",
+          "GHSA-8r9q-7v3j-jr4g",
+          "GHSA-f897-62hf-6gxq",
+          "GHSA-rvq5-wwqv-78pq",
+          "GHSA-w48q-cv73-mx4w",
+          "GHSA-m95q-7qp3-xv42"
+        ],
+        "detectors": [
+          "dependency_cve",
+          "lifecycle_hooks",
+          "npx_unversioned",
+          "known_mcp_cves"
+        ]
+      },
+      "ASI05": {
+        "name": "Unexpected Code Execution",
+        "coverage_level": "strong",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "code_exec_patterns",
+          "code_generation_detection",
+          "sandbox_escape"
+        ]
+      },
+      "ASI06": {
+        "name": "Memory & Context Poisoning",
+        "coverage_level": "partial",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "memory_poisoning_patterns",
+          "context_manipulation_detection"
+        ],
+        "gap_note": "Axiom detects static patterns. Full coverage requires runtime memory monitoring."
+      },
+      "ASI07": {
+        "name": "Insecure Inter-Agent Communication",
+        "coverage_level": "partial",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "transport_security",
+          "a2a_pattern_detection"
+        ],
+        "gap_note": "Axiom checks transport security. Full A2A protocol analysis requires runtime interception."
+      },
+      "ASI08": {
+        "name": "Cascading Failures",
+        "coverage_level": "partial",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "blast_radius_estimation",
+          "dependency_chain_analysis"
+        ],
+        "gap_note": "Axiom estimates blast radius from tool capabilities. Full cascading failure analysis requires runtime topology mapping."
+      },
+      "ASI09": {
+        "name": "Human-Agent Trust Exploitation",
+        "coverage_level": "strong",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "claimed_vs_actual",
+          "deceptive_output_detection",
+          "trust_manipulation_patterns"
+        ]
+      },
+      "ASI10": {
+        "name": "Rogue Agents",
+        "coverage_level": "partial",
+        "findings_count": 1,
+        "finding_ids": [
+          "mcp08_no_tool_logging"
+        ],
+        "detectors": [
+          "sleeper_patterns",
+          "behavioral_drift_indicators",
+          "persistence_detection"
+        ],
+        "gap_note": "Axiom detects static rogue indicators. Full rogue agent detection requires runtime behavioral monitoring."
+      }
+    },
+    "total_asi_categories_with_findings": 4
+  },
+  "owasp_mcp_coverage": {
+    "framework": "OWASP MCP Top 10",
+    "framework_version": "v0.1 beta",
+    "reference": "https://owasp.org/www-project-mcp-top-10/",
+    "coverage": {
+      "MCP01": {
+        "id": "MCP01:2025",
+        "name": "Token Mismanagement & Secret Exposure",
+        "coverage_level": "partial",
+        "reason": "Regex-based secret detection in server source and client configs plus env-var exposure checks; no entropy analysis, git-history scan, or token lifetime/passthrough checks.",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "credential_theft",
+          "cross_server",
+          "mcp01_hardcoded_secrets",
+          "config_hardcoded_secret",
+          "env_var_audit",
+          "env_dump"
+        ]
+      },
+      "MCP02": {
+        "id": "MCP02:2025",
+        "name": "Privilege Escalation via Scope Creep",
+        "coverage_level": "strong",
+        "reason": "Permission over-scope patterns, toxic tool-capability combinations, path-escape checks and env-var over-exposure in configs.",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "permission_overscope",
+          "toxic_tool_combo",
+          "identity_privilege",
+          "sandbox_escape",
+          "config_risk",
+          "cascading_failure",
+          "cross_server",
+          "excessive_scope",
+          "confused_deputy",
+          "file_read",
+          "file_write"
+        ]
+      },
+      "MCP03": {
+        "id": "MCP03:2025",
+        "name": "Tool Poisoning",
+        "coverage_level": "strong",
+        "reason": "Dedicated detector for hidden instructions in tool metadata, plus runtime rug-pull diffing between source and live tool definitions.",
+        "findings_count": 1,
+        "finding_ids": [
+          "poison_company_search_exfil_instruction"
+        ],
+        "detectors": [
+          "tool_poisoning",
+          "obfuscation",
+          "rogue_agent",
+          "source_vs_runtime_diff",
+          "tool_shadowing",
+          "hidden_unicode",
+          "rug_pull_primitive",
+          "surface_mismatch"
+        ]
+      },
+      "MCP04": {
+        "id": "MCP04:2025",
+        "name": "Software Supply Chain Attacks & Dependency Tampering",
+        "coverage_level": "strong",
+        "reason": "Dependency CVE lookup, known MCP CVEs, install lifecycle hooks, and unpinned npx/uvx/pip/@latest install sources.",
+        "findings_count": 11,
+        "finding_ids": [
+          "GHSA-22jm-h49p-29qw",
+          "GHSA-345p-7cg4-v4c7",
+          "GHSA-46jr-4wx8-v453",
+          "GHSA-6prh-2h8m-c8cw",
+          "GHSA-6qxp-vccf-f47h",
+          "GHSA-8r9q-7v3j-jr4g",
+          "GHSA-f897-62hf-6gxq",
+          "GHSA-rvq5-wwqv-78pq",
+          "GHSA-w48q-cv73-mx4w",
+          "GHSA-m95q-7qp3-xv42"
+        ],
+        "detectors": [
+          "dependency_vuln",
+          "supply_chain",
+          "known_cve",
+          "obfuscation",
+          "lifecycle_hooks",
+          "mcp04_unpinned_install",
+          "homoglyph",
+          "rug_pull_primitive",
+          "surface_mismatch"
+        ]
+      },
+      "MCP05": {
+        "id": "MCP05:2025",
+        "name": "Command Injection & Execution",
+        "coverage_level": "partial",
+        "reason": "Regex, AST and Semgrep find exec/shell sinks and a heuristic flags sinks inside tool handlers, but there is no inter-procedural taint tracking from tool input to sink.",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "command_injection",
+          "code_execution",
+          "code_generation",
+          "sandbox_escape",
+          "mcp05_tool_input_sink",
+          "shell_exec"
+        ]
+      },
+      "MCP06": {
+        "id": "MCP06:2025",
+        "name": "Prompt Injection via Contextual Payloads",
+        "coverage_level": "partial",
+        "reason": "Injection markers are detected in tool metadata, server instructions, resources, prompts and the strings a tool returns (static), and in instructions/resources/prompts read live; payloads produced by calling a tool at runtime are not inspected.",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "prompt_injection",
+          "memory_poisoning",
+          "trust_exploitation",
+          "response_injection",
+          "tool_shadowing"
+        ]
+      },
+      "MCP07": {
+        "id": "MCP07:2025",
+        "name": "Insufficient Authentication & Authorization",
+        "coverage_level": "partial",
+        "reason": "Flags remote servers with no visible auth and servers bound to all interfaces; does not verify OAuth implementation or per-tool authorization logic.",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "transport_security",
+          "inter_agent_comm",
+          "identity_privilege",
+          "transport_no_auth",
+          "config_no_auth",
+          "mcp07_bind_all_interfaces"
+        ]
+      },
+      "MCP08": {
+        "id": "MCP08:2025",
+        "name": "Lack of Audit and Telemetry",
+        "coverage_level": "gap",
+        "reason": "Only a low-confidence heuristic for missing logging in tool-defining files; actual audit trails and telemetry pipelines are not verified.",
+        "findings_count": 1,
+        "finding_ids": [
+          "mcp08_no_tool_logging"
+        ],
+        "detectors": [
+          "audit_telemetry",
+          "mcp08_no_tool_logging"
+        ]
+      },
+      "MCP09": {
+        "id": "MCP09:2025",
+        "name": "Shadow MCP Servers",
+        "coverage_level": "partial",
+        "reason": "Covered by `axiom discover` allowlist on the local machine; no network-wide or fleet discovery.",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "mcpguard_discover",
+          "shadow_mcp"
+        ]
+      },
+      "MCP10": {
+        "id": "MCP10:2025",
+        "name": "Context Injection & Over-Sharing",
+        "coverage_level": "partial",
+        "reason": "Hard-coded egress URLs, tools that send to caller-chosen destinations and bulk-exposure heuristics are detected statically and live; what context is actually shared at runtime is not observed.",
+        "findings_count": 1,
+        "finding_ids": [
+          "mcp10_broad_exposure_0001"
+        ],
+        "detectors": [
+          "context_oversharing",
+          "data_exfiltration",
+          "memory_poisoning",
+          "mcp10_broad_data_exposure"
+        ]
+      }
+    },
+    "total_mcp_categories_with_findings": 4
+  },
+  "ai_analysis": null,
+  "tool_poisoning_report": null,
+  "prompt_injection_risk": null
+}

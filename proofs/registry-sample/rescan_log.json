@@ -1,0 +1,1006 @@
+{
+ "note": "Phase 5 rescan of the Phase 4 sample. The Phase 4 clones were gone, so all 50 repositories were cloned again on 2026-11-11 (depth 1, core.longpaths=true); the commits below are what raw_after/ was taken from. They are newer than the 2026-11-04 snapshot behind raw/, and the 5 repositories that could only be partly checked out in Phase 4 are complete here.",
+ "scanner_commit": "fe6d5dc",
+ "repositories": [
+  {
+   "n": 1,
+   "group": "popular",
+   "repo": "DayuanJiang/next-ai-draw-io",
+   "name": "io.github.DayuanJiang/next-ai-drawio",
+   "stars": 36653,
+   "slug": "01_DayuanJiang__next-ai-draw-io",
+   "commit": "04b1de949f9f2f14971bf2e26f4a7fd8cc392626",
+   "files_checked_out": 587,
+   "status": "scanned",
+   "risk_level": "medium",
+   "tools_found": 16,
+   "counts": {
+    "critical": 0,
+    "high": 0,
+    "medium": 54,
+    "low": 59,
+    "info": 53
+   }
+  },
+  {
+   "n": 2,
+   "group": "popular",
+   "repo": "blazickjp/arxiv-mcp-server",
+   "name": "io.github.blazickjp/arxiv-mcp-server",
+   "stars": 3254,
+   "slug": "02_blazickjp__arxiv-mcp-server",
+   "commit": "572e301bb3198962c025d5ed5e14becb86868daa",
+   "files_checked_out": 110,
+   "status": "scanned",
+   "risk_level": "medium",
+   "tools_found": 1,
+   "counts": {
+    "critical": 0,
+    "high": 0,
+    "medium": 89,
+    "low": 129,
+    "info": 2
+   }
+  },
+  {
+   "n": 3,
+   "group": "popular",
+   "repo": "A9T9/RPA",
+   "name": "io.github.A9T9/uivision-mcp",
+   "stars": 2101,
+   "slug": "03_A9T9__RPA",
+   "commit": "17b6302f1617b838efe2b26d3ef19c2face81350",
+   "files_checked_out": 568,
+   "status": "scanned",
+   "risk_level": "critical",
+   "tools_found": 25,
+   "counts": {
+    "critical": 1,
+    "high": 1,
+    "medium": 81,
+    "low": 458,
+    "info": 35
+   }
+  },
+  {
+   "n": 4,
+   "group": "popular",
+   "repo": "OpenOSINT/OpenOSINT",
+   "name": "io.github.OpenOSINT/openosint",
+   "stars": 1849,
+   "slug": "04_OpenOSINT__OpenOSINT",
+   "commit": "7ee03c48cf1e92525242529a7aab4530f0f0b767",
+   "files_checked_out": 582,
+   "status": "scanned",
+   "risk_level": "high",
+   "tools_found": 8,
+   "counts": {
+    "critical": 0,
+    "high": 3,
+    "medium": 51,
+    "low": 227,
+    "info": 129
+   }
+  },
+  {
+   "n": 5,
+   "group": "popular",
+   "repo": "proxysoul/empryo",
+   "name": "com.empryo/docs",
+   "stars": 1544,
+   "slug": "05_proxysoul__empryo",
+   "commit": "c27dac116d2ee1637abfc6634bebf08b5c379454",
+   "files_checked_out": 705,
+   "status": "scanned",
+   "risk_level": "high",
+   "tools_found": 0,
+   "counts": {
+    "critical": 0,
+    "high": 2,
+    "medium": 31,
+    "low": 702,
+    "info": 93
+   }
+  },
+  {
+   "n": 6,
+   "group": "popular",
+   "repo": "robotmcp/ros-mcp-server",
+   "name": "io.github.robotmcp/ros-mcp-server",
+   "stars": 1512,
+   "slug": "06_robotmcp__ros-mcp-server",
+   "commit": "476591ac058f58cae810cc775e50b51f8d3d757c",
+   "files_checked_out": 198,
+   "status": "scanned",
+   "risk_level": "high",
+   "tools_found": 31,
+   "counts": {
+    "critical": 0,
+    "high": 1,
+    "medium": 34,
+    "low": 224,
+    "info": 4
+   }
+  },
+  {
+   "n": 7,
+   "group": "popular",
+   "repo": "ihor-sokoliuk/mcp-searxng",
+   "name": "io.github.ihor-sokoliuk/mcp-searxng",
+   "stars": 1345,
+   "slug": "07_ihor-sokoliuk__mcp-searxng",
+   "commit": "dbf2c33a4333ab863abc60ee9235fd6170ec8511",
+   "files_checked_out": 137,
+   "status": "scanned",
+   "risk_level": "medium",
+   "tools_found": 4,
+   "counts": {
+    "critical": 0,
+    "high": 0,
+    "medium": 6,
+    "low": 12,
+    "info": 20
+   }
+  },
+  {
+   "n": 8,
+   "group": "popular",
+   "repo": "feimacode/open-design-agent-kit",
+   "name": "io.github.feimacode/open-design",
+   "stars": 958,
+   "slug": "08_feimacode__open-design-agent-kit",
+   "commit": "40c116ce4b681e45d3c3d10ec87ad641d15a8bfe",
+   "files_checked_out": 6501,
+   "status": "scanned",
+   "risk_level": "critical",
+   "tools_found": 54,
+   "counts": {
+    "critical": 1,
+    "high": 3,
+    "medium": 114,
+    "low": 466,
+    "info": 5
+   }
+  },
+  {
+   "n": 9,
+   "group": "popular",
+   "repo": "feder-cr/invisible_playwright_mcp",
+   "name": "io.github.feder-cr/invisible-playwright-mcp",
+   "stars": 891,
+   "slug": "09_feder-cr__invisible_playwright_mcp",
+   "commit": "0df2a15e59f9d1d6dc56adc9f29cace1cbd4650e",
+   "files_checked_out": 336,
+   "status": "scanned",
+   "risk_level": "medium",
+   "tools_found": 17,
+   "counts": {
+    "critical": 0,
+    "high": 0,
+    "medium": 50,
+    "low": 35,
+    "info": 20
+   }
+  },
+  {
+   "n": 10,
+   "group": "popular",
+   "repo": "krystonschwarze/coolicons",
+   "name": "io.github.krystonschwarze/coolicons",
+   "stars": 488,
+   "slug": "10_krystonschwarze__coolicons",
+   "commit": "5e1b87e100c52f6f333d1308f94e1e22744ed274",
+   "files_checked_out": 23299,
+   "status": "scanned",
+   "risk_level": "medium",
+   "tools_found": 5,
+   "counts": {
+    "critical": 0,
+    "high": 0,
+    "medium": 3,
+    "low": 5,
+    "info": 0
+   }
+  },
+  {
+   "n": 11,
+   "group": "popular",
+   "repo": "domdomegg/airtable-mcp-server",
+   "name": "io.github.domdomegg/airtable-mcp-server",
+   "stars": 456,
+   "slug": "11_domdomegg__airtable-mcp-server",
+   "commit": "15744096819f1cae92c563f897196ee558a42a16",
+   "files_checked_out": 43,
+   "status": "scanned",
+   "risk_level": "medium",
+   "tools_found": 16,
+   "counts": {
+    "critical": 0,
+    "high": 0,
+    "medium": 11,
+    "low": 20,
+    "info": 2
+   }
+  },
+  {
+   "n": 12,
+   "group": "popular",
+   "repo": "Keesan12/martin-loop",
+   "name": "io.github.Keesan12/martin-loop",
+   "stars": 394,
+   "slug": "12_Keesan12__martin-loop",
+   "commit": "4f3baefe4cc3d0615826205480c0836758bddc54",
+   "files_checked_out": 805,
+   "status": "scanned",
+   "risk_level": "high",
+   "tools_found": 24,
+   "counts": {
+    "critical": 0,
+    "high": 2,
+    "medium": 49,
+    "low": 127,
+    "info": 79
+   }
+  },
+  {
+   "n": 13,
+   "group": "popular",
+   "repo": "Cotal-AI/Cotal",
+   "name": "ai.cotal/cotal",
+   "stars": 381,
+   "slug": "13_Cotal-AI__Cotal",
+   "commit": "55774a0f7c705925ca8dde5897436929cd0a33a5",
+   "files_checked_out": 5212,
+   "status": "scanned",
+   "risk_level": "high",
+   "tools_found": 6,
+   "counts": {
+    "critical": 0,
+    "high": 1,
+    "medium": 15,
+    "low": 2497,
+    "info": 500
+   }
+  },
+  {
+   "n": 14,
+   "group": "popular",
+   "repo": "audiojs/audio",
+   "name": "io.github.audiojs/audio",
+   "stars": 329,
+   "slug": "14_audiojs__audio",
+   "commit": "44998707981b0dbee5c954e093b9dea0056765de",
+   "files_checked_out": 378,
+   "status": "scanned",
+   "risk_level": "medium",
+   "tools_found": 1,
+   "counts": {
+    "critical": 0,
+    "high": 0,
+    "medium": 4,
+    "low": 111,
+    "info": 6
+   }
+  },
+  {
+   "n": 15,
+   "group": "popular",
+   "repo": "Aimino-Tech/opendocswork-mcp",
+   "name": "io.github.Aimino-Tech/office-oxide-mcp",
+   "stars": 163,
+   "slug": "15_Aimino-Tech__opendocswork-mcp",
+   "commit": "945ab3d853966ebfd0674eba11ea4c07588388ee",
+   "files_checked_out": 158,
+   "status": "scanned",
+   "risk_level": "safe",
+   "tools_found": 0,
+   "counts": {
+    "critical": 0,
+    "high": 0,
+    "medium": 0,
+    "low": 0,
+    "info": 0
+   }
+  },
+  {
+   "n": 16,
+   "group": "popular",
+   "repo": "SigNoz/signoz-mcp-server",
+   "name": "io.github.SigNoz/signoz-mcp-server",
+   "stars": 132,
+   "slug": "16_SigNoz__signoz-mcp-server",
+   "commit": "b01842766208493c341f9e918abcd6fbdffef086",
+   "files_checked_out": 796,
+   "status": "scanned",
+   "risk_level": "low",
+   "tools_found": 0,
+   "counts": {
+    "critical": 0,
+    "high": 0,
+    "medium": 0,
+    "low": 3,
+    "info": 1
+   }
+  },
+  {
+   "n": 17,
+   "group": "popular",
+   "repo": "AsoBeast/asobeast",
+   "name": "com.asobeast/asobeast",
+   "stars": 124,
+   "slug": "17_AsoBeast__asobeast",
+   "commit": "6e34de1f7e5abf917479ba08c03a7841bcfdc8f5",
+   "files_checked_out": 3961,
+   "status": "scanned",
+   "risk_level": "medium",
+   "tools_found": 50,
+   "counts": {
+    "critical": 0,
+    "high": 0,
+    "medium": 74,
+    "low": 362,
+    "info": 14
+   }
+  },
+  {
+   "n": 18,
+   "group": "popular",
+   "repo": "ScrapeGraphAI/scrapegraph-mcp",
+   "name": "ai.smithery/ScrapeGraphAI-scrapegraph-mcp",
+   "stars": 120,
+   "slug": "18_ScrapeGraphAI__scrapegraph-mcp",
+   "commit": "8372895aa6eaf72b1930ce634d3c1d74b412572e",
+   "files_checked_out": 19,
+   "status": "scanned",
+   "risk_level": "medium",
+   "tools_found": 17,
+   "counts": {
+    "critical": 0,
+    "high": 0,
+    "medium": 48,
+    "low": 117,
+    "info": 8
+   }
+  },
+  {
+   "n": 19,
+   "group": "popular",
+   "repo": "roboticforce/sugar",
+   "name": "io.github.cdnsteve/sugar",
+   "stars": 100,
+   "slug": "19_roboticforce__sugar",
+   "commit": "9d7da8963c4d92e6551c69aa2f21f37a3685ac2a",
+   "files_checked_out": 378,
+   "status": "scanned",
+   "risk_level": "medium",
+   "tools_found": 25,
+   "counts": {
+    "critical": 0,
+    "high": 0,
+    "medium": 25,
+    "low": 415,
+    "info": 51
+   }
+  },
+  {
+   "n": 20,
+   "group": "popular",
+   "repo": "marcomoauro/substack-mcp",
+   "name": "io.github.marcomoauro/substack-mcp",
+   "stars": 92,
+   "slug": "20_marcomoauro__substack-mcp",
+   "commit": "c148a3b176997077d2796530ae98660ef2f96d5a",
+   "files_checked_out": 103,
+   "status": "scanned",
+   "risk_level": "medium",
+   "tools_found": 0,
+   "counts": {
+    "critical": 0,
+    "high": 0,
+    "medium": 7,
+    "low": 106,
+    "info": 1
+   }
+  },
+  {
+   "n": 21,
+   "group": "popular",
+   "repo": "ldclabs/KIP",
+   "name": "io.github.ldclabs/KIP",
+   "stars": 91,
+   "slug": "21_ldclabs__KIP",
+   "commit": "c4f3c17a1306d89562f3778af0013f0de17436a0",
+   "files_checked_out": 364,
+   "status": "scanned",
+   "risk_level": "high",
+   "tools_found": 3,
+   "counts": {
+    "critical": 0,
+    "high": 3,
+    "medium": 7,
+    "low": 14,
+    "info": 7
+   }
+  },
+  {
+   "n": 22,
+   "group": "popular",
+   "repo": "aikarjal/wilmai",
+   "name": "ai.wilm/wilma",
+   "stars": 81,
+   "slug": "22_aikarjal__wilmai",
+   "commit": "fae29f19b3c5111e4f5c4316c231dee473079c79",
+   "files_checked_out": 515,
+   "status": "scanned",
+   "risk_level": "medium",
+   "tools_found": 20,
+   "counts": {
+    "critical": 0,
+    "high": 0,
+    "medium": 18,
+    "low": 125,
+    "info": 381
+   }
+  },
+  {
+   "n": 23,
+   "group": "popular",
+   "repo": "gebalamariusz/cloud-audit",
+   "name": "io.github.gebalamariusz/cloud-audit",
+   "stars": 73,
+   "slug": "23_gebalamariusz__cloud-audit",
+   "commit": "0207aa0a82bf217e3fe68fc5ebb69625d304032c",
+   "files_checked_out": 182,
+   "status": "scanned",
+   "risk_level": "high",
+   "tools_found": 7,
+   "counts": {
+    "critical": 0,
+    "high": 1,
+    "medium": 7,
+    "low": 16,
+    "info": 10
+   }
+  },
+  {
+   "n": 24,
+   "group": "popular",
+   "repo": "knowall-ai/mcp-reverie",
+   "name": "ai.knowall/reverie",
+   "stars": 67,
+   "slug": "24_knowall-ai__mcp-reverie",
+   "commit": "0640b3dc3f0fdbc4877bb233730b52f5b60ed82b",
+   "files_checked_out": 51,
+   "status": "scanned",
+   "risk_level": "medium",
+   "tools_found": 12,
+   "counts": {
+    "critical": 0,
+    "high": 0,
+    "medium": 10,
+    "low": 125,
+    "info": 15
+   }
+  },
+  {
+   "n": 25,
+   "group": "popular",
+   "repo": "leshchenko1979/fast-mcp-telegram",
+   "name": "io.github.leshchenko1979/fast-mcp-telegram",
+   "stars": 50,
+   "slug": "25_leshchenko1979__fast-mcp-telegram",
+   "commit": "ea67b4459cb942062894e53139e7ad0acb494cc1",
+   "files_checked_out": 314,
+   "status": "scanned",
+   "risk_level": "medium",
+   "tools_found": 8,
+   "counts": {
+    "critical": 0,
+    "high": 0,
+    "medium": 5,
+    "low": 22,
+    "info": 6
+   }
+  },
+  {
+   "n": 26,
+   "group": "random",
+   "repo": "chrischall/alexa-mcp",
+   "name": "io.github.chrischall/alexa-mcp",
+   "stars": 1,
+   "slug": "26_chrischall__alexa-mcp",
+   "commit": "60af97b0bda77c0cd27dc5ee07da605cac29431f",
+   "files_checked_out": 58,
+   "status": "scanned",
+   "risk_level": "medium",
+   "tools_found": 37,
+   "counts": {
+    "critical": 0,
+    "high": 0,
+    "medium": 26,
+    "low": 2,
+    "info": 1
+   }
+  },
+  {
+   "n": 27,
+   "group": "random",
+   "repo": "ym2629/lavela-mcp",
+   "name": "io.github.ym2629/lavela",
+   "stars": 0,
+   "slug": "27_ym2629__lavela-mcp",
+   "commit": "5d795f9fd9c7a03b1c3d8de9b1db998744a113b9",
+   "files_checked_out": 9,
+   "status": "scanned",
+   "risk_level": "safe",
+   "tools_found": 0,
+   "counts": {
+    "critical": 0,
+    "high": 0,
+    "medium": 0,
+    "low": 0,
+    "info": 0
+   }
+  },
+  {
+   "n": 28,
+   "group": "random",
+   "repo": "pipeworx-io/mcp-devto",
+   "name": "io.github.pipeworx-io/devto",
+   "stars": 0,
+   "slug": "28_pipeworx-io__mcp-devto",
+   "commit": "d9f6f3f500da1969d7fe4908ed7b8f3fe00df4cf",
+   "files_checked_out": 8,
+   "status": "scanned",
+   "risk_level": "medium",
+   "tools_found": 0,
+   "counts": {
+    "critical": 0,
+    "high": 0,
+    "medium": 1,
+    "low": 0,
+    "info": 0
+   }
+  },
+  {
+   "n": 29,
+   "group": "random",
+   "repo": "malkreide/swiss-snb-mcp",
+   "name": "io.github.malkreide/swiss-snb-mcp",
+   "stars": 0,
+   "slug": "29_malkreide__swiss-snb-mcp",
+   "commit": "9b88f6f33bf49b1ef9f8750cd172ed8fa592fc2b",
+   "files_checked_out": 54,
+   "status": "scanned",
+   "risk_level": "medium",
+   "tools_found": 11,
+   "counts": {
+    "critical": 0,
+    "high": 0,
+    "medium": 17,
+    "low": 0,
+    "info": 1
+   }
+  },
+  {
+   "n": 30,
+   "group": "random",
+   "repo": "mtok-market/mcp",
+   "name": "market.mtok/mcp",
+   "stars": 0,
+   "slug": "30_mtok-market__mcp",
+   "commit": "1bfad53aecfdfce4337a8d4b1aae0be9ef3fdaac",
+   "files_checked_out": 6,
+   "status": "scanned",
+   "risk_level": "safe",
+   "tools_found": 0,
+   "counts": {
+    "critical": 0,
+    "high": 0,
+    "medium": 0,
+    "low": 0,
+    "info": 0
+   }
+  },
+  {
+   "n": 31,
+   "group": "random",
+   "repo": "Graphene-Lab/AgentBridge",
+   "name": "io.github.Graphene-Lab/agentbridge",
+   "stars": 20,
+   "slug": "31_Graphene-Lab__AgentBridge",
+   "commit": "3693798c96779c34bab40acdb9eb2db7c34630e3",
+   "files_checked_out": 547,
+   "status": "scanned",
+   "risk_level": "low",
+   "tools_found": 0,
+   "counts": {
+    "critical": 0,
+    "high": 0,
+    "medium": 0,
+    "low": 8,
+    "info": 47
+   }
+  },
+  {
+   "n": 32,
+   "group": "random",
+   "repo": "dockndevai/mcp-debezium",
+   "name": "io.github.dockndevai/mcp-debezium",
+   "stars": 1,
+   "slug": "32_dockndevai__mcp-debezium",
+   "commit": "3f10c15effb547194b6a94138bc58fedee1bfb4f",
+   "files_checked_out": 37,
+   "status": "scanned",
+   "risk_level": "medium",
+   "tools_found": 0,
+   "counts": {
+    "critical": 0,
+    "high": 0,
+    "medium": 6,
+    "low": 7,
+    "info": 3
+   }
+  },
+  {
+   "n": 33,
+   "group": "random",
+   "repo": "pipeworx-io/mcp-who-iris",
+   "name": "io.github.pipeworx-io/who-iris",
+   "stars": 0,
+   "slug": "33_pipeworx-io__mcp-who-iris",
+   "commit": "ff5f56cdfc39bc2bef773ba3fd0f7c0ea963ae0b",
+   "files_checked_out": 8,
+   "status": "scanned",
+   "risk_level": "medium",
+   "tools_found": 0,
+   "counts": {
+    "critical": 0,
+    "high": 0,
+    "medium": 1,
+    "low": 0,
+    "info": 0
+   }
+  },
+  {
+   "n": 34,
+   "group": "random",
+   "repo": "TalkToHumans/linkedin-mcp",
+   "name": "io.github.TalkToHumans/linkedin-mcp",
+   "stars": 35,
+   "slug": "34_TalkToHumans__linkedin-mcp",
+   "commit": "15fb98c3a5db41579d8087feb7763991cef824f0",
+   "files_checked_out": 7,
+   "status": "scanned",
+   "risk_level": "safe",
+   "tools_found": 0,
+   "counts": {
+    "critical": 0,
+    "high": 0,
+    "medium": 0,
+    "low": 0,
+    "info": 0
+   }
+  },
+  {
+   "n": 35,
+   "group": "random",
+   "repo": "Cvartel/Face-Recognition-MCP-Server",
+   "name": "io.github.student920/face-recognition-mcp-server",
+   "stars": 0,
+   "slug": "35_Cvartel__Face-Recognition-MCP-Server",
+   "commit": "79f69e5ab3d686099782829f9d8bb4d4d5182f09",
+   "files_checked_out": 11,
+   "status": "scanned",
+   "risk_level": "low",
+   "tools_found": 0,
+   "counts": {
+    "critical": 0,
+    "high": 0,
+    "medium": 0,
+    "low": 6,
+    "info": 4
+   }
+  },
+  {
+   "n": 36,
+   "group": "random",
+   "repo": "aistrail/mcp",
+   "name": "com.aistrail/ais",
+   "stars": 0,
+   "slug": "36_aistrail__mcp",
+   "commit": "ed668ffe89d626f3c33b30003ec6b72fd881a1da",
+   "files_checked_out": 1,
+   "status": "scanned",
+   "risk_level": "safe",
+   "tools_found": 0,
+   "counts": {
+    "critical": 0,
+    "high": 0,
+    "medium": 0,
+    "low": 0,
+    "info": 0
+   }
+  },
+  {
+   "n": 37,
+   "group": "random",
+   "repo": "senoff/xlsx-for-ai",
+   "name": "io.github.senoff/xlsx-for-ai",
+   "stars": 6,
+   "slug": "37_senoff__xlsx-for-ai",
+   "commit": "0cfb82ed216a1c773a3236a7410f0ba9c7ba4ca8",
+   "files_checked_out": 132,
+   "status": "scanned",
+   "risk_level": "high",
+   "tools_found": 78,
+   "counts": {
+    "critical": 0,
+    "high": 3,
+    "medium": 130,
+    "low": 52,
+    "info": 40
+   }
+  },
+  {
+   "n": 38,
+   "group": "random",
+   "repo": "mcp-dir/contas_light_download_ocr-mcp",
+   "name": "io.github.mcp-dir/contas_light_download_ocr-mcp",
+   "stars": 0,
+   "slug": "38_mcp-dir__contas_light_download_ocr-mcp",
+   "commit": "6d9c5b4fddf3768e80749ac71d16cd5ebfb24e40",
+   "files_checked_out": 21,
+   "status": "scanned",
+   "risk_level": "safe",
+   "tools_found": 0,
+   "counts": {
+    "critical": 0,
+    "high": 0,
+    "medium": 0,
+    "low": 0,
+    "info": 0
+   }
+  },
+  {
+   "n": 39,
+   "group": "random",
+   "repo": "musaddiq-dev/mysql-mcp-server",
+   "name": "io.github.musaddiq-dev/mysql-mcp-server",
+   "stars": 0,
+   "slug": "39_musaddiq-dev__mysql-mcp-server",
+   "commit": "be66e02700b81182b64ca27ddf83980f6a81c9cf",
+   "files_checked_out": 14,
+   "status": "scanned",
+   "risk_level": "medium",
+   "tools_found": 8,
+   "counts": {
+    "critical": 0,
+    "high": 0,
+    "medium": 5,
+    "low": 5,
+    "info": 13
+   }
+  },
+  {
+   "n": 40,
+   "group": "random",
+   "repo": "CorporateSmalltalkConsultingLtd/ClaudeSmalltalk",
+   "name": "io.github.johnmci/ClaudeSmalltalk",
+   "stars": 18,
+   "slug": "40_CorporateSmalltalkConsultingLtd__ClaudeSmalltalk",
+   "commit": "e7bea13902319670a0764ce58396eb9079a3b772",
+   "files_checked_out": 44,
+   "status": "scanned",
+   "risk_level": "safe",
+   "tools_found": 0,
+   "counts": {
+    "critical": 0,
+    "high": 0,
+    "medium": 0,
+    "low": 0,
+    "info": 28
+   }
+  },
+  {
+   "n": 41,
+   "group": "random",
+   "repo": "pipeworx-io/mcp-earth-search",
+   "name": "io.github.pipeworx-io/earth-search",
+   "stars": 0,
+   "slug": "41_pipeworx-io__mcp-earth-search",
+   "commit": "9156ab2ff0ce1fc07ee8ea9d82f047db3c9c3378",
+   "files_checked_out": 8,
+   "status": "scanned",
+   "risk_level": "medium",
+   "tools_found": 0,
+   "counts": {
+    "critical": 0,
+    "high": 0,
+    "medium": 1,
+    "low": 0,
+    "info": 0
+   }
+  },
+  {
+   "n": 42,
+   "group": "random",
+   "repo": "hosshan/harie",
+   "name": "io.github.hosshan/harie",
+   "stars": 1,
+   "slug": "42_hosshan__harie",
+   "commit": "a3dc6bff898511a5ec380711efc6b30a3a6760f1",
+   "files_checked_out": 448,
+   "status": "scanned",
+   "risk_level": "medium",
+   "tools_found": 7,
+   "counts": {
+    "critical": 0,
+    "high": 0,
+    "medium": 3,
+    "low": 54,
+    "info": 1
+   }
+  },
+  {
+   "n": 43,
+   "group": "random",
+   "repo": "afanasenkoa/instavision-mcp",
+   "name": "co.instavision/instagram-discovery",
+   "stars": 0,
+   "slug": "43_afanasenkoa__instavision-mcp",
+   "commit": "f20e15a5f7edd30e15920245ab91b182bb24eac5",
+   "files_checked_out": 20,
+   "status": "scanned",
+   "risk_level": "low",
+   "tools_found": 0,
+   "counts": {
+    "critical": 0,
+    "high": 0,
+    "medium": 0,
+    "low": 10,
+    "info": 1
+   }
+  },
+  {
+   "n": 44,
+   "group": "random",
+   "repo": "mambalabsdev/mcp-workplace-program-detector",
+   "name": "com.mambabuilt/mcp-workplace-program-detector",
+   "stars": 0,
+   "slug": "44_mambalabsdev__mcp-workplace-program-detector",
+   "commit": "f6e5c991d98d4acbbfe45f1f980f18030efef65f",
+   "files_checked_out": 23,
+   "status": "scanned",
+   "risk_level": "medium",
+   "tools_found": 1,
+   "counts": {
+    "critical": 0,
+    "high": 0,
+    "medium": 5,
+    "low": 8,
+    "info": 1
+   }
+  },
+  {
+   "n": 45,
+   "group": "random",
+   "repo": "CloudCorpRecords/firmfind",
+   "name": "io.github.CloudCorpRecords/firmfind",
+   "stars": 0,
+   "slug": "45_CloudCorpRecords__firmfind",
+   "commit": "ccd13bfe399091434126fbf473cd10092151e4e8",
+   "files_checked_out": 16,
+   "status": "scanned",
+   "risk_level": "medium",
+   "tools_found": 3,
+   "counts": {
+    "critical": 0,
+    "high": 0,
+    "medium": 3,
+    "low": 1,
+    "info": 1
+   }
+  },
+  {
+   "n": 46,
+   "group": "random",
+   "repo": "artgas1/xmlriver-mcp",
+   "name": "io.github.artgas1/xmlriver-mcp",
+   "stars": 3,
+   "slug": "46_artgas1__xmlriver-mcp",
+   "commit": "cf8648150819acfc128a719a20d4e88c8c3cf284",
+   "files_checked_out": 37,
+   "status": "scanned",
+   "risk_level": "medium",
+   "tools_found": 11,
+   "counts": {
+    "critical": 0,
+    "high": 0,
+    "medium": 20,
+    "low": 98,
+    "info": 3
+   }
+  },
+  {
+   "n": 47,
+   "group": "random",
+   "repo": "smeet666/mcp-lever",
+   "name": "io.github.smeet666/mcp-lever",
+   "stars": 0,
+   "slug": "47_smeet666__mcp-lever",
+   "commit": "5d36be6cd53c6cceb5a4b2611665e876a832fa48",
+   "files_checked_out": 81,
+   "status": "scanned",
+   "risk_level": "medium",
+   "tools_found": 4,
+   "counts": {
+    "critical": 0,
+    "high": 0,
+    "medium": 4,
+    "low": 0,
+    "info": 1
+   }
+  },
+  {
+   "n": 48,
+   "group": "random",
+   "repo": "ArturSkowronski/minipainter",
+   "name": "io.github.ArturSkowronski/minipainter",
+   "stars": 0,
+   "slug": "48_ArturSkowronski__minipainter",
+   "commit": "fe3fd9b34f93ffcc5cad147b397f9493e90db9d6",
+   "files_checked_out": 145,
+   "status": "scanned",
+   "risk_level": "medium",
+   "tools_found": 0,
+   "counts": {
+    "critical": 0,
+    "high": 0,
+    "medium": 8,
+    "low": 76,
+    "info": 1
+   }
+  },
+  {
+   "n": 49,
+   "group": "random",
+   "repo": "pipeworx-io/mcp-geo",
+   "name": "io.github.pipeworx-io/geo",
+   "stars": 1,
+   "slug": "49_pipeworx-io__mcp-geo",
+   "commit": "da806c620b68238c30c74ae00cd3e59a0f6412c4",
+   "files_checked_out": 8,
+   "status": "scanned",
+   "risk_level": "medium",
+   "tools_found": 0,
+   "counts": {
+    "critical": 0,
+    "high": 0,
+    "medium": 1,
+    "low": 0,
+    "info": 0
+   }
+  },
+  {
+   "n": 50,
+   "group": "random",
+   "repo": "calintzy/evmscope",
+   "name": "io.github.calintzy/evmscope",
+   "stars": 3,
+   "slug": "50_calintzy__evmscope",
+   "commit": "99637f22d745d9278cf26548e1bd2ccff54cb7d1",
+   "files_checked_out": 125,
+   "status": "scanned",
+   "risk_level": "medium",
+   "tools_found": 26,
+   "counts": {
+    "critical": 0,
+    "high": 0,
+    "medium": 9,
+    "low": 147,
+    "info": 4
+   }
+  }
+ ]
+}

@@ -1,0 +1,1837 @@
+{
+  "schema_version": "0.5",
+  "target": "<corpus>/registry/42_hosshan__harie",
+  "risk_score": 100.0,
+  "risk_level": "critical",
+  "tools_found": 7,
+  "findings_count": 59,
+  "findings": [
+    {
+      "id": "cross_tool_harie_edit_harie_preview",
+      "severity": "medium",
+      "category": "cross_server",
+      "title": "Tool 'harie_edit' references tool 'harie_preview'",
+      "description": "Tool description mentions another tool by name, which could enable tool chaining attacks.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP01",
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Verify this cross-reference is legitimate and necessary."
+    },
+    {
+      "id": "cross_tool_harie_replace_base_harie_edit",
+      "severity": "medium",
+      "category": "cross_server",
+      "title": "Tool 'harie_replace_base' references tool 'harie_edit'",
+      "description": "Tool description mentions another tool by name, which could enable tool chaining attacks.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP01",
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Verify this cross-reference is legitimate and necessary."
+    },
+    {
+      "id": "code_0001",
+      "severity": "critical",
+      "category": "code_execution",
+      "title": "MCP server can execute arbitrary commands",
+      "description": "Pattern matched in .claude\\hooks\\stop-test.mjs at line 24: `const result = spawnSync(`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": ".claude\\hooks\\stop-test.mjs",
+      "line_number": 24,
+      "recommendation": "Review this arbitrary code exec pattern."
+    },
+    {
+      "id": "code_0002",
+      "severity": "critical",
+      "category": "code_execution",
+      "title": "MCP server can execute arbitrary commands",
+      "description": "Pattern matched in .github\\scripts\\bump-version.mjs at line 9: `const current = semver.exec(pkg.version);`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": ".github\\scripts\\bump-version.mjs",
+      "line_number": 9,
+      "recommendation": "Review this arbitrary code exec pattern."
+    },
+    {
+      "id": "code_0003",
+      "severity": "critical",
+      "category": "code_execution",
+      "title": "MCP server can execute arbitrary commands",
+      "description": "Pattern matched in .github\\scripts\\bump-version.mjs at line 16: `const m = semver.exec(explicit);`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": ".github\\scripts\\bump-version.mjs",
+      "line_number": 16,
+      "recommendation": "Review this arbitrary code exec pattern."
+    },
+    {
+      "id": "code_0004",
+      "severity": "critical",
+      "category": "sandbox_escape",
+      "title": "Potential sandbox/path escape in MCP server",
+      "description": "Pattern matched in apps\\cli\\src\\commands.test.ts at line 8: `const FIXTURES = new URL(\"../../../packages/format/fixtures/\", import.meta.url);`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "apps\\cli\\src\\commands.test.ts",
+      "line_number": 8,
+      "recommendation": "Review this sandbox escape pattern."
+    },
+    {
+      "id": "code_0005",
+      "severity": "critical",
+      "category": "sandbox_escape",
+      "title": "Potential sandbox/path escape in MCP server",
+      "description": "Pattern matched in apps\\extension\\e2e\\page-images.e2e.ts at line 9: `new URL(\"../../site/src/assets/tasklane-notifications.harie.png\", import.meta.url),`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "apps\\extension\\e2e\\page-images.e2e.ts",
+      "line_number": 9,
+      "recommendation": "Review this sandbox escape pattern."
+    },
+    {
+      "id": "code_0006",
+      "severity": "critical",
+      "category": "sandbox_escape",
+      "title": "Potential sandbox/path escape in MCP server",
+      "description": "Pattern matched in apps\\extension\\lib\\page-image.test.ts at line 116: `new URL(\"../../site/src/assets/tasklane-notifications.harie.png\", import.meta.url),`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "apps\\extension\\lib\\page-image.test.ts",
+      "line_number": 116,
+      "recommendation": "Review this sandbox escape pattern."
+    },
+    {
+      "id": "code_0007",
+      "severity": "high",
+      "category": "obfuscation",
+      "title": "Obfuscated or encoded content in MCP server",
+      "description": "Pattern matched in apps\\extension\\scripts\\store-assets.mjs at line 133: `const image = new Blob([Uint8Array.from(atob(bytes), (c) => c.charCodeAt(0))], {`",
+      "owasp_asi": [
+        "ASI01",
+        "ASI10"
+      ],
+      "owasp_mcp": [
+        "MCP03",
+        "MCP04"
+      ],
+      "file_path": "apps\\extension\\scripts\\store-assets.mjs",
+      "line_number": 133,
+      "recommendation": "Review this obfuscation pattern."
+    },
+    {
+      "id": "code_0008",
+      "severity": "critical",
+      "category": "sandbox_escape",
+      "title": "Potential sandbox/path escape in MCP server",
+      "description": "Pattern matched in apps\\mcp\\eval\\capture.mjs at line 11: `const { chromium } = createRequire(join(here, \"../../web/package.json\"))(\"@playwright/test\");`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "apps\\mcp\\eval\\capture.mjs",
+      "line_number": 11,
+      "recommendation": "Review this sandbox escape pattern."
+    },
+    {
+      "id": "code_0009",
+      "severity": "critical",
+      "category": "code_execution",
+      "title": "MCP server can execute arbitrary commands",
+      "description": "Pattern matched in apps\\mcp\\eval\\capture.mjs at line 22: `const boxes = await page.$$eval(\"[data-gt]\", (els) =>`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "apps\\mcp\\eval\\capture.mjs",
+      "line_number": 22,
+      "recommendation": "Review this arbitrary code exec pattern."
+    },
+    {
+      "id": "code_0010",
+      "severity": "critical",
+      "category": "sandbox_escape",
+      "title": "Potential sandbox/path escape in MCP server",
+      "description": "Pattern matched in apps\\mcp\\src\\paths.ts at line 2: `import { existsSync, realpathSync } from \"node:fs\";`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "apps\\mcp\\src\\paths.ts",
+      "line_number": 2,
+      "recommendation": "Review this sandbox escape pattern."
+    },
+    {
+      "id": "code_0011",
+      "severity": "critical",
+      "category": "sandbox_escape",
+      "title": "Potential sandbox/path escape in MCP server",
+      "description": "Pattern matched in apps\\mcp\\src\\paths.ts at line 8: `function realpathLoose(p: string): string {`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "apps\\mcp\\src\\paths.ts",
+      "line_number": 8,
+      "recommendation": "Review this sandbox escape pattern."
+    },
+    {
+      "id": "code_0012",
+      "severity": "critical",
+      "category": "sandbox_escape",
+      "title": "Potential sandbox/path escape in MCP server",
+      "description": "Pattern matched in apps\\mcp\\src\\paths.ts at line 17: `return resolve(realpathSync(current), ...rest);`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "apps\\mcp\\src\\paths.ts",
+      "line_number": 17,
+      "recommendation": "Review this sandbox escape pattern."
+    },
+    {
+      "id": "code_0013",
+      "severity": "critical",
+      "category": "sandbox_escape",
+      "title": "Potential sandbox/path escape in MCP server",
+      "description": "Pattern matched in apps\\mcp\\src\\paths.ts at line 29: `const realRoot = realpathSync(resolve(root));`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "apps\\mcp\\src\\paths.ts",
+      "line_number": 29,
+      "recommendation": "Review this sandbox escape pattern."
+    },
+    {
+      "id": "code_0014",
+      "severity": "critical",
+      "category": "sandbox_escape",
+      "title": "Potential sandbox/path escape in MCP server",
+      "description": "Pattern matched in apps\\mcp\\src\\paths.ts at line 33: `const absolute = realpathLoose(isAbsolute(path) ? path : resolve(realRoot, path));`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "apps\\mcp\\src\\paths.ts",
+      "line_number": 33,
+      "recommendation": "Review this sandbox escape pattern."
+    },
+    {
+      "id": "code_0015",
+      "severity": "critical",
+      "category": "sandbox_escape",
+      "title": "Potential sandbox/path escape in MCP server",
+      "description": "Pattern matched in apps\\mcp\\src\\server.test.ts at line 1: `import { mkdirSync, mkdtempSync, readFileSync, symlinkSync, writeFileSync } from \"node:fs\";`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "apps\\mcp\\src\\server.test.ts",
+      "line_number": 1,
+      "recommendation": "Review this sandbox escape pattern."
+    },
+    {
+      "id": "code_0016",
+      "severity": "critical",
+      "category": "sandbox_escape",
+      "title": "Potential sandbox/path escape in MCP server",
+      "description": "Pattern matched in apps\\mcp\\src\\server.test.ts at line 12: `const FIXTURES = new URL(\"../../../packages/format/fixtures/\", import.meta.url);`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "apps\\mcp\\src\\server.test.ts",
+      "line_number": 12,
+      "recommendation": "Review this sandbox escape pattern."
+    },
+    {
+      "id": "code_0017",
+      "severity": "critical",
+      "category": "sandbox_escape",
+      "title": "Potential sandbox/path escape in MCP server",
+      "description": "Pattern matched in apps\\mcp\\src\\server.test.ts at line 308: `symlinkSync(outside, join(root, \"link\"));`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "apps\\mcp\\src\\server.test.ts",
+      "line_number": 308,
+      "recommendation": "Review this sandbox escape pattern."
+    },
+    {
+      "id": "code_0018",
+      "severity": "critical",
+      "category": "sandbox_escape",
+      "title": "Potential sandbox/path escape in MCP server",
+      "description": "Pattern matched in apps\\web\\e2e\\copy.e2e.ts at line 4: `const FIXTURES = new URL(\"../../../packages/format/fixtures/\", import.meta.url);`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "apps\\web\\e2e\\copy.e2e.ts",
+      "line_number": 4,
+      "recommendation": "Review this sandbox escape pattern."
+    },
+    {
+      "id": "code_0019",
+      "severity": "critical",
+      "category": "sandbox_escape",
+      "title": "Potential sandbox/path escape in MCP server",
+      "description": "Pattern matched in apps\\web\\e2e\\editor.e2e.ts at line 5: `import { nodeRenderer } from \"../../../packages/render/src/test-utils/node-renderer\";`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "apps\\web\\e2e\\editor.e2e.ts",
+      "line_number": 5,
+      "recommendation": "Review this sandbox escape pattern."
+    },
+    {
+      "id": "code_0020",
+      "severity": "critical",
+      "category": "sandbox_escape",
+      "title": "Potential sandbox/path escape in MCP server",
+      "description": "Pattern matched in apps\\web\\e2e\\editor.e2e.ts at line 7: `const FIXTURES = new URL(\"../../../packages/format/fixtures/\", import.meta.url);`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "apps\\web\\e2e\\editor.e2e.ts",
+      "line_number": 7,
+      "recommendation": "Review this sandbox escape pattern."
+    },
+    {
+      "id": "code_0021",
+      "severity": "critical",
+      "category": "code_execution",
+      "title": "MCP server can execute arbitrary commands",
+      "description": "Pattern matched in apps\\web\\e2e\\editor.e2e.ts at line 16: `await page.waitForFunction(`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "apps\\web\\e2e\\editor.e2e.ts",
+      "line_number": 16,
+      "recommendation": "Review this arbitrary code exec pattern."
+    },
+    {
+      "id": "code_0022",
+      "severity": "critical",
+      "category": "sandbox_escape",
+      "title": "Potential sandbox/path escape in MCP server",
+      "description": "Pattern matched in apps\\web\\e2e\\openrouter.e2e.ts at line 5: `new URL(\"../../../packages/format/fixtures/large-base.jpg\", import.meta.url),`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "apps\\web\\e2e\\openrouter.e2e.ts",
+      "line_number": 5,
+      "recommendation": "Review this sandbox escape pattern."
+    },
+    {
+      "id": "code_0023",
+      "severity": "high",
+      "category": "obfuscation",
+      "title": "Obfuscated or encoded content in MCP server",
+      "description": "Pattern matched in apps\\web\\e2e\\openrouter.e2e.ts at line 93: `return btoa(String.fromCharCode(...new Uint8Array(digest)))`",
+      "owasp_asi": [
+        "ASI01",
+        "ASI10"
+      ],
+      "owasp_mcp": [
+        "MCP03",
+        "MCP04"
+      ],
+      "file_path": "apps\\web\\e2e\\openrouter.e2e.ts",
+      "line_number": 93,
+      "recommendation": "Review this obfuscation pattern."
+    },
+    {
+      "id": "code_0024",
+      "severity": "critical",
+      "category": "sandbox_escape",
+      "title": "Potential sandbox/path escape in MCP server",
+      "description": "Pattern matched in apps\\web\\e2e\\replace-base.e2e.ts at line 5: `import { nodeRenderer } from \"../../../packages/render/src/test-utils/node-renderer\";`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "apps\\web\\e2e\\replace-base.e2e.ts",
+      "line_number": 5,
+      "recommendation": "Review this sandbox escape pattern."
+    },
+    {
+      "id": "code_0025",
+      "severity": "critical",
+      "category": "sandbox_escape",
+      "title": "Potential sandbox/path escape in MCP server",
+      "description": "Pattern matched in apps\\web\\e2e\\replace-base.e2e.ts at line 7: `const FIXTURES = new URL(\"../../../packages/format/fixtures/\", import.meta.url);`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "apps\\web\\e2e\\replace-base.e2e.ts",
+      "line_number": 7,
+      "recommendation": "Review this sandbox escape pattern."
+    },
+    {
+      "id": "code_0026",
+      "severity": "critical",
+      "category": "sandbox_escape",
+      "title": "Potential sandbox/path escape in MCP server",
+      "description": "Pattern matched in apps\\web\\e2e\\shortcuts.e2e.ts at line 5: `new URL(\"../../../packages/format/fixtures/large-base.jpg\", import.meta.url),`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "apps\\web\\e2e\\shortcuts.e2e.ts",
+      "line_number": 5,
+      "recommendation": "Review this sandbox escape pattern."
+    },
+    {
+      "id": "code_0027",
+      "severity": "critical",
+      "category": "code_execution",
+      "title": "MCP server can execute arbitrary commands",
+      "description": "Pattern matched in apps\\web\\e2e\\shortcuts.e2e.ts at line 14: `await page.waitForFunction(`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "apps\\web\\e2e\\shortcuts.e2e.ts",
+      "line_number": 14,
+      "recommendation": "Review this arbitrary code exec pattern."
+    },
+    {
+      "id": "code_0028",
+      "severity": "critical",
+      "category": "sandbox_escape",
+      "title": "Potential sandbox/path escape in MCP server",
+      "description": "Pattern matched in apps\\web\\e2e\\sketch.e2e.ts at line 5: `new URL(\"../../../packages/format/fixtures/large-base.jpg\", import.meta.url),`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "apps\\web\\e2e\\sketch.e2e.ts",
+      "line_number": 5,
+      "recommendation": "Review this sandbox escape pattern."
+    },
+    {
+      "id": "code_0029",
+      "severity": "critical",
+      "category": "sandbox_escape",
+      "title": "Potential sandbox/path escape in MCP server",
+      "description": "Pattern matched in apps\\web\\src\\Guide.test.ts at line 5: `const readme = readFileSync(new URL(\"../../mcp/README.md\", import.meta.url), \"utf8\");`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "apps\\web\\src\\Guide.test.ts",
+      "line_number": 5,
+      "recommendation": "Review this sandbox escape pattern."
+    },
+    {
+      "id": "code_0030",
+      "severity": "high",
+      "category": "obfuscation",
+      "title": "Obfuscated or encoded content in MCP server",
+      "description": "Pattern matched in apps\\web\\src\\ai\\openrouter-auth.ts at line 24: `for (const b of bytes) s += String.fromCharCode(b);`",
+      "owasp_asi": [
+        "ASI01",
+        "ASI10"
+      ],
+      "owasp_mcp": [
+        "MCP03",
+        "MCP04"
+      ],
+      "file_path": "apps\\web\\src\\ai\\openrouter-auth.ts",
+      "line_number": 24,
+      "recommendation": "Review this obfuscation pattern."
+    },
+    {
+      "id": "code_0031",
+      "severity": "high",
+      "category": "obfuscation",
+      "title": "Obfuscated or encoded content in MCP server",
+      "description": "Pattern matched in apps\\web\\src\\ai\\openrouter-auth.ts at line 25: `return btoa(s).replace(/\\+/g, \"-\").replace(/\\//g, \"_\").replace(/=+$/, \"\");`",
+      "owasp_asi": [
+        "ASI01",
+        "ASI10"
+      ],
+      "owasp_mcp": [
+        "MCP03",
+        "MCP04"
+      ],
+      "file_path": "apps\\web\\src\\ai\\openrouter-auth.ts",
+      "line_number": 25,
+      "recommendation": "Review this obfuscation pattern."
+    },
+    {
+      "id": "code_0032",
+      "severity": "critical",
+      "category": "sandbox_escape",
+      "title": "Potential sandbox/path escape in MCP server",
+      "description": "Pattern matched in apps\\web\\src\\components\\ui\\button.tsx at line 5: `import { cn } from \"../../lib/utils\";`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "apps\\web\\src\\components\\ui\\button.tsx",
+      "line_number": 5,
+      "recommendation": "Review this sandbox escape pattern."
+    },
+    {
+      "id": "code_0033",
+      "severity": "critical",
+      "category": "sandbox_escape",
+      "title": "Potential sandbox/path escape in MCP server",
+      "description": "Pattern matched in apps\\web\\src\\components\\ui\\dropdown-menu.tsx at line 4: `import { cn } from \"../../lib/utils\";`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "apps\\web\\src\\components\\ui\\dropdown-menu.tsx",
+      "line_number": 4,
+      "recommendation": "Review this sandbox escape pattern."
+    },
+    {
+      "id": "code_0034",
+      "severity": "critical",
+      "category": "sandbox_escape",
+      "title": "Potential sandbox/path escape in MCP server",
+      "description": "Pattern matched in packages\\ai\\eval\\run.ts at line 3: `import { nodeRenderer } from \"../../render/src/test-utils/node-renderer\";`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "packages\\ai\\eval\\run.ts",
+      "line_number": 3,
+      "recommendation": "Review this sandbox escape pattern."
+    },
+    {
+      "id": "code_0035",
+      "severity": "critical",
+      "category": "sandbox_escape",
+      "title": "Potential sandbox/path escape in MCP server",
+      "description": "Pattern matched in packages\\ai\\eval\\run.ts at line 13: `for (const path of [\"../.env\", \"../../../.env\"]) {`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "packages\\ai\\eval\\run.ts",
+      "line_number": 13,
+      "recommendation": "Review this sandbox escape pattern."
+    },
+    {
+      "id": "code_0036",
+      "severity": "critical",
+      "category": "sandbox_escape",
+      "title": "Potential sandbox/path escape in MCP server",
+      "description": "Pattern matched in packages\\ai\\eval\\run.ts at line 46: `new URL(\"../../format/fixtures/base.png\", import.meta.url),`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "packages\\ai\\eval\\run.ts",
+      "line_number": 46,
+      "recommendation": "Review this sandbox escape pattern."
+    },
+    {
+      "id": "code_0037",
+      "severity": "high",
+      "category": "obfuscation",
+      "title": "Obfuscated or encoded content in MCP server",
+      "description": "Pattern matched in packages\\format\\src\\bytes.ts at line 5: `const latin1 = (b: Bytes) => String.fromCharCode(...b);`",
+      "owasp_asi": [
+        "ASI01",
+        "ASI10"
+      ],
+      "owasp_mcp": [
+        "MCP03",
+        "MCP04"
+      ],
+      "file_path": "packages\\format\\src\\bytes.ts",
+      "line_number": 5,
+      "recommendation": "Review this obfuscation pattern."
+    },
+    {
+      "id": "code_0038",
+      "severity": "critical",
+      "category": "code_execution",
+      "title": "MCP server can execute arbitrary commands",
+      "description": "Pattern matched in packages\\format\\src\\xmp.ts at line 26: `const attr = (name: string) => new RegExp(`harie:${name}=\"([^\"]*)\"`).exec(xmp)?.[1];`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "packages\\format\\src\\xmp.ts",
+      "line_number": 26,
+      "recommendation": "Review this arbitrary code exec pattern."
+    },
+    {
+      "id": "code_0039",
+      "severity": "critical",
+      "category": "sandbox_escape",
+      "title": "Potential sandbox/path escape in MCP server",
+      "description": "Pattern matched in packages\\format\\src\\test-utils\\fixtures.ts at line 4: `const dir = new URL(\"../../fixtures/\", import.meta.url);`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "packages\\format\\src\\test-utils\\fixtures.ts",
+      "line_number": 4,
+      "recommendation": "Review this sandbox escape pattern."
+    },
+    {
+      "id": "code_0040",
+      "severity": "critical",
+      "category": "code_execution",
+      "title": "MCP server can execute arbitrary commands",
+      "description": "Pattern matched in packages\\model\\src\\migrate.ts at line 17: `const m = /^(\\d+)\\.(\\d+)$/.exec(version);`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "packages\\model\\src\\migrate.ts",
+      "line_number": 17,
+      "recommendation": "Review this arbitrary code exec pattern."
+    },
+    {
+      "id": "code_0041",
+      "severity": "high",
+      "category": "obfuscation",
+      "title": "Obfuscated or encoded content in MCP server",
+      "description": "Pattern matched in packages\\render\\src\\extra-fonts.ts at line 39: `const bin = atob(s);`",
+      "owasp_asi": [
+        "ASI01",
+        "ASI10"
+      ],
+      "owasp_mcp": [
+        "MCP03",
+        "MCP04"
+      ],
+      "file_path": "packages\\render\\src\\extra-fonts.ts",
+      "line_number": 39,
+      "recommendation": "Review this obfuscation pattern."
+    },
+    {
+      "id": "code_0042",
+      "severity": "high",
+      "category": "obfuscation",
+      "title": "Obfuscated or encoded content in MCP server",
+      "description": "Pattern matched in packages\\render\\src\\globals.d.ts at line 10: `declare function atob(data: string): string;`",
+      "owasp_asi": [
+        "ASI01",
+        "ASI10"
+      ],
+      "owasp_mcp": [
+        "MCP03",
+        "MCP04"
+      ],
+      "file_path": "packages\\render\\src\\globals.d.ts",
+      "line_number": 10,
+      "recommendation": "Review this obfuscation pattern."
+    },
+    {
+      "id": "code_0043",
+      "severity": "critical",
+      "category": "sandbox_escape",
+      "title": "Potential sandbox/path escape in MCP server",
+      "description": "Pattern matched in packages\\render\\src\\test-utils\\node-renderer.ts at line 30: `(file) => new Uint8Array(readFileSync(new URL(`../../fonts/${file}`, import.meta.url))),`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "packages\\render\\src\\test-utils\\node-renderer.ts",
+      "line_number": 30,
+      "recommendation": "Review this sandbox escape pattern."
+    },
+    {
+      "id": "code_0044",
+      "severity": "critical",
+      "category": "sandbox_escape",
+      "title": "Potential sandbox/path escape in MCP server",
+      "description": "Pattern matched in packages\\render\\src\\test-utils\\node-renderer.ts at line 37: `return new Uint8Array(readFileSync(new URL(`../../../format/fixtures/${name}`, import.meta.url)));`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "packages\\render\\src\\test-utils\\node-renderer.ts",
+      "line_number": 37,
+      "recommendation": "Review this sandbox escape pattern."
+    },
+    {
+      "id": "transport_plain_http",
+      "severity": "medium",
+      "category": "transport_security",
+      "title": "MCP server listens on plain HTTP",
+      "description": "Server binds to plain HTTP. Use TLS for production deployments.",
+      "owasp_asi": [
+        "ASI07"
+      ],
+      "owasp_mcp": [
+        "MCP07"
+      ],
+      "file_path": "apps\\desktop\\src-tauri\\tauri.conf.json",
+      "line_number": null,
+      "recommendation": "Use HTTPS with valid TLS certificates."
+    },
+    {
+      "id": "transport_plain_http",
+      "severity": "medium",
+      "category": "transport_security",
+      "title": "MCP server listens on plain HTTP",
+      "description": "Server binds to plain HTTP. Use TLS for production deployments.",
+      "owasp_asi": [
+        "ASI07"
+      ],
+      "owasp_mcp": [
+        "MCP07"
+      ],
+      "file_path": "apps\\extension\\lib\\page-image.ts",
+      "line_number": null,
+      "recommendation": "Use HTTPS with valid TLS certificates."
+    },
+    {
+      "id": "transport_plain_http",
+      "severity": "medium",
+      "category": "transport_security",
+      "title": "MCP server listens on plain HTTP",
+      "description": "Server binds to plain HTTP. Use TLS for production deployments.",
+      "owasp_asi": [
+        "ASI07"
+      ],
+      "owasp_mcp": [
+        "MCP07"
+      ],
+      "file_path": "apps\\web\\playwright.config.ts",
+      "line_number": null,
+      "recommendation": "Use HTTPS with valid TLS certificates."
+    },
+    {
+      "id": "transport_plain_http",
+      "severity": "medium",
+      "category": "transport_security",
+      "title": "MCP server listens on plain HTTP",
+      "description": "Server binds to plain HTTP. Use TLS for production deployments.",
+      "owasp_asi": [
+        "ASI07"
+      ],
+      "owasp_mcp": [
+        "MCP07"
+      ],
+      "file_path": "apps\\web\\e2e\\openrouter.e2e.ts",
+      "line_number": null,
+      "recommendation": "Use HTTPS with valid TLS certificates."
+    },
+    {
+      "id": "toxic_combo_data_read_data_write",
+      "severity": "medium",
+      "category": "toxic_tool_combo",
+      "title": "Broad data read + write = data manipulation risk",
+      "description": "Tools that can both read and write data could be manipulated to corrupt, overwrite, or delete information. Provided by: harie_list (data_read) + harie_create (data_write).",
+      "owasp_asi": [
+        "ASI02"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Implement tool-level permission scoping. Consider whether both capabilities are necessary or if one can be restricted."
+    },
+    {
+      "id": "memory_0001",
+      "severity": "medium",
+      "category": "memory_poisoning",
+      "title": "Memory/context modification capability detected",
+      "description": "Pattern in apps\\extension\\e2e\\fixtures.ts near line 30: `PersistentContext`. MCP servers that modify agent memory or context can poison long-term behavior.",
+      "owasp_asi": [
+        "ASI06"
+      ],
+      "owasp_mcp": [
+        "MCP06",
+        "MCP10"
+      ],
+      "file_path": "apps\\extension\\e2e\\fixtures.ts",
+      "line_number": 30,
+      "recommendation": "Validate all data before writing to agent memory. Implement integrity checks on persistent context. Log all memory modifications for audit."
+    },
+    {
+      "id": "memory_0002",
+      "severity": "medium",
+      "category": "memory_poisoning",
+      "title": "Memory/context modification capability detected",
+      "description": "Pattern in apps\\extension\\lib\\page-fetch.ts near line 114: `persistAcrossSessions`. MCP servers that modify agent memory or context can poison long-term behavior.",
+      "owasp_asi": [
+        "ASI06"
+      ],
+      "owasp_mcp": [
+        "MCP06",
+        "MCP10"
+      ],
+      "file_path": "apps\\extension\\lib\\page-fetch.ts",
+      "line_number": 114,
+      "recommendation": "Validate all data before writing to agent memory. Implement integrity checks on persistent context. Log all memory modifications for audit."
+    },
+    {
+      "id": "memory_0003",
+      "severity": "medium",
+      "category": "memory_poisoning",
+      "title": "Memory/context modification capability detected",
+      "description": "Pattern in apps\\extension\\scripts\\store-assets.mjs near line 36: `PersistentContext`. MCP servers that modify agent memory or context can poison long-term behavior.",
+      "owasp_asi": [
+        "ASI06"
+      ],
+      "owasp_mcp": [
+        "MCP06",
+        "MCP10"
+      ],
+      "file_path": "apps\\extension\\scripts\\store-assets.mjs",
+      "line_number": 36,
+      "recommendation": "Validate all data before writing to agent memory. Implement integrity checks on persistent context. Log all memory modifications for audit."
+    },
+    {
+      "id": "memory_0004",
+      "severity": "medium",
+      "category": "memory_poisoning",
+      "title": "Memory/context modification capability detected",
+      "description": "Pattern in packages\\editor\\src\\color-palette.test.ts near line 12: `memoryStore`. MCP servers that modify agent memory or context can poison long-term behavior.",
+      "owasp_asi": [
+        "ASI06"
+      ],
+      "owasp_mcp": [
+        "MCP06",
+        "MCP10"
+      ],
+      "file_path": "packages\\editor\\src\\color-palette.test.ts",
+      "line_number": 12,
+      "recommendation": "Validate all data before writing to agent memory. Implement integrity checks on persistent context. Log all memory modifications for audit."
+    },
+    {
+      "id": "rogue_0001",
+      "severity": "high",
+      "category": "rogue_agent",
+      "title": "Rogue agent indicator detected",
+      "description": "Pattern in apps\\extension\\lib\\page-fetch.ts near line 114: `persistAcrossSession`. This could indicate self-modifying behavior, persistence mechanisms, or evasion capabilities.",
+      "owasp_asi": [
+        "ASI10"
+      ],
+      "owasp_mcp": [
+        "MCP03"
+      ],
+      "file_path": "apps\\extension\\lib\\page-fetch.ts",
+      "line_number": 114,
+      "recommendation": "Implement behavioral monitoring and kill switches. Ensure all agent actions are logged and auditable. Run in sandboxed environments with strict resource limits."
+    },
+    {
+      "id": "rogue_0002",
+      "severity": "high",
+      "category": "rogue_agent",
+      "title": "Rogue agent indicator detected",
+      "description": "Pattern in apps\\web\\vite.config.ts near line 14: `autoUpdate`. This could indicate self-modifying behavior, persistence mechanisms, or evasion capabilities.",
+      "owasp_asi": [
+        "ASI10"
+      ],
+      "owasp_mcp": [
+        "MCP03"
+      ],
+      "file_path": "apps\\web\\vite.config.ts",
+      "line_number": 14,
+      "recommendation": "Implement behavioral monitoring and kill switches. Ensure all agent actions are logged and auditable. Run in sandboxed environments with strict resource limits."
+    },
+    {
+      "id": "rogue_0003",
+      "severity": "high",
+      "category": "rogue_agent",
+      "title": "Rogue agent indicator detected",
+      "description": "Pattern in apps\\web\\e2e\\editor.e2e.ts near line 188: `InitScript`. This could indicate self-modifying behavior, persistence mechanisms, or evasion capabilities.",
+      "owasp_asi": [
+        "ASI10"
+      ],
+      "owasp_mcp": [
+        "MCP03"
+      ],
+      "file_path": "apps\\web\\e2e\\editor.e2e.ts",
+      "line_number": 188,
+      "recommendation": "Implement behavioral monitoring and kill switches. Ensure all agent actions are logged and auditable. Run in sandboxed environments with strict resource limits."
+    },
+    {
+      "id": "mcp08_no_tool_logging",
+      "severity": "info",
+      "category": "audit_telemetry",
+      "title": "No logging found in files that define MCP tools (low confidence)",
+      "description": "None of the tool-defining files (apps\\mcp\\src\\server.ts) reference a logging library or logger call. Tool invocations may leave no audit trail. Confidence is low: logging could be configured elsewhere or by the host.",
+      "owasp_asi": [
+        "ASI10"
+      ],
+      "owasp_mcp": [
+        "MCP08"
+      ],
+      "file_path": "apps\\mcp\\src\\server.ts",
+      "line_number": null,
+      "recommendation": "Log each tool invocation (tool name, caller/session, outcome, and redacted arguments) to a durable, tamper-evident sink."
+    }
+  ],
+  "server_profile": {
+    "name": "<corpus>/registry/42_hosshan__harie",
+    "command": null,
+    "args": [],
+    "env_vars": [],
+    "transport": "stdio",
+    "tools": [
+      {
+        "name": "harie_open",
+        "description": "Harie \u30d5\u30a1\u30a4\u30eb\uff08\u6ce8\u91c8\u3092\u518d\u7de8\u96c6\u3067\u304d\u308b JPEG/PNG\uff09\u3092\u958b\u304d\u3001\u6ce8\u91c8\u306e\u4e00\u89a7\u3068\u753b\u50cf\u3092\u8fd4\u3059\u3002\u6ce8\u91c8\u306e\u6587\u8a00\u3084\u4f4d\u7f6e\u306f JSON \u3067\u8aad\u3081\u308b\u306e\u3067\u3001\u753b\u50cf\u304c\u8981\u3089\u306a\u3051\u308c\u3070 image: false\u3002\u666e\u901a\u306e\u753b\u50cf\u306a\u3089 status: plain \u3092\u8fd4\u3059",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "path": {},
+            "image": {}
+          },
+          "required": [
+            "path",
+            "image"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "harie_create",
+        "description": "\u666e\u901a\u306e JPEG/PNG \u304b\u3089\u6ce8\u91c8\u306e\u306a\u3044 Harie \u30d5\u30a1\u30a4\u30eb\u3092\u4f5c\u308b\u3002\u5143\u306e\u753b\u50cf\u306f\u305d\u306e\u307e\u307e\u6b8b\u3057\u3001\u65e2\u5b9a\u3067\u306f <\u540d\u524d>.harie.<\u62e1\u5f35\u5b50> \u306b\u4fdd\u5b58\u3059\u308b\u3002\u4ee5\u5f8c\u306e\u4fdd\u5b58\u3082\u3053\u306e\u5f62\u5f0f\u306b\u306a\u308b",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "imagePath": {},
+            "outPath": {
+              "type": "string",
+              "description": "\u4fdd\u5b58\u5148\u3002\u7701\u7565\u6642\u306f <\u540d\u524d>.harie.<\u62e1\u5f35\u5b50>"
+            },
+            "format": {
+              "type": "string",
+              "description": "\u4fdd\u5b58\u5f62\u5f0f\u3002\u7701\u7565\u6642\u306f outPath \u306e\u62e1\u5f35\u5b50\u3001\u306a\u3051\u308c\u3070\u5143\u753b\u50cf\u3068\u540c\u3058\u3002\u6587\u5b57\u306e\u591a\u3044\u753b\u9762\u306f png",
+              "enum": [
+                "jpeg",
+                "png"
+              ]
+            },
+            "title": {
+              "type": "string",
+              "description": "\u753b\u50cf\u306e\u30bf\u30a4\u30c8\u30eb\uff08\u4f8b: \u901a\u77e5\u8a2d\u5b9a\u306e\u753b\u9762\uff09"
+            }
+          },
+          "required": [
+            "imagePath"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "harie_edit",
+        "description": "\u6ce8\u91c8\u3092\u8ffd\u52a0\u30fb\u66f4\u65b0\u30fb\u524a\u9664\u3057\u3001\u753b\u50cf\u3092\u63cf\u304d\u76f4\u3057\u3066\u4e0a\u66f8\u304d\u4fdd\u5b58\u3059\u308b\u3002\u4fdd\u5b58\u5f8c\u306e\u753b\u50cf\u3092\u8fd4\u3059\u3002\u5148\u306b harie_preview \u3067\u78ba\u8a8d\u3059\u308b\u3068\u3088\u3044",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "path": {},
+            "ops": {},
+            "expectedRevision": {
+              "type": "integer",
+              "description": "harie_open \u3067\u5f97\u305f revision\u3002\u4ed6\u3067\u5148\u306b\u4fdd\u5b58\u3055\u308c\u3066\u3044\u305f\u3089\u5931\u6557\u3055\u305b\u308b"
+            },
+            "image": {}
+          },
+          "required": [
+            "path",
+            "ops",
+            "image"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "harie_preview",
+        "description": "ops \u3092\u9069\u7528\u3057\u305f\u7d50\u679c\u306e\u753b\u50cf\u3092\u8fd4\u3059\u3002\u30d5\u30a1\u30a4\u30eb\u306f\u5909\u66f4\u3057\u306a\u3044",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "path": {},
+            "ops": {}
+          },
+          "required": [
+            "path",
+            "ops"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "harie_mask",
+        "description": "\u753b\u50cf\u5185\u306e\u500b\u4eba\u60c5\u5831\uff08\u6c0f\u540d\u30fb\u30e1\u30fc\u30eb\u30fb\u96fb\u8a71\u756a\u53f7\u306a\u3069\uff09\u3092\u3001\u30d9\u30fc\u30b9\u753b\u50cf\u3092\u66f8\u304d\u63db\u3048\u3066\u96a0\u3059\u3002\u4fdd\u5b58\u3059\u308b\u3068\u5143\u306b\u623b\u305b\u305a\u3001\u30d5\u30a1\u30a4\u30eb\u306e\u3069\u3053\u306b\u3082\u5143\u306e\u60c5\u5831\u306f\u6b8b\u3089\u306a\u3044\u3002\n\u307e\u305a confirm \u3092\u4ed8\u3051\u305a\u306b\u547c\u3076\u3068\u3001\u4fdd\u5b58\u305b\u305a\u306b\u52a0\u5de5\u5f8c\u306e\u753b\u50cf\u3092\u8fd4\u3059\u3002\u7bc4\u56f2\u3068\u65b9\u6cd5\u3092\u78ba\u304b\u3081\u3066\u304b\u3089\u3001\u540c\u3058 masks \u306b confirm: true \u3092\u4ed8\u3051\u3066\u4fdd\u5b58\u3059\u308b\u3002\nmethod: replace\uff08\u30c0\u30df\u30fc\u6587\u5b57\u5217\u306b\u7f6e\u304d\u63db\u3048\u308b\u3002replacement \u306b\u540c\u3058\u7a2e\u985e\u306e\u30c0\u30df\u30fc\u5024\u3092\u6e21\u3059\u3002\u4f8b: \u5c71\u7530 \u82b1\u5b50 / hanako@example.com\uff09/ fill\uff08\u5857\u308a\u3064\u3076\u3057\uff09/ mosaic / blur\u3002\u6587\u5b57\u306f replace \u304b fill \u3092\u4f7f\u3046\u3002\nrect \u306f\u30d9\u30fc\u30b9\u753b\u50cf\u306e\u30d4\u30af\u30bb\u30eb\uff08\u5de6\u4e0a\u539f\u70b9\uff09\u3067\u3001\u6587\u5b57\u3088\u308a\u5c11\u3057\u5e83\u3081\u306b\u53d6\u308b\u3002\u6ce8\u91c8\u306e blur \u3068\u306f\u5225\u7269\u3067\u3001\u500b\u4eba\u60c5\u5831\u306b\u306f\u3053\u3061\u3089\u3092\u4f7f\u3046\u3002",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "path": {},
+            "masks": {
+              "type": "array",
+              "description": "\u96a0\u3059\u7bc4\u56f2\u3068\u65b9\u6cd5"
+            },
+            "confirm": {
+              "type": "boolean",
+              "description": "true \u3067\u4fdd\u5b58\u3059\u308b\uff08\u5143\u306b\u623b\u305b\u306a\u3044\uff09\u3002\u7701\u7565\u6642\u306f\u4fdd\u5b58\u305b\u305a\u306b\u7d50\u679c\u3060\u3051\u8fd4\u3059"
+            },
+            "outPath": {
+              "type": "string",
+              "description": "\u5225\u306e\u30d5\u30a1\u30a4\u30eb\u3068\u3057\u3066\u4fdd\u5b58\u3059\u308b\u5834\u5408\u306e\u4fdd\u5b58\u5148\u3002\u7701\u7565\u6642\u306f\u4e0a\u66f8\u304d"
+            },
+            "expectedRevision": {
+              "type": "integer",
+              "description": "harie_open \u3067\u5f97\u305f revision\u3002\u4ed6\u3067\u5148\u306b\u4fdd\u5b58\u3055\u308c\u3066\u3044\u305f\u3089\u5931\u6557\u3055\u305b\u308b"
+            }
+          },
+          "required": [
+            "path",
+            "masks"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "harie_replace_base",
+        "description": "Harie \u30d5\u30a1\u30a4\u30eb\u306e\u6ce8\u91c8\u3092\u6b8b\u3057\u305f\u307e\u307e\u3001\u753b\u50cf\u3060\u3051\u3092\u65b0\u3057\u3044\u30b9\u30af\u30ea\u30fc\u30f3\u30b7\u30e7\u30c3\u30c8\u306b\u5dee\u3057\u66ff\u3048\u3066\u4fdd\u5b58\u3059\u308b\uff08\u753b\u9762\u304c\u5909\u308f\u3063\u305f\u3068\u304d\u306e\u30ac\u30a4\u30c9\u306e\u66f4\u65b0\uff09\u3002\u5927\u304d\u3055\u304c\u9055\u3048\u3070\u6ce8\u91c8\u3092\u6bd4\u7387\u3067\u62e1\u5927\u7e2e\u5c0f\u3059\u308b\u3002\u4f4d\u7f6e\u304c\u305a\u308c\u305f\u6ce8\u91c8\u306f\u4fdd\u5b58\u5f8c\u306e\u753b\u50cf\u3092\u898b\u3066 harie_edit \u3067\u76f4\u3059",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "path": {},
+            "imagePath": {
+              "type": "string",
+              "description": "\u65b0\u3057\u3044\u753b\u50cf\uff08JPEG/PNG\uff09\u306e\u30d1\u30b9"
+            },
+            "outPath": {
+              "type": "string",
+              "description": "\u5225\u306e\u30d5\u30a1\u30a4\u30eb\u3068\u3057\u3066\u4fdd\u5b58\u3059\u308b\u5834\u5408\u306e\u4fdd\u5b58\u5148\u3002\u7701\u7565\u6642\u306f\u4e0a\u66f8\u304d"
+            },
+            "expectedRevision": {
+              "type": "integer",
+              "description": "harie_open \u3067\u5f97\u305f revision\u3002\u4ed6\u3067\u5148\u306b\u4fdd\u5b58\u3055\u308c\u3066\u3044\u305f\u3089\u5931\u6557\u3055\u305b\u308b"
+            },
+            "image": {}
+          },
+          "required": [
+            "path",
+            "imagePath",
+            "image"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "harie_list",
+        "description": "\u30c7\u30a3\u30ec\u30af\u30c8\u30ea\u5185\u306e Harie \u30d5\u30a1\u30a4\u30eb\u3092\u3001\u30bf\u30a4\u30c8\u30eb\u30fb\u30ea\u30d3\u30b8\u30e7\u30f3\u30fb\u6ce8\u91c8\u6570\u3068\u3068\u3082\u306b\u4e00\u89a7\u3059\u308b",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "dir": {
+              "type": "string",
+              "description": "\u63a2\u3059\u30c7\u30a3\u30ec\u30af\u30c8\u30ea\u3002\u7701\u7565\u6642\u306f\u8a31\u53ef\u3055\u308c\u305f\u30c7\u30a3\u30ec\u30af\u30c8\u30ea\u5168\u4f53"
+            },
+            "recursive": {
+              "type": "boolean",
+              "description": "\u30b5\u30d6\u30c7\u30a3\u30ec\u30af\u30c8\u30ea\u3082\u63a2\u3059\u304b\uff08\u65e2\u5b9a true\uff09"
+            }
+          },
+          "required": []
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      }
+    ],
+    "resources": [],
+    "prompts": [
+      {
+        "name": "harie_guide",
+        "description": "\u30b9\u30af\u30ea\u30fc\u30f3\u30b7\u30e7\u30c3\u30c8\u306e\u3069\u3053\u3092\u5f37\u8abf\u3057\u3001\u3069\u3093\u306a\u8aac\u660e\u3092\u6dfb\u3048\u308b\u304b\u306e\u624b\u5f15\u304d\u3068\u3001Harie \u306e\u30c4\u30fc\u30eb\u3067\u306e\u624b\u9806\u3092\u8fd4\u3059",
+        "arguments": [
+          {
+            "name": "path",
+            "required": true
+          },
+          {
+            "name": "intent",
+            "required": false
+          }
+        ]
+      }
+    ],
+    "repo_url": null,
+    "npm_package": null,
+    "capabilities_claimed": [],
+    "capabilities_actual": []
+  },
+  "fingerprint": "987c0262832530490f867024d11df8c62db986dfc408c56c34777ed00d7efe1d",
+  "surface_map": {
+    "server": {
+      "name": "<corpus>/registry/42_hosshan__harie",
+      "instructions": "",
+      "transport": "unknown",
+      "auth": "unknown"
+    },
+    "tools": [
+      {
+        "name": "harie_open",
+        "description": "Harie \u30d5\u30a1\u30a4\u30eb\uff08\u6ce8\u91c8\u3092\u518d\u7de8\u96c6\u3067\u304d\u308b JPEG/PNG\uff09\u3092\u958b\u304d\u3001\u6ce8\u91c8\u306e\u4e00\u89a7\u3068\u753b\u50cf\u3092\u8fd4\u3059\u3002\u6ce8\u91c8\u306e\u6587\u8a00\u3084\u4f4d\u7f6e\u306f JSON \u3067\u8aad\u3081\u308b\u306e\u3067\u3001\u753b\u50cf\u304c\u8981\u3089\u306a\u3051\u308c\u3070 image: false\u3002\u666e\u901a\u306e\u753b\u50cf\u306a\u3089 status: plain \u3092\u8fd4\u3059",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "path": {},
+            "image": {}
+          },
+          "required": [
+            "path",
+            "image"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "apps\\mcp\\src\\server.ts:80"
+      },
+      {
+        "name": "harie_create",
+        "description": "\u666e\u901a\u306e JPEG/PNG \u304b\u3089\u6ce8\u91c8\u306e\u306a\u3044 Harie \u30d5\u30a1\u30a4\u30eb\u3092\u4f5c\u308b\u3002\u5143\u306e\u753b\u50cf\u306f\u305d\u306e\u307e\u307e\u6b8b\u3057\u3001\u65e2\u5b9a\u3067\u306f <\u540d\u524d>.harie.<\u62e1\u5f35\u5b50> \u306b\u4fdd\u5b58\u3059\u308b\u3002\u4ee5\u5f8c\u306e\u4fdd\u5b58\u3082\u3053\u306e\u5f62\u5f0f\u306b\u306a\u308b",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "imagePath": {},
+            "outPath": {
+              "type": "string",
+              "description": "\u4fdd\u5b58\u5148\u3002\u7701\u7565\u6642\u306f <\u540d\u524d>.harie.<\u62e1\u5f35\u5b50>"
+            },
+            "format": {
+              "type": "string",
+              "description": "\u4fdd\u5b58\u5f62\u5f0f\u3002\u7701\u7565\u6642\u306f outPath \u306e\u62e1\u5f35\u5b50\u3001\u306a\u3051\u308c\u3070\u5143\u753b\u50cf\u3068\u540c\u3058\u3002\u6587\u5b57\u306e\u591a\u3044\u753b\u9762\u306f png",
+              "enum": [
+                "jpeg",
+                "png"
+              ]
+            },
+            "title": {
+              "type": "string",
+              "description": "\u753b\u50cf\u306e\u30bf\u30a4\u30c8\u30eb\uff08\u4f8b: \u901a\u77e5\u8a2d\u5b9a\u306e\u753b\u9762\uff09"
+            }
+          },
+          "required": [
+            "imagePath"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "apps\\mcp\\src\\server.ts:92"
+      },
+      {
+        "name": "harie_edit",
+        "description": "\u6ce8\u91c8\u3092\u8ffd\u52a0\u30fb\u66f4\u65b0\u30fb\u524a\u9664\u3057\u3001\u753b\u50cf\u3092\u63cf\u304d\u76f4\u3057\u3066\u4e0a\u66f8\u304d\u4fdd\u5b58\u3059\u308b\u3002\u4fdd\u5b58\u5f8c\u306e\u753b\u50cf\u3092\u8fd4\u3059\u3002\u5148\u306b harie_preview \u3067\u78ba\u8a8d\u3059\u308b\u3068\u3088\u3044",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "path": {},
+            "ops": {},
+            "expectedRevision": {
+              "type": "integer",
+              "description": "harie_open \u3067\u5f97\u305f revision\u3002\u4ed6\u3067\u5148\u306b\u4fdd\u5b58\u3055\u308c\u3066\u3044\u305f\u3089\u5931\u6557\u3055\u305b\u308b"
+            },
+            "image": {}
+          },
+          "required": [
+            "path",
+            "ops",
+            "image"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "apps\\mcp\\src\\server.ts:113"
+      },
+      {
+        "name": "harie_preview",
+        "description": "ops \u3092\u9069\u7528\u3057\u305f\u7d50\u679c\u306e\u753b\u50cf\u3092\u8fd4\u3059\u3002\u30d5\u30a1\u30a4\u30eb\u306f\u5909\u66f4\u3057\u306a\u3044",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "path": {},
+            "ops": {}
+          },
+          "required": [
+            "path",
+            "ops"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "apps\\mcp\\src\\server.ts:134"
+      },
+      {
+        "name": "harie_mask",
+        "description": "\u753b\u50cf\u5185\u306e\u500b\u4eba\u60c5\u5831\uff08\u6c0f\u540d\u30fb\u30e1\u30fc\u30eb\u30fb\u96fb\u8a71\u756a\u53f7\u306a\u3069\uff09\u3092\u3001\u30d9\u30fc\u30b9\u753b\u50cf\u3092\u66f8\u304d\u63db\u3048\u3066\u96a0\u3059\u3002\u4fdd\u5b58\u3059\u308b\u3068\u5143\u306b\u623b\u305b\u305a\u3001\u30d5\u30a1\u30a4\u30eb\u306e\u3069\u3053\u306b\u3082\u5143\u306e\u60c5\u5831\u306f\u6b8b\u3089\u306a\u3044\u3002\n\u307e\u305a confirm \u3092\u4ed8\u3051\u305a\u306b\u547c\u3076\u3068\u3001\u4fdd\u5b58\u305b\u305a\u306b\u52a0\u5de5\u5f8c\u306e\u753b\u50cf\u3092\u8fd4\u3059\u3002\u7bc4\u56f2\u3068\u65b9\u6cd5\u3092\u78ba\u304b\u3081\u3066\u304b\u3089\u3001\u540c\u3058 masks \u306b confirm: true \u3092\u4ed8\u3051\u3066\u4fdd\u5b58\u3059\u308b\u3002\nmethod: replace\uff08\u30c0\u30df\u30fc\u6587\u5b57\u5217\u306b\u7f6e\u304d\u63db\u3048\u308b\u3002replacement \u306b\u540c\u3058\u7a2e\u985e\u306e\u30c0\u30df\u30fc\u5024\u3092\u6e21\u3059\u3002\u4f8b: \u5c71\u7530 \u82b1\u5b50 / hanako@example.com\uff09/ fill\uff08\u5857\u308a\u3064\u3076\u3057\uff09/ mosaic / blur\u3002\u6587\u5b57\u306f replace \u304b fill \u3092\u4f7f\u3046\u3002\nrect \u306f\u30d9\u30fc\u30b9\u753b\u50cf\u306e\u30d4\u30af\u30bb\u30eb\uff08\u5de6\u4e0a\u539f\u70b9\uff09\u3067\u3001\u6587\u5b57\u3088\u308a\u5c11\u3057\u5e83\u3081\u306b\u53d6\u308b\u3002\u6ce8\u91c8\u306e blur \u3068\u306f\u5225\u7269\u3067\u3001\u500b\u4eba\u60c5\u5831\u306b\u306f\u3053\u3061\u3089\u3092\u4f7f\u3046\u3002",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "path": {},
+            "masks": {
+              "type": "array",
+              "description": "\u96a0\u3059\u7bc4\u56f2\u3068\u65b9\u6cd5"
+            },
+            "confirm": {
+              "type": "boolean",
+              "description": "true \u3067\u4fdd\u5b58\u3059\u308b\uff08\u5143\u306b\u623b\u305b\u306a\u3044\uff09\u3002\u7701\u7565\u6642\u306f\u4fdd\u5b58\u305b\u305a\u306b\u7d50\u679c\u3060\u3051\u8fd4\u3059"
+            },
+            "outPath": {
+              "type": "string",
+              "description": "\u5225\u306e\u30d5\u30a1\u30a4\u30eb\u3068\u3057\u3066\u4fdd\u5b58\u3059\u308b\u5834\u5408\u306e\u4fdd\u5b58\u5148\u3002\u7701\u7565\u6642\u306f\u4e0a\u66f8\u304d"
+            },
+            "expectedRevision": {
+              "type": "integer",
+              "description": "harie_open \u3067\u5f97\u305f revision\u3002\u4ed6\u3067\u5148\u306b\u4fdd\u5b58\u3055\u308c\u3066\u3044\u305f\u3089\u5931\u6557\u3055\u305b\u308b"
+            }
+          },
+          "required": [
+            "path",
+            "masks"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "apps\\mcp\\src\\server.ts:145"
+      },
+      {
+        "name": "harie_replace_base",
+        "description": "Harie \u30d5\u30a1\u30a4\u30eb\u306e\u6ce8\u91c8\u3092\u6b8b\u3057\u305f\u307e\u307e\u3001\u753b\u50cf\u3060\u3051\u3092\u65b0\u3057\u3044\u30b9\u30af\u30ea\u30fc\u30f3\u30b7\u30e7\u30c3\u30c8\u306b\u5dee\u3057\u66ff\u3048\u3066\u4fdd\u5b58\u3059\u308b\uff08\u753b\u9762\u304c\u5909\u308f\u3063\u305f\u3068\u304d\u306e\u30ac\u30a4\u30c9\u306e\u66f4\u65b0\uff09\u3002\u5927\u304d\u3055\u304c\u9055\u3048\u3070\u6ce8\u91c8\u3092\u6bd4\u7387\u3067\u62e1\u5927\u7e2e\u5c0f\u3059\u308b\u3002\u4f4d\u7f6e\u304c\u305a\u308c\u305f\u6ce8\u91c8\u306f\u4fdd\u5b58\u5f8c\u306e\u753b\u50cf\u3092\u898b\u3066 harie_edit \u3067\u76f4\u3059",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "path": {},
+            "imagePath": {
+              "type": "string",
+              "description": "\u65b0\u3057\u3044\u753b\u50cf\uff08JPEG/PNG\uff09\u306e\u30d1\u30b9"
+            },
+            "outPath": {
+              "type": "string",
+              "description": "\u5225\u306e\u30d5\u30a1\u30a4\u30eb\u3068\u3057\u3066\u4fdd\u5b58\u3059\u308b\u5834\u5408\u306e\u4fdd\u5b58\u5148\u3002\u7701\u7565\u6642\u306f\u4e0a\u66f8\u304d"
+            },
+            "expectedRevision": {
+              "type": "integer",
+              "description": "harie_open \u3067\u5f97\u305f revision\u3002\u4ed6\u3067\u5148\u306b\u4fdd\u5b58\u3055\u308c\u3066\u3044\u305f\u3089\u5931\u6557\u3055\u305b\u308b"
+            },
+            "image": {}
+          },
+          "required": [
+            "path",
+            "imagePath",
+            "image"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "apps\\mcp\\src\\server.ts:175"
+      },
+      {
+        "name": "harie_list",
+        "description": "\u30c7\u30a3\u30ec\u30af\u30c8\u30ea\u5185\u306e Harie \u30d5\u30a1\u30a4\u30eb\u3092\u3001\u30bf\u30a4\u30c8\u30eb\u30fb\u30ea\u30d3\u30b8\u30e7\u30f3\u30fb\u6ce8\u91c8\u6570\u3068\u3068\u3082\u306b\u4e00\u89a7\u3059\u308b",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "dir": {
+              "type": "string",
+              "description": "\u63a2\u3059\u30c7\u30a3\u30ec\u30af\u30c8\u30ea\u3002\u7701\u7565\u6642\u306f\u8a31\u53ef\u3055\u308c\u305f\u30c7\u30a3\u30ec\u30af\u30c8\u30ea\u5168\u4f53"
+            },
+            "recursive": {
+              "type": "boolean",
+              "description": "\u30b5\u30d6\u30c7\u30a3\u30ec\u30af\u30c8\u30ea\u3082\u63a2\u3059\u304b\uff08\u65e2\u5b9a true\uff09"
+            }
+          },
+          "required": []
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "apps\\mcp\\src\\server.ts:200"
+      }
+    ],
+    "resources": [],
+    "prompts": [
+      {
+        "name": "harie_guide",
+        "description": "\u30b9\u30af\u30ea\u30fc\u30f3\u30b7\u30e7\u30c3\u30c8\u306e\u3069\u3053\u3092\u5f37\u8abf\u3057\u3001\u3069\u3093\u306a\u8aac\u660e\u3092\u6dfb\u3048\u308b\u304b\u306e\u624b\u5f15\u304d\u3068\u3001Harie \u306e\u30c4\u30fc\u30eb\u3067\u306e\u624b\u9806\u3092\u8fd4\u3059",
+        "arguments": [
+          {
+            "name": "path",
+            "required": true
+          },
+          {
+            "name": "intent",
+            "required": false
+          }
+        ],
+        "message_literals": [
+          "user",
+          "text"
+        ],
+        "location": "apps\\mcp\\src\\server.ts:215"
+      }
+    ],
+    "mutations": [],
+    "source": {
+      "kind": "static",
+      "target": "<corpus>/registry/42_hosshan__harie",
+      "languages": [
+        "typescript"
+      ]
+    },
+    "generated_at": "2026-11-04T02:44:48+00:00",
+    "fingerprint": "987c0262832530490f867024d11df8c62db986dfc408c56c34777ed00d7efe1d",
+    "schema": "axiom.surface/1"
+  },
+  "owasp_coverage": {
+    "framework": "OWASP Top 10 for Agentic Applications 2026",
+    "reference": "https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/",
+    "coverage": {
+      "ASI01": {
+        "name": "Agent Goal Hijack",
+        "coverage_level": "strong",
+        "findings_count": 7,
+        "finding_ids": [
+          "code_0007",
+          "code_0023",
+          "code_0030",
+          "code_0031",
+          "code_0037",
+          "code_0041",
+          "code_0042"
+        ],
+        "detectors": [
+          "tool_poisoning",
+          "prompt_injection",
+          "instruction_injection"
+        ]
+      },
+      "ASI02": {
+        "name": "Tool Misuse & Exploitation",
+        "coverage_level": "strong",
+        "findings_count": 3,
+        "finding_ids": [
+          "cross_tool_harie_edit_harie_preview",
+          "cross_tool_harie_replace_base_harie_edit",
+          "toxic_combo_data_read_data_write"
+        ],
+        "detectors": [
+          "toxic_tool_combo",
+          "tool_overscope",
+          "tool_chaining_detection"
+        ]
+      },
+      "ASI03": {
+        "name": "Identity & Privilege Abuse",
+        "coverage_level": "strong",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "credential_analysis",
+          "shared_credential_detection",
+          "env_var_audit"
+        ]
+      },
+      "ASI04": {
+        "name": "Agentic Supply Chain Vulnerabilities",
+        "coverage_level": "strong",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "dependency_cve",
+          "lifecycle_hooks",
+          "npx_unversioned",
+          "known_mcp_cves"
+        ]
+      },
+      "ASI05": {
+        "name": "Unexpected Code Execution",
+        "coverage_level": "strong",
+        "findings_count": 37,
+        "finding_ids": [
+          "code_0001",
+          "code_0002",
+          "code_0003",
+          "code_0004",
+          "code_0005",
+          "code_0006",
+          "code_0008",
+          "code_0009",
+          "code_0010",
+          "code_0011"
+        ],
+        "detectors": [
+          "code_exec_patterns",
+          "code_generation_detection",
+          "sandbox_escape"
+        ]
+      },
+      "ASI06": {
+        "name": "Memory & Context Poisoning",
+        "coverage_level": "partial",
+        "findings_count": 4,
+        "finding_ids": [
+          "memory_0001",
+          "memory_0002",
+          "memory_0003",
+          "memory_0004"
+        ],
+        "detectors": [
+          "memory_poisoning_patterns",
+          "context_manipulation_detection"
+        ],
+        "gap_note": "Axiom detects static patterns. Full coverage requires runtime memory monitoring."
+      },
+      "ASI07": {
+        "name": "Insecure Inter-Agent Communication",
+        "coverage_level": "partial",
+        "findings_count": 4,
+        "finding_ids": [
+          "transport_plain_http",
+          "transport_plain_http",
+          "transport_plain_http",
+          "transport_plain_http"
+        ],
+        "detectors": [
+          "transport_security",
+          "a2a_pattern_detection"
+        ],
+        "gap_note": "Axiom checks transport security. Full A2A protocol analysis requires runtime interception."
+      },
+      "ASI08": {
+        "name": "Cascading Failures",
+        "coverage_level": "partial",
+        "findings_count": 2,
+        "finding_ids": [
+          "cross_tool_harie_edit_harie_preview",
+          "cross_tool_harie_replace_base_harie_edit"
+        ],
+        "detectors": [
+          "blast_radius_estimation",
+          "dependency_chain_analysis"
+        ],
+        "gap_note": "Axiom estimates blast radius from tool capabilities. Full cascading failure analysis requires runtime topology mapping."
+      },
+      "ASI09": {
+        "name": "Human-Agent Trust Exploitation",
+        "coverage_level": "strong",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "claimed_vs_actual",
+          "deceptive_output_detection",
+          "trust_manipulation_patterns"
+        ]
+      },
+      "ASI10": {
+        "name": "Rogue Agents",
+        "coverage_level": "partial",
+        "findings_count": 11,
+        "finding_ids": [
+          "code_0007",
+          "code_0023",
+          "code_0030",
+          "code_0031",
+          "code_0037",
+          "code_0041",
+          "code_0042",
+          "rogue_0001",
+          "rogue_0002",
+          "rogue_0003"
+        ],
+        "detectors": [
+          "sleeper_patterns",
+          "behavioral_drift_indicators",
+          "persistence_detection"
+        ],
+        "gap_note": "Axiom detects static rogue indicators. Full rogue agent detection requires runtime behavioral monitoring."
+      }
+    },
+    "total_asi_categories_with_findings": 7
+  },
+  "owasp_mcp_coverage": {
+    "framework": "OWASP MCP Top 10",
+    "framework_version": "v0.1 beta",
+    "reference": "https://owasp.org/www-project-mcp-top-10/",
+    "coverage": {
+      "MCP01": {
+        "id": "MCP01:2025",
+        "name": "Token Mismanagement & Secret Exposure",
+        "coverage_level": "partial",
+        "reason": "Regex-based secret detection in server source and client configs plus env-var exposure checks; no entropy analysis, git-history scan, or token lifetime/passthrough checks.",
+        "findings_count": 2,
+        "finding_ids": [
+          "cross_tool_harie_edit_harie_preview",
+          "cross_tool_harie_replace_base_harie_edit"
+        ],
+        "detectors": [
+          "credential_theft",
+          "cross_server",
+          "mcp01_hardcoded_secrets",
+          "config_hardcoded_secret",
+          "env_var_audit",
+          "env_dump"
+        ]
+      },
+      "MCP02": {
+        "id": "MCP02:2025",
+        "name": "Privilege Escalation via Scope Creep",
+        "coverage_level": "strong",
+        "reason": "Permission over-scope patterns, toxic tool-capability combinations, path-escape checks and env-var over-exposure in configs.",
+        "findings_count": 32,
+        "finding_ids": [
+          "cross_tool_harie_edit_harie_preview",
+          "cross_tool_harie_replace_base_harie_edit",
+          "code_0004",
+          "code_0005",
+          "code_0006",
+          "code_0008",
+          "code_0010",
+          "code_0011",
+          "code_0012",
+          "code_0013"
+        ],
+        "detectors": [
+          "permission_overscope",
+          "toxic_tool_combo",
+          "identity_privilege",
+          "sandbox_escape",
+          "config_risk",
+          "cascading_failure",
+          "cross_server",
+          "excessive_scope",
+          "confused_deputy",
+          "file_read",
+          "file_write"
+        ]
+      },
+      "MCP03": {
+        "id": "MCP03:2025",
+        "name": "Tool Poisoning",
+        "coverage_level": "strong",
+        "reason": "Dedicated detector for hidden instructions in tool metadata, plus runtime rug-pull diffing between source and live tool definitions.",
+        "findings_count": 10,
+        "finding_ids": [
+          "code_0007",
+          "code_0023",
+          "code_0030",
+          "code_0031",
+          "code_0037",
+          "code_0041",
+          "code_0042",
+          "rogue_0001",
+          "rogue_0002",
+          "rogue_0003"
+        ],
+        "detectors": [
+          "tool_poisoning",
+          "obfuscation",
+          "rogue_agent",
+          "source_vs_runtime_diff",
+          "tool_shadowing",
+          "hidden_unicode",
+          "rug_pull_primitive",
+          "surface_mismatch"
+        ]
+      },
+      "MCP04": {
+        "id": "MCP04:2025",
+        "name": "Software Supply Chain Attacks & Dependency Tampering",
+        "coverage_level": "strong",
+        "reason": "Dependency CVE lookup, known MCP CVEs, install lifecycle hooks, and unpinned npx/uvx/pip/@latest install sources.",
+        "findings_count": 7,
+        "finding_ids": [
+          "code_0007",
+          "code_0023",
+          "code_0030",
+          "code_0031",
+          "code_0037",
+          "code_0041",
+          "code_0042"
+        ],
+        "detectors": [
+          "dependency_vuln",
+          "supply_chain",
+          "known_cve",
+          "obfuscation",
+          "lifecycle_hooks",
+          "mcp04_unpinned_install",
+          "homoglyph",
+          "rug_pull_primitive",
+          "surface_mismatch"
+        ]
+      },
+      "MCP05": {
+        "id": "MCP05:2025",
+        "name": "Command Injection & Execution",
+        "coverage_level": "partial",
+        "reason": "Regex, AST and Semgrep find exec/shell sinks and a heuristic flags sinks inside tool handlers, but there is no inter-procedural taint tracking from tool input to sink.",
+        "findings_count": 37,
+        "finding_ids": [
+          "code_0001",
+          "code_0002",
+          "code_0003",
+          "code_0004",
+          "code_0005",
+          "code_0006",
+          "code_0008",
+          "code_0009",
+          "code_0010",
+          "code_0011"
+        ],
+        "detectors": [
+          "command_injection",
+          "code_execution",
+          "code_generation",
+          "sandbox_escape",
+          "mcp05_tool_input_sink",
+          "shell_exec"
+        ]
+      },
+      "MCP06": {
+        "id": "MCP06:2025",
+        "name": "Prompt Injection via Contextual Payloads",
+        "coverage_level": "partial",
+        "reason": "Injection markers are detected in tool metadata, server instructions, resources, prompts and the strings a tool returns (static), and in instructions/resources/prompts read live; payloads produced by calling a tool at runtime are not inspected.",
+        "findings_count": 4,
+        "finding_ids": [
+          "memory_0001",
+          "memory_0002",
+          "memory_0003",
+          "memory_0004"
+        ],
+        "detectors": [
+          "prompt_injection",
+          "memory_poisoning",
+          "trust_exploitation",
+          "response_injection",
+          "tool_shadowing"
+        ]
+      },
+      "MCP07": {
+        "id": "MCP07:2025",
+        "name": "Insufficient Authentication & Authorization",
+        "coverage_level": "partial",
+        "reason": "Flags remote servers with no visible auth and servers bound to all interfaces; does not verify OAuth implementation or per-tool authorization logic.",
+        "findings_count": 4,
+        "finding_ids": [
+          "transport_plain_http",
+          "transport_plain_http",
+          "transport_plain_http",
+          "transport_plain_http"
+        ],
+        "detectors": [
+          "transport_security",
+          "inter_agent_comm",
+          "identity_privilege",
+          "transport_no_auth",
+          "config_no_auth",
+          "mcp07_bind_all_interfaces"
+        ]
+      },
+      "MCP08": {
+        "id": "MCP08:2025",
+        "name": "Lack of Audit and Telemetry",
+        "coverage_level": "gap",
+        "reason": "Only a low-confidence heuristic for missing logging in tool-defining files; actual audit trails and telemetry pipelines are not verified.",
+        "findings_count": 1,
+        "finding_ids": [
+          "mcp08_no_tool_logging"
+        ],
+        "detectors": [
+          "audit_telemetry",
+          "mcp08_no_tool_logging"
+        ]
+      },
+      "MCP09": {
+        "id": "MCP09:2025",
+        "name": "Shadow MCP Servers",
+        "coverage_level": "partial",
+        "reason": "Covered by `axiom discover` allowlist on the local machine; no network-wide or fleet discovery.",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "mcpguard_discover",
+          "shadow_mcp"
+        ]
+      },
+      "MCP10": {
+        "id": "MCP10:2025",
+        "name": "Context Injection & Over-Sharing",
+        "coverage_level": "partial",
+        "reason": "Hard-coded egress URLs, tools that send to caller-chosen destinations and bulk-exposure heuristics are detected statically and live; what context is actually shared at runtime is not observed.",
+        "findings_count": 4,
+        "finding_ids": [
+          "memory_0001",
+          "memory_0002",
+          "memory_0003",
+          "memory_0004"
+        ],
+        "detectors": [
+          "context_oversharing",
+          "data_exfiltration",
+          "memory_poisoning",
+          "mcp10_broad_data_exposure"
+        ]
+      }
+    },
+    "total_mcp_categories_with_findings": 9
+  },
+  "ai_analysis": null,
+  "tool_poisoning_report": null,
+  "prompt_injection_risk": null
+}

@@ -1,0 +1,3944 @@
+{
+  "schema_version": "0.5",
+  "target": "<corpus>/registry/22_aikarjal__wilmai",
+  "risk_score": 100.0,
+  "risk_level": "critical",
+  "tools_found": 20,
+  "findings_count": 154,
+  "findings": [
+    {
+      "id": "poison_wilma_summary_long_desc",
+      "severity": "medium",
+      "category": "tool_poisoning",
+      "title": "Unusually long tool description for 'wilma_summary'",
+      "description": "Tool description is 518 characters. Long descriptions can hide malicious instructions.",
+      "owasp_asi": [
+        "ASI01"
+      ],
+      "owasp_mcp": [
+        "MCP03"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Review the full tool description for hidden instructions."
+    },
+    {
+      "id": "poison_wilma_schedule_instruction_injection",
+      "severity": "critical",
+      "category": "tool_poisoning",
+      "title": "Tool poisoning: instruction injection in 'wilma_schedule'",
+      "description": "Hidden instruction detected in tool description that could manipulate AI behavior. Matched pattern in tool 'wilma_schedule': '('Override', '', '')'",
+      "owasp_asi": [
+        "ASI01"
+      ],
+      "owasp_mcp": [
+        "MCP03"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Review tool description carefully. Compare claimed functionality with actual code behavior. Consider removing this MCP server."
+    },
+    {
+      "id": "poison_wilma_list_news_instruction_injection",
+      "severity": "critical",
+      "category": "tool_poisoning",
+      "title": "Tool poisoning: instruction injection in 'wilma_list_news'",
+      "description": "Hidden instruction detected in tool description that could manipulate AI behavior. Matched pattern in tool 'wilma_list_news': 'always '",
+      "owasp_asi": [
+        "ASI01"
+      ],
+      "owasp_mcp": [
+        "MCP03"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Review tool description carefully. Compare claimed functionality with actual code behavior. Consider removing this MCP server."
+    },
+    {
+      "id": "poison_wilma_account_long_desc",
+      "severity": "medium",
+      "category": "tool_poisoning",
+      "title": "Unusually long tool description for 'wilma_account'",
+      "description": "Tool description is 534 characters. Long descriptions can hide malicious instructions.",
+      "owasp_asi": [
+        "ASI01"
+      ],
+      "owasp_mcp": [
+        "MCP03"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Review the full tool description for hidden instructions."
+    },
+    {
+      "id": "poison_wilma_login_instruction_injection",
+      "severity": "critical",
+      "category": "tool_poisoning",
+      "title": "Tool poisoning: instruction injection in 'wilma_login'",
+      "description": "Hidden instruction detected in tool description that could manipulate AI behavior. Matched pattern in tool 'wilma_login': 'never '",
+      "owasp_asi": [
+        "ASI01"
+      ],
+      "owasp_mcp": [
+        "MCP03"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Review tool description carefully. Compare claimed functionality with actual code behavior. Consider removing this MCP server."
+    },
+    {
+      "id": "cross_tool_wilma_summary_wilma_list_messages",
+      "severity": "medium",
+      "category": "cross_server",
+      "title": "Tool 'wilma_summary' references tool 'wilma_list_messages'",
+      "description": "Tool description mentions another tool by name, which could enable tool chaining attacks.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP01",
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Verify this cross-reference is legitimate and necessary."
+    },
+    {
+      "id": "cross_tool_wilma_schedule_wilma_upcoming_exams",
+      "severity": "medium",
+      "category": "cross_server",
+      "title": "Tool 'wilma_schedule' references tool 'wilma_upcoming_exams'",
+      "description": "Tool description mentions another tool by name, which could enable tool chaining attacks.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP01",
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Verify this cross-reference is legitimate and necessary."
+    },
+    {
+      "id": "cross_tool_wilma_schedule_wilma_homework",
+      "severity": "medium",
+      "category": "cross_server",
+      "title": "Tool 'wilma_schedule' references tool 'wilma_homework'",
+      "description": "Tool description mentions another tool by name, which could enable tool chaining attacks.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP01",
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Verify this cross-reference is legitimate and necessary."
+    },
+    {
+      "id": "cross_tool_wilma_homework_wilma_summary",
+      "severity": "medium",
+      "category": "cross_server",
+      "title": "Tool 'wilma_homework' references tool 'wilma_summary'",
+      "description": "Tool description mentions another tool by name, which could enable tool chaining attacks.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP01",
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Verify this cross-reference is legitimate and necessary."
+    },
+    {
+      "id": "cross_tool_wilma_upcoming_exams_wilma_grades",
+      "severity": "medium",
+      "category": "cross_server",
+      "title": "Tool 'wilma_upcoming_exams' references tool 'wilma_grades'",
+      "description": "Tool description mentions another tool by name, which could enable tool chaining attacks.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP01",
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Verify this cross-reference is legitimate and necessary."
+    },
+    {
+      "id": "cross_tool_wilma_grades_wilma_gradebook",
+      "severity": "medium",
+      "category": "cross_server",
+      "title": "Tool 'wilma_grades' references tool 'wilma_gradebook'",
+      "description": "Tool description mentions another tool by name, which could enable tool chaining attacks.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP01",
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Verify this cross-reference is legitimate and necessary."
+    },
+    {
+      "id": "cross_tool_wilma_gradebook_wilma_grades",
+      "severity": "medium",
+      "category": "cross_server",
+      "title": "Tool 'wilma_gradebook' references tool 'wilma_grades'",
+      "description": "Tool description mentions another tool by name, which could enable tool chaining attacks.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP01",
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Verify this cross-reference is legitimate and necessary."
+    },
+    {
+      "id": "cross_tool_wilma_contacts_wilma_schedule",
+      "severity": "medium",
+      "category": "cross_server",
+      "title": "Tool 'wilma_contacts' references tool 'wilma_schedule'",
+      "description": "Tool description mentions another tool by name, which could enable tool chaining attacks.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP01",
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Verify this cross-reference is legitimate and necessary."
+    },
+    {
+      "id": "cross_tool_wilma_list_printouts_wilma_get_printout",
+      "severity": "medium",
+      "category": "cross_server",
+      "title": "Tool 'wilma_list_printouts' references tool 'wilma_get_printout'",
+      "description": "Tool description mentions another tool by name, which could enable tool chaining attacks.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP01",
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Verify this cross-reference is legitimate and necessary."
+    },
+    {
+      "id": "cross_tool_wilma_list_messages_wilma_read_message",
+      "severity": "medium",
+      "category": "cross_server",
+      "title": "Tool 'wilma_list_messages' references tool 'wilma_read_message'",
+      "description": "Tool description mentions another tool by name, which could enable tool chaining attacks.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP01",
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Verify this cross-reference is legitimate and necessary."
+    },
+    {
+      "id": "cross_tool_wilma_list_news_wilma_read_news",
+      "severity": "medium",
+      "category": "cross_server",
+      "title": "Tool 'wilma_list_news' references tool 'wilma_read_news'",
+      "description": "Tool description mentions another tool by name, which could enable tool chaining attacks.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP01",
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Verify this cross-reference is legitimate and necessary."
+    },
+    {
+      "id": "cross_tool_wilma_read_news_wilma_get_news_attachment",
+      "severity": "medium",
+      "category": "cross_server",
+      "title": "Tool 'wilma_read_news' references tool 'wilma_get_news_attachment'",
+      "description": "Tool description mentions another tool by name, which could enable tool chaining attacks.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP01",
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Verify this cross-reference is legitimate and necessary."
+    },
+    {
+      "id": "cross_tool_wilma_account_wilma_login",
+      "severity": "medium",
+      "category": "cross_server",
+      "title": "Tool 'wilma_account' references tool 'wilma_login'",
+      "description": "Tool description mentions another tool by name, which could enable tool chaining attacks.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP01",
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Verify this cross-reference is legitimate and necessary."
+    },
+    {
+      "id": "code_0001",
+      "severity": "critical",
+      "category": "code_execution",
+      "title": "MCP server can execute arbitrary commands",
+      "description": "Pattern matched in apps\\home\\vite.config.ts at line 13: `return execSync(`git ${args}`, { cwd: repoRoot, stdio: [\"ignore\", \"pipe\", \"ignore\"] }).toString().trim();`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "apps\\home\\vite.config.ts",
+      "line_number": 13,
+      "recommendation": "Review this arbitrary code exec pattern."
+    },
+    {
+      "id": "code_0002",
+      "severity": "critical",
+      "category": "sandbox_escape",
+      "title": "Potential sandbox/path escape in MCP server",
+      "description": "Pattern matched in apps\\home\\bridge\\bridge.ts at line 25: `const REPO_ROOT = resolve(import.meta.dirname, \"../../..\");`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "apps\\home\\bridge\\bridge.ts",
+      "line_number": 25,
+      "recommendation": "Review this sandbox escape pattern."
+    },
+    {
+      "id": "code_0003",
+      "severity": "critical",
+      "category": "sandbox_escape",
+      "title": "Potential sandbox/path escape in MCP server",
+      "description": "Pattern matched in apps\\home\\bridge\\core.ts at line 10: `import tenantList from \"../../../packages/wilma-client/tenant_list.json\" with { type: \"json\" };`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "apps\\home\\bridge\\core.ts",
+      "line_number": 10,
+      "recommendation": "Review this sandbox escape pattern."
+    },
+    {
+      "id": "code_0004",
+      "severity": "critical",
+      "category": "sandbox_escape",
+      "title": "Potential sandbox/path escape in MCP server",
+      "description": "Pattern matched in apps\\home\\evals\\logins.test.ts at line 18: `const fixture = (name: string) => readFileSync(new URL(`../../../packages/wilma-client/test/fixtures/real/${name}`, impo`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "apps\\home\\evals\\logins.test.ts",
+      "line_number": 18,
+      "recommendation": "Review this sandbox escape pattern."
+    },
+    {
+      "id": "code_0005",
+      "severity": "critical",
+      "category": "code_execution",
+      "title": "MCP server can execute arbitrary commands",
+      "description": "Pattern matched in apps\\home\\evals\\logins.test.ts at line 45: `const sid = /Wilma2SID=([^;]+)/.exec(wire.cookie ?? \"\")?.[1] ?? null;`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "apps\\home\\evals\\logins.test.ts",
+      "line_number": 45,
+      "recommendation": "Review this arbitrary code exec pattern."
+    },
+    {
+      "id": "code_0006",
+      "severity": "critical",
+      "category": "code_execution",
+      "title": "MCP server can execute arbitrary commands",
+      "description": "Pattern matched in apps\\home\\scripts\\eval-local.ts at line 59: `const swap = async () => platform() === \"darwin\" ? (await exec(\"sysctl\", [\"-n\", \"vm.swapusage\"])).stdout.trim() : \"unava`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "apps\\home\\scripts\\eval-local.ts",
+      "line_number": 59,
+      "recommendation": "Review this arbitrary code exec pattern."
+    },
+    {
+      "id": "code_0007",
+      "severity": "critical",
+      "category": "code_execution",
+      "title": "MCP server can execute arbitrary commands",
+      "description": "Pattern matched in apps\\home\\scripts\\eval-local.ts at line 76: `await exec(\"tar\", [\"-xzf\", ollamaArchive, \"-C\", directory]);`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "apps\\home\\scripts\\eval-local.ts",
+      "line_number": 76,
+      "recommendation": "Review this arbitrary code exec pattern."
+    },
+    {
+      "id": "code_0008",
+      "severity": "critical",
+      "category": "code_execution",
+      "title": "MCP server can execute arbitrary commands",
+      "description": "Pattern matched in apps\\home\\scripts\\eval-local.ts at line 79: `await exec(\"tar\", [\"-xzf\", engineArchive, \"-C\", directory]);`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "apps\\home\\scripts\\eval-local.ts",
+      "line_number": 79,
+      "recommendation": "Review this arbitrary code exec pattern."
+    },
+    {
+      "id": "code_0009",
+      "severity": "critical",
+      "category": "code_execution",
+      "title": "MCP server can execute arbitrary commands",
+      "description": "Pattern matched in apps\\home\\scripts\\eval-local.ts at line 146: `const modelPath = /^FROM (.+)$/m.exec(info.modelfile)?.[1];`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "apps\\home\\scripts\\eval-local.ts",
+      "line_number": 146,
+      "recommendation": "Review this arbitrary code exec pattern."
+    },
+    {
+      "id": "code_0010",
+      "severity": "critical",
+      "category": "code_execution",
+      "title": "MCP server can execute arbitrary commands",
+      "description": "Pattern matched in apps\\home\\scripts\\eval-local.ts at line 161: `const rows = (await exec(\"ps\", [\"-axo\", \"pid=,ppid=,rss=\"])).stdout.trim().split(\"\\n\").map((r) => r.trim().split(/\\s+/).`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "apps\\home\\scripts\\eval-local.ts",
+      "line_number": 161,
+      "recommendation": "Review this arbitrary code exec pattern."
+    },
+    {
+      "id": "code_0011",
+      "severity": "critical",
+      "category": "sandbox_escape",
+      "title": "Potential sandbox/path escape in MCP server",
+      "description": "Pattern matched in apps\\home\\scripts\\home-feed.ts at line 27: `const out = join(root, \"../../apps/site/public/app/latest.json\");`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "apps\\home\\scripts\\home-feed.ts",
+      "line_number": 27,
+      "recommendation": "Review this sandbox escape pattern."
+    },
+    {
+      "id": "code_0012",
+      "severity": "critical",
+      "category": "code_execution",
+      "title": "MCP server can execute arbitrary commands",
+      "description": "Pattern matched in apps\\home\\scripts\\local-eval-server.ts at line 47: `const modelPath = /^FROM (.+)$/m.exec(info.modelfile)?.[1];`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "apps\\home\\scripts\\local-eval-server.ts",
+      "line_number": 47,
+      "recommendation": "Review this arbitrary code exec pattern."
+    },
+    {
+      "id": "code_0013",
+      "severity": "critical",
+      "category": "code_execution",
+      "title": "MCP server can execute arbitrary commands",
+      "description": "Pattern matched in apps\\home\\scripts\\prepare-local-runtime.ts at line 20: `const identities = (await exec(\"security\", [\"find-identity\", \"-v\", \"-p\", \"codesigning\"])).stdout;`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "apps\\home\\scripts\\prepare-local-runtime.ts",
+      "line_number": 20,
+      "recommendation": "Review this arbitrary code exec pattern."
+    },
+    {
+      "id": "code_0014",
+      "severity": "critical",
+      "category": "code_execution",
+      "title": "MCP server can execute arbitrary commands",
+      "description": "Pattern matched in apps\\home\\scripts\\prepare-local-runtime.ts at line 43: `await exec(\"tar\", [\"-xzf\", archive, \"-C\", dest]);`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "apps\\home\\scripts\\prepare-local-runtime.ts",
+      "line_number": 43,
+      "recommendation": "Review this arbitrary code exec pattern."
+    },
+    {
+      "id": "code_0015",
+      "severity": "critical",
+      "category": "code_execution",
+      "title": "MCP server can execute arbitrary commands",
+      "description": "Pattern matched in apps\\home\\scripts\\prepare-local-runtime.ts at line 53: `await exec(\"codesign\", [\"--force\", \"--sign\", signingIdentity, ...(developerId ? [\"--options\", \"runtime\", \"--timestamp\"] `",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "apps\\home\\scripts\\prepare-local-runtime.ts",
+      "line_number": 53,
+      "recommendation": "Review this arbitrary code exec pattern."
+    },
+    {
+      "id": "code_0016",
+      "severity": "critical",
+      "category": "sandbox_escape",
+      "title": "Potential sandbox/path escape in MCP server",
+      "description": "Pattern matched in apps\\home\\scripts\\release-home.ts at line 21: `const site = await json(join(root, \"../../apps/site/lib/home-release.json\"));`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "apps\\home\\scripts\\release-home.ts",
+      "line_number": 21,
+      "recommendation": "Review this sandbox escape pattern."
+    },
+    {
+      "id": "code_0017",
+      "severity": "high",
+      "category": "obfuscation",
+      "title": "Obfuscated or encoded content in MCP server",
+      "description": "Pattern matched in apps\\home\\scripts\\release-home.ts at line 33: `const decoded = Buffer.from(publicKey, \"base64\").toString(\"utf8\").trim().split(\"\\n\");`",
+      "owasp_asi": [
+        "ASI01",
+        "ASI10"
+      ],
+      "owasp_mcp": [
+        "MCP03",
+        "MCP04"
+      ],
+      "file_path": "apps\\home\\scripts\\release-home.ts",
+      "line_number": 33,
+      "recommendation": "Review this obfuscation pattern."
+    },
+    {
+      "id": "code_0018",
+      "severity": "high",
+      "category": "obfuscation",
+      "title": "Obfuscated or encoded content in MCP server",
+      "description": "Pattern matched in apps\\home\\scripts\\release-home.ts at line 34: `if (!decoded[0]?.startsWith(\"untrusted comment:\") || Buffer.from(decoded[1] ?? \"\", \"base64\").length !== 42) throw new Er`",
+      "owasp_asi": [
+        "ASI01",
+        "ASI10"
+      ],
+      "owasp_mcp": [
+        "MCP03",
+        "MCP04"
+      ],
+      "file_path": "apps\\home\\scripts\\release-home.ts",
+      "line_number": 34,
+      "recommendation": "Review this obfuscation pattern."
+    },
+    {
+      "id": "code_0019",
+      "severity": "high",
+      "category": "data_exfiltration",
+      "title": "MCP server makes outbound network requests (potential exfiltration)",
+      "description": "Pattern matched in apps\\home\\scripts\\translate-ui.ts at line 64: `const resp = await fetch(\"https://api.openai.com/v1/responses\", { method: \"POST\", headers: { authorization: `Bearer ${KE`",
+      "owasp_asi": [
+        "ASI01",
+        "ASI02"
+      ],
+      "owasp_mcp": [
+        "MCP10"
+      ],
+      "file_path": "apps\\home\\scripts\\translate-ui.ts",
+      "line_number": 64,
+      "recommendation": "Review this data exfiltration pattern."
+    },
+    {
+      "id": "code_0020",
+      "severity": "high",
+      "category": "credential_theft",
+      "title": "MCP server accesses credentials or secrets",
+      "description": "Pattern matched in apps\\home\\src\\main.tsx at line 59: `// Once, on the first start after the key moved out of the keychain, macOS may ask; nothing waits for it.`",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP01"
+      ],
+      "file_path": "apps\\home\\src\\main.tsx",
+      "line_number": 59,
+      "recommendation": "Review this credential harvesting pattern."
+    },
+    {
+      "id": "code_0021",
+      "severity": "critical",
+      "category": "code_execution",
+      "title": "MCP server can execute arbitrary commands",
+      "description": "Pattern matched in apps\\home\\src\\ai\\config.ts at line 56: `const parse = (v: string) => /^v?(\\d+)\\.(\\d+)\\.(\\d+)$/.exec(v)?.slice(1).map(Number);`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "apps\\home\\src\\ai\\config.ts",
+      "line_number": 56,
+      "recommendation": "Review this arbitrary code exec pattern."
+    },
+    {
+      "id": "code_0022",
+      "severity": "critical",
+      "category": "code_execution",
+      "title": "MCP server can execute arbitrary commands",
+      "description": "Pattern matched in apps\\home\\src\\data\\dates.ts at line 213: `const weekday = /(ma|ti|ke|to|pe|la|su)\\s$/i.exec(before)?.[0] ?? \"\";`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "apps\\home\\src\\data\\dates.ts",
+      "line_number": 213,
+      "recommendation": "Review this arbitrary code exec pattern."
+    },
+    {
+      "id": "code_0023",
+      "severity": "critical",
+      "category": "sandbox_escape",
+      "title": "Potential sandbox/path escape in MCP server",
+      "description": "Pattern matched in apps\\home\\src\\data\\edition.ts at line 4: `import { version } from \"../../package.json\";`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "apps\\home\\src\\data\\edition.ts",
+      "line_number": 4,
+      "recommendation": "Review this sandbox escape pattern."
+    },
+    {
+      "id": "code_0024",
+      "severity": "critical",
+      "category": "code_execution",
+      "title": "MCP server can execute arbitrary commands",
+      "description": "Pattern matched in apps\\home\\src\\data\\grades.ts at line 38: `const m = /^\\s*(10|[4-9])\\s*(\u00bd|,5|\\.5|\\+|-)?\\s*$/.exec(grade ?? \"\");`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "apps\\home\\src\\data\\grades.ts",
+      "line_number": 38,
+      "recommendation": "Review this arbitrary code exec pattern."
+    },
+    {
+      "id": "code_0025",
+      "severity": "critical",
+      "category": "code_execution",
+      "title": "MCP server can execute arbitrary commands",
+      "description": "Pattern matched in apps\\home\\src\\data\\grades.ts at line 169: `const family = (code: string | null | undefined): string | null => /^([\\p{L}\\d]+)_/u.exec(code ?? \"\")?.[1].toUpperCase()`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "apps\\home\\src\\data\\grades.ts",
+      "line_number": 169,
+      "recommendation": "Review this arbitrary code exec pattern."
+    },
+    {
+      "id": "code_0026",
+      "severity": "critical",
+      "category": "code_execution",
+      "title": "MCP server can execute arbitrary commands",
+      "description": "Pattern matched in apps\\home\\src\\data\\homework.ts at line 189: `const m = /\\b(poissaolijat|poissaolleet|poissa olleet|poissaolijoille|poissa olleille|poissaoleville|tunnilta poissa oll`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "apps\\home\\src\\data\\homework.ts",
+      "line_number": 189,
+      "recommendation": "Review this arbitrary code exec pattern."
+    },
+    {
+      "id": "code_0027",
+      "severity": "critical",
+      "category": "code_execution",
+      "title": "MCP server can execute arbitrary commands",
+      "description": "Pattern matched in apps\\home\\src\\data\\logins.ts at line 23: `export const loginOfChild = (child: string): number => Number(/@(\\d+)$/.exec(child)?.[1] ?? 0);`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "apps\\home\\src\\data\\logins.ts",
+      "line_number": 23,
+      "recommendation": "Review this arbitrary code exec pattern."
+    },
+    {
+      "id": "code_0028",
+      "severity": "critical",
+      "category": "code_execution",
+      "title": "MCP server can execute arbitrary commands",
+      "description": "Pattern matched in apps\\home\\src\\data\\marks.ts at line 34: `const m = /^\\s*(10|[4-9])\\s*(\u00bd|,5|\\.5|\\s1\\/2|\\+|-)?\\s*$/.exec(text);`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "apps\\home\\src\\data\\marks.ts",
+      "line_number": 34,
+      "recommendation": "Review this arbitrary code exec pattern."
+    },
+    {
+      "id": "code_0029",
+      "severity": "critical",
+      "category": "code_execution",
+      "title": "MCP server can execute arbitrary commands",
+      "description": "Pattern matched in apps\\home\\src\\data\\marks.ts at line 85: `const frac = /^(\\d+(?:[,.]\\d+)?)\\s*\\/\\s*(\\d+(?:[,.]\\d+)?)$/.exec(shown);`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "apps\\home\\src\\data\\marks.ts",
+      "line_number": 85,
+      "recommendation": "Review this arbitrary code exec pattern."
+    },
+    {
+      "id": "code_0030",
+      "severity": "critical",
+      "category": "code_execution",
+      "title": "MCP server can execute arbitrary commands",
+      "description": "Pattern matched in apps\\home\\src\\data\\model.ts at line 469: `const about = /\\(([^,)]+)[,)]/.exec(sender)?.[1] ?? \"\";`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "apps\\home\\src\\data\\model.ts",
+      "line_number": 469,
+      "recommendation": "Review this arbitrary code exec pattern."
+    },
+    {
+      "id": "code_0031",
+      "severity": "critical",
+      "category": "code_execution",
+      "title": "MCP server can execute arbitrary commands",
+      "description": "Pattern matched in apps\\home\\src\\data\\schedule.ts at line 286: `export const codeInName = (name: string): string | null => /\\(([A-Z\u00c5\u00c4\u00d6][A-Za-z\u00c5\u00c4\u00d6\u00e5\u00e4\u00f60-9]{1,5})\\)\\s*$/.exec(name)?.[1] ??`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "apps\\home\\src\\data\\schedule.ts",
+      "line_number": 286,
+      "recommendation": "Review this arbitrary code exec pattern."
+    },
+    {
+      "id": "code_0032",
+      "severity": "high",
+      "category": "credential_theft",
+      "title": "MCP server accesses credentials or secrets",
+      "description": "Pattern matched in apps\\home\\src\\data\\store.ts at line 105: `/** Set once the key in the old keychain place has been looked for (so macOS asks at most once more). */`",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP01"
+      ],
+      "file_path": "apps\\home\\src\\data\\store.ts",
+      "line_number": 105,
+      "recommendation": "Review this credential harvesting pattern."
+    },
+    {
+      "id": "code_0033",
+      "severity": "high",
+      "category": "obfuscation",
+      "title": "Obfuscated or encoded content in MCP server",
+      "description": "Pattern matched in apps\\home\\src\\data\\store.ts at line 111: `return btoa(String.fromCharCode(...new TextEncoder().encode(SECRET_PREFIX + value)));`",
+      "owasp_asi": [
+        "ASI01",
+        "ASI10"
+      ],
+      "owasp_mcp": [
+        "MCP03",
+        "MCP04"
+      ],
+      "file_path": "apps\\home\\src\\data\\store.ts",
+      "line_number": 111,
+      "recommendation": "Review this obfuscation pattern."
+    },
+    {
+      "id": "code_0034",
+      "severity": "high",
+      "category": "obfuscation",
+      "title": "Obfuscated or encoded content in MCP server",
+      "description": "Pattern matched in apps\\home\\src\\data\\store.ts at line 117: `const text = new TextDecoder().decode(Uint8Array.from(atob(value), (c) => c.charCodeAt(0)));`",
+      "owasp_asi": [
+        "ASI01",
+        "ASI10"
+      ],
+      "owasp_mcp": [
+        "MCP03",
+        "MCP04"
+      ],
+      "file_path": "apps\\home\\src\\data\\store.ts",
+      "line_number": 117,
+      "recommendation": "Review this obfuscation pattern."
+    },
+    {
+      "id": "code_0035",
+      "severity": "high",
+      "category": "credential_theft",
+      "title": "MCP server accesses credentials or secrets",
+      "description": "Pattern matched in apps\\home\\src\\data\\store.ts at line 373: `* Desktop app: earlier versions kept the Jev key in the system keychain,`",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP01"
+      ],
+      "file_path": "apps\\home\\src\\data\\store.ts",
+      "line_number": 373,
+      "recommendation": "Review this credential harvesting pattern."
+    },
+    {
+      "id": "code_0036",
+      "severity": "critical",
+      "category": "code_execution",
+      "title": "MCP server can execute arbitrary commands",
+      "description": "Pattern matched in apps\\home\\src\\demo\\test-wilma.ts at line 101: `const sid = /Wilma2SID=([^;]+)/.exec(req.headers.cookie ?? \"\")?.[1];`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "apps\\home\\src\\demo\\test-wilma.ts",
+      "line_number": 101,
+      "recommendation": "Review this arbitrary code exec pattern."
+    },
+    {
+      "id": "code_0037",
+      "severity": "high",
+      "category": "credential_theft",
+      "title": "MCP server accesses credentials or secrets",
+      "description": "Pattern matched in apps\\home\\src\\i18n\\fi-data.ts at line 46: `\"Couldn't save the key in the keychain: {error}\": \"Avainta ei voitu tallentaa avainnippuun: {error}\",`",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP01"
+      ],
+      "file_path": "apps\\home\\src\\i18n\\fi-data.ts",
+      "line_number": 46,
+      "recommendation": "Review this credential harvesting pattern."
+    },
+    {
+      "id": "code_0038",
+      "severity": "critical",
+      "category": "code_execution",
+      "title": "MCP server can execute arbitrary commands",
+      "description": "Pattern matched in apps\\home\\src\\i18n\\index.ts at line 88: `const key = /^\\{(\\w+)\\}$/.exec(part)?.[1];`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "apps\\home\\src\\i18n\\index.ts",
+      "line_number": 88,
+      "recommendation": "Review this arbitrary code exec pattern."
+    },
+    {
+      "id": "code_0039",
+      "severity": "high",
+      "category": "credential_theft",
+      "title": "MCP server accesses credentials or secrets",
+      "description": "Pattern matched in apps\\home\\src\\i18n\\sv-data.ts at line 46: `\"Couldn't save the key in the keychain: {error}\": \"Kunde inte spara nyckeln i nyckelringen: {error}\",`",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP01"
+      ],
+      "file_path": "apps\\home\\src\\i18n\\sv-data.ts",
+      "line_number": 46,
+      "recommendation": "Review this credential harvesting pattern."
+    },
+    {
+      "id": "code_0040",
+      "severity": "critical",
+      "category": "code_execution",
+      "title": "MCP server can execute arbitrary commands",
+      "description": "Pattern matched in apps\\home\\src\\ui\\NewMessage.tsx at line 60: `const codeOf = (name: string) => /\\(([^)]+)\\)\\s*$/.exec(name)?.[1]?.toUpperCase() ?? null;`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "apps\\home\\src\\ui\\NewMessage.tsx",
+      "line_number": 60,
+      "recommendation": "Review this arbitrary code exec pattern."
+    },
+    {
+      "id": "code_0041",
+      "severity": "high",
+      "category": "credential_theft",
+      "title": "MCP server accesses credentials or secrets",
+      "description": "Pattern matched in apps\\home\\src\\wilma\\transport.ts at line 91: `* keychain): read once, to move the key into the app's own storage.`",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP01"
+      ],
+      "file_path": "apps\\home\\src\\wilma\\transport.ts",
+      "line_number": 91,
+      "recommendation": "Review this credential harvesting pattern."
+    },
+    {
+      "id": "code_0042",
+      "severity": "critical",
+      "category": "sandbox_escape",
+      "title": "Potential sandbox/path escape in MCP server",
+      "description": "Pattern matched in apps\\site\\app\\[lang]\\layout.tsx at line 8: `import { dictionaries, locales, isLang, type Lang } from \"../../lib/i18n\";`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "apps\\site\\app\\[lang]\\layout.tsx",
+      "line_number": 8,
+      "recommendation": "Review this sandbox escape pattern."
+    },
+    {
+      "id": "code_0043",
+      "severity": "critical",
+      "category": "sandbox_escape",
+      "title": "Potential sandbox/path escape in MCP server",
+      "description": "Pattern matched in apps\\site\\app\\[lang]\\page.tsx at line 2: `import AgentPicker from \"../../components/AgentPicker\";`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "apps\\site\\app\\[lang]\\page.tsx",
+      "line_number": 2,
+      "recommendation": "Review this sandbox escape pattern."
+    },
+    {
+      "id": "code_0044",
+      "severity": "critical",
+      "category": "sandbox_escape",
+      "title": "Potential sandbox/path escape in MCP server",
+      "description": "Pattern matched in apps\\site\\app\\[lang]\\page.tsx at line 3: `import { AssistantTour } from \"../../components/AssistantTour\";`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "apps\\site\\app\\[lang]\\page.tsx",
+      "line_number": 3,
+      "recommendation": "Review this sandbox escape pattern."
+    },
+    {
+      "id": "code_0045",
+      "severity": "critical",
+      "category": "sandbox_escape",
+      "title": "Potential sandbox/path escape in MCP server",
+      "description": "Pattern matched in apps\\site\\app\\[lang]\\page.tsx at line 4: `import DownloadCount from \"../../components/DownloadCount\";`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "apps\\site\\app\\[lang]\\page.tsx",
+      "line_number": 4,
+      "recommendation": "Review this sandbox escape pattern."
+    },
+    {
+      "id": "code_0046",
+      "severity": "critical",
+      "category": "sandbox_escape",
+      "title": "Potential sandbox/path escape in MCP server",
+      "description": "Pattern matched in apps\\site\\app\\[lang]\\page.tsx at line 5: `import HomeBanner from \"../../components/HomeBanner\";`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "apps\\site\\app\\[lang]\\page.tsx",
+      "line_number": 5,
+      "recommendation": "Review this sandbox escape pattern."
+    },
+    {
+      "id": "code_0047",
+      "severity": "critical",
+      "category": "sandbox_escape",
+      "title": "Potential sandbox/path escape in MCP server",
+      "description": "Pattern matched in apps\\site\\app\\[lang]\\page.tsx at line 6: `import HomeCard from \"../../components/HomeCard\";`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "apps\\site\\app\\[lang]\\page.tsx",
+      "line_number": 6,
+      "recommendation": "Review this sandbox escape pattern."
+    },
+    {
+      "id": "code_0048",
+      "severity": "critical",
+      "category": "sandbox_escape",
+      "title": "Potential sandbox/path escape in MCP server",
+      "description": "Pattern matched in apps\\site\\app\\[lang]\\page.tsx at line 7: `import { Footer, TopBar } from \"../../components/SiteChrome\";`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "apps\\site\\app\\[lang]\\page.tsx",
+      "line_number": 7,
+      "recommendation": "Review this sandbox escape pattern."
+    },
+    {
+      "id": "code_0049",
+      "severity": "critical",
+      "category": "sandbox_escape",
+      "title": "Potential sandbox/path escape in MCP server",
+      "description": "Pattern matched in apps\\site\\app\\[lang]\\page.tsx at line 8: `import { agents } from \"../../lib/agents\";`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "apps\\site\\app\\[lang]\\page.tsx",
+      "line_number": 8,
+      "recommendation": "Review this sandbox escape pattern."
+    },
+    {
+      "id": "code_0050",
+      "severity": "critical",
+      "category": "sandbox_escape",
+      "title": "Potential sandbox/path escape in MCP server",
+      "description": "Pattern matched in apps\\site\\app\\[lang]\\page.tsx at line 9: `import { githubStars } from \"../../lib/github-stars\";`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "apps\\site\\app\\[lang]\\page.tsx",
+      "line_number": 9,
+      "recommendation": "Review this sandbox escape pattern."
+    },
+    {
+      "id": "code_0051",
+      "severity": "critical",
+      "category": "sandbox_escape",
+      "title": "Potential sandbox/path escape in MCP server",
+      "description": "Pattern matched in apps\\site\\app\\[lang]\\page.tsx at line 10: `import { dictionaries, isLang, type Lang } from \"../../lib/i18n\";`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "apps\\site\\app\\[lang]\\page.tsx",
+      "line_number": 10,
+      "recommendation": "Review this sandbox escape pattern."
+    },
+    {
+      "id": "code_0052",
+      "severity": "critical",
+      "category": "sandbox_escape",
+      "title": "Potential sandbox/path escape in MCP server",
+      "description": "Pattern matched in apps\\site\\app\\[lang]\\page.tsx at line 11: `import { totalDownloads } from \"../../lib/npm-downloads\";`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "apps\\site\\app\\[lang]\\page.tsx",
+      "line_number": 11,
+      "recommendation": "Review this sandbox escape pattern."
+    },
+    {
+      "id": "code_0053",
+      "severity": "critical",
+      "category": "sandbox_escape",
+      "title": "Potential sandbox/path escape in MCP server",
+      "description": "Pattern matched in apps\\site\\app\\[lang]\\home\\page.tsx at line 3: `import { Footer, TopBar } from \"../../../components/SiteChrome\";`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "apps\\site\\app\\[lang]\\home\\page.tsx",
+      "line_number": 3,
+      "recommendation": "Review this sandbox escape pattern."
+    },
+    {
+      "id": "code_0054",
+      "severity": "critical",
+      "category": "sandbox_escape",
+      "title": "Potential sandbox/path escape in MCP server",
+      "description": "Pattern matched in apps\\site\\app\\[lang]\\home\\page.tsx at line 4: `import { KeyVisual } from \"../../../components/KeyVisual\";`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "apps\\site\\app\\[lang]\\home\\page.tsx",
+      "line_number": 4,
+      "recommendation": "Review this sandbox escape pattern."
+    },
+    {
+      "id": "code_0055",
+      "severity": "critical",
+      "category": "sandbox_escape",
+      "title": "Potential sandbox/path escape in MCP server",
+      "description": "Pattern matched in apps\\site\\app\\[lang]\\home\\page.tsx at line 5: `import { TranslateVisual } from \"../../../components/TranslateVisual\";`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "apps\\site\\app\\[lang]\\home\\page.tsx",
+      "line_number": 5,
+      "recommendation": "Review this sandbox escape pattern."
+    },
+    {
+      "id": "code_0056",
+      "severity": "critical",
+      "category": "sandbox_escape",
+      "title": "Potential sandbox/path escape in MCP server",
+      "description": "Pattern matched in apps\\site\\app\\[lang]\\home\\page.tsx at line 6: `import { SchoolsVisual } from \"../../../components/SchoolsVisual\";`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "apps\\site\\app\\[lang]\\home\\page.tsx",
+      "line_number": 6,
+      "recommendation": "Review this sandbox escape pattern."
+    },
+    {
+      "id": "code_0057",
+      "severity": "critical",
+      "category": "sandbox_escape",
+      "title": "Potential sandbox/path escape in MCP server",
+      "description": "Pattern matched in apps\\site\\app\\[lang]\\home\\page.tsx at line 7: `import { Installers } from \"../../../components/Installers\";`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "apps\\site\\app\\[lang]\\home\\page.tsx",
+      "line_number": 7,
+      "recommendation": "Review this sandbox escape pattern."
+    },
+    {
+      "id": "code_0058",
+      "severity": "critical",
+      "category": "sandbox_escape",
+      "title": "Potential sandbox/path escape in MCP server",
+      "description": "Pattern matched in apps\\site\\app\\[lang]\\home\\page.tsx at line 8: `import { HomeTour } from \"../../../components/HomeTour\";`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "apps\\site\\app\\[lang]\\home\\page.tsx",
+      "line_number": 8,
+      "recommendation": "Review this sandbox escape pattern."
+    },
+    {
+      "id": "code_0059",
+      "severity": "critical",
+      "category": "sandbox_escape",
+      "title": "Potential sandbox/path escape in MCP server",
+      "description": "Pattern matched in apps\\site\\app\\[lang]\\home\\page.tsx at line 9: `import { GITHUB_URL, githubStars } from \"../../../lib/github-stars\";`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "apps\\site\\app\\[lang]\\home\\page.tsx",
+      "line_number": 9,
+      "recommendation": "Review this sandbox escape pattern."
+    },
+    {
+      "id": "code_0060",
+      "severity": "critical",
+      "category": "sandbox_escape",
+      "title": "Potential sandbox/path escape in MCP server",
+      "description": "Pattern matched in apps\\site\\app\\[lang]\\home\\page.tsx at line 10: `import { homeCopy, homeRelease, macDownload, windowsDownload } from \"../../../lib/home\";`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "apps\\site\\app\\[lang]\\home\\page.tsx",
+      "line_number": 10,
+      "recommendation": "Review this sandbox escape pattern."
+    },
+    {
+      "id": "code_0061",
+      "severity": "critical",
+      "category": "sandbox_escape",
+      "title": "Potential sandbox/path escape in MCP server",
+      "description": "Pattern matched in apps\\site\\app\\[lang]\\home\\page.tsx at line 11: `import { dictionaries, isLang, type Lang } from \"../../../lib/i18n\";`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "apps\\site\\app\\[lang]\\home\\page.tsx",
+      "line_number": 11,
+      "recommendation": "Review this sandbox escape pattern."
+    },
+    {
+      "id": "code_0062",
+      "severity": "critical",
+      "category": "sandbox_escape",
+      "title": "Potential sandbox/path escape in MCP server",
+      "description": "Pattern matched in apps\\site\\app\\[lang]\\privacy\\page.tsx at line 2: `import { Footer, TopBar } from \"../../../components/SiteChrome\";`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "apps\\site\\app\\[lang]\\privacy\\page.tsx",
+      "line_number": 2,
+      "recommendation": "Review this sandbox escape pattern."
+    },
+    {
+      "id": "code_0063",
+      "severity": "critical",
+      "category": "sandbox_escape",
+      "title": "Potential sandbox/path escape in MCP server",
+      "description": "Pattern matched in apps\\site\\app\\[lang]\\privacy\\page.tsx at line 3: `import { GITHUB_URL, githubStars } from \"../../../lib/github-stars\";`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "apps\\site\\app\\[lang]\\privacy\\page.tsx",
+      "line_number": 3,
+      "recommendation": "Review this sandbox escape pattern."
+    },
+    {
+      "id": "code_0064",
+      "severity": "critical",
+      "category": "sandbox_escape",
+      "title": "Potential sandbox/path escape in MCP server",
+      "description": "Pattern matched in apps\\site\\app\\[lang]\\privacy\\page.tsx at line 4: `import { privacyCopy } from \"../../../lib/privacy\";`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "apps\\site\\app\\[lang]\\privacy\\page.tsx",
+      "line_number": 4,
+      "recommendation": "Review this sandbox escape pattern."
+    },
+    {
+      "id": "code_0065",
+      "severity": "critical",
+      "category": "sandbox_escape",
+      "title": "Potential sandbox/path escape in MCP server",
+      "description": "Pattern matched in apps\\site\\app\\[lang]\\privacy\\page.tsx at line 5: `import { dictionaries, isLang, type Lang } from \"../../../lib/i18n\";`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "apps\\site\\app\\[lang]\\privacy\\page.tsx",
+      "line_number": 5,
+      "recommendation": "Review this sandbox escape pattern."
+    },
+    {
+      "id": "code_0066",
+      "severity": "critical",
+      "category": "sandbox_escape",
+      "title": "Potential sandbox/path escape in MCP server",
+      "description": "Pattern matched in apps\\site\\scripts\\capture-home-tour.mjs at line 34: `const README_TOP = resolve(SITE, \"../../assets/readme-home-top.png\");`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "apps\\site\\scripts\\capture-home-tour.mjs",
+      "line_number": 34,
+      "recommendation": "Review this sandbox escape pattern."
+    },
+    {
+      "id": "code_0067",
+      "severity": "critical",
+      "category": "code_execution",
+      "title": "MCP server can execute arbitrary commands",
+      "description": "Pattern matched in apps\\site\\scripts\\capture-home-tour.mjs at line 46: `const SECRET_PREFIX = /SECRET_PREFIX = \"([^\"]*)\"/.exec(readFileSync(resolve(HOME, \"src/data/store.ts\"), \"utf8\"))[1];`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "apps\\site\\scripts\\capture-home-tour.mjs",
+      "line_number": 46,
+      "recommendation": "Review this arbitrary code exec pattern."
+    },
+    {
+      "id": "code_0068",
+      "severity": "high",
+      "category": "obfuscation",
+      "title": "Obfuscated or encoded content in MCP server",
+      "description": "Pattern matched in apps\\site\\scripts\\capture-home-tour.mjs at line 126: `if (k) localStorage.setItem(\"wilmai.openaiKey\", btoa(String.fromCharCode(...new TextEncoder().encode(prefix + k))));`",
+      "owasp_asi": [
+        "ASI01",
+        "ASI10"
+      ],
+      "owasp_mcp": [
+        "MCP03",
+        "MCP04"
+      ],
+      "file_path": "apps\\site\\scripts\\capture-home-tour.mjs",
+      "line_number": 126,
+      "recommendation": "Review this obfuscation pattern."
+    },
+    {
+      "id": "code_0069",
+      "severity": "critical",
+      "category": "code_execution",
+      "title": "MCP server can execute arbitrary commands",
+      "description": "Pattern matched in apps\\site\\worker\\index.ts at line 49: `const picked = /(?:^|;\\s*)lang=([^;]+)/.exec(cookie)?.[1];`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "apps\\site\\worker\\index.ts",
+      "line_number": 49,
+      "recommendation": "Review this arbitrary code exec pattern."
+    },
+    {
+      "id": "code_0070",
+      "severity": "critical",
+      "category": "code_execution",
+      "title": "MCP server can execute arbitrary commands",
+      "description": "Pattern matched in packages\\wilma-cli\\src\\agent-data.ts at line 373: `return /\\(([^()\\s]{1,12})\\)\\s*$/.exec(name)?.[1] ?? null;`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "packages\\wilma-cli\\src\\agent-data.ts",
+      "line_number": 373,
+      "recommendation": "Review this arbitrary code exec pattern."
+    },
+    {
+      "id": "code_0071",
+      "severity": "high",
+      "category": "obfuscation",
+      "title": "Obfuscated or encoded content in MCP server",
+      "description": "Pattern matched in packages\\wilma-cli\\src\\config.ts at line 132: `const decoded = Buffer.from(value, \"base64\").toString(\"utf-8\");`",
+      "owasp_asi": [
+        "ASI01",
+        "ASI10"
+      ],
+      "owasp_mcp": [
+        "MCP03",
+        "MCP04"
+      ],
+      "file_path": "packages\\wilma-cli\\src\\config.ts",
+      "line_number": 132,
+      "recommendation": "Review this obfuscation pattern."
+    },
+    {
+      "id": "code_0072",
+      "severity": "critical",
+      "category": "code_execution",
+      "title": "MCP server can execute arbitrary commands",
+      "description": "Pattern matched in packages\\wilma-cli\\src\\downloads.ts at line 17: `const encoded = /filename\\*=UTF-8''([^;]+)/i.exec(contentDisposition ?? \"\")?.[1];`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "packages\\wilma-cli\\src\\downloads.ts",
+      "line_number": 17,
+      "recommendation": "Review this arbitrary code exec pattern."
+    },
+    {
+      "id": "code_0073",
+      "severity": "critical",
+      "category": "code_execution",
+      "title": "MCP server can execute arbitrary commands",
+      "description": "Pattern matched in packages\\wilma-cli\\src\\downloads.ts at line 18: `const quoted = /filename=\"([^\"]+)\"/i.exec(contentDisposition ?? \"\")?.[1];`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "packages\\wilma-cli\\src\\downloads.ts",
+      "line_number": 18,
+      "recommendation": "Review this arbitrary code exec pattern."
+    },
+    {
+      "id": "code_0074",
+      "severity": "critical",
+      "category": "code_execution",
+      "title": "MCP server can execute arbitrary commands",
+      "description": "Pattern matched in packages\\wilma-cli\\src\\downloads.ts at line 19: `const plain = /filename=([^;]+)/i.exec(contentDisposition ?? \"\")?.[1]?.trim();`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "packages\\wilma-cli\\src\\downloads.ts",
+      "line_number": 19,
+      "recommendation": "Review this arbitrary code exec pattern."
+    },
+    {
+      "id": "code_0075",
+      "severity": "high",
+      "category": "credential_theft",
+      "title": "MCP server accesses credentials or secrets",
+      "description": "Pattern matched in packages\\wilma-cli\\src\\downloads.ts at line 33: `* \".npmrc\"-style config), and none of Windows' reserved device names.`",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP01"
+      ],
+      "file_path": "packages\\wilma-cli\\src\\downloads.ts",
+      "line_number": 33,
+      "recommendation": "Review this credential harvesting pattern."
+    },
+    {
+      "id": "code_0076",
+      "severity": "high",
+      "category": "credential_theft",
+      "title": "MCP server accesses credentials or secrets",
+      "description": "Pattern matched in packages\\wilma-cli\\src\\downloads.ts at line 39: `// Trim spaces and dots together until stable: \" .npmrc\" -> \"npmrc\".`",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP01"
+      ],
+      "file_path": "packages\\wilma-cli\\src\\downloads.ts",
+      "line_number": 39,
+      "recommendation": "Review this credential harvesting pattern."
+    },
+    {
+      "id": "code_0077",
+      "severity": "medium",
+      "category": "permission_overscope",
+      "title": "Broad filesystem operations in MCP server",
+      "description": "Pattern matched in packages\\wilma-cli\\src\\downloads.ts at line 74: `const handle = await open(path, \"wx\", 0o600);`",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": "packages\\wilma-cli\\src\\downloads.ts",
+      "line_number": 74,
+      "recommendation": "Review this file system broad access pattern."
+    },
+    {
+      "id": "code_0078",
+      "severity": "high",
+      "category": "credential_theft",
+      "title": "MCP server accesses credentials or secrets",
+      "description": "Pattern matched in packages\\wilma-cli\\src\\index.ts at line 653: `const tenantQuery = flags.tenant ?? process.env[ENV_VARS.tenant];`",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP01"
+      ],
+      "file_path": "packages\\wilma-cli\\src\\index.ts",
+      "line_number": 653,
+      "recommendation": "Review this credential harvesting pattern."
+    },
+    {
+      "id": "code_0079",
+      "severity": "high",
+      "category": "credential_theft",
+      "title": "MCP server accesses credentials or secrets",
+      "description": "Pattern matched in packages\\wilma-cli\\src\\index.ts at line 654: `const username = flags.username ?? process.env[ENV_VARS.username];`",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP01"
+      ],
+      "file_path": "packages\\wilma-cli\\src\\index.ts",
+      "line_number": 654,
+      "recommendation": "Review this credential harvesting pattern."
+    },
+    {
+      "id": "code_0080",
+      "severity": "high",
+      "category": "credential_theft",
+      "title": "MCP server accesses credentials or secrets",
+      "description": "Pattern matched in packages\\wilma-cli\\src\\index.ts at line 658: `const password = flags.passwordStdin ? (await readStdin()).replace(/\\r?\\n$/, \"\") : process.env[ENV_VARS.password];`",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP01"
+      ],
+      "file_path": "packages\\wilma-cli\\src\\index.ts",
+      "line_number": 658,
+      "recommendation": "Review this credential harvesting pattern."
+    },
+    {
+      "id": "code_0081",
+      "severity": "high",
+      "category": "credential_theft",
+      "title": "MCP server accesses credentials or secrets",
+      "description": "Pattern matched in packages\\wilma-cli\\src\\index.ts at line 663: `const totpSecret = flags.totpSecret ?? process.env[ENV_VARS.totpSecret] ?? null;`",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP01"
+      ],
+      "file_path": "packages\\wilma-cli\\src\\index.ts",
+      "line_number": 663,
+      "recommendation": "Review this credential harvesting pattern."
+    },
+    {
+      "id": "code_0082",
+      "severity": "high",
+      "category": "data_exfiltration",
+      "title": "MCP server makes outbound network requests (potential exfiltration)",
+      "description": "Pattern matched in packages\\wilma-cli\\src\\update-check.ts at line 113: `const response = await fetch(\"https://registry.npmjs.org/@wilm-ai/wilma-cli/latest\", { signal: controller.signal });`",
+      "owasp_asi": [
+        "ASI01",
+        "ASI02"
+      ],
+      "owasp_mcp": [
+        "MCP10"
+      ],
+      "file_path": "packages\\wilma-cli\\src\\update-check.ts",
+      "line_number": 113,
+      "recommendation": "Review this data exfiltration pattern."
+    },
+    {
+      "id": "code_0083",
+      "severity": "critical",
+      "category": "code_execution",
+      "title": "MCP server can execute arbitrary commands",
+      "description": "Pattern matched in packages\\wilma-client\\scripts\\anonymize-fixture.mjs at line 108: `const extension = /\\.[a-z0-9]{2,5}$/i.exec(parsed.pathname)?.[0] ?? \"\";`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "packages\\wilma-client\\scripts\\anonymize-fixture.mjs",
+      "line_number": 108,
+      "recommendation": "Review this arbitrary code exec pattern."
+    },
+    {
+      "id": "code_0084",
+      "severity": "critical",
+      "category": "code_execution",
+      "title": "MCP server can execute arbitrary commands",
+      "description": "Pattern matched in packages\\wilma-client\\src\\client.ts at line 542: `const match = /^(\\d{4})-(\\d{2})-(\\d{2})$/.exec(date);`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "packages\\wilma-client\\src\\client.ts",
+      "line_number": 542,
+      "recommendation": "Review this arbitrary code exec pattern."
+    },
+    {
+      "id": "code_0085",
+      "severity": "critical",
+      "category": "code_execution",
+      "title": "MCP server can execute arbitrary commands",
+      "description": "Pattern matched in packages\\wilma-client\\src\\external-fetch.ts at line 86: `const dotted = /(\\d+)\\.(\\d+)\\.(\\d+)\\.(\\d+)$/.exec(text);`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "packages\\wilma-client\\src\\external-fetch.ts",
+      "line_number": 86,
+      "recommendation": "Review this arbitrary code exec pattern."
+    },
+    {
+      "id": "code_0086",
+      "severity": "critical",
+      "category": "code_execution",
+      "title": "MCP server can execute arbitrary commands",
+      "description": "Pattern matched in packages\\wilma-client\\src\\session.ts at line 288: `const mfaFormkeyMatch = /id=\"mfa-formkey\"\\s+value=\"([^\"]+)\"/.exec(redirectText);`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "packages\\wilma-client\\src\\session.ts",
+      "line_number": 288,
+      "recommendation": "Review this arbitrary code exec pattern."
+    },
+    {
+      "id": "code_0087",
+      "severity": "critical",
+      "category": "code_execution",
+      "title": "MCP server can execute arbitrary commands",
+      "description": "Pattern matched in packages\\wilma-client\\src\\session.ts at line 734: `const match = /\"Wilma2LoginID\"\\s*:\\s*\"([^\"\\s]+)\"/.exec(text);`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "packages\\wilma-client\\src\\session.ts",
+      "line_number": 734,
+      "recommendation": "Review this arbitrary code exec pattern."
+    },
+    {
+      "id": "code_0088",
+      "severity": "critical",
+      "category": "code_execution",
+      "title": "MCP server can execute arbitrary commands",
+      "description": "Pattern matched in packages\\wilma-client\\src\\session.ts at line 896: `const name = nameRegex.exec(tag)?.[1];`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "packages\\wilma-client\\src\\session.ts",
+      "line_number": 896,
+      "recommendation": "Review this arbitrary code exec pattern."
+    },
+    {
+      "id": "code_0089",
+      "severity": "critical",
+      "category": "code_execution",
+      "title": "MCP server can execute arbitrary commands",
+      "description": "Pattern matched in packages\\wilma-client\\src\\session.ts at line 898: `const type = typeRegex.exec(tag)?.[1]?.toLowerCase() ?? \"text\";`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "packages\\wilma-client\\src\\session.ts",
+      "line_number": 898,
+      "recommendation": "Review this arbitrary code exec pattern."
+    },
+    {
+      "id": "code_0090",
+      "severity": "critical",
+      "category": "code_execution",
+      "title": "MCP server can execute arbitrary commands",
+      "description": "Pattern matched in packages\\wilma-client\\src\\session.ts at line 903: `const value = valueRegex.exec(tag)?.[1] ?? \"\";`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "packages\\wilma-client\\src\\session.ts",
+      "line_number": 903,
+      "recommendation": "Review this arbitrary code exec pattern."
+    },
+    {
+      "id": "code_0091",
+      "severity": "critical",
+      "category": "code_execution",
+      "title": "MCP server can execute arbitrary commands",
+      "description": "Pattern matched in packages\\wilma-client\\src\\parsers\\attendance.ts at line 159: `const match = /^(\\d{1,2})\\.(\\d{1,2})\\.(\\d{4})$/.exec(value);`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "packages\\wilma-client\\src\\parsers\\attendance.ts",
+      "line_number": 159,
+      "recommendation": "Review this arbitrary code exec pattern."
+    },
+    {
+      "id": "code_0092",
+      "severity": "critical",
+      "category": "code_execution",
+      "title": "MCP server can execute arbitrary commands",
+      "description": "Pattern matched in packages\\wilma-client\\src\\parsers\\dates.ts at line 29: `const isoLikeMatch = /^(\\d{4})-(\\d{2})-(\\d{2})\\s+(\\d{1,2}):(\\d{2})$/.exec(raw);`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "packages\\wilma-client\\src\\parsers\\dates.ts",
+      "line_number": 29,
+      "recommendation": "Review this arbitrary code exec pattern."
+    },
+    {
+      "id": "code_0093",
+      "severity": "critical",
+      "category": "code_execution",
+      "title": "MCP server can execute arbitrary commands",
+      "description": "Pattern matched in packages\\wilma-client\\src\\parsers\\dates.ts at line 64: `const timeMatch = /(\\d{1,2})[:.](\\d{2})/.exec(text);`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "packages\\wilma-client\\src\\parsers\\dates.ts",
+      "line_number": 64,
+      "recommendation": "Review this arbitrary code exec pattern."
+    },
+    {
+      "id": "code_0094",
+      "severity": "critical",
+      "category": "code_execution",
+      "title": "MCP server can execute arbitrary commands",
+      "description": "Pattern matched in packages\\wilma-client\\src\\parsers\\dates.ts at line 75: `const match = /^(\\d{1,2})\\.(\\d{1,2})\\.(\\d{4})\\s+(\\d{1,2}):(\\d{2})$/.exec(text);`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "packages\\wilma-client\\src\\parsers\\dates.ts",
+      "line_number": 75,
+      "recommendation": "Review this arbitrary code exec pattern."
+    },
+    {
+      "id": "code_0095",
+      "severity": "critical",
+      "category": "code_execution",
+      "title": "MCP server can execute arbitrary commands",
+      "description": "Pattern matched in packages\\wilma-client\\src\\parsers\\dates.ts at line 81: `const match = /^(\\d{1,2})\\.(\\d{1,2})\\.(\\d{4})$/.exec(text);`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "packages\\wilma-client\\src\\parsers\\dates.ts",
+      "line_number": 81,
+      "recommendation": "Review this arbitrary code exec pattern."
+    },
+    {
+      "id": "code_0096",
+      "severity": "critical",
+      "category": "code_execution",
+      "title": "MCP server can execute arbitrary commands",
+      "description": "Pattern matched in packages\\wilma-client\\src\\parsers\\dates.ts at line 89: `const shortMatch = /^(\\d{1,2})\\.(\\d{1,2})\\.$/.exec(text);`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "packages\\wilma-client\\src\\parsers\\dates.ts",
+      "line_number": 89,
+      "recommendation": "Review this arbitrary code exec pattern."
+    },
+    {
+      "id": "code_0097",
+      "severity": "critical",
+      "category": "code_execution",
+      "title": "MCP server can execute arbitrary commands",
+      "description": "Pattern matched in packages\\wilma-client\\src\\parsers\\exams.ts at line 28: `const match = /(\\d{1,2}\\.\\d{1,2}\\.\\d{4})/.exec(dateText);`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "packages\\wilma-client\\src\\parsers\\exams.ts",
+      "line_number": 28,
+      "recommendation": "Review this arbitrary code exec pattern."
+    },
+    {
+      "id": "code_0098",
+      "severity": "critical",
+      "category": "code_execution",
+      "title": "MCP server can execute arbitrary commands",
+      "description": "Pattern matched in packages\\wilma-client\\src\\parsers\\exams.ts at line 39: `const timeMatch = /klo\\s*(\\d{1,2})[:.](\\d{2})/i.exec(dateText);`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "packages\\wilma-client\\src\\parsers\\exams.ts",
+      "line_number": 39,
+      "recommendation": "Review this arbitrary code exec pattern."
+    },
+    {
+      "id": "code_0099",
+      "severity": "critical",
+      "category": "code_execution",
+      "title": "MCP server can execute arbitrary commands",
+      "description": "Pattern matched in packages\\wilma-client\\src\\parsers\\exams.ts at line 122: `const m = /(\\d{1,2})\\.(\\d{1,2})\\.(\\d{4})/.exec(text);`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "packages\\wilma-client\\src\\parsers\\exams.ts",
+      "line_number": 122,
+      "recommendation": "Review this arbitrary code exec pattern."
+    },
+    {
+      "id": "code_0100",
+      "severity": "critical",
+      "category": "code_execution",
+      "title": "MCP server can execute arbitrary commands",
+      "description": "Pattern matched in packages\\wilma-client\\src\\parsers\\gradebook.ts at line 16: `const depthMatch = /\\blevel(\\d+)\\b/.exec($(row).attr(\"class\") ?? \"\");`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "packages\\wilma-client\\src\\parsers\\gradebook.ts",
+      "line_number": 16,
+      "recommendation": "Review this arbitrary code exec pattern."
+    },
+    {
+      "id": "code_0101",
+      "severity": "critical",
+      "category": "code_execution",
+      "title": "MCP server can execute arbitrary commands",
+      "description": "Pattern matched in packages\\wilma-client\\src\\parsers\\gradebook.ts at line 24: `const codeMatch = /^([\\p{L}\\d]+_[\\p{L}\\d.]*)\\s+(.*)$/u.exec(label);`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "packages\\wilma-client\\src\\parsers\\gradebook.ts",
+      "line_number": 24,
+      "recommendation": "Review this arbitrary code exec pattern."
+    },
+    {
+      "id": "code_0102",
+      "severity": "critical",
+      "category": "code_execution",
+      "title": "MCP server can execute arbitrary commands",
+      "description": "Pattern matched in packages\\wilma-client\\src\\parsers\\gradebook.ts at line 44: `const match = /^(\\d{1,2})\\.(\\d{1,2})\\.(\\d{4})$/.exec(value);`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "packages\\wilma-client\\src\\parsers\\gradebook.ts",
+      "line_number": 44,
+      "recommendation": "Review this arbitrary code exec pattern."
+    },
+    {
+      "id": "code_0103",
+      "severity": "critical",
+      "category": "code_execution",
+      "title": "MCP server can execute arbitrary commands",
+      "description": "Pattern matched in packages\\wilma-client\\src\\parsers\\invitations.ts at line 26: `const m = /^(\\d{4})-(\\d{2})-(\\d{2})(?:[ T](\\d{2}):(\\d{2}))?/.exec(String(value ?? \"\"));`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "packages\\wilma-client\\src\\parsers\\invitations.ts",
+      "line_number": 26,
+      "recommendation": "Review this arbitrary code exec pattern."
+    },
+    {
+      "id": "code_0104",
+      "severity": "critical",
+      "category": "code_execution",
+      "title": "MCP server can execute arbitrary commands",
+      "description": "Pattern matched in packages\\wilma-client\\src\\parsers\\messages.ts at line 250: `const absoluteDateTime = /(\\d{1,2}\\.\\d{1,2}\\.\\d{4}\\s+\\d{1,2}:\\d{2})/.exec(headerText);`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "packages\\wilma-client\\src\\parsers\\messages.ts",
+      "line_number": 250,
+      "recommendation": "Review this arbitrary code exec pattern."
+    },
+    {
+      "id": "code_0105",
+      "severity": "critical",
+      "category": "code_execution",
+      "title": "MCP server can execute arbitrary commands",
+      "description": "Pattern matched in packages\\wilma-client\\src\\parsers\\messages.ts at line 255: `const match = /^(.+?)\\s+(?:vastasi|svarade|replied)\\b/i.exec(compactText(headerText));`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "packages\\wilma-client\\src\\parsers\\messages.ts",
+      "line_number": 255,
+      "recommendation": "Review this arbitrary code exec pattern."
+    },
+    {
+      "id": "code_0106",
+      "severity": "critical",
+      "category": "code_execution",
+      "title": "MCP server can execute arbitrary commands",
+      "description": "Pattern matched in packages\\wilma-client\\src\\parsers\\news.ts at line 104: `const publishedMatch = PUBLISHED_RE.exec(meta.text().replace(/\\s+/g, \" \"));`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "packages\\wilma-client\\src\\parsers\\news.ts",
+      "line_number": 104,
+      "recommendation": "Review this arbitrary code exec pattern."
+    },
+    {
+      "id": "code_0107",
+      "severity": "critical",
+      "category": "code_execution",
+      "title": "MCP server can execute arbitrary commands",
+      "description": "Pattern matched in packages\\wilma-client\\src\\parsers\\news.ts at line 209: `const match = /\\/news\\/(\\d+)/.exec(href);`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "packages\\wilma-client\\src\\parsers\\news.ts",
+      "line_number": 209,
+      "recommendation": "Review this arbitrary code exec pattern."
+    },
+    {
+      "id": "code_0108",
+      "severity": "critical",
+      "category": "code_execution",
+      "title": "MCP server can execute arbitrary commands",
+      "description": "Pattern matched in packages\\wilma-client\\src\\parsers\\news.ts at line 276: `const match = /\\/news\\/(\\d+)/.exec($(anchor).attr(\"href\") ?? \"\");`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "packages\\wilma-client\\src\\parsers\\news.ts",
+      "line_number": 276,
+      "recommendation": "Review this arbitrary code exec pattern."
+    },
+    {
+      "id": "code_0109",
+      "severity": "critical",
+      "category": "code_execution",
+      "title": "MCP server can execute arbitrary commands",
+      "description": "Pattern matched in packages\\wilma-client\\src\\parsers\\overview.ts at line 89: `const m = /^(\\d{1,2})\\.(\\d{1,2})\\.(\\d{4})$/.exec(trimmed);`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "packages\\wilma-client\\src\\parsers\\overview.ts",
+      "line_number": 89,
+      "recommendation": "Review this arbitrary code exec pattern."
+    },
+    {
+      "id": "code_0110",
+      "severity": "critical",
+      "category": "code_execution",
+      "title": "MCP server can execute arbitrary commands",
+      "description": "Pattern matched in packages\\wilma-client\\src\\parsers\\overview.ts at line 224: `seen: /^\\d{4}-\\d{2}-\\d{2}/.exec(exam.ExamSeen ?? \"\")?.[0] ?? null,`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "packages\\wilma-client\\src\\parsers\\overview.ts",
+      "line_number": 224,
+      "recommendation": "Review this arbitrary code exec pattern."
+    },
+    {
+      "id": "code_0111",
+      "severity": "critical",
+      "category": "code_execution",
+      "title": "MCP server can execute arbitrary commands",
+      "description": "Pattern matched in packages\\wilma-client\\src\\parsers\\printouts.ts at line 11: `const match = /^(?:https?:\\/\\/[^/]+)?(\\/(?:![^/]+\\/)?printouts\\/(\\d+)\\.pdf)(?:[?#].*)?$/.exec(href);`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "packages\\wilma-client\\src\\parsers\\printouts.ts",
+      "line_number": 11,
+      "recommendation": "Review this arbitrary code exec pattern."
+    },
+    {
+      "id": "code_0112",
+      "severity": "critical",
+      "category": "code_execution",
+      "title": "MCP server can execute arbitrary commands",
+      "description": "Pattern matched in packages\\wilma-client\\src\\parsers\\schedule.ts at line 29: `const match = /Events\\s*:\\s*(\\[[\\s\\S]*?\\])\\s*,\\s*ActiveTyyppi/.exec(script);`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "packages\\wilma-client\\src\\parsers\\schedule.ts",
+      "line_number": 29,
+      "recommendation": "Review this arbitrary code exec pattern."
+    },
+    {
+      "id": "code_0113",
+      "severity": "critical",
+      "category": "code_execution",
+      "title": "MCP server can execute arbitrary commands",
+      "description": "Pattern matched in packages\\wilma-client\\src\\parsers\\schedule.ts at line 71: `const match = /^(\\d{1,2})\\.(\\d{1,2})\\.(\\d{4})$/.exec(value.trim());`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "packages\\wilma-client\\src\\parsers\\schedule.ts",
+      "line_number": 71,
+      "recommendation": "Review this arbitrary code exec pattern."
+    },
+    {
+      "id": "code_0114",
+      "severity": "critical",
+      "category": "code_execution",
+      "title": "MCP server can execute arbitrary commands",
+      "description": "Pattern matched in packages\\wilma-client\\src\\parsers\\students.ts at line 24: `const match = STUDENT_HREF_RE.exec(href);`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "packages\\wilma-client\\src\\parsers\\students.ts",
+      "line_number": 24,
+      "recommendation": "Review this arbitrary code exec pattern."
+    },
+    {
+      "id": "toxic_combo_data_read_network_external",
+      "severity": "high",
+      "category": "toxic_tool_combo",
+      "title": "Data read + external network = exfiltration path",
+      "description": "Tools that can read internal data AND make external network requests create a direct exfiltration channel. A hijacked agent could read sensitive data then forward it to an attacker-controlled endpoint. Provided by: wilma_summary, wilma_schedule, wilma_homework, wilma_upcoming_exams, wilma_grades, wilma_lesson_notes, wilma_gradebook, wilma_contacts, wilma_list_printouts, wilma_get_printout, wilma_list_messages, wilma_read_message, wilma_list_news, wilma_read_news, wilma_get_news_attachment, wilma_account, wilma_find_school, wilma_login, wilma_logout (data_read) + wilma_list_printouts, wilma_get_printout, wilma_read_news, wilma_get_news_attachment (network_external).",
+      "owasp_asi": [
+        "ASI02"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Implement tool-level permission scoping. Consider whether both capabilities are necessary or if one can be restricted."
+    },
+    {
+      "id": "toxic_combo_credential_access_network_external",
+      "severity": "critical",
+      "category": "toxic_tool_combo",
+      "title": "Credential access + external network = credential theft path",
+      "description": "Tools that access credentials AND make external requests can exfiltrate tokens, API keys, and secrets to remote servers. Provided by: wilma_account, wilma_login, wilma_logout (credential_access) + wilma_list_printouts, wilma_get_printout, wilma_read_news, wilma_get_news_attachment (network_external).",
+      "owasp_asi": [
+        "ASI02"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Implement tool-level permission scoping. Consider whether both capabilities are necessary or if one can be restricted."
+    },
+    {
+      "id": "toxic_combo_data_read_data_write",
+      "severity": "medium",
+      "category": "toxic_tool_combo",
+      "title": "Broad data read + write = data manipulation risk",
+      "description": "Tools that can both read and write data could be manipulated to corrupt, overwrite, or delete information. Provided by: wilma_summary, wilma_schedule, wilma_homework, wilma_upcoming_exams, wilma_grades, wilma_lesson_notes, wilma_gradebook, wilma_contacts, wilma_list_printouts, wilma_get_printout, wilma_list_messages, wilma_read_message, wilma_list_news, wilma_read_news, wilma_get_news_attachment, wilma_account, wilma_find_school, wilma_login, wilma_logout (data_read) + wilma_list_messages (data_write).",
+      "owasp_asi": [
+        "ASI02"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Implement tool-level permission scoping. Consider whether both capabilities are necessary or if one can be restricted."
+    },
+    {
+      "id": "toxic_combo_filesystem_network_external",
+      "severity": "high",
+      "category": "toxic_tool_combo",
+      "title": "Filesystem access + external network = file exfiltration path",
+      "description": "Tools that access local files AND make network requests can exfiltrate source code, configs, keys, and documents. Provided by: wilma_get_printout, wilma_list_messages, wilma_get_news_attachment, wilma_account (filesystem) + wilma_list_printouts, wilma_get_printout, wilma_read_news, wilma_get_news_attachment (network_external).",
+      "owasp_asi": [
+        "ASI02"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Implement tool-level permission scoping. Consider whether both capabilities are necessary or if one can be restricted."
+    },
+    {
+      "id": "toxic_combo_credential_access_data_write",
+      "severity": "high",
+      "category": "toxic_tool_combo",
+      "title": "Credential access + data write = privilege persistence",
+      "description": "Tools that access credentials AND write data could persist stolen credentials or create backdoor accounts. Provided by: wilma_account, wilma_login, wilma_logout (credential_access) + wilma_list_messages (data_write).",
+      "owasp_asi": [
+        "ASI02"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Implement tool-level permission scoping. Consider whether both capabilities are necessary or if one can be restricted."
+    },
+    {
+      "id": "cap_wilma_get_news_attachment_file_read",
+      "severity": "low",
+      "category": "file_read",
+      "title": "Tool 'wilma_get_news_attachment' reads files (file_read)",
+      "description": "Tool 'wilma_get_news_attachment' reads files. Evidence: 'read it. Returns the file'. Description: 'Fetch a file linked from a bulletin (e.g. a PDF letter or menu) so you can read it. Returns the file content when it is a file, or 'not_a_fi'",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Scope the tool to the narrowest operation and location it needs, and require explicit user approval per call."
+    },
+    {
+      "id": "codegen_0001",
+      "severity": "high",
+      "category": "code_generation",
+      "title": "Dynamic code generation from input detected",
+      "description": "Pattern in packages\\wilma-client\\src\\internal.ts at line 1: `/* Shared between the client and the write functions, not part of the public API. */`. Tools that generate code from agent inputs can execute attacker-controlled payloads.",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "packages\\wilma-client\\src\\internal.ts",
+      "line_number": 1,
+      "recommendation": "Sandbox code execution. Validate and sanitize all inputs before code generation. Use AST-based analysis instead of string-based code construction."
+    },
+    {
+      "id": "codegen_0002",
+      "severity": "high",
+      "category": "code_generation",
+      "title": "Dynamic code generation from input detected",
+      "description": "Pattern in packages\\wilma-client\\src\\internal.ts at line 4: `/** Each client's session, so write functions (a separate entry point) can use it. */`. Tools that generate code from agent inputs can execute attacker-controlled payloads.",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "packages\\wilma-client\\src\\internal.ts",
+      "line_number": 4,
+      "recommendation": "Sandbox code execution. Validate and sanitize all inputs before code generation. Use AST-based analysis instead of string-based code construction."
+    },
+    {
+      "id": "memory_0001",
+      "severity": "medium",
+      "category": "memory_poisoning",
+      "title": "Memory/context modification capability detected",
+      "description": "Pattern in apps\\home\\bridge\\bridge.ts near line 23: `SessionSet`. MCP servers that modify agent memory or context can poison long-term behavior.",
+      "owasp_asi": [
+        "ASI06"
+      ],
+      "owasp_mcp": [
+        "MCP06",
+        "MCP10"
+      ],
+      "file_path": "apps\\home\\bridge\\bridge.ts",
+      "line_number": 23,
+      "recommendation": "Validate all data before writing to agent memory. Implement integrity checks on persistent context. Log all memory modifications for audit."
+    },
+    {
+      "id": "memory_0002",
+      "severity": "medium",
+      "category": "memory_poisoning",
+      "title": "Memory/context modification capability detected",
+      "description": "Pattern in apps\\home\\bridge\\core.ts near line 216: `SessionStore`. MCP servers that modify agent memory or context can poison long-term behavior.",
+      "owasp_asi": [
+        "ASI06"
+      ],
+      "owasp_mcp": [
+        "MCP06",
+        "MCP10"
+      ],
+      "file_path": "apps\\home\\bridge\\core.ts",
+      "line_number": 216,
+      "recommendation": "Validate all data before writing to agent memory. Implement integrity checks on persistent context. Log all memory modifications for audit."
+    },
+    {
+      "id": "memory_0003",
+      "severity": "medium",
+      "category": "memory_poisoning",
+      "title": "Memory/context modification capability detected",
+      "description": "Pattern in apps\\home\\src\\wilma\\transport.ts near line 50: `sessionSet`. MCP servers that modify agent memory or context can poison long-term behavior.",
+      "owasp_asi": [
+        "ASI06"
+      ],
+      "owasp_mcp": [
+        "MCP06",
+        "MCP10"
+      ],
+      "file_path": "apps\\home\\src\\wilma\\transport.ts",
+      "line_number": 50,
+      "recommendation": "Validate all data before writing to agent memory. Implement integrity checks on persistent context. Log all memory modifications for audit."
+    },
+    {
+      "id": "memory_0004",
+      "severity": "medium",
+      "category": "memory_poisoning",
+      "title": "Memory/context modification capability detected",
+      "description": "Pattern in packages\\wilma-cli\\src\\agent-data.ts near line 20: `SessionStore`. MCP servers that modify agent memory or context can poison long-term behavior.",
+      "owasp_asi": [
+        "ASI06"
+      ],
+      "owasp_mcp": [
+        "MCP06",
+        "MCP10"
+      ],
+      "file_path": "packages\\wilma-cli\\src\\agent-data.ts",
+      "line_number": 20,
+      "recommendation": "Validate all data before writing to agent memory. Implement integrity checks on persistent context. Log all memory modifications for audit."
+    },
+    {
+      "id": "memory_0005",
+      "severity": "medium",
+      "category": "memory_poisoning",
+      "title": "Memory/context modification capability detected",
+      "description": "Pattern in packages\\wilma-cli\\src\\index.ts near line 29: `SessionStore`. MCP servers that modify agent memory or context can poison long-term behavior.",
+      "owasp_asi": [
+        "ASI06"
+      ],
+      "owasp_mcp": [
+        "MCP06",
+        "MCP10"
+      ],
+      "file_path": "packages\\wilma-cli\\src\\index.ts",
+      "line_number": 29,
+      "recommendation": "Validate all data before writing to agent memory. Implement integrity checks on persistent context. Log all memory modifications for audit."
+    },
+    {
+      "id": "memory_0006",
+      "severity": "medium",
+      "category": "memory_poisoning",
+      "title": "Memory/context modification capability detected",
+      "description": "Pattern in packages\\wilma-cli\\src\\mcp.ts near line 8: `SessionStore`. MCP servers that modify agent memory or context can poison long-term behavior.",
+      "owasp_asi": [
+        "ASI06"
+      ],
+      "owasp_mcp": [
+        "MCP06",
+        "MCP10"
+      ],
+      "file_path": "packages\\wilma-cli\\src\\mcp.ts",
+      "line_number": 8,
+      "recommendation": "Validate all data before writing to agent memory. Implement integrity checks on persistent context. Log all memory modifications for audit."
+    },
+    {
+      "id": "memory_0007",
+      "severity": "medium",
+      "category": "memory_poisoning",
+      "title": "Memory/context modification capability detected",
+      "description": "Pattern in packages\\wilma-cli\\src\\session-store.ts near line 22: `SessionStore`. MCP servers that modify agent memory or context can poison long-term behavior.",
+      "owasp_asi": [
+        "ASI06"
+      ],
+      "owasp_mcp": [
+        "MCP06",
+        "MCP10"
+      ],
+      "file_path": "packages\\wilma-cli\\src\\session-store.ts",
+      "line_number": 22,
+      "recommendation": "Validate all data before writing to agent memory. Implement integrity checks on persistent context. Log all memory modifications for audit."
+    },
+    {
+      "id": "memory_0008",
+      "severity": "medium",
+      "category": "memory_poisoning",
+      "title": "Memory/context modification capability detected",
+      "description": "Pattern in packages\\wilma-cli\\test\\shared-session.mjs near line 2: `session store`. MCP servers that modify agent memory or context can poison long-term behavior.",
+      "owasp_asi": [
+        "ASI06"
+      ],
+      "owasp_mcp": [
+        "MCP06",
+        "MCP10"
+      ],
+      "file_path": "packages\\wilma-cli\\test\\shared-session.mjs",
+      "line_number": 2,
+      "recommendation": "Validate all data before writing to agent memory. Implement integrity checks on persistent context. Log all memory modifications for audit."
+    },
+    {
+      "id": "memory_0009",
+      "severity": "medium",
+      "category": "memory_poisoning",
+      "title": "Memory/context modification capability detected",
+      "description": "Pattern in packages\\wilma-client\\src\\client.ts near line 95: `session save`. MCP servers that modify agent memory or context can poison long-term behavior.",
+      "owasp_asi": [
+        "ASI06"
+      ],
+      "owasp_mcp": [
+        "MCP06",
+        "MCP10"
+      ],
+      "file_path": "packages\\wilma-client\\src\\client.ts",
+      "line_number": 95,
+      "recommendation": "Validate all data before writing to agent memory. Implement integrity checks on persistent context. Log all memory modifications for audit."
+    },
+    {
+      "id": "memory_0010",
+      "severity": "medium",
+      "category": "memory_poisoning",
+      "title": "Memory/context modification capability detected",
+      "description": "Pattern in packages\\wilma-client\\src\\session.ts near line 169: `session save`. MCP servers that modify agent memory or context can poison long-term behavior.",
+      "owasp_asi": [
+        "ASI06"
+      ],
+      "owasp_mcp": [
+        "MCP06",
+        "MCP10"
+      ],
+      "file_path": "packages\\wilma-client\\src\\session.ts",
+      "line_number": 169,
+      "recommendation": "Validate all data before writing to agent memory. Implement integrity checks on persistent context. Log all memory modifications for audit."
+    },
+    {
+      "id": "rogue_0001",
+      "severity": "high",
+      "category": "rogue_agent",
+      "title": "Rogue agent indicator detected",
+      "description": "Pattern in apps\\home\\src\\data\\engine.ts near line 144: `delete log`. This could indicate self-modifying behavior, persistence mechanisms, or evasion capabilities.",
+      "owasp_asi": [
+        "ASI10"
+      ],
+      "owasp_mcp": [
+        "MCP03"
+      ],
+      "file_path": "apps\\home\\src\\data\\engine.ts",
+      "line_number": 144,
+      "recommendation": "Implement behavioral monitoring and kill switches. Ensure all agent actions are logged and auditable. Run in sandboxed environments with strict resource limits."
+    },
+    {
+      "id": "rogue_0002",
+      "severity": "high",
+      "category": "rogue_agent",
+      "title": "Rogue agent indicator detected",
+      "description": "Pattern in apps\\site\\scripts\\capture-home-tour.mjs near line 123: `InitScript`. This could indicate self-modifying behavior, persistence mechanisms, or evasion capabilities.",
+      "owasp_asi": [
+        "ASI10"
+      ],
+      "owasp_mcp": [
+        "MCP03"
+      ],
+      "file_path": "apps\\site\\scripts\\capture-home-tour.mjs",
+      "line_number": 123,
+      "recommendation": "Implement behavioral monitoring and kill switches. Ensure all agent actions are logged and auditable. Run in sandboxed environments with strict resource limits."
+    },
+    {
+      "id": "instructions_injection_marker",
+      "severity": "critical",
+      "category": "prompt_injection",
+      "title": "Injected instructions in server instructions",
+      "description": "server instructions contains text meant for the model, not the user: 'system:'. Excerpt: 'You read one exam mark from Wilma, the Finnish school system: the mark as written, the exam's name and the teacher's note. The mark is points or a number on a s'",
+      "owasp_asi": [
+        "ASI01",
+        "ASI06"
+      ],
+      "owasp_mcp": [
+        "MCP06"
+      ],
+      "file_path": "apps\\home\\src\\luna\\marks.ts",
+      "line_number": 26,
+      "recommendation": "Content an agent reads must not carry instructions. Remove it, or do not install this server."
+    },
+    {
+      "id": "blast_radius_estimate",
+      "severity": "high",
+      "category": "cascading_failure",
+      "title": "Blast radius: HIGH \u2014 compromise of this server has broad impact",
+      "description": "If this MCP server is compromised, the blast radius is HIGH due to: external network access, filesystem access, credential access, 20 tools (large attack surface), 98 critical findings. A single tool poisoning or supply chain attack could cascade across all connected systems.",
+      "owasp_asi": [
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Apply least-privilege to this server. Isolate it from other MCP servers. Implement kill switches and behavioral monitoring. Limit env vars to the minimum required."
+    }
+  ],
+  "server_profile": {
+    "name": "<corpus>/registry/22_aikarjal__wilmai",
+    "command": null,
+    "args": [],
+    "env_vars": [],
+    "transport": "stdio",
+    "tools": [
+      {
+        "name": "wilma_summary",
+        "description": "Daily briefing per child: today's and the next school day's lessons, upcoming exams (with start times when given), recent homework, lesson notes since the previous school day (teachers' feedback and absences), recent bulletins, and recent and unread messages (ids, unread, replyCount; event invitations with invitationStatus, as in wilma_list_messages). What Wilma didn't give is listed in unavailable (\"news\": this Wilma doesn't show this account its bulletins). The best starting point for any question about school.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "student": {},
+            "days": {
+              "type": "number",
+              "description": "How many days back to include news and messages (default 7)."
+            },
+            "since": {
+              "type": "string",
+              "description": "Only what is new from this day on (YYYY-MM-DD or 'yesterday'): bulletins, messages, homework, lesson notes. For daily runs."
+            }
+          },
+          "required": [
+            "student"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "medium",
+        "poisoning_detail": "Tool description is 518 characters. Long descriptions can hide malicious instructions."
+      },
+      {
+        "name": "wilma_schedule",
+        "description": "List each child's lessons for one day or a school week: today, the next school day, this or next week (Monday to Friday), a date, or the next given weekday; or any other week or period with from/to (e.g. a week further ahead, or several weeks to see the usual school days). Lessons come in time order with the date, start and end time, subject, teacher and room (when Wilma gives one); a day without school has no lessons. Exams and homework are in wilma_upcoming_exams and wilma_homework.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "student": {},
+            "when": {
+              "type": "string",
+              "description": "Default: week. 'tomorrow' means the next school day.",
+              "enum": [
+                "today",
+                "tomorrow",
+                "week",
+                "next-week"
+              ]
+            },
+            "date": {
+              "type": "string",
+              "description": "A specific date, YYYY-MM-DD. Overrides 'when'."
+            },
+            "weekday": {
+              "type": "string",
+              "description": "Next occurrence of a weekday: mon..sun (Finnish ma..su also work). Overrides 'when'."
+            },
+            "from": {
+              "type": "string",
+              "description": "Start of a period, YYYY-MM-DD. Overrides 'when'."
+            },
+            "to": {
+              "type": "string",
+              "description": "End of the period, YYYY-MM-DD (default: the Friday of from's week). At most {SCHEDULE_MAX_DAYS} days."
+            }
+          },
+          "required": [
+            "student"
+          ]
+        },
+        "has_hidden_instructions": true,
+        "poisoning_risk": "critical",
+        "poisoning_detail": "Hidden instruction detected in tool description that could manipulate AI behavior. Matched pattern in tool 'wilma_schedule': '('Override', '', '')'"
+      },
+      {
+        "name": "wilma_homework",
+        "description": "List the homework teachers have entered for each child, newest first: the date, subject, teacher and what to do. It reads the homework Wilma's front page lists (Wilma decides how far back that goes). wilma_summary already includes the last few days' homework.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "student": {},
+            "limit": {
+              "type": "number",
+              "description": "How many entries per child, newest first (default 10)."
+            }
+          },
+          "required": [
+            "student"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "wilma_upcoming_exams",
+        "description": "List each child's exams from today on that have no grade yet, soonest first: the date, start time (when the school gives one), exam name, subject, topic (what to study) and teacher. Graded exams are in wilma_grades.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "student": {},
+            "limit": {
+              "type": "number",
+              "description": "How many exams per child, soonest first (default 20)."
+            }
+          },
+          "required": [
+            "student"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "wilma_grades",
+        "description": "List each child's graded exams, newest first: the date, exam name, subject, grade as Wilma shows it (e.g. 8+, 9\u00bd, S), the teacher's notes and when a guardian marked it seen. It reads the exams Wilma's front page lists (Wilma decides how far back that goes); with from, Wilma's list of past exams for that period instead, as far back as the school keeps them, including exams still waiting for a grade (grade: null). For course, term and report-card grades use wilma_gradebook.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "student": {},
+            "limit": {
+              "type": "number",
+              "description": "How many grades per child, newest first (default 20; with from, every exam of the period)."
+            },
+            "from": {
+              "type": "string",
+              "description": "YYYY-MM-DD: past exams from this day on, e.g. 1 August for this school year."
+            },
+            "to": {
+              "type": "string",
+              "description": "YYYY-MM-DD, with from. Default: today."
+            }
+          },
+          "required": [
+            "student"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "wilma_lesson_notes",
+        "description": "Lesson notes (merkinn\u00e4t) teachers logged: absences, lateness, and feedback such as praise or missing books or homework, with the teacher's own words when given. One day (default today), the last N days, or a period with from/to, which can reach ahead (a teacher may note a make-up exam on a coming lesson).",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "student": {},
+            "date": {
+              "type": "string",
+              "description": "YYYY-MM-DD, default today."
+            },
+            "days": {
+              "type": "number",
+              "description": "The last N days up to today, instead of one date."
+            },
+            "from": {
+              "type": "string",
+              "description": "Start of a period, YYYY-MM-DD, instead of a date or days."
+            },
+            "to": {
+              "type": "string",
+              "description": "End of the period, YYYY-MM-DD (default today; may be after today)."
+            }
+          },
+          "required": [
+            "student"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "wilma_lesson_notes_summary",
+        "description": "Lesson notes counted by kind (e.g. absences for health reasons, unexplained absences, lateness, praise, missing study materials): this school year by default, or from a date.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "student": {},
+            "from": {
+              "type": "string",
+              "description": "YYYY-MM-DD. Default: the start of the school year."
+            },
+            "to": {
+              "type": "string",
+              "description": "YYYY-MM-DD. Default: today."
+            }
+          },
+          "required": [
+            "student"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "wilma_gradebook",
+        "description": "Get each child's gradebook (Suoritukset): completed courses and their grades, grouped by subject (subject > syllabus > course), with course codes, credits and completion dates, plus term and school-year (report card) grades. Use it for course and report-card grades; single exam grades are in wilma_grades.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "student": {}
+          },
+          "required": [
+            "student"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "wilma_contacts",
+        "description": "Each child's class (e.g. 9A), class teacher and other supervisors with their role as Wilma names it (e.g. Luokanvalvoja), and the child's own teachers as Wilma's message recipients list them, with the subjects each teaches the child in this and next week's timetable (empty when none). Other school staff aren't included. Lessons with times and rooms are in wilma_schedule.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "student": {}
+          },
+          "required": [
+            "student"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "wilma_list_printouts",
+        "description": "PDF documents the school offers (Tulosteet), such as report cards or absence reports. Fetch one with wilma_get_printout.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "student": {}
+          },
+          "required": [
+            "student"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "wilma_get_printout",
+        "description": "Fetch one printout PDF so you can read it. Set save=true to also save it to the user's Downloads folder.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "description": "Printout id from wilma_list_printouts."
+            },
+            "student": {
+              "description": "The student the printout was listed under."
+            }
+          },
+          "required": [
+            "id",
+            "student"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "wilma_list_messages",
+        "description": "Wilma messages, newest first (subject, sender, date, id, unread, replyCount). The appointments folder holds event invitations (parents' evenings, learning discussions) with the family's answer as Wilma lists it: invitationStatus (\"Applied\": signed up, the time in invitationInfo; \"ExpiredReg\": sign-up closed; null: no answer shown). Use wilma_read_message for the full text, and for an invitation's time slots.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "student": {},
+            "folder": {
+              "type": "string",
+              "description": "Default: inbox.",
+              "enum": [
+                "inbox",
+                "archive",
+                "outbox",
+                "drafts",
+                "appointments"
+              ]
+            },
+            "limit": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "student"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "wilma_read_message",
+        "description": "Full text of one Wilma message, including thread replies.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "number",
+              "description": "Message id from a list."
+            },
+            "student": {
+              "description": "The student the message was listed under (required when several Wilmas are connected)."
+            }
+          },
+          "required": [
+            "id",
+            "student"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "wilma_list_news",
+        "description": "School bulletins (tiedotteet): the newest dated ones, then pinned ones (pinned: true, e.g. the school-year bulletin), and with include_older also older bulletins (archived: true). Use wilma_read_news for the full text and attachments. unavailable: [\"news\"] means this Wilma doesn't show this account its bulletins, which isn't the same as having none.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "student": {},
+            "limit": {
+              "type": "number",
+              "description": "How many dated bulletins (default 20). Pinned ones are always included."
+            },
+            "include_older": {
+              "type": "boolean",
+              "description": "Also list older bulletins (titles only until read)."
+            }
+          },
+          "required": [
+            "student"
+          ]
+        },
+        "has_hidden_instructions": true,
+        "poisoning_risk": "critical",
+        "poisoning_detail": "Hidden instruction detected in tool description that could manipulate AI behavior. Matched pattern in tool 'wilma_list_news': 'always '"
+      },
+      {
+        "name": "wilma_read_news",
+        "description": "Full text of one bulletin plus its linked resources (attachments and links). Fetch a resource with wilma_get_news_attachment.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "number",
+              "description": "News id from a list."
+            },
+            "student": {
+              "description": "The student the bulletin was listed under (required when several Wilmas are connected)."
+            }
+          },
+          "required": [
+            "id",
+            "student"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "wilma_get_news_attachment",
+        "description": "Fetch a file linked from a bulletin (e.g. a PDF letter or menu) so you can read it. Returns the file content when it is a file, or 'not_a_file' with the URL when the link is a web page. Set save=true to also save it to the user's Downloads folder.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "news_id": {
+              "type": "number"
+            },
+            "resource_id": {
+              "type": "string",
+              "description": "Resource id from wilma_read_news, e.g. resource-1 (or just 1)."
+            },
+            "student": {}
+          },
+          "required": [
+            "news_id",
+            "resource_id",
+            "student"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "wilma_account",
+        "description": "Which Wilma logins are connected: each one's Wilma, username, role (\"guardian\", or \"student\" for a student's own login) and the children it lists. Families with children on different Wilmas connect one login per Wilma (wilma_login adds another). When two logins on one Wilma list the same child (a parent's and the child's own), tools read that child through the guardian's login, and the other login's entry for the child says readVia. A child unticked on the login page (a profile Wilma lists twice) has hidden: true and isn't read.",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "medium",
+        "poisoning_detail": "Tool description is 534 characters. Long descriptions can hide malicious instructions."
+      },
+      {
+        "name": "wilma_find_school",
+        "description": "Search Finland's Wilma addresses by city or by school or organisation name. Most city schools share their city's Wilma (big cities don't list each school), while many colleges, private schools and small municipalities' schools have their own. Use it to help the user pick their Wilma, e.g. when setting WILMA_TENANT; several can serve one city, so ask which is theirs.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "query": {
+              "type": "string",
+              "description": "City, municipality or school name, e.g. Tampere or Kalevan lukio."
+            }
+          },
+          "required": [
+            "query"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "wilma_login",
+        "description": "Open a login page in the user's browser to connect a Wilma account, or add another one (for a child at a school with a different Wilma). The password is entered on that page, never in the chat.",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "has_hidden_instructions": true,
+        "poisoning_risk": "critical",
+        "poisoning_detail": "Hidden instruction detected in tool description that could manipulate AI behavior. Matched pattern in tool 'wilma_login': 'never '"
+      },
+      {
+        "name": "wilma_logout",
+        "description": "End WilmAI's Wilma session, as Wilma's own Log out does. Wilma allows one session per account, so use this when the user wants to use Wilma in their browser or asks to log out. The login stays saved: the next Wilma tool call logs in again, and that ends the user's session in the browser, so don't call other Wilma tools afterwards unless the user asks.",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      }
+    ],
+    "resources": [],
+    "prompts": [],
+    "repo_url": null,
+    "npm_package": null,
+    "capabilities_claimed": [],
+    "capabilities_actual": []
+  },
+  "fingerprint": "09691d7579a72bfeab42b527f7409ef2282fdf5bc9f9b93209e05a5cc3f2e10d",
+  "surface_map": {
+    "server": {
+      "name": "<corpus>/registry/22_aikarjal__wilmai",
+      "instructions": "Does this need a response?",
+      "transport": "stdio",
+      "auth": "unknown",
+      "instructions_location": "apps\\home\\evals\\ai-budget.test.ts:10"
+    },
+    "tools": [
+      {
+        "name": "wilma_summary",
+        "description": "Daily briefing per child: today's and the next school day's lessons, upcoming exams (with start times when given), recent homework, lesson notes since the previous school day (teachers' feedback and absences), recent bulletins, and recent and unread messages (ids, unread, replyCount; event invitations with invitationStatus, as in wilma_list_messages). What Wilma didn't give is listed in unavailable (\"news\": this Wilma doesn't show this account its bulletins). The best starting point for any question about school.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "student": {},
+            "days": {
+              "type": "number",
+              "description": "How many days back to include news and messages (default 7)."
+            },
+            "since": {
+              "type": "string",
+              "description": "Only what is new from this day on (YYYY-MM-DD or 'yesterday'): bulletins, messages, homework, lesson notes. For daily runs."
+            }
+          },
+          "required": [
+            "student"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "packages\\wilma-cli\\src\\mcp-tools.ts:95"
+      },
+      {
+        "name": "wilma_schedule",
+        "description": "List each child's lessons for one day or a school week: today, the next school day, this or next week (Monday to Friday), a date, or the next given weekday; or any other week or period with from/to (e.g. a week further ahead, or several weeks to see the usual school days). Lessons come in time order with the date, start and end time, subject, teacher and room (when Wilma gives one); a day without school has no lessons. Exams and homework are in wilma_upcoming_exams and wilma_homework.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "student": {},
+            "when": {
+              "type": "string",
+              "description": "Default: week. 'tomorrow' means the next school day.",
+              "enum": [
+                "today",
+                "tomorrow",
+                "week",
+                "next-week"
+              ]
+            },
+            "date": {
+              "type": "string",
+              "description": "A specific date, YYYY-MM-DD. Overrides 'when'."
+            },
+            "weekday": {
+              "type": "string",
+              "description": "Next occurrence of a weekday: mon..sun (Finnish ma..su also work). Overrides 'when'."
+            },
+            "from": {
+              "type": "string",
+              "description": "Start of a period, YYYY-MM-DD. Overrides 'when'."
+            },
+            "to": {
+              "type": "string",
+              "description": "End of the period, YYYY-MM-DD (default: the Friday of from's week). At most {SCHEDULE_MAX_DAYS} days."
+            }
+          },
+          "required": [
+            "student"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "packages\\wilma-cli\\src\\mcp-tools.ts:114"
+      },
+      {
+        "name": "wilma_homework",
+        "description": "List the homework teachers have entered for each child, newest first: the date, subject, teacher and what to do. It reads the homework Wilma's front page lists (Wilma decides how far back that goes). wilma_summary already includes the last few days' homework.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "student": {},
+            "limit": {
+              "type": "number",
+              "description": "How many entries per child, newest first (default 10)."
+            }
+          },
+          "required": [
+            "student"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "packages\\wilma-cli\\src\\mcp-tools.ts:140"
+      },
+      {
+        "name": "wilma_upcoming_exams",
+        "description": "List each child's exams from today on that have no grade yet, soonest first: the date, start time (when the school gives one), exam name, subject, topic (what to study) and teacher. Graded exams are in wilma_grades.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "student": {},
+            "limit": {
+              "type": "number",
+              "description": "How many exams per child, soonest first (default 20)."
+            }
+          },
+          "required": [
+            "student"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "packages\\wilma-cli\\src\\mcp-tools.ts:155"
+      },
+      {
+        "name": "wilma_grades",
+        "description": "List each child's graded exams, newest first: the date, exam name, subject, grade as Wilma shows it (e.g. 8+, 9\u00bd, S), the teacher's notes and when a guardian marked it seen. It reads the exams Wilma's front page lists (Wilma decides how far back that goes); with from, Wilma's list of past exams for that period instead, as far back as the school keeps them, including exams still waiting for a grade (grade: null). For course, term and report-card grades use wilma_gradebook.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "student": {},
+            "limit": {
+              "type": "number",
+              "description": "How many grades per child, newest first (default 20; with from, every exam of the period)."
+            },
+            "from": {
+              "type": "string",
+              "description": "YYYY-MM-DD: past exams from this day on, e.g. 1 August for this school year."
+            },
+            "to": {
+              "type": "string",
+              "description": "YYYY-MM-DD, with from. Default: today."
+            }
+          },
+          "required": [
+            "student"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "packages\\wilma-cli\\src\\mcp-tools.ts:170"
+      },
+      {
+        "name": "wilma_lesson_notes",
+        "description": "Lesson notes (merkinn\u00e4t) teachers logged: absences, lateness, and feedback such as praise or missing books or homework, with the teacher's own words when given. One day (default today), the last N days, or a period with from/to, which can reach ahead (a teacher may note a make-up exam on a coming lesson).",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "student": {},
+            "date": {
+              "type": "string",
+              "description": "YYYY-MM-DD, default today."
+            },
+            "days": {
+              "type": "number",
+              "description": "The last N days up to today, instead of one date."
+            },
+            "from": {
+              "type": "string",
+              "description": "Start of a period, YYYY-MM-DD, instead of a date or days."
+            },
+            "to": {
+              "type": "string",
+              "description": "End of the period, YYYY-MM-DD (default today; may be after today)."
+            }
+          },
+          "required": [
+            "student"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "packages\\wilma-cli\\src\\mcp-tools.ts:193"
+      },
+      {
+        "name": "wilma_lesson_notes_summary",
+        "description": "Lesson notes counted by kind (e.g. absences for health reasons, unexplained absences, lateness, praise, missing study materials): this school year by default, or from a date.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "student": {},
+            "from": {
+              "type": "string",
+              "description": "YYYY-MM-DD. Default: the start of the school year."
+            },
+            "to": {
+              "type": "string",
+              "description": "YYYY-MM-DD. Default: today."
+            }
+          },
+          "required": [
+            "student"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "packages\\wilma-cli\\src\\mcp-tools.ts:211"
+      },
+      {
+        "name": "wilma_gradebook",
+        "description": "Get each child's gradebook (Suoritukset): completed courses and their grades, grouped by subject (subject > syllabus > course), with course codes, credits and completion dates, plus term and school-year (report card) grades. Use it for course and report-card grades; single exam grades are in wilma_grades.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "student": {}
+          },
+          "required": [
+            "student"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "packages\\wilma-cli\\src\\mcp-tools.ts:227"
+      },
+      {
+        "name": "wilma_contacts",
+        "description": "Each child's class (e.g. 9A), class teacher and other supervisors with their role as Wilma names it (e.g. Luokanvalvoja), and the child's own teachers as Wilma's message recipients list them, with the subjects each teaches the child in this and next week's timetable (empty when none). Other school staff aren't included. Lessons with times and rooms are in wilma_schedule.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "student": {}
+          },
+          "required": [
+            "student"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "packages\\wilma-cli\\src\\mcp-tools.ts:239"
+      },
+      {
+        "name": "wilma_list_printouts",
+        "description": "PDF documents the school offers (Tulosteet), such as report cards or absence reports. Fetch one with wilma_get_printout.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "student": {}
+          },
+          "required": [
+            "student"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "packages\\wilma-cli\\src\\mcp-tools.ts:251"
+      },
+      {
+        "name": "wilma_get_printout",
+        "description": "Fetch one printout PDF so you can read it. Set save=true to also save it to the user's Downloads folder.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "description": "Printout id from wilma_list_printouts."
+            },
+            "student": {
+              "description": "The student the printout was listed under."
+            }
+          },
+          "required": [
+            "id",
+            "student"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "packages\\wilma-cli\\src\\mcp-tools.ts:263"
+      },
+      {
+        "name": "wilma_list_messages",
+        "description": "Wilma messages, newest first (subject, sender, date, id, unread, replyCount). The appointments folder holds event invitations (parents' evenings, learning discussions) with the family's answer as Wilma lists it: invitationStatus (\"Applied\": signed up, the time in invitationInfo; \"ExpiredReg\": sign-up closed; null: no answer shown). Use wilma_read_message for the full text, and for an invitation's time slots.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "student": {},
+            "folder": {
+              "type": "string",
+              "description": "Default: inbox.",
+              "enum": [
+                "inbox",
+                "archive",
+                "outbox",
+                "drafts",
+                "appointments"
+              ]
+            },
+            "limit": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "student"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "packages\\wilma-cli\\src\\mcp-tools.ts:292"
+      },
+      {
+        "name": "wilma_read_message",
+        "description": "Full text of one Wilma message, including thread replies.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "number",
+              "description": "Message id from a list."
+            },
+            "student": {
+              "description": "The student the message was listed under (required when several Wilmas are connected)."
+            }
+          },
+          "required": [
+            "id",
+            "student"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "packages\\wilma-cli\\src\\mcp-tools.ts:308"
+      },
+      {
+        "name": "wilma_list_news",
+        "description": "School bulletins (tiedotteet): the newest dated ones, then pinned ones (pinned: true, e.g. the school-year bulletin), and with include_older also older bulletins (archived: true). Use wilma_read_news for the full text and attachments. unavailable: [\"news\"] means this Wilma doesn't show this account its bulletins, which isn't the same as having none.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "student": {},
+            "limit": {
+              "type": "number",
+              "description": "How many dated bulletins (default 20). Pinned ones are always included."
+            },
+            "include_older": {
+              "type": "boolean",
+              "description": "Also list older bulletins (titles only until read)."
+            }
+          },
+          "required": [
+            "student"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "packages\\wilma-cli\\src\\mcp-tools.ts:322"
+      },
+      {
+        "name": "wilma_read_news",
+        "description": "Full text of one bulletin plus its linked resources (attachments and links). Fetch a resource with wilma_get_news_attachment.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "number",
+              "description": "News id from a list."
+            },
+            "student": {
+              "description": "The student the bulletin was listed under (required when several Wilmas are connected)."
+            }
+          },
+          "required": [
+            "id",
+            "student"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "packages\\wilma-cli\\src\\mcp-tools.ts:339"
+      },
+      {
+        "name": "wilma_get_news_attachment",
+        "description": "Fetch a file linked from a bulletin (e.g. a PDF letter or menu) so you can read it. Returns the file content when it is a file, or 'not_a_file' with the URL when the link is a web page. Set save=true to also save it to the user's Downloads folder.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "news_id": {
+              "type": "number"
+            },
+            "resource_id": {
+              "type": "string",
+              "description": "Resource id from wilma_read_news, e.g. resource-1 (or just 1)."
+            },
+            "student": {}
+          },
+          "required": [
+            "news_id",
+            "resource_id",
+            "student"
+          ]
+        },
+        "capabilities": [
+          "fs.read"
+        ],
+        "return_literals": [],
+        "registration": "static",
+        "location": "packages\\wilma-cli\\src\\mcp-tools.ts:354"
+      },
+      {
+        "name": "wilma_account",
+        "description": "Which Wilma logins are connected: each one's Wilma, username, role (\"guardian\", or \"student\" for a student's own login) and the children it lists. Families with children on different Wilmas connect one login per Wilma (wilma_login adds another). When two logins on one Wilma list the same child (a parent's and the child's own), tools read that child through the guardian's login, and the other login's entry for the child says readVia. A child unticked on the login page (a profile Wilma lists twice) has hidden: true and isn't read.",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "capabilities": [],
+        "return_literals": [
+          "Call wilma_login to connect."
+        ],
+        "registration": "static",
+        "location": "packages\\wilma-cli\\src\\mcp.ts:134"
+      },
+      {
+        "name": "wilma_find_school",
+        "description": "Search Finland's Wilma addresses by city or by school or organisation name. Most city schools share their city's Wilma (big cities don't list each school), while many colleges, private schools and small municipalities' schools have their own. Use it to help the user pick their Wilma, e.g. when setting WILMA_TENANT; several can serve one city, so ask which is theirs.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "query": {
+              "type": "string",
+              "description": "City, municipality or school name, e.g. Tampere or Kalevan lukio."
+            }
+          },
+          "required": [
+            "query"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [
+          "No Wilma found for \"{query}\". Many schools use their city's Wilma: try the city or municipality the school is in."
+        ],
+        "registration": "static",
+        "location": "packages\\wilma-cli\\src\\mcp.ts:151"
+      },
+      {
+        "name": "wilma_login",
+        "description": "Open a login page in the user's browser to connect a Wilma account, or add another one (for a child at a school with a different Wilma). The password is entered on that page, never in the chat.",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "packages\\wilma-cli\\src\\mcp.ts:169"
+      },
+      {
+        "name": "wilma_logout",
+        "description": "End WilmAI's Wilma session, as Wilma's own Log out does. Wilma allows one session per account, so use this when the user wants to use Wilma in their browser or asks to log out. The login stays saved: the next Wilma tool call logs in again, and that ends the user's session in the browser, so don't call other Wilma tools afterwards unless the user asks.",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "capabilities": [],
+        "return_literals": [
+          "Couldn't log out of Wilma; an open session was kept, so this can be tried again.",
+          "\n"
+        ],
+        "registration": "static",
+        "location": "packages\\wilma-cli\\src\\mcp.ts:181"
+      }
+    ],
+    "resources": [],
+    "prompts": [],
+    "mutations": [],
+    "source": {
+      "kind": "static",
+      "target": "<corpus>/registry/22_aikarjal__wilmai",
+      "languages": [
+        "typescript"
+      ]
+    },
+    "generated_at": "2026-11-04T02:42:43+00:00",
+    "fingerprint": "09691d7579a72bfeab42b527f7409ef2282fdf5bc9f9b93209e05a5cc3f2e10d",
+    "schema": "axiom.surface/1"
+  },
+  "owasp_coverage": {
+    "framework": "OWASP Top 10 for Agentic Applications 2026",
+    "reference": "https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/",
+    "coverage": {
+      "ASI01": {
+        "name": "Agent Goal Hijack",
+        "coverage_level": "strong",
+        "findings_count": 14,
+        "finding_ids": [
+          "poison_wilma_summary_long_desc",
+          "poison_wilma_schedule_instruction_injection",
+          "poison_wilma_list_news_instruction_injection",
+          "poison_wilma_account_long_desc",
+          "poison_wilma_login_instruction_injection",
+          "code_0017",
+          "code_0018",
+          "code_0019",
+          "code_0033",
+          "code_0034"
+        ],
+        "detectors": [
+          "tool_poisoning",
+          "prompt_injection",
+          "instruction_injection"
+        ]
+      },
+      "ASI02": {
+        "name": "Tool Misuse & Exploitation",
+        "coverage_level": "strong",
+        "findings_count": 20,
+        "finding_ids": [
+          "cross_tool_wilma_summary_wilma_list_messages",
+          "cross_tool_wilma_schedule_wilma_upcoming_exams",
+          "cross_tool_wilma_schedule_wilma_homework",
+          "cross_tool_wilma_homework_wilma_summary",
+          "cross_tool_wilma_upcoming_exams_wilma_grades",
+          "cross_tool_wilma_grades_wilma_gradebook",
+          "cross_tool_wilma_gradebook_wilma_grades",
+          "cross_tool_wilma_contacts_wilma_schedule",
+          "cross_tool_wilma_list_printouts_wilma_get_printout",
+          "cross_tool_wilma_list_messages_wilma_read_message"
+        ],
+        "detectors": [
+          "toxic_tool_combo",
+          "tool_overscope",
+          "tool_chaining_detection"
+        ]
+      },
+      "ASI03": {
+        "name": "Identity & Privilege Abuse",
+        "coverage_level": "strong",
+        "findings_count": 14,
+        "finding_ids": [
+          "code_0020",
+          "code_0032",
+          "code_0035",
+          "code_0037",
+          "code_0039",
+          "code_0041",
+          "code_0075",
+          "code_0076",
+          "code_0077",
+          "code_0078"
+        ],
+        "detectors": [
+          "credential_analysis",
+          "shared_credential_detection",
+          "env_var_audit"
+        ]
+      },
+      "ASI04": {
+        "name": "Agentic Supply Chain Vulnerabilities",
+        "coverage_level": "strong",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "dependency_cve",
+          "lifecycle_hooks",
+          "npx_unversioned",
+          "known_mcp_cves"
+        ]
+      },
+      "ASI05": {
+        "name": "Unexpected Code Execution",
+        "coverage_level": "strong",
+        "findings_count": 95,
+        "finding_ids": [
+          "code_0001",
+          "code_0002",
+          "code_0003",
+          "code_0004",
+          "code_0005",
+          "code_0006",
+          "code_0007",
+          "code_0008",
+          "code_0009",
+          "code_0010"
+        ],
+        "detectors": [
+          "code_exec_patterns",
+          "code_generation_detection",
+          "sandbox_escape"
+        ]
+      },
+      "ASI06": {
+        "name": "Memory & Context Poisoning",
+        "coverage_level": "partial",
+        "findings_count": 11,
+        "finding_ids": [
+          "memory_0001",
+          "memory_0002",
+          "memory_0003",
+          "memory_0004",
+          "memory_0005",
+          "memory_0006",
+          "memory_0007",
+          "memory_0008",
+          "memory_0009",
+          "memory_0010"
+        ],
+        "detectors": [
+          "memory_poisoning_patterns",
+          "context_manipulation_detection"
+        ],
+        "gap_note": "Axiom detects static patterns. Full coverage requires runtime memory monitoring."
+      },
+      "ASI07": {
+        "name": "Insecure Inter-Agent Communication",
+        "coverage_level": "partial",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "transport_security",
+          "a2a_pattern_detection"
+        ],
+        "gap_note": "Axiom checks transport security. Full A2A protocol analysis requires runtime interception."
+      },
+      "ASI08": {
+        "name": "Cascading Failures",
+        "coverage_level": "partial",
+        "findings_count": 14,
+        "finding_ids": [
+          "cross_tool_wilma_summary_wilma_list_messages",
+          "cross_tool_wilma_schedule_wilma_upcoming_exams",
+          "cross_tool_wilma_schedule_wilma_homework",
+          "cross_tool_wilma_homework_wilma_summary",
+          "cross_tool_wilma_upcoming_exams_wilma_grades",
+          "cross_tool_wilma_grades_wilma_gradebook",
+          "cross_tool_wilma_gradebook_wilma_grades",
+          "cross_tool_wilma_contacts_wilma_schedule",
+          "cross_tool_wilma_list_printouts_wilma_get_printout",
+          "cross_tool_wilma_list_messages_wilma_read_message"
+        ],
+        "detectors": [
+          "blast_radius_estimation",
+          "dependency_chain_analysis"
+        ],
+        "gap_note": "Axiom estimates blast radius from tool capabilities. Full cascading failure analysis requires runtime topology mapping."
+      },
+      "ASI09": {
+        "name": "Human-Agent Trust Exploitation",
+        "coverage_level": "strong",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "claimed_vs_actual",
+          "deceptive_output_detection",
+          "trust_manipulation_patterns"
+        ]
+      },
+      "ASI10": {
+        "name": "Rogue Agents",
+        "coverage_level": "partial",
+        "findings_count": 8,
+        "finding_ids": [
+          "code_0017",
+          "code_0018",
+          "code_0033",
+          "code_0034",
+          "code_0068",
+          "code_0071",
+          "rogue_0001",
+          "rogue_0002"
+        ],
+        "detectors": [
+          "sleeper_patterns",
+          "behavioral_drift_indicators",
+          "persistence_detection"
+        ],
+        "gap_note": "Axiom detects static rogue indicators. Full rogue agent detection requires runtime behavioral monitoring."
+      }
+    },
+    "total_asi_categories_with_findings": 7
+  },
+  "owasp_mcp_coverage": {
+    "framework": "OWASP MCP Top 10",
+    "framework_version": "v0.1 beta",
+    "reference": "https://owasp.org/www-project-mcp-top-10/",
+    "coverage": {
+      "MCP01": {
+        "id": "MCP01:2025",
+        "name": "Token Mismanagement & Secret Exposure",
+        "coverage_level": "partial",
+        "reason": "Regex-based secret detection in server source and client configs plus env-var exposure checks; no entropy analysis, git-history scan, or token lifetime/passthrough checks.",
+        "findings_count": 25,
+        "finding_ids": [
+          "cross_tool_wilma_summary_wilma_list_messages",
+          "cross_tool_wilma_schedule_wilma_upcoming_exams",
+          "cross_tool_wilma_schedule_wilma_homework",
+          "cross_tool_wilma_homework_wilma_summary",
+          "cross_tool_wilma_upcoming_exams_wilma_grades",
+          "cross_tool_wilma_grades_wilma_gradebook",
+          "cross_tool_wilma_gradebook_wilma_grades",
+          "cross_tool_wilma_contacts_wilma_schedule",
+          "cross_tool_wilma_list_printouts_wilma_get_printout",
+          "cross_tool_wilma_list_messages_wilma_read_message"
+        ],
+        "detectors": [
+          "credential_theft",
+          "cross_server",
+          "mcp01_hardcoded_secrets",
+          "config_hardcoded_secret",
+          "env_var_audit",
+          "env_dump"
+        ]
+      },
+      "MCP02": {
+        "id": "MCP02:2025",
+        "name": "Privilege Escalation via Scope Creep",
+        "coverage_level": "strong",
+        "reason": "Permission over-scope patterns, toxic tool-capability combinations, path-escape checks and env-var over-exposure in configs.",
+        "findings_count": 52,
+        "finding_ids": [
+          "cross_tool_wilma_summary_wilma_list_messages",
+          "cross_tool_wilma_schedule_wilma_upcoming_exams",
+          "cross_tool_wilma_schedule_wilma_homework",
+          "cross_tool_wilma_homework_wilma_summary",
+          "cross_tool_wilma_upcoming_exams_wilma_grades",
+          "cross_tool_wilma_grades_wilma_gradebook",
+          "cross_tool_wilma_gradebook_wilma_grades",
+          "cross_tool_wilma_contacts_wilma_schedule",
+          "cross_tool_wilma_list_printouts_wilma_get_printout",
+          "cross_tool_wilma_list_messages_wilma_read_message"
+        ],
+        "detectors": [
+          "permission_overscope",
+          "toxic_tool_combo",
+          "identity_privilege",
+          "sandbox_escape",
+          "config_risk",
+          "cascading_failure",
+          "cross_server",
+          "excessive_scope",
+          "confused_deputy",
+          "file_read",
+          "file_write"
+        ]
+      },
+      "MCP03": {
+        "id": "MCP03:2025",
+        "name": "Tool Poisoning",
+        "coverage_level": "strong",
+        "reason": "Dedicated detector for hidden instructions in tool metadata, plus runtime rug-pull diffing between source and live tool definitions.",
+        "findings_count": 13,
+        "finding_ids": [
+          "poison_wilma_summary_long_desc",
+          "poison_wilma_schedule_instruction_injection",
+          "poison_wilma_list_news_instruction_injection",
+          "poison_wilma_account_long_desc",
+          "poison_wilma_login_instruction_injection",
+          "code_0017",
+          "code_0018",
+          "code_0033",
+          "code_0034",
+          "code_0068"
+        ],
+        "detectors": [
+          "tool_poisoning",
+          "obfuscation",
+          "rogue_agent",
+          "source_vs_runtime_diff",
+          "tool_shadowing",
+          "hidden_unicode",
+          "rug_pull_primitive",
+          "surface_mismatch"
+        ]
+      },
+      "MCP04": {
+        "id": "MCP04:2025",
+        "name": "Software Supply Chain Attacks & Dependency Tampering",
+        "coverage_level": "strong",
+        "reason": "Dependency CVE lookup, known MCP CVEs, install lifecycle hooks, and unpinned npx/uvx/pip/@latest install sources.",
+        "findings_count": 6,
+        "finding_ids": [
+          "code_0017",
+          "code_0018",
+          "code_0033",
+          "code_0034",
+          "code_0068",
+          "code_0071"
+        ],
+        "detectors": [
+          "dependency_vuln",
+          "supply_chain",
+          "known_cve",
+          "obfuscation",
+          "lifecycle_hooks",
+          "mcp04_unpinned_install",
+          "homoglyph",
+          "rug_pull_primitive",
+          "surface_mismatch"
+        ]
+      },
+      "MCP05": {
+        "id": "MCP05:2025",
+        "name": "Command Injection & Execution",
+        "coverage_level": "partial",
+        "reason": "Regex, AST and Semgrep find exec/shell sinks and a heuristic flags sinks inside tool handlers, but there is no inter-procedural taint tracking from tool input to sink.",
+        "findings_count": 95,
+        "finding_ids": [
+          "code_0001",
+          "code_0002",
+          "code_0003",
+          "code_0004",
+          "code_0005",
+          "code_0006",
+          "code_0007",
+          "code_0008",
+          "code_0009",
+          "code_0010"
+        ],
+        "detectors": [
+          "command_injection",
+          "code_execution",
+          "code_generation",
+          "sandbox_escape",
+          "mcp05_tool_input_sink",
+          "shell_exec"
+        ]
+      },
+      "MCP06": {
+        "id": "MCP06:2025",
+        "name": "Prompt Injection via Contextual Payloads",
+        "coverage_level": "partial",
+        "reason": "Injection markers are detected in tool metadata, server instructions, resources, prompts and the strings a tool returns (static), and in instructions/resources/prompts read live; payloads produced by calling a tool at runtime are not inspected.",
+        "findings_count": 11,
+        "finding_ids": [
+          "memory_0001",
+          "memory_0002",
+          "memory_0003",
+          "memory_0004",
+          "memory_0005",
+          "memory_0006",
+          "memory_0007",
+          "memory_0008",
+          "memory_0009",
+          "memory_0010"
+        ],
+        "detectors": [
+          "prompt_injection",
+          "memory_poisoning",
+          "trust_exploitation",
+          "response_injection",
+          "tool_shadowing"
+        ]
+      },
+      "MCP07": {
+        "id": "MCP07:2025",
+        "name": "Insufficient Authentication & Authorization",
+        "coverage_level": "partial",
+        "reason": "Flags remote servers with no visible auth and servers bound to all interfaces; does not verify OAuth implementation or per-tool authorization logic.",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "transport_security",
+          "inter_agent_comm",
+          "identity_privilege",
+          "transport_no_auth",
+          "config_no_auth",
+          "mcp07_bind_all_interfaces"
+        ]
+      },
+      "MCP08": {
+        "id": "MCP08:2025",
+        "name": "Lack of Audit and Telemetry",
+        "coverage_level": "gap",
+        "reason": "Only a low-confidence heuristic for missing logging in tool-defining files; actual audit trails and telemetry pipelines are not verified.",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "audit_telemetry",
+          "mcp08_no_tool_logging"
+        ]
+      },
+      "MCP09": {
+        "id": "MCP09:2025",
+        "name": "Shadow MCP Servers",
+        "coverage_level": "partial",
+        "reason": "Covered by `axiom discover` allowlist on the local machine; no network-wide or fleet discovery.",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "mcpguard_discover",
+          "shadow_mcp"
+        ]
+      },
+      "MCP10": {
+        "id": "MCP10:2025",
+        "name": "Context Injection & Over-Sharing",
+        "coverage_level": "partial",
+        "reason": "Hard-coded egress URLs, tools that send to caller-chosen destinations and bulk-exposure heuristics are detected statically and live; what context is actually shared at runtime is not observed.",
+        "findings_count": 12,
+        "finding_ids": [
+          "code_0019",
+          "code_0082",
+          "memory_0001",
+          "memory_0002",
+          "memory_0003",
+          "memory_0004",
+          "memory_0005",
+          "memory_0006",
+          "memory_0007",
+          "memory_0008"
+        ],
+        "detectors": [
+          "context_oversharing",
+          "data_exfiltration",
+          "memory_poisoning",
+          "mcp10_broad_data_exposure"
+        ]
+      }
+    },
+    "total_mcp_categories_with_findings": 7
+  },
+  "ai_analysis": null,
+  "tool_poisoning_report": null,
+  "prompt_injection_risk": null
+}

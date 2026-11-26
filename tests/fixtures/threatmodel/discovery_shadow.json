@@ -1,0 +1,21 @@
+{
+  "discovery_version": 1,
+  "generated_at": "2026-10-01T00:00:00+00:00",
+  "platform": "linux",
+  "config_files_scanned": ["/home/user/.config/Claude/claude_desktop_config.json", "/home/user/.cursor/mcp.json"],
+  "config_errors": [],
+  "servers": [
+    {"client": "Claude Desktop", "config_path": "/home/user/.config/Claude/claude_desktop_config.json", "server_name": "github", "scope": "user", "transport": "stdio", "command": "npx", "args": ["-y", "@modelcontextprotocol/server-github@2025.4.8"], "env_var_names": ["GITHUB_PERSONAL_ACCESS_TOKEN"], "header_names": [], "install_source": "npm", "package": "@modelcontextprotocol/server-github", "version_pin": "2025.4.8", "classification": "approved", "allowlist_match": "github", "disabled": false},
+    {"client": "Cursor", "config_path": "/home/user/.cursor/mcp.json", "server_name": "gh-helper", "scope": "user", "transport": "stdio", "command": "npx", "args": ["-y", "mcp-gh-helper"], "env_var_names": ["GITHUB_PERSONAL_ACCESS_TOKEN", "NODE_ENV"], "header_names": [], "install_source": "npm", "package": "mcp-gh-helper", "version_pin": null, "classification": "unapproved", "allowlist_match": null, "disabled": false},
+    {"client": "Cursor", "config_path": "/home/user/.cursor/mcp.json", "server_name": "search-remote", "scope": "user", "transport": "remote", "remote_type": "sse", "url": "https://mcp.search.example.com/sse", "env_var_names": [], "header_names": [], "install_source": "remote_url", "classification": "approved", "allowlist_match": "search-remote", "disabled": false},
+    {"client": "Cursor", "config_path": "/home/user/.cursor/mcp.json", "server_name": "legacy-api", "scope": "user", "transport": "remote", "remote_type": "http", "url": "http://legacy.example.net/mcp", "env_var_names": [], "header_names": ["Authorization"], "install_source": "remote_url", "classification": "approved", "allowlist_match": "legacy-api", "disabled": false}
+  ],
+  "processes": [],
+  "findings": [
+    {"id": "discover_unapproved_cursor_gh_helper_0", "severity": "high", "category": "supply_chain", "title": "Unapproved MCP server 'gh-helper' configured in Cursor", "description": "The Cursor configuration launches MCP server 'gh-helper' (npm package 'mcp-gh-helper'), which does not match any entry in the approved server allowlist.", "file_path": "/home/user/.cursor/mcp.json", "line_number": null, "recommendation": "Review or remove.", "cve_id": null, "mitre_ref": null, "owasp_asi": ["ASI04"], "owasp_mcp": ["MCP09"]}
+  ],
+  "allowlist": "inline",
+  "summary": {"total": 4, "config_files": 2, "approved": 3, "unapproved": 1, "unknown_version": 0, "unchecked": 0, "processes": 0, "findings": 1},
+  "static_scans": [],
+  "notes": []
+}

@@ -1,0 +1,2925 @@
+{
+  "schema_version": "0.5",
+  "target": "10_serpapi__serpapi-mcp",
+  "risk_score": 37.0,
+  "risk_level": "medium",
+  "tools_found": 4,
+  "findings_count": 118,
+  "findings": [
+    {
+      "id": "poison_search_long_desc",
+      "severity": "medium",
+      "category": "tool_poisoning",
+      "title": "Unusually long tool description for 'search'",
+      "description": "Tool description is 2880 characters. Long descriptions can hide malicious instructions.",
+      "owasp_asi": [
+        "ASI01"
+      ],
+      "owasp_mcp": [
+        "MCP03"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Review the full tool description for hidden instructions.",
+      "rule_id": "long_description",
+      "evidence": "Unusually long tool description for 'search'",
+      "location": "static:<corpus>/registry2/10_serpapi__serpapi-mcp:search",
+      "replay": "axiom scan <corpus>/registry2/10_serpapi__serpapi-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"poison_search_long_desc\")'"
+    },
+    {
+      "id": "poison_extract_long_desc",
+      "severity": "medium",
+      "category": "tool_poisoning",
+      "title": "Unusually long tool description for 'extract'",
+      "description": "Tool description is 1327 characters. Long descriptions can hide malicious instructions.",
+      "owasp_asi": [
+        "ASI01"
+      ],
+      "owasp_mcp": [
+        "MCP03"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Review the full tool description for hidden instructions.",
+      "rule_id": "long_description",
+      "evidence": "Unusually long tool description for 'extract'",
+      "location": "static:<corpus>/registry2/10_serpapi__serpapi-mcp:extract",
+      "replay": "axiom scan <corpus>/registry2/10_serpapi__serpapi-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"poison_extract_long_desc\")'"
+    },
+    {
+      "id": "cross_tool_search_table_search",
+      "severity": "medium",
+      "category": "cross_server",
+      "title": "Tool 'search_table' references tool 'search'",
+      "description": "Tool description mentions another tool by name, which could enable tool chaining attacks.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP01",
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Verify this cross-reference is legitimate and necessary.",
+      "rule_id": "cross_tool_reference",
+      "evidence": "Tool 'search_table' references tool 'search'",
+      "location": "static:<corpus>/registry2/10_serpapi__serpapi-mcp:search_table_search",
+      "replay": "axiom scan <corpus>/registry2/10_serpapi__serpapi-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"cross_tool_search_table_search\")'"
+    },
+    {
+      "id": "cross_tool_search_dashboard_search",
+      "severity": "medium",
+      "category": "cross_server",
+      "title": "Tool 'search_dashboard' references tool 'search'",
+      "description": "Tool description mentions another tool by name, which could enable tool chaining attacks.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP01",
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Verify this cross-reference is legitimate and necessary.",
+      "rule_id": "cross_tool_reference",
+      "evidence": "Tool 'search_dashboard' references tool 'search'",
+      "location": "static:<corpus>/registry2/10_serpapi__serpapi-mcp:search_dashboard_search",
+      "replay": "axiom scan <corpus>/registry2/10_serpapi__serpapi-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"cross_tool_search_dashboard_search\")'"
+    },
+    {
+      "id": "ast_0001",
+      "severity": "info",
+      "category": "credential_theft",
+      "title": "Environment variable access via os.getenv()",
+      "description": "Call to `os.getenv()` reads an environment variable (capability note) in src\\server.py at line 169",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP01"
+      ],
+      "file_path": "src\\server.py",
+      "line_number": 169,
+      "recommendation": "Document which env vars are needed. Avoid reading arbitrary env vars.",
+      "rule_id": "code_pattern_ast",
+      "evidence": "os.getenv()",
+      "location": "src\\server.py:169",
+      "replay": "axiom scan <corpus>/registry2/10_serpapi__serpapi-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"ast_0001\")'"
+    },
+    {
+      "id": "ast_0002",
+      "severity": "info",
+      "category": "credential_theft",
+      "title": "Environment variable access via os.getenv()",
+      "description": "Call to `os.getenv()` reads an environment variable (capability note) in src\\server.py at line 170",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP01"
+      ],
+      "file_path": "src\\server.py",
+      "line_number": 170,
+      "recommendation": "Document which env vars are needed. Avoid reading arbitrary env vars.",
+      "rule_id": "code_pattern_ast",
+      "evidence": "os.getenv()",
+      "location": "src\\server.py:170",
+      "replay": "axiom scan <corpus>/registry2/10_serpapi__serpapi-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"ast_0002\")'"
+    },
+    {
+      "id": "ast_0001",
+      "severity": "info",
+      "category": "credential_theft",
+      "title": "Environment variable access via os.getenv()",
+      "description": "Call to `os.getenv()` reads an environment variable (capability note) in src\\mcp_components\\tools.py at line 327",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP01"
+      ],
+      "file_path": "src\\mcp_components\\tools.py",
+      "line_number": 327,
+      "recommendation": "Document which env vars are needed. Avoid reading arbitrary env vars.",
+      "rule_id": "code_pattern_ast",
+      "evidence": "os.getenv()",
+      "location": "src\\mcp_components\\tools.py:327",
+      "replay": "axiom scan <corpus>/registry2/10_serpapi__serpapi-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"ast_0001\")'"
+    },
+    {
+      "id": "GHSA-5p39-cfhj-2xmp",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency anyio@4.11.0: GHSA-5p39-cfhj-2xmp",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update anyio to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-5p39-cfhj-2xmp",
+      "location": "static:<corpus>/registry2/10_serpapi__serpapi-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/10_serpapi__serpapi-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-5p39-cfhj-2xmp\")'"
+    },
+    {
+      "id": "GHSA-82r6-8w77-94w6",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency anyio@4.11.0: GHSA-82r6-8w77-94w6",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update anyio to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-82r6-8w77-94w6",
+      "location": "static:<corpus>/registry2/10_serpapi__serpapi-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/10_serpapi__serpapi-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-82r6-8w77-94w6\")'"
+    },
+    {
+      "id": "PYSEC-2026-4024",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency anyio@4.11.0: PYSEC-2026-4024",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update anyio to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "PYSEC-2026-4024",
+      "location": "static:<corpus>/registry2/10_serpapi__serpapi-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/10_serpapi__serpapi-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"PYSEC-2026-4024\")'"
+    },
+    {
+      "id": "PYSEC-2026-4025",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency anyio@4.11.0: PYSEC-2026-4025",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update anyio to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "PYSEC-2026-4025",
+      "location": "static:<corpus>/registry2/10_serpapi__serpapi-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/10_serpapi__serpapi-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"PYSEC-2026-4025\")'"
+    },
+    {
+      "id": "GHSA-6v38-4h7w-rj9h",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency authlib@1.7.2: GHSA-6v38-4h7w-rj9h",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update authlib to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-6v38-4h7w-rj9h",
+      "location": "static:<corpus>/registry2/10_serpapi__serpapi-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/10_serpapi__serpapi-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-6v38-4h7w-rj9h\")'"
+    },
+    {
+      "id": "GHSA-7vr2-2fgp-9w7p",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency authlib@1.7.2: GHSA-7vr2-2fgp-9w7p",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update authlib to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-7vr2-2fgp-9w7p",
+      "location": "static:<corpus>/registry2/10_serpapi__serpapi-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/10_serpapi__serpapi-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-7vr2-2fgp-9w7p\")'"
+    },
+    {
+      "id": "GHSA-8m4g-j4wp-wgcg",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency authlib@1.7.2: GHSA-8m4g-j4wp-wgcg",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update authlib to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-8m4g-j4wp-wgcg",
+      "location": "static:<corpus>/registry2/10_serpapi__serpapi-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/10_serpapi__serpapi-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-8m4g-j4wp-wgcg\")'"
+    },
+    {
+      "id": "GHSA-c5mf-xmp2-59rc",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency authlib@1.7.2: GHSA-c5mf-xmp2-59rc",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update authlib to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-c5mf-xmp2-59rc",
+      "location": "static:<corpus>/registry2/10_serpapi__serpapi-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/10_serpapi__serpapi-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-c5mf-xmp2-59rc\")'"
+    },
+    {
+      "id": "GHSA-c73q-w75p-j82v",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency authlib@1.7.2: GHSA-c73q-w75p-j82v",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update authlib to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-c73q-w75p-j82v",
+      "location": "static:<corpus>/registry2/10_serpapi__serpapi-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/10_serpapi__serpapi-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-c73q-w75p-j82v\")'"
+    },
+    {
+      "id": "GHSA-fch4-3c6x-j4gc",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency authlib@1.7.2: GHSA-fch4-3c6x-j4gc",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update authlib to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-fch4-3c6x-j4gc",
+      "location": "static:<corpus>/registry2/10_serpapi__serpapi-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/10_serpapi__serpapi-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-fch4-3c6x-j4gc\")'"
+    },
+    {
+      "id": "GHSA-jj7h-c3hg-m23x",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency authlib@1.7.2: GHSA-jj7h-c3hg-m23x",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update authlib to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-jj7h-c3hg-m23x",
+      "location": "static:<corpus>/registry2/10_serpapi__serpapi-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/10_serpapi__serpapi-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-jj7h-c3hg-m23x\")'"
+    },
+    {
+      "id": "GHSA-q686-2qmg-hqc7",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency authlib@1.7.2: GHSA-q686-2qmg-hqc7",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update authlib to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-q686-2qmg-hqc7",
+      "location": "static:<corpus>/registry2/10_serpapi__serpapi-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/10_serpapi__serpapi-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-q686-2qmg-hqc7\")'"
+    },
+    {
+      "id": "GHSA-x4rv-c3wx-4cr8",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency authlib@1.7.2: GHSA-x4rv-c3wx-4cr8",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update authlib to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-x4rv-c3wx-4cr8",
+      "location": "static:<corpus>/registry2/10_serpapi__serpapi-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/10_serpapi__serpapi-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-x4rv-c3wx-4cr8\")'"
+    },
+    {
+      "id": "PYSEC-2026-4354",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency authlib@1.7.2: PYSEC-2026-4354",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update authlib to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "PYSEC-2026-4354",
+      "location": "static:<corpus>/registry2/10_serpapi__serpapi-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/10_serpapi__serpapi-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"PYSEC-2026-4354\")'"
+    },
+    {
+      "id": "PYSEC-2026-4355",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency authlib@1.7.2: PYSEC-2026-4355",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update authlib to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "PYSEC-2026-4355",
+      "location": "static:<corpus>/registry2/10_serpapi__serpapi-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/10_serpapi__serpapi-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"PYSEC-2026-4355\")'"
+    },
+    {
+      "id": "PYSEC-2026-4356",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency authlib@1.7.2: PYSEC-2026-4356",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update authlib to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "PYSEC-2026-4356",
+      "location": "static:<corpus>/registry2/10_serpapi__serpapi-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/10_serpapi__serpapi-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"PYSEC-2026-4356\")'"
+    },
+    {
+      "id": "PYSEC-2026-4357",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency authlib@1.7.2: PYSEC-2026-4357",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update authlib to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "PYSEC-2026-4357",
+      "location": "static:<corpus>/registry2/10_serpapi__serpapi-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/10_serpapi__serpapi-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"PYSEC-2026-4357\")'"
+    },
+    {
+      "id": "PYSEC-2026-4358",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency authlib@1.7.2: PYSEC-2026-4358",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update authlib to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "PYSEC-2026-4358",
+      "location": "static:<corpus>/registry2/10_serpapi__serpapi-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/10_serpapi__serpapi-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"PYSEC-2026-4358\")'"
+    },
+    {
+      "id": "PYSEC-2026-4359",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency authlib@1.7.2: PYSEC-2026-4359",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update authlib to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "PYSEC-2026-4359",
+      "location": "static:<corpus>/registry2/10_serpapi__serpapi-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/10_serpapi__serpapi-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"PYSEC-2026-4359\")'"
+    },
+    {
+      "id": "PYSEC-2026-4360",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency authlib@1.7.2: PYSEC-2026-4360",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update authlib to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "PYSEC-2026-4360",
+      "location": "static:<corpus>/registry2/10_serpapi__serpapi-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/10_serpapi__serpapi-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"PYSEC-2026-4360\")'"
+    },
+    {
+      "id": "GHSA-3936-cmfr-pm3m",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency black@25.11.0: GHSA-3936-cmfr-pm3m",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update black to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-3936-cmfr-pm3m",
+      "location": "static:<corpus>/registry2/10_serpapi__serpapi-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/10_serpapi__serpapi-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-3936-cmfr-pm3m\")'"
+    },
+    {
+      "id": "GHSA-cg8m-r9f2-5wm2",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency black@25.11.0: GHSA-cg8m-r9f2-5wm2",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update black to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-cg8m-r9f2-5wm2",
+      "location": "static:<corpus>/registry2/10_serpapi__serpapi-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/10_serpapi__serpapi-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-cg8m-r9f2-5wm2\")'"
+    },
+    {
+      "id": "PYSEC-2026-2120",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency black@25.11.0: PYSEC-2026-2120",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update black to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "PYSEC-2026-2120",
+      "location": "static:<corpus>/registry2/10_serpapi__serpapi-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/10_serpapi__serpapi-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"PYSEC-2026-2120\")'"
+    },
+    {
+      "id": "PYSEC-2026-2121",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency black@25.11.0: PYSEC-2026-2121",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update black to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "PYSEC-2026-2121",
+      "location": "static:<corpus>/registry2/10_serpapi__serpapi-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/10_serpapi__serpapi-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"PYSEC-2026-2121\")'"
+    },
+    {
+      "id": "GHSA-6q48-6c7w-9gw2",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency certifi@2025.11.12: GHSA-6q48-6c7w-9gw2",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update certifi to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-6q48-6c7w-9gw2",
+      "location": "static:<corpus>/registry2/10_serpapi__serpapi-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/10_serpapi__serpapi-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-6q48-6c7w-9gw2\")'"
+    },
+    {
+      "id": "PYSEC-2026-4320",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency certifi@2025.11.12: PYSEC-2026-4320",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update certifi to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "PYSEC-2026-4320",
+      "location": "static:<corpus>/registry2/10_serpapi__serpapi-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/10_serpapi__serpapi-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"PYSEC-2026-4320\")'"
+    },
+    {
+      "id": "GHSA-537c-gmf6-5ccf",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency cryptography@46.0.3: GHSA-537c-gmf6-5ccf",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update cryptography to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-537c-gmf6-5ccf",
+      "location": "static:<corpus>/registry2/10_serpapi__serpapi-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/10_serpapi__serpapi-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-537c-gmf6-5ccf\")'"
+    },
+    {
+      "id": "GHSA-g6cj-pr64-35w5",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency cryptography@46.0.3: GHSA-g6cj-pr64-35w5",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update cryptography to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-g6cj-pr64-35w5",
+      "location": "static:<corpus>/registry2/10_serpapi__serpapi-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/10_serpapi__serpapi-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-g6cj-pr64-35w5\")'"
+    },
+    {
+      "id": "GHSA-jwv3-5hgf-82ww",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency cryptography@46.0.3: GHSA-jwv3-5hgf-82ww",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update cryptography to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-jwv3-5hgf-82ww",
+      "location": "static:<corpus>/registry2/10_serpapi__serpapi-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/10_serpapi__serpapi-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-jwv3-5hgf-82ww\")'"
+    },
+    {
+      "id": "GHSA-m2h6-j472-rp4c",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency cryptography@46.0.3: GHSA-m2h6-j472-rp4c",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update cryptography to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-m2h6-j472-rp4c",
+      "location": "static:<corpus>/registry2/10_serpapi__serpapi-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/10_serpapi__serpapi-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-m2h6-j472-rp4c\")'"
+    },
+    {
+      "id": "GHSA-m959-cc7f-wv43",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency cryptography@46.0.3: GHSA-m959-cc7f-wv43",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update cryptography to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-m959-cc7f-wv43",
+      "location": "static:<corpus>/registry2/10_serpapi__serpapi-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/10_serpapi__serpapi-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-m959-cc7f-wv43\")'"
+    },
+    {
+      "id": "GHSA-p423-j2cm-9vmq",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency cryptography@46.0.3: GHSA-p423-j2cm-9vmq",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update cryptography to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-p423-j2cm-9vmq",
+      "location": "static:<corpus>/registry2/10_serpapi__serpapi-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/10_serpapi__serpapi-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-p423-j2cm-9vmq\")'"
+    },
+    {
+      "id": "GHSA-r6ph-v2qm-q3c2",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency cryptography@46.0.3: GHSA-r6ph-v2qm-q3c2",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update cryptography to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-r6ph-v2qm-q3c2",
+      "location": "static:<corpus>/registry2/10_serpapi__serpapi-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/10_serpapi__serpapi-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-r6ph-v2qm-q3c2\")'"
+    },
+    {
+      "id": "PYSEC-2026-2141",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency cryptography@46.0.3: PYSEC-2026-2141",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update cryptography to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "PYSEC-2026-2141",
+      "location": "static:<corpus>/registry2/10_serpapi__serpapi-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/10_serpapi__serpapi-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"PYSEC-2026-2141\")'"
+    },
+    {
+      "id": "PYSEC-2026-35",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency cryptography@46.0.3: PYSEC-2026-35",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update cryptography to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "PYSEC-2026-35",
+      "location": "static:<corpus>/registry2/10_serpapi__serpapi-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/10_serpapi__serpapi-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"PYSEC-2026-35\")'"
+    },
+    {
+      "id": "PYSEC-2026-3552",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency cryptography@46.0.3: PYSEC-2026-3552",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update cryptography to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "PYSEC-2026-3552",
+      "location": "static:<corpus>/registry2/10_serpapi__serpapi-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/10_serpapi__serpapi-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"PYSEC-2026-3552\")'"
+    },
+    {
+      "id": "PYSEC-2026-3553",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency cryptography@46.0.3: PYSEC-2026-3553",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update cryptography to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "PYSEC-2026-3553",
+      "location": "static:<corpus>/registry2/10_serpapi__serpapi-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/10_serpapi__serpapi-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"PYSEC-2026-3553\")'"
+    },
+    {
+      "id": "PYSEC-2026-3554",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency cryptography@46.0.3: PYSEC-2026-3554",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update cryptography to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "PYSEC-2026-3554",
+      "location": "static:<corpus>/registry2/10_serpapi__serpapi-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/10_serpapi__serpapi-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"PYSEC-2026-3554\")'"
+    },
+    {
+      "id": "PYSEC-2026-36",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency cryptography@46.0.3: PYSEC-2026-36",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update cryptography to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "PYSEC-2026-36",
+      "location": "static:<corpus>/registry2/10_serpapi__serpapi-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/10_serpapi__serpapi-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"PYSEC-2026-36\")'"
+    },
+    {
+      "id": "GHSA-45c3-73f7-pv4m",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency dnspython@2.8.0: GHSA-45c3-73f7-pv4m",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update dnspython to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-45c3-73f7-pv4m",
+      "location": "static:<corpus>/registry2/10_serpapi__serpapi-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/10_serpapi__serpapi-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-45c3-73f7-pv4m\")'"
+    },
+    {
+      "id": "GHSA-7xgj-8392-5q4r",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency fastmcp@4.0.3: GHSA-7xgj-8392-5q4r",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update fastmcp to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-7xgj-8392-5q4r",
+      "location": "static:<corpus>/registry2/10_serpapi__serpapi-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/10_serpapi__serpapi-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-7xgj-8392-5q4r\")'"
+    },
+    {
+      "id": "GHSA-vqqp-x5qm-5qp4",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency fastmcp@4.0.3: GHSA-vqqp-x5qm-5qp4",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update fastmcp to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-vqqp-x5qm-5qp4",
+      "location": "static:<corpus>/registry2/10_serpapi__serpapi-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/10_serpapi__serpapi-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-vqqp-x5qm-5qp4\")'"
+    },
+    {
+      "id": "GHSA-7xgj-8392-5q4r",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency fastmcp-slim@4.0.3: GHSA-7xgj-8392-5q4r",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update fastmcp-slim to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-7xgj-8392-5q4r",
+      "location": "static:<corpus>/registry2/10_serpapi__serpapi-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/10_serpapi__serpapi-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-7xgj-8392-5q4r\")'"
+    },
+    {
+      "id": "GHSA-vqqp-x5qm-5qp4",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency fastmcp-slim@4.0.3: GHSA-vqqp-x5qm-5qp4",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update fastmcp-slim to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-vqqp-x5qm-5qp4",
+      "location": "static:<corpus>/registry2/10_serpapi__serpapi-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/10_serpapi__serpapi-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-vqqp-x5qm-5qp4\")'"
+    },
+    {
+      "id": "GHSA-58pv-8j8x-9vj2",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency jaraco-context@6.0.1: GHSA-58pv-8j8x-9vj2",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update jaraco-context to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-58pv-8j8x-9vj2",
+      "location": "static:<corpus>/registry2/10_serpapi__serpapi-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/10_serpapi__serpapi-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-58pv-8j8x-9vj2\")'"
+    },
+    {
+      "id": "PYSEC-2026-1469",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency jaraco-context@6.0.1: PYSEC-2026-1469",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update jaraco-context to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "PYSEC-2026-1469",
+      "location": "static:<corpus>/registry2/10_serpapi__serpapi-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/10_serpapi__serpapi-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"PYSEC-2026-1469\")'"
+    },
+    {
+      "id": "GHSA-9pg5-8c7x-5hfx",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency joserfc@1.7.1: GHSA-9pg5-8c7x-5hfx",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update joserfc to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-9pg5-8c7x-5hfx",
+      "location": "static:<corpus>/registry2/10_serpapi__serpapi-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/10_serpapi__serpapi-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-9pg5-8c7x-5hfx\")'"
+    },
+    {
+      "id": "GHSA-jpxq-7h8p-2q76",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency joserfc@1.7.1: GHSA-jpxq-7h8p-2q76",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update joserfc to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-jpxq-7h8p-2q76",
+      "location": "static:<corpus>/registry2/10_serpapi__serpapi-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/10_serpapi__serpapi-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-jpxq-7h8p-2q76\")'"
+    },
+    {
+      "id": "GHSA-xcq7-p3pf-p88h",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency opentelemetry-api@1.41.0: GHSA-xcq7-p3pf-p88h",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update opentelemetry-api to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-xcq7-p3pf-p88h",
+      "location": "static:<corpus>/registry2/10_serpapi__serpapi-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/10_serpapi__serpapi-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-xcq7-p3pf-p88h\")'"
+    },
+    {
+      "id": "GHSA-4xgf-cpjx-pc3j",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pydantic-settings@2.12.0: GHSA-4xgf-cpjx-pc3j",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pydantic-settings to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-4xgf-cpjx-pc3j",
+      "location": "static:<corpus>/registry2/10_serpapi__serpapi-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/10_serpapi__serpapi-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-4xgf-cpjx-pc3j\")'"
+    },
+    {
+      "id": "GHSA-5239-wwwm-4pmq",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pygments@2.19.2: GHSA-5239-wwwm-4pmq",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pygments to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-5239-wwwm-4pmq",
+      "location": "static:<corpus>/registry2/10_serpapi__serpapi-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/10_serpapi__serpapi-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-5239-wwwm-4pmq\")'"
+    },
+    {
+      "id": "PYSEC-2026-2987",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pygments@2.19.2: PYSEC-2026-2987",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pygments to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "PYSEC-2026-2987",
+      "location": "static:<corpus>/registry2/10_serpapi__serpapi-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/10_serpapi__serpapi-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"PYSEC-2026-2987\")'"
+    },
+    {
+      "id": "GHSA-2gx3-rcp4-g85q",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pyjwt@2.10.1: GHSA-2gx3-rcp4-g85q",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pyjwt to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-2gx3-rcp4-g85q",
+      "location": "static:<corpus>/registry2/10_serpapi__serpapi-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/10_serpapi__serpapi-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-2gx3-rcp4-g85q\")'"
+    },
+    {
+      "id": "GHSA-42vr-xj54-vc7v",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pyjwt@2.10.1: GHSA-42vr-xj54-vc7v",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pyjwt to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-42vr-xj54-vc7v",
+      "location": "static:<corpus>/registry2/10_serpapi__serpapi-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/10_serpapi__serpapi-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-42vr-xj54-vc7v\")'"
+    },
+    {
+      "id": "GHSA-752w-5fwx-jx9f",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pyjwt@2.10.1: GHSA-752w-5fwx-jx9f",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pyjwt to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-752w-5fwx-jx9f",
+      "location": "static:<corpus>/registry2/10_serpapi__serpapi-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/10_serpapi__serpapi-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-752w-5fwx-jx9f\")'"
+    },
+    {
+      "id": "GHSA-993g-76c3-p5m4",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pyjwt@2.10.1: GHSA-993g-76c3-p5m4",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pyjwt to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-993g-76c3-p5m4",
+      "location": "static:<corpus>/registry2/10_serpapi__serpapi-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/10_serpapi__serpapi-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-993g-76c3-p5m4\")'"
+    },
+    {
+      "id": "GHSA-9v7f-9g4p-ffgj",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pyjwt@2.10.1: GHSA-9v7f-9g4p-ffgj",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pyjwt to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-9v7f-9g4p-ffgj",
+      "location": "static:<corpus>/registry2/10_serpapi__serpapi-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/10_serpapi__serpapi-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-9v7f-9g4p-ffgj\")'"
+    },
+    {
+      "id": "GHSA-ffc3-869f-jxw9",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pyjwt@2.10.1: GHSA-ffc3-869f-jxw9",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pyjwt to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-ffc3-869f-jxw9",
+      "location": "static:<corpus>/registry2/10_serpapi__serpapi-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/10_serpapi__serpapi-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-ffc3-869f-jxw9\")'"
+    },
+    {
+      "id": "GHSA-fhv5-28vv-h8m8",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pyjwt@2.10.1: GHSA-fhv5-28vv-h8m8",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pyjwt to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-fhv5-28vv-h8m8",
+      "location": "static:<corpus>/registry2/10_serpapi__serpapi-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/10_serpapi__serpapi-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-fhv5-28vv-h8m8\")'"
+    },
+    {
+      "id": "GHSA-hxm8-2xgr-2p9m",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pyjwt@2.10.1: GHSA-hxm8-2xgr-2p9m",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pyjwt to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-hxm8-2xgr-2p9m",
+      "location": "static:<corpus>/registry2/10_serpapi__serpapi-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/10_serpapi__serpapi-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-hxm8-2xgr-2p9m\")'"
+    },
+    {
+      "id": "GHSA-jq35-7prp-9v3f",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pyjwt@2.10.1: GHSA-jq35-7prp-9v3f",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pyjwt to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-jq35-7prp-9v3f",
+      "location": "static:<corpus>/registry2/10_serpapi__serpapi-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/10_serpapi__serpapi-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-jq35-7prp-9v3f\")'"
+    },
+    {
+      "id": "GHSA-jwrc-g2q2-pq5p",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pyjwt@2.10.1: GHSA-jwrc-g2q2-pq5p",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pyjwt to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-jwrc-g2q2-pq5p",
+      "location": "static:<corpus>/registry2/10_serpapi__serpapi-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/10_serpapi__serpapi-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-jwrc-g2q2-pq5p\")'"
+    },
+    {
+      "id": "GHSA-p4g4-x82p-q773",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pyjwt@2.10.1: GHSA-p4g4-x82p-q773",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pyjwt to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-p4g4-x82p-q773",
+      "location": "static:<corpus>/registry2/10_serpapi__serpapi-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/10_serpapi__serpapi-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-p4g4-x82p-q773\")'"
+    },
+    {
+      "id": "GHSA-pxh4-856f-4h89",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pyjwt@2.10.1: GHSA-pxh4-856f-4h89",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pyjwt to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-pxh4-856f-4h89",
+      "location": "static:<corpus>/registry2/10_serpapi__serpapi-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/10_serpapi__serpapi-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-pxh4-856f-4h89\")'"
+    },
+    {
+      "id": "GHSA-w6j9-cwv2-h6wq",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pyjwt@2.10.1: GHSA-w6j9-cwv2-h6wq",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pyjwt to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-w6j9-cwv2-h6wq",
+      "location": "static:<corpus>/registry2/10_serpapi__serpapi-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/10_serpapi__serpapi-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-w6j9-cwv2-h6wq\")'"
+    },
+    {
+      "id": "GHSA-w7vc-732c-9m39",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pyjwt@2.10.1: GHSA-w7vc-732c-9m39",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pyjwt to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-w7vc-732c-9m39",
+      "location": "static:<corpus>/registry2/10_serpapi__serpapi-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/10_serpapi__serpapi-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-w7vc-732c-9m39\")'"
+    },
+    {
+      "id": "GHSA-x33g-cr3x-6449",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pyjwt@2.10.1: GHSA-x33g-cr3x-6449",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pyjwt to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-x33g-cr3x-6449",
+      "location": "static:<corpus>/registry2/10_serpapi__serpapi-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/10_serpapi__serpapi-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-x33g-cr3x-6449\")'"
+    },
+    {
+      "id": "GHSA-xgmm-8j9v-c9wx",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pyjwt@2.10.1: GHSA-xgmm-8j9v-c9wx",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pyjwt to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-xgmm-8j9v-c9wx",
+      "location": "static:<corpus>/registry2/10_serpapi__serpapi-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/10_serpapi__serpapi-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-xgmm-8j9v-c9wx\")'"
+    },
+    {
+      "id": "PYSEC-2025-183",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pyjwt@2.10.1: PYSEC-2025-183",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pyjwt to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "PYSEC-2025-183",
+      "location": "static:<corpus>/registry2/10_serpapi__serpapi-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/10_serpapi__serpapi-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"PYSEC-2025-183\")'"
+    },
+    {
+      "id": "PYSEC-2026-120",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pyjwt@2.10.1: PYSEC-2026-120",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pyjwt to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "PYSEC-2026-120",
+      "location": "static:<corpus>/registry2/10_serpapi__serpapi-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/10_serpapi__serpapi-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"PYSEC-2026-120\")'"
+    },
+    {
+      "id": "PYSEC-2026-175",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pyjwt@2.10.1: PYSEC-2026-175",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pyjwt to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "PYSEC-2026-175",
+      "location": "static:<corpus>/registry2/10_serpapi__serpapi-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/10_serpapi__serpapi-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"PYSEC-2026-175\")'"
+    },
+    {
+      "id": "PYSEC-2026-176",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pyjwt@2.10.1: PYSEC-2026-176",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pyjwt to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "PYSEC-2026-176",
+      "location": "static:<corpus>/registry2/10_serpapi__serpapi-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/10_serpapi__serpapi-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"PYSEC-2026-176\")'"
+    },
+    {
+      "id": "PYSEC-2026-177",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pyjwt@2.10.1: PYSEC-2026-177",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pyjwt to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "PYSEC-2026-177",
+      "location": "static:<corpus>/registry2/10_serpapi__serpapi-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/10_serpapi__serpapi-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"PYSEC-2026-177\")'"
+    },
+    {
+      "id": "PYSEC-2026-178",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pyjwt@2.10.1: PYSEC-2026-178",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pyjwt to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "PYSEC-2026-178",
+      "location": "static:<corpus>/registry2/10_serpapi__serpapi-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/10_serpapi__serpapi-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"PYSEC-2026-178\")'"
+    },
+    {
+      "id": "PYSEC-2026-179",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pyjwt@2.10.1: PYSEC-2026-179",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pyjwt to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "PYSEC-2026-179",
+      "location": "static:<corpus>/registry2/10_serpapi__serpapi-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/10_serpapi__serpapi-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"PYSEC-2026-179\")'"
+    },
+    {
+      "id": "PYSEC-2026-4140",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pyjwt@2.10.1: PYSEC-2026-4140",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pyjwt to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "PYSEC-2026-4140",
+      "location": "static:<corpus>/registry2/10_serpapi__serpapi-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/10_serpapi__serpapi-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"PYSEC-2026-4140\")'"
+    },
+    {
+      "id": "PYSEC-2026-4141",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pyjwt@2.10.1: PYSEC-2026-4141",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pyjwt to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "PYSEC-2026-4141",
+      "location": "static:<corpus>/registry2/10_serpapi__serpapi-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/10_serpapi__serpapi-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"PYSEC-2026-4141\")'"
+    },
+    {
+      "id": "PYSEC-2026-4144",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pyjwt@2.10.1: PYSEC-2026-4144",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pyjwt to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "PYSEC-2026-4144",
+      "location": "static:<corpus>/registry2/10_serpapi__serpapi-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/10_serpapi__serpapi-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"PYSEC-2026-4144\")'"
+    },
+    {
+      "id": "PYSEC-2026-4145",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pyjwt@2.10.1: PYSEC-2026-4145",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pyjwt to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "PYSEC-2026-4145",
+      "location": "static:<corpus>/registry2/10_serpapi__serpapi-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/10_serpapi__serpapi-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"PYSEC-2026-4145\")'"
+    },
+    {
+      "id": "PYSEC-2026-4147",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pyjwt@2.10.1: PYSEC-2026-4147",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pyjwt to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "PYSEC-2026-4147",
+      "location": "static:<corpus>/registry2/10_serpapi__serpapi-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/10_serpapi__serpapi-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"PYSEC-2026-4147\")'"
+    },
+    {
+      "id": "PYSEC-2026-4148",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pyjwt@2.10.1: PYSEC-2026-4148",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pyjwt to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "PYSEC-2026-4148",
+      "location": "static:<corpus>/registry2/10_serpapi__serpapi-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/10_serpapi__serpapi-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"PYSEC-2026-4148\")'"
+    },
+    {
+      "id": "PYSEC-2026-4149",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pyjwt@2.10.1: PYSEC-2026-4149",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pyjwt to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "PYSEC-2026-4149",
+      "location": "static:<corpus>/registry2/10_serpapi__serpapi-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/10_serpapi__serpapi-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"PYSEC-2026-4149\")'"
+    },
+    {
+      "id": "PYSEC-2026-4152",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pyjwt@2.10.1: PYSEC-2026-4152",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pyjwt to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "PYSEC-2026-4152",
+      "location": "static:<corpus>/registry2/10_serpapi__serpapi-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/10_serpapi__serpapi-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"PYSEC-2026-4152\")'"
+    },
+    {
+      "id": "PYSEC-2026-4183",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pyjwt@2.10.1: PYSEC-2026-4183",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pyjwt to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "PYSEC-2026-4183",
+      "location": "static:<corpus>/registry2/10_serpapi__serpapi-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/10_serpapi__serpapi-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"PYSEC-2026-4183\")'"
+    },
+    {
+      "id": "GHSA-6w46-j5rx-g56g",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pytest@9.0.1: GHSA-6w46-j5rx-g56g",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pytest to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-6w46-j5rx-g56g",
+      "location": "static:<corpus>/registry2/10_serpapi__serpapi-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/10_serpapi__serpapi-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-6w46-j5rx-g56g\")'"
+    },
+    {
+      "id": "PYSEC-2026-1845",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pytest@9.0.1: PYSEC-2026-1845",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pytest to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "PYSEC-2026-1845",
+      "location": "static:<corpus>/registry2/10_serpapi__serpapi-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/10_serpapi__serpapi-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"PYSEC-2026-1845\")'"
+    },
+    {
+      "id": "GHSA-mf9w-mj56-hr94",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency python-dotenv@1.2.1: GHSA-mf9w-mj56-hr94",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update python-dotenv to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-mf9w-mj56-hr94",
+      "location": "static:<corpus>/registry2/10_serpapi__serpapi-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/10_serpapi__serpapi-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-mf9w-mj56-hr94\")'"
+    },
+    {
+      "id": "PYSEC-2026-2270",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency python-dotenv@1.2.1: PYSEC-2026-2270",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update python-dotenv to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "PYSEC-2026-2270",
+      "location": "static:<corpus>/registry2/10_serpapi__serpapi-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/10_serpapi__serpapi-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"PYSEC-2026-2270\")'"
+    },
+    {
+      "id": "GHSA-gc5v-m9x4-r6x2",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency requests@2.32.5: GHSA-gc5v-m9x4-r6x2",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update requests to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-gc5v-m9x4-r6x2",
+      "location": "static:<corpus>/registry2/10_serpapi__serpapi-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/10_serpapi__serpapi-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-gc5v-m9x4-r6x2\")'"
+    },
+    {
+      "id": "PYSEC-2026-2275",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency requests@2.32.5: PYSEC-2026-2275",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update requests to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "PYSEC-2026-2275",
+      "location": "static:<corpus>/registry2/10_serpapi__serpapi-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/10_serpapi__serpapi-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"PYSEC-2026-2275\")'"
+    },
+    {
+      "id": "GHSA-2wc2-fm75-p42x",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency soupsieve@2.8.1: GHSA-2wc2-fm75-p42x",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update soupsieve to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-2wc2-fm75-p42x",
+      "location": "static:<corpus>/registry2/10_serpapi__serpapi-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/10_serpapi__serpapi-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-2wc2-fm75-p42x\")'"
+    },
+    {
+      "id": "GHSA-836r-79rf-4m37",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency soupsieve@2.8.1: GHSA-836r-79rf-4m37",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update soupsieve to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-836r-79rf-4m37",
+      "location": "static:<corpus>/registry2/10_serpapi__serpapi-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/10_serpapi__serpapi-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-836r-79rf-4m37\")'"
+    },
+    {
+      "id": "GHSA-gjv8-xp57-g29c",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency soupsieve@2.8.1: GHSA-gjv8-xp57-g29c",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update soupsieve to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-gjv8-xp57-g29c",
+      "location": "static:<corpus>/registry2/10_serpapi__serpapi-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/10_serpapi__serpapi-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-gjv8-xp57-g29c\")'"
+    },
+    {
+      "id": "GHSA-j934-xhv5-fg8f",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency soupsieve@2.8.1: GHSA-j934-xhv5-fg8f",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update soupsieve to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-j934-xhv5-fg8f",
+      "location": "static:<corpus>/registry2/10_serpapi__serpapi-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/10_serpapi__serpapi-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-j934-xhv5-fg8f\")'"
+    },
+    {
+      "id": "PYSEC-2026-3071",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency soupsieve@2.8.1: PYSEC-2026-3071",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update soupsieve to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "PYSEC-2026-3071",
+      "location": "static:<corpus>/registry2/10_serpapi__serpapi-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/10_serpapi__serpapi-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"PYSEC-2026-3071\")'"
+    },
+    {
+      "id": "PYSEC-2026-3072",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency soupsieve@2.8.1: PYSEC-2026-3072",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update soupsieve to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "PYSEC-2026-3072",
+      "location": "static:<corpus>/registry2/10_serpapi__serpapi-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/10_serpapi__serpapi-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"PYSEC-2026-3072\")'"
+    },
+    {
+      "id": "PYSEC-2026-4170",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency soupsieve@2.8.1: PYSEC-2026-4170",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update soupsieve to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "PYSEC-2026-4170",
+      "location": "static:<corpus>/registry2/10_serpapi__serpapi-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/10_serpapi__serpapi-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"PYSEC-2026-4170\")'"
+    },
+    {
+      "id": "PYSEC-2026-4171",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency soupsieve@2.8.1: PYSEC-2026-4171",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update soupsieve to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "PYSEC-2026-4171",
+      "location": "static:<corpus>/registry2/10_serpapi__serpapi-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/10_serpapi__serpapi-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"PYSEC-2026-4171\")'"
+    },
+    {
+      "id": "GHSA-2xpw-w6gg-jr37",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency urllib3@2.5.0: GHSA-2xpw-w6gg-jr37",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update urllib3 to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-2xpw-w6gg-jr37",
+      "location": "static:<corpus>/registry2/10_serpapi__serpapi-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/10_serpapi__serpapi-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-2xpw-w6gg-jr37\")'"
+    },
+    {
+      "id": "GHSA-38jv-5279-wg99",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency urllib3@2.5.0: GHSA-38jv-5279-wg99",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update urllib3 to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-38jv-5279-wg99",
+      "location": "static:<corpus>/registry2/10_serpapi__serpapi-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/10_serpapi__serpapi-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-38jv-5279-wg99\")'"
+    },
+    {
+      "id": "GHSA-8988-9cw3-xx77",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency urllib3@2.5.0: GHSA-8988-9cw3-xx77",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update urllib3 to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-8988-9cw3-xx77",
+      "location": "static:<corpus>/registry2/10_serpapi__serpapi-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/10_serpapi__serpapi-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-8988-9cw3-xx77\")'"
+    },
+    {
+      "id": "GHSA-gm62-xv2j-4w53",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency urllib3@2.5.0: GHSA-gm62-xv2j-4w53",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update urllib3 to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-gm62-xv2j-4w53",
+      "location": "static:<corpus>/registry2/10_serpapi__serpapi-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/10_serpapi__serpapi-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-gm62-xv2j-4w53\")'"
+    },
+    {
+      "id": "GHSA-qccp-gfcp-xxvc",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency urllib3@2.5.0: GHSA-qccp-gfcp-xxvc",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update urllib3 to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-qccp-gfcp-xxvc",
+      "location": "static:<corpus>/registry2/10_serpapi__serpapi-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/10_serpapi__serpapi-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-qccp-gfcp-xxvc\")'"
+    },
+    {
+      "id": "GHSA-vxq7-64xx-v4gw",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency urllib3@2.5.0: GHSA-vxq7-64xx-v4gw",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update urllib3 to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-vxq7-64xx-v4gw",
+      "location": "static:<corpus>/registry2/10_serpapi__serpapi-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/10_serpapi__serpapi-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-vxq7-64xx-v4gw\")'"
+    },
+    {
+      "id": "PYSEC-2026-141",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency urllib3@2.5.0: PYSEC-2026-141",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update urllib3 to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "PYSEC-2026-141",
+      "location": "static:<corpus>/registry2/10_serpapi__serpapi-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/10_serpapi__serpapi-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"PYSEC-2026-141\")'"
+    },
+    {
+      "id": "PYSEC-2026-1994",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency urllib3@2.5.0: PYSEC-2026-1994",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update urllib3 to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "PYSEC-2026-1994",
+      "location": "static:<corpus>/registry2/10_serpapi__serpapi-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/10_serpapi__serpapi-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"PYSEC-2026-1994\")'"
+    },
+    {
+      "id": "PYSEC-2026-1996",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency urllib3@2.5.0: PYSEC-2026-1996",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update urllib3 to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "PYSEC-2026-1996",
+      "location": "static:<corpus>/registry2/10_serpapi__serpapi-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/10_serpapi__serpapi-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"PYSEC-2026-1996\")'"
+    },
+    {
+      "id": "PYSEC-2026-1998",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency urllib3@2.5.0: PYSEC-2026-1998",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update urllib3 to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "PYSEC-2026-1998",
+      "location": "static:<corpus>/registry2/10_serpapi__serpapi-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/10_serpapi__serpapi-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"PYSEC-2026-1998\")'"
+    },
+    {
+      "id": "PYSEC-2026-4175",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency urllib3@2.5.0: PYSEC-2026-4175",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update urllib3 to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "PYSEC-2026-4175",
+      "location": "static:<corpus>/registry2/10_serpapi__serpapi-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/10_serpapi__serpapi-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"PYSEC-2026-4175\")'"
+    },
+    {
+      "id": "PYSEC-2026-4177",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency urllib3@2.5.0: PYSEC-2026-4177",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update urllib3 to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "PYSEC-2026-4177",
+      "location": "static:<corpus>/registry2/10_serpapi__serpapi-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/10_serpapi__serpapi-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"PYSEC-2026-4177\")'"
+    },
+    {
+      "id": "mcp04_unpinned_0001",
+      "severity": "medium",
+      "category": "supply_chain",
+      "title": "Unpinned install source",
+      "description": "`pip install` of unpinned package(s) uv in Dockerfile at line 3. Without an exact version the next install silently picks up whatever is published, including a compromised release.",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": "Dockerfile",
+      "line_number": 3,
+      "recommendation": "Pin an exact version (pkg@1.2.3, pkg==1.2.3) and prefer a lockfile or hash-checked requirements.",
+      "rule_id": "unpinned_install_source",
+      "evidence": "Unpinned install source",
+      "location": "Dockerfile:3",
+      "replay": "axiom scan <corpus>/registry2/10_serpapi__serpapi-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"mcp04_unpinned_0001\")'"
+    }
+  ],
+  "server_profile": {
+    "name": "10_serpapi__serpapi-mcp",
+    "command": null,
+    "args": [],
+    "env_vars": [],
+    "transport": "unknown",
+    "tools": [
+      {
+        "name": "search_table",
+        "description": "Interactive UI variant of `search`: returns organic results as a sortable, searchable table rendered in the conversation. Same params as `search`. Use when the host supports MCP Apps and the user wants to browse results visually rather than read JSON.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "params": {}
+          },
+          "required": []
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "search_dashboard",
+        "description": "Interactive dashboard variant of `search`: returns summary metrics, a source breakdown chart, and a results table with a click-to-expand detail panel, all rendered in the conversation. Same params as `search`. Use for a richer visual overview of a query's results. Automatically selects an engine-specific dashboard when available (e.g. google_flights gets price intelligence charting).",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "params": {}
+          },
+          "required": []
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "search",
+        "description": "Universal search tool supporting all SerpApi engines and result types.\n\n    When to use:\n        - Any query needing live, structured SERP data: web results, news, product listings, job postings, local businesses, flight/hotel prices, video results, images, stock/weather cards, knowledge graph entities.\n    \n    Engine discovery via MCP resources:\n        - serpapi://engines lists all engines supported by this tool.\n        - serpapi://engines/<engine> provides engine-specific parameters and supported options.\n        - Example: serpapi://engines/google_news\n\n    Input schema:\n        params: JSON object containing SerpApi engine parameters.\n            Common parameters:\n                - q: Search query. Required for most engines.\n                - engine: SerpApi engine name. Defaults to \"google_light\".\n                - location: Optional geographic location for localized results.\n                - output: Optional response format. Omit for JSON (default), or set to \"md\" for Markdown.\n    \n            Engine-specific parameters are available via MCP resources:\n                - serpapi://engines lists all supported engines.\n                - serpapi://engines/<engine> provides parameters and options for one engine.\n    \n        mode: Response mode. Defaults to \"complete\".\n            - \"complete\": Return the full SerpApi response.\n            - \"compact\": Remove metadata fields from JSON responses. Markdown is returned unchanged.\n    \n    Output schema:\n        structuredContent.result contains the response string: serialized JSON or unchanged Markdown.\n        The same string is included in text content. Tool failures preserve this wrapper and set isError to true.\n\n    Guided search:\n        Searches can request missing engine parameters from supporting clients using the engine catalog and engine-specific rules.\n        Flights collect airports and dates, hotels collect the destination and stay dates, and directions collect missing endpoints.\n        Other clients receive a missing-parameter error. Cancellation does not run a search.\n\n    Examples:\n        Weather: {\"params\": {\"q\": \"weather in London\", \"engine\": \"google\"}, \"mode\": \"complete\"}\n        Stock: {\"params\": {\"q\": \"AAPL stock\", \"engine\": \"google\"}, \"mode\": \"complete\"}\n        General: {\"params\": {\"q\": \"coffee shops\", \"engine\": \"google_light\", \"location\": \"Austin, TX\"}, \"mode\": \"complete\"}\n        Compact: {\"params\": {\"q\": \"news\"}, \"mode\": \"compact\"}\n        Markdown: {\"params\": {\"q\": \"news\", \"output\": \"md\"}}\n\n    Supported engines include (not limited to):\n        - google\n        - google_light\n        - google_flights\n        - google_hotels\n        - google_images\n        - google_news\n        - google_local\n        - google_shopping\n        - google_jobs\n        - bing\n        - yahoo\n        - duckduckgo\n        - youtube_search\n        - baidu\n        - ebay",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "params": {},
+            "mode": {
+              "type": "string",
+              "default": "complete"
+            }
+          },
+          "required": []
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "medium",
+        "poisoning_detail": "Tool description is 2880 characters. Long descriptions can hide malicious instructions."
+      },
+      {
+        "name": "extract",
+        "description": "Extract content from a public http(s) URL, discover site URLs, or crawl pages.\n\nAPI options go in params: url is required; params.mode is scrape (default), map, or crawl. See serpapi://engines/extract for all options.\n\nTop-level mode controls the response:\n- complete (default): full JSON.\n- compact: native Markdown by default.\n\nparams.output selects the format and overrides either default:\n- \"md\": return native Markdown unchanged in either response mode.\n- \"json\": return JSON, with filtering determined by the response mode.\n\nCompact JSON removes metadata. For scrape responses containing markdown, it also keeps only markdown and any error field. include_markdown=false or an explicit json_restrictor skips this extra filtering. Map/crawl and responses without markdown keep their remaining fields. Use complete with output=\"json\" for full JSON.\n\nCrawl max_pages defaults to 10 (maximum 100). Each successfully extracted, uncached page consumes one credit.\n\nExamples:\nFull scrape JSON: {\"params\":{\"url\":\"https://example.com\"},\"mode\":\"complete\"}\nScrape Markdown: {\"params\":{\"url\":\"https://example.com\"},\"mode\":\"compact\"}\nMap URLs as JSON: {\"params\":{\"url\":\"https://example.com\",\"mode\":\"map\"},\"mode\":\"complete\"}\nCrawl pages as Markdown: {\"params\":{\"url\":\"https://example.com\",\"mode\":\"crawl\",\"max_pages\":2},\"mode\":\"compact\"}",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "params": {},
+            "mode": {
+              "type": "string",
+              "default": "complete"
+            }
+          },
+          "required": []
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "medium",
+        "poisoning_detail": "Tool description is 1327 characters. Long descriptions can hide malicious instructions."
+      }
+    ],
+    "resources": [
+      {
+        "uri": "serpapi://engines",
+        "name": "engines_index",
+        "description": "Index of available SerpApi engine identifiers.",
+        "mime_type": null
+      },
+      {
+        "uri": "serpapi://engines/{engine_name}",
+        "name": "get_engine_schema",
+        "description": "SerpApi engine specification. The URI parameter {engine_name} is the engine identifier (e.g. 'google', 'bing', 'walmart'). Use serpapi://engines to list valid values.",
+        "mime_type": null
+      }
+    ],
+    "prompts": [],
+    "repo_url": null,
+    "npm_package": null,
+    "capabilities_claimed": [],
+    "capabilities_actual": []
+  },
+  "fingerprint": "4dd8d4138549b099cbb9e9ff9f18b749150a5f827dee88113179e4f16deab3de",
+  "surface_map": {
+    "server": {
+      "name": "serpapi-mcp-server",
+      "instructions": "Use the search tool for live SerpApi results. Use the `serpapi://engines` resource to discover valid SerpApi engine names, then read the `serpapi://engines/{engine_name}` resource template with the desired engine name to inspect its supported parameters.",
+      "transport": "streamable-http",
+      "auth": "unknown",
+      "instructions_location": "src\\server.py:35"
+    },
+    "tools": [
+      {
+        "name": "search_table",
+        "description": "Interactive UI variant of `search`: returns organic results as a sortable, searchable table rendered in the conversation. Same params as `search`. Use when the host supports MCP Apps and the user wants to browse results visually rather than read JSON.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "params": {}
+          },
+          "required": []
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "src\\mcp_components\\apps.py:775"
+      },
+      {
+        "name": "search_dashboard",
+        "description": "Interactive dashboard variant of `search`: returns summary metrics, a source breakdown chart, and a results table with a click-to-expand detail panel, all rendered in the conversation. Same params as `search`. Use for a richer visual overview of a query's results. Automatically selects an engine-specific dashboard when available (e.g. google_flights gets price intelligence charting).",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "params": {}
+          },
+          "required": []
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "src\\mcp_components\\apps.py:803"
+      },
+      {
+        "name": "search",
+        "description": "Universal search tool supporting all SerpApi engines and result types.\n\n    When to use:\n        - Any query needing live, structured SERP data: web results, news, product listings, job postings, local businesses, flight/hotel prices, video results, images, stock/weather cards, knowledge graph entities.\n    \n    Engine discovery via MCP resources:\n        - serpapi://engines lists all engines supported by this tool.\n        - serpapi://engines/<engine> provides engine-specific parameters and supported options.\n        - Example: serpapi://engines/google_news\n\n    Input schema:\n        params: JSON object containing SerpApi engine parameters.\n            Common parameters:\n                - q: Search query. Required for most engines.\n                - engine: SerpApi engine name. Defaults to \"google_light\".\n                - location: Optional geographic location for localized results.\n                - output: Optional response format. Omit for JSON (default), or set to \"md\" for Markdown.\n    \n            Engine-specific parameters are available via MCP resources:\n                - serpapi://engines lists all supported engines.\n                - serpapi://engines/<engine> provides parameters and options for one engine.\n    \n        mode: Response mode. Defaults to \"complete\".\n            - \"complete\": Return the full SerpApi response.\n            - \"compact\": Remove metadata fields from JSON responses. Markdown is returned unchanged.\n    \n    Output schema:\n        structuredContent.result contains the response string: serialized JSON or unchanged Markdown.\n        The same string is included in text content. Tool failures preserve this wrapper and set isError to true.\n\n    Guided search:\n        Searches can request missing engine parameters from supporting clients using the engine catalog and engine-specific rules.\n        Flights collect airports and dates, hotels collect the destination and stay dates, and directions collect missing endpoints.\n        Other clients receive a missing-parameter error. Cancellation does not run a search.\n\n    Examples:\n        Weather: {\"params\": {\"q\": \"weather in London\", \"engine\": \"google\"}, \"mode\": \"complete\"}\n        Stock: {\"params\": {\"q\": \"AAPL stock\", \"engine\": \"google\"}, \"mode\": \"complete\"}\n        General: {\"params\": {\"q\": \"coffee shops\", \"engine\": \"google_light\", \"location\": \"Austin, TX\"}, \"mode\": \"complete\"}\n        Compact: {\"params\": {\"q\": \"news\"}, \"mode\": \"compact\"}\n        Markdown: {\"params\": {\"q\": \"news\", \"output\": \"md\"}}\n\n    Supported engines include (not limited to):\n        - google\n        - google_light\n        - google_flights\n        - google_hotels\n        - google_images\n        - google_news\n        - google_local\n        - google_shopping\n        - google_jobs\n        - bing\n        - yahoo\n        - duckduckgo\n        - youtube_search\n        - baidu\n        - ebay",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "params": {},
+            "mode": {
+              "type": "string",
+              "default": "complete"
+            }
+          },
+          "required": []
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "src\\mcp_components\\tools.py:163"
+      },
+      {
+        "name": "extract",
+        "description": "Extract content from a public http(s) URL, discover site URLs, or crawl pages.\n\nAPI options go in params: url is required; params.mode is scrape (default), map, or crawl. See serpapi://engines/extract for all options.\n\nTop-level mode controls the response:\n- complete (default): full JSON.\n- compact: native Markdown by default.\n\nparams.output selects the format and overrides either default:\n- \"md\": return native Markdown unchanged in either response mode.\n- \"json\": return JSON, with filtering determined by the response mode.\n\nCompact JSON removes metadata. For scrape responses containing markdown, it also keeps only markdown and any error field. include_markdown=false or an explicit json_restrictor skips this extra filtering. Map/crawl and responses without markdown keep their remaining fields. Use complete with output=\"json\" for full JSON.\n\nCrawl max_pages defaults to 10 (maximum 100). Each successfully extracted, uncached page consumes one credit.\n\nExamples:\nFull scrape JSON: {\"params\":{\"url\":\"https://example.com\"},\"mode\":\"complete\"}\nScrape Markdown: {\"params\":{\"url\":\"https://example.com\"},\"mode\":\"compact\"}\nMap URLs as JSON: {\"params\":{\"url\":\"https://example.com\",\"mode\":\"map\"},\"mode\":\"complete\"}\nCrawl pages as Markdown: {\"params\":{\"url\":\"https://example.com\",\"mode\":\"crawl\",\"max_pages\":2},\"mode\":\"compact\"}",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "params": {},
+            "mode": {
+              "type": "string",
+              "default": "complete"
+            }
+          },
+          "required": []
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "src\\mcp_components\\tools.py:282"
+      }
+    ],
+    "resources": [
+      {
+        "uri": "serpapi://engines",
+        "name": "engines_index",
+        "description": "Index of available SerpApi engine identifiers.",
+        "mime_type": null,
+        "content_literals": [],
+        "location": "src\\mcp_components\\resources.py"
+      },
+      {
+        "uri": "serpapi://engines/{engine_name}",
+        "name": "get_engine_schema",
+        "description": "SerpApi engine specification. The URI parameter {engine_name} is the engine identifier (e.g. 'google', 'bing', 'walmart'). Use serpapi://engines to list valid values.",
+        "mime_type": null,
+        "content_literals": [],
+        "location": "src\\mcp_components\\resources.py"
+      }
+    ],
+    "prompts": [],
+    "mutations": [],
+    "source": {
+      "kind": "static",
+      "target": "10_serpapi__serpapi-mcp",
+      "languages": [
+        "python"
+      ]
+    },
+    "generated_at": "2026-11-11T22:36:20+00:00",
+    "fingerprint": "4dd8d4138549b099cbb9e9ff9f18b749150a5f827dee88113179e4f16deab3de",
+    "schema": "axiom.surface/1"
+  },
+  "provenance": {
+    "identity": {
+      "npm": null,
+      "pypi": "serpapi-mcp-server",
+      "repository": "https://github.com/serpapi/serpapi-mcp",
+      "server_name": "serpapi-mcp-server"
+    },
+    "registry": {
+      "status": "not_in_registry"
+    },
+    "lookalikes": [],
+    "checked_at": "2026-11-11T22:36:23+00:00"
+  },
+  "owasp_coverage": {
+    "framework": "OWASP Top 10 for Agentic Applications 2026",
+    "reference": "https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/",
+    "coverage": {
+      "ASI01": {
+        "name": "Agent Goal Hijack",
+        "coverage_level": "strong",
+        "findings_count": 2,
+        "finding_ids": [
+          "poison_search_long_desc",
+          "poison_extract_long_desc"
+        ],
+        "detectors": [
+          "tool_poisoning",
+          "prompt_injection",
+          "instruction_injection"
+        ]
+      },
+      "ASI02": {
+        "name": "Tool Misuse & Exploitation",
+        "coverage_level": "strong",
+        "findings_count": 2,
+        "finding_ids": [
+          "cross_tool_search_table_search",
+          "cross_tool_search_dashboard_search"
+        ],
+        "detectors": [
+          "toxic_tool_combo",
+          "tool_overscope",
+          "tool_chaining_detection"
+        ]
+      },
+      "ASI03": {
+        "name": "Identity & Privilege Abuse",
+        "coverage_level": "strong",
+        "findings_count": 3,
+        "finding_ids": [
+          "ast_0001",
+          "ast_0002",
+          "ast_0001"
+        ],
+        "detectors": [
+          "credential_analysis",
+          "shared_credential_detection",
+          "env_var_audit"
+        ]
+      },
+      "ASI04": {
+        "name": "Agentic Supply Chain Vulnerabilities",
+        "coverage_level": "strong",
+        "findings_count": 111,
+        "finding_ids": [
+          "GHSA-5p39-cfhj-2xmp",
+          "GHSA-82r6-8w77-94w6",
+          "PYSEC-2026-4024",
+          "PYSEC-2026-4025",
+          "GHSA-6v38-4h7w-rj9h",
+          "GHSA-7vr2-2fgp-9w7p",
+          "GHSA-8m4g-j4wp-wgcg",
+          "GHSA-c5mf-xmp2-59rc",
+          "GHSA-c73q-w75p-j82v",
+          "GHSA-fch4-3c6x-j4gc"
+        ],
+        "detectors": [
+          "dependency_cve",
+          "lifecycle_hooks",
+          "npx_unversioned",
+          "known_mcp_cves"
+        ]
+      },
+      "ASI05": {
+        "name": "Unexpected Code Execution",
+        "coverage_level": "strong",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "code_exec_patterns",
+          "code_generation_detection",
+          "sandbox_escape"
+        ]
+      },
+      "ASI06": {
+        "name": "Memory & Context Poisoning",
+        "coverage_level": "partial",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "memory_poisoning_patterns",
+          "context_manipulation_detection"
+        ],
+        "gap_note": "Axiom detects static patterns. Full coverage requires runtime memory monitoring."
+      },
+      "ASI07": {
+        "name": "Insecure Inter-Agent Communication",
+        "coverage_level": "partial",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "transport_security",
+          "a2a_pattern_detection"
+        ],
+        "gap_note": "Axiom checks transport security. Full A2A protocol analysis requires runtime interception."
+      },
+      "ASI08": {
+        "name": "Cascading Failures",
+        "coverage_level": "partial",
+        "findings_count": 2,
+        "finding_ids": [
+          "cross_tool_search_table_search",
+          "cross_tool_search_dashboard_search"
+        ],
+        "detectors": [
+          "blast_radius_estimation",
+          "dependency_chain_analysis"
+        ],
+        "gap_note": "Axiom estimates blast radius from tool capabilities. Full cascading failure analysis requires runtime topology mapping."
+      },
+      "ASI09": {
+        "name": "Human-Agent Trust Exploitation",
+        "coverage_level": "strong",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "claimed_vs_actual",
+          "deceptive_output_detection",
+          "trust_manipulation_patterns"
+        ]
+      },
+      "ASI10": {
+        "name": "Rogue Agents",
+        "coverage_level": "partial",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "sleeper_patterns",
+          "behavioral_drift_indicators",
+          "persistence_detection"
+        ],
+        "gap_note": "Axiom detects static rogue indicators. Full rogue agent detection requires runtime behavioral monitoring."
+      }
+    },
+    "total_asi_categories_with_findings": 5
+  },
+  "owasp_mcp_coverage": {
+    "framework": "OWASP MCP Top 10",
+    "framework_version": "v0.1 beta",
+    "reference": "https://owasp.org/www-project-mcp-top-10/",
+    "coverage": {
+      "MCP01": {
+        "id": "MCP01:2025",
+        "name": "Token Mismanagement & Secret Exposure",
+        "coverage_level": "partial",
+        "reason": "Regex-based secret detection in server source and client configs plus env-var exposure checks; no entropy analysis, git-history scan, or token lifetime/passthrough checks.",
+        "findings_count": 5,
+        "finding_ids": [
+          "cross_tool_search_table_search",
+          "cross_tool_search_dashboard_search",
+          "ast_0001",
+          "ast_0002",
+          "ast_0001"
+        ],
+        "detectors": [
+          "credential_theft",
+          "cross_server",
+          "mcp01_hardcoded_secrets",
+          "config_hardcoded_secret",
+          "env_var_audit",
+          "env_dump"
+        ]
+      },
+      "MCP02": {
+        "id": "MCP02:2025",
+        "name": "Privilege Escalation via Scope Creep",
+        "coverage_level": "strong",
+        "reason": "Permission over-scope patterns, toxic tool-capability combinations, path-escape checks and env-var over-exposure in configs.",
+        "findings_count": 2,
+        "finding_ids": [
+          "cross_tool_search_table_search",
+          "cross_tool_search_dashboard_search"
+        ],
+        "detectors": [
+          "permission_overscope",
+          "toxic_tool_combo",
+          "identity_privilege",
+          "sandbox_escape",
+          "config_risk",
+          "cascading_failure",
+          "cross_server",
+          "excessive_scope",
+          "confused_deputy",
+          "file_read",
+          "file_write"
+        ]
+      },
+      "MCP03": {
+        "id": "MCP03:2025",
+        "name": "Tool Poisoning",
+        "coverage_level": "strong",
+        "reason": "Dedicated detector for hidden instructions in tool metadata, plus runtime rug-pull diffing between source and live tool definitions.",
+        "findings_count": 2,
+        "finding_ids": [
+          "poison_search_long_desc",
+          "poison_extract_long_desc"
+        ],
+        "detectors": [
+          "tool_poisoning",
+          "obfuscation",
+          "rogue_agent",
+          "source_vs_runtime_diff",
+          "tool_shadowing",
+          "hidden_unicode",
+          "rug_pull_primitive",
+          "surface_mismatch"
+        ]
+      },
+      "MCP04": {
+        "id": "MCP04:2025",
+        "name": "Software Supply Chain Attacks & Dependency Tampering",
+        "coverage_level": "strong",
+        "reason": "Dependency CVE lookup, known MCP CVEs, install lifecycle hooks, and unpinned npx/uvx/pip/@latest install sources.",
+        "findings_count": 111,
+        "finding_ids": [
+          "GHSA-5p39-cfhj-2xmp",
+          "GHSA-82r6-8w77-94w6",
+          "PYSEC-2026-4024",
+          "PYSEC-2026-4025",
+          "GHSA-6v38-4h7w-rj9h",
+          "GHSA-7vr2-2fgp-9w7p",
+          "GHSA-8m4g-j4wp-wgcg",
+          "GHSA-c5mf-xmp2-59rc",
+          "GHSA-c73q-w75p-j82v",
+          "GHSA-fch4-3c6x-j4gc"
+        ],
+        "detectors": [
+          "dependency_vuln",
+          "supply_chain",
+          "known_cve",
+          "obfuscation",
+          "lifecycle_hooks",
+          "mcp04_unpinned_install",
+          "homoglyph",
+          "rug_pull_primitive",
+          "surface_mismatch"
+        ]
+      },
+      "MCP05": {
+        "id": "MCP05:2025",
+        "name": "Command Injection & Execution",
+        "coverage_level": "partial",
+        "reason": "Regex, AST and Semgrep find exec/shell sinks and a heuristic flags sinks inside tool handlers, but there is no inter-procedural taint tracking from tool input to sink.",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "command_injection",
+          "code_execution",
+          "code_generation",
+          "sandbox_escape",
+          "mcp05_tool_input_sink",
+          "shell_exec"
+        ]
+      },
+      "MCP06": {
+        "id": "MCP06:2025",
+        "name": "Prompt Injection via Contextual Payloads",
+        "coverage_level": "partial",
+        "reason": "Injection markers are detected in tool metadata, server instructions, resources, prompts and the strings a tool returns (static), and in instructions/resources/prompts read live; payloads produced by calling a tool at runtime are not inspected.",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "prompt_injection",
+          "memory_poisoning",
+          "trust_exploitation",
+          "response_injection",
+          "tool_shadowing"
+        ]
+      },
+      "MCP07": {
+        "id": "MCP07:2025",
+        "name": "Insufficient Authentication & Authorization",
+        "coverage_level": "partial",
+        "reason": "Flags remote servers with no visible auth and servers bound to all interfaces; does not verify OAuth implementation or per-tool authorization logic.",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "transport_security",
+          "inter_agent_comm",
+          "identity_privilege",
+          "transport_no_auth",
+          "config_no_auth",
+          "mcp07_bind_all_interfaces"
+        ]
+      },
+      "MCP08": {
+        "id": "MCP08:2025",
+        "name": "Lack of Audit and Telemetry",
+        "coverage_level": "gap",
+        "reason": "Only a low-confidence heuristic for missing logging in tool-defining files; actual audit trails and telemetry pipelines are not verified.",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "audit_telemetry",
+          "mcp08_no_tool_logging"
+        ]
+      },
+      "MCP09": {
+        "id": "MCP09:2025",
+        "name": "Shadow MCP Servers",
+        "coverage_level": "partial",
+        "reason": "Covered by `axiom discover` allowlist on the local machine; no network-wide or fleet discovery.",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "mcpguard_discover",
+          "shadow_mcp"
+        ]
+      },
+      "MCP10": {
+        "id": "MCP10:2025",
+        "name": "Context Injection & Over-Sharing",
+        "coverage_level": "partial",
+        "reason": "Hard-coded egress URLs, tools that send to caller-chosen destinations and bulk-exposure heuristics are detected statically and live; what context is actually shared at runtime is not observed.",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "context_oversharing",
+          "data_exfiltration",
+          "memory_poisoning",
+          "mcp10_broad_data_exposure"
+        ]
+      }
+    },
+    "total_mcp_categories_with_findings": 4
+  },
+  "ai_analysis": null,
+  "tool_poisoning_report": null,
+  "prompt_injection_risk": null
+}

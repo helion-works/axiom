@@ -1,0 +1,1145 @@
+{
+  "schema_version": "0.5",
+  "target": "memory",
+  "risk_score": 45.0,
+  "risk_level": "medium",
+  "tools_found": 9,
+  "findings_count": 16,
+  "findings": [
+    {
+      "id": "cross_tool_create_entities_add_observations",
+      "severity": "medium",
+      "category": "cross_server",
+      "title": "Tool 'create_entities' references tool 'add_observations'",
+      "description": "Tool description mentions another tool by name, which could enable tool chaining attacks.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP01",
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Verify this cross-reference is legitimate and necessary.",
+      "rule_id": "cross_tool_reference",
+      "evidence": "Tool 'create_entities' references tool 'add_observations'",
+      "location": "static:<corpus>/reference-servers/src/memory:create_entities_add_observations",
+      "replay": "axiom scan <corpus>/reference-servers/src/memory --output json --no-ai --no-history | jq '.findings[] | select(.id==\"cross_tool_create_entities_add_observations\")'"
+    },
+    {
+      "id": "cross_tool_delete_entities_delete_relations",
+      "severity": "medium",
+      "category": "cross_server",
+      "title": "Tool 'delete_entities' references tool 'delete_relations'",
+      "description": "Tool description mentions another tool by name, which could enable tool chaining attacks.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP01",
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Verify this cross-reference is legitimate and necessary.",
+      "rule_id": "cross_tool_reference",
+      "evidence": "Tool 'delete_entities' references tool 'delete_relations'",
+      "location": "static:<corpus>/reference-servers/src/memory:delete_entities_delete_relations",
+      "replay": "axiom scan <corpus>/reference-servers/src/memory --output json --no-ai --no-history | jq '.findings[] | select(.id==\"cross_tool_delete_entities_delete_relations\")'"
+    },
+    {
+      "id": "cross_tool_delete_entities_delete_observations",
+      "severity": "medium",
+      "category": "cross_server",
+      "title": "Tool 'delete_entities' references tool 'delete_observations'",
+      "description": "Tool description mentions another tool by name, which could enable tool chaining attacks.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP01",
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Verify this cross-reference is legitimate and necessary.",
+      "rule_id": "cross_tool_reference",
+      "evidence": "Tool 'delete_entities' references tool 'delete_observations'",
+      "location": "static:<corpus>/reference-servers/src/memory:delete_entities_delete_observations",
+      "replay": "axiom scan <corpus>/reference-servers/src/memory --output json --no-ai --no-history | jq '.findings[] | select(.id==\"cross_tool_delete_entities_delete_observations\")'"
+    },
+    {
+      "id": "cross_tool_delete_relations_open_nodes",
+      "severity": "medium",
+      "category": "cross_server",
+      "title": "Tool 'delete_relations' references tool 'open_nodes'",
+      "description": "Tool description mentions another tool by name, which could enable tool chaining attacks.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP01",
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Verify this cross-reference is legitimate and necessary.",
+      "rule_id": "cross_tool_reference",
+      "evidence": "Tool 'delete_relations' references tool 'open_nodes'",
+      "location": "static:<corpus>/reference-servers/src/memory:delete_relations_open_nodes",
+      "replay": "axiom scan <corpus>/reference-servers/src/memory --output json --no-ai --no-history | jq '.findings[] | select(.id==\"cross_tool_delete_relations_open_nodes\")'"
+    },
+    {
+      "id": "cross_tool_delete_relations_search_nodes",
+      "severity": "medium",
+      "category": "cross_server",
+      "title": "Tool 'delete_relations' references tool 'search_nodes'",
+      "description": "Tool description mentions another tool by name, which could enable tool chaining attacks.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP01",
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Verify this cross-reference is legitimate and necessary.",
+      "rule_id": "cross_tool_reference",
+      "evidence": "Tool 'delete_relations' references tool 'search_nodes'",
+      "location": "static:<corpus>/reference-servers/src/memory:delete_relations_search_nodes",
+      "replay": "axiom scan <corpus>/reference-servers/src/memory --output json --no-ai --no-history | jq '.findings[] | select(.id==\"cross_tool_delete_relations_search_nodes\")'"
+    },
+    {
+      "id": "cross_tool_delete_relations_delete_entities",
+      "severity": "medium",
+      "category": "cross_server",
+      "title": "Tool 'delete_relations' references tool 'delete_entities'",
+      "description": "Tool description mentions another tool by name, which could enable tool chaining attacks.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP01",
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Verify this cross-reference is legitimate and necessary.",
+      "rule_id": "cross_tool_reference",
+      "evidence": "Tool 'delete_relations' references tool 'delete_entities'",
+      "location": "static:<corpus>/reference-servers/src/memory:delete_relations_delete_entities",
+      "replay": "axiom scan <corpus>/reference-servers/src/memory --output json --no-ai --no-history | jq '.findings[] | select(.id==\"cross_tool_delete_relations_delete_entities\")'"
+    },
+    {
+      "id": "cross_tool_read_graph_open_nodes",
+      "severity": "medium",
+      "category": "cross_server",
+      "title": "Tool 'read_graph' references tool 'open_nodes'",
+      "description": "Tool description mentions another tool by name, which could enable tool chaining attacks.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP01",
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Verify this cross-reference is legitimate and necessary.",
+      "rule_id": "cross_tool_reference",
+      "evidence": "Tool 'read_graph' references tool 'open_nodes'",
+      "location": "static:<corpus>/reference-servers/src/memory:read_graph_open_nodes",
+      "replay": "axiom scan <corpus>/reference-servers/src/memory --output json --no-ai --no-history | jq '.findings[] | select(.id==\"cross_tool_read_graph_open_nodes\")'"
+    },
+    {
+      "id": "cross_tool_read_graph_search_nodes",
+      "severity": "medium",
+      "category": "cross_server",
+      "title": "Tool 'read_graph' references tool 'search_nodes'",
+      "description": "Tool description mentions another tool by name, which could enable tool chaining attacks.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP01",
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Verify this cross-reference is legitimate and necessary.",
+      "rule_id": "cross_tool_reference",
+      "evidence": "Tool 'read_graph' references tool 'search_nodes'",
+      "location": "static:<corpus>/reference-servers/src/memory:read_graph_search_nodes",
+      "replay": "axiom scan <corpus>/reference-servers/src/memory --output json --no-ai --no-history | jq '.findings[] | select(.id==\"cross_tool_read_graph_search_nodes\")'"
+    },
+    {
+      "id": "cross_tool_search_nodes_open_nodes",
+      "severity": "medium",
+      "category": "cross_server",
+      "title": "Tool 'search_nodes' references tool 'open_nodes'",
+      "description": "Tool description mentions another tool by name, which could enable tool chaining attacks.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP01",
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Verify this cross-reference is legitimate and necessary.",
+      "rule_id": "cross_tool_reference",
+      "evidence": "Tool 'search_nodes' references tool 'open_nodes'",
+      "location": "static:<corpus>/reference-servers/src/memory:search_nodes_open_nodes",
+      "replay": "axiom scan <corpus>/reference-servers/src/memory --output json --no-ai --no-history | jq '.findings[] | select(.id==\"cross_tool_search_nodes_open_nodes\")'"
+    },
+    {
+      "id": "cross_tool_search_nodes_read_graph",
+      "severity": "medium",
+      "category": "cross_server",
+      "title": "Tool 'search_nodes' references tool 'read_graph'",
+      "description": "Tool description mentions another tool by name, which could enable tool chaining attacks.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP01",
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Verify this cross-reference is legitimate and necessary.",
+      "rule_id": "cross_tool_reference",
+      "evidence": "Tool 'search_nodes' references tool 'read_graph'",
+      "location": "static:<corpus>/reference-servers/src/memory:search_nodes_read_graph",
+      "replay": "axiom scan <corpus>/reference-servers/src/memory --output json --no-ai --no-history | jq '.findings[] | select(.id==\"cross_tool_search_nodes_read_graph\")'"
+    },
+    {
+      "id": "cross_tool_open_nodes_search_nodes",
+      "severity": "medium",
+      "category": "cross_server",
+      "title": "Tool 'open_nodes' references tool 'search_nodes'",
+      "description": "Tool description mentions another tool by name, which could enable tool chaining attacks.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP01",
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Verify this cross-reference is legitimate and necessary.",
+      "rule_id": "cross_tool_reference",
+      "evidence": "Tool 'open_nodes' references tool 'search_nodes'",
+      "location": "static:<corpus>/reference-servers/src/memory:open_nodes_search_nodes",
+      "replay": "axiom scan <corpus>/reference-servers/src/memory --output json --no-ai --no-history | jq '.findings[] | select(.id==\"cross_tool_open_nodes_search_nodes\")'"
+    },
+    {
+      "id": "cross_tool_open_nodes_read_graph",
+      "severity": "medium",
+      "category": "cross_server",
+      "title": "Tool 'open_nodes' references tool 'read_graph'",
+      "description": "Tool description mentions another tool by name, which could enable tool chaining attacks.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP01",
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Verify this cross-reference is legitimate and necessary.",
+      "rule_id": "cross_tool_reference",
+      "evidence": "Tool 'open_nodes' references tool 'read_graph'",
+      "location": "static:<corpus>/reference-servers/src/memory:open_nodes_read_graph",
+      "replay": "axiom scan <corpus>/reference-servers/src/memory --output json --no-ai --no-history | jq '.findings[] | select(.id==\"cross_tool_open_nodes_read_graph\")'"
+    },
+    {
+      "id": "code_0001",
+      "severity": "info",
+      "category": "permission_overscope",
+      "title": "Filesystem operations in MCP server source (capability note)",
+      "description": "Pattern matched in index.ts at line 253: `breaker = await fs.open(breakerPath, \"wx\");`",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": "index.ts",
+      "line_number": 253,
+      "recommendation": "Review this file system broad access pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "breaker = await fs.open(breakerPath, \"wx\");",
+      "location": "index.ts:253",
+      "replay": "axiom scan <corpus>/reference-servers/src/memory --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0001\")'"
+    },
+    {
+      "id": "code_0002",
+      "severity": "info",
+      "category": "permission_overscope",
+      "title": "Filesystem operations in MCP server source (capability note)",
+      "description": "Pattern matched in index.ts at line 301: `handle = await fs.open(lockPath, \"wx\");`",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": "index.ts",
+      "line_number": 301,
+      "recommendation": "Review this file system broad access pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "handle = await fs.open(lockPath, \"wx\");",
+      "location": "index.ts:301",
+      "replay": "axiom scan <corpus>/reference-servers/src/memory --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0002\")'"
+    },
+    {
+      "id": "GHSA-mrhx-c7xc-m3w5",
+      "severity": "medium",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency zod@4.2.0: GHSA-mrhx-c7xc-m3w5",
+      "description": "Known vulnerability (advisory severity: unrated; direct dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update zod to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-mrhx-c7xc-m3w5",
+      "location": "static:<corpus>/reference-servers/src/memory:dependencies",
+      "replay": "axiom scan <corpus>/reference-servers/src/memory --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-mrhx-c7xc-m3w5\")'"
+    },
+    {
+      "id": "memory_0001",
+      "severity": "low",
+      "category": "memory_poisoning",
+      "title": "Memory/context modification capability detected",
+      "description": "Pattern in __tests__\\persistence.test.ts near line 31: `memory persist`. MCP servers that modify agent memory or context can poison long-term behavior.",
+      "owasp_asi": [
+        "ASI06"
+      ],
+      "owasp_mcp": [
+        "MCP06",
+        "MCP10"
+      ],
+      "file_path": "__tests__\\persistence.test.ts",
+      "line_number": 31,
+      "recommendation": "Validate all data before writing to agent memory. Implement integrity checks on persistent context. Log all memory modifications for audit.",
+      "rule_id": "memory_poisoning_pattern",
+      "evidence": "Memory/context modification capability detected",
+      "location": "__tests__\\persistence.test.ts:31",
+      "replay": "axiom scan <corpus>/reference-servers/src/memory --output json --no-ai --no-history | jq '.findings[] | select(.id==\"memory_0001\")'"
+    }
+  ],
+  "server_profile": {
+    "name": "memory",
+    "command": null,
+    "args": [],
+    "env_vars": [],
+    "transport": "unknown",
+    "tools": [
+      {
+        "name": "create_entities",
+        "description": "Create multiple new entities in the knowledge graph. An entity whose name already exists, or repeats an earlier entity in the same call, is skipped and its observations are not added; the result lists the skipped names in `skipped`. Use add_observations to add observations to an existing entity.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "entities": {
+              "type": "array",
+              "description": "The entities to create, each with a name unique in the graph"
+            }
+          },
+          "required": [
+            "entities"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "create_relations",
+        "description": "Create multiple new relations between entities in the knowledge graph. Relations should be in active voice",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "relations": {
+              "type": "array",
+              "description": "The relations to create. Both ends must name existing entities; a relation already in the graph is not added again"
+            }
+          },
+          "required": [
+            "relations"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "add_observations",
+        "description": "Add new observations to existing entities in the knowledge graph",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "observations": {
+              "type": "array",
+              "description": "The observations to add, grouped by entity. Each entity must already exist; an observation it already has is not added again"
+            }
+          },
+          "required": [
+            "observations"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "delete_entities",
+        "description": "Delete whole entities from the knowledge graph, together with every relation that points to or from them and all their observations. Use it only to remove an entity entirely; to remove a link between two entities and keep both, use delete_relations, and to remove facts from an entity, use delete_observations. Cannot be undone.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "entityNames": {
+              "type": "array",
+              "description": "An array of entity names to delete"
+            }
+          },
+          "required": [
+            "entityNames"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "delete_observations",
+        "description": "Delete specific observations from entities in the knowledge graph",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "deletions": {
+              "type": "array",
+              "description": "The observations to delete, grouped by entity, each matched by its exact text"
+            }
+          },
+          "required": [
+            "deletions"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "delete_relations",
+        "description": "Delete specific relations (from, to, relationType) from the knowledge graph and keep the entities they connect. Each relation must match an existing one exactly on all three fields; if unsure, call open_nodes (or search_nodes) first to read the stored relationType. Use it to remove a link between two entities; to remove an entity itself, use delete_entities. Cannot be undone.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "relations": {
+              "type": "array",
+              "description": "An array of relations to delete"
+            }
+          },
+          "required": [
+            "relations"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "read_graph",
+        "description": "Read the entire knowledge graph: every entity with its observations, and every relation. The result grows with the graph, so use this only when you need everything; prefer search_nodes to find entities by keyword and open_nodes to read entities whose names you know.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "entityTypes": {},
+            "observationLimit": {}
+          },
+          "required": [
+            "entityTypes",
+            "observationLimit"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "search_nodes",
+        "description": "Search the knowledge graph for entities whose name, type or observations contain the query (case-insensitive). Use this when you have a keyword, a topic or part of a name but not the exact entity names. Prefer open_nodes when you already know the exact names, and use read_graph only when you need the whole graph. Returns the matching entities and every relation that touches one of them.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "query": {},
+            "limit": {},
+            "observationLimit": {}
+          },
+          "required": [
+            "query",
+            "limit",
+            "observationLimit"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "open_nodes",
+        "description": "Retrieve specific entities by their exact names, with every relation that touches one of them. Use this when you already know the names (from the conversation, or from an earlier search_nodes or read_graph result); it is the cheapest way to read entities you can name. Prefer search_nodes when you only have a keyword or part of a name. Names that do not exist are skipped.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "names": {
+              "type": "array",
+              "description": "An array of entity names to retrieve"
+            },
+            "observationLimit": {}
+          },
+          "required": [
+            "names",
+            "observationLimit"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      }
+    ],
+    "resources": [
+      {
+        "uri": "memory://knowledge-graph",
+        "name": "knowledge-graph",
+        "description": "The full knowledge graph with all entities and relations",
+        "mime_type": null
+      }
+    ],
+    "prompts": [],
+    "repo_url": null,
+    "npm_package": null,
+    "capabilities_claimed": [],
+    "capabilities_actual": []
+  },
+  "fingerprint": "1ce1070f68300e70a9764346e4f7e7fe216b48ff1d8a51ae29eb5ad233dc4501",
+  "surface_map": {
+    "server": {
+      "name": "@modelcontextprotocol/server-memory",
+      "instructions": "",
+      "transport": "unknown",
+      "auth": "unknown"
+    },
+    "tools": [
+      {
+        "name": "create_entities",
+        "description": "Create multiple new entities in the knowledge graph. An entity whose name already exists, or repeats an earlier entity in the same call, is skipped and its observations are not added; the result lists the skipped names in `skipped`. Use add_observations to add observations to an existing entity.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "entities": {
+              "type": "array",
+              "description": "The entities to create, each with a name unique in the graph"
+            }
+          },
+          "required": [
+            "entities"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "index.ts:995"
+      },
+      {
+        "name": "create_relations",
+        "description": "Create multiple new relations between entities in the knowledge graph. Relations should be in active voice",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "relations": {
+              "type": "array",
+              "description": "The relations to create. Both ends must name existing entities; a relation already in the graph is not added again"
+            }
+          },
+          "required": [
+            "relations"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [
+          "text"
+        ],
+        "registration": "static",
+        "location": "index.ts:1046"
+      },
+      {
+        "name": "add_observations",
+        "description": "Add new observations to existing entities in the knowledge graph",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "observations": {
+              "type": "array",
+              "description": "The observations to add, grouped by entity. Each entity must already exist; an observation it already has is not added again"
+            }
+          },
+          "required": [
+            "observations"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [
+          "text"
+        ],
+        "registration": "static",
+        "location": "index.ts:1082"
+      },
+      {
+        "name": "delete_entities",
+        "description": "Delete whole entities from the knowledge graph, together with every relation that points to or from them and all their observations. Use it only to remove an entity entirely; to remove a link between two entities and keep both, use delete_relations, and to remove facts from an entity, use delete_observations. Cannot be undone.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "entityNames": {
+              "type": "array",
+              "description": "An array of entity names to delete"
+            }
+          },
+          "required": [
+            "entityNames"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [
+          "text",
+          "Entities deleted successfully\nDeleted {deleted.length} of {entityNames.length} entities. Not found: {notFound.join(\", \")}"
+        ],
+        "registration": "static",
+        "location": "index.ts:1132"
+      },
+      {
+        "name": "delete_observations",
+        "description": "Delete specific observations from entities in the knowledge graph",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "deletions": {
+              "type": "array",
+              "description": "The observations to delete, grouped by entity, each matched by its exact text"
+            }
+          },
+          "required": [
+            "deletions"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [
+          "text",
+          "Observations deleted successfully\nDeleted {deletedCount} of {requested} observations. Entities not found: {missingEntities.join(\", \")}"
+        ],
+        "registration": "static",
+        "location": "index.ts:1170"
+      },
+      {
+        "name": "delete_relations",
+        "description": "Delete specific relations (from, to, relationType) from the knowledge graph and keep the entities they connect. Each relation must match an existing one exactly on all three fields; if unsure, call open_nodes (or search_nodes) first to read the stored relationType. Use it to remove a link between two entities; to remove an entity itself, use delete_entities. Cannot be undone.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "relations": {
+              "type": "array",
+              "description": "An array of relations to delete"
+            }
+          },
+          "required": [
+            "relations"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [
+          "text",
+          "Relations deleted successfully\nDeleted {deletedCount} of {relations.length} relations. The rest matched nothing."
+        ],
+        "registration": "static",
+        "location": "index.ts:1226"
+      },
+      {
+        "name": "read_graph",
+        "description": "Read the entire knowledge graph: every entity with its observations, and every relation. The result grows with the graph, so use this only when you need everything; prefer search_nodes to find entities by keyword and open_nodes to read entities whose names you know.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "entityTypes": {},
+            "observationLimit": {}
+          },
+          "required": [
+            "entityTypes",
+            "observationLimit"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [
+          "text"
+        ],
+        "registration": "static",
+        "location": "index.ts:1264"
+      },
+      {
+        "name": "search_nodes",
+        "description": "Search the knowledge graph for entities whose name, type or observations contain the query (case-insensitive). Use this when you have a keyword, a topic or part of a name but not the exact entity names. Prefer open_nodes when you already know the exact names, and use read_graph only when you need the whole graph. Returns the matching entities and every relation that touches one of them.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "query": {},
+            "limit": {},
+            "observationLimit": {}
+          },
+          "required": [
+            "query",
+            "limit",
+            "observationLimit"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [
+          "text"
+        ],
+        "registration": "static",
+        "location": "index.ts:1300"
+      },
+      {
+        "name": "open_nodes",
+        "description": "Retrieve specific entities by their exact names, with every relation that touches one of them. Use this when you already know the names (from the conversation, or from an earlier search_nodes or read_graph result); it is the cheapest way to read entities you can name. Prefer search_nodes when you only have a keyword or part of a name. Names that do not exist are skipped.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "names": {
+              "type": "array",
+              "description": "An array of entity names to retrieve"
+            },
+            "observationLimit": {}
+          },
+          "required": [
+            "names",
+            "observationLimit"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [
+          "text"
+        ],
+        "registration": "static",
+        "location": "index.ts:1337"
+      }
+    ],
+    "resources": [
+      {
+        "uri": "memory://knowledge-graph",
+        "name": "knowledge-graph",
+        "description": "The full knowledge graph with all entities and relations",
+        "mime_type": null,
+        "content_literals": [
+          "application/json"
+        ],
+        "location": "index.ts:1383"
+      }
+    ],
+    "prompts": [],
+    "mutations": [],
+    "source": {
+      "kind": "static",
+      "target": "memory",
+      "languages": [
+        "typescript"
+      ]
+    },
+    "generated_at": "2026-11-11T22:29:20+00:00",
+    "fingerprint": "1ce1070f68300e70a9764346e4f7e7fe216b48ff1d8a51ae29eb5ad233dc4501",
+    "schema": "axiom.surface/1"
+  },
+  "provenance": {
+    "identity": {
+      "npm": "@modelcontextprotocol/server-memory",
+      "pypi": null,
+      "repository": "https://github.com/modelcontextprotocol/servers",
+      "server_name": "@modelcontextprotocol/server-memory"
+    },
+    "registry": {
+      "status": "not_in_registry"
+    },
+    "lookalikes": [],
+    "checked_at": "2026-11-11T22:29:20+00:00"
+  },
+  "owasp_coverage": {
+    "framework": "OWASP Top 10 for Agentic Applications 2026",
+    "reference": "https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/",
+    "coverage": {
+      "ASI01": {
+        "name": "Agent Goal Hijack",
+        "coverage_level": "strong",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "tool_poisoning",
+          "prompt_injection",
+          "instruction_injection"
+        ]
+      },
+      "ASI02": {
+        "name": "Tool Misuse & Exploitation",
+        "coverage_level": "strong",
+        "findings_count": 12,
+        "finding_ids": [
+          "cross_tool_create_entities_add_observations",
+          "cross_tool_delete_entities_delete_relations",
+          "cross_tool_delete_entities_delete_observations",
+          "cross_tool_delete_relations_open_nodes",
+          "cross_tool_delete_relations_search_nodes",
+          "cross_tool_delete_relations_delete_entities",
+          "cross_tool_read_graph_open_nodes",
+          "cross_tool_read_graph_search_nodes",
+          "cross_tool_search_nodes_open_nodes",
+          "cross_tool_search_nodes_read_graph"
+        ],
+        "detectors": [
+          "toxic_tool_combo",
+          "tool_overscope",
+          "tool_chaining_detection"
+        ]
+      },
+      "ASI03": {
+        "name": "Identity & Privilege Abuse",
+        "coverage_level": "strong",
+        "findings_count": 2,
+        "finding_ids": [
+          "code_0001",
+          "code_0002"
+        ],
+        "detectors": [
+          "credential_analysis",
+          "shared_credential_detection",
+          "env_var_audit"
+        ]
+      },
+      "ASI04": {
+        "name": "Agentic Supply Chain Vulnerabilities",
+        "coverage_level": "strong",
+        "findings_count": 1,
+        "finding_ids": [
+          "GHSA-mrhx-c7xc-m3w5"
+        ],
+        "detectors": [
+          "dependency_cve",
+          "lifecycle_hooks",
+          "npx_unversioned",
+          "known_mcp_cves"
+        ]
+      },
+      "ASI05": {
+        "name": "Unexpected Code Execution",
+        "coverage_level": "strong",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "code_exec_patterns",
+          "code_generation_detection",
+          "sandbox_escape"
+        ]
+      },
+      "ASI06": {
+        "name": "Memory & Context Poisoning",
+        "coverage_level": "partial",
+        "findings_count": 1,
+        "finding_ids": [
+          "memory_0001"
+        ],
+        "detectors": [
+          "memory_poisoning_patterns",
+          "context_manipulation_detection"
+        ],
+        "gap_note": "Axiom detects static patterns. Full coverage requires runtime memory monitoring."
+      },
+      "ASI07": {
+        "name": "Insecure Inter-Agent Communication",
+        "coverage_level": "partial",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "transport_security",
+          "a2a_pattern_detection"
+        ],
+        "gap_note": "Axiom checks transport security. Full A2A protocol analysis requires runtime interception."
+      },
+      "ASI08": {
+        "name": "Cascading Failures",
+        "coverage_level": "partial",
+        "findings_count": 12,
+        "finding_ids": [
+          "cross_tool_create_entities_add_observations",
+          "cross_tool_delete_entities_delete_relations",
+          "cross_tool_delete_entities_delete_observations",
+          "cross_tool_delete_relations_open_nodes",
+          "cross_tool_delete_relations_search_nodes",
+          "cross_tool_delete_relations_delete_entities",
+          "cross_tool_read_graph_open_nodes",
+          "cross_tool_read_graph_search_nodes",
+          "cross_tool_search_nodes_open_nodes",
+          "cross_tool_search_nodes_read_graph"
+        ],
+        "detectors": [
+          "blast_radius_estimation",
+          "dependency_chain_analysis"
+        ],
+        "gap_note": "Axiom estimates blast radius from tool capabilities. Full cascading failure analysis requires runtime topology mapping."
+      },
+      "ASI09": {
+        "name": "Human-Agent Trust Exploitation",
+        "coverage_level": "strong",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "claimed_vs_actual",
+          "deceptive_output_detection",
+          "trust_manipulation_patterns"
+        ]
+      },
+      "ASI10": {
+        "name": "Rogue Agents",
+        "coverage_level": "partial",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "sleeper_patterns",
+          "behavioral_drift_indicators",
+          "persistence_detection"
+        ],
+        "gap_note": "Axiom detects static rogue indicators. Full rogue agent detection requires runtime behavioral monitoring."
+      }
+    },
+    "total_asi_categories_with_findings": 5
+  },
+  "owasp_mcp_coverage": {
+    "framework": "OWASP MCP Top 10",
+    "framework_version": "v0.1 beta",
+    "reference": "https://owasp.org/www-project-mcp-top-10/",
+    "coverage": {
+      "MCP01": {
+        "id": "MCP01:2025",
+        "name": "Token Mismanagement & Secret Exposure",
+        "coverage_level": "partial",
+        "reason": "Regex-based secret detection in server source and client configs plus env-var exposure checks; no entropy analysis, git-history scan, or token lifetime/passthrough checks.",
+        "findings_count": 12,
+        "finding_ids": [
+          "cross_tool_create_entities_add_observations",
+          "cross_tool_delete_entities_delete_relations",
+          "cross_tool_delete_entities_delete_observations",
+          "cross_tool_delete_relations_open_nodes",
+          "cross_tool_delete_relations_search_nodes",
+          "cross_tool_delete_relations_delete_entities",
+          "cross_tool_read_graph_open_nodes",
+          "cross_tool_read_graph_search_nodes",
+          "cross_tool_search_nodes_open_nodes",
+          "cross_tool_search_nodes_read_graph"
+        ],
+        "detectors": [
+          "credential_theft",
+          "cross_server",
+          "mcp01_hardcoded_secrets",
+          "config_hardcoded_secret",
+          "env_var_audit",
+          "env_dump"
+        ]
+      },
+      "MCP02": {
+        "id": "MCP02:2025",
+        "name": "Privilege Escalation via Scope Creep",
+        "coverage_level": "strong",
+        "reason": "Permission over-scope patterns, toxic tool-capability combinations, path-escape checks and env-var over-exposure in configs.",
+        "findings_count": 14,
+        "finding_ids": [
+          "cross_tool_create_entities_add_observations",
+          "cross_tool_delete_entities_delete_relations",
+          "cross_tool_delete_entities_delete_observations",
+          "cross_tool_delete_relations_open_nodes",
+          "cross_tool_delete_relations_search_nodes",
+          "cross_tool_delete_relations_delete_entities",
+          "cross_tool_read_graph_open_nodes",
+          "cross_tool_read_graph_search_nodes",
+          "cross_tool_search_nodes_open_nodes",
+          "cross_tool_search_nodes_read_graph"
+        ],
+        "detectors": [
+          "permission_overscope",
+          "toxic_tool_combo",
+          "identity_privilege",
+          "sandbox_escape",
+          "config_risk",
+          "cascading_failure",
+          "cross_server",
+          "excessive_scope",
+          "confused_deputy",
+          "file_read",
+          "file_write"
+        ]
+      },
+      "MCP03": {
+        "id": "MCP03:2025",
+        "name": "Tool Poisoning",
+        "coverage_level": "strong",
+        "reason": "Dedicated detector for hidden instructions in tool metadata, plus runtime rug-pull diffing between source and live tool definitions.",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "tool_poisoning",
+          "obfuscation",
+          "rogue_agent",
+          "source_vs_runtime_diff",
+          "tool_shadowing",
+          "hidden_unicode",
+          "rug_pull_primitive",
+          "surface_mismatch"
+        ]
+      },
+      "MCP04": {
+        "id": "MCP04:2025",
+        "name": "Software Supply Chain Attacks & Dependency Tampering",
+        "coverage_level": "strong",
+        "reason": "Dependency CVE lookup, known MCP CVEs, install lifecycle hooks, and unpinned npx/uvx/pip/@latest install sources.",
+        "findings_count": 1,
+        "finding_ids": [
+          "GHSA-mrhx-c7xc-m3w5"
+        ],
+        "detectors": [
+          "dependency_vuln",
+          "supply_chain",
+          "known_cve",
+          "obfuscation",
+          "lifecycle_hooks",
+          "mcp04_unpinned_install",
+          "homoglyph",
+          "rug_pull_primitive",
+          "surface_mismatch"
+        ]
+      },
+      "MCP05": {
+        "id": "MCP05:2025",
+        "name": "Command Injection & Execution",
+        "coverage_level": "partial",
+        "reason": "Regex, AST and Semgrep find exec/shell sinks and a heuristic flags sinks inside tool handlers, but there is no inter-procedural taint tracking from tool input to sink.",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "command_injection",
+          "code_execution",
+          "code_generation",
+          "sandbox_escape",
+          "mcp05_tool_input_sink",
+          "shell_exec"
+        ]
+      },
+      "MCP06": {
+        "id": "MCP06:2025",
+        "name": "Prompt Injection via Contextual Payloads",
+        "coverage_level": "partial",
+        "reason": "Injection markers are detected in tool metadata, server instructions, resources, prompts and the strings a tool returns (static), and in instructions/resources/prompts read live; payloads produced by calling a tool at runtime are not inspected.",
+        "findings_count": 1,
+        "finding_ids": [
+          "memory_0001"
+        ],
+        "detectors": [
+          "prompt_injection",
+          "memory_poisoning",
+          "trust_exploitation",
+          "response_injection",
+          "tool_shadowing"
+        ]
+      },
+      "MCP07": {
+        "id": "MCP07:2025",
+        "name": "Insufficient Authentication & Authorization",
+        "coverage_level": "partial",
+        "reason": "Flags remote servers with no visible auth and servers bound to all interfaces; does not verify OAuth implementation or per-tool authorization logic.",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "transport_security",
+          "inter_agent_comm",
+          "identity_privilege",
+          "transport_no_auth",
+          "config_no_auth",
+          "mcp07_bind_all_interfaces"
+        ]
+      },
+      "MCP08": {
+        "id": "MCP08:2025",
+        "name": "Lack of Audit and Telemetry",
+        "coverage_level": "gap",
+        "reason": "Only a low-confidence heuristic for missing logging in tool-defining files; actual audit trails and telemetry pipelines are not verified.",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "audit_telemetry",
+          "mcp08_no_tool_logging"
+        ]
+      },
+      "MCP09": {
+        "id": "MCP09:2025",
+        "name": "Shadow MCP Servers",
+        "coverage_level": "partial",
+        "reason": "Covered by `axiom discover` allowlist on the local machine; no network-wide or fleet discovery.",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "mcpguard_discover",
+          "shadow_mcp"
+        ]
+      },
+      "MCP10": {
+        "id": "MCP10:2025",
+        "name": "Context Injection & Over-Sharing",
+        "coverage_level": "partial",
+        "reason": "Hard-coded egress URLs, tools that send to caller-chosen destinations and bulk-exposure heuristics are detected statically and live; what context is actually shared at runtime is not observed.",
+        "findings_count": 1,
+        "finding_ids": [
+          "memory_0001"
+        ],
+        "detectors": [
+          "context_oversharing",
+          "data_exfiltration",
+          "memory_poisoning",
+          "mcp10_broad_data_exposure"
+        ]
+      }
+    },
+    "total_mcp_categories_with_findings": 5
+  },
+  "ai_analysis": null,
+  "tool_poisoning_report": null,
+  "prompt_injection_risk": null
+}

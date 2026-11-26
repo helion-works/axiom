@@ -1,0 +1,1896 @@
+{
+  "schema_version": "0.5",
+  "target": "<corpus>/registry/39_musaddiq-dev__mysql-mcp-server",
+  "risk_score": 100.0,
+  "risk_level": "critical",
+  "tools_found": 8,
+  "findings_count": 77,
+  "findings": [
+    {
+      "id": "poison_mysql_execute_write_query_long_desc",
+      "severity": "medium",
+      "category": "tool_poisoning",
+      "title": "Unusually long tool description for 'mysql_execute_write_query'",
+      "description": "Tool description is 713 characters. Long descriptions can hide malicious instructions.",
+      "owasp_asi": [
+        "ASI01"
+      ],
+      "owasp_mcp": [
+        "MCP03"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Review the full tool description for hidden instructions."
+    },
+    {
+      "id": "poison_mysql_execute_ddl_long_desc",
+      "severity": "medium",
+      "category": "tool_poisoning",
+      "title": "Unusually long tool description for 'mysql_execute_ddl'",
+      "description": "Tool description is 596 characters. Long descriptions can hide malicious instructions.",
+      "owasp_asi": [
+        "ASI01"
+      ],
+      "owasp_mcp": [
+        "MCP03"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Review the full tool description for hidden instructions."
+    },
+    {
+      "id": "ast_0001",
+      "severity": "high",
+      "category": "credential_theft",
+      "title": "Environment variable access via os.getenv()",
+      "description": "Call to `os.getenv()` reads credentials/secrets in src\\mysql_mcp_server\\server.py at line 16",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP01"
+      ],
+      "file_path": "src\\mysql_mcp_server\\server.py",
+      "line_number": 16,
+      "recommendation": "Document which env vars are needed. Avoid reading arbitrary env vars."
+    },
+    {
+      "id": "ast_0002",
+      "severity": "high",
+      "category": "credential_theft",
+      "title": "Environment variable access via os.getenv()",
+      "description": "Call to `os.getenv()` reads credentials/secrets in src\\mysql_mcp_server\\server.py at line 29",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP01"
+      ],
+      "file_path": "src\\mysql_mcp_server\\server.py",
+      "line_number": 29,
+      "recommendation": "Document which env vars are needed. Avoid reading arbitrary env vars."
+    },
+    {
+      "id": "ast_0003",
+      "severity": "high",
+      "category": "credential_theft",
+      "title": "Environment variable access via os.getenv()",
+      "description": "Call to `os.getenv()` reads credentials/secrets in src\\mysql_mcp_server\\server.py at line 32",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP01"
+      ],
+      "file_path": "src\\mysql_mcp_server\\server.py",
+      "line_number": 32,
+      "recommendation": "Document which env vars are needed. Avoid reading arbitrary env vars."
+    },
+    {
+      "id": "ast_0004",
+      "severity": "high",
+      "category": "credential_theft",
+      "title": "Environment variable access via os.getenv()",
+      "description": "Call to `os.getenv()` reads credentials/secrets in src\\mysql_mcp_server\\server.py at line 45",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP01"
+      ],
+      "file_path": "src\\mysql_mcp_server\\server.py",
+      "line_number": 45,
+      "recommendation": "Document which env vars are needed. Avoid reading arbitrary env vars."
+    },
+    {
+      "id": "ast_0005",
+      "severity": "high",
+      "category": "credential_theft",
+      "title": "Environment variable access via os.getenv()",
+      "description": "Call to `os.getenv()` reads credentials/secrets in src\\mysql_mcp_server\\server.py at line 58",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP01"
+      ],
+      "file_path": "src\\mysql_mcp_server\\server.py",
+      "line_number": 58,
+      "recommendation": "Document which env vars are needed. Avoid reading arbitrary env vars."
+    },
+    {
+      "id": "ast_0006",
+      "severity": "high",
+      "category": "credential_theft",
+      "title": "Environment variable access via os.getenv()",
+      "description": "Call to `os.getenv()` reads credentials/secrets in src\\mysql_mcp_server\\server.py at line 59",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP01"
+      ],
+      "file_path": "src\\mysql_mcp_server\\server.py",
+      "line_number": 59,
+      "recommendation": "Document which env vars are needed. Avoid reading arbitrary env vars."
+    },
+    {
+      "id": "ast_0007",
+      "severity": "high",
+      "category": "credential_theft",
+      "title": "Environment variable access via os.getenv()",
+      "description": "Call to `os.getenv()` reads credentials/secrets in src\\mysql_mcp_server\\server.py at line 60",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP01"
+      ],
+      "file_path": "src\\mysql_mcp_server\\server.py",
+      "line_number": 60,
+      "recommendation": "Document which env vars are needed. Avoid reading arbitrary env vars."
+    },
+    {
+      "id": "ast_0008",
+      "severity": "high",
+      "category": "credential_theft",
+      "title": "Environment variable access via os.getenv()",
+      "description": "Call to `os.getenv()` reads credentials/secrets in src\\mysql_mcp_server\\server.py at line 61",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP01"
+      ],
+      "file_path": "src\\mysql_mcp_server\\server.py",
+      "line_number": 61,
+      "recommendation": "Document which env vars are needed. Avoid reading arbitrary env vars."
+    },
+    {
+      "id": "ast_0009",
+      "severity": "high",
+      "category": "credential_theft",
+      "title": "Environment variable access via os.getenv()",
+      "description": "Call to `os.getenv()` reads credentials/secrets in src\\mysql_mcp_server\\server.py at line 62",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP01"
+      ],
+      "file_path": "src\\mysql_mcp_server\\server.py",
+      "line_number": 62,
+      "recommendation": "Document which env vars are needed. Avoid reading arbitrary env vars."
+    },
+    {
+      "id": "GHSA-3qhf-m339-9g5v",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: mcp",
+      "description": "MCP Python SDK vulnerability in the FastMCP Server causes validation error, leading to DoS",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update mcp to a patched version."
+    },
+    {
+      "id": "GHSA-5h93-6whr-6q8j",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: mcp",
+      "description": "Model Context Protocol Python SDK: HTTP client transports followed cross-origin redirects carrying custom headers and bodies",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update mcp to a patched version."
+    },
+    {
+      "id": "GHSA-84m7-p3x7-pcfv",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: mcp",
+      "description": "MCP Python SDK: Unbounded Session Accumulation in StreamableHTTP Transport Enables Resource Exhaustion",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update mcp to a patched version."
+    },
+    {
+      "id": "GHSA-9h52-p55h-vw2f",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: mcp",
+      "description": "Model Context Protocol (MCP) Python SDK does not enable DNS rebinding protection by default",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update mcp to a patched version."
+    },
+    {
+      "id": "GHSA-hvrp-rf83-w775",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: mcp",
+      "description": "MCP Python SDK: Experimental task handlers allow any client to access and cancel other clients' tasks",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update mcp to a patched version."
+    },
+    {
+      "id": "GHSA-j975-95f5-7wqh",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: mcp",
+      "description": "MCP Python SDK has Unhandled Exception in Streamable HTTP Transport, Leading to Denial of Service",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update mcp to a patched version."
+    },
+    {
+      "id": "GHSA-jpw9-pfvf-9f58",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: mcp",
+      "description": "MCP Python SDK: HTTP transports serve session requests without verifying the authenticated principal",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update mcp to a patched version."
+    },
+    {
+      "id": "GHSA-rwrf-2pqf-9j8j",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: mcp",
+      "description": "Model Context Protocol Python SDK: Client fetched server-chosen $ref URLs while validating tool results against output schemas",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update mcp to a patched version."
+    },
+    {
+      "id": "GHSA-vj7q-gjh5-988w",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: mcp",
+      "description": "MCP Python SDK: WebSocket server transport does not support Host/Origin validation",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update mcp to a patched version."
+    },
+    {
+      "id": "GHSA-w4fh-qvv9-3v23",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: mcp",
+      "description": "Model Context Protocol Python SDK: Server bearer-token authentication accepts tokens issued for a different resource server",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update mcp to a patched version."
+    },
+    {
+      "id": "PYSEC-2026-1616",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: mcp",
+      "description": "MCP Python SDK vulnerability in the FastMCP Server causes validation error, leading to DoS",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update mcp to a patched version."
+    },
+    {
+      "id": "PYSEC-2026-1617",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: mcp",
+      "description": "Model Context Protocol (MCP) Python SDK does not enable DNS rebinding protection by default",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update mcp to a patched version."
+    },
+    {
+      "id": "PYSEC-2026-1618",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: mcp",
+      "description": "MCP Python SDK has Unhandled Exception in Streamable HTTP Transport, Leading to Denial of Service",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update mcp to a patched version."
+    },
+    {
+      "id": "PYSEC-2026-3481",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: mcp",
+      "description": "MCP Python SDK: Experimental task handlers allow any client to access and cancel other clients' tasks",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update mcp to a patched version."
+    },
+    {
+      "id": "PYSEC-2026-3482",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: mcp",
+      "description": "MCP Python SDK: HTTP transports serve session requests without verifying the authenticated principal",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update mcp to a patched version."
+    },
+    {
+      "id": "PYSEC-2026-3483",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: mcp",
+      "description": "MCP Python SDK: WebSocket server transport does not support Host/Origin validation",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update mcp to a patched version."
+    },
+    {
+      "id": "GHSA-2cf3-g243-hhfx",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: mysql-connector-python",
+      "description": "MySQL Connectors Privilege Escalation",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update mysql-connector-python to a patched version."
+    },
+    {
+      "id": "GHSA-hgjp-83m4-h4fj",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: mysql-connector-python",
+      "description": "MySQL Connector/Python connector takeover vulnerability",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update mysql-connector-python to a patched version."
+    },
+    {
+      "id": "GHSA-v5rq-w2xm-7g5f",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: mysql-connector-python",
+      "description": "Improper Access Control in MySQL Connector Python",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update mysql-connector-python to a patched version."
+    },
+    {
+      "id": "PYSEC-2026-1685",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: mysql-connector-python",
+      "description": "MySQL Connector/Python connector takeover vulnerability",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update mysql-connector-python to a patched version."
+    },
+    {
+      "id": "PYSEC-2026-682",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: mysql-connector-python",
+      "description": "MySQL Connectors Privilege Escalation",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update mysql-connector-python to a patched version."
+    },
+    {
+      "id": "PYSEC-2026-683",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: mysql-connector-python",
+      "description": "Improper Access Control in MySQL Connector Python",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update mysql-connector-python to a patched version."
+    },
+    {
+      "id": "GHSA-5jqp-qgf6-3pvh",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: pydantic",
+      "description": "Use of \"infinity\" as an input to datetime and date fields causes infinite loop in pydantic",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pydantic to a patched version."
+    },
+    {
+      "id": "GHSA-mr82-8j83-vxmv",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: pydantic",
+      "description": "Pydantic regular expression denial of service",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pydantic to a patched version."
+    },
+    {
+      "id": "PYSEC-2021-47",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: pydantic",
+      "description": "Known vulnerability",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pydantic to a patched version."
+    },
+    {
+      "id": "PYSEC-2026-1812",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: pydantic",
+      "description": "Pydantic regular expression denial of service",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pydantic to a patched version."
+    },
+    {
+      "id": "GHSA-mf9w-mj56-hr94",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: python-dotenv",
+      "description": "python-dotenv: Symlink following in set_key allows arbitrary file overwrite via cross-device rename fallback",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update python-dotenv to a patched version."
+    },
+    {
+      "id": "PYSEC-2026-2270",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: python-dotenv",
+      "description": "Known vulnerability",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update python-dotenv to a patched version."
+    },
+    {
+      "id": "GHSA-3qhf-m339-9g5v",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: mcp",
+      "description": "MCP Python SDK vulnerability in the FastMCP Server causes validation error, leading to DoS",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update mcp to a patched version."
+    },
+    {
+      "id": "GHSA-5h93-6whr-6q8j",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: mcp",
+      "description": "Model Context Protocol Python SDK: HTTP client transports followed cross-origin redirects carrying custom headers and bodies",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update mcp to a patched version."
+    },
+    {
+      "id": "GHSA-84m7-p3x7-pcfv",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: mcp",
+      "description": "MCP Python SDK: Unbounded Session Accumulation in StreamableHTTP Transport Enables Resource Exhaustion",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update mcp to a patched version."
+    },
+    {
+      "id": "GHSA-9h52-p55h-vw2f",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: mcp",
+      "description": "Model Context Protocol (MCP) Python SDK does not enable DNS rebinding protection by default",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update mcp to a patched version."
+    },
+    {
+      "id": "GHSA-hvrp-rf83-w775",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: mcp",
+      "description": "MCP Python SDK: Experimental task handlers allow any client to access and cancel other clients' tasks",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update mcp to a patched version."
+    },
+    {
+      "id": "GHSA-j975-95f5-7wqh",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: mcp",
+      "description": "MCP Python SDK has Unhandled Exception in Streamable HTTP Transport, Leading to Denial of Service",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update mcp to a patched version."
+    },
+    {
+      "id": "GHSA-jpw9-pfvf-9f58",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: mcp",
+      "description": "MCP Python SDK: HTTP transports serve session requests without verifying the authenticated principal",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update mcp to a patched version."
+    },
+    {
+      "id": "GHSA-rwrf-2pqf-9j8j",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: mcp",
+      "description": "Model Context Protocol Python SDK: Client fetched server-chosen $ref URLs while validating tool results against output schemas",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update mcp to a patched version."
+    },
+    {
+      "id": "GHSA-vj7q-gjh5-988w",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: mcp",
+      "description": "MCP Python SDK: WebSocket server transport does not support Host/Origin validation",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update mcp to a patched version."
+    },
+    {
+      "id": "GHSA-w4fh-qvv9-3v23",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: mcp",
+      "description": "Model Context Protocol Python SDK: Server bearer-token authentication accepts tokens issued for a different resource server",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update mcp to a patched version."
+    },
+    {
+      "id": "PYSEC-2026-1616",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: mcp",
+      "description": "MCP Python SDK vulnerability in the FastMCP Server causes validation error, leading to DoS",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update mcp to a patched version."
+    },
+    {
+      "id": "PYSEC-2026-1617",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: mcp",
+      "description": "Model Context Protocol (MCP) Python SDK does not enable DNS rebinding protection by default",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update mcp to a patched version."
+    },
+    {
+      "id": "PYSEC-2026-1618",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: mcp",
+      "description": "MCP Python SDK has Unhandled Exception in Streamable HTTP Transport, Leading to Denial of Service",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update mcp to a patched version."
+    },
+    {
+      "id": "PYSEC-2026-3481",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: mcp",
+      "description": "MCP Python SDK: Experimental task handlers allow any client to access and cancel other clients' tasks",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update mcp to a patched version."
+    },
+    {
+      "id": "PYSEC-2026-3482",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: mcp",
+      "description": "MCP Python SDK: HTTP transports serve session requests without verifying the authenticated principal",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update mcp to a patched version."
+    },
+    {
+      "id": "PYSEC-2026-3483",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: mcp",
+      "description": "MCP Python SDK: WebSocket server transport does not support Host/Origin validation",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update mcp to a patched version."
+    },
+    {
+      "id": "GHSA-2cf3-g243-hhfx",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: mysql-connector-python",
+      "description": "MySQL Connectors Privilege Escalation",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update mysql-connector-python to a patched version."
+    },
+    {
+      "id": "GHSA-hgjp-83m4-h4fj",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: mysql-connector-python",
+      "description": "MySQL Connector/Python connector takeover vulnerability",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update mysql-connector-python to a patched version."
+    },
+    {
+      "id": "GHSA-v5rq-w2xm-7g5f",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: mysql-connector-python",
+      "description": "Improper Access Control in MySQL Connector Python",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update mysql-connector-python to a patched version."
+    },
+    {
+      "id": "PYSEC-2026-1685",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: mysql-connector-python",
+      "description": "MySQL Connector/Python connector takeover vulnerability",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update mysql-connector-python to a patched version."
+    },
+    {
+      "id": "PYSEC-2026-682",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: mysql-connector-python",
+      "description": "MySQL Connectors Privilege Escalation",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update mysql-connector-python to a patched version."
+    },
+    {
+      "id": "PYSEC-2026-683",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: mysql-connector-python",
+      "description": "Improper Access Control in MySQL Connector Python",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update mysql-connector-python to a patched version."
+    },
+    {
+      "id": "GHSA-mf9w-mj56-hr94",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: python-dotenv",
+      "description": "python-dotenv: Symlink following in set_key allows arbitrary file overwrite via cross-device rename fallback",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update python-dotenv to a patched version."
+    },
+    {
+      "id": "PYSEC-2026-2270",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: python-dotenv",
+      "description": "Known vulnerability",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update python-dotenv to a patched version."
+    },
+    {
+      "id": "GHSA-5jqp-qgf6-3pvh",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: pydantic",
+      "description": "Use of \"infinity\" as an input to datetime and date fields causes infinite loop in pydantic",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pydantic to a patched version."
+    },
+    {
+      "id": "GHSA-mr82-8j83-vxmv",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: pydantic",
+      "description": "Pydantic regular expression denial of service",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pydantic to a patched version."
+    },
+    {
+      "id": "PYSEC-2021-47",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: pydantic",
+      "description": "Known vulnerability",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pydantic to a patched version."
+    },
+    {
+      "id": "PYSEC-2026-1812",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: pydantic",
+      "description": "Pydantic regular expression denial of service",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pydantic to a patched version."
+    },
+    {
+      "id": "toxic_combo_data_read_data_write",
+      "severity": "medium",
+      "category": "toxic_tool_combo",
+      "title": "Broad data read + write = data manipulation risk",
+      "description": "Tools that can both read and write data could be manipulated to corrupt, overwrite, or delete information. Provided by: mysql_list_tables, mysql_describe_table, mysql_execute_read_query, mysql_execute_write_query, mysql_execute_ddl, mysql_get_table_ddl, mysql_explain_query, mysql_get_database_summary (data_read) + mysql_execute_read_query, mysql_execute_write_query, mysql_execute_ddl, mysql_get_table_ddl (data_write).",
+      "owasp_asi": [
+        "ASI02"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Implement tool-level permission scoping. Consider whether both capabilities are necessary or if one can be restricted."
+    },
+    {
+      "id": "toxic_combo_credential_access_data_write",
+      "severity": "high",
+      "category": "toxic_tool_combo",
+      "title": "Credential access + data write = privilege persistence",
+      "description": "Tools that access credentials AND write data could persist stolen credentials or create backdoor accounts. Provided by: mysql_get_table_ddl (credential_access) + mysql_execute_read_query, mysql_execute_write_query, mysql_execute_ddl, mysql_get_table_ddl (data_write).",
+      "owasp_asi": [
+        "ASI02"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Implement tool-level permission scoping. Consider whether both capabilities are necessary or if one can be restricted."
+    },
+    {
+      "id": "cap_mysql_execute_read_query_shell_exec",
+      "severity": "high",
+      "category": "shell_exec",
+      "title": "Tool 'mysql_execute_read_query' can execute shell commands (shell_exec)",
+      "description": "Tool 'mysql_execute_read_query' can execute shell commands. Evidence: '_execute_'. Description: 'Execute a SELECT query and return the results.\n\nThis tool only allows SELECT statements for safety. It prevents\nDROP, DELETE, INSERT, UPDATE'",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Scope the tool to the narrowest operation and location it needs, and require explicit user approval per call."
+    },
+    {
+      "id": "cap_mysql_execute_write_query_shell_exec",
+      "severity": "high",
+      "category": "shell_exec",
+      "title": "Tool 'mysql_execute_write_query' can execute shell commands (shell_exec)",
+      "description": "Tool 'mysql_execute_write_query' can execute shell commands. Evidence: '_execute_'. Description: 'Execute a data modification query (INSERT, UPDATE, DELETE) and return the results.\n\nThis tool allows executing DML (Data Manipulation Langua'",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Scope the tool to the narrowest operation and location it needs, and require explicit user approval per call."
+    },
+    {
+      "id": "cap_mysql_execute_ddl_shell_exec",
+      "severity": "high",
+      "category": "shell_exec",
+      "title": "Tool 'mysql_execute_ddl' can execute shell commands (shell_exec)",
+      "description": "Tool 'mysql_execute_ddl' can execute shell commands. Evidence: '_execute_'. Description: 'Execute a DDL (Data Definition Language) statement for schema modifications.\n\nThis tool allows executing schema changes like CREATE TABLE, D'",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Scope the tool to the narrowest operation and location it needs, and require explicit user approval per call."
+    },
+    {
+      "id": "mcp04_unpinned_0001",
+      "severity": "medium",
+      "category": "supply_chain",
+      "title": "Unpinned install source",
+      "description": "`pip install` of unpinned package(s) build in .github\\workflows\\publish-pypi.yml at line 21. Without an exact version the next install silently picks up whatever is published, including a compromised release.",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": ".github\\workflows\\publish-pypi.yml",
+      "line_number": 21,
+      "recommendation": "Pin an exact version (pkg@1.2.3, pkg==1.2.3) and prefer a lockfile or hash-checked requirements."
+    },
+    {
+      "id": "mcp04_unpinned_0002",
+      "severity": "medium",
+      "category": "supply_chain",
+      "title": "Unpinned install source",
+      "description": "`pip install` of unpinned package(s) build in .github\\workflows\\publish-testpypi.yml at line 20. Without an exact version the next install silently picks up whatever is published, including a compromised release.",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": ".github\\workflows\\publish-testpypi.yml",
+      "line_number": 20,
+      "recommendation": "Pin an exact version (pkg@1.2.3, pkg==1.2.3) and prefer a lockfile or hash-checked requirements."
+    },
+    {
+      "id": "mcp10_broad_exposure_0001",
+      "severity": "low",
+      "category": "context_oversharing",
+      "title": "Tool 'mysql_list_tables' suggests broad data exposure",
+      "description": "The tool 'mysql_list_tables' (description phrase 'all tables') appears to return bulk data into the model context, where it can be over-shared with other tools, sessions or users. What is actually returned at runtime is not checked (runtime over-sharing remains a coverage gap).",
+      "owasp_asi": [
+        "ASI02"
+      ],
+      "owasp_mcp": [
+        "MCP10"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Scope results (pagination, filters, per-user access checks) and avoid returning whole tables, histories or file trees to the model."
+    },
+    {
+      "id": "mcp10_broad_exposure_0002",
+      "severity": "low",
+      "category": "context_oversharing",
+      "title": "Tool 'mysql_get_database_summary' suggests broad data exposure",
+      "description": "The tool 'mysql_get_database_summary' (name tokens ['database']) appears to return bulk data into the model context, where it can be over-shared with other tools, sessions or users. What is actually returned at runtime is not checked (runtime over-sharing remains a coverage gap).",
+      "owasp_asi": [
+        "ASI02"
+      ],
+      "owasp_mcp": [
+        "MCP10"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Scope results (pagination, filters, per-user access checks) and avoid returning whole tables, histories or file trees to the model."
+    },
+    {
+      "id": "blast_radius_estimate",
+      "severity": "high",
+      "category": "cascading_failure",
+      "title": "Blast radius: HIGH \u2014 compromise of this server has broad impact",
+      "description": "If this MCP server is compromised, the blast radius is HIGH due to: arbitrary code execution, credential access. A single tool poisoning or supply chain attack could cascade across all connected systems.",
+      "owasp_asi": [
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Apply least-privilege to this server. Isolate it from other MCP servers. Implement kill switches and behavioral monitoring. Limit env vars to the minimum required."
+    }
+  ],
+  "server_profile": {
+    "name": "<corpus>/registry/39_musaddiq-dev__mysql-mcp-server",
+    "command": null,
+    "args": [],
+    "env_vars": [],
+    "transport": "unknown",
+    "tools": [
+      {
+        "name": "mysql_list_tables",
+        "description": "List all tables in the database.\n\nReturns:\n    A list of table names.",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "mysql_describe_table",
+        "description": "Describe the schema of a specific table.\n\nArgs:\n    table_name: The name of the table to describe.\n\nReturns:\n    A list of dictionaries containing column information.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "table_name": {}
+          },
+          "required": [
+            "table_name"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "mysql_execute_read_query",
+        "description": "Execute a SELECT query and return the results.\n\nThis tool only allows SELECT statements for safety. It prevents\nDROP, DELETE, INSERT, UPDATE, and other potentially dangerous statements.\n\nArgs:\n    query: The SQL SELECT query to execute.\n\nReturns:\n    A list of dictionaries containing the query results.\n\nRaises:\n    ValueError: If the query is not a valid SELECT statement.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "query": {}
+          },
+          "required": [
+            "query"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "mysql_execute_write_query",
+        "description": "Execute a data modification query (INSERT, UPDATE, DELETE) and return the results.\n\nThis tool allows executing DML (Data Manipulation Language) statements that modify\ndata in the database. It explicitly validates that only INSERT, UPDATE, or DELETE\nstatements are executed.\n\nWARNING: This tool modifies data. Use with caution.\n\nArgs:\n    query: The SQL INSERT, UPDATE, or DELETE query to execute.\n\nReturns:\n    A dictionary containing:\n    - success: Boolean indicating if the operation was successful\n    - message: Human-readable message describing the result\n    - rows_affected: Number of rows affected by the operation\n\nRaises:\n    ValueError: If the query is not a valid INSERT, UPDATE, or DELETE statement.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "query": {}
+          },
+          "required": [
+            "query"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "medium",
+        "poisoning_detail": "Tool description is 713 characters. Long descriptions can hide malicious instructions."
+      },
+      {
+        "name": "mysql_execute_ddl",
+        "description": "Execute a DDL (Data Definition Language) statement for schema modifications.\n\nThis tool allows executing schema changes like CREATE TABLE, DROP TABLE,\nALTER TABLE, and TRUNCATE TABLE.\n\nWARNING: This tool modifies database schema and can result in data loss.\nUse with extreme caution.\n\nArgs:\n    query: The SQL DDL query to execute (CREATE, DROP, ALTER, TRUNCATE).\n\nReturns:\n    A dictionary containing:\n    - success: Boolean indicating if the operation was successful\n    - message: Human-readable message describing the result\n\nRaises:\n    ValueError: If the query is not a valid DDL statement.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "query": {}
+          },
+          "required": [
+            "query"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "medium",
+        "poisoning_detail": "Tool description is 596 characters. Long descriptions can hide malicious instructions."
+      },
+      {
+        "name": "mysql_get_table_ddl",
+        "description": "Get the DDL (Data Definition Language) statement for creating a table.\n\nThis function executes SHOW CREATE TABLE to get the exact SQL used to\ncreate the table, including foreign keys, indexes, and specific data types.\n\nArgs:\n    table_name: The name of the table to get DDL for.\n\nReturns:\n    A string containing the CREATE TABLE statement.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "table_name": {}
+          },
+          "required": [
+            "table_name"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "mysql_explain_query",
+        "description": "Explain the execution plan of a SQL query.\n\nThis function prepends EXPLAIN to the provided SQL query and executes it\nto help analyze the performance and execution plan of complex queries.\n\nArgs:\n    query: The SQL query to explain.\n\nReturns:\n    A list of dictionaries containing the execution plan details.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "query": {}
+          },
+          "required": [
+            "query"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "mysql_get_database_summary",
+        "description": "Get a comprehensive summary of the current database.\n\nThis function returns a JSON summary containing:\n- The current database name\n- The total number of tables\n- A list of all table names with their row counts\n\nReturns:\n    A dictionary containing the database summary information.",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      }
+    ],
+    "resources": [],
+    "prompts": [],
+    "repo_url": null,
+    "npm_package": null,
+    "capabilities_claimed": [],
+    "capabilities_actual": []
+  },
+  "fingerprint": "7d44a7090ffc01def0e37481189999dc8dedc1cdb90494a013ceb04b39949a9d",
+  "surface_map": {
+    "server": {
+      "name": "<corpus>/registry/39_musaddiq-dev__mysql-mcp-server",
+      "instructions": "",
+      "transport": "stdio",
+      "auth": "unknown"
+    },
+    "tools": [
+      {
+        "name": "mysql_list_tables",
+        "description": "List all tables in the database.\n\nReturns:\n    A list of table names.",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "src\\mysql_mcp_server\\server.py:99"
+      },
+      {
+        "name": "mysql_describe_table",
+        "description": "Describe the schema of a specific table.\n\nArgs:\n    table_name: The name of the table to describe.\n\nReturns:\n    A list of dictionaries containing column information.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "table_name": {}
+          },
+          "required": [
+            "table_name"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "src\\mysql_mcp_server\\server.py:131"
+      },
+      {
+        "name": "mysql_execute_read_query",
+        "description": "Execute a SELECT query and return the results.\n\nThis tool only allows SELECT statements for safety. It prevents\nDROP, DELETE, INSERT, UPDATE, and other potentially dangerous statements.\n\nArgs:\n    query: The SQL SELECT query to execute.\n\nReturns:\n    A list of dictionaries containing the query results.\n\nRaises:\n    ValueError: If the query is not a valid SELECT statement.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "query": {}
+          },
+          "required": [
+            "query"
+          ]
+        },
+        "capabilities": [
+          "exec"
+        ],
+        "return_literals": [],
+        "registration": "static",
+        "location": "src\\mysql_mcp_server\\server.py:178"
+      },
+      {
+        "name": "mysql_execute_write_query",
+        "description": "Execute a data modification query (INSERT, UPDATE, DELETE) and return the results.\n\nThis tool allows executing DML (Data Manipulation Language) statements that modify\ndata in the database. It explicitly validates that only INSERT, UPDATE, or DELETE\nstatements are executed.\n\nWARNING: This tool modifies data. Use with caution.\n\nArgs:\n    query: The SQL INSERT, UPDATE, or DELETE query to execute.\n\nReturns:\n    A dictionary containing:\n    - success: Boolean indicating if the operation was successful\n    - message: Human-readable message describing the result\n    - rows_affected: Number of rows affected by the operation\n\nRaises:\n    ValueError: If the query is not a valid INSERT, UPDATE, or DELETE statement.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "query": {}
+          },
+          "required": [
+            "query"
+          ]
+        },
+        "capabilities": [
+          "exec"
+        ],
+        "return_literals": [],
+        "registration": "static",
+        "location": "src\\mysql_mcp_server\\server.py:253"
+      },
+      {
+        "name": "mysql_execute_ddl",
+        "description": "Execute a DDL (Data Definition Language) statement for schema modifications.\n\nThis tool allows executing schema changes like CREATE TABLE, DROP TABLE,\nALTER TABLE, and TRUNCATE TABLE.\n\nWARNING: This tool modifies database schema and can result in data loss.\nUse with extreme caution.\n\nArgs:\n    query: The SQL DDL query to execute (CREATE, DROP, ALTER, TRUNCATE).\n\nReturns:\n    A dictionary containing:\n    - success: Boolean indicating if the operation was successful\n    - message: Human-readable message describing the result\n\nRaises:\n    ValueError: If the query is not a valid DDL statement.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "query": {}
+          },
+          "required": [
+            "query"
+          ]
+        },
+        "capabilities": [
+          "exec"
+        ],
+        "return_literals": [],
+        "registration": "static",
+        "location": "src\\mysql_mcp_server\\server.py:330"
+      },
+      {
+        "name": "mysql_get_table_ddl",
+        "description": "Get the DDL (Data Definition Language) statement for creating a table.\n\nThis function executes SHOW CREATE TABLE to get the exact SQL used to\ncreate the table, including foreign keys, indexes, and specific data types.\n\nArgs:\n    table_name: The name of the table to get DDL for.\n\nReturns:\n    A string containing the CREATE TABLE statement.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "table_name": {}
+          },
+          "required": [
+            "table_name"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [
+          "Error: Could not retrieve DDL for table '{table_name}'"
+        ],
+        "registration": "static",
+        "location": "src\\mysql_mcp_server\\server.py:402"
+      },
+      {
+        "name": "mysql_explain_query",
+        "description": "Explain the execution plan of a SQL query.\n\nThis function prepends EXPLAIN to the provided SQL query and executes it\nto help analyze the performance and execution plan of complex queries.\n\nArgs:\n    query: The SQL query to explain.\n\nReturns:\n    A list of dictionaries containing the execution plan details.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "query": {}
+          },
+          "required": [
+            "query"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "src\\mysql_mcp_server\\server.py:447"
+      },
+      {
+        "name": "mysql_get_database_summary",
+        "description": "Get a comprehensive summary of the current database.\n\nThis function returns a JSON summary containing:\n- The current database name\n- The total number of tables\n- A list of all table names with their row counts\n\nReturns:\n    A dictionary containing the database summary information.",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "src\\mysql_mcp_server\\server.py:490"
+      }
+    ],
+    "resources": [],
+    "prompts": [],
+    "mutations": [],
+    "source": {
+      "kind": "static",
+      "target": "<corpus>/registry/39_musaddiq-dev__mysql-mcp-server",
+      "languages": [
+        "python"
+      ]
+    },
+    "generated_at": "2026-11-04T02:44:33+00:00",
+    "fingerprint": "7d44a7090ffc01def0e37481189999dc8dedc1cdb90494a013ceb04b39949a9d",
+    "schema": "axiom.surface/1"
+  },
+  "owasp_coverage": {
+    "framework": "OWASP Top 10 for Agentic Applications 2026",
+    "reference": "https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/",
+    "coverage": {
+      "ASI01": {
+        "name": "Agent Goal Hijack",
+        "coverage_level": "strong",
+        "findings_count": 2,
+        "finding_ids": [
+          "poison_mysql_execute_write_query_long_desc",
+          "poison_mysql_execute_ddl_long_desc"
+        ],
+        "detectors": [
+          "tool_poisoning",
+          "prompt_injection",
+          "instruction_injection"
+        ]
+      },
+      "ASI02": {
+        "name": "Tool Misuse & Exploitation",
+        "coverage_level": "strong",
+        "findings_count": 4,
+        "finding_ids": [
+          "toxic_combo_data_read_data_write",
+          "toxic_combo_credential_access_data_write",
+          "mcp10_broad_exposure_0001",
+          "mcp10_broad_exposure_0002"
+        ],
+        "detectors": [
+          "toxic_tool_combo",
+          "tool_overscope",
+          "tool_chaining_detection"
+        ]
+      },
+      "ASI03": {
+        "name": "Identity & Privilege Abuse",
+        "coverage_level": "strong",
+        "findings_count": 9,
+        "finding_ids": [
+          "ast_0001",
+          "ast_0002",
+          "ast_0003",
+          "ast_0004",
+          "ast_0005",
+          "ast_0006",
+          "ast_0007",
+          "ast_0008",
+          "ast_0009"
+        ],
+        "detectors": [
+          "credential_analysis",
+          "shared_credential_detection",
+          "env_var_audit"
+        ]
+      },
+      "ASI04": {
+        "name": "Agentic Supply Chain Vulnerabilities",
+        "coverage_level": "strong",
+        "findings_count": 58,
+        "finding_ids": [
+          "GHSA-3qhf-m339-9g5v",
+          "GHSA-5h93-6whr-6q8j",
+          "GHSA-84m7-p3x7-pcfv",
+          "GHSA-9h52-p55h-vw2f",
+          "GHSA-hvrp-rf83-w775",
+          "GHSA-j975-95f5-7wqh",
+          "GHSA-jpw9-pfvf-9f58",
+          "GHSA-rwrf-2pqf-9j8j",
+          "GHSA-vj7q-gjh5-988w",
+          "GHSA-w4fh-qvv9-3v23"
+        ],
+        "detectors": [
+          "dependency_cve",
+          "lifecycle_hooks",
+          "npx_unversioned",
+          "known_mcp_cves"
+        ]
+      },
+      "ASI05": {
+        "name": "Unexpected Code Execution",
+        "coverage_level": "strong",
+        "findings_count": 3,
+        "finding_ids": [
+          "cap_mysql_execute_read_query_shell_exec",
+          "cap_mysql_execute_write_query_shell_exec",
+          "cap_mysql_execute_ddl_shell_exec"
+        ],
+        "detectors": [
+          "code_exec_patterns",
+          "code_generation_detection",
+          "sandbox_escape"
+        ]
+      },
+      "ASI06": {
+        "name": "Memory & Context Poisoning",
+        "coverage_level": "partial",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "memory_poisoning_patterns",
+          "context_manipulation_detection"
+        ],
+        "gap_note": "Axiom detects static patterns. Full coverage requires runtime memory monitoring."
+      },
+      "ASI07": {
+        "name": "Insecure Inter-Agent Communication",
+        "coverage_level": "partial",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "transport_security",
+          "a2a_pattern_detection"
+        ],
+        "gap_note": "Axiom checks transport security. Full A2A protocol analysis requires runtime interception."
+      },
+      "ASI08": {
+        "name": "Cascading Failures",
+        "coverage_level": "partial",
+        "findings_count": 1,
+        "finding_ids": [
+          "blast_radius_estimate"
+        ],
+        "detectors": [
+          "blast_radius_estimation",
+          "dependency_chain_analysis"
+        ],
+        "gap_note": "Axiom estimates blast radius from tool capabilities. Full cascading failure analysis requires runtime topology mapping."
+      },
+      "ASI09": {
+        "name": "Human-Agent Trust Exploitation",
+        "coverage_level": "strong",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "claimed_vs_actual",
+          "deceptive_output_detection",
+          "trust_manipulation_patterns"
+        ]
+      },
+      "ASI10": {
+        "name": "Rogue Agents",
+        "coverage_level": "partial",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "sleeper_patterns",
+          "behavioral_drift_indicators",
+          "persistence_detection"
+        ],
+        "gap_note": "Axiom detects static rogue indicators. Full rogue agent detection requires runtime behavioral monitoring."
+      }
+    },
+    "total_asi_categories_with_findings": 6
+  },
+  "owasp_mcp_coverage": {
+    "framework": "OWASP MCP Top 10",
+    "framework_version": "v0.1 beta",
+    "reference": "https://owasp.org/www-project-mcp-top-10/",
+    "coverage": {
+      "MCP01": {
+        "id": "MCP01:2025",
+        "name": "Token Mismanagement & Secret Exposure",
+        "coverage_level": "partial",
+        "reason": "Regex-based secret detection in server source and client configs plus env-var exposure checks; no entropy analysis, git-history scan, or token lifetime/passthrough checks.",
+        "findings_count": 9,
+        "finding_ids": [
+          "ast_0001",
+          "ast_0002",
+          "ast_0003",
+          "ast_0004",
+          "ast_0005",
+          "ast_0006",
+          "ast_0007",
+          "ast_0008",
+          "ast_0009"
+        ],
+        "detectors": [
+          "credential_theft",
+          "cross_server",
+          "mcp01_hardcoded_secrets",
+          "config_hardcoded_secret",
+          "env_var_audit",
+          "env_dump"
+        ]
+      },
+      "MCP02": {
+        "id": "MCP02:2025",
+        "name": "Privilege Escalation via Scope Creep",
+        "coverage_level": "strong",
+        "reason": "Permission over-scope patterns, toxic tool-capability combinations, path-escape checks and env-var over-exposure in configs.",
+        "findings_count": 3,
+        "finding_ids": [
+          "toxic_combo_data_read_data_write",
+          "toxic_combo_credential_access_data_write",
+          "blast_radius_estimate"
+        ],
+        "detectors": [
+          "permission_overscope",
+          "toxic_tool_combo",
+          "identity_privilege",
+          "sandbox_escape",
+          "config_risk",
+          "cascading_failure",
+          "cross_server",
+          "excessive_scope",
+          "confused_deputy",
+          "file_read",
+          "file_write"
+        ]
+      },
+      "MCP03": {
+        "id": "MCP03:2025",
+        "name": "Tool Poisoning",
+        "coverage_level": "strong",
+        "reason": "Dedicated detector for hidden instructions in tool metadata, plus runtime rug-pull diffing between source and live tool definitions.",
+        "findings_count": 2,
+        "finding_ids": [
+          "poison_mysql_execute_write_query_long_desc",
+          "poison_mysql_execute_ddl_long_desc"
+        ],
+        "detectors": [
+          "tool_poisoning",
+          "obfuscation",
+          "rogue_agent",
+          "source_vs_runtime_diff",
+          "tool_shadowing",
+          "hidden_unicode",
+          "rug_pull_primitive",
+          "surface_mismatch"
+        ]
+      },
+      "MCP04": {
+        "id": "MCP04:2025",
+        "name": "Software Supply Chain Attacks & Dependency Tampering",
+        "coverage_level": "strong",
+        "reason": "Dependency CVE lookup, known MCP CVEs, install lifecycle hooks, and unpinned npx/uvx/pip/@latest install sources.",
+        "findings_count": 58,
+        "finding_ids": [
+          "GHSA-3qhf-m339-9g5v",
+          "GHSA-5h93-6whr-6q8j",
+          "GHSA-84m7-p3x7-pcfv",
+          "GHSA-9h52-p55h-vw2f",
+          "GHSA-hvrp-rf83-w775",
+          "GHSA-j975-95f5-7wqh",
+          "GHSA-jpw9-pfvf-9f58",
+          "GHSA-rwrf-2pqf-9j8j",
+          "GHSA-vj7q-gjh5-988w",
+          "GHSA-w4fh-qvv9-3v23"
+        ],
+        "detectors": [
+          "dependency_vuln",
+          "supply_chain",
+          "known_cve",
+          "obfuscation",
+          "lifecycle_hooks",
+          "mcp04_unpinned_install",
+          "homoglyph",
+          "rug_pull_primitive",
+          "surface_mismatch"
+        ]
+      },
+      "MCP05": {
+        "id": "MCP05:2025",
+        "name": "Command Injection & Execution",
+        "coverage_level": "partial",
+        "reason": "Regex, AST and Semgrep find exec/shell sinks and a heuristic flags sinks inside tool handlers, but there is no inter-procedural taint tracking from tool input to sink.",
+        "findings_count": 3,
+        "finding_ids": [
+          "cap_mysql_execute_read_query_shell_exec",
+          "cap_mysql_execute_write_query_shell_exec",
+          "cap_mysql_execute_ddl_shell_exec"
+        ],
+        "detectors": [
+          "command_injection",
+          "code_execution",
+          "code_generation",
+          "sandbox_escape",
+          "mcp05_tool_input_sink",
+          "shell_exec"
+        ]
+      },
+      "MCP06": {
+        "id": "MCP06:2025",
+        "name": "Prompt Injection via Contextual Payloads",
+        "coverage_level": "partial",
+        "reason": "Injection markers are detected in tool metadata, server instructions, resources, prompts and the strings a tool returns (static), and in instructions/resources/prompts read live; payloads produced by calling a tool at runtime are not inspected.",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "prompt_injection",
+          "memory_poisoning",
+          "trust_exploitation",
+          "response_injection",
+          "tool_shadowing"
+        ]
+      },
+      "MCP07": {
+        "id": "MCP07:2025",
+        "name": "Insufficient Authentication & Authorization",
+        "coverage_level": "partial",
+        "reason": "Flags remote servers with no visible auth and servers bound to all interfaces; does not verify OAuth implementation or per-tool authorization logic.",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "transport_security",
+          "inter_agent_comm",
+          "identity_privilege",
+          "transport_no_auth",
+          "config_no_auth",
+          "mcp07_bind_all_interfaces"
+        ]
+      },
+      "MCP08": {
+        "id": "MCP08:2025",
+        "name": "Lack of Audit and Telemetry",
+        "coverage_level": "gap",
+        "reason": "Only a low-confidence heuristic for missing logging in tool-defining files; actual audit trails and telemetry pipelines are not verified.",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "audit_telemetry",
+          "mcp08_no_tool_logging"
+        ]
+      },
+      "MCP09": {
+        "id": "MCP09:2025",
+        "name": "Shadow MCP Servers",
+        "coverage_level": "partial",
+        "reason": "Covered by `axiom discover` allowlist on the local machine; no network-wide or fleet discovery.",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "mcpguard_discover",
+          "shadow_mcp"
+        ]
+      },
+      "MCP10": {
+        "id": "MCP10:2025",
+        "name": "Context Injection & Over-Sharing",
+        "coverage_level": "partial",
+        "reason": "Hard-coded egress URLs, tools that send to caller-chosen destinations and bulk-exposure heuristics are detected statically and live; what context is actually shared at runtime is not observed.",
+        "findings_count": 2,
+        "finding_ids": [
+          "mcp10_broad_exposure_0001",
+          "mcp10_broad_exposure_0002"
+        ],
+        "detectors": [
+          "context_oversharing",
+          "data_exfiltration",
+          "memory_poisoning",
+          "mcp10_broad_data_exposure"
+        ]
+      }
+    },
+    "total_mcp_categories_with_findings": 6
+  },
+  "ai_analysis": null,
+  "tool_poisoning_report": null,
+  "prompt_injection_risk": null
+}

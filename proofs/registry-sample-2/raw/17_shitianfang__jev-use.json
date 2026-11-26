@@ -1,0 +1,1930 @@
+{
+  "schema_version": "0.5",
+  "target": "17_shitianfang__jev-use",
+  "risk_score": 45.0,
+  "risk_level": "medium",
+  "tools_found": 2,
+  "findings_count": 66,
+  "findings": [
+    {
+      "id": "poison_jev_judge_instruction_injection",
+      "severity": "medium",
+      "category": "tool_poisoning",
+      "title": "Steering language (instruction injection) in 'jev_judge'",
+      "description": "Steering language in tool description (imperative guidance aimed at the model). Matched pattern in tool 'jev_judge': 'never'",
+      "owasp_asi": [
+        "ASI01"
+      ],
+      "owasp_mcp": [
+        "MCP03"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Review tool description carefully. Compare claimed functionality with actual code behavior. Consider removing this MCP server.",
+      "rule_id": "poison_instruction_injection",
+      "evidence": "never",
+      "location": "static:<corpus>/registry2/17_shitianfang__jev-use:jev_judge",
+      "replay": "axiom scan <corpus>/registry2/17_shitianfang__jev-use --output json --no-ai --no-history | jq '.findings[] | select(.id==\"poison_jev_judge_instruction_injection\")'"
+    },
+    {
+      "id": "poison_jev_judge_long_desc",
+      "severity": "medium",
+      "category": "tool_poisoning",
+      "title": "Unusually long tool description for 'jev_judge'",
+      "description": "Tool description is 1252 characters. Long descriptions can hide malicious instructions.",
+      "owasp_asi": [
+        "ASI01"
+      ],
+      "owasp_mcp": [
+        "MCP03"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Review the full tool description for hidden instructions.",
+      "rule_id": "long_description",
+      "evidence": "Unusually long tool description for 'jev_judge'",
+      "location": "static:<corpus>/registry2/17_shitianfang__jev-use:jev_judge",
+      "replay": "axiom scan <corpus>/registry2/17_shitianfang__jev-use --output json --no-ai --no-history | jq '.findings[] | select(.id==\"poison_jev_judge_long_desc\")'"
+    },
+    {
+      "id": "poison_jev_gate_long_desc",
+      "severity": "medium",
+      "category": "tool_poisoning",
+      "title": "Unusually long tool description for 'jev_gate'",
+      "description": "Tool description is 614 characters. Long descriptions can hide malicious instructions.",
+      "owasp_asi": [
+        "ASI01"
+      ],
+      "owasp_mcp": [
+        "MCP03"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Review the full tool description for hidden instructions.",
+      "rule_id": "long_description",
+      "evidence": "Unusually long tool description for 'jev_gate'",
+      "location": "static:<corpus>/registry2/17_shitianfang__jev-use:jev_gate",
+      "replay": "axiom scan <corpus>/registry2/17_shitianfang__jev-use --output json --no-ai --no-history | jq '.findings[] | select(.id==\"poison_jev_gate_long_desc\")'"
+    },
+    {
+      "id": "code_0001",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in bench\\examples\\collab.mjs at line 39: `import { Jev, check, pick, route } from \"../../dist/index.js\";`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "bench\\examples\\collab.mjs",
+      "line_number": 39,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "import { Jev, check, pick, route } from \"../../dist/index.js\";",
+      "location": "bench\\examples\\collab.mjs:39",
+      "replay": "axiom scan <corpus>/registry2/17_shitianfang__jev-use --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0001\")'"
+    },
+    {
+      "id": "code_0002",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in bench\\examples\\collab.mjs at line 253: `await page.waitForFunction((prev) => {`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "bench\\examples\\collab.mjs",
+      "line_number": 253,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "await page.waitForFunction((prev) => {",
+      "location": "bench\\examples\\collab.mjs:253",
+      "replay": "axiom scan <corpus>/registry2/17_shitianfang__jev-use --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0002\")'"
+    },
+    {
+      "id": "code_0003",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in bench\\examples\\collab.mjs at line 313: `const r = spawnSync(process.env.FFMPEG ?? \"ffmpeg\", [\"-v\", \"error\", \"-y\", ...args], { stdio: \"inherit\" });`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "bench\\examples\\collab.mjs",
+      "line_number": 313,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const r = spawnSync(process.env.FFMPEG ?? \"ffmpeg\", [\"-v\", \"error\", \"-y\", ...args], { stdio: \"inherit\" });",
+      "location": "bench\\examples\\collab.mjs:313",
+      "replay": "axiom scan <corpus>/registry2/17_shitianfang__jev-use --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0003\")'"
+    },
+    {
+      "id": "code_0004",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in bench\\examples\\compact.mjs at line 28: `import { Jev, check, pick } from \"../../dist/index.js\";`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "bench\\examples\\compact.mjs",
+      "line_number": 28,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "import { Jev, check, pick } from \"../../dist/index.js\";",
+      "location": "bench\\examples\\compact.mjs:28",
+      "replay": "axiom scan <corpus>/registry2/17_shitianfang__jev-use --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0004\")'"
+    },
+    {
+      "id": "code_0005",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in bench\\examples\\compact.mjs at line 32: `const ROOT = new URL(\"../../\", import.meta.url).pathname;`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "bench\\examples\\compact.mjs",
+      "line_number": 32,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const ROOT = new URL(\"../../\", import.meta.url).pathname;",
+      "location": "bench\\examples\\compact.mjs:32",
+      "replay": "axiom scan <corpus>/registry2/17_shitianfang__jev-use --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0005\")'"
+    },
+    {
+      "id": "code_0006",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in bench\\examples\\compact.mjs at line 222: `const g = re.exec(m.text);`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "bench\\examples\\compact.mjs",
+      "line_number": 222,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const g = re.exec(m.text);",
+      "location": "bench\\examples\\compact.mjs:222",
+      "replay": "axiom scan <corpus>/registry2/17_shitianfang__jev-use --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0006\")'"
+    },
+    {
+      "id": "code_0007",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in bench\\examples\\completion.mjs at line 21: `import { Jev, check } from \"../../dist/index.js\";`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "bench\\examples\\completion.mjs",
+      "line_number": 21,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "import { Jev, check } from \"../../dist/index.js\";",
+      "location": "bench\\examples\\completion.mjs:21",
+      "replay": "axiom scan <corpus>/registry2/17_shitianfang__jev-use --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0007\")'"
+    },
+    {
+      "id": "code_0008",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in bench\\examples\\completion.mjs at line 48: `out = execSync(`{ ${cmd} ; } 2>&1`, { cwd, encoding: \"utf8\", timeout: 180_000 });`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "bench\\examples\\completion.mjs",
+      "line_number": 48,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "out = execSync(",
+      "location": "bench\\examples\\completion.mjs:48",
+      "replay": "axiom scan <corpus>/registry2/17_shitianfang__jev-use --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0008\")'"
+    },
+    {
+      "id": "code_0009",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in bench\\examples\\gate-session.mjs at line 12: `import { Jev } from \"../../dist/index.js\";`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "bench\\examples\\gate-session.mjs",
+      "line_number": 12,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "import { Jev } from \"../../dist/index.js\";",
+      "location": "bench\\examples\\gate-session.mjs:12",
+      "replay": "axiom scan <corpus>/registry2/17_shitianfang__jev-use --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0009\")'"
+    },
+    {
+      "id": "code_0010",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in bench\\examples\\inset.mjs at line 32: `import { Jev, pick } from \"../../dist/index.js\";`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "bench\\examples\\inset.mjs",
+      "line_number": 32,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "import { Jev, pick } from \"../../dist/index.js\";",
+      "location": "bench\\examples\\inset.mjs:32",
+      "replay": "axiom scan <corpus>/registry2/17_shitianfang__jev-use --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0010\")'"
+    },
+    {
+      "id": "code_0011",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in bench\\examples\\pong.mjs at line 37: `import { Jev, pick } from \"../../dist/index.js\";`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "bench\\examples\\pong.mjs",
+      "line_number": 37,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "import { Jev, pick } from \"../../dist/index.js\";",
+      "location": "bench\\examples\\pong.mjs:37",
+      "replay": "axiom scan <corpus>/registry2/17_shitianfang__jev-use --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0011\")'"
+    },
+    {
+      "id": "code_0012",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in bench\\examples\\pong.mjs at line 208: `await pg.waitForFunction(() => window.replayDone === true, null, { timeout: RUN_MS + 30_000 });`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "bench\\examples\\pong.mjs",
+      "line_number": 208,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "await pg.waitForFunction(() => window.replayDone === true, null, { timeout: RUN_MS + 30_000 });",
+      "location": "bench\\examples\\pong.mjs:208",
+      "replay": "axiom scan <corpus>/registry2/17_shitianfang__jev-use --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0012\")'"
+    },
+    {
+      "id": "code_0013",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in bench\\examples\\pr-triage.mjs at line 17: `import { Jev, pick, rate } from \"../../dist/index.js\";`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "bench\\examples\\pr-triage.mjs",
+      "line_number": 17,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "import { Jev, pick, rate } from \"../../dist/index.js\";",
+      "location": "bench\\examples\\pr-triage.mjs:17",
+      "replay": "axiom scan <corpus>/registry2/17_shitianfang__jev-use --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0013\")'"
+    },
+    {
+      "id": "code_0014",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in bench\\examples\\race.mjs at line 31: `import { Jev, pick } from \"../../dist/index.js\";`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "bench\\examples\\race.mjs",
+      "line_number": 31,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "import { Jev, pick } from \"../../dist/index.js\";",
+      "location": "bench\\examples\\race.mjs:31",
+      "replay": "axiom scan <corpus>/registry2/17_shitianfang__jev-use --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0014\")'"
+    },
+    {
+      "id": "code_0015",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in bench\\examples\\strip.mjs at line 42: `import { Jev, pick } from \"../../dist/index.js\";`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "bench\\examples\\strip.mjs",
+      "line_number": 42,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "import { Jev, pick } from \"../../dist/index.js\";",
+      "location": "bench\\examples\\strip.mjs:42",
+      "replay": "axiom scan <corpus>/registry2/17_shitianfang__jev-use --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0015\")'"
+    },
+    {
+      "id": "code_0016",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in bench\\examples\\strip.mjs at line 50: `const ASSETS = new URL(\"../../assets/\", import.meta.url);`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "bench\\examples\\strip.mjs",
+      "line_number": 50,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const ASSETS = new URL(\"../../assets/\", import.meta.url);",
+      "location": "bench\\examples\\strip.mjs:50",
+      "replay": "axiom scan <corpus>/registry2/17_shitianfang__jev-use --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0016\")'"
+    },
+    {
+      "id": "code_0017",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in bench\\examples\\strip.mjs at line 258: `const r = spawnSync(ffmpeg, [\"-v\", \"error\", \"-y\", ...args], { stdio: \"inherit\" });`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "bench\\examples\\strip.mjs",
+      "line_number": 258,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const r = spawnSync(ffmpeg, [\"-v\", \"error\", \"-y\", ...args], { stdio: \"inherit\" });",
+      "location": "bench\\examples\\strip.mjs:258",
+      "replay": "axiom scan <corpus>/registry2/17_shitianfang__jev-use --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0017\")'"
+    },
+    {
+      "id": "code_0018",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in bench\\examples\\task.mjs at line 26: `import { Jev, check, pick } from \"../../dist/index.js\";`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "bench\\examples\\task.mjs",
+      "line_number": 26,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "import { Jev, check, pick } from \"../../dist/index.js\";",
+      "location": "bench\\examples\\task.mjs:26",
+      "replay": "axiom scan <corpus>/registry2/17_shitianfang__jev-use --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0018\")'"
+    },
+    {
+      "id": "code_0019",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in bench\\examples\\task.mjs at line 148: `await page.waitForFunction((b) => location.href !== b, before, { timeout: 30_000 });`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "bench\\examples\\task.mjs",
+      "line_number": 148,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "await page.waitForFunction((b) => location.href !== b, before, { timeout: 30_000 });",
+      "location": "bench\\examples\\task.mjs:148",
+      "replay": "axiom scan <corpus>/registry2/17_shitianfang__jev-use --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0019\")'"
+    },
+    {
+      "id": "code_0020",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in bench\\examples\\task.mjs at line 316: `const r = spawnSync(process.env.FFMPEG ?? \"ffmpeg\", [\"-v\", \"error\", \"-y\", ...args], { stdio: \"inherit\" });`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "bench\\examples\\task.mjs",
+      "line_number": 316,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const r = spawnSync(process.env.FFMPEG ?? \"ffmpeg\", [\"-v\", \"error\", \"-y\", ...args], { stdio: \"inherit\" });",
+      "location": "bench\\examples\\task.mjs:316",
+      "replay": "axiom scan <corpus>/registry2/17_shitianfang__jev-use --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0020\")'"
+    },
+    {
+      "id": "code_0021",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in bench\\examples\\waiting.mjs at line 17: `import { Jev, check, pick } from \"../../dist/index.js\";`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "bench\\examples\\waiting.mjs",
+      "line_number": 17,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "import { Jev, check, pick } from \"../../dist/index.js\";",
+      "location": "bench\\examples\\waiting.mjs:17",
+      "replay": "axiom scan <corpus>/registry2/17_shitianfang__jev-use --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0021\")'"
+    },
+    {
+      "id": "code_0022",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in harness\\pi\\jev-use.ts at line 16: `import { createBackend } from \"../../src/backends/index.js\";`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "harness\\pi\\jev-use.ts",
+      "line_number": 16,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "import { createBackend } from \"../../src/backends/index.js\";",
+      "location": "harness\\pi\\jev-use.ts:16",
+      "replay": "axiom scan <corpus>/registry2/17_shitianfang__jev-use --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0022\")'"
+    },
+    {
+      "id": "code_0023",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in harness\\pi\\jev-use.ts at line 17: `import type { JevBackend } from \"../../src/backends/types.js\";`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "harness\\pi\\jev-use.ts",
+      "line_number": 17,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "import type { JevBackend } from \"../../src/backends/types.js\";",
+      "location": "harness\\pi\\jev-use.ts:17",
+      "replay": "axiom scan <corpus>/registry2/17_shitianfang__jev-use --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0023\")'"
+    },
+    {
+      "id": "code_0024",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in harness\\pi\\jev-use.ts at line 18: `import { gate, judge } from \"../../src/judge.js\";`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "harness\\pi\\jev-use.ts",
+      "line_number": 18,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "import { gate, judge } from \"../../src/judge.js\";",
+      "location": "harness\\pi\\jev-use.ts:18",
+      "replay": "axiom scan <corpus>/registry2/17_shitianfang__jev-use --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0024\")'"
+    },
+    {
+      "id": "code_0025",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in harness\\pi\\jev-use.ts at line 23: `} from \"../../src/protocol.js\";`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "harness\\pi\\jev-use.ts",
+      "line_number": 23,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "} from \"../../src/protocol.js\";",
+      "location": "harness\\pi\\jev-use.ts:23",
+      "replay": "axiom scan <corpus>/registry2/17_shitianfang__jev-use --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0025\")'"
+    },
+    {
+      "id": "code_0026",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in src\\cli.ts at line 251: `const probe = spawnSync(\"claude\", [\"--version\"], {`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "src\\cli.ts",
+      "line_number": 251,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const probe = spawnSync(\"claude\", [\"--version\"], {",
+      "location": "src\\cli.ts:251",
+      "replay": "axiom scan <corpus>/registry2/17_shitianfang__jev-use --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0026\")'"
+    },
+    {
+      "id": "code_0027",
+      "severity": "info",
+      "category": "credential_theft",
+      "title": "Server reads environment variables or credential-file paths (capability note)",
+      "description": "Pattern matched in src\\cli.ts at line 326: `const value = process.env[name];`",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP01"
+      ],
+      "file_path": "src\\cli.ts",
+      "line_number": 326,
+      "recommendation": "Review this credential harvesting pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const value = process.env[name];",
+      "location": "src\\cli.ts:326",
+      "replay": "axiom scan <corpus>/registry2/17_shitianfang__jev-use --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0027\")'"
+    },
+    {
+      "id": "code_0028",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in src\\install.ts at line 34: `const probe = spawnSync(command, [\"--version\"], { stdio: \"ignore\", shell });`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "src\\install.ts",
+      "line_number": 34,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const probe = spawnSync(command, [\"--version\"], { stdio: \"ignore\", shell });",
+      "location": "src\\install.ts:34",
+      "replay": "axiom scan <corpus>/registry2/17_shitianfang__jev-use --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0028\")'"
+    },
+    {
+      "id": "code_0029",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in src\\install.ts at line 59: `const run = spawnSync(step.command, step.args, { stdio: \"inherit\", shell });`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "src\\install.ts",
+      "line_number": 59,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const run = spawnSync(step.command, step.args, { stdio: \"inherit\", shell });",
+      "location": "src\\install.ts:59",
+      "replay": "axiom scan <corpus>/registry2/17_shitianfang__jev-use --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0029\")'"
+    },
+    {
+      "id": "GHSA-22jm-h49p-29qw",
+      "severity": "medium",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency @modelcontextprotocol/sdk@1.30.0: GHSA-22jm-h49p-29qw",
+      "description": "Known vulnerability (advisory severity: unrated; direct dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update @modelcontextprotocol/sdk to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-22jm-h49p-29qw",
+      "location": "static:<corpus>/registry2/17_shitianfang__jev-use:dependencies",
+      "replay": "axiom scan <corpus>/registry2/17_shitianfang__jev-use --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-22jm-h49p-29qw\")'"
+    },
+    {
+      "id": "GHSA-46jr-4wx8-v453",
+      "severity": "medium",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency @modelcontextprotocol/sdk@1.30.0: GHSA-46jr-4wx8-v453",
+      "description": "Known vulnerability (advisory severity: unrated; direct dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update @modelcontextprotocol/sdk to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-46jr-4wx8-v453",
+      "location": "static:<corpus>/registry2/17_shitianfang__jev-use:dependencies",
+      "replay": "axiom scan <corpus>/registry2/17_shitianfang__jev-use --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-46jr-4wx8-v453\")'"
+    },
+    {
+      "id": "GHSA-6prh-2h8m-c8cw",
+      "severity": "medium",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency @modelcontextprotocol/sdk@1.30.0: GHSA-6prh-2h8m-c8cw",
+      "description": "Known vulnerability (advisory severity: unrated; direct dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update @modelcontextprotocol/sdk to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-6prh-2h8m-c8cw",
+      "location": "static:<corpus>/registry2/17_shitianfang__jev-use:dependencies",
+      "replay": "axiom scan <corpus>/registry2/17_shitianfang__jev-use --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-6prh-2h8m-c8cw\")'"
+    },
+    {
+      "id": "GHSA-6qxp-vccf-f47h",
+      "severity": "medium",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency @modelcontextprotocol/sdk@1.30.0: GHSA-6qxp-vccf-f47h",
+      "description": "Known vulnerability (advisory severity: unrated; direct dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update @modelcontextprotocol/sdk to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-6qxp-vccf-f47h",
+      "location": "static:<corpus>/registry2/17_shitianfang__jev-use:dependencies",
+      "replay": "axiom scan <corpus>/registry2/17_shitianfang__jev-use --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-6qxp-vccf-f47h\")'"
+    },
+    {
+      "id": "GHSA-f897-62hf-6gxq",
+      "severity": "medium",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency @modelcontextprotocol/sdk@1.30.0: GHSA-f897-62hf-6gxq",
+      "description": "Known vulnerability (advisory severity: unrated; direct dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update @modelcontextprotocol/sdk to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-f897-62hf-6gxq",
+      "location": "static:<corpus>/registry2/17_shitianfang__jev-use:dependencies",
+      "replay": "axiom scan <corpus>/registry2/17_shitianfang__jev-use --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-f897-62hf-6gxq\")'"
+    },
+    {
+      "id": "GHSA-rvq5-wwqv-78pq",
+      "severity": "medium",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency @modelcontextprotocol/sdk@1.30.0: GHSA-rvq5-wwqv-78pq",
+      "description": "Known vulnerability (advisory severity: unrated; direct dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update @modelcontextprotocol/sdk to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-rvq5-wwqv-78pq",
+      "location": "static:<corpus>/registry2/17_shitianfang__jev-use:dependencies",
+      "replay": "axiom scan <corpus>/registry2/17_shitianfang__jev-use --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-rvq5-wwqv-78pq\")'"
+    },
+    {
+      "id": "GHSA-mrhx-c7xc-m3w5",
+      "severity": "medium",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency zod@4.6.5: GHSA-mrhx-c7xc-m3w5",
+      "description": "Known vulnerability (advisory severity: unrated; direct dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update zod to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-mrhx-c7xc-m3w5",
+      "location": "static:<corpus>/registry2/17_shitianfang__jev-use:dependencies",
+      "replay": "axiom scan <corpus>/registry2/17_shitianfang__jev-use --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-mrhx-c7xc-m3w5\")'"
+    },
+    {
+      "id": "GHSA-rmxm-3fg6-px4f",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency @hono/node-server@2.1.1: GHSA-rmxm-3fg6-px4f",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update @hono/node-server to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-rmxm-3fg6-px4f",
+      "location": "static:<corpus>/registry2/17_shitianfang__jev-use:dependencies",
+      "replay": "axiom scan <corpus>/registry2/17_shitianfang__jev-use --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-rmxm-3fg6-px4f\")'"
+    },
+    {
+      "id": "GHSA-qxg6-89mg-rqv8",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency @vitest/mocker@4.1.11: GHSA-qxg6-89mg-rqv8",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update @vitest/mocker to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-qxg6-89mg-rqv8",
+      "location": "static:<corpus>/registry2/17_shitianfang__jev-use:dependencies",
+      "replay": "axiom scan <corpus>/registry2/17_shitianfang__jev-use --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-qxg6-89mg-rqv8\")'"
+    },
+    {
+      "id": "GHSA-xp26-3454-mjgp",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency @vitest/mocker@4.1.11: GHSA-xp26-3454-mjgp",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update @vitest/mocker to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-xp26-3454-mjgp",
+      "location": "static:<corpus>/registry2/17_shitianfang__jev-use:dependencies",
+      "replay": "axiom scan <corpus>/registry2/17_shitianfang__jev-use --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-xp26-3454-mjgp\")'"
+    },
+    {
+      "id": "GHSA-27r3-jxmh-p828",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency body-parser@2.3.0: GHSA-27r3-jxmh-p828",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update body-parser to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-27r3-jxmh-p828",
+      "location": "static:<corpus>/registry2/17_shitianfang__jev-use:dependencies",
+      "replay": "axiom scan <corpus>/registry2/17_shitianfang__jev-use --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-27r3-jxmh-p828\")'"
+    },
+    {
+      "id": "GHSA-g7r4-m6w7-qqqr",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency esbuild@0.27.7: GHSA-g7r4-m6w7-qqqr",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update esbuild to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-g7r4-m6w7-qqqr",
+      "location": "static:<corpus>/registry2/17_shitianfang__jev-use:dependencies",
+      "replay": "axiom scan <corpus>/registry2/17_shitianfang__jev-use --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-g7r4-m6w7-qqqr\")'"
+    },
+    {
+      "id": "GHSA-333x-w4r6-6crp",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency fast-uri@3.1.8: GHSA-333x-w4r6-6crp",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update fast-uri to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-333x-w4r6-6crp",
+      "location": "static:<corpus>/registry2/17_shitianfang__jev-use:dependencies",
+      "replay": "axiom scan <corpus>/registry2/17_shitianfang__jev-use --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-333x-w4r6-6crp\")'"
+    },
+    {
+      "id": "GHSA-w74x-v6f9-j3xg",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency fast-uri@3.1.8: GHSA-w74x-v6f9-j3xg",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update fast-uri to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-w74x-v6f9-j3xg",
+      "location": "static:<corpus>/registry2/17_shitianfang__jev-use:dependencies",
+      "replay": "axiom scan <corpus>/registry2/17_shitianfang__jev-use --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-w74x-v6f9-j3xg\")'"
+    },
+    {
+      "id": "GHSA-wjr9-j795-jxcr",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency fast-uri@3.1.8: GHSA-wjr9-j795-jxcr",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update fast-uri to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-wjr9-j795-jxcr",
+      "location": "static:<corpus>/registry2/17_shitianfang__jev-use:dependencies",
+      "replay": "axiom scan <corpus>/registry2/17_shitianfang__jev-use --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-wjr9-j795-jxcr\")'"
+    },
+    {
+      "id": "GHSA-xhq7-xmqj-769h",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency fast-uri@3.1.8: GHSA-xhq7-xmqj-769h",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update fast-uri to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-xhq7-xmqj-769h",
+      "location": "static:<corpus>/registry2/17_shitianfang__jev-use:dependencies",
+      "replay": "axiom scan <corpus>/registry2/17_shitianfang__jev-use --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-xhq7-xmqj-769h\")'"
+    },
+    {
+      "id": "GHSA-5r4p-p66f-jhc7",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency hono@4.13.8: GHSA-5r4p-p66f-jhc7",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update hono to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-5r4p-p66f-jhc7",
+      "location": "static:<corpus>/registry2/17_shitianfang__jev-use:dependencies",
+      "replay": "axiom scan <corpus>/registry2/17_shitianfang__jev-use --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-5r4p-p66f-jhc7\")'"
+    },
+    {
+      "id": "GHSA-rxp7-6hxx-x8q5",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency ip-address@10.7.2: GHSA-rxp7-6hxx-x8q5",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update ip-address to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-rxp7-6hxx-x8q5",
+      "location": "static:<corpus>/registry2/17_shitianfang__jev-use:dependencies",
+      "replay": "axiom scan <corpus>/registry2/17_shitianfang__jev-use --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-rxp7-6hxx-x8q5\")'"
+    },
+    {
+      "id": "GHSA-6pq8-jhm2-2vcw",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency qs@6.16.0: GHSA-6pq8-jhm2-2vcw",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update qs to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-6pq8-jhm2-2vcw",
+      "location": "static:<corpus>/registry2/17_shitianfang__jev-use:dependencies",
+      "replay": "axiom scan <corpus>/registry2/17_shitianfang__jev-use --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-6pq8-jhm2-2vcw\")'"
+    },
+    {
+      "id": "GHSA-68fv-2mgg-jv7q",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency source-map-js@1.2.1: GHSA-68fv-2mgg-jv7q",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update source-map-js to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-68fv-2mgg-jv7q",
+      "location": "static:<corpus>/registry2/17_shitianfang__jev-use:dependencies",
+      "replay": "axiom scan <corpus>/registry2/17_shitianfang__jev-use --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-68fv-2mgg-jv7q\")'"
+    },
+    {
+      "id": "GHSA-587h-7wmj-h5pm",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency vite@8.3.0: GHSA-587h-7wmj-h5pm",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update vite to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-587h-7wmj-h5pm",
+      "location": "static:<corpus>/registry2/17_shitianfang__jev-use:dependencies",
+      "replay": "axiom scan <corpus>/registry2/17_shitianfang__jev-use --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-587h-7wmj-h5pm\")'"
+    },
+    {
+      "id": "GHSA-698v-4r3x-3vcv",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency vite@8.3.0: GHSA-698v-4r3x-3vcv",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update vite to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-698v-4r3x-3vcv",
+      "location": "static:<corpus>/registry2/17_shitianfang__jev-use:dependencies",
+      "replay": "axiom scan <corpus>/registry2/17_shitianfang__jev-use --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-698v-4r3x-3vcv\")'"
+    },
+    {
+      "id": "GHSA-9jrq-w75r-8gcw",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency vite@8.3.0: GHSA-9jrq-w75r-8gcw",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update vite to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-9jrq-w75r-8gcw",
+      "location": "static:<corpus>/registry2/17_shitianfang__jev-use:dependencies",
+      "replay": "axiom scan <corpus>/registry2/17_shitianfang__jev-use --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-9jrq-w75r-8gcw\")'"
+    },
+    {
+      "id": "GHSA-r825-w8mm-5pxw",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency vite@8.3.0: GHSA-r825-w8mm-5pxw",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update vite to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-r825-w8mm-5pxw",
+      "location": "static:<corpus>/registry2/17_shitianfang__jev-use:dependencies",
+      "replay": "axiom scan <corpus>/registry2/17_shitianfang__jev-use --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-r825-w8mm-5pxw\")'"
+    },
+    {
+      "id": "GHSA-rq7h-c2jc-7f22",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency vite@8.3.0: GHSA-rq7h-c2jc-7f22",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update vite to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-rq7h-c2jc-7f22",
+      "location": "static:<corpus>/registry2/17_shitianfang__jev-use:dependencies",
+      "replay": "axiom scan <corpus>/registry2/17_shitianfang__jev-use --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-rq7h-c2jc-7f22\")'"
+    },
+    {
+      "id": "GHSA-vfpm-58rq-9qcg",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency vite@8.3.0: GHSA-vfpm-58rq-9qcg",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update vite to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-vfpm-58rq-9qcg",
+      "location": "static:<corpus>/registry2/17_shitianfang__jev-use:dependencies",
+      "replay": "axiom scan <corpus>/registry2/17_shitianfang__jev-use --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-vfpm-58rq-9qcg\")'"
+    },
+    {
+      "id": "trust_0001",
+      "severity": "low",
+      "category": "trust_exploitation",
+      "title": "Trust exploitation pattern: consent bypass",
+      "description": "Pattern in bench\\examples\\pr-triage.mjs near line 75: `without human`. This could enable a compromised agent to mislead users.",
+      "owasp_asi": [
+        "ASI09"
+      ],
+      "owasp_mcp": [
+        "MCP06"
+      ],
+      "file_path": "bench\\examples\\pr-triage.mjs",
+      "line_number": 75,
+      "recommendation": "Implement output verification. Require human confirmation for high-impact actions. Mark agent-generated content as such.",
+      "rule_id": "trust_exploitation_pattern",
+      "evidence": "Trust exploitation pattern: consent bypass",
+      "location": "bench\\examples\\pr-triage.mjs:75",
+      "replay": "axiom scan <corpus>/registry2/17_shitianfang__jev-use --output json --no-ai --no-history | jq '.findings[] | select(.id==\"trust_0001\")'"
+    },
+    {
+      "id": "trust_0002",
+      "severity": "low",
+      "category": "trust_exploitation",
+      "title": "Trust exploitation pattern: consent bypass",
+      "description": "Pattern in src\\cli.ts near line 101: `without human`. This could enable a compromised agent to mislead users.",
+      "owasp_asi": [
+        "ASI09"
+      ],
+      "owasp_mcp": [
+        "MCP06"
+      ],
+      "file_path": "src\\cli.ts",
+      "line_number": 101,
+      "recommendation": "Implement output verification. Require human confirmation for high-impact actions. Mark agent-generated content as such.",
+      "rule_id": "trust_exploitation_pattern",
+      "evidence": "Trust exploitation pattern: consent bypass",
+      "location": "src\\cli.ts:101",
+      "replay": "axiom scan <corpus>/registry2/17_shitianfang__jev-use --output json --no-ai --no-history | jq '.findings[] | select(.id==\"trust_0002\")'"
+    },
+    {
+      "id": "trust_0003",
+      "severity": "low",
+      "category": "trust_exploitation",
+      "title": "Trust exploitation pattern: consent bypass",
+      "description": "Pattern in test\\cli.test.ts near line 18: `without human`. This could enable a compromised agent to mislead users.",
+      "owasp_asi": [
+        "ASI09"
+      ],
+      "owasp_mcp": [
+        "MCP06"
+      ],
+      "file_path": "test\\cli.test.ts",
+      "line_number": 18,
+      "recommendation": "Implement output verification. Require human confirmation for high-impact actions. Mark agent-generated content as such.",
+      "rule_id": "trust_exploitation_pattern",
+      "evidence": "Trust exploitation pattern: consent bypass",
+      "location": "test\\cli.test.ts:18",
+      "replay": "axiom scan <corpus>/registry2/17_shitianfang__jev-use --output json --no-ai --no-history | jq '.findings[] | select(.id==\"trust_0003\")'"
+    },
+    {
+      "id": "rogue_0001",
+      "severity": "low",
+      "category": "rogue_agent",
+      "title": "Rogue agent indicator detected",
+      "description": "Pattern in bench\\examples\\hud.mjs near line 74: `boot script`. This could indicate self-modifying behavior, persistence mechanisms, or evasion capabilities.",
+      "owasp_asi": [
+        "ASI10"
+      ],
+      "owasp_mcp": [
+        "MCP03"
+      ],
+      "file_path": "bench\\examples\\hud.mjs",
+      "line_number": 74,
+      "recommendation": "Implement behavioral monitoring and kill switches. Ensure all agent actions are logged and auditable. Run in sandboxed environments with strict resource limits.",
+      "rule_id": "rogue_agent_pattern",
+      "evidence": "Rogue agent indicator detected",
+      "location": "bench\\examples\\hud.mjs:74",
+      "replay": "axiom scan <corpus>/registry2/17_shitianfang__jev-use --output json --no-ai --no-history | jq '.findings[] | select(.id==\"rogue_0001\")'"
+    },
+    {
+      "id": "rogue_0002",
+      "severity": "low",
+      "category": "rogue_agent",
+      "title": "Rogue agent indicator detected",
+      "description": "Pattern in bench\\examples\\pr-triage.mjs near line 75: `without human review`. This could indicate self-modifying behavior, persistence mechanisms, or evasion capabilities.",
+      "owasp_asi": [
+        "ASI10"
+      ],
+      "owasp_mcp": [
+        "MCP03"
+      ],
+      "file_path": "bench\\examples\\pr-triage.mjs",
+      "line_number": 75,
+      "recommendation": "Implement behavioral monitoring and kill switches. Ensure all agent actions are logged and auditable. Run in sandboxed environments with strict resource limits.",
+      "rule_id": "rogue_agent_pattern",
+      "evidence": "Rogue agent indicator detected",
+      "location": "bench\\examples\\pr-triage.mjs:75",
+      "replay": "axiom scan <corpus>/registry2/17_shitianfang__jev-use --output json --no-ai --no-history | jq '.findings[] | select(.id==\"rogue_0002\")'"
+    },
+    {
+      "id": "rogue_0003",
+      "severity": "low",
+      "category": "rogue_agent",
+      "title": "Rogue agent indicator detected",
+      "description": "Pattern in src\\cli.ts near line 101: `without human review`. This could indicate self-modifying behavior, persistence mechanisms, or evasion capabilities.",
+      "owasp_asi": [
+        "ASI10"
+      ],
+      "owasp_mcp": [
+        "MCP03"
+      ],
+      "file_path": "src\\cli.ts",
+      "line_number": 101,
+      "recommendation": "Implement behavioral monitoring and kill switches. Ensure all agent actions are logged and auditable. Run in sandboxed environments with strict resource limits.",
+      "rule_id": "rogue_agent_pattern",
+      "evidence": "Rogue agent indicator detected",
+      "location": "src\\cli.ts:101",
+      "replay": "axiom scan <corpus>/registry2/17_shitianfang__jev-use --output json --no-ai --no-history | jq '.findings[] | select(.id==\"rogue_0003\")'"
+    },
+    {
+      "id": "rogue_0004",
+      "severity": "low",
+      "category": "rogue_agent",
+      "title": "Rogue agent indicator detected",
+      "description": "Pattern in test\\cli.test.ts near line 18: `without human review`. This could indicate self-modifying behavior, persistence mechanisms, or evasion capabilities.",
+      "owasp_asi": [
+        "ASI10"
+      ],
+      "owasp_mcp": [
+        "MCP03"
+      ],
+      "file_path": "test\\cli.test.ts",
+      "line_number": 18,
+      "recommendation": "Implement behavioral monitoring and kill switches. Ensure all agent actions are logged and auditable. Run in sandboxed environments with strict resource limits.",
+      "rule_id": "rogue_agent_pattern",
+      "evidence": "Rogue agent indicator detected",
+      "location": "test\\cli.test.ts:18",
+      "replay": "axiom scan <corpus>/registry2/17_shitianfang__jev-use --output json --no-ai --no-history | jq '.findings[] | select(.id==\"rogue_0004\")'"
+    },
+    {
+      "id": "mcp08_no_tool_logging",
+      "severity": "info",
+      "category": "audit_telemetry",
+      "title": "No logging found in files that define MCP tools (low confidence)",
+      "description": "None of the tool-defining files (src\\server.ts) reference a logging library or logger call. Tool invocations may leave no audit trail. Confidence is low: logging could be configured elsewhere or by the host.",
+      "owasp_asi": [
+        "ASI10"
+      ],
+      "owasp_mcp": [
+        "MCP08"
+      ],
+      "file_path": "src\\server.ts",
+      "line_number": null,
+      "recommendation": "Log each tool invocation (tool name, caller/session, outcome, and redacted arguments) to a durable, tamper-evident sink.",
+      "rule_id": "no_tool_logging",
+      "evidence": "No logging found in files that define MCP tools (low confidence)",
+      "location": "src\\server.ts",
+      "replay": "axiom scan <corpus>/registry2/17_shitianfang__jev-use --output json --no-ai --no-history | jq '.findings[] | select(.id==\"mcp08_no_tool_logging\")'"
+    }
+  ],
+  "server_profile": {
+    "name": "17_shitianfang__jev-use",
+    "command": null,
+    "args": [],
+    "env_vars": [],
+    "transport": "stdio",
+    "tools": [
+      {
+        "name": "jev_judge",
+        "description": "Hand a batch of quick judgment questions to Jev (TypeSafe AI's System One model): a typed verdict in a few hundred milliseconds, at a judgment-model rate instead of LLM reasoning. Use it whenever the next step is a JUDGMENT over facts you ALREADY have in context \u2014 did X succeed, which option next, how good is Y \u2014 not a generation. Batch every question you have about one state into ONE call (batching is where the speedup comes from). If the items to judge are sitting in a file or in tool output, pipe that file to the `jev-use judge` CLI from the shell instead, so the data never passes through this conversation. Do NOT use it for anything that needs new text/code written, or choices whose options you cannot enumerate \u2014 that work is yours. Each verdict returns {answer, confidence, confidenceFrom, escalate, reason, hint}. confidenceFrom says where the number came from: \"reported\" = Jev's own confidence head, \"estimated\" = worked out by jev-use from the answer's distribution. escalate=true means the question is handed back to you: writing/open_ended = structurally yours, oversized = the state is too big to judge, unsure = Jev's answer is only a prior (it is still included) \u2014 decide yourself, unreachable = Jev is down, proceed without it.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "state": {
+              "type": "string",
+              "description": "The shared context/environment both parties judge against: relevant facts, recent tool output, file excerpts \u2014 facts you ALREADY have. Serialize objects to JSON. Keep it under ~30k tokens, and never read a file into your context just to paste it here: pipe the file to `jev-use judge` from the shell instead."
+            },
+            "questions": {
+              "type": "array",
+              "description": "All questions you have about this state \u2014 batch them."
+            },
+            "confidence_threshold": {
+              "type": "number",
+              "description": "Escalate verdicts below this confidence. Unset: {REPORTED_CONFIDENCE_THRESHOLD} for a confidence Jev reported, {ESTIMATED_CONFIDENCE_THRESHOLD} for one jev-use estimated from the answer's distribution (each verdict says which, in confidenceFrom)."
+            },
+            "model": {
+              "type": "string",
+              "description": "Backend model override, e.g. jev-latest."
+            }
+          },
+          "required": [
+            "state",
+            "questions"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "medium",
+        "poisoning_detail": "Steering language in tool description (imperative guidance aimed at the model). Matched pattern in tool 'jev_judge': 'never'"
+      },
+      {
+        "name": "jev_gate",
+        "description": "Ask Jev to risk-check ONE proposed agent action against the current state in a single sub-second call. Returns {decision: allow|deny|escalate, confidence, confidenceFrom, hint}. escalate means Jev is not sure enough either way \u2014 judge the action yourself. Use this by hand only for a one-off risky/irreversible action. If gating is per-tool-call and repeats, do not call this every turn: wire `jev-use hook gate` as a PreToolUse hook once and the decision leaves the conversation entirely \u2014 measured, 24 gated commands cost 17.1s and ZERO LLM tokens through the hook, vs 46.9s and $0.2366 through a supervisor LLM.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "state": {
+              "type": "string",
+              "description": "Current task context the action should be judged against."
+            },
+            "tool": {
+              "type": "string",
+              "description": "Name of the tool/command about to run."
+            },
+            "input": {
+              "type": "string",
+              "description": "The action's input/arguments, verbatim."
+            },
+            "description": {
+              "type": "string",
+              "description": "What the action is meant to accomplish."
+            },
+            "confidence_threshold": {
+              "type": "number"
+            },
+            "model": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "state",
+            "tool",
+            "input"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "medium",
+        "poisoning_detail": "Tool description is 614 characters. Long descriptions can hide malicious instructions."
+      }
+    ],
+    "resources": [],
+    "prompts": [],
+    "repo_url": null,
+    "npm_package": null,
+    "capabilities_claimed": [],
+    "capabilities_actual": []
+  },
+  "fingerprint": "57487de72564b17af99ed1a09f17e44d3f1b6c8e0cbc855823d20cf4664ac456",
+  "surface_map": {
+    "server": {
+      "name": "jev-use",
+      "instructions": "",
+      "transport": "unknown",
+      "auth": "unknown"
+    },
+    "tools": [
+      {
+        "name": "jev_judge",
+        "description": "Hand a batch of quick judgment questions to Jev (TypeSafe AI's System One model): a typed verdict in a few hundred milliseconds, at a judgment-model rate instead of LLM reasoning. Use it whenever the next step is a JUDGMENT over facts you ALREADY have in context \u2014 did X succeed, which option next, how good is Y \u2014 not a generation. Batch every question you have about one state into ONE call (batching is where the speedup comes from). If the items to judge are sitting in a file or in tool output, pipe that file to the `jev-use judge` CLI from the shell instead, so the data never passes through this conversation. Do NOT use it for anything that needs new text/code written, or choices whose options you cannot enumerate \u2014 that work is yours. Each verdict returns {answer, confidence, confidenceFrom, escalate, reason, hint}. confidenceFrom says where the number came from: \"reported\" = Jev's own confidence head, \"estimated\" = worked out by jev-use from the answer's distribution. escalate=true means the question is handed back to you: writing/open_ended = structurally yours, oversized = the state is too big to judge, unsure = Jev's answer is only a prior (it is still included) \u2014 decide yourself, unreachable = Jev is down, proceed without it.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "state": {
+              "type": "string",
+              "description": "The shared context/environment both parties judge against: relevant facts, recent tool output, file excerpts \u2014 facts you ALREADY have. Serialize objects to JSON. Keep it under ~30k tokens, and never read a file into your context just to paste it here: pipe the file to `jev-use judge` from the shell instead."
+            },
+            "questions": {
+              "type": "array",
+              "description": "All questions you have about this state \u2014 batch them."
+            },
+            "confidence_threshold": {
+              "type": "number",
+              "description": "Escalate verdicts below this confidence. Unset: {REPORTED_CONFIDENCE_THRESHOLD} for a confidence Jev reported, {ESTIMATED_CONFIDENCE_THRESHOLD} for one jev-use estimated from the answer's distribution (each verdict says which, in confidenceFrom)."
+            },
+            "model": {
+              "type": "string",
+              "description": "Backend model override, e.g. jev-latest."
+            }
+          },
+          "required": [
+            "state",
+            "questions"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [
+          "text"
+        ],
+        "registration": "static",
+        "location": "src\\server.ts:61"
+      },
+      {
+        "name": "jev_gate",
+        "description": "Ask Jev to risk-check ONE proposed agent action against the current state in a single sub-second call. Returns {decision: allow|deny|escalate, confidence, confidenceFrom, hint}. escalate means Jev is not sure enough either way \u2014 judge the action yourself. Use this by hand only for a one-off risky/irreversible action. If gating is per-tool-call and repeats, do not call this every turn: wire `jev-use hook gate` as a PreToolUse hook once and the decision leaves the conversation entirely \u2014 measured, 24 gated commands cost 17.1s and ZERO LLM tokens through the hook, vs 46.9s and $0.2366 through a supervisor LLM.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "state": {
+              "type": "string",
+              "description": "Current task context the action should be judged against."
+            },
+            "tool": {
+              "type": "string",
+              "description": "Name of the tool/command about to run."
+            },
+            "input": {
+              "type": "string",
+              "description": "The action's input/arguments, verbatim."
+            },
+            "description": {
+              "type": "string",
+              "description": "What the action is meant to accomplish."
+            },
+            "confidence_threshold": {
+              "type": "number"
+            },
+            "model": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "state",
+            "tool",
+            "input"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [
+          "text"
+        ],
+        "registration": "static",
+        "location": "src\\server.ts:125"
+      }
+    ],
+    "resources": [],
+    "prompts": [],
+    "mutations": [],
+    "source": {
+      "kind": "static",
+      "target": "17_shitianfang__jev-use",
+      "languages": [
+        "typescript"
+      ]
+    },
+    "generated_at": "2026-11-11T22:37:22+00:00",
+    "fingerprint": "57487de72564b17af99ed1a09f17e44d3f1b6c8e0cbc855823d20cf4664ac456",
+    "schema": "axiom.surface/1"
+  },
+  "provenance": {
+    "identity": {
+      "npm": "jev-use",
+      "pypi": null,
+      "repository": "https://github.com/shitianfang/jev-use",
+      "server_name": "jev-use"
+    },
+    "registry": {
+      "status": "match",
+      "entry": "io.github.shitianfang/jev-use",
+      "repository": "https://github.com/shitianfang/jev-use",
+      "packages": [
+        "npm:jev-use"
+      ],
+      "publishedAt": "2026-09-22T10:37:03.591719Z",
+      "version": "0.8.0"
+    },
+    "lookalikes": [],
+    "checked_at": "2026-11-11T22:37:24+00:00"
+  },
+  "owasp_coverage": {
+    "framework": "OWASP Top 10 for Agentic Applications 2026",
+    "reference": "https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/",
+    "coverage": {
+      "ASI01": {
+        "name": "Agent Goal Hijack",
+        "coverage_level": "strong",
+        "findings_count": 3,
+        "finding_ids": [
+          "poison_jev_judge_instruction_injection",
+          "poison_jev_judge_long_desc",
+          "poison_jev_gate_long_desc"
+        ],
+        "detectors": [
+          "tool_poisoning",
+          "prompt_injection",
+          "instruction_injection"
+        ]
+      },
+      "ASI02": {
+        "name": "Tool Misuse & Exploitation",
+        "coverage_level": "strong",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "toxic_tool_combo",
+          "tool_overscope",
+          "tool_chaining_detection"
+        ]
+      },
+      "ASI03": {
+        "name": "Identity & Privilege Abuse",
+        "coverage_level": "strong",
+        "findings_count": 1,
+        "finding_ids": [
+          "code_0027"
+        ],
+        "detectors": [
+          "credential_analysis",
+          "shared_credential_detection",
+          "env_var_audit"
+        ]
+      },
+      "ASI04": {
+        "name": "Agentic Supply Chain Vulnerabilities",
+        "coverage_level": "strong",
+        "findings_count": 26,
+        "finding_ids": [
+          "GHSA-22jm-h49p-29qw",
+          "GHSA-46jr-4wx8-v453",
+          "GHSA-6prh-2h8m-c8cw",
+          "GHSA-6qxp-vccf-f47h",
+          "GHSA-f897-62hf-6gxq",
+          "GHSA-rvq5-wwqv-78pq",
+          "GHSA-mrhx-c7xc-m3w5",
+          "GHSA-rmxm-3fg6-px4f",
+          "GHSA-qxg6-89mg-rqv8",
+          "GHSA-xp26-3454-mjgp"
+        ],
+        "detectors": [
+          "dependency_cve",
+          "lifecycle_hooks",
+          "npx_unversioned",
+          "known_mcp_cves"
+        ]
+      },
+      "ASI05": {
+        "name": "Unexpected Code Execution",
+        "coverage_level": "strong",
+        "findings_count": 28,
+        "finding_ids": [
+          "code_0001",
+          "code_0002",
+          "code_0003",
+          "code_0004",
+          "code_0005",
+          "code_0006",
+          "code_0007",
+          "code_0008",
+          "code_0009",
+          "code_0010"
+        ],
+        "detectors": [
+          "code_exec_patterns",
+          "code_generation_detection",
+          "sandbox_escape"
+        ]
+      },
+      "ASI06": {
+        "name": "Memory & Context Poisoning",
+        "coverage_level": "partial",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "memory_poisoning_patterns",
+          "context_manipulation_detection"
+        ],
+        "gap_note": "Axiom detects static patterns. Full coverage requires runtime memory monitoring."
+      },
+      "ASI07": {
+        "name": "Insecure Inter-Agent Communication",
+        "coverage_level": "partial",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "transport_security",
+          "a2a_pattern_detection"
+        ],
+        "gap_note": "Axiom checks transport security. Full A2A protocol analysis requires runtime interception."
+      },
+      "ASI08": {
+        "name": "Cascading Failures",
+        "coverage_level": "partial",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "blast_radius_estimation",
+          "dependency_chain_analysis"
+        ],
+        "gap_note": "Axiom estimates blast radius from tool capabilities. Full cascading failure analysis requires runtime topology mapping."
+      },
+      "ASI09": {
+        "name": "Human-Agent Trust Exploitation",
+        "coverage_level": "strong",
+        "findings_count": 3,
+        "finding_ids": [
+          "trust_0001",
+          "trust_0002",
+          "trust_0003"
+        ],
+        "detectors": [
+          "claimed_vs_actual",
+          "deceptive_output_detection",
+          "trust_manipulation_patterns"
+        ]
+      },
+      "ASI10": {
+        "name": "Rogue Agents",
+        "coverage_level": "partial",
+        "findings_count": 5,
+        "finding_ids": [
+          "rogue_0001",
+          "rogue_0002",
+          "rogue_0003",
+          "rogue_0004",
+          "mcp08_no_tool_logging"
+        ],
+        "detectors": [
+          "sleeper_patterns",
+          "behavioral_drift_indicators",
+          "persistence_detection"
+        ],
+        "gap_note": "Axiom detects static rogue indicators. Full rogue agent detection requires runtime behavioral monitoring."
+      }
+    },
+    "total_asi_categories_with_findings": 6
+  },
+  "owasp_mcp_coverage": {
+    "framework": "OWASP MCP Top 10",
+    "framework_version": "v0.1 beta",
+    "reference": "https://owasp.org/www-project-mcp-top-10/",
+    "coverage": {
+      "MCP01": {
+        "id": "MCP01:2025",
+        "name": "Token Mismanagement & Secret Exposure",
+        "coverage_level": "partial",
+        "reason": "Regex-based secret detection in server source and client configs plus env-var exposure checks; no entropy analysis, git-history scan, or token lifetime/passthrough checks.",
+        "findings_count": 1,
+        "finding_ids": [
+          "code_0027"
+        ],
+        "detectors": [
+          "credential_theft",
+          "cross_server",
+          "mcp01_hardcoded_secrets",
+          "config_hardcoded_secret",
+          "env_var_audit",
+          "env_dump"
+        ]
+      },
+      "MCP02": {
+        "id": "MCP02:2025",
+        "name": "Privilege Escalation via Scope Creep",
+        "coverage_level": "strong",
+        "reason": "Permission over-scope patterns, toxic tool-capability combinations, path-escape checks and env-var over-exposure in configs.",
+        "findings_count": 17,
+        "finding_ids": [
+          "code_0001",
+          "code_0004",
+          "code_0005",
+          "code_0007",
+          "code_0009",
+          "code_0010",
+          "code_0011",
+          "code_0013",
+          "code_0014",
+          "code_0015"
+        ],
+        "detectors": [
+          "permission_overscope",
+          "toxic_tool_combo",
+          "identity_privilege",
+          "sandbox_escape",
+          "config_risk",
+          "cascading_failure",
+          "cross_server",
+          "excessive_scope",
+          "confused_deputy",
+          "file_read",
+          "file_write"
+        ]
+      },
+      "MCP03": {
+        "id": "MCP03:2025",
+        "name": "Tool Poisoning",
+        "coverage_level": "strong",
+        "reason": "Dedicated detector for hidden instructions in tool metadata, plus runtime rug-pull diffing between source and live tool definitions.",
+        "findings_count": 7,
+        "finding_ids": [
+          "poison_jev_judge_instruction_injection",
+          "poison_jev_judge_long_desc",
+          "poison_jev_gate_long_desc",
+          "rogue_0001",
+          "rogue_0002",
+          "rogue_0003",
+          "rogue_0004"
+        ],
+        "detectors": [
+          "tool_poisoning",
+          "obfuscation",
+          "rogue_agent",
+          "source_vs_runtime_diff",
+          "tool_shadowing",
+          "hidden_unicode",
+          "rug_pull_primitive",
+          "surface_mismatch"
+        ]
+      },
+      "MCP04": {
+        "id": "MCP04:2025",
+        "name": "Software Supply Chain Attacks & Dependency Tampering",
+        "coverage_level": "strong",
+        "reason": "Dependency CVE lookup, known MCP CVEs, install lifecycle hooks, and unpinned npx/uvx/pip/@latest install sources.",
+        "findings_count": 26,
+        "finding_ids": [
+          "GHSA-22jm-h49p-29qw",
+          "GHSA-46jr-4wx8-v453",
+          "GHSA-6prh-2h8m-c8cw",
+          "GHSA-6qxp-vccf-f47h",
+          "GHSA-f897-62hf-6gxq",
+          "GHSA-rvq5-wwqv-78pq",
+          "GHSA-mrhx-c7xc-m3w5",
+          "GHSA-rmxm-3fg6-px4f",
+          "GHSA-qxg6-89mg-rqv8",
+          "GHSA-xp26-3454-mjgp"
+        ],
+        "detectors": [
+          "dependency_vuln",
+          "supply_chain",
+          "known_cve",
+          "obfuscation",
+          "lifecycle_hooks",
+          "mcp04_unpinned_install",
+          "homoglyph",
+          "rug_pull_primitive",
+          "surface_mismatch"
+        ]
+      },
+      "MCP05": {
+        "id": "MCP05:2025",
+        "name": "Command Injection & Execution",
+        "coverage_level": "partial",
+        "reason": "Regex, AST and Semgrep find exec/shell sinks and a heuristic flags sinks inside tool handlers, but there is no inter-procedural taint tracking from tool input to sink.",
+        "findings_count": 28,
+        "finding_ids": [
+          "code_0001",
+          "code_0002",
+          "code_0003",
+          "code_0004",
+          "code_0005",
+          "code_0006",
+          "code_0007",
+          "code_0008",
+          "code_0009",
+          "code_0010"
+        ],
+        "detectors": [
+          "command_injection",
+          "code_execution",
+          "code_generation",
+          "sandbox_escape",
+          "mcp05_tool_input_sink",
+          "shell_exec"
+        ]
+      },
+      "MCP06": {
+        "id": "MCP06:2025",
+        "name": "Prompt Injection via Contextual Payloads",
+        "coverage_level": "partial",
+        "reason": "Injection markers are detected in tool metadata, server instructions, resources, prompts and the strings a tool returns (static), and in instructions/resources/prompts read live; payloads produced by calling a tool at runtime are not inspected.",
+        "findings_count": 3,
+        "finding_ids": [
+          "trust_0001",
+          "trust_0002",
+          "trust_0003"
+        ],
+        "detectors": [
+          "prompt_injection",
+          "memory_poisoning",
+          "trust_exploitation",
+          "response_injection",
+          "tool_shadowing"
+        ]
+      },
+      "MCP07": {
+        "id": "MCP07:2025",
+        "name": "Insufficient Authentication & Authorization",
+        "coverage_level": "partial",
+        "reason": "Flags remote servers with no visible auth and servers bound to all interfaces; does not verify OAuth implementation or per-tool authorization logic.",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "transport_security",
+          "inter_agent_comm",
+          "identity_privilege",
+          "transport_no_auth",
+          "config_no_auth",
+          "mcp07_bind_all_interfaces"
+        ]
+      },
+      "MCP08": {
+        "id": "MCP08:2025",
+        "name": "Lack of Audit and Telemetry",
+        "coverage_level": "gap",
+        "reason": "Only a low-confidence heuristic for missing logging in tool-defining files; actual audit trails and telemetry pipelines are not verified.",
+        "findings_count": 1,
+        "finding_ids": [
+          "mcp08_no_tool_logging"
+        ],
+        "detectors": [
+          "audit_telemetry",
+          "mcp08_no_tool_logging"
+        ]
+      },
+      "MCP09": {
+        "id": "MCP09:2025",
+        "name": "Shadow MCP Servers",
+        "coverage_level": "partial",
+        "reason": "Covered by `axiom discover` allowlist on the local machine; no network-wide or fleet discovery.",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "mcpguard_discover",
+          "shadow_mcp"
+        ]
+      },
+      "MCP10": {
+        "id": "MCP10:2025",
+        "name": "Context Injection & Over-Sharing",
+        "coverage_level": "partial",
+        "reason": "Hard-coded egress URLs, tools that send to caller-chosen destinations and bulk-exposure heuristics are detected statically and live; what context is actually shared at runtime is not observed.",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "context_oversharing",
+          "data_exfiltration",
+          "memory_poisoning",
+          "mcp10_broad_data_exposure"
+        ]
+      }
+    },
+    "total_mcp_categories_with_findings": 7
+  },
+  "ai_analysis": null,
+  "tool_poisoning_report": null,
+  "prompt_injection_risk": null
+}

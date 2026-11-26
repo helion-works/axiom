@@ -1,0 +1,3696 @@
+{
+  "schema_version": "0.5",
+  "target": "<corpus>/registry/09_feder-cr__invisible_playwright_mcp",
+  "risk_score": 100.0,
+  "risk_level": "critical",
+  "tools_found": 17,
+  "findings_count": 157,
+  "findings": [
+    {
+      "id": "egress_browser_open_desc_1",
+      "severity": "medium",
+      "category": "data_exfiltration",
+      "title": "Hard-coded egress URL in description of tool 'browser_open': host",
+      "description": "The description of 'browser_open' names an external endpoint (http://user:pass@host:port). A tool that tells the agent where to send data is an exfiltration channel.",
+      "owasp_asi": [
+        "ASI01",
+        "ASI02"
+      ],
+      "owasp_mcp": [
+        "MCP10"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Remove the endpoint from the description; make egress destinations explicit, user-approved configuration."
+    },
+    {
+      "id": "poison_browser_open_long_desc",
+      "severity": "medium",
+      "category": "tool_poisoning",
+      "title": "Unusually long tool description for 'browser_open'",
+      "description": "Tool description is 943 characters. Long descriptions can hide malicious instructions.",
+      "owasp_asi": [
+        "ASI01"
+      ],
+      "owasp_mcp": [
+        "MCP03"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Review the full tool description for hidden instructions."
+    },
+    {
+      "id": "poison_browser_list_long_desc",
+      "severity": "medium",
+      "category": "tool_poisoning",
+      "title": "Unusually long tool description for 'browser_list'",
+      "description": "Tool description is 539 characters. Long descriptions can hide malicious instructions.",
+      "owasp_asi": [
+        "ASI01"
+      ],
+      "owasp_mcp": [
+        "MCP03"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Review the full tool description for hidden instructions."
+    },
+    {
+      "id": "poison_browser_status_instruction_injection",
+      "severity": "critical",
+      "category": "tool_poisoning",
+      "title": "Tool poisoning: instruction injection in 'browser_status'",
+      "description": "Hidden instruction detected in tool description that could manipulate AI behavior. Matched pattern in tool 'browser_status': 'never '",
+      "owasp_asi": [
+        "ASI01"
+      ],
+      "owasp_mcp": [
+        "MCP03"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Review tool description carefully. Compare claimed functionality with actual code behavior. Consider removing this MCP server."
+    },
+    {
+      "id": "poison_browser_navigate_instruction_injection",
+      "severity": "critical",
+      "category": "tool_poisoning",
+      "title": "Tool poisoning: instruction injection in 'browser_navigate'",
+      "description": "Hidden instruction detected in tool description that could manipulate AI behavior. Matched pattern in tool 'browser_navigate': 'always '",
+      "owasp_asi": [
+        "ASI01"
+      ],
+      "owasp_mcp": [
+        "MCP03"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Review tool description carefully. Compare claimed functionality with actual code behavior. Consider removing this MCP server."
+    },
+    {
+      "id": "poison_browser_navigate_long_desc",
+      "severity": "medium",
+      "category": "tool_poisoning",
+      "title": "Unusually long tool description for 'browser_navigate'",
+      "description": "Tool description is 881 characters. Long descriptions can hide malicious instructions.",
+      "owasp_asi": [
+        "ASI01"
+      ],
+      "owasp_mcp": [
+        "MCP03"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Review the full tool description for hidden instructions."
+    },
+    {
+      "id": "poison_browser_snapshot_instruction_injection",
+      "severity": "critical",
+      "category": "tool_poisoning",
+      "title": "Tool poisoning: instruction injection in 'browser_snapshot'",
+      "description": "Hidden instruction detected in tool description that could manipulate AI behavior. Matched pattern in tool 'browser_snapshot': 'silently'",
+      "owasp_asi": [
+        "ASI01"
+      ],
+      "owasp_mcp": [
+        "MCP03"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Review tool description carefully. Compare claimed functionality with actual code behavior. Consider removing this MCP server."
+    },
+    {
+      "id": "poison_browser_snapshot_long_desc",
+      "severity": "medium",
+      "category": "tool_poisoning",
+      "title": "Unusually long tool description for 'browser_snapshot'",
+      "description": "Tool description is 730 characters. Long descriptions can hide malicious instructions.",
+      "owasp_asi": [
+        "ASI01"
+      ],
+      "owasp_mcp": [
+        "MCP03"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Review the full tool description for hidden instructions."
+    },
+    {
+      "id": "poison_browser_read_html_long_desc",
+      "severity": "medium",
+      "category": "tool_poisoning",
+      "title": "Unusually long tool description for 'browser_read_html'",
+      "description": "Tool description is 760 characters. Long descriptions can hide malicious instructions.",
+      "owasp_asi": [
+        "ASI01"
+      ],
+      "owasp_mcp": [
+        "MCP03"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Review the full tool description for hidden instructions."
+    },
+    {
+      "id": "poison_browser_watch_long_desc",
+      "severity": "medium",
+      "category": "tool_poisoning",
+      "title": "Unusually long tool description for 'browser_watch'",
+      "description": "Tool description is 520 characters. Long descriptions can hide malicious instructions.",
+      "owasp_asi": [
+        "ASI01"
+      ],
+      "owasp_mcp": [
+        "MCP03"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Review the full tool description for hidden instructions."
+    },
+    {
+      "id": "poison_browser_click_at_instruction_injection",
+      "severity": "critical",
+      "category": "tool_poisoning",
+      "title": "Tool poisoning: instruction injection in 'browser_click_at'",
+      "description": "Hidden instruction detected in tool description that could manipulate AI behavior. Matched pattern in tool 'browser_click_at': 'never '",
+      "owasp_asi": [
+        "ASI01"
+      ],
+      "owasp_mcp": [
+        "MCP03"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Review tool description carefully. Compare claimed functionality with actual code behavior. Consider removing this MCP server."
+    },
+    {
+      "id": "poison_browser_click_at_long_desc",
+      "severity": "medium",
+      "category": "tool_poisoning",
+      "title": "Unusually long tool description for 'browser_click_at'",
+      "description": "Tool description is 704 characters. Long descriptions can hide malicious instructions.",
+      "owasp_asi": [
+        "ASI01"
+      ],
+      "owasp_mcp": [
+        "MCP03"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Review the full tool description for hidden instructions."
+    },
+    {
+      "id": "poison_browser_upload_files_instruction_injection",
+      "severity": "critical",
+      "category": "tool_poisoning",
+      "title": "Tool poisoning: instruction injection in 'browser_upload_files'",
+      "description": "Hidden instruction detected in tool description that could manipulate AI behavior. Matched pattern in tool 'browser_upload_files': 'Never '",
+      "owasp_asi": [
+        "ASI01"
+      ],
+      "owasp_mcp": [
+        "MCP03"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Review tool description carefully. Compare claimed functionality with actual code behavior. Consider removing this MCP server."
+    },
+    {
+      "id": "poison_browser_upload_files_long_desc",
+      "severity": "medium",
+      "category": "tool_poisoning",
+      "title": "Unusually long tool description for 'browser_upload_files'",
+      "description": "Tool description is 622 characters. Long descriptions can hide malicious instructions.",
+      "owasp_asi": [
+        "ASI01"
+      ],
+      "owasp_mcp": [
+        "MCP03"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Review the full tool description for hidden instructions."
+    },
+    {
+      "id": "poison_browser_evaluate_long_desc",
+      "severity": "medium",
+      "category": "tool_poisoning",
+      "title": "Unusually long tool description for 'browser_evaluate'",
+      "description": "Tool description is 950 characters. Long descriptions can hide malicious instructions.",
+      "owasp_asi": [
+        "ASI01"
+      ],
+      "owasp_mcp": [
+        "MCP03"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Review the full tool description for hidden instructions."
+    },
+    {
+      "id": "cross_tool_browser_open_browser_close",
+      "severity": "medium",
+      "category": "cross_server",
+      "title": "Tool 'browser_open' references tool 'browser_close'",
+      "description": "Tool description mentions another tool by name, which could enable tool chaining attacks.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP01",
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Verify this cross-reference is legitimate and necessary."
+    },
+    {
+      "id": "cross_tool_browser_close_browser_open",
+      "severity": "medium",
+      "category": "cross_server",
+      "title": "Tool 'browser_close' references tool 'browser_open'",
+      "description": "Tool description mentions another tool by name, which could enable tool chaining attacks.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP01",
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Verify this cross-reference is legitimate and necessary."
+    },
+    {
+      "id": "cross_tool_browser_status_browser_open",
+      "severity": "medium",
+      "category": "cross_server",
+      "title": "Tool 'browser_status' references tool 'browser_open'",
+      "description": "Tool description mentions another tool by name, which could enable tool chaining attacks.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP01",
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Verify this cross-reference is legitimate and necessary."
+    },
+    {
+      "id": "cross_tool_browser_read_text_browser_snapshot",
+      "severity": "medium",
+      "category": "cross_server",
+      "title": "Tool 'browser_read_text' references tool 'browser_snapshot'",
+      "description": "Tool description mentions another tool by name, which could enable tool chaining attacks.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP01",
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Verify this cross-reference is legitimate and necessary."
+    },
+    {
+      "id": "cross_tool_browser_read_text_browser_read_html",
+      "severity": "medium",
+      "category": "cross_server",
+      "title": "Tool 'browser_read_text' references tool 'browser_read_html'",
+      "description": "Tool description mentions another tool by name, which could enable tool chaining attacks.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP01",
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Verify this cross-reference is legitimate and necessary."
+    },
+    {
+      "id": "cross_tool_browser_snapshot_browser_click",
+      "severity": "medium",
+      "category": "cross_server",
+      "title": "Tool 'browser_snapshot' references tool 'browser_click'",
+      "description": "Tool description mentions another tool by name, which could enable tool chaining attacks.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP01",
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Verify this cross-reference is legitimate and necessary."
+    },
+    {
+      "id": "cross_tool_browser_snapshot_browser_type",
+      "severity": "medium",
+      "category": "cross_server",
+      "title": "Tool 'browser_snapshot' references tool 'browser_type'",
+      "description": "Tool description mentions another tool by name, which could enable tool chaining attacks.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP01",
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Verify this cross-reference is legitimate and necessary."
+    },
+    {
+      "id": "cross_tool_browser_snapshot_browser_click_at",
+      "severity": "medium",
+      "category": "cross_server",
+      "title": "Tool 'browser_snapshot' references tool 'browser_click_at'",
+      "description": "Tool description mentions another tool by name, which could enable tool chaining attacks.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP01",
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Verify this cross-reference is legitimate and necessary."
+    },
+    {
+      "id": "cross_tool_browser_read_html_browser_read_text",
+      "severity": "medium",
+      "category": "cross_server",
+      "title": "Tool 'browser_read_html' references tool 'browser_read_text'",
+      "description": "Tool description mentions another tool by name, which could enable tool chaining attacks.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP01",
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Verify this cross-reference is legitimate and necessary."
+    },
+    {
+      "id": "cross_tool_browser_read_html_browser_snapshot",
+      "severity": "medium",
+      "category": "cross_server",
+      "title": "Tool 'browser_read_html' references tool 'browser_snapshot'",
+      "description": "Tool description mentions another tool by name, which could enable tool chaining attacks.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP01",
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Verify this cross-reference is legitimate and necessary."
+    },
+    {
+      "id": "cross_tool_browser_watch_browser_take_screenshot",
+      "severity": "medium",
+      "category": "cross_server",
+      "title": "Tool 'browser_watch' references tool 'browser_take_screenshot'",
+      "description": "Tool description mentions another tool by name, which could enable tool chaining attacks.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP01",
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Verify this cross-reference is legitimate and necessary."
+    },
+    {
+      "id": "cross_tool_browser_watch_browser_click",
+      "severity": "medium",
+      "category": "cross_server",
+      "title": "Tool 'browser_watch' references tool 'browser_click'",
+      "description": "Tool description mentions another tool by name, which could enable tool chaining attacks.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP01",
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Verify this cross-reference is legitimate and necessary."
+    },
+    {
+      "id": "cross_tool_browser_watch_browser_click_at",
+      "severity": "medium",
+      "category": "cross_server",
+      "title": "Tool 'browser_watch' references tool 'browser_click_at'",
+      "description": "Tool description mentions another tool by name, which could enable tool chaining attacks.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP01",
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Verify this cross-reference is legitimate and necessary."
+    },
+    {
+      "id": "cross_tool_browser_click_browser_snapshot",
+      "severity": "medium",
+      "category": "cross_server",
+      "title": "Tool 'browser_click' references tool 'browser_snapshot'",
+      "description": "Tool description mentions another tool by name, which could enable tool chaining attacks.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP01",
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Verify this cross-reference is legitimate and necessary."
+    },
+    {
+      "id": "cross_tool_browser_click_browser_click_at",
+      "severity": "medium",
+      "category": "cross_server",
+      "title": "Tool 'browser_click' references tool 'browser_click_at'",
+      "description": "Tool description mentions another tool by name, which could enable tool chaining attacks.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP01",
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Verify this cross-reference is legitimate and necessary."
+    },
+    {
+      "id": "cross_tool_browser_click_at_browser_click",
+      "severity": "medium",
+      "category": "cross_server",
+      "title": "Tool 'browser_click_at' references tool 'browser_click'",
+      "description": "Tool description mentions another tool by name, which could enable tool chaining attacks.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP01",
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Verify this cross-reference is legitimate and necessary."
+    },
+    {
+      "id": "cross_tool_browser_select_option_browser_evaluate",
+      "severity": "medium",
+      "category": "cross_server",
+      "title": "Tool 'browser_select_option' references tool 'browser_evaluate'",
+      "description": "Tool description mentions another tool by name, which could enable tool chaining attacks.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP01",
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Verify this cross-reference is legitimate and necessary."
+    },
+    {
+      "id": "cross_tool_browser_upload_files_browser_evaluate",
+      "severity": "medium",
+      "category": "cross_server",
+      "title": "Tool 'browser_upload_files' references tool 'browser_evaluate'",
+      "description": "Tool description mentions another tool by name, which could enable tool chaining attacks.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP01",
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Verify this cross-reference is legitimate and necessary."
+    },
+    {
+      "id": "cross_tool_browser_evaluate_browser_read_text",
+      "severity": "medium",
+      "category": "cross_server",
+      "title": "Tool 'browser_evaluate' references tool 'browser_read_text'",
+      "description": "Tool description mentions another tool by name, which could enable tool chaining attacks.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP01",
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Verify this cross-reference is legitimate and necessary."
+    },
+    {
+      "id": "cross_tool_browser_evaluate_browser_snapshot",
+      "severity": "medium",
+      "category": "cross_server",
+      "title": "Tool 'browser_evaluate' references tool 'browser_snapshot'",
+      "description": "Tool description mentions another tool by name, which could enable tool chaining attacks.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP01",
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Verify this cross-reference is legitimate and necessary."
+    },
+    {
+      "id": "cross_tool_browser_evaluate_browser_read_html",
+      "severity": "medium",
+      "category": "cross_server",
+      "title": "Tool 'browser_evaluate' references tool 'browser_read_html'",
+      "description": "Tool description mentions another tool by name, which could enable tool chaining attacks.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP01",
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Verify this cross-reference is legitimate and necessary."
+    },
+    {
+      "id": "cross_tool_browser_evaluate_browser_click",
+      "severity": "medium",
+      "category": "cross_server",
+      "title": "Tool 'browser_evaluate' references tool 'browser_click'",
+      "description": "Tool description mentions another tool by name, which could enable tool chaining attacks.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP01",
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Verify this cross-reference is legitimate and necessary."
+    },
+    {
+      "id": "cross_tool_browser_evaluate_browser_type",
+      "severity": "medium",
+      "category": "cross_server",
+      "title": "Tool 'browser_evaluate' references tool 'browser_type'",
+      "description": "Tool description mentions another tool by name, which could enable tool chaining attacks.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP01",
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Verify this cross-reference is legitimate and necessary."
+    },
+    {
+      "id": "cross_tool_browser_evaluate_browser_select_option",
+      "severity": "medium",
+      "category": "cross_server",
+      "title": "Tool 'browser_evaluate' references tool 'browser_select_option'",
+      "description": "Tool description mentions another tool by name, which could enable tool chaining attacks.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP01",
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Verify this cross-reference is legitimate and necessary."
+    },
+    {
+      "id": "ast_0001",
+      "severity": "medium",
+      "category": "permission_overscope",
+      "title": "Filesystem enumeration via os.walk()",
+      "description": "Call to `os.walk()` recursively enumerates directories in scripts\\build_wiki.py at line 62",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": "scripts\\build_wiki.py",
+      "line_number": 62,
+      "recommendation": "Ensure the walk is constrained to expected directories."
+    },
+    {
+      "id": "ast_0001",
+      "severity": "medium",
+      "category": "permission_overscope",
+      "title": "Broad filesystem operation: shutil.rmtree()",
+      "description": "Call to `shutil.rmtree()` performs bulk filesystem operations in scripts\\pack_bundle.py at line 140",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": "scripts\\pack_bundle.py",
+      "line_number": 140,
+      "recommendation": "Ensure paths are validated and constrained."
+    },
+    {
+      "id": "ast_0001",
+      "severity": "high",
+      "category": "data_exfiltration",
+      "title": "Outbound HTTP request via urllib.request.urlopen()",
+      "description": "Call to `urllib.request.urlopen()` makes outbound network request in scripts\\sync_article_pixels.py at line 170",
+      "owasp_asi": [
+        "ASI01",
+        "ASI02"
+      ],
+      "owasp_mcp": [
+        "MCP10"
+      ],
+      "file_path": "scripts\\sync_article_pixels.py",
+      "line_number": 170,
+      "recommendation": "Verify this is expected. Outbound requests can exfiltrate data."
+    },
+    {
+      "id": "ast_0002",
+      "severity": "high",
+      "category": "credential_theft",
+      "title": "Environment variable access via os.environ.get()",
+      "description": "Call to `os.environ.get()` reads credentials/secrets in scripts\\sync_article_pixels.py at line 356",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP01"
+      ],
+      "file_path": "scripts\\sync_article_pixels.py",
+      "line_number": 356,
+      "recommendation": "Document which env vars are needed. Avoid reading arbitrary env vars."
+    },
+    {
+      "id": "ast_0003",
+      "severity": "high",
+      "category": "credential_theft",
+      "title": "Environment variable access via os.environ.get()",
+      "description": "Call to `os.environ.get()` reads credentials/secrets in scripts\\sync_article_pixels.py at line 371",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP01"
+      ],
+      "file_path": "scripts\\sync_article_pixels.py",
+      "line_number": 371,
+      "recommendation": "Document which env vars are needed. Avoid reading arbitrary env vars."
+    },
+    {
+      "id": "ast_0004",
+      "severity": "high",
+      "category": "credential_theft",
+      "title": "Environment variable access via os.environ.get()",
+      "description": "Call to `os.environ.get()` reads credentials/secrets in scripts\\sync_article_pixels.py at line 371",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP01"
+      ],
+      "file_path": "scripts\\sync_article_pixels.py",
+      "line_number": 371,
+      "recommendation": "Document which env vars are needed. Avoid reading arbitrary env vars."
+    },
+    {
+      "id": "ast_0001",
+      "severity": "high",
+      "category": "credential_theft",
+      "title": "Environment variable access via os.environ[]",
+      "description": "Direct access to `os.environ[]` reads credentials/secrets in src\\invisible_playwright_mcp\\cli.py at line 52",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP01"
+      ],
+      "file_path": "src\\invisible_playwright_mcp\\cli.py",
+      "line_number": 52,
+      "recommendation": "Document which env vars are needed. Avoid reading arbitrary env vars."
+    },
+    {
+      "id": "ast_0001",
+      "severity": "high",
+      "category": "obfuscation",
+      "title": "Encoded/obfuscated content via base64.b64decode()",
+      "description": "Call to `base64.b64decode()` decodes obfuscated content in src\\invisible_playwright_mcp\\link.py at line 257",
+      "owasp_asi": [
+        "ASI01",
+        "ASI10"
+      ],
+      "owasp_mcp": [
+        "MCP03",
+        "MCP04"
+      ],
+      "file_path": "src\\invisible_playwright_mcp\\link.py",
+      "line_number": 257,
+      "recommendation": "Review what is being decoded \u2014 obfuscation hides malicious payloads."
+    },
+    {
+      "id": "ast_0001",
+      "severity": "high",
+      "category": "credential_theft",
+      "title": "Environment variable access via os.environ.get()",
+      "description": "Call to `os.environ.get()` reads credentials/secrets in src\\invisible_playwright_mcp\\storage.py at line 53",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP01"
+      ],
+      "file_path": "src\\invisible_playwright_mcp\\storage.py",
+      "line_number": 53,
+      "recommendation": "Document which env vars are needed. Avoid reading arbitrary env vars."
+    },
+    {
+      "id": "ast_0002",
+      "severity": "high",
+      "category": "credential_theft",
+      "title": "Environment variable access via os.environ.get()",
+      "description": "Call to `os.environ.get()` reads credentials/secrets in src\\invisible_playwright_mcp\\storage.py at line 56",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP01"
+      ],
+      "file_path": "src\\invisible_playwright_mcp\\storage.py",
+      "line_number": 56,
+      "recommendation": "Document which env vars are needed. Avoid reading arbitrary env vars."
+    },
+    {
+      "id": "ast_0003",
+      "severity": "critical",
+      "category": "sandbox_escape",
+      "title": "Path traversal literal detected",
+      "description": "String literal `A session id as a file name, without letting one escape the ` contains path traversal in src\\invisible_playwright_mcp\\storage.py at line 118",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\invisible_playwright_mcp\\storage.py",
+      "line_number": 118,
+      "recommendation": "Never use relative path traversal. Validate and canonicalize paths."
+    },
+    {
+      "id": "ast_0001",
+      "severity": "medium",
+      "category": "permission_overscope",
+      "title": "Broad filesystem operation: shutil.rmtree()",
+      "description": "Call to `shutil.rmtree()` performs bulk filesystem operations in src\\invisible_playwright_mcp\\mcp\\actions.py at line 1196",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": "src\\invisible_playwright_mcp\\mcp\\actions.py",
+      "line_number": 1196,
+      "recommendation": "Ensure paths are validated and constrained."
+    },
+    {
+      "id": "ast_0002",
+      "severity": "medium",
+      "category": "permission_overscope",
+      "title": "Broad filesystem operation: shutil.rmtree()",
+      "description": "Call to `shutil.rmtree()` performs bulk filesystem operations in src\\invisible_playwright_mcp\\mcp\\actions.py at line 1215",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": "src\\invisible_playwright_mcp\\mcp\\actions.py",
+      "line_number": 1215,
+      "recommendation": "Ensure paths are validated and constrained."
+    },
+    {
+      "id": "ast_0001",
+      "severity": "high",
+      "category": "credential_theft",
+      "title": "Environment variable access via os.environ.get()",
+      "description": "Call to `os.environ.get()` reads credentials/secrets in src\\invisible_playwright_mcp\\mcp\\server.py at line 732",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP01"
+      ],
+      "file_path": "src\\invisible_playwright_mcp\\mcp\\server.py",
+      "line_number": 732,
+      "recommendation": "Document which env vars are needed. Avoid reading arbitrary env vars."
+    },
+    {
+      "id": "ast_0002",
+      "severity": "high",
+      "category": "credential_theft",
+      "title": "Environment variable access via os.environ.get()",
+      "description": "Call to `os.environ.get()` reads credentials/secrets in src\\invisible_playwright_mcp\\mcp\\server.py at line 741",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP01"
+      ],
+      "file_path": "src\\invisible_playwright_mcp\\mcp\\server.py",
+      "line_number": 741,
+      "recommendation": "Document which env vars are needed. Avoid reading arbitrary env vars."
+    },
+    {
+      "id": "ast_0003",
+      "severity": "high",
+      "category": "credential_theft",
+      "title": "Environment variable access via os.environ.get()",
+      "description": "Call to `os.environ.get()` reads credentials/secrets in src\\invisible_playwright_mcp\\mcp\\server.py at line 748",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP01"
+      ],
+      "file_path": "src\\invisible_playwright_mcp\\mcp\\server.py",
+      "line_number": 748,
+      "recommendation": "Document which env vars are needed. Avoid reading arbitrary env vars."
+    },
+    {
+      "id": "ast_0001",
+      "severity": "medium",
+      "category": "permission_overscope",
+      "title": "Broad filesystem operation: shutil.rmtree()",
+      "description": "Call to `shutil.rmtree()` performs bulk filesystem operations in src\\invisible_playwright_mcp\\mcp\\session.py at line 286",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": "src\\invisible_playwright_mcp\\mcp\\session.py",
+      "line_number": 286,
+      "recommendation": "Ensure paths are validated and constrained."
+    },
+    {
+      "id": "code_0001",
+      "severity": "critical",
+      "category": "code_execution",
+      "title": "MCP server can execute arbitrary commands",
+      "description": "Pattern matched in src\\invisible_playwright_mcp\\ui\\js\\01-markdown.js at line 30: `const link = /^!?\\[([^\\]\\n]*)\\]\\(([^()\\s]*)\\)$/.exec(part);`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "src\\invisible_playwright_mcp\\ui\\js\\01-markdown.js",
+      "line_number": 30,
+      "recommendation": "Review this arbitrary code exec pattern."
+    },
+    {
+      "id": "code_0002",
+      "severity": "critical",
+      "category": "code_execution",
+      "title": "MCP server can execute arbitrary commands",
+      "description": "Pattern matched in src\\invisible_playwright_mcp\\ui\\js\\01-markdown.js at line 67: `const head = HEAD.exec(line);`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "src\\invisible_playwright_mcp\\ui\\js\\01-markdown.js",
+      "line_number": 67,
+      "recommendation": "Review this arbitrary code exec pattern."
+    },
+    {
+      "id": "code_0003",
+      "severity": "critical",
+      "category": "code_execution",
+      "title": "MCP server can execute arbitrary commands",
+      "description": "Pattern matched in src\\invisible_playwright_mcp\\ui\\js\\01-markdown.js at line 77: `while(i < lines.length && QUOTE.test(lines[i])) held.push(QUOTE.exec(lines[i++])[1]);`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "src\\invisible_playwright_mcp\\ui\\js\\01-markdown.js",
+      "line_number": 77,
+      "recommendation": "Review this arbitrary code exec pattern."
+    },
+    {
+      "id": "code_0004",
+      "severity": "critical",
+      "category": "code_execution",
+      "title": "MCP server can execute arbitrary commands",
+      "description": "Pattern matched in src\\invisible_playwright_mcp\\ui\\js\\01-markdown.js at line 106: `const first = BULLET.exec(lines[i]) || NUMBER.exec(lines[i]);`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "src\\invisible_playwright_mcp\\ui\\js\\01-markdown.js",
+      "line_number": 106,
+      "recommendation": "Review this arbitrary code exec pattern."
+    },
+    {
+      "id": "code_0005",
+      "severity": "critical",
+      "category": "code_execution",
+      "title": "MCP server can execute arbitrary commands",
+      "description": "Pattern matched in src\\invisible_playwright_mcp\\ui\\js\\01-markdown.js at line 112: `const mark = BULLET.exec(lines[i]) || NUMBER.exec(lines[i]);`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "src\\invisible_playwright_mcp\\ui\\js\\01-markdown.js",
+      "line_number": 112,
+      "recommendation": "Review this arbitrary code exec pattern."
+    },
+    {
+      "id": "GHSA-3qhf-m339-9g5v",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: mcp",
+      "description": "MCP Python SDK vulnerability in the FastMCP Server causes validation error, leading to DoS",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update mcp to a patched version."
+    },
+    {
+      "id": "GHSA-5h93-6whr-6q8j",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: mcp",
+      "description": "Model Context Protocol Python SDK: HTTP client transports followed cross-origin redirects carrying custom headers and bodies",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update mcp to a patched version."
+    },
+    {
+      "id": "GHSA-84m7-p3x7-pcfv",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: mcp",
+      "description": "MCP Python SDK: Unbounded Session Accumulation in StreamableHTTP Transport Enables Resource Exhaustion",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update mcp to a patched version."
+    },
+    {
+      "id": "GHSA-9h52-p55h-vw2f",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: mcp",
+      "description": "Model Context Protocol (MCP) Python SDK does not enable DNS rebinding protection by default",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update mcp to a patched version."
+    },
+    {
+      "id": "GHSA-hvrp-rf83-w775",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: mcp",
+      "description": "MCP Python SDK: Experimental task handlers allow any client to access and cancel other clients' tasks",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update mcp to a patched version."
+    },
+    {
+      "id": "GHSA-j975-95f5-7wqh",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: mcp",
+      "description": "MCP Python SDK has Unhandled Exception in Streamable HTTP Transport, Leading to Denial of Service",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update mcp to a patched version."
+    },
+    {
+      "id": "GHSA-jpw9-pfvf-9f58",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: mcp",
+      "description": "MCP Python SDK: HTTP transports serve session requests without verifying the authenticated principal",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update mcp to a patched version."
+    },
+    {
+      "id": "GHSA-rwrf-2pqf-9j8j",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: mcp",
+      "description": "Model Context Protocol Python SDK: Client fetched server-chosen $ref URLs while validating tool results against output schemas",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update mcp to a patched version."
+    },
+    {
+      "id": "GHSA-vj7q-gjh5-988w",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: mcp",
+      "description": "MCP Python SDK: WebSocket server transport does not support Host/Origin validation",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update mcp to a patched version."
+    },
+    {
+      "id": "GHSA-w4fh-qvv9-3v23",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: mcp",
+      "description": "Model Context Protocol Python SDK: Server bearer-token authentication accepts tokens issued for a different resource server",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update mcp to a patched version."
+    },
+    {
+      "id": "PYSEC-2026-1616",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: mcp",
+      "description": "MCP Python SDK vulnerability in the FastMCP Server causes validation error, leading to DoS",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update mcp to a patched version."
+    },
+    {
+      "id": "PYSEC-2026-1617",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: mcp",
+      "description": "Model Context Protocol (MCP) Python SDK does not enable DNS rebinding protection by default",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update mcp to a patched version."
+    },
+    {
+      "id": "PYSEC-2026-1618",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: mcp",
+      "description": "MCP Python SDK has Unhandled Exception in Streamable HTTP Transport, Leading to Denial of Service",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update mcp to a patched version."
+    },
+    {
+      "id": "PYSEC-2026-3481",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: mcp",
+      "description": "MCP Python SDK: Experimental task handlers allow any client to access and cancel other clients' tasks",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update mcp to a patched version."
+    },
+    {
+      "id": "PYSEC-2026-3482",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: mcp",
+      "description": "MCP Python SDK: HTTP transports serve session requests without verifying the authenticated principal",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update mcp to a patched version."
+    },
+    {
+      "id": "PYSEC-2026-3483",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: mcp",
+      "description": "MCP Python SDK: WebSocket server transport does not support Host/Origin validation",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update mcp to a patched version."
+    },
+    {
+      "id": "GHSA-mf9w-mj56-hr94",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: python-dotenv",
+      "description": "python-dotenv: Symlink following in set_key allows arbitrary file overwrite via cross-device rename fallback",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update python-dotenv to a patched version."
+    },
+    {
+      "id": "PYSEC-2026-2270",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: python-dotenv",
+      "description": "Known vulnerability",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update python-dotenv to a patched version."
+    },
+    {
+      "id": "GHSA-2c2j-9gv5-cj73",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: starlette",
+      "description": "Starlette has possible denial-of-service vector when parsing large files in multipart forms",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update starlette to a patched version."
+    },
+    {
+      "id": "GHSA-74m5-2c7w-9w3x",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: starlette",
+      "description": "MultipartParser denial of service with too many fields or files",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update starlette to a patched version."
+    },
+    {
+      "id": "GHSA-7f5h-v6xp-fcq8",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: starlette",
+      "description": "Starlette vulnerable to O(n^2) DoS via Range header merging in ``starlette.responses.FileResponse``",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update starlette to a patched version."
+    },
+    {
+      "id": "GHSA-82w8-qh3p-5jfq",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: starlette",
+      "description": "Starlette: request.form() limits silently ignored for application/x-www-form-urlencoded enable DoS",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update starlette to a patched version."
+    },
+    {
+      "id": "GHSA-86qp-5c8j-p5mr",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: starlette",
+      "description": "Starlette has missing Host header validation that poisons request.url.path, bypassing path-based security checks",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update starlette to a patched version."
+    },
+    {
+      "id": "GHSA-f96h-pmfr-66vw",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: starlette",
+      "description": "Starlette Denial of service (DoS) via multipart/form-data",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update starlette to a patched version."
+    },
+    {
+      "id": "GHSA-jp82-jpqv-5vv3",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: starlette",
+      "description": "Starlette: Unvalidated request path concatenated into authority poisons request.url.hostname",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update starlette to a patched version."
+    },
+    {
+      "id": "GHSA-v5gw-mw7f-84px",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: starlette",
+      "description": "Starlette has Path Traversal vulnerability in StaticFiles",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update starlette to a patched version."
+    },
+    {
+      "id": "GHSA-wqp7-x3pw-xc5r",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: starlette",
+      "description": "Starlette: SSRF and NTLM credential theft via UNC paths in StaticFiles on Windows",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update starlette to a patched version."
+    },
+    {
+      "id": "GHSA-x746-7m8f-x49c",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: starlette",
+      "description": "Starlette: Arbitrary HTTP method dispatched to `HTTPEndpoint` attributes via `getattr`",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update starlette to a patched version."
+    },
+    {
+      "id": "PYSEC-2023-48",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: starlette",
+      "description": "Known vulnerability",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update starlette to a patched version."
+    },
+    {
+      "id": "PYSEC-2023-83",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: starlette",
+      "description": "Known vulnerability",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update starlette to a patched version."
+    },
+    {
+      "id": "PYSEC-2026-161",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: starlette",
+      "description": "BadHost: Missing Host header validation poisons request.url.path, bypassing path-based security checks",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update starlette to a patched version."
+    },
+    {
+      "id": "PYSEC-2026-1941",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: starlette",
+      "description": "Starlette has possible denial-of-service vector when parsing large files in multipart forms",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update starlette to a patched version."
+    },
+    {
+      "id": "PYSEC-2026-1942",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: starlette",
+      "description": "Starlette vulnerable to O(n^2) DoS via Range header merging in ``starlette.responses.FileResponse``",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update starlette to a patched version."
+    },
+    {
+      "id": "PYSEC-2026-1943",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: starlette",
+      "description": "Starlette Denial of service (DoS) via multipart/form-data",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update starlette to a patched version."
+    },
+    {
+      "id": "PYSEC-2026-2280",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: starlette",
+      "description": "Known vulnerability",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update starlette to a patched version."
+    },
+    {
+      "id": "PYSEC-2026-2281",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: starlette",
+      "description": "Known vulnerability",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update starlette to a patched version."
+    },
+    {
+      "id": "PYSEC-2026-248",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: starlette",
+      "description": "Known vulnerability",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update starlette to a patched version."
+    },
+    {
+      "id": "PYSEC-2026-249",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: starlette",
+      "description": "Known vulnerability",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update starlette to a patched version."
+    },
+    {
+      "id": "GHSA-33c7-2mpw-hg34",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: uvicorn",
+      "description": "Log injection in uvicorn",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update uvicorn to a patched version."
+    },
+    {
+      "id": "GHSA-f97h-2pfx-f59f",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: uvicorn",
+      "description": "HTTP response splitting in uvicorn",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update uvicorn to a patched version."
+    },
+    {
+      "id": "PYSEC-2020-150",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: uvicorn",
+      "description": "Known vulnerability",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update uvicorn to a patched version."
+    },
+    {
+      "id": "PYSEC-2020-151",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: uvicorn",
+      "description": "Known vulnerability",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update uvicorn to a patched version."
+    },
+    {
+      "id": "GHSA-5jqp-qgf6-3pvh",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: pydantic",
+      "description": "Use of \"infinity\" as an input to datetime and date fields causes infinite loop in pydantic",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pydantic to a patched version."
+    },
+    {
+      "id": "GHSA-mr82-8j83-vxmv",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: pydantic",
+      "description": "Pydantic regular expression denial of service",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pydantic to a patched version."
+    },
+    {
+      "id": "PYSEC-2021-47",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: pydantic",
+      "description": "Known vulnerability",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pydantic to a patched version."
+    },
+    {
+      "id": "PYSEC-2026-1812",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: pydantic",
+      "description": "Pydantic regular expression denial of service",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pydantic to a patched version."
+    },
+    {
+      "id": "toxic_combo_data_read_network_external",
+      "severity": "high",
+      "category": "toxic_tool_combo",
+      "title": "Data read + external network = exfiltration path",
+      "description": "Tools that can read internal data AND make external network requests create a direct exfiltration channel. A hijacked agent could read sensitive data then forward it to an attacker-controlled endpoint. Provided by: browser_open, browser_close, browser_list, browser_status, browser_navigate, browser_read_text, browser_snapshot, browser_read_html, browser_take_screenshot, browser_watch, browser_click, browser_click_at, browser_type, browser_select_option, browser_upload_files, browser_press_key, browser_evaluate (data_read) + browser_open, browser_list, browser_navigate, browser_snapshot, browser_upload_files, browser_evaluate (network_external).",
+      "owasp_asi": [
+        "ASI02"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Implement tool-level permission scoping. Consider whether both capabilities are necessary or if one can be restricted."
+    },
+    {
+      "id": "toxic_combo_credential_access_network_external",
+      "severity": "critical",
+      "category": "toxic_tool_combo",
+      "title": "Credential access + external network = credential theft path",
+      "description": "Tools that access credentials AND make external requests can exfiltrate tokens, API keys, and secrets to remote servers. Provided by: browser_open, browser_navigate, browser_type, browser_select_option, browser_press_key, browser_evaluate (credential_access) + browser_open, browser_list, browser_navigate, browser_snapshot, browser_upload_files, browser_evaluate (network_external).",
+      "owasp_asi": [
+        "ASI02"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Implement tool-level permission scoping. Consider whether both capabilities are necessary or if one can be restricted."
+    },
+    {
+      "id": "toxic_combo_code_execute_network_external",
+      "severity": "critical",
+      "category": "toxic_tool_combo",
+      "title": "Code execution + external network = remote code execution path",
+      "description": "Tools that execute code AND fetch external content can download and run attacker-controlled payloads. Provided by: browser_list, browser_watch, browser_select_option, browser_upload_files, browser_evaluate (code_execute) + browser_open, browser_list, browser_navigate, browser_snapshot, browser_upload_files, browser_evaluate (network_external).",
+      "owasp_asi": [
+        "ASI02"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Implement tool-level permission scoping. Consider whether both capabilities are necessary or if one can be restricted."
+    },
+    {
+      "id": "toxic_combo_data_read_data_write",
+      "severity": "medium",
+      "category": "toxic_tool_combo",
+      "title": "Broad data read + write = data manipulation risk",
+      "description": "Tools that can both read and write data could be manipulated to corrupt, overwrite, or delete information. Provided by: browser_open, browser_close, browser_list, browser_status, browser_navigate, browser_read_text, browser_snapshot, browser_read_html, browser_take_screenshot, browser_watch, browser_click, browser_click_at, browser_type, browser_select_option, browser_upload_files, browser_press_key, browser_evaluate (data_read) + browser_read_html, browser_select_option, browser_upload_files, browser_evaluate (data_write).",
+      "owasp_asi": [
+        "ASI02"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Implement tool-level permission scoping. Consider whether both capabilities are necessary or if one can be restricted."
+    },
+    {
+      "id": "toxic_combo_filesystem_network_external",
+      "severity": "high",
+      "category": "toxic_tool_combo",
+      "title": "Filesystem access + external network = file exfiltration path",
+      "description": "Tools that access local files AND make network requests can exfiltrate source code, configs, keys, and documents. Provided by: browser_open, browser_close, browser_status, browser_read_html, browser_click_at, browser_upload_files (filesystem) + browser_open, browser_list, browser_navigate, browser_snapshot, browser_upload_files, browser_evaluate (network_external).",
+      "owasp_asi": [
+        "ASI02"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Implement tool-level permission scoping. Consider whether both capabilities are necessary or if one can be restricted."
+    },
+    {
+      "id": "toxic_combo_code_execute_filesystem",
+      "severity": "high",
+      "category": "toxic_tool_combo",
+      "title": "Code execution + filesystem = unrestricted local access",
+      "description": "Tools that execute code AND access the filesystem can read/write any file the agent has permissions for, including SSH keys and credentials. Provided by: browser_list, browser_watch, browser_select_option, browser_upload_files, browser_evaluate (code_execute) + browser_open, browser_close, browser_status, browser_read_html, browser_click_at, browser_upload_files (filesystem).",
+      "owasp_asi": [
+        "ASI02"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Implement tool-level permission scoping. Consider whether both capabilities are necessary or if one can be restricted."
+    },
+    {
+      "id": "toxic_combo_credential_access_data_write",
+      "severity": "high",
+      "category": "toxic_tool_combo",
+      "title": "Credential access + data write = privilege persistence",
+      "description": "Tools that access credentials AND write data could persist stolen credentials or create backdoor accounts. Provided by: browser_open, browser_navigate, browser_type, browser_select_option, browser_press_key, browser_evaluate (credential_access) + browser_read_html, browser_select_option, browser_upload_files, browser_evaluate (data_write).",
+      "owasp_asi": [
+        "ASI02"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Implement tool-level permission scoping. Consider whether both capabilities are necessary or if one can be restricted."
+    },
+    {
+      "id": "codegen_0001",
+      "severity": "high",
+      "category": "code_generation",
+      "title": "Dynamic code generation from input detected",
+      "description": "Pattern in scripts\\check_content.py at line 360: `tree = ast.parse(server_path.read_text(encoding=\"utf-8\"))`. Tools that generate code from agent inputs can execute attacker-controlled payloads.",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "scripts\\check_content.py",
+      "line_number": 360,
+      "recommendation": "Sandbox code execution. Validate and sanitize all inputs before code generation. Use AST-based analysis instead of string-based code construction."
+    },
+    {
+      "id": "codegen_0002",
+      "severity": "high",
+      "category": "code_generation",
+      "title": "Dynamic code generation from input detected",
+      "description": "Pattern in tests\\test_agent_loop.py at line 766: `tree = ast.parse(pathlib.Path(agent_module.__file__).read_text(encoding=\"utf-8\"))`. Tools that generate code from agent inputs can execute attacker-controlled payloads.",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "tests\\test_agent_loop.py",
+      "line_number": 766,
+      "recommendation": "Sandbox code execution. Validate and sanitize all inputs before code generation. Use AST-based analysis instead of string-based code construction."
+    },
+    {
+      "id": "codegen_0003",
+      "severity": "high",
+      "category": "code_generation",
+      "title": "Dynamic code generation from input detected",
+      "description": "Pattern in tests\\test_a_rule_is_written_where_it_is_applied.py at line 90: `tree = ast.parse(text)`. Tools that generate code from agent inputs can execute attacker-controlled payloads.",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "tests\\test_a_rule_is_written_where_it_is_applied.py",
+      "line_number": 90,
+      "recommendation": "Sandbox code execution. Validate and sanitize all inputs before code generation. Use AST-based analysis instead of string-based code construction."
+    },
+    {
+      "id": "codegen_0004",
+      "severity": "high",
+      "category": "code_generation",
+      "title": "Dynamic code generation from input detected",
+      "description": "Pattern in tests\\test_one_conversation_one_server.py at line 222: `with __import__(\"contextlib\").suppress(Exception):`. Tools that generate code from agent inputs can execute attacker-controlled payloads.",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "tests\\test_one_conversation_one_server.py",
+      "line_number": 222,
+      "recommendation": "Sandbox code execution. Validate and sanitize all inputs before code generation. Use AST-based analysis instead of string-based code construction."
+    },
+    {
+      "id": "codegen_0005",
+      "severity": "high",
+      "category": "code_generation",
+      "title": "Dynamic code generation from input detected",
+      "description": "Pattern in tests\\test_one_reader_of_a_tool_result.py at line 78: `got = readers(ast.parse(path.read_bytes().decode(\"utf-8\")))`. Tools that generate code from agent inputs can execute attacker-controlled payloads.",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "tests\\test_one_reader_of_a_tool_result.py",
+      "line_number": 78,
+      "recommendation": "Sandbox code execution. Validate and sanitize all inputs before code generation. Use AST-based analysis instead of string-based code construction."
+    },
+    {
+      "id": "codegen_0006",
+      "severity": "high",
+      "category": "code_generation",
+      "title": "Dynamic code generation from input detected",
+      "description": "Pattern in tests\\test_one_reader_of_a_tool_result.py at line 92: `got = readers(ast.parse((SRC / THE_READER).read_bytes().decode(\"utf-8\")))`. Tools that generate code from agent inputs can execute attacker-controlled payloads.",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "tests\\test_one_reader_of_a_tool_result.py",
+      "line_number": 92,
+      "recommendation": "Sandbox code execution. Validate and sanitize all inputs before code generation. Use AST-based analysis instead of string-based code construction."
+    },
+    {
+      "id": "codegen_0007",
+      "severity": "high",
+      "category": "code_generation",
+      "title": "Dynamic code generation from input detected",
+      "description": "Pattern in tests\\test_one_reader_of_a_tool_result.py at line 106: `tree = ast.parse((SRC / name).read_bytes().decode(\"utf-8\"))`. Tools that generate code from agent inputs can execute attacker-controlled payloads.",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "tests\\test_one_reader_of_a_tool_result.py",
+      "line_number": 106,
+      "recommendation": "Sandbox code execution. Validate and sanitize all inputs before code generation. Use AST-based analysis instead of string-based code construction."
+    },
+    {
+      "id": "codegen_0008",
+      "severity": "high",
+      "category": "code_generation",
+      "title": "Dynamic code generation from input detected",
+      "description": "Pattern in tests\\test_one_reader_of_a_tool_result.py at line 129: `assert readers(ast.parse(mutant)), why`. Tools that generate code from agent inputs can execute attacker-controlled payloads.",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "tests\\test_one_reader_of_a_tool_result.py",
+      "line_number": 129,
+      "recommendation": "Sandbox code execution. Validate and sanitize all inputs before code generation. Use AST-based analysis instead of string-based code construction."
+    },
+    {
+      "id": "codegen_0009",
+      "severity": "high",
+      "category": "code_generation",
+      "title": "Dynamic code generation from input detected",
+      "description": "Pattern in tests\\test_one_reader_of_a_tool_result.py at line 142: `assert not readers(ast.parse(innocent))`. Tools that generate code from agent inputs can execute attacker-controlled payloads.",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "tests\\test_one_reader_of_a_tool_result.py",
+      "line_number": 142,
+      "recommendation": "Sandbox code execution. Validate and sanitize all inputs before code generation. Use AST-based analysis instead of string-based code construction."
+    },
+    {
+      "id": "codegen_0010",
+      "severity": "high",
+      "category": "code_generation",
+      "title": "Dynamic code generation from input detected",
+      "description": "Pattern in tests\\test_the_product_surface_is_what_the_product_uses.py at line 133: `trees = {where: ast.parse(text) for where, text in sources.items()}`. Tools that generate code from agent inputs can execute attacker-controlled payloads.",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "tests\\test_the_product_surface_is_what_the_product_uses.py",
+      "line_number": 133,
+      "recommendation": "Sandbox code execution. Validate and sanitize all inputs before code generation. Use AST-based analysis instead of string-based code construction."
+    },
+    {
+      "id": "codegen_0011",
+      "severity": "high",
+      "category": "code_generation",
+      "title": "Dynamic code generation from input detected",
+      "description": "Pattern in tests\\test_the_product_surface_is_what_the_product_uses.py at line 209: `trees = {where: ast.parse(text) for where, text in sources.items()}`. Tools that generate code from agent inputs can execute attacker-controlled payloads.",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "tests\\test_the_product_surface_is_what_the_product_uses.py",
+      "line_number": 209,
+      "recommendation": "Sandbox code execution. Validate and sanitize all inputs before code generation. Use AST-based analysis instead of string-based code construction."
+    },
+    {
+      "id": "codegen_0012",
+      "severity": "high",
+      "category": "code_generation",
+      "title": "Dynamic code generation from input detected",
+      "description": "Pattern in tests\\test_the_product_surface_is_what_the_product_uses.py at line 269: `for _, _, registered in _defined(ast.parse(text)) if not registered)`. Tools that generate code from agent inputs can execute attacker-controlled payloads.",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "tests\\test_the_product_surface_is_what_the_product_uses.py",
+      "line_number": 269,
+      "recommendation": "Sandbox code execution. Validate and sanitize all inputs before code generation. Use AST-based analysis instead of string-based code construction."
+    },
+    {
+      "id": "codegen_0013",
+      "severity": "high",
+      "category": "code_generation",
+      "title": "Dynamic code generation from input detected",
+      "description": "Pattern in tests\\test_the_product_surface_is_what_the_product_uses.py at line 278: `for node in ast.parse(text).body`. Tools that generate code from agent inputs can execute attacker-controlled payloads.",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "tests\\test_the_product_surface_is_what_the_product_uses.py",
+      "line_number": 278,
+      "recommendation": "Sandbox code execution. Validate and sanitize all inputs before code generation. Use AST-based analysis instead of string-based code construction."
+    },
+    {
+      "id": "codegen_0014",
+      "severity": "high",
+      "category": "code_generation",
+      "title": "Dynamic code generation from input detected",
+      "description": "Pattern in tests\\test_the_product_surface_is_what_the_product_uses.py at line 292: `reached.update(_on_an_object(ast.parse(text), known))`. Tools that generate code from agent inputs can execute attacker-controlled payloads.",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "tests\\test_the_product_surface_is_what_the_product_uses.py",
+      "line_number": 292,
+      "recommendation": "Sandbox code execution. Validate and sanitize all inputs before code generation. Use AST-based analysis instead of string-based code construction."
+    },
+    {
+      "id": "codegen_0015",
+      "severity": "high",
+      "category": "code_generation",
+      "title": "Dynamic code generation from input detected",
+      "description": "Pattern in tests\\test_the_session_column.py at line 142: `declared = [n for n in ast.parse(inspect.getsource(chat)).body`. Tools that generate code from agent inputs can execute attacker-controlled payloads.",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "tests\\test_the_session_column.py",
+      "line_number": 142,
+      "recommendation": "Sandbox code execution. Validate and sanitize all inputs before code generation. Use AST-based analysis instead of string-based code construction."
+    },
+    {
+      "id": "codegen_0016",
+      "severity": "high",
+      "category": "code_generation",
+      "title": "Dynamic code generation from input detected",
+      "description": "Pattern in tests\\test_the_suite_reads_no_real_session.py at line 291: `tree = ast.parse(path.read_text(encoding=\"utf-8\"))`. Tools that generate code from agent inputs can execute attacker-controlled payloads.",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "tests\\test_the_suite_reads_no_real_session.py",
+      "line_number": 291,
+      "recommendation": "Sandbox code execution. Validate and sanitize all inputs before code generation. Use AST-based analysis instead of string-based code construction."
+    },
+    {
+      "id": "codegen_0017",
+      "severity": "high",
+      "category": "code_generation",
+      "title": "Dynamic code generation from input detected",
+      "description": "Pattern in tests\\test_what_is_imported_is_declared.py at line 120: `tree = ast.parse(path.read_text(encoding=\"utf-8\"))`. Tools that generate code from agent inputs can execute attacker-controlled payloads.",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "tests\\test_what_is_imported_is_declared.py",
+      "line_number": 120,
+      "recommendation": "Sandbox code execution. Validate and sanitize all inputs before code generation. Use AST-based analysis instead of string-based code construction."
+    },
+    {
+      "id": "codegen_0018",
+      "severity": "high",
+      "category": "code_generation",
+      "title": "Dynamic code generation from input detected",
+      "description": "Pattern in tests\\mcp_server\\test_addressing.py at line 35: `tree = ast.parse(inspect.getsource(server))`. Tools that generate code from agent inputs can execute attacker-controlled payloads.",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "tests\\mcp_server\\test_addressing.py",
+      "line_number": 35,
+      "recommendation": "Sandbox code execution. Validate and sanitize all inputs before code generation. Use AST-based analysis instead of string-based code construction."
+    },
+    {
+      "id": "codegen_0019",
+      "severity": "high",
+      "category": "code_generation",
+      "title": "Dynamic code generation from input detected",
+      "description": "Pattern in tests\\mcp_server\\test_every_tool_says_what_it_does.py at line 114: `tree = ast.parse(src)`. Tools that generate code from agent inputs can execute attacker-controlled payloads.",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "tests\\mcp_server\\test_every_tool_says_what_it_does.py",
+      "line_number": 114,
+      "recommendation": "Sandbox code execution. Validate and sanitize all inputs before code generation. Use AST-based analysis instead of string-based code construction."
+    },
+    {
+      "id": "codegen_0020",
+      "severity": "high",
+      "category": "code_generation",
+      "title": "Dynamic code generation from input detected",
+      "description": "Pattern in tests\\mcp_server\\test_navigate_reports_the_status.py at line 168: `BINARY = __import__(\"os\").environ.get(\"STEALTHFOX_BINARY\")`. Tools that generate code from agent inputs can execute attacker-controlled payloads.",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "tests\\mcp_server\\test_navigate_reports_the_status.py",
+      "line_number": 168,
+      "recommendation": "Sandbox code execution. Validate and sanitize all inputs before code generation. Use AST-based analysis instead of string-based code construction."
+    },
+    {
+      "id": "memory_0001",
+      "severity": "medium",
+      "category": "memory_poisoning",
+      "title": "Memory/context modification capability detected",
+      "description": "Pattern in src\\invisible_playwright_mcp\\mcp\\plan.py near line 204: `session write`. MCP servers that modify agent memory or context can poison long-term behavior.",
+      "owasp_asi": [
+        "ASI06"
+      ],
+      "owasp_mcp": [
+        "MCP06",
+        "MCP10"
+      ],
+      "file_path": "src\\invisible_playwright_mcp\\mcp\\plan.py",
+      "line_number": 204,
+      "recommendation": "Validate all data before writing to agent memory. Implement integrity checks on persistent context. Log all memory modifications for audit."
+    },
+    {
+      "id": "memory_0002",
+      "severity": "medium",
+      "category": "memory_poisoning",
+      "title": "Memory/context modification capability detected",
+      "description": "Pattern in tests\\test_agent_loop.py near line 1043: `session set`. MCP servers that modify agent memory or context can poison long-term behavior.",
+      "owasp_asi": [
+        "ASI06"
+      ],
+      "owasp_mcp": [
+        "MCP06",
+        "MCP10"
+      ],
+      "file_path": "tests\\test_agent_loop.py",
+      "line_number": 1043,
+      "recommendation": "Validate all data before writing to agent memory. Implement integrity checks on persistent context. Log all memory modifications for audit."
+    },
+    {
+      "id": "memory_0003",
+      "severity": "medium",
+      "category": "memory_poisoning",
+      "title": "Memory/context modification capability detected",
+      "description": "Pattern in tests\\mcp_server\\test_session.py near line 48: `PersistentContext`. MCP servers that modify agent memory or context can poison long-term behavior.",
+      "owasp_asi": [
+        "ASI06"
+      ],
+      "owasp_mcp": [
+        "MCP06",
+        "MCP10"
+      ],
+      "file_path": "tests\\mcp_server\\test_session.py",
+      "line_number": 48,
+      "recommendation": "Validate all data before writing to agent memory. Implement integrity checks on persistent context. Log all memory modifications for audit."
+    },
+    {
+      "id": "trust_0001",
+      "severity": "medium",
+      "category": "trust_exploitation",
+      "title": "Trust exploitation pattern: authority impersonation",
+      "description": "Pattern in src\\invisible_playwright_mcp\\agent.py near line 62: `system message`. This could enable a compromised agent to mislead users.",
+      "owasp_asi": [
+        "ASI09"
+      ],
+      "owasp_mcp": [
+        "MCP06"
+      ],
+      "file_path": "src\\invisible_playwright_mcp\\agent.py",
+      "line_number": 62,
+      "recommendation": "Implement output verification. Require human confirmation for high-impact actions. Mark agent-generated content as such."
+    },
+    {
+      "id": "trust_0002",
+      "severity": "medium",
+      "category": "trust_exploitation",
+      "title": "Trust exploitation pattern: authority impersonation",
+      "description": "Pattern in src\\invisible_playwright_mcp\\chat.py near line 112: `SYSTEM MESSAGE`. This could enable a compromised agent to mislead users.",
+      "owasp_asi": [
+        "ASI09"
+      ],
+      "owasp_mcp": [
+        "MCP06"
+      ],
+      "file_path": "src\\invisible_playwright_mcp\\chat.py",
+      "line_number": 112,
+      "recommendation": "Implement output verification. Require human confirmation for high-impact actions. Mark agent-generated content as such."
+    },
+    {
+      "id": "trust_0003",
+      "severity": "medium",
+      "category": "trust_exploitation",
+      "title": "Trust exploitation pattern: authority impersonation",
+      "description": "Pattern in tests\\test_agent_loop.py near line 463: `system message`. This could enable a compromised agent to mislead users.",
+      "owasp_asi": [
+        "ASI09"
+      ],
+      "owasp_mcp": [
+        "MCP06"
+      ],
+      "file_path": "tests\\test_agent_loop.py",
+      "line_number": 463,
+      "recommendation": "Implement output verification. Require human confirmation for high-impact actions. Mark agent-generated content as such."
+    },
+    {
+      "id": "trust_0004",
+      "severity": "medium",
+      "category": "trust_exploitation",
+      "title": "Trust exploitation pattern: authority impersonation",
+      "description": "Pattern in tests\\test_the_prompt_says_each_thing_once.py near line 3: `SYSTEM MESSAGE`. This could enable a compromised agent to mislead users.",
+      "owasp_asi": [
+        "ASI09"
+      ],
+      "owasp_mcp": [
+        "MCP06"
+      ],
+      "file_path": "tests\\test_the_prompt_says_each_thing_once.py",
+      "line_number": 3,
+      "recommendation": "Implement output verification. Require human confirmation for high-impact actions. Mark agent-generated content as such."
+    },
+    {
+      "id": "trust_0005",
+      "severity": "medium",
+      "category": "trust_exploitation",
+      "title": "Trust exploitation pattern: authority impersonation",
+      "description": "Pattern in tests\\test_the_transcript_is_what_was_said.py near line 4: `system message`. This could enable a compromised agent to mislead users.",
+      "owasp_asi": [
+        "ASI09"
+      ],
+      "owasp_mcp": [
+        "MCP06"
+      ],
+      "file_path": "tests\\test_the_transcript_is_what_was_said.py",
+      "line_number": 4,
+      "recommendation": "Implement output verification. Require human confirmation for high-impact actions. Mark agent-generated content as such."
+    },
+    {
+      "id": "mcp04_unpinned_0001",
+      "severity": "medium",
+      "category": "supply_chain",
+      "title": "Unpinned install source",
+      "description": "`uvx invisible-playwright-mcp` without a pinned version in .mcp.json at line 6. Without an exact version the next install silently picks up whatever is published, including a compromised release.",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": ".mcp.json",
+      "line_number": 6,
+      "recommendation": "Pin an exact version (pkg@1.2.3, pkg==1.2.3) and prefer a lockfile or hash-checked requirements."
+    },
+    {
+      "id": "mcp04_unpinned_0002",
+      "severity": "medium",
+      "category": "supply_chain",
+      "title": "Unpinned install source",
+      "description": "`uvx invisible-playwright-mcp` without a pinned version in gemini-extension.json at line 7. Without an exact version the next install silently picks up whatever is published, including a compromised release.",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": "gemini-extension.json",
+      "line_number": 7,
+      "recommendation": "Pin an exact version (pkg@1.2.3, pkg==1.2.3) and prefer a lockfile or hash-checked requirements."
+    },
+    {
+      "id": "mcp04_unpinned_0003",
+      "severity": "medium",
+      "category": "supply_chain",
+      "title": "Unpinned install source",
+      "description": "`uvx invisible-playwright-mcp` without a pinned version in mcp.json at line 6. Without an exact version the next install silently picks up whatever is published, including a compromised release.",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": "mcp.json",
+      "line_number": 6,
+      "recommendation": "Pin an exact version (pkg@1.2.3, pkg==1.2.3) and prefer a lockfile or hash-checked requirements."
+    },
+    {
+      "id": "mcp04_unpinned_0004",
+      "severity": "medium",
+      "category": "supply_chain",
+      "title": "Unpinned install source",
+      "description": "`pip install` of unpinned package(s) invisible-core>=30.23.0 in .github\\workflows\\ci.yml at line 31. Without an exact version the next install silently picks up whatever is published, including a compromised release.",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": ".github\\workflows\\ci.yml",
+      "line_number": 31,
+      "recommendation": "Pin an exact version (pkg@1.2.3, pkg==1.2.3) and prefer a lockfile or hash-checked requirements."
+    },
+    {
+      "id": "mcp04_unpinned_0005",
+      "severity": "medium",
+      "category": "supply_chain",
+      "title": "Unpinned install source",
+      "description": "`pip install` of unpinned package(s) ruff>=0.6 in .github\\workflows\\ci.yml at line 55. Without an exact version the next install silently picks up whatever is published, including a compromised release.",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": ".github\\workflows\\ci.yml",
+      "line_number": 55,
+      "recommendation": "Pin an exact version (pkg@1.2.3, pkg==1.2.3) and prefer a lockfile or hash-checked requirements."
+    },
+    {
+      "id": "mcp04_unpinned_0006",
+      "severity": "medium",
+      "category": "supply_chain",
+      "title": "Unpinned install source",
+      "description": "`pip install` of unpinned package(s) pytest in .github\\workflows\\ci.yml at line 102. Without an exact version the next install silently picks up whatever is published, including a compromised release.",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": ".github\\workflows\\ci.yml",
+      "line_number": 102,
+      "recommendation": "Pin an exact version (pkg@1.2.3, pkg==1.2.3) and prefer a lockfile or hash-checked requirements."
+    },
+    {
+      "id": "mcp04_unpinned_0007",
+      "severity": "medium",
+      "category": "supply_chain",
+      "title": "Unpinned install source",
+      "description": "`pip install` of unpinned package(s) build in .github\\workflows\\ci.yml at line 161. Without an exact version the next install silently picks up whatever is published, including a compromised release.",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": ".github\\workflows\\ci.yml",
+      "line_number": 161,
+      "recommendation": "Pin an exact version (pkg@1.2.3, pkg==1.2.3) and prefer a lockfile or hash-checked requirements."
+    },
+    {
+      "id": "mcp04_unpinned_0008",
+      "severity": "medium",
+      "category": "supply_chain",
+      "title": "Unpinned install source",
+      "description": "`npx @anthropic-ai/mcpb` without a pinned version in .github\\workflows\\ci.yml at line 199. Without an exact version the next install silently picks up whatever is published, including a compromised release.",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": ".github\\workflows\\ci.yml",
+      "line_number": 199,
+      "recommendation": "Pin an exact version (pkg@1.2.3, pkg==1.2.3) and prefer a lockfile or hash-checked requirements."
+    },
+    {
+      "id": "mcp04_unpinned_0009",
+      "severity": "medium",
+      "category": "supply_chain",
+      "title": "Unpinned install source",
+      "description": "`pip install` of unpinned package(s) pytest in .github\\workflows\\ci.yml at line 241. Without an exact version the next install silently picks up whatever is published, including a compromised release.",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": ".github\\workflows\\ci.yml",
+      "line_number": 241,
+      "recommendation": "Pin an exact version (pkg@1.2.3, pkg==1.2.3) and prefer a lockfile or hash-checked requirements."
+    },
+    {
+      "id": "mcp04_unpinned_0010",
+      "severity": "medium",
+      "category": "supply_chain",
+      "title": "Unpinned install source",
+      "description": "`pip install` of unpinned package(s) invisible-core>=34.29.0 in .github\\workflows\\content-gates.yml at line 29. Without an exact version the next install silently picks up whatever is published, including a compromised release.",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": ".github\\workflows\\content-gates.yml",
+      "line_number": 29,
+      "recommendation": "Pin an exact version (pkg@1.2.3, pkg==1.2.3) and prefer a lockfile or hash-checked requirements."
+    },
+    {
+      "id": "mcp04_unpinned_0011",
+      "severity": "medium",
+      "category": "supply_chain",
+      "title": "Unpinned install source",
+      "description": "`pip install` of unpinned package(s) build in .github\\workflows\\publish.yml at line 136. Without an exact version the next install silently picks up whatever is published, including a compromised release.",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": ".github\\workflows\\publish.yml",
+      "line_number": 136,
+      "recommendation": "Pin an exact version (pkg@1.2.3, pkg==1.2.3) and prefer a lockfile or hash-checked requirements."
+    },
+    {
+      "id": "mcp04_unpinned_0012",
+      "severity": "medium",
+      "category": "supply_chain",
+      "title": "Unpinned install source",
+      "description": "`pip install` of unpinned package(s) build in .github\\workflows\\publish.yml at line 157. Without an exact version the next install silently picks up whatever is published, including a compromised release.",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": ".github\\workflows\\publish.yml",
+      "line_number": 157,
+      "recommendation": "Pin an exact version (pkg@1.2.3, pkg==1.2.3) and prefer a lockfile or hash-checked requirements."
+    },
+    {
+      "id": "mcp04_unpinned_0013",
+      "severity": "medium",
+      "category": "supply_chain",
+      "title": "Unpinned install source",
+      "description": "`pip install` of unpinned package(s) twine in .github\\workflows\\publish.yml at line 161. Without an exact version the next install silently picks up whatever is published, including a compromised release.",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": ".github\\workflows\\publish.yml",
+      "line_number": 161,
+      "recommendation": "Pin an exact version (pkg@1.2.3, pkg==1.2.3) and prefer a lockfile or hash-checked requirements."
+    },
+    {
+      "id": "mcp08_no_tool_logging",
+      "severity": "info",
+      "category": "audit_telemetry",
+      "title": "No logging found in files that define MCP tools (low confidence)",
+      "description": "None of the tool-defining files (scripts\\check_content.py, src\\invisible_playwright_mcp\\mcp\\server.py) reference a logging library or logger call. Tool invocations may leave no audit trail. Confidence is low: logging could be configured elsewhere or by the host.",
+      "owasp_asi": [
+        "ASI10"
+      ],
+      "owasp_mcp": [
+        "MCP08"
+      ],
+      "file_path": "scripts\\check_content.py",
+      "line_number": null,
+      "recommendation": "Log each tool invocation (tool name, caller/session, outcome, and redacted arguments) to a durable, tamper-evident sink."
+    },
+    {
+      "id": "blast_radius_estimate",
+      "severity": "high",
+      "category": "cascading_failure",
+      "title": "Blast radius: HIGH \u2014 compromise of this server has broad impact",
+      "description": "If this MCP server is compromised, the blast radius is HIGH due to: arbitrary code execution, external network access, filesystem access, credential access, 17 tools (large attack surface), 13 critical findings. A single tool poisoning or supply chain attack could cascade across all connected systems.",
+      "owasp_asi": [
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Apply least-privilege to this server. Isolate it from other MCP servers. Implement kill switches and behavioral monitoring. Limit env vars to the minimum required."
+    }
+  ],
+  "server_profile": {
+    "name": "<corpus>/registry/09_feder-cr__invisible_playwright_mcp",
+    "command": null,
+    "args": [],
+    "env_vars": [],
+    "transport": "unknown",
+    "tools": [
+      {
+        "name": "browser_open",
+        "description": "Open `main` or `support`, or reopen one as somebody else.\n\n`support` is yours to manage: open it when the task needs a second\nidentity, and close it with browser_close as soon as the task no longer\nneeds it, before you answer. It is not saved.\n\nCalled on a browser that is already up, this REOPENS it with the settings\ngiven, and what it held is gone.\n\nseed     the identity; same seed, same fingerprint. Left out, one is drawn.\nprofile  a directory keeping cookies, logins and the seed between opens;\n         \"\" means none. It keeps the SEED too, so a login does not come\n         back on different hardware every visit.\nproxy    the exit, `http://user:pass@host:port` or `socks5://host:port`;\n         \"\" means this machine's own address; left out for `support`, it\n         shares the exit `main` has. A profile does NOT pin its exit, and\n         a login arriving from a new country is as visible as one arriving\n         on new hardware.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "browser": {},
+            "seed": {},
+            "proxy": {},
+            "profile": {}
+          },
+          "required": []
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "medium",
+        "poisoning_detail": "The description of 'browser_open' names an external endpoint (http://user:pass@host:port). A tool that tells the agent where to send data is an exfiltration channel."
+      },
+      {
+        "name": "browser_close",
+        "description": "Close one browser and free what it was holding.\n\nThe page it had is gone with it. The other browser is not touched.\n\nWho it was is kept: browser_open with no arguments brings the same person\nback. To be somebody else, pass a seed, a proxy or a profile.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "browser": {}
+          },
+          "required": []
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "browser_list",
+        "description": "Which of the two browsers are open, where each one is, and which one\nyou are working in.\n\nAnswers JSON: `focus`, the browser your last command acted in, or \"\" when\nnone is open; `note`, which says how many are open and that a command\nnaming no browser goes to `main`; and `browsers` - each row `id`, `url`\n(the page it is on) and `urls` (every page it holds, which is more than\none only when a site opened one). Only open browsers are listed, so every\nrow is one you can act on.\n\nStarts nothing: it reports what is open, so asking is free.",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "medium",
+        "poisoning_detail": "Tool description is 539 characters. Long descriptions can hide malicious instructions."
+      },
+      {
+        "name": "browser_status",
+        "description": "Who is browsing right now: the identity, the exit, the profile and the page.\n\nAsk whenever you need to know which person the browser currently is, or\nfrom where its traffic leaves. The seed is what you would pass to\n`browser_open` to become this person again, so this is also how you\nrecord an identity worth repeating.\n\nIt starts nothing: a browser that is not open, or gone, is answered with\nthe sentence that says which.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "browser": {}
+          },
+          "required": []
+        },
+        "has_hidden_instructions": true,
+        "poisoning_risk": "critical",
+        "poisoning_detail": "Hidden instruction detected in tool description that could manipulate AI behavior. Matched pattern in tool 'browser_status': 'never '"
+      },
+      {
+        "name": "browser_navigate",
+        "description": "Go to a url in this browser's page, opening it if none exists.\n\nAnswers with the HTTP status the server gave and the url actually landed\non, which is not always the one asked for: a redirect to a login wall or a\nregional domain shows up here. Read the status before trusting the page -\na 404 or a 403 still has a document, and reading it as content is the\nmistake this reply exists to prevent.\n\nIf the page you were on navigates itself at that moment (a redirect on a\ntimer), Firefox can follow it instead, and the answer is an error saying\n\"interrupted by another navigation to\" a url. The browser is on that url,\nand you can navigate again from there.\n\nwait_until is \"domcontentloaded\" by default, which returns as soon as the\nmarkup is parsed. Use \"load\" when the page needs its images and stylesheets,\nor \"networkidle\" for a single-page app that fetches its content after\nload.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "url": {
+              "type": "string"
+            },
+            "wait_until": {
+              "type": "string",
+              "default": "domcontentloaded"
+            },
+            "browser": {}
+          },
+          "required": [
+            "url"
+          ]
+        },
+        "has_hidden_instructions": true,
+        "poisoning_risk": "critical",
+        "poisoning_detail": "Hidden instruction detected in tool description that could manipulate AI behavior. Matched pattern in tool 'browser_navigate': 'always '"
+      },
+      {
+        "name": "browser_read_text",
+        "description": "The visible text of an element, with the markup gone, whole.\n\nThe cheapest way to read a page. Narrow the selector when you know where the\nanswer is; use browser_read_html instead when the structure matters, or\nbrowser_snapshot when you need something to click.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "selector": {
+              "type": "string",
+              "default": "body"
+            },
+            "browser": {}
+          },
+          "required": []
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "browser_snapshot",
+        "description": "Title, url, and the interactive elements that are actually visible.\n\nEach element carries a `selector` when one can reach it: pass that string to\nbrowser_click or browser_type VERBATIM rather than writing your own. It is\nbuilt to match exactly ONE element, which the obvious selector often does\nnot, and the driver acts on the first match - so a caller aiming at the\nthird of five identical links would silently hit the first and be told it\nsucceeded.\n\nElements with no `selector` carry `at`, the centre coordinates, for\nbrowser_click_at.\n\nIt lists what a caller can act on, and it is not the accessibility tree:\none country `<select>` would otherwise fill the answer with its options\nbefore the form you were looking for appears.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "browser": {}
+          },
+          "required": []
+        },
+        "has_hidden_instructions": true,
+        "poisoning_risk": "critical",
+        "poisoning_detail": "Hidden instruction detected in tool description that could manipulate AI behavior. Matched pattern in tool 'browser_snapshot': 'silently'"
+      },
+      {
+        "name": "browser_read_html",
+        "description": "The page's HTML, cleaned down to what is worth reading.\n\nUse this when the STRUCTURE matters - a form and its labels, a table, what\na control is wired to. `browser_snapshot` gives a flat inventory of things\nto click; this keeps the markup and the relationships inside it.\n\nmode=\"form\" keeps the interactive surface and the text explaining it,\nmode=\"text\" returns the prose alone, mode=\"full\" keeps the structure with\nthe noise and the attribute soup removed.\n\nUnlike browser_read_text this is NOT capped: it returns the whole reduced\npage, tens of thousands of characters on a large one. Cutting markup in the\nmiddle leaves tags that mean nothing, so it is not cut - but the answer can\nbe long. Reach for browser_snapshot when you only need something to click.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "mode": {
+              "type": "string",
+              "default": "form"
+            },
+            "browser": {}
+          },
+          "required": []
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "medium",
+        "poisoning_detail": "Tool description is 760 characters. Long descriptions can hide malicious instructions."
+      },
+      {
+        "name": "browser_take_screenshot",
+        "description": "One screenshot of this browser's page, on demand.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "browser": {}
+          },
+          "required": []
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "browser_watch",
+        "description": "The whole browser window as a person at the machine sees it: tab strip,\naddress bar, the page and the pointer, from a live capture kept running on\nthat page. For watching the work, not for acting on it: the picture\nis window pixels, so do not feed its coordinates to browser_click_at; use\nbrowser_take_screenshot for that.\n\nStarts nothing. A browser that is not open has no window, so this answers\nthe sentence that says so, and the live panes - which call this many times\na second - read that sentence as the idle pane.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "browser": {}
+          },
+          "required": []
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "medium",
+        "poisoning_detail": "Tool description is 520 characters. Long descriptions can hide malicious instructions."
+      },
+      {
+        "name": "browser_click",
+        "description": "Click the first element matching a CSS selector.\n\nScrolls it into view and waits for it to be clickable. When no selector can\ndescribe the target, use browser_click_at with coordinates from\nbrowser_snapshot.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "selector": {
+              "type": "string"
+            },
+            "browser": {}
+          },
+          "required": [
+            "selector"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "browser_click_at",
+        "description": "Click (or press-and-hold) a raw viewport coordinate instead of a\nselector - for targets a selector cannot reliably reach: a slider track, a\ncanvas-drawn captcha, a precise point inside a wider element. Moves the\npointer there first (no teleport), then down, then up, holding first if\nhold_seconds is set. Returns a screenshot taken right after release.\n\nCoordinates are relative to the VIEWPORT, not to the page, so the ones in a\nsnapshot go stale the moment anything scrolls. Nothing raises when that\nhappens: the click lands on whatever is at that spot now. Take a fresh\nsnapshot after anything that could have moved the page, and prefer\nbrowser_click with the element's `selector` whenever it has one.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "x": {
+              "type": "number"
+            },
+            "y": {
+              "type": "number"
+            },
+            "hold_seconds": {
+              "type": "number",
+              "default": 0.0
+            },
+            "browser": {}
+          },
+          "required": [
+            "x",
+            "y"
+          ]
+        },
+        "has_hidden_instructions": true,
+        "poisoning_risk": "critical",
+        "poisoning_detail": "Hidden instruction detected in tool description that could manipulate AI behavior. Matched pattern in tool 'browser_click_at': 'never '"
+      },
+      {
+        "name": "browser_type",
+        "description": "Type into a field, replacing what it holds, key by key at a human pace.\n\nThe answer says what the field kept: all of it, a maxlength's cut, the\npage's reformatting, nothing (the page took it out), or one box of a code\nthe page spreads over several. Nothing is retyped on its own. Text too long\nto finish within one answer goes on in the background; until it ends,\nactions on that browser are refused with its progress, and reads work.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "selector": {
+              "type": "string"
+            },
+            "text": {
+              "type": "string"
+            },
+            "browser": {}
+          },
+          "required": [
+            "selector",
+            "text"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "browser_select_option",
+        "description": "Choose an option in a dropdown (`<select>`), by its visible label or by\nits value.\n\nUse this rather than clicking the dropdown and pressing arrow keys: a click\nplus arrows cannot tell you which row it landed on, and setting the value\nthrough browser_evaluate changes it without the page seeing a real\ninteraction.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "selector": {
+              "type": "string"
+            },
+            "value": {
+              "type": "string"
+            },
+            "browser": {}
+          },
+          "required": [
+            "selector",
+            "value"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "browser_upload_files",
+        "description": "Attach local files to a file input, the way a person picks them.\n\n`selector` is the `<input type=file>` itself, or the button or label that\nopens its chooser: that is clicked with the real pointer and the chooser\nanswered with `paths`. A hidden input is opened through its label; with\nnone, pass the button that opens it. Several files need an input that\ntakes several; otherwise upload them one call at a time.\n\nEach path is absolute and names a regular file inside a directory listed\nin INVISIBLE_MCP_UPLOAD_DIRS, through no hidden directory; with none\nlisted, uploads are off. Never use browser_evaluate to set `files`.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "selector": {
+              "type": "string"
+            },
+            "paths": {
+              "type": "array"
+            },
+            "browser": {}
+          },
+          "required": [
+            "selector",
+            "paths"
+          ]
+        },
+        "has_hidden_instructions": true,
+        "poisoning_risk": "critical",
+        "poisoning_detail": "Hidden instruction detected in tool description that could manipulate AI behavior. Matched pattern in tool 'browser_upload_files': 'Never '"
+      },
+      {
+        "name": "browser_press_key",
+        "description": "Press a key on whatever has focus: \"Enter\", \"Tab\", \"Escape\",\n\"ArrowDown\", \"Control+a\", or a single character.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "key": {
+              "type": "string"
+            },
+            "browser": {}
+          },
+          "required": [
+            "key"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "browser_evaluate",
+        "description": "READ from the page with JavaScript and get the result as JSON.\n\nLast, for what other tools cannot see: a computed style, a value held\nin a framework's state, the length of a list. Text, a heading or a price is\nbrowser_read_text's, markup browser_read_html's, a control\nbrowser_snapshot's: a script runs in the page, and they do not.\n\nActing on the page is refused, and the refusal names the tool to use.\nAssigning to `value`, `checked` or `selected`, or calling `click()`,\n`dispatchEvent()`, `submit()` or `requestSubmit()`, changes the page without\na real keystroke or pointer, and a page can tell. Use browser_click,\nbrowser_type or browser_select_option instead; they do the same thing\nthrough the pointer and the keyboard. Reading any of those properties is\nfine.\n\nThe refusal catches the obvious spellings, not every possible one. A script\nthat slips past it is still the wrong way to do the thing: report it in your\nanswer rather than using it.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "expression": {
+              "type": "string"
+            },
+            "browser": {}
+          },
+          "required": [
+            "expression"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "medium",
+        "poisoning_detail": "Tool description is 950 characters. Long descriptions can hide malicious instructions."
+      }
+    ],
+    "resources": [],
+    "prompts": [],
+    "repo_url": null,
+    "npm_package": null,
+    "capabilities_claimed": [],
+    "capabilities_actual": []
+  },
+  "fingerprint": "7ab5ccbbe72e23401c1c6b1bbe657ad522d948961518fc1356375d39c298fbcc",
+  "surface_map": {
+    "server": {
+      "name": "<corpus>/registry/09_feder-cr__invisible_playwright_mcp",
+      "instructions": "",
+      "transport": "streamable-http",
+      "auth": "unknown"
+    },
+    "tools": [
+      {
+        "name": "browser_open",
+        "description": "Open `main` or `support`, or reopen one as somebody else.\n\n`support` is yours to manage: open it when the task needs a second\nidentity, and close it with browser_close as soon as the task no longer\nneeds it, before you answer. It is not saved.\n\nCalled on a browser that is already up, this REOPENS it with the settings\ngiven, and what it held is gone.\n\nseed     the identity; same seed, same fingerprint. Left out, one is drawn.\nprofile  a directory keeping cookies, logins and the seed between opens;\n         \"\" means none. It keeps the SEED too, so a login does not come\n         back on different hardware every visit.\nproxy    the exit, `http://user:pass@host:port` or `socks5://host:port`;\n         \"\" means this machine's own address; left out for `support`, it\n         shares the exit `main` has. A profile does NOT pin its exit, and\n         a login arriving from a new country is as visible as one arriving\n         on new hardware.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "browser": {},
+            "seed": {},
+            "proxy": {},
+            "profile": {}
+          },
+          "required": []
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "src\\invisible_playwright_mcp\\mcp\\server.py:384"
+      },
+      {
+        "name": "browser_close",
+        "description": "Close one browser and free what it was holding.\n\nThe page it had is gone with it. The other browser is not touched.\n\nWho it was is kept: browser_open with no arguments brings the same person\nback. To be somebody else, pass a seed, a proxy or a profile.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "browser": {}
+          },
+          "required": []
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "src\\invisible_playwright_mcp\\mcp\\server.py:423"
+      },
+      {
+        "name": "browser_list",
+        "description": "Which of the two browsers are open, where each one is, and which one\nyou are working in.\n\nAnswers JSON: `focus`, the browser your last command acted in, or \"\" when\nnone is open; `note`, which says how many are open and that a command\nnaming no browser goes to `main`; and `browsers` - each row `id`, `url`\n(the page it is on) and `urls` (every page it holds, which is more than\none only when a site opened one). Only open browsers are listed, so every\nrow is one you can act on.\n\nStarts nothing: it reports what is open, so asking is free.",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "src\\invisible_playwright_mcp\\mcp\\server.py:435"
+      },
+      {
+        "name": "browser_status",
+        "description": "Who is browsing right now: the identity, the exit, the profile and the page.\n\nAsk whenever you need to know which person the browser currently is, or\nfrom where its traffic leaves. The seed is what you would pass to\n`browser_open` to become this person again, so this is also how you\nrecord an identity worth repeating.\n\nIt starts nothing: a browser that is not open, or gone, is answered with\nthe sentence that says which.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "browser": {}
+          },
+          "required": []
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "src\\invisible_playwright_mcp\\mcp\\server.py:463"
+      },
+      {
+        "name": "browser_navigate",
+        "description": "Go to a url in this browser's page, opening it if none exists.\n\nAnswers with the HTTP status the server gave and the url actually landed\non, which is not always the one asked for: a redirect to a login wall or a\nregional domain shows up here. Read the status before trusting the page -\na 404 or a 403 still has a document, and reading it as content is the\nmistake this reply exists to prevent.\n\nIf the page you were on navigates itself at that moment (a redirect on a\ntimer), Firefox can follow it instead, and the answer is an error saying\n\"interrupted by another navigation to\" a url. The browser is on that url,\nand you can navigate again from there.\n\nwait_until is \"domcontentloaded\" by default, which returns as soon as the\nmarkup is parsed. Use \"load\" when the page needs its images and stylesheets,\nor \"networkidle\" for a single-page app that fetches its content after\nload.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "url": {
+              "type": "string"
+            },
+            "wait_until": {
+              "type": "string",
+              "default": "domcontentloaded"
+            },
+            "browser": {}
+          },
+          "required": [
+            "url"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "src\\invisible_playwright_mcp\\mcp\\server.py:497"
+      },
+      {
+        "name": "browser_read_text",
+        "description": "The visible text of an element, with the markup gone, whole.\n\nThe cheapest way to read a page. Narrow the selector when you know where the\nanswer is; use browser_read_html instead when the structure matters, or\nbrowser_snapshot when you need something to click.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "selector": {
+              "type": "string",
+              "default": "body"
+            },
+            "browser": {}
+          },
+          "required": []
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "src\\invisible_playwright_mcp\\mcp\\server.py:521"
+      },
+      {
+        "name": "browser_snapshot",
+        "description": "Title, url, and the interactive elements that are actually visible.\n\nEach element carries a `selector` when one can reach it: pass that string to\nbrowser_click or browser_type VERBATIM rather than writing your own. It is\nbuilt to match exactly ONE element, which the obvious selector often does\nnot, and the driver acts on the first match - so a caller aiming at the\nthird of five identical links would silently hit the first and be told it\nsucceeded.\n\nElements with no `selector` carry `at`, the centre coordinates, for\nbrowser_click_at.\n\nIt lists what a caller can act on, and it is not the accessibility tree:\none country `<select>` would otherwise fill the answer with its options\nbefore the form you were looking for appears.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "browser": {}
+          },
+          "required": []
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "src\\invisible_playwright_mcp\\mcp\\server.py:536"
+      },
+      {
+        "name": "browser_read_html",
+        "description": "The page's HTML, cleaned down to what is worth reading.\n\nUse this when the STRUCTURE matters - a form and its labels, a table, what\na control is wired to. `browser_snapshot` gives a flat inventory of things\nto click; this keeps the markup and the relationships inside it.\n\nmode=\"form\" keeps the interactive surface and the text explaining it,\nmode=\"text\" returns the prose alone, mode=\"full\" keeps the structure with\nthe noise and the attribute soup removed.\n\nUnlike browser_read_text this is NOT capped: it returns the whole reduced\npage, tens of thousands of characters on a large one. Cutting markup in the\nmiddle leaves tags that mean nothing, so it is not cut - but the answer can\nbe long. Reach for browser_snapshot when you only need something to click.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "mode": {
+              "type": "string",
+              "default": "form"
+            },
+            "browser": {}
+          },
+          "required": []
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "src\\invisible_playwright_mcp\\mcp\\server.py:568"
+      },
+      {
+        "name": "browser_take_screenshot",
+        "description": "One screenshot of this browser's page, on demand.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "browser": {}
+          },
+          "required": []
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "src\\invisible_playwright_mcp\\mcp\\server.py:588"
+      },
+      {
+        "name": "browser_watch",
+        "description": "The whole browser window as a person at the machine sees it: tab strip,\naddress bar, the page and the pointer, from a live capture kept running on\nthat page. For watching the work, not for acting on it: the picture\nis window pixels, so do not feed its coordinates to browser_click_at; use\nbrowser_take_screenshot for that.\n\nStarts nothing. A browser that is not open has no window, so this answers\nthe sentence that says so, and the live panes - which call this many times\na second - read that sentence as the idle pane.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "browser": {}
+          },
+          "required": []
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "src\\invisible_playwright_mcp\\mcp\\server.py:595"
+      },
+      {
+        "name": "browser_click",
+        "description": "Click the first element matching a CSS selector.\n\nScrolls it into view and waits for it to be clickable. When no selector can\ndescribe the target, use browser_click_at with coordinates from\nbrowser_snapshot.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "selector": {
+              "type": "string"
+            },
+            "browser": {}
+          },
+          "required": [
+            "selector"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "src\\invisible_playwright_mcp\\mcp\\server.py:617"
+      },
+      {
+        "name": "browser_click_at",
+        "description": "Click (or press-and-hold) a raw viewport coordinate instead of a\nselector - for targets a selector cannot reliably reach: a slider track, a\ncanvas-drawn captcha, a precise point inside a wider element. Moves the\npointer there first (no teleport), then down, then up, holding first if\nhold_seconds is set. Returns a screenshot taken right after release.\n\nCoordinates are relative to the VIEWPORT, not to the page, so the ones in a\nsnapshot go stale the moment anything scrolls. Nothing raises when that\nhappens: the click lands on whatever is at that spot now. Take a fresh\nsnapshot after anything that could have moved the page, and prefer\nbrowser_click with the element's `selector` whenever it has one.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "x": {
+              "type": "number"
+            },
+            "y": {
+              "type": "number"
+            },
+            "hold_seconds": {
+              "type": "number",
+              "default": 0.0
+            },
+            "browser": {}
+          },
+          "required": [
+            "x",
+            "y"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "src\\invisible_playwright_mcp\\mcp\\server.py:627"
+      },
+      {
+        "name": "browser_type",
+        "description": "Type into a field, replacing what it holds, key by key at a human pace.\n\nThe answer says what the field kept: all of it, a maxlength's cut, the\npage's reformatting, nothing (the page took it out), or one box of a code\nthe page spreads over several. Nothing is retyped on its own. Text too long\nto finish within one answer goes on in the background; until it ends,\nactions on that browser are refused with its progress, and reads work.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "selector": {
+              "type": "string"
+            },
+            "text": {
+              "type": "string"
+            },
+            "browser": {}
+          },
+          "required": [
+            "selector",
+            "text"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "src\\invisible_playwright_mcp\\mcp\\server.py:651"
+      },
+      {
+        "name": "browser_select_option",
+        "description": "Choose an option in a dropdown (`<select>`), by its visible label or by\nits value.\n\nUse this rather than clicking the dropdown and pressing arrow keys: a click\nplus arrows cannot tell you which row it landed on, and setting the value\nthrough browser_evaluate changes it without the page seeing a real\ninteraction.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "selector": {
+              "type": "string"
+            },
+            "value": {
+              "type": "string"
+            },
+            "browser": {}
+          },
+          "required": [
+            "selector",
+            "value"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "src\\invisible_playwright_mcp\\mcp\\server.py:663"
+      },
+      {
+        "name": "browser_upload_files",
+        "description": "Attach local files to a file input, the way a person picks them.\n\n`selector` is the `<input type=file>` itself, or the button or label that\nopens its chooser: that is clicked with the real pointer and the chooser\nanswered with `paths`. A hidden input is opened through its label; with\nnone, pass the button that opens it. Several files need an input that\ntakes several; otherwise upload them one call at a time.\n\nEach path is absolute and names a regular file inside a directory listed\nin INVISIBLE_MCP_UPLOAD_DIRS, through no hidden directory; with none\nlisted, uploads are off. Never use browser_evaluate to set `files`.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "selector": {
+              "type": "string"
+            },
+            "paths": {
+              "type": "array"
+            },
+            "browser": {}
+          },
+          "required": [
+            "selector",
+            "paths"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "src\\invisible_playwright_mcp\\mcp\\server.py:676"
+      },
+      {
+        "name": "browser_press_key",
+        "description": "Press a key on whatever has focus: \"Enter\", \"Tab\", \"Escape\",\n\"ArrowDown\", \"Control+a\", or a single character.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "key": {
+              "type": "string"
+            },
+            "browser": {}
+          },
+          "required": [
+            "key"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "src\\invisible_playwright_mcp\\mcp\\server.py:693"
+      },
+      {
+        "name": "browser_evaluate",
+        "description": "READ from the page with JavaScript and get the result as JSON.\n\nLast, for what other tools cannot see: a computed style, a value held\nin a framework's state, the length of a list. Text, a heading or a price is\nbrowser_read_text's, markup browser_read_html's, a control\nbrowser_snapshot's: a script runs in the page, and they do not.\n\nActing on the page is refused, and the refusal names the tool to use.\nAssigning to `value`, `checked` or `selected`, or calling `click()`,\n`dispatchEvent()`, `submit()` or `requestSubmit()`, changes the page without\na real keystroke or pointer, and a page can tell. Use browser_click,\nbrowser_type or browser_select_option instead; they do the same thing\nthrough the pointer and the keyboard. Reading any of those properties is\nfine.\n\nThe refusal catches the obvious spellings, not every possible one. A script\nthat slips past it is still the wrong way to do the thing: report it in your\nanswer rather than using it.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "expression": {
+              "type": "string"
+            },
+            "browser": {}
+          },
+          "required": [
+            "expression"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "src\\invisible_playwright_mcp\\mcp\\server.py:700"
+      }
+    ],
+    "resources": [],
+    "prompts": [],
+    "mutations": [],
+    "source": {
+      "kind": "static",
+      "target": "<corpus>/registry/09_feder-cr__invisible_playwright_mcp",
+      "languages": [
+        "python"
+      ]
+    },
+    "generated_at": "2026-11-04T02:34:26+00:00",
+    "fingerprint": "7ab5ccbbe72e23401c1c6b1bbe657ad522d948961518fc1356375d39c298fbcc",
+    "schema": "axiom.surface/1"
+  },
+  "owasp_coverage": {
+    "framework": "OWASP Top 10 for Agentic Applications 2026",
+    "reference": "https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/",
+    "coverage": {
+      "ASI01": {
+        "name": "Agent Goal Hijack",
+        "coverage_level": "strong",
+        "findings_count": 17,
+        "finding_ids": [
+          "egress_browser_open_desc_1",
+          "poison_browser_open_long_desc",
+          "poison_browser_list_long_desc",
+          "poison_browser_status_instruction_injection",
+          "poison_browser_navigate_instruction_injection",
+          "poison_browser_navigate_long_desc",
+          "poison_browser_snapshot_instruction_injection",
+          "poison_browser_snapshot_long_desc",
+          "poison_browser_read_html_long_desc",
+          "poison_browser_watch_long_desc"
+        ],
+        "detectors": [
+          "tool_poisoning",
+          "prompt_injection",
+          "instruction_injection"
+        ]
+      },
+      "ASI02": {
+        "name": "Tool Misuse & Exploitation",
+        "coverage_level": "strong",
+        "findings_count": 33,
+        "finding_ids": [
+          "egress_browser_open_desc_1",
+          "cross_tool_browser_open_browser_close",
+          "cross_tool_browser_close_browser_open",
+          "cross_tool_browser_status_browser_open",
+          "cross_tool_browser_read_text_browser_snapshot",
+          "cross_tool_browser_read_text_browser_read_html",
+          "cross_tool_browser_snapshot_browser_click",
+          "cross_tool_browser_snapshot_browser_type",
+          "cross_tool_browser_snapshot_browser_click_at",
+          "cross_tool_browser_read_html_browser_read_text"
+        ],
+        "detectors": [
+          "toxic_tool_combo",
+          "tool_overscope",
+          "tool_chaining_detection"
+        ]
+      },
+      "ASI03": {
+        "name": "Identity & Privilege Abuse",
+        "coverage_level": "strong",
+        "findings_count": 14,
+        "finding_ids": [
+          "ast_0001",
+          "ast_0001",
+          "ast_0002",
+          "ast_0003",
+          "ast_0004",
+          "ast_0001",
+          "ast_0001",
+          "ast_0002",
+          "ast_0001",
+          "ast_0002"
+        ],
+        "detectors": [
+          "credential_analysis",
+          "shared_credential_detection",
+          "env_var_audit"
+        ]
+      },
+      "ASI04": {
+        "name": "Agentic Supply Chain Vulnerabilities",
+        "coverage_level": "strong",
+        "findings_count": 59,
+        "finding_ids": [
+          "GHSA-3qhf-m339-9g5v",
+          "GHSA-5h93-6whr-6q8j",
+          "GHSA-84m7-p3x7-pcfv",
+          "GHSA-9h52-p55h-vw2f",
+          "GHSA-hvrp-rf83-w775",
+          "GHSA-j975-95f5-7wqh",
+          "GHSA-jpw9-pfvf-9f58",
+          "GHSA-rwrf-2pqf-9j8j",
+          "GHSA-vj7q-gjh5-988w",
+          "GHSA-w4fh-qvv9-3v23"
+        ],
+        "detectors": [
+          "dependency_cve",
+          "lifecycle_hooks",
+          "npx_unversioned",
+          "known_mcp_cves"
+        ]
+      },
+      "ASI05": {
+        "name": "Unexpected Code Execution",
+        "coverage_level": "strong",
+        "findings_count": 26,
+        "finding_ids": [
+          "ast_0003",
+          "code_0001",
+          "code_0002",
+          "code_0003",
+          "code_0004",
+          "code_0005",
+          "codegen_0001",
+          "codegen_0002",
+          "codegen_0003",
+          "codegen_0004"
+        ],
+        "detectors": [
+          "code_exec_patterns",
+          "code_generation_detection",
+          "sandbox_escape"
+        ]
+      },
+      "ASI06": {
+        "name": "Memory & Context Poisoning",
+        "coverage_level": "partial",
+        "findings_count": 3,
+        "finding_ids": [
+          "memory_0001",
+          "memory_0002",
+          "memory_0003"
+        ],
+        "detectors": [
+          "memory_poisoning_patterns",
+          "context_manipulation_detection"
+        ],
+        "gap_note": "Axiom detects static patterns. Full coverage requires runtime memory monitoring."
+      },
+      "ASI07": {
+        "name": "Insecure Inter-Agent Communication",
+        "coverage_level": "partial",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "transport_security",
+          "a2a_pattern_detection"
+        ],
+        "gap_note": "Axiom checks transport security. Full A2A protocol analysis requires runtime interception."
+      },
+      "ASI08": {
+        "name": "Cascading Failures",
+        "coverage_level": "partial",
+        "findings_count": 25,
+        "finding_ids": [
+          "cross_tool_browser_open_browser_close",
+          "cross_tool_browser_close_browser_open",
+          "cross_tool_browser_status_browser_open",
+          "cross_tool_browser_read_text_browser_snapshot",
+          "cross_tool_browser_read_text_browser_read_html",
+          "cross_tool_browser_snapshot_browser_click",
+          "cross_tool_browser_snapshot_browser_type",
+          "cross_tool_browser_snapshot_browser_click_at",
+          "cross_tool_browser_read_html_browser_read_text",
+          "cross_tool_browser_read_html_browser_snapshot"
+        ],
+        "detectors": [
+          "blast_radius_estimation",
+          "dependency_chain_analysis"
+        ],
+        "gap_note": "Axiom estimates blast radius from tool capabilities. Full cascading failure analysis requires runtime topology mapping."
+      },
+      "ASI09": {
+        "name": "Human-Agent Trust Exploitation",
+        "coverage_level": "strong",
+        "findings_count": 5,
+        "finding_ids": [
+          "trust_0001",
+          "trust_0002",
+          "trust_0003",
+          "trust_0004",
+          "trust_0005"
+        ],
+        "detectors": [
+          "claimed_vs_actual",
+          "deceptive_output_detection",
+          "trust_manipulation_patterns"
+        ]
+      },
+      "ASI10": {
+        "name": "Rogue Agents",
+        "coverage_level": "partial",
+        "findings_count": 2,
+        "finding_ids": [
+          "ast_0001",
+          "mcp08_no_tool_logging"
+        ],
+        "detectors": [
+          "sleeper_patterns",
+          "behavioral_drift_indicators",
+          "persistence_detection"
+        ],
+        "gap_note": "Axiom detects static rogue indicators. Full rogue agent detection requires runtime behavioral monitoring."
+      }
+    },
+    "total_asi_categories_with_findings": 9
+  },
+  "owasp_mcp_coverage": {
+    "framework": "OWASP MCP Top 10",
+    "framework_version": "v0.1 beta",
+    "reference": "https://owasp.org/www-project-mcp-top-10/",
+    "coverage": {
+      "MCP01": {
+        "id": "MCP01:2025",
+        "name": "Token Mismanagement & Secret Exposure",
+        "coverage_level": "partial",
+        "reason": "Regex-based secret detection in server source and client configs plus env-var exposure checks; no entropy analysis, git-history scan, or token lifetime/passthrough checks.",
+        "findings_count": 33,
+        "finding_ids": [
+          "cross_tool_browser_open_browser_close",
+          "cross_tool_browser_close_browser_open",
+          "cross_tool_browser_status_browser_open",
+          "cross_tool_browser_read_text_browser_snapshot",
+          "cross_tool_browser_read_text_browser_read_html",
+          "cross_tool_browser_snapshot_browser_click",
+          "cross_tool_browser_snapshot_browser_type",
+          "cross_tool_browser_snapshot_browser_click_at",
+          "cross_tool_browser_read_html_browser_read_text",
+          "cross_tool_browser_read_html_browser_snapshot"
+        ],
+        "detectors": [
+          "credential_theft",
+          "cross_server",
+          "mcp01_hardcoded_secrets",
+          "config_hardcoded_secret",
+          "env_var_audit",
+          "env_dump"
+        ]
+      },
+      "MCP02": {
+        "id": "MCP02:2025",
+        "name": "Privilege Escalation via Scope Creep",
+        "coverage_level": "strong",
+        "reason": "Permission over-scope patterns, toxic tool-capability combinations, path-escape checks and env-var over-exposure in configs.",
+        "findings_count": 38,
+        "finding_ids": [
+          "cross_tool_browser_open_browser_close",
+          "cross_tool_browser_close_browser_open",
+          "cross_tool_browser_status_browser_open",
+          "cross_tool_browser_read_text_browser_snapshot",
+          "cross_tool_browser_read_text_browser_read_html",
+          "cross_tool_browser_snapshot_browser_click",
+          "cross_tool_browser_snapshot_browser_type",
+          "cross_tool_browser_snapshot_browser_click_at",
+          "cross_tool_browser_read_html_browser_read_text",
+          "cross_tool_browser_read_html_browser_snapshot"
+        ],
+        "detectors": [
+          "permission_overscope",
+          "toxic_tool_combo",
+          "identity_privilege",
+          "sandbox_escape",
+          "config_risk",
+          "cascading_failure",
+          "cross_server",
+          "excessive_scope",
+          "confused_deputy",
+          "file_read",
+          "file_write"
+        ]
+      },
+      "MCP03": {
+        "id": "MCP03:2025",
+        "name": "Tool Poisoning",
+        "coverage_level": "strong",
+        "reason": "Dedicated detector for hidden instructions in tool metadata, plus runtime rug-pull diffing between source and live tool definitions.",
+        "findings_count": 15,
+        "finding_ids": [
+          "poison_browser_open_long_desc",
+          "poison_browser_list_long_desc",
+          "poison_browser_status_instruction_injection",
+          "poison_browser_navigate_instruction_injection",
+          "poison_browser_navigate_long_desc",
+          "poison_browser_snapshot_instruction_injection",
+          "poison_browser_snapshot_long_desc",
+          "poison_browser_read_html_long_desc",
+          "poison_browser_watch_long_desc",
+          "poison_browser_click_at_instruction_injection"
+        ],
+        "detectors": [
+          "tool_poisoning",
+          "obfuscation",
+          "rogue_agent",
+          "source_vs_runtime_diff",
+          "tool_shadowing",
+          "hidden_unicode",
+          "rug_pull_primitive",
+          "surface_mismatch"
+        ]
+      },
+      "MCP04": {
+        "id": "MCP04:2025",
+        "name": "Software Supply Chain Attacks & Dependency Tampering",
+        "coverage_level": "strong",
+        "reason": "Dependency CVE lookup, known MCP CVEs, install lifecycle hooks, and unpinned npx/uvx/pip/@latest install sources.",
+        "findings_count": 60,
+        "finding_ids": [
+          "ast_0001",
+          "GHSA-3qhf-m339-9g5v",
+          "GHSA-5h93-6whr-6q8j",
+          "GHSA-84m7-p3x7-pcfv",
+          "GHSA-9h52-p55h-vw2f",
+          "GHSA-hvrp-rf83-w775",
+          "GHSA-j975-95f5-7wqh",
+          "GHSA-jpw9-pfvf-9f58",
+          "GHSA-rwrf-2pqf-9j8j",
+          "GHSA-vj7q-gjh5-988w"
+        ],
+        "detectors": [
+          "dependency_vuln",
+          "supply_chain",
+          "known_cve",
+          "obfuscation",
+          "lifecycle_hooks",
+          "mcp04_unpinned_install",
+          "homoglyph",
+          "rug_pull_primitive",
+          "surface_mismatch"
+        ]
+      },
+      "MCP05": {
+        "id": "MCP05:2025",
+        "name": "Command Injection & Execution",
+        "coverage_level": "partial",
+        "reason": "Regex, AST and Semgrep find exec/shell sinks and a heuristic flags sinks inside tool handlers, but there is no inter-procedural taint tracking from tool input to sink.",
+        "findings_count": 26,
+        "finding_ids": [
+          "ast_0003",
+          "code_0001",
+          "code_0002",
+          "code_0003",
+          "code_0004",
+          "code_0005",
+          "codegen_0001",
+          "codegen_0002",
+          "codegen_0003",
+          "codegen_0004"
+        ],
+        "detectors": [
+          "command_injection",
+          "code_execution",
+          "code_generation",
+          "sandbox_escape",
+          "mcp05_tool_input_sink",
+          "shell_exec"
+        ]
+      },
+      "MCP06": {
+        "id": "MCP06:2025",
+        "name": "Prompt Injection via Contextual Payloads",
+        "coverage_level": "partial",
+        "reason": "Injection markers are detected in tool metadata, server instructions, resources, prompts and the strings a tool returns (static), and in instructions/resources/prompts read live; payloads produced by calling a tool at runtime are not inspected.",
+        "findings_count": 8,
+        "finding_ids": [
+          "memory_0001",
+          "memory_0002",
+          "memory_0003",
+          "trust_0001",
+          "trust_0002",
+          "trust_0003",
+          "trust_0004",
+          "trust_0005"
+        ],
+        "detectors": [
+          "prompt_injection",
+          "memory_poisoning",
+          "trust_exploitation",
+          "response_injection",
+          "tool_shadowing"
+        ]
+      },
+      "MCP07": {
+        "id": "MCP07:2025",
+        "name": "Insufficient Authentication & Authorization",
+        "coverage_level": "partial",
+        "reason": "Flags remote servers with no visible auth and servers bound to all interfaces; does not verify OAuth implementation or per-tool authorization logic.",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "transport_security",
+          "inter_agent_comm",
+          "identity_privilege",
+          "transport_no_auth",
+          "config_no_auth",
+          "mcp07_bind_all_interfaces"
+        ]
+      },
+      "MCP08": {
+        "id": "MCP08:2025",
+        "name": "Lack of Audit and Telemetry",
+        "coverage_level": "gap",
+        "reason": "Only a low-confidence heuristic for missing logging in tool-defining files; actual audit trails and telemetry pipelines are not verified.",
+        "findings_count": 1,
+        "finding_ids": [
+          "mcp08_no_tool_logging"
+        ],
+        "detectors": [
+          "audit_telemetry",
+          "mcp08_no_tool_logging"
+        ]
+      },
+      "MCP09": {
+        "id": "MCP09:2025",
+        "name": "Shadow MCP Servers",
+        "coverage_level": "partial",
+        "reason": "Covered by `axiom discover` allowlist on the local machine; no network-wide or fleet discovery.",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "mcpguard_discover",
+          "shadow_mcp"
+        ]
+      },
+      "MCP10": {
+        "id": "MCP10:2025",
+        "name": "Context Injection & Over-Sharing",
+        "coverage_level": "partial",
+        "reason": "Hard-coded egress URLs, tools that send to caller-chosen destinations and bulk-exposure heuristics are detected statically and live; what context is actually shared at runtime is not observed.",
+        "findings_count": 5,
+        "finding_ids": [
+          "egress_browser_open_desc_1",
+          "ast_0001",
+          "memory_0001",
+          "memory_0002",
+          "memory_0003"
+        ],
+        "detectors": [
+          "context_oversharing",
+          "data_exfiltration",
+          "memory_poisoning",
+          "mcp10_broad_data_exposure"
+        ]
+      }
+    },
+    "total_mcp_categories_with_findings": 8
+  },
+  "ai_analysis": null,
+  "tool_poisoning_report": null,
+  "prompt_injection_risk": null
+}

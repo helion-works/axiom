@@ -1,0 +1,89 @@
+name: CI
+
+on:
+  push:
+    branches: [main, 'phase*']
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    name: repo suite (${{ matrix.os }}, py${{ matrix.python-version }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+        python-version: ['3.10', '3.11', '3.12']
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Install
+        run: pip install -e ".[all,dev]"
+      - name: Unit + integration suite
+        run: pytest tests/ -q
+      - name: Coverage ledger is current
+        if: matrix.os == 'ubuntu-latest' && matrix.python-version == '3.12'
+        run: python tools/coverage_ledger.py --check
+
+  proofs:
+    name: in-house test bed proofs (HELION_TARGET=real)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install Axiom
+        run: pip install -e ".[all,dev]"
+      # The in-house test bed is checked out beside the scanner when the TESTBED_REPO
+      # repository variable is set; otherwise these steps are skipped.
+      - name: Check out the test bed
+        id: bed
+        if: vars.TESTBED_REPO != ''
+        continue-on-error: true
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ vars.TESTBED_REPO }}
+          path: mcpguard-testbed
+      - name: Run the proofs against the real scanner
+        if: steps.bed.outcome == 'success'
+        env:
+          HELION_TARGET: real
+          MCPGUARD_ROOT: ${{ github.workspace }}
+          MCPGUARD_PYTHON: python
+        run: |
+          pip install -r mcpguard-testbed/requirements.txt
+          cd mcpguard-testbed && pytest tests/test_mcpguard.py -q
+      - name: Fixture parity (TS port of the evil server scores like the Python original)
+        run: pytest tests/test_phase4_surface.py -q
+
+  package:
+    name: build wheel + sdist (never published from here)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install build
+      - run: python -m build
+      - name: Smoke the wheel in a clean environment
+        run: |
+          python -m venv /tmp/clean && /tmp/clean/bin/pip install -q dist/*.whl
+          /tmp/clean/bin/axiom version
+          # The fixture is deliberately malicious, so the scan must end with exit code 2
+          # (high / critical risk; see "CLI Exit Codes" in the README), not 0.
+          rc=0
+          /tmp/clean/bin/axiom scan tests/fixtures/evil_server.ts --no-ai --no-history --no-deps --output sarif > /tmp/out.sarif || rc=$?
+          test "$rc" -eq 2
+          python -c "import json; d=json.load(open('/tmp/out.sarif')); assert d['version']=='2.1.0' and d['runs'][0]['results']"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: dist
+          path: dist/
+
+  # Publishing is a deliberate, manual act: `workflow_dispatch` on the release workflow with
+  # the owner's approval. Nothing in CI uploads to PyPI or TestPyPI.

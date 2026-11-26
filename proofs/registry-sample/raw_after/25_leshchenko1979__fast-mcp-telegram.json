@@ -1,0 +1,1577 @@
+{
+  "schema_version": "0.5",
+  "target": "25_leshchenko1979__fast-mcp-telegram",
+  "risk_score": 37.0,
+  "risk_level": "medium",
+  "tools_found": 8,
+  "findings_count": 33,
+  "findings": [
+    {
+      "id": "ast_0001",
+      "severity": "info",
+      "category": "credential_theft",
+      "title": "Environment variable access via os.environ.get()",
+      "description": "Call to `os.environ.get()` reads an environment variable (capability note) in collector\\app\\settings.py at line 5",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP01"
+      ],
+      "file_path": "collector\\app\\settings.py",
+      "line_number": 5,
+      "recommendation": "Document which env vars are needed. Avoid reading arbitrary env vars.",
+      "rule_id": "code_pattern_ast",
+      "evidence": "os.environ.get()",
+      "location": "collector\\app\\settings.py:5",
+      "replay": "axiom scan <corpus>/registry/25_leshchenko1979__fast-mcp-telegram --output json --no-ai --no-history | jq '.findings[] | select(.id==\"ast_0001\")'"
+    },
+    {
+      "id": "ast_0001",
+      "severity": "info",
+      "category": "credential_theft",
+      "title": "Environment variable access via os.environ.get()",
+      "description": "Call to `os.environ.get()` reads an environment variable (capability note) in src\\telemetry.py at line 66",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP01"
+      ],
+      "file_path": "src\\telemetry.py",
+      "line_number": 66,
+      "recommendation": "Document which env vars are needed. Avoid reading arbitrary env vars.",
+      "rule_id": "code_pattern_ast",
+      "evidence": "os.environ.get()",
+      "location": "src\\telemetry.py:66",
+      "replay": "axiom scan <corpus>/registry/25_leshchenko1979__fast-mcp-telegram --output json --no-ai --no-history | jq '.findings[] | select(.id==\"ast_0001\")'"
+    },
+    {
+      "id": "ast_0002",
+      "severity": "info",
+      "category": "credential_theft",
+      "title": "Environment variable access via os.environ.get()",
+      "description": "Call to `os.environ.get()` reads an environment variable (capability note) in src\\telemetry.py at line 368",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP01"
+      ],
+      "file_path": "src\\telemetry.py",
+      "line_number": 368,
+      "recommendation": "Document which env vars are needed. Avoid reading arbitrary env vars.",
+      "rule_id": "code_pattern_ast",
+      "evidence": "os.environ.get()",
+      "location": "src\\telemetry.py:368",
+      "replay": "axiom scan <corpus>/registry/25_leshchenko1979__fast-mcp-telegram --output json --no-ai --no-history | jq '.findings[] | select(.id==\"ast_0002\")'"
+    },
+    {
+      "id": "ast_0003",
+      "severity": "info",
+      "category": "credential_theft",
+      "title": "Environment variable access via os.environ.get()",
+      "description": "Call to `os.environ.get()` reads an environment variable (capability note) in src\\telemetry.py at line 420",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP01"
+      ],
+      "file_path": "src\\telemetry.py",
+      "line_number": 420,
+      "recommendation": "Document which env vars are needed. Avoid reading arbitrary env vars.",
+      "rule_id": "code_pattern_ast",
+      "evidence": "os.environ.get()",
+      "location": "src\\telemetry.py:420",
+      "replay": "axiom scan <corpus>/registry/25_leshchenko1979__fast-mcp-telegram --output json --no-ai --no-history | jq '.findings[] | select(.id==\"ast_0003\")'"
+    },
+    {
+      "id": "ast_0004",
+      "severity": "info",
+      "category": "data_exfiltration",
+      "title": "Outbound HTTP request via urllib.request.urlopen()",
+      "description": "Call to `urllib.request.urlopen()` makes outbound network request in src\\telemetry.py at line 432",
+      "owasp_asi": [
+        "ASI01",
+        "ASI02"
+      ],
+      "owasp_mcp": [
+        "MCP10"
+      ],
+      "file_path": "src\\telemetry.py",
+      "line_number": 432,
+      "recommendation": "Verify this is expected. Outbound requests can exfiltrate data.",
+      "rule_id": "code_pattern_ast",
+      "evidence": "urllib.request.urlopen()",
+      "location": "src\\telemetry.py:432",
+      "replay": "axiom scan <corpus>/registry/25_leshchenko1979__fast-mcp-telegram --output json --no-ai --no-history | jq '.findings[] | select(.id==\"ast_0004\")'"
+    },
+    {
+      "id": "ast_0001",
+      "severity": "low",
+      "category": "obfuscation",
+      "title": "Encoded/obfuscated content via base64.b64decode()",
+      "description": "Call to `base64.b64decode()` decodes obfuscated content in src\\tools\\messages\\file_handling.py at line 95",
+      "owasp_asi": [
+        "ASI01",
+        "ASI10"
+      ],
+      "owasp_mcp": [
+        "MCP03",
+        "MCP04"
+      ],
+      "file_path": "src\\tools\\messages\\file_handling.py",
+      "line_number": 95,
+      "recommendation": "Review what is being decoded \u2014 obfuscation hides malicious payloads.",
+      "rule_id": "code_pattern_ast",
+      "evidence": "base64.b64decode()",
+      "location": "src\\tools\\messages\\file_handling.py:95",
+      "replay": "axiom scan <corpus>/registry/25_leshchenko1979__fast-mcp-telegram --output json --no-ai --no-history | jq '.findings[] | select(.id==\"ast_0001\")'"
+    },
+    {
+      "id": "ast_0001",
+      "severity": "low",
+      "category": "obfuscation",
+      "title": "Encoded/obfuscated content via base64.b64decode()",
+      "description": "Call to `base64.b64decode()` decodes obfuscated content in src\\utils\\proxy.py at line 112",
+      "owasp_asi": [
+        "ASI01",
+        "ASI10"
+      ],
+      "owasp_mcp": [
+        "MCP03",
+        "MCP04"
+      ],
+      "file_path": "src\\utils\\proxy.py",
+      "line_number": 112,
+      "recommendation": "Review what is being decoded \u2014 obfuscation hides malicious payloads.",
+      "rule_id": "code_pattern_ast",
+      "evidence": "base64.b64decode()",
+      "location": "src\\utils\\proxy.py:112",
+      "replay": "axiom scan <corpus>/registry/25_leshchenko1979__fast-mcp-telegram --output json --no-ai --no-history | jq '.findings[] | select(.id==\"ast_0001\")'"
+    },
+    {
+      "id": "provenance_fresh_publish",
+      "severity": "medium",
+      "category": "supply_chain",
+      "title": "Registry entry 'io.github.leshchenko1979/fast-mcp-telegram' was published 1 day(s) ago",
+      "description": "'io.github.leshchenko1979/fast-mcp-telegram' version 0.46.2 appeared in the registry on 2026-11-11T04:48:52.18138Z. Nothing this new has been looked at by anyone; pin it and review it before an agent uses it.",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Pin the version and review the diff from the previous release.",
+      "rule_id": "provenance_rule",
+      "evidence": "publishedAt 2026-11-11T04:48:52.18138Z",
+      "location": "static:<corpus>/registry/25_leshchenko1979__fast-mcp-telegram:provenance",
+      "replay": "axiom scan <corpus>/registry/25_leshchenko1979__fast-mcp-telegram --output json --no-ai --no-history | jq '.findings[] | select(.id==\"provenance_fresh_publish\")'"
+    },
+    {
+      "id": "codegen_0001",
+      "severity": "low",
+      "category": "code_generation",
+      "title": "Dynamic code generation from input detected",
+      "description": "Pattern in tests\\test_attachment_streaming.py at line 52: `return_value=__import__(\"time\").time() + 10**9,`. Tools that generate code from agent inputs can execute attacker-controlled payloads.",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "tests\\test_attachment_streaming.py",
+      "line_number": 52,
+      "recommendation": "Sandbox code execution. Validate and sanitize all inputs before code generation. Use AST-based analysis instead of string-based code construction.",
+      "rule_id": "code_generation_pattern",
+      "evidence": "Dynamic code generation from input detected",
+      "location": "tests\\test_attachment_streaming.py:52",
+      "replay": "axiom scan <corpus>/registry/25_leshchenko1979__fast-mcp-telegram --output json --no-ai --no-history | jq '.findings[] | select(.id==\"codegen_0001\")'"
+    },
+    {
+      "id": "memory_0001",
+      "severity": "low",
+      "category": "memory_poisoning",
+      "title": "Memory/context modification capability detected",
+      "description": "Pattern in src\\cli_setup.py near line 48: `session set`. MCP servers that modify agent memory or context can poison long-term behavior.",
+      "owasp_asi": [
+        "ASI06"
+      ],
+      "owasp_mcp": [
+        "MCP06",
+        "MCP10"
+      ],
+      "file_path": "src\\cli_setup.py",
+      "line_number": 48,
+      "recommendation": "Validate all data before writing to agent memory. Implement integrity checks on persistent context. Log all memory modifications for audit.",
+      "rule_id": "memory_poisoning_pattern",
+      "evidence": "Memory/context modification capability detected",
+      "location": "src\\cli_setup.py:48",
+      "replay": "axiom scan <corpus>/registry/25_leshchenko1979__fast-mcp-telegram --output json --no-ai --no-history | jq '.findings[] | select(.id==\"memory_0001\")'"
+    },
+    {
+      "id": "memory_0002",
+      "severity": "low",
+      "category": "memory_poisoning",
+      "title": "Memory/context modification capability detected",
+      "description": "Pattern in src\\telemetry.py near line 203: `memory cache`. MCP servers that modify agent memory or context can poison long-term behavior.",
+      "owasp_asi": [
+        "ASI06"
+      ],
+      "owasp_mcp": [
+        "MCP06",
+        "MCP10"
+      ],
+      "file_path": "src\\telemetry.py",
+      "line_number": 203,
+      "recommendation": "Validate all data before writing to agent memory. Implement integrity checks on persistent context. Log all memory modifications for audit.",
+      "rule_id": "memory_poisoning_pattern",
+      "evidence": "Memory/context modification capability detected",
+      "location": "src\\telemetry.py:203",
+      "replay": "axiom scan <corpus>/registry/25_leshchenko1979__fast-mcp-telegram --output json --no-ai --no-history | jq '.findings[] | select(.id==\"memory_0002\")'"
+    },
+    {
+      "id": "memory_0003",
+      "severity": "low",
+      "category": "memory_poisoning",
+      "title": "Memory/context modification capability detected",
+      "description": "Pattern in src\\client\\connection.py near line 642: `session persist`. MCP servers that modify agent memory or context can poison long-term behavior.",
+      "owasp_asi": [
+        "ASI06"
+      ],
+      "owasp_mcp": [
+        "MCP06",
+        "MCP10"
+      ],
+      "file_path": "src\\client\\connection.py",
+      "line_number": 642,
+      "recommendation": "Validate all data before writing to agent memory. Implement integrity checks on persistent context. Log all memory modifications for audit.",
+      "rule_id": "memory_poisoning_pattern",
+      "evidence": "Memory/context modification capability detected",
+      "location": "src\\client\\connection.py:642",
+      "replay": "axiom scan <corpus>/registry/25_leshchenko1979__fast-mcp-telegram --output json --no-ai --no-history | jq '.findings[] | select(.id==\"memory_0003\")'"
+    },
+    {
+      "id": "memory_0004",
+      "severity": "low",
+      "category": "memory_poisoning",
+      "title": "Memory/context modification capability detected",
+      "description": "Pattern in src\\server_components\\bot_restrictions.py near line 49: `session\n                cache`. MCP servers that modify agent memory or context can poison long-term behavior.",
+      "owasp_asi": [
+        "ASI06"
+      ],
+      "owasp_mcp": [
+        "MCP06",
+        "MCP10"
+      ],
+      "file_path": "src\\server_components\\bot_restrictions.py",
+      "line_number": 49,
+      "recommendation": "Validate all data before writing to agent memory. Implement integrity checks on persistent context. Log all memory modifications for audit.",
+      "rule_id": "memory_poisoning_pattern",
+      "evidence": "Memory/context modification capability detected",
+      "location": "src\\server_components\\bot_restrictions.py:49",
+      "replay": "axiom scan <corpus>/registry/25_leshchenko1979__fast-mcp-telegram --output json --no-ai --no-history | jq '.findings[] | select(.id==\"memory_0004\")'"
+    },
+    {
+      "id": "memory_0005",
+      "severity": "low",
+      "category": "memory_poisoning",
+      "title": "Memory/context modification capability detected",
+      "description": "Pattern in src\\server_components\\web_setup.py near line 93: `memory set`. MCP servers that modify agent memory or context can poison long-term behavior.",
+      "owasp_asi": [
+        "ASI06"
+      ],
+      "owasp_mcp": [
+        "MCP06",
+        "MCP10"
+      ],
+      "file_path": "src\\server_components\\web_setup.py",
+      "line_number": 93,
+      "recommendation": "Validate all data before writing to agent memory. Implement integrity checks on persistent context. Log all memory modifications for audit.",
+      "rule_id": "memory_poisoning_pattern",
+      "evidence": "Memory/context modification capability detected",
+      "location": "src\\server_components\\web_setup.py:93",
+      "replay": "axiom scan <corpus>/registry/25_leshchenko1979__fast-mcp-telegram --output json --no-ai --no-history | jq '.findings[] | select(.id==\"memory_0005\")'"
+    },
+    {
+      "id": "memory_0006",
+      "severity": "low",
+      "category": "memory_poisoning",
+      "title": "Memory/context modification capability detected",
+      "description": "Pattern in src\\utils\\message_format\\transcription.py near line 1: `memory cache`. MCP servers that modify agent memory or context can poison long-term behavior.",
+      "owasp_asi": [
+        "ASI06"
+      ],
+      "owasp_mcp": [
+        "MCP06",
+        "MCP10"
+      ],
+      "file_path": "src\\utils\\message_format\\transcription.py",
+      "line_number": 1,
+      "recommendation": "Validate all data before writing to agent memory. Implement integrity checks on persistent context. Log all memory modifications for audit.",
+      "rule_id": "memory_poisoning_pattern",
+      "evidence": "Memory/context modification capability detected",
+      "location": "src\\utils\\message_format\\transcription.py:1",
+      "replay": "axiom scan <corpus>/registry/25_leshchenko1979__fast-mcp-telegram --output json --no-ai --no-history | jq '.findings[] | select(.id==\"memory_0006\")'"
+    },
+    {
+      "id": "memory_0007",
+      "severity": "low",
+      "category": "memory_poisoning",
+      "title": "Memory/context modification capability detected",
+      "description": "Pattern in tests\\conftest.py near line 573: `session cache`. MCP servers that modify agent memory or context can poison long-term behavior.",
+      "owasp_asi": [
+        "ASI06"
+      ],
+      "owasp_mcp": [
+        "MCP06",
+        "MCP10"
+      ],
+      "file_path": "tests\\conftest.py",
+      "line_number": 573,
+      "recommendation": "Validate all data before writing to agent memory. Implement integrity checks on persistent context. Log all memory modifications for audit.",
+      "rule_id": "memory_poisoning_pattern",
+      "evidence": "Memory/context modification capability detected",
+      "location": "tests\\conftest.py:573",
+      "replay": "axiom scan <corpus>/registry/25_leshchenko1979__fast-mcp-telegram --output json --no-ai --no-history | jq '.findings[] | select(.id==\"memory_0007\")'"
+    },
+    {
+      "id": "memory_0008",
+      "severity": "low",
+      "category": "memory_poisoning",
+      "title": "Memory/context modification capability detected",
+      "description": "Pattern in tests\\test_fastmcp_decorator_integration.py near line 126: `context\n        set`. MCP servers that modify agent memory or context can poison long-term behavior.",
+      "owasp_asi": [
+        "ASI06"
+      ],
+      "owasp_mcp": [
+        "MCP06",
+        "MCP10"
+      ],
+      "file_path": "tests\\test_fastmcp_decorator_integration.py",
+      "line_number": 126,
+      "recommendation": "Validate all data before writing to agent memory. Implement integrity checks on persistent context. Log all memory modifications for audit.",
+      "rule_id": "memory_poisoning_pattern",
+      "evidence": "Memory/context modification capability detected",
+      "location": "tests\\test_fastmcp_decorator_integration.py:126",
+      "replay": "axiom scan <corpus>/registry/25_leshchenko1979__fast-mcp-telegram --output json --no-ai --no-history | jq '.findings[] | select(.id==\"memory_0008\")'"
+    },
+    {
+      "id": "memory_0009",
+      "severity": "low",
+      "category": "memory_poisoning",
+      "title": "Memory/context modification capability detected",
+      "description": "Pattern in tests\\test_web_setup.py near line 398: `context\n    set`. MCP servers that modify agent memory or context can poison long-term behavior.",
+      "owasp_asi": [
+        "ASI06"
+      ],
+      "owasp_mcp": [
+        "MCP06",
+        "MCP10"
+      ],
+      "file_path": "tests\\test_web_setup.py",
+      "line_number": 398,
+      "recommendation": "Validate all data before writing to agent memory. Implement integrity checks on persistent context. Log all memory modifications for audit.",
+      "rule_id": "memory_poisoning_pattern",
+      "evidence": "Memory/context modification capability detected",
+      "location": "tests\\test_web_setup.py:398",
+      "replay": "axiom scan <corpus>/registry/25_leshchenko1979__fast-mcp-telegram --output json --no-ai --no-history | jq '.findings[] | select(.id==\"memory_0009\")'"
+    },
+    {
+      "id": "memory_0010",
+      "severity": "low",
+      "category": "memory_poisoning",
+      "title": "Memory/context modification capability detected",
+      "description": "Pattern in tests\\unit\\test_s3_connection.py near line 228: `SessionCache`. MCP servers that modify agent memory or context can poison long-term behavior.",
+      "owasp_asi": [
+        "ASI06"
+      ],
+      "owasp_mcp": [
+        "MCP06",
+        "MCP10"
+      ],
+      "file_path": "tests\\unit\\test_s3_connection.py",
+      "line_number": 228,
+      "recommendation": "Validate all data before writing to agent memory. Implement integrity checks on persistent context. Log all memory modifications for audit.",
+      "rule_id": "memory_poisoning_pattern",
+      "evidence": "Memory/context modification capability detected",
+      "location": "tests\\unit\\test_s3_connection.py:228",
+      "replay": "axiom scan <corpus>/registry/25_leshchenko1979__fast-mcp-telegram --output json --no-ai --no-history | jq '.findings[] | select(.id==\"memory_0010\")'"
+    },
+    {
+      "id": "memory_0011",
+      "severity": "low",
+      "category": "memory_poisoning",
+      "title": "Memory/context modification capability detected",
+      "description": "Pattern in tests\\unit\\test_transcription_cache.py near line 9: `memory cache`. MCP servers that modify agent memory or context can poison long-term behavior.",
+      "owasp_asi": [
+        "ASI06"
+      ],
+      "owasp_mcp": [
+        "MCP06",
+        "MCP10"
+      ],
+      "file_path": "tests\\unit\\test_transcription_cache.py",
+      "line_number": 9,
+      "recommendation": "Validate all data before writing to agent memory. Implement integrity checks on persistent context. Log all memory modifications for audit.",
+      "rule_id": "memory_poisoning_pattern",
+      "evidence": "Memory/context modification capability detected",
+      "location": "tests\\unit\\test_transcription_cache.py:9",
+      "replay": "axiom scan <corpus>/registry/25_leshchenko1979__fast-mcp-telegram --output json --no-ai --no-history | jq '.findings[] | select(.id==\"memory_0011\")'"
+    },
+    {
+      "id": "trust_0001",
+      "severity": "low",
+      "category": "trust_exploitation",
+      "title": "Trust exploitation pattern: consent bypass",
+      "description": "Pattern in src\\tools\\chat_discovery\\contact_search.py near line 38: `without user`. This could enable a compromised agent to mislead users.",
+      "owasp_asi": [
+        "ASI09"
+      ],
+      "owasp_mcp": [
+        "MCP06"
+      ],
+      "file_path": "src\\tools\\chat_discovery\\contact_search.py",
+      "line_number": 38,
+      "recommendation": "Implement output verification. Require human confirmation for high-impact actions. Mark agent-generated content as such.",
+      "rule_id": "trust_exploitation_pattern",
+      "evidence": "Trust exploitation pattern: consent bypass",
+      "location": "src\\tools\\chat_discovery\\contact_search.py:38",
+      "replay": "axiom scan <corpus>/registry/25_leshchenko1979__fast-mcp-telegram --output json --no-ai --no-history | jq '.findings[] | select(.id==\"trust_0001\")'"
+    },
+    {
+      "id": "trust_0002",
+      "severity": "low",
+      "category": "trust_exploitation",
+      "title": "Trust exploitation pattern: authority impersonation",
+      "description": "Pattern in src\\utils\\discussion.py near line 22: `Root message`. This could enable a compromised agent to mislead users.",
+      "owasp_asi": [
+        "ASI09"
+      ],
+      "owasp_mcp": [
+        "MCP06"
+      ],
+      "file_path": "src\\utils\\discussion.py",
+      "line_number": 22,
+      "recommendation": "Implement output verification. Require human confirmation for high-impact actions. Mark agent-generated content as such.",
+      "rule_id": "trust_exploitation_pattern",
+      "evidence": "Trust exploitation pattern: authority impersonation",
+      "location": "src\\utils\\discussion.py:22",
+      "replay": "axiom scan <corpus>/registry/25_leshchenko1979__fast-mcp-telegram --output json --no-ai --no-history | jq '.findings[] | select(.id==\"trust_0002\")'"
+    },
+    {
+      "id": "trust_0003",
+      "severity": "low",
+      "category": "trust_exploitation",
+      "title": "Trust exploitation pattern: consent bypass",
+      "description": "Pattern in src\\utils\\entity.py near line 664: `without user`. This could enable a compromised agent to mislead users.",
+      "owasp_asi": [
+        "ASI09"
+      ],
+      "owasp_mcp": [
+        "MCP06"
+      ],
+      "file_path": "src\\utils\\entity.py",
+      "line_number": 664,
+      "recommendation": "Implement output verification. Require human confirmation for high-impact actions. Mark agent-generated content as such.",
+      "rule_id": "trust_exploitation_pattern",
+      "evidence": "Trust exploitation pattern: consent bypass",
+      "location": "src\\utils\\entity.py:664",
+      "replay": "axiom scan <corpus>/registry/25_leshchenko1979__fast-mcp-telegram --output json --no-ai --no-history | jq '.findings[] | select(.id==\"trust_0003\")'"
+    },
+    {
+      "id": "trust_0004",
+      "severity": "low",
+      "category": "trust_exploitation",
+      "title": "Trust exploitation pattern: authority impersonation",
+      "description": "Pattern in src\\utils\\entity.py near line 818: `representing`. This could enable a compromised agent to mislead users.",
+      "owasp_asi": [
+        "ASI09"
+      ],
+      "owasp_mcp": [
+        "MCP06"
+      ],
+      "file_path": "src\\utils\\entity.py",
+      "line_number": 818,
+      "recommendation": "Implement output verification. Require human confirmation for high-impact actions. Mark agent-generated content as such.",
+      "rule_id": "trust_exploitation_pattern",
+      "evidence": "Trust exploitation pattern: authority impersonation",
+      "location": "src\\utils\\entity.py:818",
+      "replay": "axiom scan <corpus>/registry/25_leshchenko1979__fast-mcp-telegram --output json --no-ai --no-history | jq '.findings[] | select(.id==\"trust_0004\")'"
+    },
+    {
+      "id": "trust_0005",
+      "severity": "low",
+      "category": "trust_exploitation",
+      "title": "Trust exploitation pattern: consent bypass",
+      "description": "Pattern in tests\\test_links.py near line 96: `without user`. This could enable a compromised agent to mislead users.",
+      "owasp_asi": [
+        "ASI09"
+      ],
+      "owasp_mcp": [
+        "MCP06"
+      ],
+      "file_path": "tests\\test_links.py",
+      "line_number": 96,
+      "recommendation": "Implement output verification. Require human confirmation for high-impact actions. Mark agent-generated content as such.",
+      "rule_id": "trust_exploitation_pattern",
+      "evidence": "Trust exploitation pattern: consent bypass",
+      "location": "tests\\test_links.py:96",
+      "replay": "axiom scan <corpus>/registry/25_leshchenko1979__fast-mcp-telegram --output json --no-ai --no-history | jq '.findings[] | select(.id==\"trust_0005\")'"
+    },
+    {
+      "id": "trust_0006",
+      "severity": "low",
+      "category": "trust_exploitation",
+      "title": "Trust exploitation pattern: consent bypass",
+      "description": "Pattern in tests\\test_web_setup.py near line 55: `hide error`. This could enable a compromised agent to mislead users.",
+      "owasp_asi": [
+        "ASI09"
+      ],
+      "owasp_mcp": [
+        "MCP06"
+      ],
+      "file_path": "tests\\test_web_setup.py",
+      "line_number": 55,
+      "recommendation": "Implement output verification. Require human confirmation for high-impact actions. Mark agent-generated content as such.",
+      "rule_id": "trust_exploitation_pattern",
+      "evidence": "Trust exploitation pattern: consent bypass",
+      "location": "tests\\test_web_setup.py:55",
+      "replay": "axiom scan <corpus>/registry/25_leshchenko1979__fast-mcp-telegram --output json --no-ai --no-history | jq '.findings[] | select(.id==\"trust_0006\")'"
+    },
+    {
+      "id": "rogue_0001",
+      "severity": "low",
+      "category": "rogue_agent",
+      "title": "Rogue agent indicator detected",
+      "description": "Pattern in src\\server.py near line 182: `startup hook`. This could indicate self-modifying behavior, persistence mechanisms, or evasion capabilities.",
+      "owasp_asi": [
+        "ASI10"
+      ],
+      "owasp_mcp": [
+        "MCP03"
+      ],
+      "file_path": "src\\server.py",
+      "line_number": 182,
+      "recommendation": "Implement behavioral monitoring and kill switches. Ensure all agent actions are logged and auditable. Run in sandboxed environments with strict resource limits.",
+      "rule_id": "rogue_agent_pattern",
+      "evidence": "Rogue agent indicator detected",
+      "location": "src\\server.py:182",
+      "replay": "axiom scan <corpus>/registry/25_leshchenko1979__fast-mcp-telegram --output json --no-ai --no-history | jq '.findings[] | select(.id==\"rogue_0001\")'"
+    },
+    {
+      "id": "rogue_0002",
+      "severity": "low",
+      "category": "rogue_agent",
+      "title": "Rogue agent indicator detected",
+      "description": "Pattern in src\\tools\\mtproto.py near line 32: `DeleteHistory`. This could indicate self-modifying behavior, persistence mechanisms, or evasion capabilities.",
+      "owasp_asi": [
+        "ASI10"
+      ],
+      "owasp_mcp": [
+        "MCP03"
+      ],
+      "file_path": "src\\tools\\mtproto.py",
+      "line_number": 32,
+      "recommendation": "Implement behavioral monitoring and kill switches. Ensure all agent actions are logged and auditable. Run in sandboxed environments with strict resource limits.",
+      "rule_id": "rogue_agent_pattern",
+      "evidence": "Rogue agent indicator detected",
+      "location": "src\\tools\\mtproto.py:32",
+      "replay": "axiom scan <corpus>/registry/25_leshchenko1979__fast-mcp-telegram --output json --no-ai --no-history | jq '.findings[] | select(.id==\"rogue_0002\")'"
+    },
+    {
+      "id": "mcp04_unpinned_0001",
+      "severity": "medium",
+      "category": "supply_chain",
+      "title": "Unpinned install source",
+      "description": "`uvx fast-mcp-telegram.` without a pinned version in glama.json at line 4. Without an exact version the next install silently picks up whatever is published, including a compromised release.",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": "glama.json",
+      "line_number": 4,
+      "recommendation": "Pin an exact version (pkg@1.2.3, pkg==1.2.3) and prefer a lockfile or hash-checked requirements.",
+      "rule_id": "unpinned_install_source",
+      "evidence": "Unpinned install source",
+      "location": "glama.json:4",
+      "replay": "axiom scan <corpus>/registry/25_leshchenko1979__fast-mcp-telegram --output json --no-ai --no-history | jq '.findings[] | select(.id==\"mcp04_unpinned_0001\")'"
+    },
+    {
+      "id": "mcp04_unpinned_0002",
+      "severity": "medium",
+      "category": "supply_chain",
+      "title": "Unpinned install source",
+      "description": "`pip install` of unpinned package(s) pytest, pytest-asyncio in .github\\workflows\\deploy-collector.yml at line 45. Without an exact version the next install silently picks up whatever is published, including a compromised release.",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": ".github\\workflows\\deploy-collector.yml",
+      "line_number": 45,
+      "recommendation": "Pin an exact version (pkg@1.2.3, pkg==1.2.3) and prefer a lockfile or hash-checked requirements.",
+      "rule_id": "unpinned_install_source",
+      "evidence": "Unpinned install source",
+      "location": ".github\\workflows\\deploy-collector.yml:45",
+      "replay": "axiom scan <corpus>/registry/25_leshchenko1979__fast-mcp-telegram --output json --no-ai --no-history | jq '.findings[] | select(.id==\"mcp04_unpinned_0002\")'"
+    },
+    {
+      "id": "mcp04_unpinned_0003",
+      "severity": "medium",
+      "category": "supply_chain",
+      "title": "Unpinned install source",
+      "description": "`pip install` of unpinned package(s) uv in .github\\workflows\\deploy.yml at line 45. Without an exact version the next install silently picks up whatever is published, including a compromised release.",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": ".github\\workflows\\deploy.yml",
+      "line_number": 45,
+      "recommendation": "Pin an exact version (pkg@1.2.3, pkg==1.2.3) and prefer a lockfile or hash-checked requirements.",
+      "rule_id": "unpinned_install_source",
+      "evidence": "Unpinned install source",
+      "location": ".github\\workflows\\deploy.yml:45",
+      "replay": "axiom scan <corpus>/registry/25_leshchenko1979__fast-mcp-telegram --output json --no-ai --no-history | jq '.findings[] | select(.id==\"mcp04_unpinned_0003\")'"
+    },
+    {
+      "id": "mcp04_unpinned_0004",
+      "severity": "medium",
+      "category": "supply_chain",
+      "title": "Unpinned install source",
+      "description": "`pip install` of unpinned package(s) build in .github\\workflows\\publish.yml at line 25. Without an exact version the next install silently picks up whatever is published, including a compromised release.",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": ".github\\workflows\\publish.yml",
+      "line_number": 25,
+      "recommendation": "Pin an exact version (pkg@1.2.3, pkg==1.2.3) and prefer a lockfile or hash-checked requirements.",
+      "rule_id": "unpinned_install_source",
+      "evidence": "Unpinned install source",
+      "location": ".github\\workflows\\publish.yml:25",
+      "replay": "axiom scan <corpus>/registry/25_leshchenko1979__fast-mcp-telegram --output json --no-ai --no-history | jq '.findings[] | select(.id==\"mcp04_unpinned_0004\")'"
+    },
+    {
+      "id": "mcp08_no_tool_logging",
+      "severity": "info",
+      "category": "audit_telemetry",
+      "title": "No logging found in files that define MCP tools (low confidence)",
+      "description": "None of the tool-defining files (src\\server_components\\tools_register.py) reference a logging library or logger call. Tool invocations may leave no audit trail. Confidence is low: logging could be configured elsewhere or by the host.",
+      "owasp_asi": [
+        "ASI10"
+      ],
+      "owasp_mcp": [
+        "MCP08"
+      ],
+      "file_path": "src\\server_components\\tools_register.py",
+      "line_number": null,
+      "recommendation": "Log each tool invocation (tool name, caller/session, outcome, and redacted arguments) to a durable, tamper-evident sink.",
+      "rule_id": "no_tool_logging",
+      "evidence": "No logging found in files that define MCP tools (low confidence)",
+      "location": "src\\server_components\\tools_register.py",
+      "replay": "axiom scan <corpus>/registry/25_leshchenko1979__fast-mcp-telegram --output json --no-ai --no-history | jq '.findings[] | select(.id==\"mcp08_no_tool_logging\")'"
+    }
+  ],
+  "server_profile": {
+    "name": "25_leshchenko1979__fast-mcp-telegram",
+    "command": null,
+    "args": [],
+    "env_vars": [],
+    "transport": "unknown",
+    "tools": [
+      {
+        "name": "search_messages_globally",
+        "description": "Global Telegram message search (full doc URL is in the MCP tool description).",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "query": {},
+            "limit": {
+              "default": 50
+            },
+            "min_date": {},
+            "max_date": {},
+            "chat_type": {},
+            "public": {},
+            "auto_expand_batches": {
+              "default": 2
+            },
+            "include_total_count": {
+              "default": false
+            }
+          },
+          "required": [
+            "query"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "get_messages",
+        "description": "Browse, search, fetch by ids, or load replies in one chat (full doc URL in tool description).",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "chat_id": {},
+            "query": {},
+            "message_ids": {},
+            "reply_to_id": {},
+            "thread_scope": {
+              "default": "auto"
+            },
+            "limit": {
+              "default": 50
+            },
+            "min_date": {},
+            "max_date": {},
+            "from_user": {},
+            "include_replies": {
+              "default": false
+            },
+            "auto_expand_batches": {
+              "default": 2
+            },
+            "include_total_count": {
+              "default": false
+            }
+          },
+          "required": [
+            "chat_id"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "send_message",
+        "description": "Send text or media to a chat (full doc URL in tool description).",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "chat_id": {},
+            "message": {},
+            "reply_to_id": {},
+            "parse_mode": {
+              "default": "auto"
+            },
+            "files": {},
+            "schedule_date": {},
+            "save_as_draft": {
+              "default": false
+            }
+          },
+          "required": [
+            "chat_id",
+            "message"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "edit_message",
+        "description": "Edit an existing message (full doc URL in tool description).",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "chat_id": {},
+            "message": {},
+            "message_id": {},
+            "parse_mode": {
+              "default": "auto"
+            },
+            "schedule_date": {}
+          },
+          "required": [
+            "chat_id",
+            "message",
+            "message_id"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "find_chats",
+        "description": "Find chats by query, folder, or activity dates (full doc URL in tool description).",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "query": {},
+            "limit": {
+              "default": 20
+            },
+            "chat_type": {},
+            "public": {},
+            "min_date": {},
+            "max_date": {},
+            "folder": {}
+          },
+          "required": []
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "get_chat_info",
+        "description": "Profile and metadata for one chat or user (full doc URL in tool description).",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "chat_id": {},
+            "topics_limit": {
+              "default": 20
+            },
+            "common_chats_limit": {
+              "default": 10
+            }
+          },
+          "required": [
+            "chat_id"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "send_message_to_phone",
+        "description": "Send to a phone number with optional contact auto-create (full doc URL in tool description).",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "phone_number": {},
+            "message": {},
+            "first_name": {
+              "default": "Contact"
+            },
+            "last_name": {
+              "default": "Name"
+            },
+            "remove_if_new": {
+              "default": false
+            },
+            "reply_to_msg_id": {},
+            "parse_mode": {
+              "default": "auto"
+            },
+            "files": {},
+            "schedule_date": {},
+            "save_as_draft": {
+              "default": false
+            }
+          },
+          "required": [
+            "phone_number",
+            "message"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "invoke_mtproto",
+        "description": "Raw Telegram API invoke, advanced (full doc URL in tool description).",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "method_full_name": {},
+            "params_json": {},
+            "allow_dangerous": {
+              "default": false
+            },
+            "resolve": {
+              "default": true
+            },
+            "include_sensitive": {
+              "default": false
+            }
+          },
+          "required": [
+            "method_full_name",
+            "params_json"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      }
+    ],
+    "resources": [],
+    "prompts": [],
+    "repo_url": null,
+    "npm_package": null,
+    "capabilities_claimed": [],
+    "capabilities_actual": []
+  },
+  "fingerprint": "2261d44d8bcec5079835e6d319509f5e89458c9cc0e25b4d6190f59f8a71da07",
+  "surface_map": {
+    "server": {
+      "name": "fast-mcp-telegram",
+      "instructions": "",
+      "transport": "unknown",
+      "auth": "unknown"
+    },
+    "tools": [
+      {
+        "name": "search_messages_globally",
+        "description": "Global Telegram message search (full doc URL is in the MCP tool description).",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "query": {},
+            "limit": {
+              "default": 50
+            },
+            "min_date": {},
+            "max_date": {},
+            "chat_type": {},
+            "public": {},
+            "auto_expand_batches": {
+              "default": 2
+            },
+            "include_total_count": {
+              "default": false
+            }
+          },
+          "required": [
+            "query"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "src\\server_components\\tools_register.py:282"
+      },
+      {
+        "name": "get_messages",
+        "description": "Browse, search, fetch by ids, or load replies in one chat (full doc URL in tool description).",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "chat_id": {},
+            "query": {},
+            "message_ids": {},
+            "reply_to_id": {},
+            "thread_scope": {
+              "default": "auto"
+            },
+            "limit": {
+              "default": 50
+            },
+            "min_date": {},
+            "max_date": {},
+            "from_user": {},
+            "include_replies": {
+              "default": false
+            },
+            "auto_expand_batches": {
+              "default": 2
+            },
+            "include_total_count": {
+              "default": false
+            }
+          },
+          "required": [
+            "chat_id"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "src\\server_components\\tools_register.py:316"
+      },
+      {
+        "name": "send_message",
+        "description": "Send text or media to a chat (full doc URL in tool description).",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "chat_id": {},
+            "message": {},
+            "reply_to_id": {},
+            "parse_mode": {
+              "default": "auto"
+            },
+            "files": {},
+            "schedule_date": {},
+            "save_as_draft": {
+              "default": false
+            }
+          },
+          "required": [
+            "chat_id",
+            "message"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "src\\server_components\\tools_register.py:359"
+      },
+      {
+        "name": "edit_message",
+        "description": "Edit an existing message (full doc URL in tool description).",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "chat_id": {},
+            "message": {},
+            "message_id": {},
+            "parse_mode": {
+              "default": "auto"
+            },
+            "schedule_date": {}
+          },
+          "required": [
+            "chat_id",
+            "message",
+            "message_id"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "src\\server_components\\tools_register.py:390"
+      },
+      {
+        "name": "find_chats",
+        "description": "Find chats by query, folder, or activity dates (full doc URL in tool description).",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "query": {},
+            "limit": {
+              "default": 20
+            },
+            "chat_type": {},
+            "public": {},
+            "min_date": {},
+            "max_date": {},
+            "folder": {}
+          },
+          "required": []
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "src\\server_components\\tools_register.py:417"
+      },
+      {
+        "name": "get_chat_info",
+        "description": "Profile and metadata for one chat or user (full doc URL in tool description).",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "chat_id": {},
+            "topics_limit": {
+              "default": 20
+            },
+            "common_chats_limit": {
+              "default": 10
+            }
+          },
+          "required": [
+            "chat_id"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "src\\server_components\\tools_register.py:442"
+      },
+      {
+        "name": "send_message_to_phone",
+        "description": "Send to a phone number with optional contact auto-create (full doc URL in tool description).",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "phone_number": {},
+            "message": {},
+            "first_name": {
+              "default": "Contact"
+            },
+            "last_name": {
+              "default": "Name"
+            },
+            "remove_if_new": {
+              "default": false
+            },
+            "reply_to_msg_id": {},
+            "parse_mode": {
+              "default": "auto"
+            },
+            "files": {},
+            "schedule_date": {},
+            "save_as_draft": {
+              "default": false
+            }
+          },
+          "required": [
+            "phone_number",
+            "message"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "src\\server_components\\tools_register.py:464"
+      },
+      {
+        "name": "invoke_mtproto",
+        "description": "Raw Telegram API invoke, advanced (full doc URL in tool description).",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "method_full_name": {},
+            "params_json": {},
+            "allow_dangerous": {
+              "default": false
+            },
+            "resolve": {
+              "default": true
+            },
+            "include_sensitive": {
+              "default": false
+            }
+          },
+          "required": [
+            "method_full_name",
+            "params_json"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "src\\server_components\\tools_register.py:500"
+      }
+    ],
+    "resources": [],
+    "prompts": [],
+    "mutations": [],
+    "source": {
+      "kind": "static",
+      "target": "25_leshchenko1979__fast-mcp-telegram",
+      "languages": [
+        "python"
+      ]
+    },
+    "generated_at": "2026-11-11T22:33:56+00:00",
+    "fingerprint": "2261d44d8bcec5079835e6d319509f5e89458c9cc0e25b4d6190f59f8a71da07",
+    "schema": "axiom.surface/1"
+  },
+  "provenance": {
+    "identity": {
+      "npm": null,
+      "pypi": "fast-mcp-telegram",
+      "repository": "https://github.com/leshchenko1979/fast-mcp-telegram",
+      "server_name": "fast-mcp-telegram"
+    },
+    "registry": {
+      "status": "match",
+      "entry": "io.github.leshchenko1979/fast-mcp-telegram",
+      "repository": "https://github.com/leshchenko1979/fast-mcp-telegram",
+      "packages": [
+        "pypi:fast-mcp-telegram"
+      ],
+      "publishedAt": "2026-11-11T04:48:52.18138Z",
+      "version": "0.46.2"
+    },
+    "lookalikes": [],
+    "checked_at": "2026-11-11T22:33:59+00:00"
+  },
+  "owasp_coverage": {
+    "framework": "OWASP Top 10 for Agentic Applications 2026",
+    "reference": "https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/",
+    "coverage": {
+      "ASI01": {
+        "name": "Agent Goal Hijack",
+        "coverage_level": "strong",
+        "findings_count": 3,
+        "finding_ids": [
+          "ast_0004",
+          "ast_0001",
+          "ast_0001"
+        ],
+        "detectors": [
+          "tool_poisoning",
+          "prompt_injection",
+          "instruction_injection"
+        ]
+      },
+      "ASI02": {
+        "name": "Tool Misuse & Exploitation",
+        "coverage_level": "strong",
+        "findings_count": 1,
+        "finding_ids": [
+          "ast_0004"
+        ],
+        "detectors": [
+          "toxic_tool_combo",
+          "tool_overscope",
+          "tool_chaining_detection"
+        ]
+      },
+      "ASI03": {
+        "name": "Identity & Privilege Abuse",
+        "coverage_level": "strong",
+        "findings_count": 4,
+        "finding_ids": [
+          "ast_0001",
+          "ast_0001",
+          "ast_0002",
+          "ast_0003"
+        ],
+        "detectors": [
+          "credential_analysis",
+          "shared_credential_detection",
+          "env_var_audit"
+        ]
+      },
+      "ASI04": {
+        "name": "Agentic Supply Chain Vulnerabilities",
+        "coverage_level": "strong",
+        "findings_count": 5,
+        "finding_ids": [
+          "provenance_fresh_publish",
+          "mcp04_unpinned_0001",
+          "mcp04_unpinned_0002",
+          "mcp04_unpinned_0003",
+          "mcp04_unpinned_0004"
+        ],
+        "detectors": [
+          "dependency_cve",
+          "lifecycle_hooks",
+          "npx_unversioned",
+          "known_mcp_cves"
+        ]
+      },
+      "ASI05": {
+        "name": "Unexpected Code Execution",
+        "coverage_level": "strong",
+        "findings_count": 1,
+        "finding_ids": [
+          "codegen_0001"
+        ],
+        "detectors": [
+          "code_exec_patterns",
+          "code_generation_detection",
+          "sandbox_escape"
+        ]
+      },
+      "ASI06": {
+        "name": "Memory & Context Poisoning",
+        "coverage_level": "partial",
+        "findings_count": 11,
+        "finding_ids": [
+          "memory_0001",
+          "memory_0002",
+          "memory_0003",
+          "memory_0004",
+          "memory_0005",
+          "memory_0006",
+          "memory_0007",
+          "memory_0008",
+          "memory_0009",
+          "memory_0010"
+        ],
+        "detectors": [
+          "memory_poisoning_patterns",
+          "context_manipulation_detection"
+        ],
+        "gap_note": "Axiom detects static patterns. Full coverage requires runtime memory monitoring."
+      },
+      "ASI07": {
+        "name": "Insecure Inter-Agent Communication",
+        "coverage_level": "partial",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "transport_security",
+          "a2a_pattern_detection"
+        ],
+        "gap_note": "Axiom checks transport security. Full A2A protocol analysis requires runtime interception."
+      },
+      "ASI08": {
+        "name": "Cascading Failures",
+        "coverage_level": "partial",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "blast_radius_estimation",
+          "dependency_chain_analysis"
+        ],
+        "gap_note": "Axiom estimates blast radius from tool capabilities. Full cascading failure analysis requires runtime topology mapping."
+      },
+      "ASI09": {
+        "name": "Human-Agent Trust Exploitation",
+        "coverage_level": "strong",
+        "findings_count": 6,
+        "finding_ids": [
+          "trust_0001",
+          "trust_0002",
+          "trust_0003",
+          "trust_0004",
+          "trust_0005",
+          "trust_0006"
+        ],
+        "detectors": [
+          "claimed_vs_actual",
+          "deceptive_output_detection",
+          "trust_manipulation_patterns"
+        ]
+      },
+      "ASI10": {
+        "name": "Rogue Agents",
+        "coverage_level": "partial",
+        "findings_count": 5,
+        "finding_ids": [
+          "ast_0001",
+          "ast_0001",
+          "rogue_0001",
+          "rogue_0002",
+          "mcp08_no_tool_logging"
+        ],
+        "detectors": [
+          "sleeper_patterns",
+          "behavioral_drift_indicators",
+          "persistence_detection"
+        ],
+        "gap_note": "Axiom detects static rogue indicators. Full rogue agent detection requires runtime behavioral monitoring."
+      }
+    },
+    "total_asi_categories_with_findings": 8
+  },
+  "owasp_mcp_coverage": {
+    "framework": "OWASP MCP Top 10",
+    "framework_version": "v0.1 beta",
+    "reference": "https://owasp.org/www-project-mcp-top-10/",
+    "coverage": {
+      "MCP01": {
+        "id": "MCP01:2025",
+        "name": "Token Mismanagement & Secret Exposure",
+        "coverage_level": "partial",
+        "reason": "Regex-based secret detection in server source and client configs plus env-var exposure checks; no entropy analysis, git-history scan, or token lifetime/passthrough checks.",
+        "findings_count": 4,
+        "finding_ids": [
+          "ast_0001",
+          "ast_0001",
+          "ast_0002",
+          "ast_0003"
+        ],
+        "detectors": [
+          "credential_theft",
+          "cross_server",
+          "mcp01_hardcoded_secrets",
+          "config_hardcoded_secret",
+          "env_var_audit",
+          "env_dump"
+        ]
+      },
+      "MCP02": {
+        "id": "MCP02:2025",
+        "name": "Privilege Escalation via Scope Creep",
+        "coverage_level": "strong",
+        "reason": "Permission over-scope patterns, toxic tool-capability combinations, path-escape checks and env-var over-exposure in configs.",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "permission_overscope",
+          "toxic_tool_combo",
+          "identity_privilege",
+          "sandbox_escape",
+          "config_risk",
+          "cascading_failure",
+          "cross_server",
+          "excessive_scope",
+          "confused_deputy",
+          "file_read",
+          "file_write"
+        ]
+      },
+      "MCP03": {
+        "id": "MCP03:2025",
+        "name": "Tool Poisoning",
+        "coverage_level": "strong",
+        "reason": "Dedicated detector for hidden instructions in tool metadata, plus runtime rug-pull diffing between source and live tool definitions.",
+        "findings_count": 4,
+        "finding_ids": [
+          "ast_0001",
+          "ast_0001",
+          "rogue_0001",
+          "rogue_0002"
+        ],
+        "detectors": [
+          "tool_poisoning",
+          "obfuscation",
+          "rogue_agent",
+          "source_vs_runtime_diff",
+          "tool_shadowing",
+          "hidden_unicode",
+          "rug_pull_primitive",
+          "surface_mismatch"
+        ]
+      },
+      "MCP04": {
+        "id": "MCP04:2025",
+        "name": "Software Supply Chain Attacks & Dependency Tampering",
+        "coverage_level": "strong",
+        "reason": "Dependency CVE lookup, known MCP CVEs, install lifecycle hooks, and unpinned npx/uvx/pip/@latest install sources.",
+        "findings_count": 7,
+        "finding_ids": [
+          "ast_0001",
+          "ast_0001",
+          "provenance_fresh_publish",
+          "mcp04_unpinned_0001",
+          "mcp04_unpinned_0002",
+          "mcp04_unpinned_0003",
+          "mcp04_unpinned_0004"
+        ],
+        "detectors": [
+          "dependency_vuln",
+          "supply_chain",
+          "known_cve",
+          "obfuscation",
+          "lifecycle_hooks",
+          "mcp04_unpinned_install",
+          "homoglyph",
+          "rug_pull_primitive",
+          "surface_mismatch"
+        ]
+      },
+      "MCP05": {
+        "id": "MCP05:2025",
+        "name": "Command Injection & Execution",
+        "coverage_level": "partial",
+        "reason": "Regex, AST and Semgrep find exec/shell sinks and a heuristic flags sinks inside tool handlers, but there is no inter-procedural taint tracking from tool input to sink.",
+        "findings_count": 1,
+        "finding_ids": [
+          "codegen_0001"
+        ],
+        "detectors": [
+          "command_injection",
+          "code_execution",
+          "code_generation",
+          "sandbox_escape",
+          "mcp05_tool_input_sink",
+          "shell_exec"
+        ]
+      },
+      "MCP06": {
+        "id": "MCP06:2025",
+        "name": "Prompt Injection via Contextual Payloads",
+        "coverage_level": "partial",
+        "reason": "Injection markers are detected in tool metadata, server instructions, resources, prompts and the strings a tool returns (static), and in instructions/resources/prompts read live; payloads produced by calling a tool at runtime are not inspected.",
+        "findings_count": 17,
+        "finding_ids": [
+          "memory_0001",
+          "memory_0002",
+          "memory_0003",
+          "memory_0004",
+          "memory_0005",
+          "memory_0006",
+          "memory_0007",
+          "memory_0008",
+          "memory_0009",
+          "memory_0010"
+        ],
+        "detectors": [
+          "prompt_injection",
+          "memory_poisoning",
+          "trust_exploitation",
+          "response_injection",
+          "tool_shadowing"
+        ]
+      },
+      "MCP07": {
+        "id": "MCP07:2025",
+        "name": "Insufficient Authentication & Authorization",
+        "coverage_level": "partial",
+        "reason": "Flags remote servers with no visible auth and servers bound to all interfaces; does not verify OAuth implementation or per-tool authorization logic.",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "transport_security",
+          "inter_agent_comm",
+          "identity_privilege",
+          "transport_no_auth",
+          "config_no_auth",
+          "mcp07_bind_all_interfaces"
+        ]
+      },
+      "MCP08": {
+        "id": "MCP08:2025",
+        "name": "Lack of Audit and Telemetry",
+        "coverage_level": "gap",
+        "reason": "Only a low-confidence heuristic for missing logging in tool-defining files; actual audit trails and telemetry pipelines are not verified.",
+        "findings_count": 1,
+        "finding_ids": [
+          "mcp08_no_tool_logging"
+        ],
+        "detectors": [
+          "audit_telemetry",
+          "mcp08_no_tool_logging"
+        ]
+      },
+      "MCP09": {
+        "id": "MCP09:2025",
+        "name": "Shadow MCP Servers",
+        "coverage_level": "partial",
+        "reason": "Covered by `axiom discover` allowlist on the local machine; no network-wide or fleet discovery.",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "mcpguard_discover",
+          "shadow_mcp"
+        ]
+      },
+      "MCP10": {
+        "id": "MCP10:2025",
+        "name": "Context Injection & Over-Sharing",
+        "coverage_level": "partial",
+        "reason": "Hard-coded egress URLs, tools that send to caller-chosen destinations and bulk-exposure heuristics are detected statically and live; what context is actually shared at runtime is not observed.",
+        "findings_count": 12,
+        "finding_ids": [
+          "ast_0004",
+          "memory_0001",
+          "memory_0002",
+          "memory_0003",
+          "memory_0004",
+          "memory_0005",
+          "memory_0006",
+          "memory_0007",
+          "memory_0008",
+          "memory_0009"
+        ],
+        "detectors": [
+          "context_oversharing",
+          "data_exfiltration",
+          "memory_poisoning",
+          "mcp10_broad_data_exposure"
+        ]
+      }
+    },
+    "total_mcp_categories_with_findings": 7
+  },
+  "ai_analysis": null,
+  "tool_poisoning_report": null,
+  "prompt_injection_risk": null
+}

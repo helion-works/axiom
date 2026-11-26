@@ -1,0 +1,2988 @@
+{
+  "schema_version": "0.5",
+  "target": "14_audiojs__audio",
+  "risk_score": 34.0,
+  "risk_level": "medium",
+  "tools_found": 1,
+  "findings_count": 121,
+  "findings": [
+    {
+      "id": "code_0001",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in batch.js at line 70: `let n = /^ambisonic-(\\d+)$/.exec(tag)?.[1]`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "batch.js",
+      "line_number": 70,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "let n = /^ambisonic-(\\d+)$/.exec(tag)?.[1]",
+      "location": "batch.js:70",
+      "replay": "axiom scan <corpus>/registry/14_audiojs__audio --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0001\")'"
+    },
+    {
+      "id": "code_0002",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in core.js at line 211: `if (typeof source === 'function') return fromFunction(source, opts)`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "core.js",
+      "line_number": 211,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "if (typeof source === 'function') return fromFunction(source, opts)",
+      "location": "core.js:211",
+      "replay": "axiom scan <corpus>/registry/14_audiojs__audio --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0002\")'"
+    },
+    {
+      "id": "code_0003",
+      "severity": "low",
+      "category": "obfuscation",
+      "title": "Encoded or obfuscated content in MCP server source",
+      "description": "Pattern matched in core.js at line 261: `let dv = new DataView(h.buffer, h.byteOffset, h.byteLength), id = o => String.fromCharCode(h[o], h[o + 1], h[o + 2], h[o`",
+      "owasp_asi": [
+        "ASI01",
+        "ASI10"
+      ],
+      "owasp_mcp": [
+        "MCP03",
+        "MCP04"
+      ],
+      "file_path": "core.js",
+      "line_number": 261,
+      "recommendation": "Review this obfuscation pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "let dv = new DataView(h.buffer, h.byteOffset, h.byteLength), id = o => String.fromCharCode(h[o], h[o + 1], h[o + 2], h[o",
+      "location": "core.js:261",
+      "replay": "axiom scan <corpus>/registry/14_audiojs__audio --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0003\")'"
+    },
+    {
+      "id": "code_0004",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in core.js at line 805: `function fromFunction(fn, opts = {}) {`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "core.js",
+      "line_number": 805,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "function fromFunction(fn, opts = {}) {",
+      "location": "core.js:805",
+      "replay": "axiom scan <corpus>/registry/14_audiojs__audio --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0004\")'"
+    },
+    {
+      "id": "code_0005",
+      "severity": "low",
+      "category": "obfuscation",
+      "title": "Encoded or obfuscated content in MCP server source",
+      "description": "Pattern matched in core.js at line 1342: `let dv = new DataView(h.buffer, h.byteOffset, h.byteLength), id = o => String.fromCharCode(h[o], h[o + 1], h[o + 2], h[o`",
+      "owasp_asi": [
+        "ASI01",
+        "ASI10"
+      ],
+      "owasp_mcp": [
+        "MCP03",
+        "MCP04"
+      ],
+      "file_path": "core.js",
+      "line_number": 1342,
+      "recommendation": "Review this obfuscation pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "let dv = new DataView(h.buffer, h.byteOffset, h.byteLength), id = o => String.fromCharCode(h[o], h[o + 1], h[o + 2], h[o",
+      "location": "core.js:1342",
+      "replay": "axiom scan <corpus>/registry/14_audiojs__audio --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0005\")'"
+    },
+    {
+      "id": "code_0006",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in plan.js at line 211: `function hasFunction(v, seen = new Set()) {`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "plan.js",
+      "line_number": 211,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "function hasFunction(v, seen = new Set()) {",
+      "location": "plan.js:211",
+      "replay": "axiom scan <corpus>/registry/14_audiojs__audio --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0006\")'"
+    },
+    {
+      "id": "code_0007",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in plan.js at line 217: `if (Array.isArray(v)) return v.some(x => hasFunction(x, seen))`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "plan.js",
+      "line_number": 217,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "if (Array.isArray(v)) return v.some(x => hasFunction(x, seen))",
+      "location": "plan.js:217",
+      "replay": "axiom scan <corpus>/registry/14_audiojs__audio --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0007\")'"
+    },
+    {
+      "id": "code_0008",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in plan.js at line 218: `for (let k of Object.keys(v)) if (hasFunction(v[k], seen)) return true`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "plan.js",
+      "line_number": 218,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "for (let k of Object.keys(v)) if (hasFunction(v[k], seen)) return true",
+      "location": "plan.js:218",
+      "replay": "axiom scan <corpus>/registry/14_audiojs__audio --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0008\")'"
+    },
+    {
+      "id": "code_0009",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in plan.js at line 575: `let edits = this.edits.filter(e => !hasFunction(e[1]))`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "plan.js",
+      "line_number": 575,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "let edits = this.edits.filter(e => !hasFunction(e[1]))",
+      "location": "plan.js:575",
+      "replay": "axiom scan <corpus>/registry/14_audiojs__audio --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0009\")'"
+    },
+    {
+      "id": "code_0010",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in bench\\speech.mjs at line 179: `if (s.startsWith('rx(')) return rx(...new Function(`return [${s.slice(3, -1)}]`)())(x)`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "bench\\speech.mjs",
+      "line_number": 179,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "if (s.startsWith('rx(')) return rx(...new Function(",
+      "location": "bench\\speech.mjs:179",
+      "replay": "axiom scan <corpus>/registry/14_audiojs__audio --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0010\")'"
+    },
+    {
+      "id": "code_0011",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in bench\\speech.mjs at line 181: `if (!m) return { ch: (await new Function('a', `return a.${s}`)(audio.from(x.ch, { sampleRate: x.sr })).read()).map(c => `",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "bench\\speech.mjs",
+      "line_number": 181,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "if (!m) return { ch: (await new Function('a',",
+      "location": "bench\\speech.mjs:181",
+      "replay": "axiom scan <corpus>/registry/14_audiojs__audio --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0011\")'"
+    },
+    {
+      "id": "code_0012",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in bench\\speech.mjs at line 183: `let args = new Function(`return [${m[2]}]`)(), o = typeof args[0] === 'object' ? args[0] : { limit: args[0] }`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "bench\\speech.mjs",
+      "line_number": 183,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "let args = new Function(",
+      "location": "bench\\speech.mjs:183",
+      "replay": "axiom scan <corpus>/registry/14_audiojs__audio --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0012\")'"
+    },
+    {
+      "id": "ast_0001",
+      "severity": "info",
+      "category": "credential_theft",
+      "title": "Environment variable access via os.environ.get()",
+      "description": "Call to `os.environ.get()` reads an environment variable (capability note) in bench\\speech.py at line 25",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP01"
+      ],
+      "file_path": "bench\\speech.py",
+      "line_number": 25,
+      "recommendation": "Document which env vars are needed. Avoid reading arbitrary env vars.",
+      "rule_id": "code_pattern_ast",
+      "evidence": "os.environ.get()",
+      "location": "bench\\speech.py:25",
+      "replay": "axiom scan <corpus>/registry/14_audiojs__audio --output json --no-ai --no-history | jq '.findings[] | select(.id==\"ast_0001\")'"
+    },
+    {
+      "id": "code_0013",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in bench\\rx\\assistant.mjs at line 87: `import { planned, denoise, NEURAL } from '../../fn/auto.js'`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "bench\\rx\\assistant.mjs",
+      "line_number": 87,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "import { planned, denoise, NEURAL } from '../../fn/auto.js'",
+      "location": "bench\\rx\\assistant.mjs:87",
+      "replay": "axiom scan <corpus>/registry/14_audiojs__audio --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0013\")'"
+    },
+    {
+      "id": "code_0014",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in bench\\rx\\assistant.mjs at line 161: `if (!existsSync(p)) { mkdirSync(path.dirname(p), { recursive: true }); spawnSync('ffmpeg', ['-v', 'error', '-y', '-i', p`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "bench\\rx\\assistant.mjs",
+      "line_number": 161,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "if (!existsSync(p)) { mkdirSync(path.dirname(p), { recursive: true }); spawnSync('ffmpeg', ['-v', 'error', '-y', '-i', p",
+      "location": "bench\\rx\\assistant.mjs:161",
+      "replay": "axiom scan <corpus>/registry/14_audiojs__audio --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0014\")'"
+    },
+    {
+      "id": "code_0015",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in bench\\rx\\debleed.mjs at line 57: `import audio from '../../audio.js'`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "bench\\rx\\debleed.mjs",
+      "line_number": 57,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "import audio from '../../audio.js'",
+      "location": "bench\\rx\\debleed.mjs:57",
+      "replay": "axiom scan <corpus>/registry/14_audiojs__audio --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0015\")'"
+    },
+    {
+      "id": "code_0016",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in bench\\rx\\debleed.mjs at line 84: `let part = `${file}.${process.pid}.part`, r = spawnSync('ffmpeg', ['-v', 'error', '-y', ...args, '-f', 'f32le', part])`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "bench\\rx\\debleed.mjs",
+      "line_number": 84,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "let part =",
+      "location": "bench\\rx\\debleed.mjs:84",
+      "replay": "axiom scan <corpus>/registry/14_audiojs__audio --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0016\")'"
+    },
+    {
+      "id": "code_0017",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in bench\\rx\\debreath.mjs at line 31: `import audio from '../../audio.js'`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "bench\\rx\\debreath.mjs",
+      "line_number": 31,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "import audio from '../../audio.js'",
+      "location": "bench\\rx\\debreath.mjs:31",
+      "replay": "axiom scan <corpus>/registry/14_audiojs__audio --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0017\")'"
+    },
+    {
+      "id": "code_0018",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in bench\\rx\\declip.mjs at line 66: `const OURS = 'ours@' + JSON.parse(readFileSync(path.join(HERE, '../../node_modules/@audio/denoise-declip/package.json'))`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "bench\\rx\\declip.mjs",
+      "line_number": 66,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const OURS = 'ours@' + JSON.parse(readFileSync(path.join(HERE, '../../node_modules/@audio/denoise-declip/package.json'))",
+      "location": "bench\\rx\\declip.mjs:66",
+      "replay": "axiom scan <corpus>/registry/14_audiojs__audio --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0018\")'"
+    },
+    {
+      "id": "code_0019",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in bench\\rx\\declip.mjs at line 74: `let r = spawnSync('ffmpeg', ['-v', 'error', '-i', path.join(dir, name), '-t', '6', '-map', '0:a:0', '-ac', '1', '-ar', S`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "bench\\rx\\declip.mjs",
+      "line_number": 74,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "let r = spawnSync('ffmpeg', ['-v', 'error', '-i', path.join(dir, name), '-t', '6', '-map', '0:a:0', '-ac', '1', '-ar', S",
+      "location": "bench\\rx\\declip.mjs:74",
+      "replay": "axiom scan <corpus>/registry/14_audiojs__audio --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0019\")'"
+    },
+    {
+      "id": "code_0020",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in bench\\rx\\declip.mjs at line 123: `spawnSync('ffmpeg', ['-v', 'error', '-y', '-i', tmp, '-c:a', 'libmp3lame', '-b:a', '128k', enc])`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "bench\\rx\\declip.mjs",
+      "line_number": 123,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "spawnSync('ffmpeg', ['-v', 'error', '-y', '-i', tmp, '-c:a', 'libmp3lame', '-b:a', '128k', enc])",
+      "location": "bench\\rx\\declip.mjs:123",
+      "replay": "axiom scan <corpus>/registry/14_audiojs__audio --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0020\")'"
+    },
+    {
+      "id": "code_0021",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in bench\\rx\\declip.mjs at line 124: `let r = spawnSync('ffmpeg', ['-v', 'error', '-i', enc, '-ac', '1', '-f', 'f32le', '-'], { maxBuffer: 1 << 27 })`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "bench\\rx\\declip.mjs",
+      "line_number": 124,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "let r = spawnSync('ffmpeg', ['-v', 'error', '-i', enc, '-ac', '1', '-f', 'f32le', '-'], { maxBuffer: 1 << 27 })",
+      "location": "bench\\rx\\declip.mjs:124",
+      "replay": "axiom scan <corpus>/registry/14_audiojs__audio --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0021\")'"
+    },
+    {
+      "id": "code_0022",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in bench\\rx\\declip.mjs at line 200: `let r = spawnSync(PY, ['-c', PERCEPT], { env: { ...process.env, PYTHONDONTWRITEBYTECODE: '1' }, input: todo.map(j => JSO`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "bench\\rx\\declip.mjs",
+      "line_number": 200,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "let r = spawnSync(PY, ['-c', PERCEPT], { env: { ...process.env, PYTHONDONTWRITEBYTECODE: '1' }, input: todo.map(j => JSO",
+      "location": "bench\\rx\\declip.mjs:200",
+      "replay": "axiom scan <corpus>/registry/14_audiojs__audio --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0022\")'"
+    },
+    {
+      "id": "code_0023",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in bench\\rx\\dehum.mjs at line 93: `ls(path.join(DATA, 'musdb', 'train'), '.stem.mp4').forEach((p, i) => spawnSync('ffmpeg', ['-v', 'error', '-i', p, '-map'`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "bench\\rx\\dehum.mjs",
+      "line_number": 93,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "ls(path.join(DATA, 'musdb', 'train'), '.stem.mp4').forEach((p, i) => spawnSync('ffmpeg', ['-v', 'error', '-i', p, '-map'",
+      "location": "bench\\rx\\dehum.mjs:93",
+      "replay": "axiom scan <corpus>/registry/14_audiojs__audio --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0023\")'"
+    },
+    {
+      "id": "code_0024",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in bench\\rx\\dehum.mjs at line 243: `let r = spawnSync(PY, ['-c', py], { input: JSON.stringify(todo), maxBuffer: 1 << 26 })`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "bench\\rx\\dehum.mjs",
+      "line_number": 243,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "let r = spawnSync(PY, ['-c', py], { input: JSON.stringify(todo), maxBuffer: 1 << 26 })",
+      "location": "bench\\rx\\dehum.mjs:243",
+      "replay": "axiom scan <corpus>/registry/14_audiojs__audio --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0024\")'"
+    },
+    {
+      "id": "code_0025",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in bench\\rx\\denoise.mjs at line 58: `import audio from '../../audio.js'`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "bench\\rx\\denoise.mjs",
+      "line_number": 58,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "import audio from '../../audio.js'",
+      "location": "bench\\rx\\denoise.mjs:58",
+      "replay": "axiom scan <corpus>/registry/14_audiojs__audio --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0025\")'"
+    },
+    {
+      "id": "code_0026",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in bench\\rx\\denoise.mjs at line 65: `const args = s => new Function(`return [${s}]`)()`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "bench\\rx\\denoise.mjs",
+      "line_number": 65,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const args = s => new Function(",
+      "location": "bench\\rx\\denoise.mjs:65",
+      "replay": "axiom scan <corpus>/registry/14_audiojs__audio --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0026\")'"
+    },
+    {
+      "id": "code_0027",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in bench\\rx\\denoise.mjs at line 128: `let r = spawnSync(PY, [path.join(HERE, 'denoise.py'), 'score'], { input: JSON.stringify(part.map(nm => [set, out, nm])),`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "bench\\rx\\denoise.mjs",
+      "line_number": 128,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "let r = spawnSync(PY, [path.join(HERE, 'denoise.py'), 'score'], { input: JSON.stringify(part.map(nm => [set, out, nm])),",
+      "location": "bench\\rx\\denoise.mjs:128",
+      "replay": "axiom scan <corpus>/registry/14_audiojs__audio --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0027\")'"
+    },
+    {
+      "id": "code_0028",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in bench\\rx\\denoise.mjs at line 172: `if (!existsSync(o)) spawnSync('ffmpeg', ['-v', 'error', '-i', path.join(src, f), '-map', '0:0', '-ac', '1', '-ar', '4410`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "bench\\rx\\denoise.mjs",
+      "line_number": 172,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "if (!existsSync(o)) spawnSync('ffmpeg', ['-v', 'error', '-i', path.join(src, f), '-map', '0:0', '-ac', '1', '-ar', '4410",
+      "location": "bench\\rx\\denoise.mjs:172",
+      "replay": "axiom scan <corpus>/registry/14_audiojs__audio --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0028\")'"
+    },
+    {
+      "id": "ast_0001",
+      "severity": "info",
+      "category": "credential_theft",
+      "title": "Environment variable access via os.environ.get()",
+      "description": "Call to `os.environ.get()` reads an environment variable (capability note) in bench\\rx\\denoise.py at line 87",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP01"
+      ],
+      "file_path": "bench\\rx\\denoise.py",
+      "line_number": 87,
+      "recommendation": "Document which env vars are needed. Avoid reading arbitrary env vars.",
+      "rule_id": "code_pattern_ast",
+      "evidence": "os.environ.get()",
+      "location": "bench\\rx\\denoise.py:87",
+      "replay": "axiom scan <corpus>/registry/14_audiojs__audio --output json --no-ai --no-history | jq '.findings[] | select(.id==\"ast_0001\")'"
+    },
+    {
+      "id": "code_0029",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in bench\\rx\\dereverb.mjs at line 56: `const version = p => JSON.parse(readFileSync(path.join(HERE, '../../node_modules', p, 'package.json'))).version`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "bench\\rx\\dereverb.mjs",
+      "line_number": 56,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const version = p => JSON.parse(readFileSync(path.join(HERE, '../../node_modules', p, 'package.json'))).version",
+      "location": "bench\\rx\\dereverb.mjs:56",
+      "replay": "axiom scan <corpus>/registry/14_audiojs__audio --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0029\")'"
+    },
+    {
+      "id": "ast_0001",
+      "severity": "info",
+      "category": "credential_theft",
+      "title": "Environment variable access via os.environ.get()",
+      "description": "Call to `os.environ.get()` reads an environment variable (capability note) in bench\\rx\\dereverb.py at line 166",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP01"
+      ],
+      "file_path": "bench\\rx\\dereverb.py",
+      "line_number": 166,
+      "recommendation": "Document which env vars are needed. Avoid reading arbitrary env vars.",
+      "rule_id": "code_pattern_ast",
+      "evidence": "os.environ.get()",
+      "location": "bench\\rx\\dereverb.py:166",
+      "replay": "axiom scan <corpus>/registry/14_audiojs__audio --output json --no-ai --no-history | jq '.findings[] | select(.id==\"ast_0001\")'"
+    },
+    {
+      "id": "code_0030",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in bench\\rx\\derustle.mjs at line 32: `import audio from '../../audio.js'`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "bench\\rx\\derustle.mjs",
+      "line_number": 32,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "import audio from '../../audio.js'",
+      "location": "bench\\rx\\derustle.mjs:32",
+      "replay": "axiom scan <corpus>/registry/14_audiojs__audio --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0030\")'"
+    },
+    {
+      "id": "code_0031",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in bench\\rx\\guitar.mjs at line 332: `const KERNEL = createHash('sha1').update(readFileSync(new URL('../../node_modules/@audio/denoise-desqueak/desqueak.js', `",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "bench\\rx\\guitar.mjs",
+      "line_number": 332,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const KERNEL = createHash('sha1').update(readFileSync(new URL('../../node_modules/@audio/denoise-desqueak/desqueak.js',",
+      "location": "bench\\rx\\guitar.mjs:332",
+      "replay": "axiom scan <corpus>/registry/14_audiojs__audio --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0031\")'"
+    },
+    {
+      "id": "ast_0001",
+      "severity": "info",
+      "category": "credential_theft",
+      "title": "Environment variable access via os.environ.get()",
+      "description": "Call to `os.environ.get()` reads an environment variable (capability note) in bench\\rx\\host.py at line 55",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP01"
+      ],
+      "file_path": "bench\\rx\\host.py",
+      "line_number": 55,
+      "recommendation": "Document which env vars are needed. Avoid reading arbitrary env vars.",
+      "rule_id": "code_pattern_ast",
+      "evidence": "os.environ.get()",
+      "location": "bench\\rx\\host.py:55",
+      "replay": "axiom scan <corpus>/registry/14_audiojs__audio --output json --no-ai --no-history | jq '.findings[] | select(.id==\"ast_0001\")'"
+    },
+    {
+      "id": "code_0032",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in bench\\rx\\isolate.mjs at line 216: `let { default: denoise, mixback } = await import('@audio/neural-denoise'), { roomless } = await import('../../fn/deepfil`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "bench\\rx\\isolate.mjs",
+      "line_number": 216,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "let { default: denoise, mixback } = await import('@audio/neural-denoise'), { roomless } = await import('../../fn/deepfil",
+      "location": "bench\\rx\\isolate.mjs:216",
+      "replay": "axiom scan <corpus>/registry/14_audiojs__audio --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0032\")'"
+    },
+    {
+      "id": "code_0033",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in bench\\rx\\isolate.mjs at line 282: `let r = spawnSync(PY, [py, path.join(HERE, '..'), String(JOBS)], { input: JSON.stringify(jobs), maxBuffer: 1 << 28, enco`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "bench\\rx\\isolate.mjs",
+      "line_number": 282,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "let r = spawnSync(PY, [py, path.join(HERE, '..'), String(JOBS)], { input: JSON.stringify(jobs), maxBuffer: 1 << 28, enco",
+      "location": "bench\\rx\\isolate.mjs:282",
+      "replay": "axiom scan <corpus>/registry/14_audiojs__audio --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0033\")'"
+    },
+    {
+      "id": "code_0034",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in bench\\rx\\lib.mjs at line 17: `import audio from '../../audio.js'`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "bench\\rx\\lib.mjs",
+      "line_number": 17,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "import audio from '../../audio.js'",
+      "location": "bench\\rx\\lib.mjs:17",
+      "replay": "axiom scan <corpus>/registry/14_audiojs__audio --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0034\")'"
+    },
+    {
+      "id": "code_0035",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in bench\\rx\\lib.mjs at line 82: `let a = new Function('a', `return a.${stages}`)(audio.from(ch.map(c => Float32Array.from(c)), { sampleRate: sr }))`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "bench\\rx\\lib.mjs",
+      "line_number": 82,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "let a = new Function('a',",
+      "location": "bench\\rx\\lib.mjs:82",
+      "replay": "axiom scan <corpus>/registry/14_audiojs__audio --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0035\")'"
+    },
+    {
+      "id": "code_0036",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in bench\\rx\\scene.mjs at line 33: `import audio from '../../audio.js'`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "bench\\rx\\scene.mjs",
+      "line_number": 33,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "import audio from '../../audio.js'",
+      "location": "bench\\rx\\scene.mjs:33",
+      "replay": "axiom scan <corpus>/registry/14_audiojs__audio --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0036\")'"
+    },
+    {
+      "id": "code_0037",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in bench\\rx\\separate.mjs at line 40: `import audio from '../../audio.js'`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "bench\\rx\\separate.mjs",
+      "line_number": 40,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "import audio from '../../audio.js'",
+      "location": "bench\\rx\\separate.mjs:40",
+      "replay": "axiom scan <corpus>/registry/14_audiojs__audio --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0037\")'"
+    },
+    {
+      "id": "code_0038",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in bench\\rx\\separate.mjs at line 205: `let p = spawnSync(PY, [path.join(HERE, 'separate.py'), 'score'], { input: JSON.stringify(jobs.map(j => j.job)), maxBuffe`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "bench\\rx\\separate.mjs",
+      "line_number": 205,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "let p = spawnSync(PY, [path.join(HERE, 'separate.py'), 'score'], { input: JSON.stringify(jobs.map(j => j.job)), maxBuffe",
+      "location": "bench\\rx\\separate.mjs:205",
+      "replay": "axiom scan <corpus>/registry/14_audiojs__audio --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0038\")'"
+    },
+    {
+      "id": "ast_0001",
+      "severity": "info",
+      "category": "credential_theft",
+      "title": "Environment variable access via os.environ.get()",
+      "description": "Call to `os.environ.get()` reads an environment variable (capability note) in bench\\rx\\separate.py at line 35",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP01"
+      ],
+      "file_path": "bench\\rx\\separate.py",
+      "line_number": 35,
+      "recommendation": "Document which env vars are needed. Avoid reading arbitrary env vars.",
+      "rule_id": "code_pattern_ast",
+      "evidence": "os.environ.get()",
+      "location": "bench\\rx\\separate.py:35",
+      "replay": "axiom scan <corpus>/registry/14_audiojs__audio --output json --no-ai --no-history | jq '.findings[] | select(.id==\"ast_0001\")'"
+    },
+    {
+      "id": "code_0039",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in desktop\\server.js at line 33: `const m = /^bytes=(\\d*)-(\\d*)$/.exec(req.headers.range || '')`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "desktop\\server.js",
+      "line_number": 33,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const m = /^bytes=(\\d*)-(\\d*)$/.exec(req.headers.range || '')",
+      "location": "desktop\\server.js:33",
+      "replay": "axiom scan <corpus>/registry/14_audiojs__audio --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0039\")'"
+    },
+    {
+      "id": "code_0040",
+      "severity": "low",
+      "category": "obfuscation",
+      "title": "Encoded or obfuscated content in MCP server source",
+      "description": "Pattern matched in fn\\cuts.js at line 112: `let size = v.getUint32(0), type = String.fromCharCode(h[4], h[5], h[6], h[7]), head = 8`",
+      "owasp_asi": [
+        "ASI01",
+        "ASI10"
+      ],
+      "owasp_mcp": [
+        "MCP03",
+        "MCP04"
+      ],
+      "file_path": "fn\\cuts.js",
+      "line_number": 112,
+      "recommendation": "Review this obfuscation pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "let size = v.getUint32(0), type = String.fromCharCode(h[4], h[5], h[6], h[7]), head = 8",
+      "location": "fn\\cuts.js:112",
+      "replay": "axiom scan <corpus>/registry/14_audiojs__audio --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0040\")'"
+    },
+    {
+      "id": "code_0041",
+      "severity": "low",
+      "category": "obfuscation",
+      "title": "Encoded or obfuscated content in MCP server source",
+      "description": "Pattern matched in fn\\cuts.js at line 136: `let kind = hdlr && String.fromCharCode(...await r.read(hdlr.start + 8, 4))`",
+      "owasp_asi": [
+        "ASI01",
+        "ASI10"
+      ],
+      "owasp_mcp": [
+        "MCP03",
+        "MCP04"
+      ],
+      "file_path": "fn\\cuts.js",
+      "line_number": 136,
+      "recommendation": "Review this obfuscation pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "let kind = hdlr && String.fromCharCode(...await r.read(hdlr.start + 8, 4))",
+      "location": "fn\\cuts.js:136",
+      "replay": "axiom scan <corpus>/registry/14_audiojs__audio --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0041\")'"
+    },
+    {
+      "id": "code_0042",
+      "severity": "low",
+      "category": "obfuscation",
+      "title": "Encoded or obfuscated content in MCP server source",
+      "description": "Pattern matched in fn\\cuts.js at line 160: `if (!d || d.length < 40 || String.fromCharCode(d[12], d[13], d[14], d[15]) !== 'tmcd') return null`",
+      "owasp_asi": [
+        "ASI01",
+        "ASI10"
+      ],
+      "owasp_mcp": [
+        "MCP03",
+        "MCP04"
+      ],
+      "file_path": "fn\\cuts.js",
+      "line_number": 160,
+      "recommendation": "Review this obfuscation pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "if (!d || d.length < 40 || String.fromCharCode(d[12], d[13], d[14], d[15]) !== 'tmcd') return null",
+      "location": "fn\\cuts.js:160",
+      "replay": "axiom scan <corpus>/registry/14_audiojs__audio --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0042\")'"
+    },
+    {
+      "id": "code_0043",
+      "severity": "low",
+      "category": "obfuscation",
+      "title": "Encoded or obfuscated content in MCP server source",
+      "description": "Pattern matched in fn\\meta.js at line 32: `: btoa(String.fromCharCode.apply(null, this.data))`",
+      "owasp_asi": [
+        "ASI01",
+        "ASI10"
+      ],
+      "owasp_mcp": [
+        "MCP03",
+        "MCP04"
+      ],
+      "file_path": "fn\\meta.js",
+      "line_number": 32,
+      "recommendation": "Review this obfuscation pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": ": btoa(String.fromCharCode.apply(null, this.data))",
+      "location": "fn\\meta.js:32",
+      "replay": "axiom scan <corpus>/registry/14_audiojs__audio --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0043\")'"
+    },
+    {
+      "id": "code_0044",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in repl\\code.js at line 379: `const text = code.slice(src.from, src.to), name = /^audio\\(\\s*(['\"`])([^'\"`\\\\]+)\\1\\s*\\)$/.exec(text)?.[2], empty = /^aud`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "repl\\code.js",
+      "line_number": 379,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const text = code.slice(src.from, src.to), name = /^audio\\(\\s*(['\"",
+      "location": "repl\\code.js:379",
+      "replay": "axiom scan <corpus>/registry/14_audiojs__audio --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0044\")'"
+    },
+    {
+      "id": "code_0045",
+      "severity": "low",
+      "category": "obfuscation",
+      "title": "Encoded or obfuscated content in MCP server source",
+      "description": "Pattern matched in repl\\embed.js at line 45: `for (const b of bytes) s += String.fromCharCode(b)`",
+      "owasp_asi": [
+        "ASI01",
+        "ASI10"
+      ],
+      "owasp_mcp": [
+        "MCP03",
+        "MCP04"
+      ],
+      "file_path": "repl\\embed.js",
+      "line_number": 45,
+      "recommendation": "Review this obfuscation pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "for (const b of bytes) s += String.fromCharCode(b)",
+      "location": "repl\\embed.js:45",
+      "replay": "axiom scan <corpus>/registry/14_audiojs__audio --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0045\")'"
+    },
+    {
+      "id": "code_0046",
+      "severity": "low",
+      "category": "obfuscation",
+      "title": "Encoded or obfuscated content in MCP server source",
+      "description": "Pattern matched in repl\\embed.js at line 46: `return btoa(s).replace(/\\+/g, '-').replace(/\\//g, '_').replace(/=+$/, '')`",
+      "owasp_asi": [
+        "ASI01",
+        "ASI10"
+      ],
+      "owasp_mcp": [
+        "MCP03",
+        "MCP04"
+      ],
+      "file_path": "repl\\embed.js",
+      "line_number": 46,
+      "recommendation": "Review this obfuscation pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "return btoa(s).replace(/\\+/g, '-').replace(/\\//g, '_').replace(/=+$/, '')",
+      "location": "repl\\embed.js:46",
+      "replay": "axiom scan <corpus>/registry/14_audiojs__audio --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0046\")'"
+    },
+    {
+      "id": "code_0047",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in repl\\syntax.js at line 294: `if (/^Function(Declaration|Expression)$/.test(p?.name)) return put(node.from, node.to, 'declared-function', meaning)`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "repl\\syntax.js",
+      "line_number": 294,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "if (/^Function(Declaration|Expression)$/.test(p?.name)) return put(node.from, node.to, 'declared-function', meaning)",
+      "location": "repl\\syntax.js:294",
+      "replay": "axiom scan <corpus>/registry/14_audiojs__audio --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0047\")'"
+    },
+    {
+      "id": "code_0048",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in repl\\syntax.js at line 312: `if (!colon) return put(node.from, node.to, 'variable', isFunction(node) ? 'method.declaration' : 'property.declaration')`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "repl\\syntax.js",
+      "line_number": 312,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "if (!colon) return put(node.from, node.to, 'variable', isFunction(node) ? 'method.declaration' : 'property.declaration')",
+      "location": "repl\\syntax.js:312",
+      "replay": "axiom scan <corpus>/registry/14_audiojs__audio --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0048\")'"
+    },
+    {
+      "id": "code_0049",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in repl\\syntax.js at line 314: `put(node.from, node.to, fn ? 'function-name' : 'name', FUNCTION.test(v?.name ?? '') || isFunction(v) ? 'method.declarati`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "repl\\syntax.js",
+      "line_number": 314,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "put(node.from, node.to, fn ? 'function-name' : 'name', FUNCTION.test(v?.name ?? '') || isFunction(v) ? 'method.declarati",
+      "location": "repl\\syntax.js:314",
+      "replay": "axiom scan <corpus>/registry/14_audiojs__audio --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0049\")'"
+    },
+    {
+      "id": "code_0050",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in repl\\syntax.js at line 379: `m = ESCAPE.exec(tail)[0]`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "repl\\syntax.js",
+      "line_number": 379,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "m = ESCAPE.exec(tail)[0]",
+      "location": "repl\\syntax.js:379",
+      "replay": "axiom scan <corpus>/registry/14_audiojs__audio --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0050\")'"
+    },
+    {
+      "id": "code_0051",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in repl\\syntax.js at line 387: `const r = /^(?:\\\\.|[^\\\\\\]])-(?:\\\\.|[^\\\\\\]])/.exec(s.slice(j, close))?.[0], e = s[j] === '\\\\' && ESCAPE.exec(s.slice(j, c`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "repl\\syntax.js",
+      "line_number": 387,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const r = /^(?:\\\\.|[^\\\\\\]])-(?:\\\\.|[^\\\\\\]])/.exec(s.slice(j, close))?.[0], e = s[j] === '\\\\' && ESCAPE.exec(s.slice(j, c",
+      "location": "repl\\syntax.js:387",
+      "replay": "axiom scan <corpus>/registry/14_audiojs__audio --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0051\")'"
+    },
+    {
+      "id": "code_0052",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in repl\\syntax.js at line 396: `m = /^\\(\\?(?::|=|!|<=|<!)/.exec(tail)?.[0] ?? '('`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "repl\\syntax.js",
+      "line_number": 396,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "m = /^\\(\\?(?::|=|!|<=|<!)/.exec(tail)?.[0] ?? '('",
+      "location": "repl\\syntax.js:396",
+      "replay": "axiom scan <corpus>/registry/14_audiojs__audio --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0052\")'"
+    },
+    {
+      "id": "code_0053",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in repl\\syntax.js at line 402: `else if (/^(?:[*+?]|\\{\\d+(?:,\\d*)?\\})/.test(tail)) { m = /^(?:[*+?]|\\{\\d+(?:,\\d*)?\\})\\??/.exec(tail)[0]; put(from, from `",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "repl\\syntax.js",
+      "line_number": 402,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "else if (/^(?:[*+?]|\\{\\d+(?:,\\d*)?\\})/.test(tail)) { m = /^(?:[*+?]|\\{\\d+(?:,\\d*)?\\})\\??/.exec(tail)[0]; put(from, from",
+      "location": "repl\\syntax.js:402",
+      "replay": "axiom scan <corpus>/registry/14_audiojs__audio --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0053\")'"
+    },
+    {
+      "id": "code_0054",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in repl\\theme.js at line 224: `const read = v => { const m = /^rgba\\((\\d+), *(\\d+), *(\\d+), *([\\d.]+)\\)$/.exec(v); return m ? '#' + [m[1], m[2], m[3]].`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "repl\\theme.js",
+      "line_number": 224,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const read = v => { const m = /^rgba\\((\\d+), *(\\d+), *(\\d+), *([\\d.]+)\\)$/.exec(v); return m ? '#' + [m[1], m[2], m[3]].",
+      "location": "repl\\theme.js:224",
+      "replay": "axiom scan <corpus>/registry/14_audiojs__audio --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0054\")'"
+    },
+    {
+      "id": "code_0055",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in repl\\theme.js at line 232: `const m = /^#([0-9a-f]{3,4}|[0-9a-f]{6}|[0-9a-f]{8})$/i.exec(typeof c === 'string' ? c.trim() : '')`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "repl\\theme.js",
+      "line_number": 232,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const m = /^#([0-9a-f]{3,4}|[0-9a-f]{6}|[0-9a-f]{8})$/i.exec(typeof c === 'string' ? c.trim() : '')",
+      "location": "repl\\theme.js:232",
+      "replay": "axiom scan <corpus>/registry/14_audiojs__audio --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0055\")'"
+    },
+    {
+      "id": "code_0056",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in repl\\theme.js at line 484: `const re = /([LR]:|[\\w.:][\\w.:-]*|[,|\\-()])/g, next = () => re.exec(sel)?.[0] ?? null, ident = t => !!t && /[\\w.:]+/.tes`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "repl\\theme.js",
+      "line_number": 484,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const re = /([LR]:|[\\w.:][\\w.:-]*|[,|\\-()])/g, next = () => re.exec(sel)?.[0] ?? null, ident = t => !!t && /[\\w.:]+/.tes",
+      "location": "repl\\theme.js:484",
+      "replay": "axiom scan <corpus>/registry/14_audiojs__audio --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0056\")'"
+    },
+    {
+      "id": "code_0057",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in repl\\worker.js at line 279: `try { new AsyncFunction('throw new Error()\\n//# sourceURL=repl-probe.js')().catch(e => { lineOffset = +(e.stack?.match(/`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "repl\\worker.js",
+      "line_number": 279,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "try { new AsyncFunction('throw new Error()\\n//# sourceURL=repl-probe.js')().catch(e => { lineOffset = +(e.stack?.match(/",
+      "location": "repl\\worker.js:279",
+      "replay": "axiom scan <corpus>/registry/14_audiojs__audio --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0057\")'"
+    },
+    {
+      "id": "code_0058",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in repl\\worker.js at line 304: `let value = await new AsyncFunction('audio', 'console', 'files', '__loop', '__out', code + '\\n//# sourceURL=repl.js')(ap`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "repl\\worker.js",
+      "line_number": 304,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "let value = await new AsyncFunction('audio', 'console', 'files', '__loop', '__out', code + '\\n//# sourceURL=repl.js')(ap",
+      "location": "repl\\worker.js:304",
+      "replay": "axiom scan <corpus>/registry/14_audiojs__audio --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0058\")'"
+    },
+    {
+      "id": "code_0059",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in repl\\worker.js at line 1362: `const run = new AsyncFunction('audio', 'out', 'src', 'step', '__loop', '__out', code + '\\n//# sourceURL=repl.js')`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "repl\\worker.js",
+      "line_number": 1362,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const run = new AsyncFunction('audio', 'out', 'src', 'step', '__loop', '__out', code + '\\n//# sourceURL=repl.js')",
+      "location": "repl\\worker.js:1362",
+      "replay": "axiom scan <corpus>/registry/14_audiojs__audio --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0059\")'"
+    },
+    {
+      "id": "code_0060",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in repl\\worker.js at line 1479: `let a = await new AsyncFunction('audio', 'console', 'files', '__loop', '__out', code + '\\n//# sourceURL=repl.js')(scoped`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "repl\\worker.js",
+      "line_number": 1479,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "let a = await new AsyncFunction('audio', 'console', 'files', '__loop', '__out', code + '\\n//# sourceURL=repl.js')(scoped",
+      "location": "repl\\worker.js:1479",
+      "replay": "axiom scan <corpus>/registry/14_audiojs__audio --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0060\")'"
+    },
+    {
+      "id": "code_0061",
+      "severity": "low",
+      "category": "obfuscation",
+      "title": "Encoded or obfuscated content in MCP server source",
+      "description": "Pattern matched in repl\\editor\\files.js at line 280: `return btoa(String.fromCharCode(...new Uint8Array(bytes))).replace(/\\+/g, '-').replace(/\\//g, '_').replace(/=+$/, '')`",
+      "owasp_asi": [
+        "ASI01",
+        "ASI10"
+      ],
+      "owasp_mcp": [
+        "MCP03",
+        "MCP04"
+      ],
+      "file_path": "repl\\editor\\files.js",
+      "line_number": 280,
+      "recommendation": "Review this obfuscation pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "return btoa(String.fromCharCode(...new Uint8Array(bytes))).replace(/\\+/g, '-').replace(/\\//g, '_').replace(/=+$/, '')",
+      "location": "repl\\editor\\files.js:280",
+      "replay": "axiom scan <corpus>/registry/14_audiojs__audio --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0061\")'"
+    },
+    {
+      "id": "code_0062",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in repl\\editor\\play.js at line 3: `import { mark as drawMark, sways, PACE } from '../../logo/mark.js'`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "repl\\editor\\play.js",
+      "line_number": 3,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "import { mark as drawMark, sways, PACE } from '../../logo/mark.js'",
+      "location": "repl\\editor\\play.js:3",
+      "replay": "axiom scan <corpus>/registry/14_audiojs__audio --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0062\")'"
+    },
+    {
+      "id": "code_0063",
+      "severity": "low",
+      "category": "obfuscation",
+      "title": "Encoded or obfuscated content in MCP server source",
+      "description": "Pattern matched in repl\\editor\\tabs.js at line 31: `const bytes = Uint8Array.from(atob(hash.replace(/-/g, '+').replace(/_/g, '/')), c => c.charCodeAt(0))`",
+      "owasp_asi": [
+        "ASI01",
+        "ASI10"
+      ],
+      "owasp_mcp": [
+        "MCP03",
+        "MCP04"
+      ],
+      "file_path": "repl\\editor\\tabs.js",
+      "line_number": 31,
+      "recommendation": "Review this obfuscation pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const bytes = Uint8Array.from(atob(hash.replace(/-/g, '+').replace(/_/g, '/')), c => c.charCodeAt(0))",
+      "location": "repl\\editor\\tabs.js:31",
+      "replay": "axiom scan <corpus>/registry/14_audiojs__audio --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0063\")'"
+    },
+    {
+      "id": "code_0064",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in repl\\view\\data.js at line 1: `import Waveform from '../../assets/gl-waveform.js'`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "repl\\view\\data.js",
+      "line_number": 1,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "import Waveform from '../../assets/gl-waveform.js'",
+      "location": "repl\\view\\data.js:1",
+      "replay": "axiom scan <corpus>/registry/14_audiojs__audio --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0064\")'"
+    },
+    {
+      "id": "code_0065",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in repl\\view\\data.js at line 2: `import Spectrogram from '../../assets/gl-spectrogram.js'`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "repl\\view\\data.js",
+      "line_number": 2,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "import Spectrogram from '../../assets/gl-spectrogram.js'",
+      "location": "repl\\view\\data.js:2",
+      "replay": "axiom scan <corpus>/registry/14_audiojs__audio --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0065\")'"
+    },
+    {
+      "id": "code_0066",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in repl\\view\\render.js at line 1: `import Waveform from '../../assets/gl-waveform.js'`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "repl\\view\\render.js",
+      "line_number": 1,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "import Waveform from '../../assets/gl-waveform.js'",
+      "location": "repl\\view\\render.js:1",
+      "replay": "axiom scan <corpus>/registry/14_audiojs__audio --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0066\")'"
+    },
+    {
+      "id": "transport_plain_http",
+      "severity": "info",
+      "category": "transport_security",
+      "title": "MCP server listens on plain HTTP",
+      "description": ".site-serve.js binds or references http://localhost; the server is on the loopback interface; only this machine can reach it.",
+      "owasp_asi": [
+        "ASI07"
+      ],
+      "owasp_mcp": [
+        "MCP07"
+      ],
+      "file_path": ".site-serve.js",
+      "line_number": null,
+      "recommendation": "Use HTTPS with valid TLS certificates for anything reachable beyond this machine.",
+      "rule_id": "transport_plain_http",
+      "evidence": "MCP server listens on plain HTTP",
+      "location": ".site-serve.js",
+      "replay": "axiom scan <corpus>/registry/14_audiojs__audio --output json --no-ai --no-history | jq '.findings[] | select(.id==\"transport_plain_http\")'"
+    },
+    {
+      "id": "codegen_0001",
+      "severity": "low",
+      "category": "code_generation",
+      "title": "Dynamic code generation from input detected",
+      "description": "Pattern in bench\\speech.mjs at line 179: `if (s.startsWith('rx(')) return rx(...new Function(`return [${s.slice(3, -1)}]`)())(x)`. Tools that generate code from agent inputs can execute attacker-controlled payloads.",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "bench\\speech.mjs",
+      "line_number": 179,
+      "recommendation": "Sandbox code execution. Validate and sanitize all inputs before code generation. Use AST-based analysis instead of string-based code construction.",
+      "rule_id": "code_generation_pattern",
+      "evidence": "Dynamic code generation from input detected",
+      "location": "bench\\speech.mjs:179",
+      "replay": "axiom scan <corpus>/registry/14_audiojs__audio --output json --no-ai --no-history | jq '.findings[] | select(.id==\"codegen_0001\")'"
+    },
+    {
+      "id": "codegen_0002",
+      "severity": "low",
+      "category": "code_generation",
+      "title": "Dynamic code generation from input detected",
+      "description": "Pattern in bench\\speech.mjs at line 181: `if (!m) return { ch: (await new Function('a', `return a.${s}`)(audio.from(x.ch, { sampleRate: x.sr })).read()).map(c => `. Tools that generate code from agent inputs can execute attacker-controlled payloads.",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "bench\\speech.mjs",
+      "line_number": 181,
+      "recommendation": "Sandbox code execution. Validate and sanitize all inputs before code generation. Use AST-based analysis instead of string-based code construction.",
+      "rule_id": "code_generation_pattern",
+      "evidence": "Dynamic code generation from input detected",
+      "location": "bench\\speech.mjs:181",
+      "replay": "axiom scan <corpus>/registry/14_audiojs__audio --output json --no-ai --no-history | jq '.findings[] | select(.id==\"codegen_0002\")'"
+    },
+    {
+      "id": "codegen_0003",
+      "severity": "low",
+      "category": "code_generation",
+      "title": "Dynamic code generation from input detected",
+      "description": "Pattern in bench\\speech.mjs at line 183: `let args = new Function(`return [${m[2]}]`)(), o = typeof args[0] === 'object' ? args[0] : { limit: args[0] }`. Tools that generate code from agent inputs can execute attacker-controlled payloads.",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "bench\\speech.mjs",
+      "line_number": 183,
+      "recommendation": "Sandbox code execution. Validate and sanitize all inputs before code generation. Use AST-based analysis instead of string-based code construction.",
+      "rule_id": "code_generation_pattern",
+      "evidence": "Dynamic code generation from input detected",
+      "location": "bench\\speech.mjs:183",
+      "replay": "axiom scan <corpus>/registry/14_audiojs__audio --output json --no-ai --no-history | jq '.findings[] | select(.id==\"codegen_0003\")'"
+    },
+    {
+      "id": "codegen_0004",
+      "severity": "low",
+      "category": "code_generation",
+      "title": "Dynamic code generation from input detected",
+      "description": "Pattern in bench\\rx\\denoise.mjs at line 65: `const args = s => new Function(`return [${s}]`)()`. Tools that generate code from agent inputs can execute attacker-controlled payloads.",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "bench\\rx\\denoise.mjs",
+      "line_number": 65,
+      "recommendation": "Sandbox code execution. Validate and sanitize all inputs before code generation. Use AST-based analysis instead of string-based code construction.",
+      "rule_id": "code_generation_pattern",
+      "evidence": "Dynamic code generation from input detected",
+      "location": "bench\\rx\\denoise.mjs:65",
+      "replay": "axiom scan <corpus>/registry/14_audiojs__audio --output json --no-ai --no-history | jq '.findings[] | select(.id==\"codegen_0004\")'"
+    },
+    {
+      "id": "codegen_0005",
+      "severity": "low",
+      "category": "code_generation",
+      "title": "Dynamic code generation from input detected",
+      "description": "Pattern in bench\\rx\\lib.mjs at line 82: `let a = new Function('a', `return a.${stages}`)(audio.from(ch.map(c => Float32Array.from(c)), { sampleRate: sr }))`. Tools that generate code from agent inputs can execute attacker-controlled payloads.",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "bench\\rx\\lib.mjs",
+      "line_number": 82,
+      "recommendation": "Sandbox code execution. Validate and sanitize all inputs before code generation. Use AST-based analysis instead of string-based code construction.",
+      "rule_id": "code_generation_pattern",
+      "evidence": "Dynamic code generation from input detected",
+      "location": "bench\\rx\\lib.mjs:82",
+      "replay": "axiom scan <corpus>/registry/14_audiojs__audio --output json --no-ai --no-history | jq '.findings[] | select(.id==\"codegen_0005\")'"
+    },
+    {
+      "id": "codegen_0006",
+      "severity": "low",
+      "category": "code_generation",
+      "title": "Dynamic code generation from input detected",
+      "description": "Pattern in repl\\worker.js at line 279: `try { new AsyncFunction('throw new Error()\\n//# sourceURL=repl-probe.js')().catch(e => { lineOffset = +(e.stack?.match(/`. Tools that generate code from agent inputs can execute attacker-controlled payloads.",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "repl\\worker.js",
+      "line_number": 279,
+      "recommendation": "Sandbox code execution. Validate and sanitize all inputs before code generation. Use AST-based analysis instead of string-based code construction.",
+      "rule_id": "code_generation_pattern",
+      "evidence": "Dynamic code generation from input detected",
+      "location": "repl\\worker.js:279",
+      "replay": "axiom scan <corpus>/registry/14_audiojs__audio --output json --no-ai --no-history | jq '.findings[] | select(.id==\"codegen_0006\")'"
+    },
+    {
+      "id": "codegen_0007",
+      "severity": "low",
+      "category": "code_generation",
+      "title": "Dynamic code generation from input detected",
+      "description": "Pattern in repl\\worker.js at line 304: `let value = await new AsyncFunction('audio', 'console', 'files', '__loop', '__out', code + '\\n//# sourceURL=repl.js')(ap`. Tools that generate code from agent inputs can execute attacker-controlled payloads.",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "repl\\worker.js",
+      "line_number": 304,
+      "recommendation": "Sandbox code execution. Validate and sanitize all inputs before code generation. Use AST-based analysis instead of string-based code construction.",
+      "rule_id": "code_generation_pattern",
+      "evidence": "Dynamic code generation from input detected",
+      "location": "repl\\worker.js:304",
+      "replay": "axiom scan <corpus>/registry/14_audiojs__audio --output json --no-ai --no-history | jq '.findings[] | select(.id==\"codegen_0007\")'"
+    },
+    {
+      "id": "codegen_0008",
+      "severity": "low",
+      "category": "code_generation",
+      "title": "Dynamic code generation from input detected",
+      "description": "Pattern in repl\\worker.js at line 1362: `const run = new AsyncFunction('audio', 'out', 'src', 'step', '__loop', '__out', code + '\\n//# sourceURL=repl.js')`. Tools that generate code from agent inputs can execute attacker-controlled payloads.",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "repl\\worker.js",
+      "line_number": 1362,
+      "recommendation": "Sandbox code execution. Validate and sanitize all inputs before code generation. Use AST-based analysis instead of string-based code construction.",
+      "rule_id": "code_generation_pattern",
+      "evidence": "Dynamic code generation from input detected",
+      "location": "repl\\worker.js:1362",
+      "replay": "axiom scan <corpus>/registry/14_audiojs__audio --output json --no-ai --no-history | jq '.findings[] | select(.id==\"codegen_0008\")'"
+    },
+    {
+      "id": "codegen_0009",
+      "severity": "low",
+      "category": "code_generation",
+      "title": "Dynamic code generation from input detected",
+      "description": "Pattern in repl\\worker.js at line 1479: `let a = await new AsyncFunction('audio', 'console', 'files', '__loop', '__out', code + '\\n//# sourceURL=repl.js')(scoped`. Tools that generate code from agent inputs can execute attacker-controlled payloads.",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "repl\\worker.js",
+      "line_number": 1479,
+      "recommendation": "Sandbox code execution. Validate and sanitize all inputs before code generation. Use AST-based analysis instead of string-based code construction.",
+      "rule_id": "code_generation_pattern",
+      "evidence": "Dynamic code generation from input detected",
+      "location": "repl\\worker.js:1479",
+      "replay": "axiom scan <corpus>/registry/14_audiojs__audio --output json --no-ai --no-history | jq '.findings[] | select(.id==\"codegen_0009\")'"
+    },
+    {
+      "id": "codegen_0010",
+      "severity": "low",
+      "category": "code_generation",
+      "title": "Dynamic code generation from input detected",
+      "description": "Pattern in test\\recipes.js at line 52: `const run = (code, x, files = {}) => new AsyncFunction('$src', 'audio', code.startsWith('$src') ? `return ${code}` : cod`. Tools that generate code from agent inputs can execute attacker-controlled payloads.",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "test\\recipes.js",
+      "line_number": 52,
+      "recommendation": "Sandbox code execution. Validate and sanitize all inputs before code generation. Use AST-based analysis instead of string-based code construction.",
+      "rule_id": "code_generation_pattern",
+      "evidence": "Dynamic code generation from input detected",
+      "location": "test\\recipes.js:52",
+      "replay": "axiom scan <corpus>/registry/14_audiojs__audio --output json --no-ai --no-history | jq '.findings[] | select(.id==\"codegen_0010\")'"
+    },
+    {
+      "id": "codegen_0011",
+      "severity": "low",
+      "category": "code_generation",
+      "title": "Dynamic code generation from input detected",
+      "description": "Pattern in test\\repl\\code.test.js at line 642: `const js = await new Function('audio', 'return ' + script.replace(\"'in.wav'\", JSON.stringify(input)))(audio).read()`. Tools that generate code from agent inputs can execute attacker-controlled payloads.",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "test\\repl\\code.test.js",
+      "line_number": 642,
+      "recommendation": "Sandbox code execution. Validate and sanitize all inputs before code generation. Use AST-based analysis instead of string-based code construction.",
+      "rule_id": "code_generation_pattern",
+      "evidence": "Dynamic code generation from input detected",
+      "location": "test\\repl\\code.test.js:642",
+      "replay": "axiom scan <corpus>/registry/14_audiojs__audio --output json --no-ai --no-history | jq '.findings[] | select(.id==\"codegen_0011\")'"
+    },
+    {
+      "id": "codegen_0012",
+      "severity": "low",
+      "category": "code_generation",
+      "title": "Dynamic code generation from input detected",
+      "description": "Pattern in test\\repl\\layout.test.js at line 180: `const at = new Function('return ' + text)()`. Tools that generate code from agent inputs can execute attacker-controlled payloads.",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "test\\repl\\layout.test.js",
+      "line_number": 180,
+      "recommendation": "Sandbox code execution. Validate and sanitize all inputs before code generation. Use AST-based analysis instead of string-based code construction.",
+      "rule_id": "code_generation_pattern",
+      "evidence": "Dynamic code generation from input detected",
+      "location": "test\\repl\\layout.test.js:180",
+      "replay": "axiom scan <corpus>/registry/14_audiojs__audio --output json --no-ai --no-history | jq '.findings[] | select(.id==\"codegen_0012\")'"
+    },
+    {
+      "id": "codegen_0013",
+      "severity": "low",
+      "category": "code_generation",
+      "title": "Dynamic code generation from input detected",
+      "description": "Pattern in test\\repl\\look.test.js at line 541: `const { Je: Color, bi: RGBA } = new Function(`${src.slice(a, e + 1)}}; return { Je, bi }`)()`. Tools that generate code from agent inputs can execute attacker-controlled payloads.",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "test\\repl\\look.test.js",
+      "line_number": 541,
+      "recommendation": "Sandbox code execution. Validate and sanitize all inputs before code generation. Use AST-based analysis instead of string-based code construction.",
+      "rule_id": "code_generation_pattern",
+      "evidence": "Dynamic code generation from input detected",
+      "location": "test\\repl\\look.test.js:541",
+      "replay": "axiom scan <corpus>/registry/14_audiojs__audio --output json --no-ai --no-history | jq '.findings[] | select(.id==\"codegen_0013\")'"
+    },
+    {
+      "id": "codegen_0014",
+      "severity": "low",
+      "category": "code_generation",
+      "title": "Dynamic code generation from input detected",
+      "description": "Pattern in test\\repl\\look.test.js at line 585: `const cjs = src => { const module = { exports: {} }; new Function('module', 'exports', src)(module, module.exports); ret`. Tools that generate code from agent inputs can execute attacker-controlled payloads.",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "test\\repl\\look.test.js",
+      "line_number": 585,
+      "recommendation": "Sandbox code execution. Validate and sanitize all inputs before code generation. Use AST-based analysis instead of string-based code construction.",
+      "rule_id": "code_generation_pattern",
+      "evidence": "Dynamic code generation from input detected",
+      "location": "test\\repl\\look.test.js:585",
+      "replay": "axiom scan <corpus>/registry/14_audiojs__audio --output json --no-ai --no-history | jq '.findings[] | select(.id==\"codegen_0014\")'"
+    },
+    {
+      "id": "codegen_0015",
+      "severity": "low",
+      "category": "code_generation",
+      "title": "Dynamic code generation from input detected",
+      "description": "Pattern in test\\repl\\page.js at line 439: `return new Function('d', 'w', 'h', 'arg', src)(g.getImageData(0, 0, c.width, c.height).data, c.width, c.height, arg)`. Tools that generate code from agent inputs can execute attacker-controlled payloads.",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "test\\repl\\page.js",
+      "line_number": 439,
+      "recommendation": "Sandbox code execution. Validate and sanitize all inputs before code generation. Use AST-based analysis instead of string-based code construction.",
+      "rule_id": "code_generation_pattern",
+      "evidence": "Dynamic code generation from input detected",
+      "location": "test\\repl\\page.js:439",
+      "replay": "axiom scan <corpus>/registry/14_audiojs__audio --output json --no-ai --no-history | jq '.findings[] | select(.id==\"codegen_0015\")'"
+    },
+    {
+      "id": "memory_0001",
+      "severity": "low",
+      "category": "memory_poisoning",
+      "title": "Memory/context modification capability detected",
+      "description": "Pattern in core.js near line 780: `Persistent storage`. MCP servers that modify agent memory or context can poison long-term behavior.",
+      "owasp_asi": [
+        "ASI06"
+      ],
+      "owasp_mcp": [
+        "MCP06",
+        "MCP10"
+      ],
+      "file_path": "core.js",
+      "line_number": 780,
+      "recommendation": "Validate all data before writing to agent memory. Implement integrity checks on persistent context. Log all memory modifications for audit.",
+      "rule_id": "memory_poisoning_pattern",
+      "evidence": "Memory/context modification capability detected",
+      "location": "core.js:780",
+      "replay": "axiom scan <corpus>/registry/14_audiojs__audio --output json --no-ai --no-history | jq '.findings[] | select(.id==\"memory_0001\")'"
+    },
+    {
+      "id": "memory_0002",
+      "severity": "low",
+      "category": "memory_poisoning",
+      "title": "Memory/context modification capability detected",
+      "description": "Pattern in bin\\bridge.js near line 232: `sessionUpdate`. MCP servers that modify agent memory or context can poison long-term behavior.",
+      "owasp_asi": [
+        "ASI06"
+      ],
+      "owasp_mcp": [
+        "MCP06",
+        "MCP10"
+      ],
+      "file_path": "bin\\bridge.js",
+      "line_number": 232,
+      "recommendation": "Validate all data before writing to agent memory. Implement integrity checks on persistent context. Log all memory modifications for audit.",
+      "rule_id": "memory_poisoning_pattern",
+      "evidence": "Memory/context modification capability detected",
+      "location": "bin\\bridge.js:232",
+      "replay": "axiom scan <corpus>/registry/14_audiojs__audio --output json --no-ai --no-history | jq '.findings[] | select(.id==\"memory_0002\")'"
+    },
+    {
+      "id": "memory_0003",
+      "severity": "low",
+      "category": "memory_poisoning",
+      "title": "Memory/context modification capability detected",
+      "description": "Pattern in fn\\crossover.js near line 12: `state persist`. MCP servers that modify agent memory or context can poison long-term behavior.",
+      "owasp_asi": [
+        "ASI06"
+      ],
+      "owasp_mcp": [
+        "MCP06",
+        "MCP10"
+      ],
+      "file_path": "fn\\crossover.js",
+      "line_number": 12,
+      "recommendation": "Validate all data before writing to agent memory. Implement integrity checks on persistent context. Log all memory modifications for audit.",
+      "rule_id": "memory_poisoning_pattern",
+      "evidence": "Memory/context modification capability detected",
+      "location": "fn\\crossover.js:12",
+      "replay": "axiom scan <corpus>/registry/14_audiojs__audio --output json --no-ai --no-history | jq '.findings[] | select(.id==\"memory_0003\")'"
+    },
+    {
+      "id": "memory_0004",
+      "severity": "low",
+      "category": "memory_poisoning",
+      "title": "Memory/context modification capability detected",
+      "description": "Pattern in repl\\editor\\commands.js near line 83: `rag add`. MCP servers that modify agent memory or context can poison long-term behavior.",
+      "owasp_asi": [
+        "ASI06"
+      ],
+      "owasp_mcp": [
+        "MCP06",
+        "MCP10"
+      ],
+      "file_path": "repl\\editor\\commands.js",
+      "line_number": 83,
+      "recommendation": "Validate all data before writing to agent memory. Implement integrity checks on persistent context. Log all memory modifications for audit.",
+      "rule_id": "memory_poisoning_pattern",
+      "evidence": "Memory/context modification capability detected",
+      "location": "repl\\editor\\commands.js:83",
+      "replay": "axiom scan <corpus>/registry/14_audiojs__audio --output json --no-ai --no-history | jq '.findings[] | select(.id==\"memory_0004\")'"
+    },
+    {
+      "id": "memory_0005",
+      "severity": "low",
+      "category": "memory_poisoning",
+      "title": "Memory/context modification capability detected",
+      "description": "Pattern in test\\bridge.js near line 139: `sessionUpdate`. MCP servers that modify agent memory or context can poison long-term behavior.",
+      "owasp_asi": [
+        "ASI06"
+      ],
+      "owasp_mcp": [
+        "MCP06",
+        "MCP10"
+      ],
+      "file_path": "test\\bridge.js",
+      "line_number": 139,
+      "recommendation": "Validate all data before writing to agent memory. Implement integrity checks on persistent context. Log all memory modifications for audit.",
+      "rule_id": "memory_poisoning_pattern",
+      "evidence": "Memory/context modification capability detected",
+      "location": "test\\bridge.js:139",
+      "replay": "axiom scan <corpus>/registry/14_audiojs__audio --output json --no-ai --no-history | jq '.findings[] | select(.id==\"memory_0005\")'"
+    },
+    {
+      "id": "memory_0006",
+      "severity": "low",
+      "category": "memory_poisoning",
+      "title": "Memory/context modification capability detected",
+      "description": "Pattern in test\\index.js near line 3667: `state persist`. MCP servers that modify agent memory or context can poison long-term behavior.",
+      "owasp_asi": [
+        "ASI06"
+      ],
+      "owasp_mcp": [
+        "MCP06",
+        "MCP10"
+      ],
+      "file_path": "test\\index.js",
+      "line_number": 3667,
+      "recommendation": "Validate all data before writing to agent memory. Implement integrity checks on persistent context. Log all memory modifications for audit.",
+      "rule_id": "memory_poisoning_pattern",
+      "evidence": "Memory/context modification capability detected",
+      "location": "test\\index.js:3667",
+      "replay": "axiom scan <corpus>/registry/14_audiojs__audio --output json --no-ai --no-history | jq '.findings[] | select(.id==\"memory_0006\")'"
+    },
+    {
+      "id": "memory_0007",
+      "severity": "low",
+      "category": "memory_poisoning",
+      "title": "Memory/context modification capability detected",
+      "description": "Pattern in test\\repl\\menus.test.js near line 48: `rag add`. MCP servers that modify agent memory or context can poison long-term behavior.",
+      "owasp_asi": [
+        "ASI06"
+      ],
+      "owasp_mcp": [
+        "MCP06",
+        "MCP10"
+      ],
+      "file_path": "test\\repl\\menus.test.js",
+      "line_number": 48,
+      "recommendation": "Validate all data before writing to agent memory. Implement integrity checks on persistent context. Log all memory modifications for audit.",
+      "rule_id": "memory_poisoning_pattern",
+      "evidence": "Memory/context modification capability detected",
+      "location": "test\\repl\\menus.test.js:48",
+      "replay": "axiom scan <corpus>/registry/14_audiojs__audio --output json --no-ai --no-history | jq '.findings[] | select(.id==\"memory_0007\")'"
+    },
+    {
+      "id": "memory_0008",
+      "severity": "low",
+      "category": "memory_poisoning",
+      "title": "Memory/context modification capability detected",
+      "description": "Pattern in test\\repl\\select.test.js near line 433: `rag add`. MCP servers that modify agent memory or context can poison long-term behavior.",
+      "owasp_asi": [
+        "ASI06"
+      ],
+      "owasp_mcp": [
+        "MCP06",
+        "MCP10"
+      ],
+      "file_path": "test\\repl\\select.test.js",
+      "line_number": 433,
+      "recommendation": "Validate all data before writing to agent memory. Implement integrity checks on persistent context. Log all memory modifications for audit.",
+      "rule_id": "memory_poisoning_pattern",
+      "evidence": "Memory/context modification capability detected",
+      "location": "test\\repl\\select.test.js:433",
+      "replay": "axiom scan <corpus>/registry/14_audiojs__audio --output json --no-ai --no-history | jq '.findings[] | select(.id==\"memory_0008\")'"
+    },
+    {
+      "id": "interagent_0001",
+      "severity": "low",
+      "category": "inter_agent_comm",
+      "title": "Inter-agent communication pattern detected",
+      "description": "Pattern in test\\bridge.js near line 2: `fake agent`. Inter-agent messages can be spoofed or manipulated without proper validation.",
+      "owasp_asi": [
+        "ASI07"
+      ],
+      "owasp_mcp": [
+        "MCP07"
+      ],
+      "file_path": "test\\bridge.js",
+      "line_number": 2,
+      "recommendation": "Authenticate all inter-agent messages. Validate sender identity. Implement message signing and schema validation. Never trust agent-provided identity claims.",
+      "rule_id": "inter_agent_pattern",
+      "evidence": "Inter-agent communication pattern detected",
+      "location": "test\\bridge.js:2",
+      "replay": "axiom scan <corpus>/registry/14_audiojs__audio --output json --no-ai --no-history | jq '.findings[] | select(.id==\"interagent_0001\")'"
+    },
+    {
+      "id": "rogue_0001",
+      "severity": "low",
+      "category": "rogue_agent",
+      "title": "Rogue agent indicator detected",
+      "description": "Pattern in repl\\help.js near line 629: `interval: 'How often a slice is captured and repeat`. This could indicate self-modifying behavior, persistence mechanisms, or evasion capabilities.",
+      "owasp_asi": [
+        "ASI10"
+      ],
+      "owasp_mcp": [
+        "MCP03"
+      ],
+      "file_path": "repl\\help.js",
+      "line_number": 629,
+      "recommendation": "Implement behavioral monitoring and kill switches. Ensure all agent actions are logged and auditable. Run in sandboxed environments with strict resource limits.",
+      "rule_id": "rogue_agent_pattern",
+      "evidence": "Rogue agent indicator detected",
+      "location": "repl\\help.js:629",
+      "replay": "axiom scan <corpus>/registry/14_audiojs__audio --output json --no-ai --no-history | jq '.findings[] | select(.id==\"rogue_0001\")'"
+    },
+    {
+      "id": "rogue_0002",
+      "severity": "low",
+      "category": "rogue_agent",
+      "title": "Rogue agent indicator detected",
+      "description": "Pattern in test\\memory.test.js near line 36: `InitScript`. This could indicate self-modifying behavior, persistence mechanisms, or evasion capabilities.",
+      "owasp_asi": [
+        "ASI10"
+      ],
+      "owasp_mcp": [
+        "MCP03"
+      ],
+      "file_path": "test\\memory.test.js",
+      "line_number": 36,
+      "recommendation": "Implement behavioral monitoring and kill switches. Ensure all agent actions are logged and auditable. Run in sandboxed environments with strict resource limits.",
+      "rule_id": "rogue_agent_pattern",
+      "evidence": "Rogue agent indicator detected",
+      "location": "test\\memory.test.js:36",
+      "replay": "axiom scan <corpus>/registry/14_audiojs__audio --output json --no-ai --no-history | jq '.findings[] | select(.id==\"rogue_0002\")'"
+    },
+    {
+      "id": "rogue_0003",
+      "severity": "low",
+      "category": "rogue_agent",
+      "title": "Rogue agent indicator detected",
+      "description": "Pattern in test\\repl\\agent.test.js near line 238: `InitScript`. This could indicate self-modifying behavior, persistence mechanisms, or evasion capabilities.",
+      "owasp_asi": [
+        "ASI10"
+      ],
+      "owasp_mcp": [
+        "MCP03"
+      ],
+      "file_path": "test\\repl\\agent.test.js",
+      "line_number": 238,
+      "recommendation": "Implement behavioral monitoring and kill switches. Ensure all agent actions are logged and auditable. Run in sandboxed environments with strict resource limits.",
+      "rule_id": "rogue_agent_pattern",
+      "evidence": "Rogue agent indicator detected",
+      "location": "test\\repl\\agent.test.js:238",
+      "replay": "axiom scan <corpus>/registry/14_audiojs__audio --output json --no-ai --no-history | jq '.findings[] | select(.id==\"rogue_0003\")'"
+    },
+    {
+      "id": "rogue_0004",
+      "severity": "low",
+      "category": "rogue_agent",
+      "title": "Rogue agent indicator detected",
+      "description": "Pattern in test\\repl\\edits.test.js near line 534: `InitScript`. This could indicate self-modifying behavior, persistence mechanisms, or evasion capabilities.",
+      "owasp_asi": [
+        "ASI10"
+      ],
+      "owasp_mcp": [
+        "MCP03"
+      ],
+      "file_path": "test\\repl\\edits.test.js",
+      "line_number": 534,
+      "recommendation": "Implement behavioral monitoring and kill switches. Ensure all agent actions are logged and auditable. Run in sandboxed environments with strict resource limits.",
+      "rule_id": "rogue_agent_pattern",
+      "evidence": "Rogue agent indicator detected",
+      "location": "test\\repl\\edits.test.js:534",
+      "replay": "axiom scan <corpus>/registry/14_audiojs__audio --output json --no-ai --no-history | jq '.findings[] | select(.id==\"rogue_0004\")'"
+    },
+    {
+      "id": "rogue_0005",
+      "severity": "low",
+      "category": "rogue_agent",
+      "title": "Rogue agent indicator detected",
+      "description": "Pattern in test\\repl\\embed.test.js near line 99: `InitScript`. This could indicate self-modifying behavior, persistence mechanisms, or evasion capabilities.",
+      "owasp_asi": [
+        "ASI10"
+      ],
+      "owasp_mcp": [
+        "MCP03"
+      ],
+      "file_path": "test\\repl\\embed.test.js",
+      "line_number": 99,
+      "recommendation": "Implement behavioral monitoring and kill switches. Ensure all agent actions are logged and auditable. Run in sandboxed environments with strict resource limits.",
+      "rule_id": "rogue_agent_pattern",
+      "evidence": "Rogue agent indicator detected",
+      "location": "test\\repl\\embed.test.js:99",
+      "replay": "axiom scan <corpus>/registry/14_audiojs__audio --output json --no-ai --no-history | jq '.findings[] | select(.id==\"rogue_0005\")'"
+    },
+    {
+      "id": "rogue_0006",
+      "severity": "low",
+      "category": "rogue_agent",
+      "title": "Rogue agent indicator detected",
+      "description": "Pattern in test\\repl\\engine.test.js near line 1018: `InitScript`. This could indicate self-modifying behavior, persistence mechanisms, or evasion capabilities.",
+      "owasp_asi": [
+        "ASI10"
+      ],
+      "owasp_mcp": [
+        "MCP03"
+      ],
+      "file_path": "test\\repl\\engine.test.js",
+      "line_number": 1018,
+      "recommendation": "Implement behavioral monitoring and kill switches. Ensure all agent actions are logged and auditable. Run in sandboxed environments with strict resource limits.",
+      "rule_id": "rogue_agent_pattern",
+      "evidence": "Rogue agent indicator detected",
+      "location": "test\\repl\\engine.test.js:1018",
+      "replay": "axiom scan <corpus>/registry/14_audiojs__audio --output json --no-ai --no-history | jq '.findings[] | select(.id==\"rogue_0006\")'"
+    },
+    {
+      "id": "rogue_0007",
+      "severity": "low",
+      "category": "rogue_agent",
+      "title": "Rogue agent indicator detected",
+      "description": "Pattern in test\\repl\\files.test.js near line 282: `InitScript`. This could indicate self-modifying behavior, persistence mechanisms, or evasion capabilities.",
+      "owasp_asi": [
+        "ASI10"
+      ],
+      "owasp_mcp": [
+        "MCP03"
+      ],
+      "file_path": "test\\repl\\files.test.js",
+      "line_number": 282,
+      "recommendation": "Implement behavioral monitoring and kill switches. Ensure all agent actions are logged and auditable. Run in sandboxed environments with strict resource limits.",
+      "rule_id": "rogue_agent_pattern",
+      "evidence": "Rogue agent indicator detected",
+      "location": "test\\repl\\files.test.js:282",
+      "replay": "axiom scan <corpus>/registry/14_audiojs__audio --output json --no-ai --no-history | jq '.findings[] | select(.id==\"rogue_0007\")'"
+    },
+    {
+      "id": "rogue_0008",
+      "severity": "low",
+      "category": "rogue_agent",
+      "title": "Rogue agent indicator detected",
+      "description": "Pattern in test\\repl\\layout.test.js near line 353: `InitScript`. This could indicate self-modifying behavior, persistence mechanisms, or evasion capabilities.",
+      "owasp_asi": [
+        "ASI10"
+      ],
+      "owasp_mcp": [
+        "MCP03"
+      ],
+      "file_path": "test\\repl\\layout.test.js",
+      "line_number": 353,
+      "recommendation": "Implement behavioral monitoring and kill switches. Ensure all agent actions are logged and auditable. Run in sandboxed environments with strict resource limits.",
+      "rule_id": "rogue_agent_pattern",
+      "evidence": "Rogue agent indicator detected",
+      "location": "test\\repl\\layout.test.js:353",
+      "replay": "axiom scan <corpus>/registry/14_audiojs__audio --output json --no-ai --no-history | jq '.findings[] | select(.id==\"rogue_0008\")'"
+    },
+    {
+      "id": "rogue_0009",
+      "severity": "low",
+      "category": "rogue_agent",
+      "title": "Rogue agent indicator detected",
+      "description": "Pattern in test\\repl\\look.test.js near line 211: `InitScript`. This could indicate self-modifying behavior, persistence mechanisms, or evasion capabilities.",
+      "owasp_asi": [
+        "ASI10"
+      ],
+      "owasp_mcp": [
+        "MCP03"
+      ],
+      "file_path": "test\\repl\\look.test.js",
+      "line_number": 211,
+      "recommendation": "Implement behavioral monitoring and kill switches. Ensure all agent actions are logged and auditable. Run in sandboxed environments with strict resource limits.",
+      "rule_id": "rogue_agent_pattern",
+      "evidence": "Rogue agent indicator detected",
+      "location": "test\\repl\\look.test.js:211",
+      "replay": "axiom scan <corpus>/registry/14_audiojs__audio --output json --no-ai --no-history | jq '.findings[] | select(.id==\"rogue_0009\")'"
+    },
+    {
+      "id": "rogue_0010",
+      "severity": "low",
+      "category": "rogue_agent",
+      "title": "Rogue agent indicator detected",
+      "description": "Pattern in test\\repl\\menus.test.js near line 279: `InitScript`. This could indicate self-modifying behavior, persistence mechanisms, or evasion capabilities.",
+      "owasp_asi": [
+        "ASI10"
+      ],
+      "owasp_mcp": [
+        "MCP03"
+      ],
+      "file_path": "test\\repl\\menus.test.js",
+      "line_number": 279,
+      "recommendation": "Implement behavioral monitoring and kill switches. Ensure all agent actions are logged and auditable. Run in sandboxed environments with strict resource limits.",
+      "rule_id": "rogue_agent_pattern",
+      "evidence": "Rogue agent indicator detected",
+      "location": "test\\repl\\menus.test.js:279",
+      "replay": "axiom scan <corpus>/registry/14_audiojs__audio --output json --no-ai --no-history | jq '.findings[] | select(.id==\"rogue_0010\")'"
+    },
+    {
+      "id": "rogue_0011",
+      "severity": "low",
+      "category": "rogue_agent",
+      "title": "Rogue agent indicator detected",
+      "description": "Pattern in test\\repl\\page.js near line 24: `InitScript`. This could indicate self-modifying behavior, persistence mechanisms, or evasion capabilities.",
+      "owasp_asi": [
+        "ASI10"
+      ],
+      "owasp_mcp": [
+        "MCP03"
+      ],
+      "file_path": "test\\repl\\page.js",
+      "line_number": 24,
+      "recommendation": "Implement behavioral monitoring and kill switches. Ensure all agent actions are logged and auditable. Run in sandboxed environments with strict resource limits.",
+      "rule_id": "rogue_agent_pattern",
+      "evidence": "Rogue agent indicator detected",
+      "location": "test\\repl\\page.js:24",
+      "replay": "axiom scan <corpus>/registry/14_audiojs__audio --output json --no-ai --no-history | jq '.findings[] | select(.id==\"rogue_0011\")'"
+    },
+    {
+      "id": "rogue_0012",
+      "severity": "low",
+      "category": "rogue_agent",
+      "title": "Rogue agent indicator detected",
+      "description": "Pattern in test\\repl\\pitch.test.js near line 49: `InitScript`. This could indicate self-modifying behavior, persistence mechanisms, or evasion capabilities.",
+      "owasp_asi": [
+        "ASI10"
+      ],
+      "owasp_mcp": [
+        "MCP03"
+      ],
+      "file_path": "test\\repl\\pitch.test.js",
+      "line_number": 49,
+      "recommendation": "Implement behavioral monitoring and kill switches. Ensure all agent actions are logged and auditable. Run in sandboxed environments with strict resource limits.",
+      "rule_id": "rogue_agent_pattern",
+      "evidence": "Rogue agent indicator detected",
+      "location": "test\\repl\\pitch.test.js:49",
+      "replay": "axiom scan <corpus>/registry/14_audiojs__audio --output json --no-ai --no-history | jq '.findings[] | select(.id==\"rogue_0012\")'"
+    },
+    {
+      "id": "rogue_0013",
+      "severity": "low",
+      "category": "rogue_agent",
+      "title": "Rogue agent indicator detected",
+      "description": "Pattern in test\\repl\\play.test.js near line 89: `InitScript`. This could indicate self-modifying behavior, persistence mechanisms, or evasion capabilities.",
+      "owasp_asi": [
+        "ASI10"
+      ],
+      "owasp_mcp": [
+        "MCP03"
+      ],
+      "file_path": "test\\repl\\play.test.js",
+      "line_number": 89,
+      "recommendation": "Implement behavioral monitoring and kill switches. Ensure all agent actions are logged and auditable. Run in sandboxed environments with strict resource limits.",
+      "rule_id": "rogue_agent_pattern",
+      "evidence": "Rogue agent indicator detected",
+      "location": "test\\repl\\play.test.js:89",
+      "replay": "axiom scan <corpus>/registry/14_audiojs__audio --output json --no-ai --no-history | jq '.findings[] | select(.id==\"rogue_0013\")'"
+    },
+    {
+      "id": "rogue_0014",
+      "severity": "low",
+      "category": "rogue_agent",
+      "title": "Rogue agent indicator detected",
+      "description": "Pattern in test\\repl\\recording.test.js near line 206: `InitScript`. This could indicate self-modifying behavior, persistence mechanisms, or evasion capabilities.",
+      "owasp_asi": [
+        "ASI10"
+      ],
+      "owasp_mcp": [
+        "MCP03"
+      ],
+      "file_path": "test\\repl\\recording.test.js",
+      "line_number": 206,
+      "recommendation": "Implement behavioral monitoring and kill switches. Ensure all agent actions are logged and auditable. Run in sandboxed environments with strict resource limits.",
+      "rule_id": "rogue_agent_pattern",
+      "evidence": "Rogue agent indicator detected",
+      "location": "test\\repl\\recording.test.js:206",
+      "replay": "axiom scan <corpus>/registry/14_audiojs__audio --output json --no-ai --no-history | jq '.findings[] | select(.id==\"rogue_0014\")'"
+    },
+    {
+      "id": "rogue_0015",
+      "severity": "low",
+      "category": "rogue_agent",
+      "title": "Rogue agent indicator detected",
+      "description": "Pattern in test\\repl\\render.test.js near line 71: `InitScript`. This could indicate self-modifying behavior, persistence mechanisms, or evasion capabilities.",
+      "owasp_asi": [
+        "ASI10"
+      ],
+      "owasp_mcp": [
+        "MCP03"
+      ],
+      "file_path": "test\\repl\\render.test.js",
+      "line_number": 71,
+      "recommendation": "Implement behavioral monitoring and kill switches. Ensure all agent actions are logged and auditable. Run in sandboxed environments with strict resource limits.",
+      "rule_id": "rogue_agent_pattern",
+      "evidence": "Rogue agent indicator detected",
+      "location": "test\\repl\\render.test.js:71",
+      "replay": "axiom scan <corpus>/registry/14_audiojs__audio --output json --no-ai --no-history | jq '.findings[] | select(.id==\"rogue_0015\")'"
+    },
+    {
+      "id": "rogue_0016",
+      "severity": "low",
+      "category": "rogue_agent",
+      "title": "Rogue agent indicator detected",
+      "description": "Pattern in test\\repl\\ruler.test.js near line 187: `InitScript`. This could indicate self-modifying behavior, persistence mechanisms, or evasion capabilities.",
+      "owasp_asi": [
+        "ASI10"
+      ],
+      "owasp_mcp": [
+        "MCP03"
+      ],
+      "file_path": "test\\repl\\ruler.test.js",
+      "line_number": 187,
+      "recommendation": "Implement behavioral monitoring and kill switches. Ensure all agent actions are logged and auditable. Run in sandboxed environments with strict resource limits.",
+      "rule_id": "rogue_agent_pattern",
+      "evidence": "Rogue agent indicator detected",
+      "location": "test\\repl\\ruler.test.js:187",
+      "replay": "axiom scan <corpus>/registry/14_audiojs__audio --output json --no-ai --no-history | jq '.findings[] | select(.id==\"rogue_0016\")'"
+    },
+    {
+      "id": "rogue_0017",
+      "severity": "low",
+      "category": "rogue_agent",
+      "title": "Rogue agent indicator detected",
+      "description": "Pattern in test\\repl\\run.test.js near line 62: `InitScript`. This could indicate self-modifying behavior, persistence mechanisms, or evasion capabilities.",
+      "owasp_asi": [
+        "ASI10"
+      ],
+      "owasp_mcp": [
+        "MCP03"
+      ],
+      "file_path": "test\\repl\\run.test.js",
+      "line_number": 62,
+      "recommendation": "Implement behavioral monitoring and kill switches. Ensure all agent actions are logged and auditable. Run in sandboxed environments with strict resource limits.",
+      "rule_id": "rogue_agent_pattern",
+      "evidence": "Rogue agent indicator detected",
+      "location": "test\\repl\\run.test.js:62",
+      "replay": "axiom scan <corpus>/registry/14_audiojs__audio --output json --no-ai --no-history | jq '.findings[] | select(.id==\"rogue_0017\")'"
+    },
+    {
+      "id": "rogue_0018",
+      "severity": "low",
+      "category": "rogue_agent",
+      "title": "Rogue agent indicator detected",
+      "description": "Pattern in test\\repl\\select.test.js near line 964: `InitScript`. This could indicate self-modifying behavior, persistence mechanisms, or evasion capabilities.",
+      "owasp_asi": [
+        "ASI10"
+      ],
+      "owasp_mcp": [
+        "MCP03"
+      ],
+      "file_path": "test\\repl\\select.test.js",
+      "line_number": 964,
+      "recommendation": "Implement behavioral monitoring and kill switches. Ensure all agent actions are logged and auditable. Run in sandboxed environments with strict resource limits.",
+      "rule_id": "rogue_agent_pattern",
+      "evidence": "Rogue agent indicator detected",
+      "location": "test\\repl\\select.test.js:964",
+      "replay": "axiom scan <corpus>/registry/14_audiojs__audio --output json --no-ai --no-history | jq '.findings[] | select(.id==\"rogue_0018\")'"
+    },
+    {
+      "id": "rogue_0019",
+      "severity": "low",
+      "category": "rogue_agent",
+      "title": "Rogue agent indicator detected",
+      "description": "Pattern in test\\repl\\tabs.test.js near line 448: `InitScript`. This could indicate self-modifying behavior, persistence mechanisms, or evasion capabilities.",
+      "owasp_asi": [
+        "ASI10"
+      ],
+      "owasp_mcp": [
+        "MCP03"
+      ],
+      "file_path": "test\\repl\\tabs.test.js",
+      "line_number": 448,
+      "recommendation": "Implement behavioral monitoring and kill switches. Ensure all agent actions are logged and auditable. Run in sandboxed environments with strict resource limits.",
+      "rule_id": "rogue_agent_pattern",
+      "evidence": "Rogue agent indicator detected",
+      "location": "test\\repl\\tabs.test.js:448",
+      "replay": "axiom scan <corpus>/registry/14_audiojs__audio --output json --no-ai --no-history | jq '.findings[] | select(.id==\"rogue_0019\")'"
+    },
+    {
+      "id": "rogue_0020",
+      "severity": "low",
+      "category": "rogue_agent",
+      "title": "Rogue agent indicator detected",
+      "description": "Pattern in test\\repl\\writers.test.js near line 220: `InitScript`. This could indicate self-modifying behavior, persistence mechanisms, or evasion capabilities.",
+      "owasp_asi": [
+        "ASI10"
+      ],
+      "owasp_mcp": [
+        "MCP03"
+      ],
+      "file_path": "test\\repl\\writers.test.js",
+      "line_number": 220,
+      "recommendation": "Implement behavioral monitoring and kill switches. Ensure all agent actions are logged and auditable. Run in sandboxed environments with strict resource limits.",
+      "rule_id": "rogue_agent_pattern",
+      "evidence": "Rogue agent indicator detected",
+      "location": "test\\repl\\writers.test.js:220",
+      "replay": "axiom scan <corpus>/registry/14_audiojs__audio --output json --no-ai --no-history | jq '.findings[] | select(.id==\"rogue_0020\")'"
+    },
+    {
+      "id": "rogue_0021",
+      "severity": "low",
+      "category": "rogue_agent",
+      "title": "Rogue agent indicator detected",
+      "description": "Pattern in test\\repl\\zoom.test.js near line 158: `InitScript`. This could indicate self-modifying behavior, persistence mechanisms, or evasion capabilities.",
+      "owasp_asi": [
+        "ASI10"
+      ],
+      "owasp_mcp": [
+        "MCP03"
+      ],
+      "file_path": "test\\repl\\zoom.test.js",
+      "line_number": 158,
+      "recommendation": "Implement behavioral monitoring and kill switches. Ensure all agent actions are logged and auditable. Run in sandboxed environments with strict resource limits.",
+      "rule_id": "rogue_agent_pattern",
+      "evidence": "Rogue agent indicator detected",
+      "location": "test\\repl\\zoom.test.js:158",
+      "replay": "axiom scan <corpus>/registry/14_audiojs__audio --output json --no-ai --no-history | jq '.findings[] | select(.id==\"rogue_0021\")'"
+    },
+    {
+      "id": "mcp04_unpinned_0001",
+      "severity": "medium",
+      "category": "supply_chain",
+      "title": "Unpinned install source",
+      "description": "`npx audio` without a pinned version in lhm.plugin.json at line 21. Without an exact version the next install silently picks up whatever is published, including a compromised release.",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": "lhm.plugin.json",
+      "line_number": 21,
+      "recommendation": "Pin an exact version (pkg@1.2.3, pkg==1.2.3) and prefer a lockfile or hash-checked requirements.",
+      "rule_id": "unpinned_install_source",
+      "evidence": "Unpinned install source",
+      "location": "lhm.plugin.json:21",
+      "replay": "axiom scan <corpus>/registry/14_audiojs__audio --output json --no-ai --no-history | jq '.findings[] | select(.id==\"mcp04_unpinned_0001\")'"
+    },
+    {
+      "id": "mcp04_unpinned_0002",
+      "severity": "medium",
+      "category": "supply_chain",
+      "title": "Unpinned install source",
+      "description": "`npx playwright` without a pinned version in .github\\workflows\\browser.yml at line 40. Without an exact version the next install silently picks up whatever is published, including a compromised release.",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": ".github\\workflows\\browser.yml",
+      "line_number": 40,
+      "recommendation": "Pin an exact version (pkg@1.2.3, pkg==1.2.3) and prefer a lockfile or hash-checked requirements.",
+      "rule_id": "unpinned_install_source",
+      "evidence": "Unpinned install source",
+      "location": ".github\\workflows\\browser.yml:40",
+      "replay": "axiom scan <corpus>/registry/14_audiojs__audio --output json --no-ai --no-history | jq '.findings[] | select(.id==\"mcp04_unpinned_0002\")'"
+    },
+    {
+      "id": "mcp04_unpinned_0003",
+      "severity": "medium",
+      "category": "supply_chain",
+      "title": "Unpinned install source",
+      "description": "`npx playwright` without a pinned version in .github\\workflows\\pages.yml at line 37. Without an exact version the next install silently picks up whatever is published, including a compromised release.",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": ".github\\workflows\\pages.yml",
+      "line_number": 37,
+      "recommendation": "Pin an exact version (pkg@1.2.3, pkg==1.2.3) and prefer a lockfile or hash-checked requirements.",
+      "rule_id": "unpinned_install_source",
+      "evidence": "Unpinned install source",
+      "location": ".github\\workflows\\pages.yml:37",
+      "replay": "axiom scan <corpus>/registry/14_audiojs__audio --output json --no-ai --no-history | jq '.findings[] | select(.id==\"mcp04_unpinned_0003\")'"
+    },
+    {
+      "id": "mcp04_unpinned_0004",
+      "severity": "medium",
+      "category": "supply_chain",
+      "title": "Unpinned install source",
+      "description": "`npx playwright` without a pinned version in .github\\workflows\\test.yml at line 48. Without an exact version the next install silently picks up whatever is published, including a compromised release.",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": ".github\\workflows\\test.yml",
+      "line_number": 48,
+      "recommendation": "Pin an exact version (pkg@1.2.3, pkg==1.2.3) and prefer a lockfile or hash-checked requirements.",
+      "rule_id": "unpinned_install_source",
+      "evidence": "Unpinned install source",
+      "location": ".github\\workflows\\test.yml:48",
+      "replay": "axiom scan <corpus>/registry/14_audiojs__audio --output json --no-ai --no-history | jq '.findings[] | select(.id==\"mcp04_unpinned_0004\")'"
+    }
+  ],
+  "server_profile": {
+    "name": "14_audiojs__audio",
+    "command": null,
+    "args": [],
+    "env_vars": [],
+    "transport": "unknown",
+    "tools": [
+      {
+        "name": "audio",
+        "description": "",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "args": {
+              "type": "string",
+              "description": "Arguments after `audio`, shell-quoted, absolute paths: \"<local>/voice.mp3\""
+            }
+          },
+          "required": [
+            "args"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      }
+    ],
+    "resources": [],
+    "prompts": [],
+    "repo_url": null,
+    "npm_package": null,
+    "capabilities_claimed": [],
+    "capabilities_actual": []
+  },
+  "fingerprint": "604c43cf67549d89b7e4260f6eda24ae29caa44f4f0698e714ad9a5af59a1957",
+  "surface_map": {
+    "server": {
+      "name": "audio",
+      "instructions": "",
+      "transport": "unknown",
+      "auth": "unknown"
+    },
+    "tools": [
+      {
+        "name": "audio",
+        "description": "",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "args": {
+              "type": "string",
+              "description": "Arguments after `audio`, shell-quoted, absolute paths: \"<local>/voice.mp3\""
+            }
+          },
+          "required": [
+            "args"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "bin\\mcp.js:36"
+      }
+    ],
+    "resources": [],
+    "prompts": [],
+    "mutations": [],
+    "source": {
+      "kind": "static",
+      "target": "14_audiojs__audio",
+      "languages": [
+        "javascript"
+      ]
+    },
+    "generated_at": "2026-11-11T22:31:28+00:00",
+    "fingerprint": "604c43cf67549d89b7e4260f6eda24ae29caa44f4f0698e714ad9a5af59a1957",
+    "schema": "axiom.surface/1"
+  },
+  "provenance": {
+    "identity": {
+      "npm": "audio",
+      "pypi": null,
+      "repository": "https://github.com/audiojs/audio",
+      "server_name": "audio"
+    },
+    "registry": {
+      "status": "match",
+      "entry": "io.github.audiojs/audio",
+      "repository": "https://github.com/audiojs/audio",
+      "packages": [
+        "npm:audio"
+      ],
+      "publishedAt": "2026-10-03T05:30:36.021383Z",
+      "version": "2.10.0"
+    },
+    "lookalikes": [],
+    "checked_at": "2026-11-11T22:31:35+00:00"
+  },
+  "owasp_coverage": {
+    "framework": "OWASP Top 10 for Agentic Applications 2026",
+    "reference": "https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/",
+    "coverage": {
+      "ASI01": {
+        "name": "Agent Goal Hijack",
+        "coverage_level": "strong",
+        "findings_count": 10,
+        "finding_ids": [
+          "code_0003",
+          "code_0005",
+          "code_0040",
+          "code_0041",
+          "code_0042",
+          "code_0043",
+          "code_0045",
+          "code_0046",
+          "code_0061",
+          "code_0063"
+        ],
+        "detectors": [
+          "tool_poisoning",
+          "prompt_injection",
+          "instruction_injection"
+        ]
+      },
+      "ASI02": {
+        "name": "Tool Misuse & Exploitation",
+        "coverage_level": "strong",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "toxic_tool_combo",
+          "tool_overscope",
+          "tool_chaining_detection"
+        ]
+      },
+      "ASI03": {
+        "name": "Identity & Privilege Abuse",
+        "coverage_level": "strong",
+        "findings_count": 5,
+        "finding_ids": [
+          "ast_0001",
+          "ast_0001",
+          "ast_0001",
+          "ast_0001",
+          "ast_0001"
+        ],
+        "detectors": [
+          "credential_analysis",
+          "shared_credential_detection",
+          "env_var_audit"
+        ]
+      },
+      "ASI04": {
+        "name": "Agentic Supply Chain Vulnerabilities",
+        "coverage_level": "strong",
+        "findings_count": 4,
+        "finding_ids": [
+          "mcp04_unpinned_0001",
+          "mcp04_unpinned_0002",
+          "mcp04_unpinned_0003",
+          "mcp04_unpinned_0004"
+        ],
+        "detectors": [
+          "dependency_cve",
+          "lifecycle_hooks",
+          "npx_unversioned",
+          "known_mcp_cves"
+        ]
+      },
+      "ASI05": {
+        "name": "Unexpected Code Execution",
+        "coverage_level": "strong",
+        "findings_count": 71,
+        "finding_ids": [
+          "code_0001",
+          "code_0002",
+          "code_0004",
+          "code_0006",
+          "code_0007",
+          "code_0008",
+          "code_0009",
+          "code_0010",
+          "code_0011",
+          "code_0012"
+        ],
+        "detectors": [
+          "code_exec_patterns",
+          "code_generation_detection",
+          "sandbox_escape"
+        ]
+      },
+      "ASI06": {
+        "name": "Memory & Context Poisoning",
+        "coverage_level": "partial",
+        "findings_count": 8,
+        "finding_ids": [
+          "memory_0001",
+          "memory_0002",
+          "memory_0003",
+          "memory_0004",
+          "memory_0005",
+          "memory_0006",
+          "memory_0007",
+          "memory_0008"
+        ],
+        "detectors": [
+          "memory_poisoning_patterns",
+          "context_manipulation_detection"
+        ],
+        "gap_note": "Axiom detects static patterns. Full coverage requires runtime memory monitoring."
+      },
+      "ASI07": {
+        "name": "Insecure Inter-Agent Communication",
+        "coverage_level": "partial",
+        "findings_count": 2,
+        "finding_ids": [
+          "transport_plain_http",
+          "interagent_0001"
+        ],
+        "detectors": [
+          "transport_security",
+          "a2a_pattern_detection"
+        ],
+        "gap_note": "Axiom checks transport security. Full A2A protocol analysis requires runtime interception."
+      },
+      "ASI08": {
+        "name": "Cascading Failures",
+        "coverage_level": "partial",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "blast_radius_estimation",
+          "dependency_chain_analysis"
+        ],
+        "gap_note": "Axiom estimates blast radius from tool capabilities. Full cascading failure analysis requires runtime topology mapping."
+      },
+      "ASI09": {
+        "name": "Human-Agent Trust Exploitation",
+        "coverage_level": "strong",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "claimed_vs_actual",
+          "deceptive_output_detection",
+          "trust_manipulation_patterns"
+        ]
+      },
+      "ASI10": {
+        "name": "Rogue Agents",
+        "coverage_level": "partial",
+        "findings_count": 31,
+        "finding_ids": [
+          "code_0003",
+          "code_0005",
+          "code_0040",
+          "code_0041",
+          "code_0042",
+          "code_0043",
+          "code_0045",
+          "code_0046",
+          "code_0061",
+          "code_0063"
+        ],
+        "detectors": [
+          "sleeper_patterns",
+          "behavioral_drift_indicators",
+          "persistence_detection"
+        ],
+        "gap_note": "Axiom detects static rogue indicators. Full rogue agent detection requires runtime behavioral monitoring."
+      }
+    },
+    "total_asi_categories_with_findings": 7
+  },
+  "owasp_mcp_coverage": {
+    "framework": "OWASP MCP Top 10",
+    "framework_version": "v0.1 beta",
+    "reference": "https://owasp.org/www-project-mcp-top-10/",
+    "coverage": {
+      "MCP01": {
+        "id": "MCP01:2025",
+        "name": "Token Mismanagement & Secret Exposure",
+        "coverage_level": "partial",
+        "reason": "Regex-based secret detection in server source and client configs plus env-var exposure checks; no entropy analysis, git-history scan, or token lifetime/passthrough checks.",
+        "findings_count": 5,
+        "finding_ids": [
+          "ast_0001",
+          "ast_0001",
+          "ast_0001",
+          "ast_0001",
+          "ast_0001"
+        ],
+        "detectors": [
+          "credential_theft",
+          "cross_server",
+          "mcp01_hardcoded_secrets",
+          "config_hardcoded_secret",
+          "env_var_audit",
+          "env_dump"
+        ]
+      },
+      "MCP02": {
+        "id": "MCP02:2025",
+        "name": "Privilege Escalation via Scope Creep",
+        "coverage_level": "strong",
+        "reason": "Permission over-scope patterns, toxic tool-capability combinations, path-escape checks and env-var over-exposure in configs.",
+        "findings_count": 16,
+        "finding_ids": [
+          "code_0013",
+          "code_0015",
+          "code_0017",
+          "code_0018",
+          "code_0025",
+          "code_0029",
+          "code_0030",
+          "code_0031",
+          "code_0032",
+          "code_0034"
+        ],
+        "detectors": [
+          "permission_overscope",
+          "toxic_tool_combo",
+          "identity_privilege",
+          "sandbox_escape",
+          "config_risk",
+          "cascading_failure",
+          "cross_server",
+          "excessive_scope",
+          "confused_deputy",
+          "file_read",
+          "file_write"
+        ]
+      },
+      "MCP03": {
+        "id": "MCP03:2025",
+        "name": "Tool Poisoning",
+        "coverage_level": "strong",
+        "reason": "Dedicated detector for hidden instructions in tool metadata, plus runtime rug-pull diffing between source and live tool definitions.",
+        "findings_count": 31,
+        "finding_ids": [
+          "code_0003",
+          "code_0005",
+          "code_0040",
+          "code_0041",
+          "code_0042",
+          "code_0043",
+          "code_0045",
+          "code_0046",
+          "code_0061",
+          "code_0063"
+        ],
+        "detectors": [
+          "tool_poisoning",
+          "obfuscation",
+          "rogue_agent",
+          "source_vs_runtime_diff",
+          "tool_shadowing",
+          "hidden_unicode",
+          "rug_pull_primitive",
+          "surface_mismatch"
+        ]
+      },
+      "MCP04": {
+        "id": "MCP04:2025",
+        "name": "Software Supply Chain Attacks & Dependency Tampering",
+        "coverage_level": "strong",
+        "reason": "Dependency CVE lookup, known MCP CVEs, install lifecycle hooks, and unpinned npx/uvx/pip/@latest install sources.",
+        "findings_count": 14,
+        "finding_ids": [
+          "code_0003",
+          "code_0005",
+          "code_0040",
+          "code_0041",
+          "code_0042",
+          "code_0043",
+          "code_0045",
+          "code_0046",
+          "code_0061",
+          "code_0063"
+        ],
+        "detectors": [
+          "dependency_vuln",
+          "supply_chain",
+          "known_cve",
+          "obfuscation",
+          "lifecycle_hooks",
+          "mcp04_unpinned_install",
+          "homoglyph",
+          "rug_pull_primitive",
+          "surface_mismatch"
+        ]
+      },
+      "MCP05": {
+        "id": "MCP05:2025",
+        "name": "Command Injection & Execution",
+        "coverage_level": "partial",
+        "reason": "Regex, AST and Semgrep find exec/shell sinks and a heuristic flags sinks inside tool handlers, but there is no inter-procedural taint tracking from tool input to sink.",
+        "findings_count": 71,
+        "finding_ids": [
+          "code_0001",
+          "code_0002",
+          "code_0004",
+          "code_0006",
+          "code_0007",
+          "code_0008",
+          "code_0009",
+          "code_0010",
+          "code_0011",
+          "code_0012"
+        ],
+        "detectors": [
+          "command_injection",
+          "code_execution",
+          "code_generation",
+          "sandbox_escape",
+          "mcp05_tool_input_sink",
+          "shell_exec"
+        ]
+      },
+      "MCP06": {
+        "id": "MCP06:2025",
+        "name": "Prompt Injection via Contextual Payloads",
+        "coverage_level": "partial",
+        "reason": "Injection markers are detected in tool metadata, server instructions, resources, prompts and the strings a tool returns (static), and in instructions/resources/prompts read live; payloads produced by calling a tool at runtime are not inspected.",
+        "findings_count": 8,
+        "finding_ids": [
+          "memory_0001",
+          "memory_0002",
+          "memory_0003",
+          "memory_0004",
+          "memory_0005",
+          "memory_0006",
+          "memory_0007",
+          "memory_0008"
+        ],
+        "detectors": [
+          "prompt_injection",
+          "memory_poisoning",
+          "trust_exploitation",
+          "response_injection",
+          "tool_shadowing"
+        ]
+      },
+      "MCP07": {
+        "id": "MCP07:2025",
+        "name": "Insufficient Authentication & Authorization",
+        "coverage_level": "partial",
+        "reason": "Flags remote servers with no visible auth and servers bound to all interfaces; does not verify OAuth implementation or per-tool authorization logic.",
+        "findings_count": 2,
+        "finding_ids": [
+          "transport_plain_http",
+          "interagent_0001"
+        ],
+        "detectors": [
+          "transport_security",
+          "inter_agent_comm",
+          "identity_privilege",
+          "transport_no_auth",
+          "config_no_auth",
+          "mcp07_bind_all_interfaces"
+        ]
+      },
+      "MCP08": {
+        "id": "MCP08:2025",
+        "name": "Lack of Audit and Telemetry",
+        "coverage_level": "gap",
+        "reason": "Only a low-confidence heuristic for missing logging in tool-defining files; actual audit trails and telemetry pipelines are not verified.",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "audit_telemetry",
+          "mcp08_no_tool_logging"
+        ]
+      },
+      "MCP09": {
+        "id": "MCP09:2025",
+        "name": "Shadow MCP Servers",
+        "coverage_level": "partial",
+        "reason": "Covered by `axiom discover` allowlist on the local machine; no network-wide or fleet discovery.",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "mcpguard_discover",
+          "shadow_mcp"
+        ]
+      },
+      "MCP10": {
+        "id": "MCP10:2025",
+        "name": "Context Injection & Over-Sharing",
+        "coverage_level": "partial",
+        "reason": "Hard-coded egress URLs, tools that send to caller-chosen destinations and bulk-exposure heuristics are detected statically and live; what context is actually shared at runtime is not observed.",
+        "findings_count": 8,
+        "finding_ids": [
+          "memory_0001",
+          "memory_0002",
+          "memory_0003",
+          "memory_0004",
+          "memory_0005",
+          "memory_0006",
+          "memory_0007",
+          "memory_0008"
+        ],
+        "detectors": [
+          "context_oversharing",
+          "data_exfiltration",
+          "memory_poisoning",
+          "mcp10_broad_data_exposure"
+        ]
+      }
+    },
+    "total_mcp_categories_with_findings": 8
+  },
+  "ai_analysis": null,
+  "tool_poisoning_report": null,
+  "prompt_injection_risk": null
+}

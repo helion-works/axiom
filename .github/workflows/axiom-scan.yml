@@ -1,0 +1,67 @@
+# Axiom — MCP Server Security Scanning for CI/CD
+# Add this to your repo at .github/workflows/axiom.yml
+#
+# Scans MCP server configs and dependencies for:
+#   - Tool poisoning & prompt injection
+#   - Credential exposure & supply chain attacks
+#   - OWASP Agentic AI Top 10 coverage
+#
+# Docs: https://github.com/helion-works/axiom#readme
+
+name: Axiom Security Scan
+
+on:
+  push:
+    paths:
+      # Trigger on MCP config changes
+      - '**/mcp.json'
+      - '**/mcp_config.json'
+      - '**/.mcp.json'
+      - '**/claude_desktop_config.json'
+      # Trigger on dependency changes
+      - 'package.json'
+      - 'package-lock.json'
+      - 'requirements.txt'
+      - 'pyproject.toml'
+  pull_request:
+    paths:
+      - '**/mcp.json'
+      - '**/mcp_config.json'
+      - '**/.mcp.json'
+      - 'package.json'
+      - 'requirements.txt'
+      - 'pyproject.toml'
+  # Manual trigger
+  workflow_dispatch:
+    inputs:
+      target:
+        description: 'MCP server to scan (URL or package name)'
+        required: false
+
+jobs:
+  scan:
+    name: MCP Security Scan
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      security-events: write  # For SARIF upload (optional)
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run Axiom
+        uses: ./   # this repo's root action.yml; use <owner>/<repo>@<tag> from other repos
+        id: axiom
+        with:
+          target: ${{ github.event.inputs.target || '' }}
+          scan-local: 'true'
+          fail-on: 'high'           # Fail PR on high/critical findings
+          # anthropic-api-key: ${{ secrets.ANTHROPIC_API_KEY }}  # Optional: AI analysis
+
+      - name: Check Results
+        if: always()
+        run: |
+          echo "Risk Score: ${{ steps.axiom.outputs.risk-score }}/100"
+          echo "Risk Level: ${{ steps.axiom.outputs.risk-level }}"
+          echo "Findings: ${{ steps.axiom.outputs.findings-count }}"

@@ -1,0 +1,17 @@
+.git
+venv
+.venv
+__pycache__
+*.pyc
+.pytest_cache
+.ruff_cache
+*.db
+.env
+.env.*
+dist
+build
+*.egg-info
+marketing
+deploy
+archive
+.github

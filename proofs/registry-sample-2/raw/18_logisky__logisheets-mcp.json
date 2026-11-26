@@ -1,0 +1,1433 @@
+{
+  "schema_version": "0.5",
+  "target": "18_logisky__logisheets-mcp",
+  "risk_score": 43.0,
+  "risk_level": "medium",
+  "tools_found": 0,
+  "findings_count": 51,
+  "findings": [
+    {
+      "id": "ast_0001",
+      "severity": "info",
+      "category": "credential_theft",
+      "title": "Environment variable access via os.environ.get()",
+      "description": "Call to `os.environ.get()` reads an environment variable (capability note) in bench\\contestants.py at line 8",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP01"
+      ],
+      "file_path": "bench\\contestants.py",
+      "line_number": 8,
+      "recommendation": "Document which env vars are needed. Avoid reading arbitrary env vars.",
+      "rule_id": "code_pattern_ast",
+      "evidence": "os.environ.get()",
+      "location": "bench\\contestants.py:8",
+      "replay": "axiom scan <corpus>/registry2/18_logisky__logisheets-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"ast_0001\")'"
+    },
+    {
+      "id": "code_0001",
+      "severity": "low",
+      "category": "obfuscation",
+      "title": "Encoded or obfuscated content in MCP server source",
+      "description": "Pattern matched in src\\agent-loop.test.ts at line 1424: `const decoded = Buffer.from(exported.base64, 'base64')`",
+      "owasp_asi": [
+        "ASI01",
+        "ASI10"
+      ],
+      "owasp_mcp": [
+        "MCP03",
+        "MCP04"
+      ],
+      "file_path": "src\\agent-loop.test.ts",
+      "line_number": 1424,
+      "recommendation": "Review this obfuscation pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const decoded = Buffer.from(exported.base64, 'base64')",
+      "location": "src\\agent-loop.test.ts:1424",
+      "replay": "axiom scan <corpus>/registry2/18_logisky__logisheets-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0001\")'"
+    },
+    {
+      "id": "code_0002",
+      "severity": "low",
+      "category": "obfuscation",
+      "title": "Encoded or obfuscated content in MCP server source",
+      "description": "Pattern matched in src\\mcp-transport.test.ts at line 294: `const bytes = Buffer.from(blob.blob, 'base64')`",
+      "owasp_asi": [
+        "ASI01",
+        "ASI10"
+      ],
+      "owasp_mcp": [
+        "MCP03",
+        "MCP04"
+      ],
+      "file_path": "src\\mcp-transport.test.ts",
+      "line_number": 294,
+      "recommendation": "Review this obfuscation pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const bytes = Buffer.from(blob.blob, 'base64')",
+      "location": "src\\mcp-transport.test.ts:294",
+      "replay": "axiom scan <corpus>/registry2/18_logisky__logisheets-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0002\")'"
+    },
+    {
+      "id": "code_0003",
+      "severity": "low",
+      "category": "obfuscation",
+      "title": "Encoded or obfuscated content in MCP server source",
+      "description": "Pattern matched in src\\session.ts at line 126: `const bytes = Buffer.from(opts.xlsxBase64, 'base64')`",
+      "owasp_asi": [
+        "ASI01",
+        "ASI10"
+      ],
+      "owasp_mcp": [
+        "MCP03",
+        "MCP04"
+      ],
+      "file_path": "src\\session.ts",
+      "line_number": 126,
+      "recommendation": "Review this obfuscation pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const bytes = Buffer.from(opts.xlsxBase64, 'base64')",
+      "location": "src\\session.ts:126",
+      "replay": "axiom scan <corpus>/registry2/18_logisky__logisheets-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0003\")'"
+    },
+    {
+      "id": "GHSA-22jm-h49p-29qw",
+      "severity": "medium",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency @modelcontextprotocol/sdk@1.30.0: GHSA-22jm-h49p-29qw",
+      "description": "Known vulnerability (advisory severity: unrated; direct dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update @modelcontextprotocol/sdk to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-22jm-h49p-29qw",
+      "location": "static:<corpus>/registry2/18_logisky__logisheets-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/18_logisky__logisheets-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-22jm-h49p-29qw\")'"
+    },
+    {
+      "id": "GHSA-46jr-4wx8-v453",
+      "severity": "medium",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency @modelcontextprotocol/sdk@1.30.0: GHSA-46jr-4wx8-v453",
+      "description": "Known vulnerability (advisory severity: unrated; direct dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update @modelcontextprotocol/sdk to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-46jr-4wx8-v453",
+      "location": "static:<corpus>/registry2/18_logisky__logisheets-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/18_logisky__logisheets-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-46jr-4wx8-v453\")'"
+    },
+    {
+      "id": "GHSA-6prh-2h8m-c8cw",
+      "severity": "medium",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency @modelcontextprotocol/sdk@1.30.0: GHSA-6prh-2h8m-c8cw",
+      "description": "Known vulnerability (advisory severity: unrated; direct dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update @modelcontextprotocol/sdk to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-6prh-2h8m-c8cw",
+      "location": "static:<corpus>/registry2/18_logisky__logisheets-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/18_logisky__logisheets-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-6prh-2h8m-c8cw\")'"
+    },
+    {
+      "id": "GHSA-6qxp-vccf-f47h",
+      "severity": "medium",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency @modelcontextprotocol/sdk@1.30.0: GHSA-6qxp-vccf-f47h",
+      "description": "Known vulnerability (advisory severity: unrated; direct dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update @modelcontextprotocol/sdk to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-6qxp-vccf-f47h",
+      "location": "static:<corpus>/registry2/18_logisky__logisheets-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/18_logisky__logisheets-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-6qxp-vccf-f47h\")'"
+    },
+    {
+      "id": "GHSA-f897-62hf-6gxq",
+      "severity": "medium",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency @modelcontextprotocol/sdk@1.30.0: GHSA-f897-62hf-6gxq",
+      "description": "Known vulnerability (advisory severity: unrated; direct dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update @modelcontextprotocol/sdk to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-f897-62hf-6gxq",
+      "location": "static:<corpus>/registry2/18_logisky__logisheets-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/18_logisky__logisheets-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-f897-62hf-6gxq\")'"
+    },
+    {
+      "id": "GHSA-rvq5-wwqv-78pq",
+      "severity": "medium",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency @modelcontextprotocol/sdk@1.30.0: GHSA-rvq5-wwqv-78pq",
+      "description": "Known vulnerability (advisory severity: unrated; direct dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update @modelcontextprotocol/sdk to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-rvq5-wwqv-78pq",
+      "location": "static:<corpus>/registry2/18_logisky__logisheets-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/18_logisky__logisheets-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-rvq5-wwqv-78pq\")'"
+    },
+    {
+      "id": "GHSA-rmxm-3fg6-px4f",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency @hono/node-server@2.1.1: GHSA-rmxm-3fg6-px4f",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update @hono/node-server to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-rmxm-3fg6-px4f",
+      "location": "static:<corpus>/registry2/18_logisky__logisheets-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/18_logisky__logisheets-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-rmxm-3fg6-px4f\")'"
+    },
+    {
+      "id": "GHSA-82fw-gwwq-j7x9",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency @vitest/mocker@3.2.7: GHSA-82fw-gwwq-j7x9",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update @vitest/mocker to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-82fw-gwwq-j7x9",
+      "location": "static:<corpus>/registry2/18_logisky__logisheets-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/18_logisky__logisheets-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-82fw-gwwq-j7x9\")'"
+    },
+    {
+      "id": "GHSA-qxg6-89mg-rqv8",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency @vitest/mocker@3.2.7: GHSA-qxg6-89mg-rqv8",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update @vitest/mocker to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-qxg6-89mg-rqv8",
+      "location": "static:<corpus>/registry2/18_logisky__logisheets-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/18_logisky__logisheets-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-qxg6-89mg-rqv8\")'"
+    },
+    {
+      "id": "GHSA-27r3-jxmh-p828",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency body-parser@2.3.0: GHSA-27r3-jxmh-p828",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update body-parser to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-27r3-jxmh-p828",
+      "location": "static:<corpus>/registry2/18_logisky__logisheets-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/18_logisky__logisheets-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-27r3-jxmh-p828\")'"
+    },
+    {
+      "id": "GHSA-333x-w4r6-6crp",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency fast-uri@3.1.5: GHSA-333x-w4r6-6crp",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update fast-uri to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-333x-w4r6-6crp",
+      "location": "static:<corpus>/registry2/18_logisky__logisheets-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/18_logisky__logisheets-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-333x-w4r6-6crp\")'"
+    },
+    {
+      "id": "GHSA-5jgf-p345-68v8",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency fast-uri@3.1.5: GHSA-5jgf-p345-68v8",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update fast-uri to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-5jgf-p345-68v8",
+      "location": "static:<corpus>/registry2/18_logisky__logisheets-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/18_logisky__logisheets-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-5jgf-p345-68v8\")'"
+    },
+    {
+      "id": "GHSA-f65p-4m7j-42xc",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency fast-uri@3.1.5: GHSA-f65p-4m7j-42xc",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update fast-uri to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-f65p-4m7j-42xc",
+      "location": "static:<corpus>/registry2/18_logisky__logisheets-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/18_logisky__logisheets-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-f65p-4m7j-42xc\")'"
+    },
+    {
+      "id": "GHSA-fph4-wmhf-6fwf",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency fast-uri@3.1.5: GHSA-fph4-wmhf-6fwf",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update fast-uri to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-fph4-wmhf-6fwf",
+      "location": "static:<corpus>/registry2/18_logisky__logisheets-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/18_logisky__logisheets-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-fph4-wmhf-6fwf\")'"
+    },
+    {
+      "id": "GHSA-hrr3-gc8f-f4qj",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency fast-uri@3.1.5: GHSA-hrr3-gc8f-f4qj",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update fast-uri to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-hrr3-gc8f-f4qj",
+      "location": "static:<corpus>/registry2/18_logisky__logisheets-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/18_logisky__logisheets-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-hrr3-gc8f-f4qj\")'"
+    },
+    {
+      "id": "GHSA-jqff-g426-hqxp",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency fast-uri@3.1.5: GHSA-jqff-g426-hqxp",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update fast-uri to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-jqff-g426-hqxp",
+      "location": "static:<corpus>/registry2/18_logisky__logisheets-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/18_logisky__logisheets-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-jqff-g426-hqxp\")'"
+    },
+    {
+      "id": "GHSA-qw65-cvwx-89v3",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency fast-uri@3.1.5: GHSA-qw65-cvwx-89v3",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update fast-uri to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-qw65-cvwx-89v3",
+      "location": "static:<corpus>/registry2/18_logisky__logisheets-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/18_logisky__logisheets-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-qw65-cvwx-89v3\")'"
+    },
+    {
+      "id": "GHSA-w74x-v6f9-j3xg",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency fast-uri@3.1.5: GHSA-w74x-v6f9-j3xg",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update fast-uri to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-w74x-v6f9-j3xg",
+      "location": "static:<corpus>/registry2/18_logisky__logisheets-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/18_logisky__logisheets-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-w74x-v6f9-j3xg\")'"
+    },
+    {
+      "id": "GHSA-wjr9-j795-jxcr",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency fast-uri@3.1.5: GHSA-wjr9-j795-jxcr",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update fast-uri to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-wjr9-j795-jxcr",
+      "location": "static:<corpus>/registry2/18_logisky__logisheets-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/18_logisky__logisheets-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-wjr9-j795-jxcr\")'"
+    },
+    {
+      "id": "GHSA-xhq7-xmqj-769h",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency fast-uri@3.1.5: GHSA-xhq7-xmqj-769h",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update fast-uri to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-xhq7-xmqj-769h",
+      "location": "static:<corpus>/registry2/18_logisky__logisheets-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/18_logisky__logisheets-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-xhq7-xmqj-769h\")'"
+    },
+    {
+      "id": "GHSA-5r4p-p66f-jhc7",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency hono@4.13.3: GHSA-5r4p-p66f-jhc7",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update hono to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-5r4p-p66f-jhc7",
+      "location": "static:<corpus>/registry2/18_logisky__logisheets-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/18_logisky__logisheets-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-5r4p-p66f-jhc7\")'"
+    },
+    {
+      "id": "GHSA-crvj-82cr-hjcx",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency hono@4.13.3: GHSA-crvj-82cr-hjcx",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update hono to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-crvj-82cr-hjcx",
+      "location": "static:<corpus>/registry2/18_logisky__logisheets-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/18_logisky__logisheets-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-crvj-82cr-hjcx\")'"
+    },
+    {
+      "id": "GHSA-g6gw-c38x-mqfc",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency hono@4.13.3: GHSA-g6gw-c38x-mqfc",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update hono to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-g6gw-c38x-mqfc",
+      "location": "static:<corpus>/registry2/18_logisky__logisheets-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/18_logisky__logisheets-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-g6gw-c38x-mqfc\")'"
+    },
+    {
+      "id": "GHSA-gqvv-2mrq-wpjv",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency hono@4.13.3: GHSA-gqvv-2mrq-wpjv",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update hono to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-gqvv-2mrq-wpjv",
+      "location": "static:<corpus>/registry2/18_logisky__logisheets-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/18_logisky__logisheets-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-gqvv-2mrq-wpjv\")'"
+    },
+    {
+      "id": "GHSA-hxh3-vqpv-xpqv",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency hono@4.13.3: GHSA-hxh3-vqpv-xpqv",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update hono to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-hxh3-vqpv-xpqv",
+      "location": "static:<corpus>/registry2/18_logisky__logisheets-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/18_logisky__logisheets-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-hxh3-vqpv-xpqv\")'"
+    },
+    {
+      "id": "GHSA-2vr4-cq9g-pvrc",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency ip-address@10.5.0: GHSA-2vr4-cq9g-pvrc",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update ip-address to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-2vr4-cq9g-pvrc",
+      "location": "static:<corpus>/registry2/18_logisky__logisheets-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/18_logisky__logisheets-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-2vr4-cq9g-pvrc\")'"
+    },
+    {
+      "id": "GHSA-h3mg-xc3c-68pw",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency ip-address@10.5.0: GHSA-h3mg-xc3c-68pw",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update ip-address to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-h3mg-xc3c-68pw",
+      "location": "static:<corpus>/registry2/18_logisky__logisheets-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/18_logisky__logisheets-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-h3mg-xc3c-68pw\")'"
+    },
+    {
+      "id": "GHSA-j6r3-76f7-8jcv",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency ip-address@10.5.0: GHSA-j6r3-76f7-8jcv",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update ip-address to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-j6r3-76f7-8jcv",
+      "location": "static:<corpus>/registry2/18_logisky__logisheets-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/18_logisky__logisheets-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-j6r3-76f7-8jcv\")'"
+    },
+    {
+      "id": "GHSA-rpw4-54j3-4h4q",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency ip-address@10.5.0: GHSA-rpw4-54j3-4h4q",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update ip-address to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-rpw4-54j3-4h4q",
+      "location": "static:<corpus>/registry2/18_logisky__logisheets-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/18_logisky__logisheets-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-rpw4-54j3-4h4q\")'"
+    },
+    {
+      "id": "GHSA-rxp7-6hxx-x8q5",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency ip-address@10.5.0: GHSA-rxp7-6hxx-x8q5",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update ip-address to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-rxp7-6hxx-x8q5",
+      "location": "static:<corpus>/registry2/18_logisky__logisheets-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/18_logisky__logisheets-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-rxp7-6hxx-x8q5\")'"
+    },
+    {
+      "id": "GHSA-jqcg-44mw-7w3h",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency proxy-addr@2.0.7: GHSA-jqcg-44mw-7w3h",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update proxy-addr to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-jqcg-44mw-7w3h",
+      "location": "static:<corpus>/registry2/18_logisky__logisheets-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/18_logisky__logisheets-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-jqcg-44mw-7w3h\")'"
+    },
+    {
+      "id": "GHSA-4mjr-xmp4-gh2g",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency qs@6.15.3: GHSA-4mjr-xmp4-gh2g",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update qs to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-4mjr-xmp4-gh2g",
+      "location": "static:<corpus>/registry2/18_logisky__logisheets-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/18_logisky__logisheets-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-4mjr-xmp4-gh2g\")'"
+    },
+    {
+      "id": "GHSA-6pq8-jhm2-2vcw",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency qs@6.15.3: GHSA-6pq8-jhm2-2vcw",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update qs to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-6pq8-jhm2-2vcw",
+      "location": "static:<corpus>/registry2/18_logisky__logisheets-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/18_logisky__logisheets-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-6pq8-jhm2-2vcw\")'"
+    },
+    {
+      "id": "GHSA-x5fp-wj9c-mxmx",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency qs@6.15.3: GHSA-x5fp-wj9c-mxmx",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update qs to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-x5fp-wj9c-mxmx",
+      "location": "static:<corpus>/registry2/18_logisky__logisheets-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/18_logisky__logisheets-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-x5fp-wj9c-mxmx\")'"
+    },
+    {
+      "id": "GHSA-68fv-2mgg-jv7q",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency source-map-js@1.2.1: GHSA-68fv-2mgg-jv7q",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update source-map-js to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-68fv-2mgg-jv7q",
+      "location": "static:<corpus>/registry2/18_logisky__logisheets-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/18_logisky__logisheets-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-68fv-2mgg-jv7q\")'"
+    },
+    {
+      "id": "GHSA-5gmw-xhrv-c9v3",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency tinypool@1.1.1: GHSA-5gmw-xhrv-c9v3",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update tinypool to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-5gmw-xhrv-c9v3",
+      "location": "static:<corpus>/registry2/18_logisky__logisheets-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/18_logisky__logisheets-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-5gmw-xhrv-c9v3\")'"
+    },
+    {
+      "id": "GHSA-85c8-ppgw-ccpr",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency tinypool@1.1.1: GHSA-85c8-ppgw-ccpr",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update tinypool to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-85c8-ppgw-ccpr",
+      "location": "static:<corpus>/registry2/18_logisky__logisheets-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/18_logisky__logisheets-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-85c8-ppgw-ccpr\")'"
+    },
+    {
+      "id": "GHSA-587h-7wmj-h5pm",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency vite@7.3.6: GHSA-587h-7wmj-h5pm",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update vite to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-587h-7wmj-h5pm",
+      "location": "static:<corpus>/registry2/18_logisky__logisheets-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/18_logisky__logisheets-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-587h-7wmj-h5pm\")'"
+    },
+    {
+      "id": "GHSA-698v-4r3x-3vcv",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency vite@7.3.6: GHSA-698v-4r3x-3vcv",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update vite to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-698v-4r3x-3vcv",
+      "location": "static:<corpus>/registry2/18_logisky__logisheets-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/18_logisky__logisheets-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-698v-4r3x-3vcv\")'"
+    },
+    {
+      "id": "GHSA-9jrq-w75r-8gcw",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency vite@7.3.6: GHSA-9jrq-w75r-8gcw",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update vite to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-9jrq-w75r-8gcw",
+      "location": "static:<corpus>/registry2/18_logisky__logisheets-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/18_logisky__logisheets-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-9jrq-w75r-8gcw\")'"
+    },
+    {
+      "id": "GHSA-r825-w8mm-5pxw",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency vite@7.3.6: GHSA-r825-w8mm-5pxw",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update vite to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-r825-w8mm-5pxw",
+      "location": "static:<corpus>/registry2/18_logisky__logisheets-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/18_logisky__logisheets-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-r825-w8mm-5pxw\")'"
+    },
+    {
+      "id": "GHSA-rq7h-c2jc-7f22",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency vite@7.3.6: GHSA-rq7h-c2jc-7f22",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update vite to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-rq7h-c2jc-7f22",
+      "location": "static:<corpus>/registry2/18_logisky__logisheets-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/18_logisky__logisheets-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-rq7h-c2jc-7f22\")'"
+    },
+    {
+      "id": "GHSA-82fw-gwwq-j7x9",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency vitest@3.2.7: GHSA-82fw-gwwq-j7x9",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update vitest to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-82fw-gwwq-j7x9",
+      "location": "static:<corpus>/registry2/18_logisky__logisheets-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/18_logisky__logisheets-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-82fw-gwwq-j7x9\")'"
+    },
+    {
+      "id": "GHSA-mrhx-c7xc-m3w5",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency zod@4.4.3: GHSA-mrhx-c7xc-m3w5",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update zod to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-mrhx-c7xc-m3w5",
+      "location": "static:<corpus>/registry2/18_logisky__logisheets-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/18_logisky__logisheets-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-mrhx-c7xc-m3w5\")'"
+    },
+    {
+      "id": "memory_0001",
+      "severity": "low",
+      "category": "memory_poisoning",
+      "title": "Memory/context modification capability detected",
+      "description": "Pattern in src\\cold-read.test.ts near line 17: `session write`. MCP servers that modify agent memory or context can poison long-term behavior.",
+      "owasp_asi": [
+        "ASI06"
+      ],
+      "owasp_mcp": [
+        "MCP06",
+        "MCP10"
+      ],
+      "file_path": "src\\cold-read.test.ts",
+      "line_number": 17,
+      "recommendation": "Validate all data before writing to agent memory. Implement integrity checks on persistent context. Log all memory modifications for audit.",
+      "rule_id": "memory_poisoning_pattern",
+      "evidence": "Memory/context modification capability detected",
+      "location": "src\\cold-read.test.ts:17",
+      "replay": "axiom scan <corpus>/registry2/18_logisky__logisheets-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"memory_0001\")'"
+    },
+    {
+      "id": "mcp08_no_tool_logging",
+      "severity": "info",
+      "category": "audit_telemetry",
+      "title": "No logging found in files that define MCP tools (low confidence)",
+      "description": "None of the tool-defining files (src\\server.ts) reference a logging library or logger call. Tool invocations may leave no audit trail. Confidence is low: logging could be configured elsewhere or by the host.",
+      "owasp_asi": [
+        "ASI10"
+      ],
+      "owasp_mcp": [
+        "MCP08"
+      ],
+      "file_path": "src\\server.ts",
+      "line_number": null,
+      "recommendation": "Log each tool invocation (tool name, caller/session, outcome, and redacted arguments) to a durable, tamper-evident sink.",
+      "rule_id": "no_tool_logging",
+      "evidence": "No logging found in files that define MCP tools (low confidence)",
+      "location": "src\\server.ts",
+      "replay": "axiom scan <corpus>/registry2/18_logisky__logisheets-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"mcp08_no_tool_logging\")'"
+    },
+    {
+      "id": "instructions_instruction_injection",
+      "severity": "medium",
+      "category": "prompt_injection",
+      "title": "Instruction injection in server instructions",
+      "description": "Steering language in tool description (imperative guidance aimed at the model). Matched 'you should' in server instructions. Excerpt: 'A real, Excel-compatible spreadsheet engine you can compute in and remember in.  Four things it is for:   1. Arithmetic you should not do yourself. Write a form'",
+      "owasp_asi": [
+        "ASI01"
+      ],
+      "owasp_mcp": [
+        "MCP06"
+      ],
+      "file_path": "src\\server.ts",
+      "line_number": 167,
+      "recommendation": "Review this content; an agent will follow it.",
+      "rule_id": "served_text_instruction_injection",
+      "evidence": "you should",
+      "location": "src\\server.ts:167",
+      "replay": "axiom scan <corpus>/registry2/18_logisky__logisheets-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"instructions_instruction_injection\")'"
+    }
+  ],
+  "server_profile": {
+    "name": "18_logisky__logisheets-mcp",
+    "command": null,
+    "args": [],
+    "env_vars": [],
+    "transport": "stdio",
+    "tools": [],
+    "resources": [],
+    "prompts": [],
+    "repo_url": null,
+    "npm_package": null,
+    "capabilities_claimed": [],
+    "capabilities_actual": []
+  },
+  "fingerprint": "36099b9dce71cc9c546d2ae2501702f9e1b16896b392ad3255b4b35553b61dfb",
+  "surface_map": {
+    "server": {
+      "name": "logisheets-mcp",
+      "instructions": "A real, Excel-compatible spreadsheet engine you can compute in and remember in.\n\nFour things it is for:\n  1. Arithmetic you should not do yourself. Write a formula and let the engine evaluate it \u2014 `eval_formula` for a one-off, or store the formula in a cell so it keeps recalculating.\n  2. Structured memory that survives the whole task. A *block* is a named table; you address its cells by (block name, row key, field name), never by A1 coordinates. Inserting rows never breaks a reference, so you can keep building without tracking where anything sits.\n  3. Summaries the engine derives, not ones you compute. `create_analysis_block` adds a totals row under a table; `create_pivot` cross-tabulates it into one number per group. You declare the recipe \u2014 which fields, which function \u2014 and the engine generates every formula, so the summary survives a field being renamed and follows rows being added. Do not read a table into your context to add it up; the answer you would write down is a constant, and it is wrong as soon as the next row lands.\n  4. Charts that stay live. `chart_from_block` plots a block by field name and the chart follows the data \u2014 rows added later appear on their own. Never draw a picture of the numbers; make the workbook hold the chart, so it redraws when the human changes an assumption in Excel.\n\nEverything derived is still a block, so a total or one cell of a pivot is addressable with BLOCKREF and can feed the next calculation. One caveat, and it matters: a pivot's numbers are live but its shape is not \u00e2\u0080\u0094 rows and columns for values that appear later do not add themselves. `describe_block` says when a pivot has fallen behind; `refresh_pivot` fixes it. A stale pivot shows correct numbers with whole groups missing, which is not something you can spot by looking.\n\nThe loop: `list_blocks` to see what you have, `create_block` to open a structured workspace, `add_block_rows` / `set_block_cells` to fill it, formulas for the math, `describe_block` to read results back, `save_workbook` to hand the human a real .xlsx.\n\nPrefer blocks over raw cells. `get_cells` / `set_cells` exist for data that genuinely has no structure.\n\nWrite down what a block is for \u00e2\u0080\u0094 a sentence on `create_block`, or `set_block_description` afterwards. `describe_block` gives it back, so it is what the next session (yours or someone else's) reads instead of guessing the meaning from column names.",
+      "transport": "unknown",
+      "auth": "unknown",
+      "instructions_location": "src\\server.ts:167"
+    },
+    "tools": [],
+    "resources": [],
+    "prompts": [],
+    "mutations": [],
+    "source": {
+      "kind": "static",
+      "target": "18_logisky__logisheets-mcp",
+      "languages": [
+        "typescript"
+      ]
+    },
+    "generated_at": "2026-11-11T22:37:28+00:00",
+    "fingerprint": "36099b9dce71cc9c546d2ae2501702f9e1b16896b392ad3255b4b35553b61dfb",
+    "schema": "axiom.surface/1"
+  },
+  "provenance": {
+    "identity": {
+      "npm": "logisheets-mcp",
+      "pypi": null,
+      "repository": "https://github.com/logisky/logisheets-mcp",
+      "server_name": "logisheets-mcp"
+    },
+    "registry": {
+      "status": "match",
+      "entry": "io.github.logisky/logisheets-mcp",
+      "repository": "https://github.com/logisky/logisheets-mcp",
+      "packages": [
+        "npm:logisheets-mcp"
+      ],
+      "publishedAt": "2026-09-29T00:35:14.511928Z",
+      "version": "0.6.0"
+    },
+    "lookalikes": [],
+    "checked_at": "2026-11-11T22:37:30+00:00"
+  },
+  "owasp_coverage": {
+    "framework": "OWASP Top 10 for Agentic Applications 2026",
+    "reference": "https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/",
+    "coverage": {
+      "ASI01": {
+        "name": "Agent Goal Hijack",
+        "coverage_level": "strong",
+        "findings_count": 4,
+        "finding_ids": [
+          "code_0001",
+          "code_0002",
+          "code_0003",
+          "instructions_instruction_injection"
+        ],
+        "detectors": [
+          "tool_poisoning",
+          "prompt_injection",
+          "instruction_injection"
+        ]
+      },
+      "ASI02": {
+        "name": "Tool Misuse & Exploitation",
+        "coverage_level": "strong",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "toxic_tool_combo",
+          "tool_overscope",
+          "tool_chaining_detection"
+        ]
+      },
+      "ASI03": {
+        "name": "Identity & Privilege Abuse",
+        "coverage_level": "strong",
+        "findings_count": 1,
+        "finding_ids": [
+          "ast_0001"
+        ],
+        "detectors": [
+          "credential_analysis",
+          "shared_credential_detection",
+          "env_var_audit"
+        ]
+      },
+      "ASI04": {
+        "name": "Agentic Supply Chain Vulnerabilities",
+        "coverage_level": "strong",
+        "findings_count": 44,
+        "finding_ids": [
+          "GHSA-22jm-h49p-29qw",
+          "GHSA-46jr-4wx8-v453",
+          "GHSA-6prh-2h8m-c8cw",
+          "GHSA-6qxp-vccf-f47h",
+          "GHSA-f897-62hf-6gxq",
+          "GHSA-rvq5-wwqv-78pq",
+          "GHSA-rmxm-3fg6-px4f",
+          "GHSA-82fw-gwwq-j7x9",
+          "GHSA-qxg6-89mg-rqv8",
+          "GHSA-27r3-jxmh-p828"
+        ],
+        "detectors": [
+          "dependency_cve",
+          "lifecycle_hooks",
+          "npx_unversioned",
+          "known_mcp_cves"
+        ]
+      },
+      "ASI05": {
+        "name": "Unexpected Code Execution",
+        "coverage_level": "strong",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "code_exec_patterns",
+          "code_generation_detection",
+          "sandbox_escape"
+        ]
+      },
+      "ASI06": {
+        "name": "Memory & Context Poisoning",
+        "coverage_level": "partial",
+        "findings_count": 1,
+        "finding_ids": [
+          "memory_0001"
+        ],
+        "detectors": [
+          "memory_poisoning_patterns",
+          "context_manipulation_detection"
+        ],
+        "gap_note": "Axiom detects static patterns. Full coverage requires runtime memory monitoring."
+      },
+      "ASI07": {
+        "name": "Insecure Inter-Agent Communication",
+        "coverage_level": "partial",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "transport_security",
+          "a2a_pattern_detection"
+        ],
+        "gap_note": "Axiom checks transport security. Full A2A protocol analysis requires runtime interception."
+      },
+      "ASI08": {
+        "name": "Cascading Failures",
+        "coverage_level": "partial",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "blast_radius_estimation",
+          "dependency_chain_analysis"
+        ],
+        "gap_note": "Axiom estimates blast radius from tool capabilities. Full cascading failure analysis requires runtime topology mapping."
+      },
+      "ASI09": {
+        "name": "Human-Agent Trust Exploitation",
+        "coverage_level": "strong",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "claimed_vs_actual",
+          "deceptive_output_detection",
+          "trust_manipulation_patterns"
+        ]
+      },
+      "ASI10": {
+        "name": "Rogue Agents",
+        "coverage_level": "partial",
+        "findings_count": 4,
+        "finding_ids": [
+          "code_0001",
+          "code_0002",
+          "code_0003",
+          "mcp08_no_tool_logging"
+        ],
+        "detectors": [
+          "sleeper_patterns",
+          "behavioral_drift_indicators",
+          "persistence_detection"
+        ],
+        "gap_note": "Axiom detects static rogue indicators. Full rogue agent detection requires runtime behavioral monitoring."
+      }
+    },
+    "total_asi_categories_with_findings": 5
+  },
+  "owasp_mcp_coverage": {
+    "framework": "OWASP MCP Top 10",
+    "framework_version": "v0.1 beta",
+    "reference": "https://owasp.org/www-project-mcp-top-10/",
+    "coverage": {
+      "MCP01": {
+        "id": "MCP01:2025",
+        "name": "Token Mismanagement & Secret Exposure",
+        "coverage_level": "partial",
+        "reason": "Regex-based secret detection in server source and client configs plus env-var exposure checks; no entropy analysis, git-history scan, or token lifetime/passthrough checks.",
+        "findings_count": 1,
+        "finding_ids": [
+          "ast_0001"
+        ],
+        "detectors": [
+          "credential_theft",
+          "cross_server",
+          "mcp01_hardcoded_secrets",
+          "config_hardcoded_secret",
+          "env_var_audit",
+          "env_dump"
+        ]
+      },
+      "MCP02": {
+        "id": "MCP02:2025",
+        "name": "Privilege Escalation via Scope Creep",
+        "coverage_level": "strong",
+        "reason": "Permission over-scope patterns, toxic tool-capability combinations, path-escape checks and env-var over-exposure in configs.",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "permission_overscope",
+          "toxic_tool_combo",
+          "identity_privilege",
+          "sandbox_escape",
+          "config_risk",
+          "cascading_failure",
+          "cross_server",
+          "excessive_scope",
+          "confused_deputy",
+          "file_read",
+          "file_write"
+        ]
+      },
+      "MCP03": {
+        "id": "MCP03:2025",
+        "name": "Tool Poisoning",
+        "coverage_level": "strong",
+        "reason": "Dedicated detector for hidden instructions in tool metadata, plus runtime rug-pull diffing between source and live tool definitions.",
+        "findings_count": 3,
+        "finding_ids": [
+          "code_0001",
+          "code_0002",
+          "code_0003"
+        ],
+        "detectors": [
+          "tool_poisoning",
+          "obfuscation",
+          "rogue_agent",
+          "source_vs_runtime_diff",
+          "tool_shadowing",
+          "hidden_unicode",
+          "rug_pull_primitive",
+          "surface_mismatch"
+        ]
+      },
+      "MCP04": {
+        "id": "MCP04:2025",
+        "name": "Software Supply Chain Attacks & Dependency Tampering",
+        "coverage_level": "strong",
+        "reason": "Dependency CVE lookup, known MCP CVEs, install lifecycle hooks, and unpinned npx/uvx/pip/@latest install sources.",
+        "findings_count": 47,
+        "finding_ids": [
+          "code_0001",
+          "code_0002",
+          "code_0003",
+          "GHSA-22jm-h49p-29qw",
+          "GHSA-46jr-4wx8-v453",
+          "GHSA-6prh-2h8m-c8cw",
+          "GHSA-6qxp-vccf-f47h",
+          "GHSA-f897-62hf-6gxq",
+          "GHSA-rvq5-wwqv-78pq",
+          "GHSA-rmxm-3fg6-px4f"
+        ],
+        "detectors": [
+          "dependency_vuln",
+          "supply_chain",
+          "known_cve",
+          "obfuscation",
+          "lifecycle_hooks",
+          "mcp04_unpinned_install",
+          "homoglyph",
+          "rug_pull_primitive",
+          "surface_mismatch"
+        ]
+      },
+      "MCP05": {
+        "id": "MCP05:2025",
+        "name": "Command Injection & Execution",
+        "coverage_level": "partial",
+        "reason": "Regex, AST and Semgrep find exec/shell sinks and a heuristic flags sinks inside tool handlers, but there is no inter-procedural taint tracking from tool input to sink.",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "command_injection",
+          "code_execution",
+          "code_generation",
+          "sandbox_escape",
+          "mcp05_tool_input_sink",
+          "shell_exec"
+        ]
+      },
+      "MCP06": {
+        "id": "MCP06:2025",
+        "name": "Prompt Injection via Contextual Payloads",
+        "coverage_level": "partial",
+        "reason": "Injection markers are detected in tool metadata, server instructions, resources, prompts and the strings a tool returns (static), and in instructions/resources/prompts read live; payloads produced by calling a tool at runtime are not inspected.",
+        "findings_count": 2,
+        "finding_ids": [
+          "memory_0001",
+          "instructions_instruction_injection"
+        ],
+        "detectors": [
+          "prompt_injection",
+          "memory_poisoning",
+          "trust_exploitation",
+          "response_injection",
+          "tool_shadowing"
+        ]
+      },
+      "MCP07": {
+        "id": "MCP07:2025",
+        "name": "Insufficient Authentication & Authorization",
+        "coverage_level": "partial",
+        "reason": "Flags remote servers with no visible auth and servers bound to all interfaces; does not verify OAuth implementation or per-tool authorization logic.",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "transport_security",
+          "inter_agent_comm",
+          "identity_privilege",
+          "transport_no_auth",
+          "config_no_auth",
+          "mcp07_bind_all_interfaces"
+        ]
+      },
+      "MCP08": {
+        "id": "MCP08:2025",
+        "name": "Lack of Audit and Telemetry",
+        "coverage_level": "gap",
+        "reason": "Only a low-confidence heuristic for missing logging in tool-defining files; actual audit trails and telemetry pipelines are not verified.",
+        "findings_count": 1,
+        "finding_ids": [
+          "mcp08_no_tool_logging"
+        ],
+        "detectors": [
+          "audit_telemetry",
+          "mcp08_no_tool_logging"
+        ]
+      },
+      "MCP09": {
+        "id": "MCP09:2025",
+        "name": "Shadow MCP Servers",
+        "coverage_level": "partial",
+        "reason": "Covered by `axiom discover` allowlist on the local machine; no network-wide or fleet discovery.",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "mcpguard_discover",
+          "shadow_mcp"
+        ]
+      },
+      "MCP10": {
+        "id": "MCP10:2025",
+        "name": "Context Injection & Over-Sharing",
+        "coverage_level": "partial",
+        "reason": "Hard-coded egress URLs, tools that send to caller-chosen destinations and bulk-exposure heuristics are detected statically and live; what context is actually shared at runtime is not observed.",
+        "findings_count": 1,
+        "finding_ids": [
+          "memory_0001"
+        ],
+        "detectors": [
+          "context_oversharing",
+          "data_exfiltration",
+          "memory_poisoning",
+          "mcp10_broad_data_exposure"
+        ]
+      }
+    },
+    "total_mcp_categories_with_findings": 6
+  },
+  "ai_analysis": null,
+  "tool_poisoning_report": null,
+  "prompt_injection_risk": null
+}

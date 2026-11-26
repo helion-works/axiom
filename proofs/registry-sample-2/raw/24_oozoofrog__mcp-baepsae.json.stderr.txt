@@ -1,0 +1,115 @@
+⠦ Scanning 24_oozoofrog__mcp-baepsae...
+┌───────────────────── Traceback (most recent call last) ─────────────────────┐
+│ <local>/axiom_cli.py:472 in scan                 │
+│                                                                             │
+│    469 │   │   elif risk == "medium":                                       │
+│    470 │   │   │   raise typer.Exit(1)                                      │
+│    471 │                                                                    │
+│ >  472 │   asyncio.run(_run())                                              │
+│    473                                                                      │
+│    474                                                                      │
+│    475 @app.command()                                                       │
+│                                                                             │
+│ C:\Program                                                                  │
+│ Files\WindowsApps\PythonSoftwareFoundation.Python.3.12_3.12.2800.0_x64__qbz │
+│ 5n2kfra8p0\Lib\asyncio\runners.py:195 in run                                │
+│                                                                             │
+│   192 │   │   │   "asyncio.run() cannot be called from a running event      │
+│       loop")                                                                │
+│   193 │                                                                     │
+│   194 │   with Runner(debug=debug, loop_factory=loop_factory) as runner:    │
+│ > 195 │   │   return runner.run(main)                                       │
+│   196                                                                       │
+│   197                                                                       │
+│   198 def _cancel_all_tasks(loop):                                          │
+│                                                                             │
+│ C:\Program                                                                  │
+│ Files\WindowsApps\PythonSoftwareFoundation.Python.3.12_3.12.2800.0_x64__qbz │
+│ 5n2kfra8p0\Lib\asyncio\runners.py:118 in run                                │
+│                                                                             │
+│   115 │   │                                                                 │
+│   116 │   │   self._interrupt_count = 0                                     │
+│   117 │   │   try:                                                          │
+│ > 118 │   │   │   return self._loop.run_until_complete(task)                │
+│   119 │   │   except exceptions.CancelledError:                             │
+│   120 │   │   │   if self._interrupt_count > 0:                             │
+│   121 │   │   │   │   uncancel = getattr(task, "uncancel", None)            │
+│                                                                             │
+│ C:\Program                                                                  │
+│ Files\WindowsApps\PythonSoftwareFoundation.Python.3.12_3.12.2800.0_x64__qbz │
+│ 5n2kfra8p0\Lib\asyncio\base_events.py:691 in run_until_complete             │
+│                                                                             │
+│    688 │   │   if not future.done():                                        │
+│    689 │   │   │   raise RuntimeError('Event loop stopped before Future     │
+│        completed.')                                                         │
+│    690 │   │                                                                │
+│ >  691 │   │   return future.result()                                       │
+│    692 │                                                                    │
+│    693 │   def stop(self):                                                  │
+│    694 │   │   """Stop running the event loop.                              │
+│                                                                             │
+│ <local>/axiom_cli.py:429 in _run                 │
+│                                                                             │
+│    426 │   │   │   if console:                                              │
+│    427 │   │   │   │   with Progress(SpinnerColumn(),                       │
+│        TextColumn("[progress.description]{task.description}"),              │
+│        console=console) as p:                                               │
+│    428 │   │   │   │   │   task = p.add_task(f"Scanning {target}...",       │
+│        total=None)                                                          │
+│ >  429 │   │   │   │   │   result = await engine.scan(target, url,          │
+│        **_scan_kw)                                                          │
+│    430 │   │   │   │   │                                                    │
+│    431 │   │   │   │   │   if not no_ai:                                    │
+│    432 │   │   │   │   │   │   p.update(task, description="Running AI       │
+│        analysis...")                                                        │
+│                                                                             │
+│ <local>/engine.py:327 in scan           │
+│                                                                             │
+│    324 │   │   │   findings.extend(semgrep_findings)                        │
+│    325 │   │   │                                                            │
+│    326 │   │   │   # 4. Manifest / lifecycle hook analysis                  │
+│ >  327 │   │   │   manifest_findings = self._analyze_manifests(scan_dir)    │
+│    328 │   │   │   findings.extend(manifest_findings)                       │
+│    329 │   │   │                                                            │
+│    330 │   │   │   # 5. Dependency analysis                                 │
+│                                                                             │
+│ <local>/engine.py:693 in                │
+│ _analyze_manifests                                                          │
+│                                                                             │
+│    690 │   │   if os.path.exists(pkg_path):                                 │
+│    691 │   │   │   try:                                                     │
+│    692 │   │   │   │   with open(pkg_path) as f:                            │
+│ >  693 │   │   │   │   │   pkg = json.load(f)                               │
+│    694 │   │   │   │                                                        │
+│    695 │   │   │   │   # Check lifecycle scripts                            │
+│    696 │   │   │   │   scripts = pkg.get("scripts", {})                     │
+│                                                                             │
+│ C:\Program                                                                  │
+│ Files\WindowsApps\PythonSoftwareFoundation.Python.3.12_3.12.2800.0_x64__qbz │
+│ 5n2kfra8p0\Lib\json\__init__.py:293 in load                                 │
+│                                                                             │
+│   290 │   To use a custom ``JSONDecoder`` subclass, specify it with the     │
+│       ``cls``                                                               │
+│   291 │   kwarg; otherwise ``JSONDecoder`` is used.                         │
+│   292 │   """                                                               │
+│ > 293 │   return loads(fp.read(),                                           │
+│   294 │   │   cls=cls, object_hook=object_hook,                             │
+│   295 │   │   parse_float=parse_float, parse_int=parse_int,                 │
+│   296 │   │   parse_constant=parse_constant,                                │
+│       object_pairs_hook=object_pairs_hook, **kw)                            │
+│                                                                             │
+│ C:\Program                                                                  │
+│ Files\WindowsApps\PythonSoftwareFoundation.Python.3.12_3.12.2800.0_x64__qbz │
+│ 5n2kfra8p0\Lib\encodings\cp1252.py:23 in decode                             │
+│                                                                             │
+│    20                                                                       │
+│    21 class IncrementalDecoder(codecs.IncrementalDecoder):                  │
+│    22 │   def decode(self, input, final=False):                             │
+│ >  23 │   │   return                                                        │
+│       codecs.charmap_decode(input,self.errors,decoding_table)[0]            │
+│    24                                                                       │
+│    25 class StreamWriter(Codec,codecs.StreamWriter):                        │
+│    26 │   pass                                                              │
+└─────────────────────────────────────────────────────────────────────────────┘
+UnicodeDecodeError: 'charmap' codec can't decode byte 0x81 in position 3210: 
+character maps to <undefined>

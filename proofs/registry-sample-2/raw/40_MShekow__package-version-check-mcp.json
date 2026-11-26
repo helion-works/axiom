@@ -1,0 +1,1030 @@
+{
+  "schema_version": "0.5",
+  "target": "40_MShekow__package-version-check-mcp",
+  "risk_score": 58.0,
+  "risk_level": "high",
+  "tools_found": 4,
+  "findings_count": 22,
+  "findings": [
+    {
+      "id": "egress_get_latest_package_versions_desc_2",
+      "severity": "medium",
+      "category": "data_exfiltration",
+      "title": "Hard-coded egress URL in description of tool 'get_latest_package_versions': host",
+      "description": "The description of 'get_latest_package_versions' names an external endpoint (https://host/path/chart-name). A tool that tells the agent where to send data is an exfiltration channel.",
+      "owasp_asi": [
+        "ASI01",
+        "ASI02"
+      ],
+      "owasp_mcp": [
+        "MCP10"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Remove the endpoint from the description; make egress destinations explicit, user-approved configuration.",
+      "rule_id": "egress_url_in_description",
+      "evidence": "https://host/path/chart-name",
+      "location": "static:<corpus>/registry2/40_MShekow__package-version-check-mcp:get_latest_package_versions_desc",
+      "replay": "axiom scan <corpus>/registry2/40_MShekow__package-version-check-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"egress_get_latest_package_versions_desc_2\")'"
+    },
+    {
+      "id": "egress_get_latest_package_versions_desc_4",
+      "severity": "medium",
+      "category": "data_exfiltration",
+      "title": "Hard-coded egress URL in description of tool 'get_latest_package_versions': charts.bitnami.com",
+      "description": "The description of 'get_latest_package_versions' names an external endpoint (https://charts.bitnami.com/bitnami/nginx). A tool that tells the agent where to send data is an exfiltration channel.",
+      "owasp_asi": [
+        "ASI01",
+        "ASI02"
+      ],
+      "owasp_mcp": [
+        "MCP10"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Remove the endpoint from the description; make egress destinations explicit, user-approved configuration.",
+      "rule_id": "egress_url_in_description",
+      "evidence": "https://charts.bitnami.com/bitnami/nginx",
+      "location": "static:<corpus>/registry2/40_MShekow__package-version-check-mcp:get_latest_package_versions_desc",
+      "replay": "axiom scan <corpus>/registry2/40_MShekow__package-version-check-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"egress_get_latest_package_versions_desc_4\")'"
+    },
+    {
+      "id": "poison_get_latest_package_versions_long_desc",
+      "severity": "medium",
+      "category": "tool_poisoning",
+      "title": "Unusually long tool description for 'get_latest_package_versions'",
+      "description": "Tool description is 4360 characters. Long descriptions can hide malicious instructions.",
+      "owasp_asi": [
+        "ASI01"
+      ],
+      "owasp_mcp": [
+        "MCP03"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Review the full tool description for hidden instructions.",
+      "rule_id": "long_description",
+      "evidence": "Unusually long tool description for 'get_latest_package_versions'",
+      "location": "static:<corpus>/registry2/40_MShekow__package-version-check-mcp:get_latest_package_versions",
+      "replay": "axiom scan <corpus>/registry2/40_MShekow__package-version-check-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"poison_get_latest_package_versions_long_desc\")'"
+    },
+    {
+      "id": "poison_get_github_action_versions_and_args_long_desc",
+      "severity": "medium",
+      "category": "tool_poisoning",
+      "title": "Unusually long tool description for 'get_github_action_versions_and_args'",
+      "description": "Tool description is 1231 characters. Long descriptions can hide malicious instructions.",
+      "owasp_asi": [
+        "ASI01"
+      ],
+      "owasp_mcp": [
+        "MCP03"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Review the full tool description for hidden instructions.",
+      "rule_id": "long_description",
+      "evidence": "Unusually long tool description for 'get_github_action_versions_and_args'",
+      "location": "static:<corpus>/registry2/40_MShekow__package-version-check-mcp:get_github_action_versions_and_args",
+      "replay": "axiom scan <corpus>/registry2/40_MShekow__package-version-check-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"poison_get_github_action_versions_and_args_long_desc\")'"
+    },
+    {
+      "id": "egress_get_latest_tool_versions_desc_1",
+      "severity": "medium",
+      "category": "data_exfiltration",
+      "title": "Hard-coded egress URL in description of tool 'get_latest_tool_versions': services.gradle.org",
+      "description": "The description of 'get_latest_tool_versions' names an external endpoint (https://services.gradle.org/distributions/gradle-8.5-bin.zip). A tool that tells the agent where to send data is an exfiltration channel.",
+      "owasp_asi": [
+        "ASI01",
+        "ASI02"
+      ],
+      "owasp_mcp": [
+        "MCP10"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Remove the endpoint from the description; make egress destinations explicit, user-approved configuration.",
+      "rule_id": "egress_url_in_description",
+      "evidence": "https://services.gradle.org/distributions/gradle-8.5-bin.zip",
+      "location": "static:<corpus>/registry2/40_MShekow__package-version-check-mcp:get_latest_tool_versions_desc",
+      "replay": "axiom scan <corpus>/registry2/40_MShekow__package-version-check-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"egress_get_latest_tool_versions_desc_1\")'"
+    },
+    {
+      "id": "egress_get_latest_tool_versions_desc_2",
+      "severity": "medium",
+      "category": "data_exfiltration",
+      "title": "Hard-coded egress URL in description of tool 'get_latest_tool_versions': repo.maven.apache.org",
+      "description": "The description of 'get_latest_tool_versions' names an external endpoint (https://repo.maven.apache.org/maven2/org/apache/maven/apache-maven/3.9.6/apache-maven-3.9.6-bin.zip). A tool that tells the agent where to send data is an exfiltration channel.",
+      "owasp_asi": [
+        "ASI01",
+        "ASI02"
+      ],
+      "owasp_mcp": [
+        "MCP10"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Remove the endpoint from the description; make egress destinations explicit, user-approved configuration.",
+      "rule_id": "egress_url_in_description",
+      "evidence": "https://repo.maven.apache.org/maven2/org/apache/maven/apache-maven/3.9.6/apache-maven-3.9.6-bin.zip",
+      "location": "static:<corpus>/registry2/40_MShekow__package-version-check-mcp:get_latest_tool_versions_desc",
+      "replay": "axiom scan <corpus>/registry2/40_MShekow__package-version-check-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"egress_get_latest_tool_versions_desc_2\")'"
+    },
+    {
+      "id": "egress_get_latest_tool_versions_desc_3",
+      "severity": "high",
+      "category": "data_exfiltration",
+      "title": "Hard-coded egress URL in description of tool 'get_latest_tool_versions': dl.k8s.io",
+      "description": "The description of 'get_latest_tool_versions' names an external endpoint (https://dl.k8s.io/release/v1.28.0/bin/linux/amd64/kubectl). A tool that tells the agent where to send data is an exfiltration channel.",
+      "owasp_asi": [
+        "ASI01",
+        "ASI02"
+      ],
+      "owasp_mcp": [
+        "MCP10"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Remove the endpoint from the description; make egress destinations explicit, user-approved configuration.",
+      "rule_id": "egress_url_in_description",
+      "evidence": "https://dl.k8s.io/release/v1.28.0/bin/linux/amd64/kubectl",
+      "location": "static:<corpus>/registry2/40_MShekow__package-version-check-mcp:get_latest_tool_versions_desc",
+      "replay": "axiom scan <corpus>/registry2/40_MShekow__package-version-check-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"egress_get_latest_tool_versions_desc_3\")'"
+    },
+    {
+      "id": "egress_get_latest_tool_versions_desc_4",
+      "severity": "high",
+      "category": "data_exfiltration",
+      "title": "Hard-coded egress URL in description of tool 'get_latest_tool_versions': azurecliprod.blob.core.windows.net",
+      "description": "The description of 'get_latest_tool_versions' names an external endpoint (https://azurecliprod.blob.core.windows.net/releases/azure-cli-2.50.0.tar.gz). A tool that tells the agent where to send data is an exfiltration channel.",
+      "owasp_asi": [
+        "ASI01",
+        "ASI02"
+      ],
+      "owasp_mcp": [
+        "MCP10"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Remove the endpoint from the description; make egress destinations explicit, user-approved configuration.",
+      "rule_id": "egress_url_in_description",
+      "evidence": "https://azurecliprod.blob.core.windows.net/releases/azure-cli-2.50.0.tar.gz",
+      "location": "static:<corpus>/registry2/40_MShekow__package-version-check-mcp:get_latest_tool_versions_desc",
+      "replay": "axiom scan <corpus>/registry2/40_MShekow__package-version-check-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"egress_get_latest_tool_versions_desc_4\")'"
+    },
+    {
+      "id": "schema_get_latest_tool_versions_context_param_tool_names",
+      "severity": "medium",
+      "category": "data_exfiltration",
+      "title": "Tool 'get_latest_tool_versions' asks the agent to pass its context as 'tool_names'",
+      "description": "Parameter 'tool_names' of 'get_latest_tool_versions' has no role in the tool's stated purpose ('Get the latest stable versions of tools supported by mise-en-place.\n\nThis tool f'); it asks the model to hand over its tool list, conversation, system prompt or keys. The schema itself is the exfiltration channel.",
+      "owasp_asi": [
+        "ASI01",
+        "ASI02"
+      ],
+      "owasp_mcp": [
+        "MCP10"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Remove parameters the task does not need; a tool must never ask for the agent's context.",
+      "rule_id": "schema_context_parameter",
+      "evidence": "tool_names",
+      "location": "static:<corpus>/registry2/40_MShekow__package-version-check-mcp:get_latest_tool_versions",
+      "replay": "axiom scan <corpus>/registry2/40_MShekow__package-version-check-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"schema_get_latest_tool_versions_context_param_tool_names\")'"
+    },
+    {
+      "id": "poison_get_latest_tool_versions_long_desc",
+      "severity": "medium",
+      "category": "tool_poisoning",
+      "title": "Unusually long tool description for 'get_latest_tool_versions'",
+      "description": "Tool description is 1904 characters. Long descriptions can hide malicious instructions.",
+      "owasp_asi": [
+        "ASI01"
+      ],
+      "owasp_mcp": [
+        "MCP03"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Review the full tool description for hidden instructions.",
+      "rule_id": "long_description",
+      "evidence": "Unusually long tool description for 'get_latest_tool_versions'",
+      "location": "static:<corpus>/registry2/40_MShekow__package-version-check-mcp:get_latest_tool_versions",
+      "replay": "axiom scan <corpus>/registry2/40_MShekow__package-version-check-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"poison_get_latest_tool_versions_long_desc\")'"
+    },
+    {
+      "id": "cross_tool_get_supported_tools_get_latest_tool_versions",
+      "severity": "medium",
+      "category": "cross_server",
+      "title": "Tool 'get_supported_tools' references tool 'get_latest_tool_versions'",
+      "description": "Tool description mentions another tool by name, which could enable tool chaining attacks.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP01",
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Verify this cross-reference is legitimate and necessary.",
+      "rule_id": "cross_tool_reference",
+      "evidence": "Tool 'get_supported_tools' references tool 'get_latest_tool_versions'",
+      "location": "static:<corpus>/registry2/40_MShekow__package-version-check-mcp:get_supported_tools_get_latest_tool_versions",
+      "replay": "axiom scan <corpus>/registry2/40_MShekow__package-version-check-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"cross_tool_get_supported_tools_get_latest_tool_versions\")'"
+    },
+    {
+      "id": "cross_tool_get_latest_tool_versions_get_supported_tools",
+      "severity": "medium",
+      "category": "cross_server",
+      "title": "Tool 'get_latest_tool_versions' references tool 'get_supported_tools'",
+      "description": "Tool description mentions another tool by name, which could enable tool chaining attacks.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP01",
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Verify this cross-reference is legitimate and necessary.",
+      "rule_id": "cross_tool_reference",
+      "evidence": "Tool 'get_latest_tool_versions' references tool 'get_supported_tools'",
+      "location": "static:<corpus>/registry2/40_MShekow__package-version-check-mcp:get_latest_tool_versions_get_supported_tools",
+      "replay": "axiom scan <corpus>/registry2/40_MShekow__package-version-check-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"cross_tool_get_latest_tool_versions_get_supported_tools\")'"
+    },
+    {
+      "id": "cross_tool_get_latest_tool_versions_get_latest_package_versions",
+      "severity": "medium",
+      "category": "cross_server",
+      "title": "Tool 'get_latest_tool_versions' references tool 'get_latest_package_versions'",
+      "description": "Tool description mentions another tool by name, which could enable tool chaining attacks.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP01",
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Verify this cross-reference is legitimate and necessary.",
+      "rule_id": "cross_tool_reference",
+      "evidence": "Tool 'get_latest_tool_versions' references tool 'get_latest_package_versions'",
+      "location": "static:<corpus>/registry2/40_MShekow__package-version-check-mcp:get_latest_tool_versions_get_latest_package_versions",
+      "replay": "axiom scan <corpus>/registry2/40_MShekow__package-version-check-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"cross_tool_get_latest_tool_versions_get_latest_package_versions\")'"
+    },
+    {
+      "id": "ast_0001",
+      "severity": "info",
+      "category": "credential_theft",
+      "title": "Environment variable access via os.environ.get()",
+      "description": "Call to `os.environ.get()` reads an environment variable (capability note) in src\\package_version_check_mcp\\get_latest_package_versions_pkg\\dispatcher.py at line 28",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP01"
+      ],
+      "file_path": "src\\package_version_check_mcp\\get_latest_package_versions_pkg\\dispatcher.py",
+      "line_number": 28,
+      "recommendation": "Document which env vars are needed. Avoid reading arbitrary env vars.",
+      "rule_id": "code_pattern_ast",
+      "evidence": "os.environ.get()",
+      "location": "src\\package_version_check_mcp\\get_latest_package_versions_pkg\\dispatcher.py:28",
+      "replay": "axiom scan <corpus>/registry2/40_MShekow__package-version-check-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"ast_0001\")'"
+    },
+    {
+      "id": "ast_0002",
+      "severity": "info",
+      "category": "credential_theft",
+      "title": "Environment variable access via os.environ.get()",
+      "description": "Call to `os.environ.get()` reads an environment variable (capability note) in src\\package_version_check_mcp\\get_latest_package_versions_pkg\\dispatcher.py at line 30",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP01"
+      ],
+      "file_path": "src\\package_version_check_mcp\\get_latest_package_versions_pkg\\dispatcher.py",
+      "line_number": 30,
+      "recommendation": "Document which env vars are needed. Avoid reading arbitrary env vars.",
+      "rule_id": "code_pattern_ast",
+      "evidence": "os.environ.get()",
+      "location": "src\\package_version_check_mcp\\get_latest_package_versions_pkg\\dispatcher.py:30",
+      "replay": "axiom scan <corpus>/registry2/40_MShekow__package-version-check-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"ast_0002\")'"
+    },
+    {
+      "id": "ast_0003",
+      "severity": "info",
+      "category": "credential_theft",
+      "title": "Environment variable access via os.environ.get()",
+      "description": "Call to `os.environ.get()` reads an environment variable (capability note) in src\\package_version_check_mcp\\get_latest_package_versions_pkg\\dispatcher.py at line 32",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP01"
+      ],
+      "file_path": "src\\package_version_check_mcp\\get_latest_package_versions_pkg\\dispatcher.py",
+      "line_number": 32,
+      "recommendation": "Document which env vars are needed. Avoid reading arbitrary env vars.",
+      "rule_id": "code_pattern_ast",
+      "evidence": "os.environ.get()",
+      "location": "src\\package_version_check_mcp\\get_latest_package_versions_pkg\\dispatcher.py:32",
+      "replay": "axiom scan <corpus>/registry2/40_MShekow__package-version-check-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"ast_0003\")'"
+    },
+    {
+      "id": "ast_0001",
+      "severity": "info",
+      "category": "credential_theft",
+      "title": "Environment variable access via os.environ.get()",
+      "description": "Call to `os.environ.get()` reads an environment variable (capability note) in src\\package_version_check_mcp\\get_latest_package_versions_pkg\\utils\\github.py at line 82",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP01"
+      ],
+      "file_path": "src\\package_version_check_mcp\\get_latest_package_versions_pkg\\utils\\github.py",
+      "line_number": 82,
+      "recommendation": "Document which env vars are needed. Avoid reading arbitrary env vars.",
+      "rule_id": "code_pattern_ast",
+      "evidence": "os.environ.get()",
+      "location": "src\\package_version_check_mcp\\get_latest_package_versions_pkg\\utils\\github.py:82",
+      "replay": "axiom scan <corpus>/registry2/40_MShekow__package-version-check-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"ast_0001\")'"
+    },
+    {
+      "id": "codegen_0001",
+      "severity": "low",
+      "category": "code_generation",
+      "title": "Dynamic code generation from input detected",
+      "description": "Pattern in tests\\test_e2e.py at line 22: `\"\"\"Build and run the Docker container, then clean up after tests.`. Tools that generate code from agent inputs can execute attacker-controlled payloads.",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "tests\\test_e2e.py",
+      "line_number": 22,
+      "recommendation": "Sandbox code execution. Validate and sanitize all inputs before code generation. Use AST-based analysis instead of string-based code construction.",
+      "rule_id": "code_generation_pattern",
+      "evidence": "Dynamic code generation from input detected",
+      "location": "tests\\test_e2e.py:22",
+      "replay": "axiom scan <corpus>/registry2/40_MShekow__package-version-check-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"codegen_0001\")'"
+    },
+    {
+      "id": "mcp04_unpinned_0001",
+      "severity": "medium",
+      "category": "supply_chain",
+      "title": "Unpinned install source",
+      "description": "`pip install` of unpinned package(s) poetry in .github\\workflows\\ci-cd.yml at line 48. Without an exact version the next install silently picks up whatever is published, including a compromised release.",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": ".github\\workflows\\ci-cd.yml",
+      "line_number": 48,
+      "recommendation": "Pin an exact version (pkg@1.2.3, pkg==1.2.3) and prefer a lockfile or hash-checked requirements.",
+      "rule_id": "unpinned_install_source",
+      "evidence": "Unpinned install source",
+      "location": ".github\\workflows\\ci-cd.yml:48",
+      "replay": "axiom scan <corpus>/registry2/40_MShekow__package-version-check-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"mcp04_unpinned_0001\")'"
+    },
+    {
+      "id": "mcp05_tool_sink_0001",
+      "severity": "high",
+      "category": "command_injection",
+      "title": "Exec/shell sink `subprocess.run` inside tool 'get_supported_tools'",
+      "description": "src\\package_version_check_mcp\\main.py line 178: tool 'get_supported_tools' calls `subprocess.run`. Tool arguments are chosen by the model and can be steered by injected content. The sink sits inside the tool body; data flow from tool input was not proven. This is a heuristic, not full taint analysis.",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "src\\package_version_check_mcp\\main.py",
+      "line_number": 178,
+      "recommendation": "Avoid shells in tool handlers. Use argument lists (no shell=True), strict allowlists for commands and paths, and validate every tool argument before use.",
+      "rule_id": "tool_input_sink",
+      "evidence": "Exec/shell sink `subprocess.run` inside tool 'get_supported_tools'",
+      "location": "src\\package_version_check_mcp\\main.py:178",
+      "replay": "axiom scan <corpus>/registry2/40_MShekow__package-version-check-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"mcp05_tool_sink_0001\")'"
+    },
+    {
+      "id": "mcp07_bind_all_0001",
+      "severity": "medium",
+      "category": "transport_security",
+      "title": "MCP server binds to all interfaces (0.0.0.0)",
+      "description": "src\\package_version_check_mcp\\main.py line 259 listens on 0.0.0.0, so any host that can reach this machine can connect. Combined with weak or missing authentication this exposes every tool.",
+      "owasp_asi": [
+        "ASI07"
+      ],
+      "owasp_mcp": [
+        "MCP07"
+      ],
+      "file_path": "src\\package_version_check_mcp\\main.py",
+      "line_number": 259,
+      "recommendation": "Bind to 127.0.0.1 for local use; if remote access is required (including inside containers, where 0.0.0.0 is normal), put the server behind authentication and TLS and do not publish the port beyond trusted networks.",
+      "rule_id": "bind_all_interfaces",
+      "evidence": "MCP server binds to all interfaces (0.0.0.0)",
+      "location": "src\\package_version_check_mcp\\main.py:259",
+      "replay": "axiom scan <corpus>/registry2/40_MShekow__package-version-check-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"mcp07_bind_all_0001\")'"
+    },
+    {
+      "id": "mcp08_no_tool_logging",
+      "severity": "info",
+      "category": "audit_telemetry",
+      "title": "No logging found in files that define MCP tools (low confidence)",
+      "description": "None of the tool-defining files (src\\package_version_check_mcp\\main.py) reference a logging library or logger call. Tool invocations may leave no audit trail. Confidence is low: logging could be configured elsewhere or by the host.",
+      "owasp_asi": [
+        "ASI10"
+      ],
+      "owasp_mcp": [
+        "MCP08"
+      ],
+      "file_path": "src\\package_version_check_mcp\\main.py",
+      "line_number": null,
+      "recommendation": "Log each tool invocation (tool name, caller/session, outcome, and redacted arguments) to a durable, tamper-evident sink.",
+      "rule_id": "no_tool_logging",
+      "evidence": "No logging found in files that define MCP tools (low confidence)",
+      "location": "src\\package_version_check_mcp\\main.py",
+      "replay": "axiom scan <corpus>/registry2/40_MShekow__package-version-check-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"mcp08_no_tool_logging\")'"
+    }
+  ],
+  "server_profile": {
+    "name": "40_MShekow__package-version-check-mcp",
+    "command": null,
+    "args": [],
+    "env_vars": [],
+    "transport": "unknown",
+    "tools": [
+      {
+        "name": "get_latest_package_versions",
+        "description": "Get the latest versions of packages from various ecosystems.\n\nThis tool fetches the latest version information for packages from NPM, PyPI, NuGet, Maven/Gradle, Go modules,\nPHP/Packagist, Ruby gems, Rust crates, Swift packages, Dart packages, Docker, Helm, Terraform modules\nand Terraform providers.\nIt returns both successful lookups and any errors that occurred.\n\nArgs:\n    packages: A list of package version requests with:\n        - ecosystem: \"npm\", \"pypi\", \"nuget\", \"maven_gradle\", \"go\", \"php\", \"rubygems\", \"rust\", \"swift\", \"dart\", \"docker\", \"helm\", \"terraform_provider\", or \"terraform_module\"\n        - package_name: The name of the package (e.g., \"express\", \"requests\", \"Newtonsoft.Json\")\n          For Maven/Gradle, use format \"[registry:]<groupId>:<artifactId>\" (e.g., \"org.springframework:spring-core\" for Maven Central,\n          \"maven.google.com:com.google.android.material:material\" for Google Maven)\n          For Go, use the absolute module identifier (e.g., \"github.com/gin-gonic/gin\")\n          For PHP, use the Packagist package name in \"vendor/package\" format (e.g., \"monolog/monolog\", \"laravel/framework\")\n          For RubyGems, use the gem name (e.g., \"rails\", \"devise\")\n          For Rust, use the crate name (e.g., \"serde\", \"tokio\")\n          For Swift, use the GitHub URL (e.g., \"https://github.com/owner/repo.git\" or \"github.com/owner/repo.git\") - only github.com is supported\n          For Dart, use the package name from pub.dev (e.g., \"flutter\", \"http\")\n          For Docker, this must be fully qualified (e.g., \"index.docker.io/library/busybox\")\n          For Helm, use one of these formats:\n            - ChartMuseum: \"https://host/path/chart-name\" (fetches from index.yaml)\n            - OCI: \"oci://host/path/chart-name\" (queries OCI registry tags)\n        - version_hint: (optional) For Docker and Helm OCI, used as a tag compatibility hint (e.g., \"1.2-alpine\")\n          to find the latest tag matching the same suffix pattern.\n          For NPM/PyPI/NuGet/Maven/ChartMuseum/Go/PHP/RubyGems/Rust/Swift/Dart, not used.\n\nReturns:\n    GetLatestVersionsResponse containing:\n        - result: List of successful package version lookups with:\n            - ecosystem: The package ecosystem (as provided)\n            - package_name: The package name (as provided)\n            - latest_version: The latest version number (e.g., \"1.2.4\") or Docker tag\n            - digest: (optional) Package digest/hash if available\n            - published_on: (optional) Publication date if available\n        - lookup_errors: List of errors that occurred during lookup with:\n            - ecosystem: The package ecosystem (as provided)\n            - package_name: The package name (as provided)\n            - error: Description of the error\n\nExample:\n    >>> await get_latest_package_versions([\n    ...     PackageVersionRequest(ecosystem=Ecosystem.NPM, package_name=\"express\"),\n    ...     PackageVersionRequest(ecosystem=Ecosystem.PyPI, package_name=\"requests\"),\n    ...     PackageVersionRequest(ecosystem=Ecosystem.NuGet, package_name=\"Newtonsoft.Json\"),\n    ...     PackageVersionRequest(ecosystem=Ecosystem.MavenGradle, package_name=\"org.springframework:spring-core\"),\n    ...     PackageVersionRequest(ecosystem=Ecosystem.Go, package_name=\"github.com/gin-gonic/gin\"),\n    ...     PackageVersionRequest(ecosystem=Ecosystem.PHP, package_name=\"monolog/monolog\"),\n    ...     PackageVersionRequest(ecosystem=Ecosystem.RubyGems, package_name=\"rails\"),\n    ...     PackageVersionRequest(ecosystem=Ecosystem.Rust, package_name=\"serde\"),\n    ...     PackageVersionRequest(ecosystem=Ecosystem.Swift, package_name=\"https://github.com/Alamofire/Alamofire.git\"),\n    ...     PackageVersionRequest(ecosystem=Ecosystem.Dart, package_name=\"http\"),\n    ...     PackageVersionRequest(ecosystem=Ecosystem.Docker, package_name=\"index.docker.io/library/alpine\", version_hint=\"3.19-alpine\"),\n    ...     PackageVersionRequest(ecosystem=Ecosystem.Helm, package_name=\"https://charts.bitnami.com/bitnami/nginx\"),\n    ...     PackageVersionRequest(ecosystem=Ecosystem.Helm, package_name=\"oci://ghcr.io/argoproj/argo-helm/argo-cd\"),\n    ...     PackageVersionRequest(ecosystem=Ecosystem.TerraformProvider, package_name=\"hashicorp/aws\"),\n    ...     PackageVersionRequest(ecosystem=Ecosystem.TerraformModule, package_name=\"terraform-aws-modules/vpc/aws\"),\n    ... ])",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "packages": {
+              "type": "array"
+            }
+          },
+          "required": [
+            "packages"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "medium",
+        "poisoning_detail": "The description of 'get_latest_package_versions' names an external endpoint (https://host/path/chart-name). A tool that tells the agent where to send data is an exfiltration channel."
+      },
+      {
+        "name": "get_github_action_versions_and_args",
+        "description": "Get the latest versions and metadata for GitHub Actions.\n\nThis tool fetches the latest Git tag and action.yml metadata for GitHub Actions\nhosted on github.com. It can optionally include the README.md for usage instructions.\n\nArgs:\n    action_names: A list of action names in \"owner/repo\" format\n        (e.g., [\"actions/checkout\", \"docker/login-action\"])\n    include_readme: Whether to include the README.md content (default: False)\n\nReturns:\n    GetGitHubActionVersionsResponse containing:\n        - result: List of successful action lookups with:\n            - name: The action name (as provided)\n            - latest_version: The most recent Git tag (e.g., \"v3.2.4\")\n            - digest: The commit SHA that the tag points to\n            - metadata: The action.yml fields (inputs, outputs, runs) as a dict\n            - readme: (optional) The README content if include_readme was True\n        - lookup_errors: List of errors that occurred during lookup with:\n            - name: The action name (as provided)\n            - error: Description of the error\n\nExample:\n    >>> await get_github_action_versions_and_args(\n    ...     action_names=[\"actions/checkout\", \"docker/login-action\"],\n    ...     include_readme=True\n    ... )",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "action_names": {
+              "type": "array"
+            },
+            "include_readme": {
+              "type": "boolean",
+              "default": false
+            }
+          },
+          "required": [
+            "action_names"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "medium",
+        "poisoning_detail": "Tool description is 1231 characters. Long descriptions can hide malicious instructions."
+      },
+      {
+        "name": "get_supported_tools",
+        "description": "Get list of all tools supported by the get_latest_tool_versions MCP tool.\n\nThis tool queries the mise registry to retrieve all available tool names\nthat can be used with the get_latest_tool_versions tool.\n\nReturns:\n    A list of tool short names (e.g., [\"1password\", \"act\", \"node\", \"python\", ...])\n\nExample:\n    >>> await get_supported_tools()\n    [\"1password\", \"act\", \"node\", \"python\", ...]",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "get_latest_tool_versions",
+        "description": "Get the latest stable versions of tools supported by mise-en-place.\n\nThis tool fetches the latest stable version of development and DevOps tools\nthat are NOT part of language ecosystems like PyPI or NPM. For language\necosystem packages (including Terraform providers and modules), use the\nget_latest_package_versions tool instead.\n\nUse this tool to determine the latest versions of tools like:\n- gradle: Pin the Gradle version in distributionUrl in gradle-wrapper.properties\n  (e.g., distributionUrl=https://services.gradle.org/distributions/gradle-8.5-bin.zip)\n- maven: Pin the Maven version in distributionUrl in maven-wrapper.properties\n  (e.g., distributionUrl=https://repo.maven.apache.org/maven2/org/apache/maven/apache-maven/3.9.6/apache-maven-3.9.6-bin.zip)\n- terraform: Pin terraform.required_version in a file like version.tf or versions.tf\n  (e.g., terraform { required_version = \"~> 1.6.0\" })\n- kubectl: Pin the version in a download URL called with curl or wget in a Dockerfile\n  (e.g., RUN curl -LO https://dl.k8s.io/release/v1.28.0/bin/linux/amd64/kubectl)\n- azure: Pin Azure CLI version in download URL\n  (e.g., curl -LO https://azurecliprod.blob.core.windows.net/releases/azure-cli-2.50.0.tar.gz)\n\nTo see all available tools, use the get_supported_tools tool.\n\nArgs:\n    tool_names: A list of tool names (e.g., [\"terraform\", \"gradle\", \"kubectl\"])\n\nReturns:\n    GetMiseToolVersionsResponse containing:\n        - result: List of successful tool version lookups with:\n            - tool_name: The tool name (as provided)\n            - latest_version: The latest stable version number (e.g., \"1.6.5\")\n        - lookup_errors: List of errors that occurred during lookup with:\n            - tool_name: The tool name (as provided)\n            - error: Description of the error\n\nExample:\n    >>> await get_latest_tool_versions(\n    ...     tool_names=[\"terraform\", \"gradle\", \"kubectl\"]\n    ... )",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "tool_names": {
+              "type": "array"
+            }
+          },
+          "required": [
+            "tool_names"
+          ]
+        },
+        "has_hidden_instructions": true,
+        "poisoning_risk": "high",
+        "poisoning_detail": "The description of 'get_latest_tool_versions' names an external endpoint (https://services.gradle.org/distributions/gradle-8.5-bin.zip). A tool that tells the agent where to send data is an exfiltration channel."
+      }
+    ],
+    "resources": [],
+    "prompts": [],
+    "repo_url": null,
+    "npm_package": null,
+    "capabilities_claimed": [],
+    "capabilities_actual": []
+  },
+  "fingerprint": "e7da48f6657a0caa73399429a5e5b777f7ef5b991a6250f2d6f4ec3ce9fe0341",
+  "surface_map": {
+    "server": {
+      "name": "package-version-check-mcp",
+      "instructions": "",
+      "transport": "stdio",
+      "auth": "unknown"
+    },
+    "tools": [
+      {
+        "name": "get_latest_package_versions",
+        "description": "Get the latest versions of packages from various ecosystems.\n\nThis tool fetches the latest version information for packages from NPM, PyPI, NuGet, Maven/Gradle, Go modules,\nPHP/Packagist, Ruby gems, Rust crates, Swift packages, Dart packages, Docker, Helm, Terraform modules\nand Terraform providers.\nIt returns both successful lookups and any errors that occurred.\n\nArgs:\n    packages: A list of package version requests with:\n        - ecosystem: \"npm\", \"pypi\", \"nuget\", \"maven_gradle\", \"go\", \"php\", \"rubygems\", \"rust\", \"swift\", \"dart\", \"docker\", \"helm\", \"terraform_provider\", or \"terraform_module\"\n        - package_name: The name of the package (e.g., \"express\", \"requests\", \"Newtonsoft.Json\")\n          For Maven/Gradle, use format \"[registry:]<groupId>:<artifactId>\" (e.g., \"org.springframework:spring-core\" for Maven Central,\n          \"maven.google.com:com.google.android.material:material\" for Google Maven)\n          For Go, use the absolute module identifier (e.g., \"github.com/gin-gonic/gin\")\n          For PHP, use the Packagist package name in \"vendor/package\" format (e.g., \"monolog/monolog\", \"laravel/framework\")\n          For RubyGems, use the gem name (e.g., \"rails\", \"devise\")\n          For Rust, use the crate name (e.g., \"serde\", \"tokio\")\n          For Swift, use the GitHub URL (e.g., \"https://github.com/owner/repo.git\" or \"github.com/owner/repo.git\") - only github.com is supported\n          For Dart, use the package name from pub.dev (e.g., \"flutter\", \"http\")\n          For Docker, this must be fully qualified (e.g., \"index.docker.io/library/busybox\")\n          For Helm, use one of these formats:\n            - ChartMuseum: \"https://host/path/chart-name\" (fetches from index.yaml)\n            - OCI: \"oci://host/path/chart-name\" (queries OCI registry tags)\n        - version_hint: (optional) For Docker and Helm OCI, used as a tag compatibility hint (e.g., \"1.2-alpine\")\n          to find the latest tag matching the same suffix pattern.\n          For NPM/PyPI/NuGet/Maven/ChartMuseum/Go/PHP/RubyGems/Rust/Swift/Dart, not used.\n\nReturns:\n    GetLatestVersionsResponse containing:\n        - result: List of successful package version lookups with:\n            - ecosystem: The package ecosystem (as provided)\n            - package_name: The package name (as provided)\n            - latest_version: The latest version number (e.g., \"1.2.4\") or Docker tag\n            - digest: (optional) Package digest/hash if available\n            - published_on: (optional) Publication date if available\n        - lookup_errors: List of errors that occurred during lookup with:\n            - ecosystem: The package ecosystem (as provided)\n            - package_name: The package name (as provided)\n            - error: Description of the error\n\nExample:\n    >>> await get_latest_package_versions([\n    ...     PackageVersionRequest(ecosystem=Ecosystem.NPM, package_name=\"express\"),\n    ...     PackageVersionRequest(ecosystem=Ecosystem.PyPI, package_name=\"requests\"),\n    ...     PackageVersionRequest(ecosystem=Ecosystem.NuGet, package_name=\"Newtonsoft.Json\"),\n    ...     PackageVersionRequest(ecosystem=Ecosystem.MavenGradle, package_name=\"org.springframework:spring-core\"),\n    ...     PackageVersionRequest(ecosystem=Ecosystem.Go, package_name=\"github.com/gin-gonic/gin\"),\n    ...     PackageVersionRequest(ecosystem=Ecosystem.PHP, package_name=\"monolog/monolog\"),\n    ...     PackageVersionRequest(ecosystem=Ecosystem.RubyGems, package_name=\"rails\"),\n    ...     PackageVersionRequest(ecosystem=Ecosystem.Rust, package_name=\"serde\"),\n    ...     PackageVersionRequest(ecosystem=Ecosystem.Swift, package_name=\"https://github.com/Alamofire/Alamofire.git\"),\n    ...     PackageVersionRequest(ecosystem=Ecosystem.Dart, package_name=\"http\"),\n    ...     PackageVersionRequest(ecosystem=Ecosystem.Docker, package_name=\"index.docker.io/library/alpine\", version_hint=\"3.19-alpine\"),\n    ...     PackageVersionRequest(ecosystem=Ecosystem.Helm, package_name=\"https://charts.bitnami.com/bitnami/nginx\"),\n    ...     PackageVersionRequest(ecosystem=Ecosystem.Helm, package_name=\"oci://ghcr.io/argoproj/argo-helm/argo-cd\"),\n    ...     PackageVersionRequest(ecosystem=Ecosystem.TerraformProvider, package_name=\"hashicorp/aws\"),\n    ...     PackageVersionRequest(ecosystem=Ecosystem.TerraformModule, package_name=\"terraform-aws-modules/vpc/aws\"),\n    ... ])",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "packages": {
+              "type": "array"
+            }
+          },
+          "required": [
+            "packages"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "src\\package_version_check_mcp\\main.py:35"
+      },
+      {
+        "name": "get_github_action_versions_and_args",
+        "description": "Get the latest versions and metadata for GitHub Actions.\n\nThis tool fetches the latest Git tag and action.yml metadata for GitHub Actions\nhosted on github.com. It can optionally include the README.md for usage instructions.\n\nArgs:\n    action_names: A list of action names in \"owner/repo\" format\n        (e.g., [\"actions/checkout\", \"docker/login-action\"])\n    include_readme: Whether to include the README.md content (default: False)\n\nReturns:\n    GetGitHubActionVersionsResponse containing:\n        - result: List of successful action lookups with:\n            - name: The action name (as provided)\n            - latest_version: The most recent Git tag (e.g., \"v3.2.4\")\n            - digest: The commit SHA that the tag points to\n            - metadata: The action.yml fields (inputs, outputs, runs) as a dict\n            - readme: (optional) The README content if include_readme was True\n        - lookup_errors: List of errors that occurred during lookup with:\n            - name: The action name (as provided)\n            - error: Description of the error\n\nExample:\n    >>> await get_github_action_versions_and_args(\n    ...     action_names=[\"actions/checkout\", \"docker/login-action\"],\n    ...     include_readme=True\n    ... )",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "action_names": {
+              "type": "array"
+            },
+            "include_readme": {
+              "type": "boolean",
+              "default": false
+            }
+          },
+          "required": [
+            "action_names"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "src\\package_version_check_mcp\\main.py:115"
+      },
+      {
+        "name": "get_supported_tools",
+        "description": "Get list of all tools supported by the get_latest_tool_versions MCP tool.\n\nThis tool queries the mise registry to retrieve all available tool names\nthat can be used with the get_latest_tool_versions tool.\n\nReturns:\n    A list of tool short names (e.g., [\"1password\", \"act\", \"node\", \"python\", ...])\n\nExample:\n    >>> await get_supported_tools()\n    [\"1password\", \"act\", \"node\", \"python\", ...]",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "capabilities": [
+          "exec"
+        ],
+        "return_literals": [],
+        "registration": "static",
+        "location": "src\\package_version_check_mcp\\main.py:165"
+      },
+      {
+        "name": "get_latest_tool_versions",
+        "description": "Get the latest stable versions of tools supported by mise-en-place.\n\nThis tool fetches the latest stable version of development and DevOps tools\nthat are NOT part of language ecosystems like PyPI or NPM. For language\necosystem packages (including Terraform providers and modules), use the\nget_latest_package_versions tool instead.\n\nUse this tool to determine the latest versions of tools like:\n- gradle: Pin the Gradle version in distributionUrl in gradle-wrapper.properties\n  (e.g., distributionUrl=https://services.gradle.org/distributions/gradle-8.5-bin.zip)\n- maven: Pin the Maven version in distributionUrl in maven-wrapper.properties\n  (e.g., distributionUrl=https://repo.maven.apache.org/maven2/org/apache/maven/apache-maven/3.9.6/apache-maven-3.9.6-bin.zip)\n- terraform: Pin terraform.required_version in a file like version.tf or versions.tf\n  (e.g., terraform { required_version = \"~> 1.6.0\" })\n- kubectl: Pin the version in a download URL called with curl or wget in a Dockerfile\n  (e.g., RUN curl -LO https://dl.k8s.io/release/v1.28.0/bin/linux/amd64/kubectl)\n- azure: Pin Azure CLI version in download URL\n  (e.g., curl -LO https://azurecliprod.blob.core.windows.net/releases/azure-cli-2.50.0.tar.gz)\n\nTo see all available tools, use the get_supported_tools tool.\n\nArgs:\n    tool_names: A list of tool names (e.g., [\"terraform\", \"gradle\", \"kubectl\"])\n\nReturns:\n    GetMiseToolVersionsResponse containing:\n        - result: List of successful tool version lookups with:\n            - tool_name: The tool name (as provided)\n            - latest_version: The latest stable version number (e.g., \"1.6.5\")\n        - lookup_errors: List of errors that occurred during lookup with:\n            - tool_name: The tool name (as provided)\n            - error: Description of the error\n\nExample:\n    >>> await get_latest_tool_versions(\n    ...     tool_names=[\"terraform\", \"gradle\", \"kubectl\"]\n    ... )",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "tool_names": {
+              "type": "array"
+            }
+          },
+          "required": [
+            "tool_names"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "src\\package_version_check_mcp\\main.py:189"
+      }
+    ],
+    "resources": [],
+    "prompts": [],
+    "mutations": [],
+    "source": {
+      "kind": "static",
+      "target": "40_MShekow__package-version-check-mcp",
+      "languages": [
+        "python"
+      ]
+    },
+    "generated_at": "2026-11-11T22:38:48+00:00",
+    "fingerprint": "e7da48f6657a0caa73399429a5e5b777f7ef5b991a6250f2d6f4ec3ce9fe0341",
+    "schema": "axiom.surface/1"
+  },
+  "provenance": {
+    "identity": {
+      "npm": null,
+      "pypi": "package-version-check-mcp",
+      "repository": "https://github.com/mshekow/package-version-check-mcp",
+      "server_name": "package-version-check-mcp"
+    },
+    "registry": {
+      "status": "match",
+      "entry": "io.github.MShekow/package-version-check-mcp",
+      "repository": "https://github.com/mshekow/package-version-check-mcp",
+      "packages": [
+        "pypi:package-version-check-mcp"
+      ],
+      "publishedAt": "2026-02-07T10:13:38.771547Z",
+      "version": "1.1.0"
+    },
+    "lookalikes": [],
+    "checked_at": "2026-11-11T22:38:50+00:00"
+  },
+  "owasp_coverage": {
+    "framework": "OWASP Top 10 for Agentic Applications 2026",
+    "reference": "https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/",
+    "coverage": {
+      "ASI01": {
+        "name": "Agent Goal Hijack",
+        "coverage_level": "strong",
+        "findings_count": 10,
+        "finding_ids": [
+          "egress_get_latest_package_versions_desc_2",
+          "egress_get_latest_package_versions_desc_4",
+          "poison_get_latest_package_versions_long_desc",
+          "poison_get_github_action_versions_and_args_long_desc",
+          "egress_get_latest_tool_versions_desc_1",
+          "egress_get_latest_tool_versions_desc_2",
+          "egress_get_latest_tool_versions_desc_3",
+          "egress_get_latest_tool_versions_desc_4",
+          "schema_get_latest_tool_versions_context_param_tool_names",
+          "poison_get_latest_tool_versions_long_desc"
+        ],
+        "detectors": [
+          "tool_poisoning",
+          "prompt_injection",
+          "instruction_injection"
+        ]
+      },
+      "ASI02": {
+        "name": "Tool Misuse & Exploitation",
+        "coverage_level": "strong",
+        "findings_count": 10,
+        "finding_ids": [
+          "egress_get_latest_package_versions_desc_2",
+          "egress_get_latest_package_versions_desc_4",
+          "egress_get_latest_tool_versions_desc_1",
+          "egress_get_latest_tool_versions_desc_2",
+          "egress_get_latest_tool_versions_desc_3",
+          "egress_get_latest_tool_versions_desc_4",
+          "schema_get_latest_tool_versions_context_param_tool_names",
+          "cross_tool_get_supported_tools_get_latest_tool_versions",
+          "cross_tool_get_latest_tool_versions_get_supported_tools",
+          "cross_tool_get_latest_tool_versions_get_latest_package_versions"
+        ],
+        "detectors": [
+          "toxic_tool_combo",
+          "tool_overscope",
+          "tool_chaining_detection"
+        ]
+      },
+      "ASI03": {
+        "name": "Identity & Privilege Abuse",
+        "coverage_level": "strong",
+        "findings_count": 4,
+        "finding_ids": [
+          "ast_0001",
+          "ast_0002",
+          "ast_0003",
+          "ast_0001"
+        ],
+        "detectors": [
+          "credential_analysis",
+          "shared_credential_detection",
+          "env_var_audit"
+        ]
+      },
+      "ASI04": {
+        "name": "Agentic Supply Chain Vulnerabilities",
+        "coverage_level": "strong",
+        "findings_count": 1,
+        "finding_ids": [
+          "mcp04_unpinned_0001"
+        ],
+        "detectors": [
+          "dependency_cve",
+          "lifecycle_hooks",
+          "npx_unversioned",
+          "known_mcp_cves"
+        ]
+      },
+      "ASI05": {
+        "name": "Unexpected Code Execution",
+        "coverage_level": "strong",
+        "findings_count": 2,
+        "finding_ids": [
+          "codegen_0001",
+          "mcp05_tool_sink_0001"
+        ],
+        "detectors": [
+          "code_exec_patterns",
+          "code_generation_detection",
+          "sandbox_escape"
+        ]
+      },
+      "ASI06": {
+        "name": "Memory & Context Poisoning",
+        "coverage_level": "partial",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "memory_poisoning_patterns",
+          "context_manipulation_detection"
+        ],
+        "gap_note": "Axiom detects static patterns. Full coverage requires runtime memory monitoring."
+      },
+      "ASI07": {
+        "name": "Insecure Inter-Agent Communication",
+        "coverage_level": "partial",
+        "findings_count": 1,
+        "finding_ids": [
+          "mcp07_bind_all_0001"
+        ],
+        "detectors": [
+          "transport_security",
+          "a2a_pattern_detection"
+        ],
+        "gap_note": "Axiom checks transport security. Full A2A protocol analysis requires runtime interception."
+      },
+      "ASI08": {
+        "name": "Cascading Failures",
+        "coverage_level": "partial",
+        "findings_count": 3,
+        "finding_ids": [
+          "cross_tool_get_supported_tools_get_latest_tool_versions",
+          "cross_tool_get_latest_tool_versions_get_supported_tools",
+          "cross_tool_get_latest_tool_versions_get_latest_package_versions"
+        ],
+        "detectors": [
+          "blast_radius_estimation",
+          "dependency_chain_analysis"
+        ],
+        "gap_note": "Axiom estimates blast radius from tool capabilities. Full cascading failure analysis requires runtime topology mapping."
+      },
+      "ASI09": {
+        "name": "Human-Agent Trust Exploitation",
+        "coverage_level": "strong",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "claimed_vs_actual",
+          "deceptive_output_detection",
+          "trust_manipulation_patterns"
+        ]
+      },
+      "ASI10": {
+        "name": "Rogue Agents",
+        "coverage_level": "partial",
+        "findings_count": 1,
+        "finding_ids": [
+          "mcp08_no_tool_logging"
+        ],
+        "detectors": [
+          "sleeper_patterns",
+          "behavioral_drift_indicators",
+          "persistence_detection"
+        ],
+        "gap_note": "Axiom detects static rogue indicators. Full rogue agent detection requires runtime behavioral monitoring."
+      }
+    },
+    "total_asi_categories_with_findings": 8
+  },
+  "owasp_mcp_coverage": {
+    "framework": "OWASP MCP Top 10",
+    "framework_version": "v0.1 beta",
+    "reference": "https://owasp.org/www-project-mcp-top-10/",
+    "coverage": {
+      "MCP01": {
+        "id": "MCP01:2025",
+        "name": "Token Mismanagement & Secret Exposure",
+        "coverage_level": "partial",
+        "reason": "Regex-based secret detection in server source and client configs plus env-var exposure checks; no entropy analysis, git-history scan, or token lifetime/passthrough checks.",
+        "findings_count": 7,
+        "finding_ids": [
+          "cross_tool_get_supported_tools_get_latest_tool_versions",
+          "cross_tool_get_latest_tool_versions_get_supported_tools",
+          "cross_tool_get_latest_tool_versions_get_latest_package_versions",
+          "ast_0001",
+          "ast_0002",
+          "ast_0003",
+          "ast_0001"
+        ],
+        "detectors": [
+          "credential_theft",
+          "cross_server",
+          "mcp01_hardcoded_secrets",
+          "config_hardcoded_secret",
+          "env_var_audit",
+          "env_dump"
+        ]
+      },
+      "MCP02": {
+        "id": "MCP02:2025",
+        "name": "Privilege Escalation via Scope Creep",
+        "coverage_level": "strong",
+        "reason": "Permission over-scope patterns, toxic tool-capability combinations, path-escape checks and env-var over-exposure in configs.",
+        "findings_count": 3,
+        "finding_ids": [
+          "cross_tool_get_supported_tools_get_latest_tool_versions",
+          "cross_tool_get_latest_tool_versions_get_supported_tools",
+          "cross_tool_get_latest_tool_versions_get_latest_package_versions"
+        ],
+        "detectors": [
+          "permission_overscope",
+          "toxic_tool_combo",
+          "identity_privilege",
+          "sandbox_escape",
+          "config_risk",
+          "cascading_failure",
+          "cross_server",
+          "excessive_scope",
+          "confused_deputy",
+          "file_read",
+          "file_write"
+        ]
+      },
+      "MCP03": {
+        "id": "MCP03:2025",
+        "name": "Tool Poisoning",
+        "coverage_level": "strong",
+        "reason": "Dedicated detector for hidden instructions in tool metadata, plus runtime rug-pull diffing between source and live tool definitions.",
+        "findings_count": 3,
+        "finding_ids": [
+          "poison_get_latest_package_versions_long_desc",
+          "poison_get_github_action_versions_and_args_long_desc",
+          "poison_get_latest_tool_versions_long_desc"
+        ],
+        "detectors": [
+          "tool_poisoning",
+          "obfuscation",
+          "rogue_agent",
+          "source_vs_runtime_diff",
+          "tool_shadowing",
+          "hidden_unicode",
+          "rug_pull_primitive",
+          "surface_mismatch"
+        ]
+      },
+      "MCP04": {
+        "id": "MCP04:2025",
+        "name": "Software Supply Chain Attacks & Dependency Tampering",
+        "coverage_level": "strong",
+        "reason": "Dependency CVE lookup, known MCP CVEs, install lifecycle hooks, and unpinned npx/uvx/pip/@latest install sources.",
+        "findings_count": 1,
+        "finding_ids": [
+          "mcp04_unpinned_0001"
+        ],
+        "detectors": [
+          "dependency_vuln",
+          "supply_chain",
+          "known_cve",
+          "obfuscation",
+          "lifecycle_hooks",
+          "mcp04_unpinned_install",
+          "homoglyph",
+          "rug_pull_primitive",
+          "surface_mismatch"
+        ]
+      },
+      "MCP05": {
+        "id": "MCP05:2025",
+        "name": "Command Injection & Execution",
+        "coverage_level": "partial",
+        "reason": "Regex, AST and Semgrep find exec/shell sinks and a heuristic flags sinks inside tool handlers, but there is no inter-procedural taint tracking from tool input to sink.",
+        "findings_count": 2,
+        "finding_ids": [
+          "codegen_0001",
+          "mcp05_tool_sink_0001"
+        ],
+        "detectors": [
+          "command_injection",
+          "code_execution",
+          "code_generation",
+          "sandbox_escape",
+          "mcp05_tool_input_sink",
+          "shell_exec"
+        ]
+      },
+      "MCP06": {
+        "id": "MCP06:2025",
+        "name": "Prompt Injection via Contextual Payloads",
+        "coverage_level": "partial",
+        "reason": "Injection markers are detected in tool metadata, server instructions, resources, prompts and the strings a tool returns (static), and in instructions/resources/prompts read live; payloads produced by calling a tool at runtime are not inspected.",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "prompt_injection",
+          "memory_poisoning",
+          "trust_exploitation",
+          "response_injection",
+          "tool_shadowing"
+        ]
+      },
+      "MCP07": {
+        "id": "MCP07:2025",
+        "name": "Insufficient Authentication & Authorization",
+        "coverage_level": "partial",
+        "reason": "Flags remote servers with no visible auth and servers bound to all interfaces; does not verify OAuth implementation or per-tool authorization logic.",
+        "findings_count": 1,
+        "finding_ids": [
+          "mcp07_bind_all_0001"
+        ],
+        "detectors": [
+          "transport_security",
+          "inter_agent_comm",
+          "identity_privilege",
+          "transport_no_auth",
+          "config_no_auth",
+          "mcp07_bind_all_interfaces"
+        ]
+      },
+      "MCP08": {
+        "id": "MCP08:2025",
+        "name": "Lack of Audit and Telemetry",
+        "coverage_level": "gap",
+        "reason": "Only a low-confidence heuristic for missing logging in tool-defining files; actual audit trails and telemetry pipelines are not verified.",
+        "findings_count": 1,
+        "finding_ids": [
+          "mcp08_no_tool_logging"
+        ],
+        "detectors": [
+          "audit_telemetry",
+          "mcp08_no_tool_logging"
+        ]
+      },
+      "MCP09": {
+        "id": "MCP09:2025",
+        "name": "Shadow MCP Servers",
+        "coverage_level": "partial",
+        "reason": "Covered by `axiom discover` allowlist on the local machine; no network-wide or fleet discovery.",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "mcpguard_discover",
+          "shadow_mcp"
+        ]
+      },
+      "MCP10": {
+        "id": "MCP10:2025",
+        "name": "Context Injection & Over-Sharing",
+        "coverage_level": "partial",
+        "reason": "Hard-coded egress URLs, tools that send to caller-chosen destinations and bulk-exposure heuristics are detected statically and live; what context is actually shared at runtime is not observed.",
+        "findings_count": 7,
+        "finding_ids": [
+          "egress_get_latest_package_versions_desc_2",
+          "egress_get_latest_package_versions_desc_4",
+          "egress_get_latest_tool_versions_desc_1",
+          "egress_get_latest_tool_versions_desc_2",
+          "egress_get_latest_tool_versions_desc_3",
+          "egress_get_latest_tool_versions_desc_4",
+          "schema_get_latest_tool_versions_context_param_tool_names"
+        ],
+        "detectors": [
+          "context_oversharing",
+          "data_exfiltration",
+          "memory_poisoning",
+          "mcp10_broad_data_exposure"
+        ]
+      }
+    },
+    "total_mcp_categories_with_findings": 8
+  },
+  "ai_analysis": null,
+  "tool_poisoning_report": null,
+  "prompt_injection_risk": null
+}

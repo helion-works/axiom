@@ -1,0 +1,3417 @@
+{
+  "schema_version": "0.5",
+  "target": "46_artgas1__xmlriver-mcp",
+  "risk_score": 45.0,
+  "risk_level": "medium",
+  "tools_found": 11,
+  "findings_count": 121,
+  "findings": [
+    {
+      "id": "poison_get_tariff_expire_instruction_injection",
+      "severity": "medium",
+      "category": "tool_poisoning",
+      "title": "Steering language (instruction injection) in 'get_tariff_expire'",
+      "description": "Steering language in tool description (imperative guidance aimed at the model). Matched pattern in tool 'get_tariff_expire': 'never'",
+      "owasp_asi": [
+        "ASI01"
+      ],
+      "owasp_mcp": [
+        "MCP03"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Review tool description carefully. Compare claimed functionality with actual code behavior. Consider removing this MCP server.",
+      "rule_id": "poison_instruction_injection",
+      "evidence": "never",
+      "location": "static:<corpus>/registry/46_artgas1__xmlriver-mcp:get_tariff_expire",
+      "replay": "axiom scan <corpus>/registry/46_artgas1__xmlriver-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"poison_get_tariff_expire_instruction_injection\")'"
+    },
+    {
+      "id": "poison_google_search_long_desc",
+      "severity": "medium",
+      "category": "tool_poisoning",
+      "title": "Unusually long tool description for 'google_search'",
+      "description": "Tool description is 1324 characters. Long descriptions can hide malicious instructions.",
+      "owasp_asi": [
+        "ASI01"
+      ],
+      "owasp_mcp": [
+        "MCP03"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Review the full tool description for hidden instructions.",
+      "rule_id": "long_description",
+      "evidence": "Unusually long tool description for 'google_search'",
+      "location": "static:<corpus>/registry/46_artgas1__xmlriver-mcp:google_search",
+      "replay": "axiom scan <corpus>/registry/46_artgas1__xmlriver-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"poison_google_search_long_desc\")'"
+    },
+    {
+      "id": "poison_google_maps_search_long_desc",
+      "severity": "medium",
+      "category": "tool_poisoning",
+      "title": "Unusually long tool description for 'google_maps_search'",
+      "description": "Tool description is 729 characters. Long descriptions can hide malicious instructions.",
+      "owasp_asi": [
+        "ASI01"
+      ],
+      "owasp_mcp": [
+        "MCP03"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Review the full tool description for hidden instructions.",
+      "rule_id": "long_description",
+      "evidence": "Unusually long tool description for 'google_maps_search'",
+      "location": "static:<corpus>/registry/46_artgas1__xmlriver-mcp:google_maps_search",
+      "replay": "axiom scan <corpus>/registry/46_artgas1__xmlriver-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"poison_google_maps_search_long_desc\")'"
+    },
+    {
+      "id": "poison_search_suggestions_long_desc",
+      "severity": "medium",
+      "category": "tool_poisoning",
+      "title": "Unusually long tool description for 'search_suggestions'",
+      "description": "Tool description is 1183 characters. Long descriptions can hide malicious instructions.",
+      "owasp_asi": [
+        "ASI01"
+      ],
+      "owasp_mcp": [
+        "MCP03"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Review the full tool description for hidden instructions.",
+      "rule_id": "long_description",
+      "evidence": "Unusually long tool description for 'search_suggestions'",
+      "location": "static:<corpus>/registry/46_artgas1__xmlriver-mcp:search_suggestions",
+      "replay": "axiom scan <corpus>/registry/46_artgas1__xmlriver-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"poison_search_suggestions_long_desc\")'"
+    },
+    {
+      "id": "egress_check_url_indexed_desc_1",
+      "severity": "medium",
+      "category": "data_exfiltration",
+      "title": "Hard-coded egress URL in description of tool 'check_url_indexed': ya.ru",
+      "description": "The description of 'check_url_indexed' names an external endpoint (https://ya.ru). A tool that tells the agent where to send data is an exfiltration channel.",
+      "owasp_asi": [
+        "ASI01",
+        "ASI02"
+      ],
+      "owasp_mcp": [
+        "MCP10"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Remove the endpoint from the description; make egress destinations explicit, user-approved configuration.",
+      "rule_id": "egress_url_in_description",
+      "evidence": "https://ya.ru",
+      "location": "static:<corpus>/registry/46_artgas1__xmlriver-mcp:check_url_indexed_desc",
+      "replay": "axiom scan <corpus>/registry/46_artgas1__xmlriver-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"egress_check_url_indexed_desc_1\")'"
+    },
+    {
+      "id": "poison_check_url_indexed_long_desc",
+      "severity": "medium",
+      "category": "tool_poisoning",
+      "title": "Unusually long tool description for 'check_url_indexed'",
+      "description": "Tool description is 837 characters. Long descriptions can hide malicious instructions.",
+      "owasp_asi": [
+        "ASI01"
+      ],
+      "owasp_mcp": [
+        "MCP03"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Review the full tool description for hidden instructions.",
+      "rule_id": "long_description",
+      "evidence": "Unusually long tool description for 'check_url_indexed'",
+      "location": "static:<corpus>/registry/46_artgas1__xmlriver-mcp:check_url_indexed",
+      "replay": "axiom scan <corpus>/registry/46_artgas1__xmlriver-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"poison_check_url_indexed_long_desc\")'"
+    },
+    {
+      "id": "poison_wordstat_query_long_desc",
+      "severity": "medium",
+      "category": "tool_poisoning",
+      "title": "Unusually long tool description for 'wordstat_query'",
+      "description": "Tool description is 1452 characters. Long descriptions can hide malicious instructions.",
+      "owasp_asi": [
+        "ASI01"
+      ],
+      "owasp_mcp": [
+        "MCP03"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Review the full tool description for hidden instructions.",
+      "rule_id": "long_description",
+      "evidence": "Unusually long tool description for 'wordstat_query'",
+      "location": "static:<corpus>/registry/46_artgas1__xmlriver-mcp:wordstat_query",
+      "replay": "axiom scan <corpus>/registry/46_artgas1__xmlriver-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"poison_wordstat_query_long_desc\")'"
+    },
+    {
+      "id": "poison_yandex_search_long_desc",
+      "severity": "medium",
+      "category": "tool_poisoning",
+      "title": "Unusually long tool description for 'yandex_search'",
+      "description": "Tool description is 1504 characters. Long descriptions can hide malicious instructions.",
+      "owasp_asi": [
+        "ASI01"
+      ],
+      "owasp_mcp": [
+        "MCP03"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Review the full tool description for hidden instructions.",
+      "rule_id": "long_description",
+      "evidence": "Unusually long tool description for 'yandex_search'",
+      "location": "static:<corpus>/registry/46_artgas1__xmlriver-mcp:yandex_search",
+      "replay": "axiom scan <corpus>/registry/46_artgas1__xmlriver-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"poison_yandex_search_long_desc\")'"
+    },
+    {
+      "id": "cross_tool_get_cost_get_tariff",
+      "severity": "medium",
+      "category": "cross_server",
+      "title": "Tool 'get_cost' references tool 'get_tariff'",
+      "description": "Tool description mentions another tool by name, which could enable tool chaining attacks.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP01",
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Verify this cross-reference is legitimate and necessary.",
+      "rule_id": "cross_tool_reference",
+      "evidence": "Tool 'get_cost' references tool 'get_tariff'",
+      "location": "static:<corpus>/registry/46_artgas1__xmlriver-mcp:get_cost_get_tariff",
+      "replay": "axiom scan <corpus>/registry/46_artgas1__xmlriver-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"cross_tool_get_cost_get_tariff\")'"
+    },
+    {
+      "id": "cross_tool_google_search_wordstat_query",
+      "severity": "medium",
+      "category": "cross_server",
+      "title": "Tool 'google_search' references tool 'wordstat_query'",
+      "description": "Tool description mentions another tool by name, which could enable tool chaining attacks.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP01",
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Verify this cross-reference is legitimate and necessary.",
+      "rule_id": "cross_tool_reference",
+      "evidence": "Tool 'google_search' references tool 'wordstat_query'",
+      "location": "static:<corpus>/registry/46_artgas1__xmlriver-mcp:google_search_wordstat_query",
+      "replay": "axiom scan <corpus>/registry/46_artgas1__xmlriver-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"cross_tool_google_search_wordstat_query\")'"
+    },
+    {
+      "id": "cross_tool_google_maps_search_google_search",
+      "severity": "medium",
+      "category": "cross_server",
+      "title": "Tool 'google_maps_search' references tool 'google_search'",
+      "description": "Tool description mentions another tool by name, which could enable tool chaining attacks.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP01",
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Verify this cross-reference is legitimate and necessary.",
+      "rule_id": "cross_tool_reference",
+      "evidence": "Tool 'google_maps_search' references tool 'google_search'",
+      "location": "static:<corpus>/registry/46_artgas1__xmlriver-mcp:google_maps_search_google_search",
+      "replay": "axiom scan <corpus>/registry/46_artgas1__xmlriver-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"cross_tool_google_maps_search_google_search\")'"
+    },
+    {
+      "id": "cross_tool_search_suggestions_yandex_search",
+      "severity": "medium",
+      "category": "cross_server",
+      "title": "Tool 'search_suggestions' references tool 'yandex_search'",
+      "description": "Tool description mentions another tool by name, which could enable tool chaining attacks.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP01",
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Verify this cross-reference is legitimate and necessary.",
+      "rule_id": "cross_tool_reference",
+      "evidence": "Tool 'search_suggestions' references tool 'yandex_search'",
+      "location": "static:<corpus>/registry/46_artgas1__xmlriver-mcp:search_suggestions_yandex_search",
+      "replay": "axiom scan <corpus>/registry/46_artgas1__xmlriver-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"cross_tool_search_suggestions_yandex_search\")'"
+    },
+    {
+      "id": "cross_tool_search_suggestions_wordstat_query",
+      "severity": "medium",
+      "category": "cross_server",
+      "title": "Tool 'search_suggestions' references tool 'wordstat_query'",
+      "description": "Tool description mentions another tool by name, which could enable tool chaining attacks.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP01",
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Verify this cross-reference is legitimate and necessary.",
+      "rule_id": "cross_tool_reference",
+      "evidence": "Tool 'search_suggestions' references tool 'wordstat_query'",
+      "location": "static:<corpus>/registry/46_artgas1__xmlriver-mcp:search_suggestions_wordstat_query",
+      "replay": "axiom scan <corpus>/registry/46_artgas1__xmlriver-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"cross_tool_search_suggestions_wordstat_query\")'"
+    },
+    {
+      "id": "cross_tool_search_suggestions_google_search",
+      "severity": "medium",
+      "category": "cross_server",
+      "title": "Tool 'search_suggestions' references tool 'google_search'",
+      "description": "Tool description mentions another tool by name, which could enable tool chaining attacks.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP01",
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Verify this cross-reference is legitimate and necessary.",
+      "rule_id": "cross_tool_reference",
+      "evidence": "Tool 'search_suggestions' references tool 'google_search'",
+      "location": "static:<corpus>/registry/46_artgas1__xmlriver-mcp:search_suggestions_google_search",
+      "replay": "axiom scan <corpus>/registry/46_artgas1__xmlriver-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"cross_tool_search_suggestions_google_search\")'"
+    },
+    {
+      "id": "cross_tool_yandex_search_yandex_search_api_v2",
+      "severity": "medium",
+      "category": "cross_server",
+      "title": "Tool 'yandex_search' references tool 'yandex_search_api_v2'",
+      "description": "Tool description mentions another tool by name, which could enable tool chaining attacks.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP01",
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Verify this cross-reference is legitimate and necessary.",
+      "rule_id": "cross_tool_reference",
+      "evidence": "Tool 'yandex_search' references tool 'yandex_search_api_v2'",
+      "location": "static:<corpus>/registry/46_artgas1__xmlriver-mcp:yandex_search_yandex_search_api_v2",
+      "replay": "axiom scan <corpus>/registry/46_artgas1__xmlriver-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"cross_tool_yandex_search_yandex_search_api_v2\")'"
+    },
+    {
+      "id": "cross_tool_yandex_search_wordstat_query",
+      "severity": "medium",
+      "category": "cross_server",
+      "title": "Tool 'yandex_search' references tool 'wordstat_query'",
+      "description": "Tool description mentions another tool by name, which could enable tool chaining attacks.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP01",
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Verify this cross-reference is legitimate and necessary.",
+      "rule_id": "cross_tool_reference",
+      "evidence": "Tool 'yandex_search' references tool 'wordstat_query'",
+      "location": "static:<corpus>/registry/46_artgas1__xmlriver-mcp:yandex_search_wordstat_query",
+      "replay": "axiom scan <corpus>/registry/46_artgas1__xmlriver-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"cross_tool_yandex_search_wordstat_query\")'"
+    },
+    {
+      "id": "cross_tool_yandex_search_api_v2_yandex_search",
+      "severity": "medium",
+      "category": "cross_server",
+      "title": "Tool 'yandex_search_api_v2' references tool 'yandex_search'",
+      "description": "Tool description mentions another tool by name, which could enable tool chaining attacks.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP01",
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Verify this cross-reference is legitimate and necessary.",
+      "rule_id": "cross_tool_reference",
+      "evidence": "Tool 'yandex_search_api_v2' references tool 'yandex_search'",
+      "location": "static:<corpus>/registry/46_artgas1__xmlriver-mcp:yandex_search_api_v2_yandex_search",
+      "replay": "axiom scan <corpus>/registry/46_artgas1__xmlriver-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"cross_tool_yandex_search_api_v2_yandex_search\")'"
+    },
+    {
+      "id": "ast_0001",
+      "severity": "info",
+      "category": "credential_theft",
+      "title": "Environment variable access via os.environ.get()",
+      "description": "Call to `os.environ.get()` reads an environment variable (capability note) in xmlriver_mcp\\client.py at line 21",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP01"
+      ],
+      "file_path": "xmlriver_mcp\\client.py",
+      "line_number": 21,
+      "recommendation": "Document which env vars are needed. Avoid reading arbitrary env vars.",
+      "rule_id": "code_pattern_ast",
+      "evidence": "os.environ.get()",
+      "location": "xmlriver_mcp\\client.py:21",
+      "replay": "axiom scan <corpus>/registry/46_artgas1__xmlriver-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"ast_0001\")'"
+    },
+    {
+      "id": "ast_0002",
+      "severity": "info",
+      "category": "credential_theft",
+      "title": "Environment variable access via os.environ.get()",
+      "description": "Call to `os.environ.get()` reads an environment variable (capability note) in xmlriver_mcp\\client.py at line 22",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP01"
+      ],
+      "file_path": "xmlriver_mcp\\client.py",
+      "line_number": 22,
+      "recommendation": "Document which env vars are needed. Avoid reading arbitrary env vars.",
+      "rule_id": "code_pattern_ast",
+      "evidence": "os.environ.get()",
+      "location": "xmlriver_mcp\\client.py:22",
+      "replay": "axiom scan <corpus>/registry/46_artgas1__xmlriver-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"ast_0002\")'"
+    },
+    {
+      "id": "ast_0003",
+      "severity": "info",
+      "category": "credential_theft",
+      "title": "Environment variable access via os.environ.get()",
+      "description": "Call to `os.environ.get()` reads an environment variable (capability note) in xmlriver_mcp\\client.py at line 23",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP01"
+      ],
+      "file_path": "xmlriver_mcp\\client.py",
+      "line_number": 23,
+      "recommendation": "Document which env vars are needed. Avoid reading arbitrary env vars.",
+      "rule_id": "code_pattern_ast",
+      "evidence": "os.environ.get()",
+      "location": "xmlriver_mcp\\client.py:23",
+      "replay": "axiom scan <corpus>/registry/46_artgas1__xmlriver-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"ast_0003\")'"
+    },
+    {
+      "id": "GHSA-7xgj-8392-5q4r",
+      "severity": "medium",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency fastmcp@3.3.1: GHSA-7xgj-8392-5q4r",
+      "description": "Known vulnerability (advisory severity: unrated; direct dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update fastmcp to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-7xgj-8392-5q4r",
+      "location": "static:<corpus>/registry/46_artgas1__xmlriver-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry/46_artgas1__xmlriver-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-7xgj-8392-5q4r\")'"
+    },
+    {
+      "id": "GHSA-5p39-cfhj-2xmp",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency anyio@4.13.0: GHSA-5p39-cfhj-2xmp",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update anyio to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-5p39-cfhj-2xmp",
+      "location": "static:<corpus>/registry/46_artgas1__xmlriver-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry/46_artgas1__xmlriver-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-5p39-cfhj-2xmp\")'"
+    },
+    {
+      "id": "GHSA-82r6-8w77-94w6",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency anyio@4.13.0: GHSA-82r6-8w77-94w6",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update anyio to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-82r6-8w77-94w6",
+      "location": "static:<corpus>/registry/46_artgas1__xmlriver-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry/46_artgas1__xmlriver-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-82r6-8w77-94w6\")'"
+    },
+    {
+      "id": "PYSEC-2026-4024",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency anyio@4.13.0: PYSEC-2026-4024",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update anyio to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "PYSEC-2026-4024",
+      "location": "static:<corpus>/registry/46_artgas1__xmlriver-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry/46_artgas1__xmlriver-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"PYSEC-2026-4024\")'"
+    },
+    {
+      "id": "PYSEC-2026-4025",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency anyio@4.13.0: PYSEC-2026-4025",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update anyio to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "PYSEC-2026-4025",
+      "location": "static:<corpus>/registry/46_artgas1__xmlriver-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry/46_artgas1__xmlriver-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"PYSEC-2026-4025\")'"
+    },
+    {
+      "id": "GHSA-6v38-4h7w-rj9h",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency authlib@1.7.2: GHSA-6v38-4h7w-rj9h",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update authlib to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-6v38-4h7w-rj9h",
+      "location": "static:<corpus>/registry/46_artgas1__xmlriver-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry/46_artgas1__xmlriver-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-6v38-4h7w-rj9h\")'"
+    },
+    {
+      "id": "GHSA-7vr2-2fgp-9w7p",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency authlib@1.7.2: GHSA-7vr2-2fgp-9w7p",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update authlib to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-7vr2-2fgp-9w7p",
+      "location": "static:<corpus>/registry/46_artgas1__xmlriver-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry/46_artgas1__xmlriver-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-7vr2-2fgp-9w7p\")'"
+    },
+    {
+      "id": "GHSA-8m4g-j4wp-wgcg",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency authlib@1.7.2: GHSA-8m4g-j4wp-wgcg",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update authlib to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-8m4g-j4wp-wgcg",
+      "location": "static:<corpus>/registry/46_artgas1__xmlriver-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry/46_artgas1__xmlriver-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-8m4g-j4wp-wgcg\")'"
+    },
+    {
+      "id": "GHSA-c5mf-xmp2-59rc",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency authlib@1.7.2: GHSA-c5mf-xmp2-59rc",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update authlib to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-c5mf-xmp2-59rc",
+      "location": "static:<corpus>/registry/46_artgas1__xmlriver-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry/46_artgas1__xmlriver-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-c5mf-xmp2-59rc\")'"
+    },
+    {
+      "id": "GHSA-c73q-w75p-j82v",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency authlib@1.7.2: GHSA-c73q-w75p-j82v",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update authlib to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-c73q-w75p-j82v",
+      "location": "static:<corpus>/registry/46_artgas1__xmlriver-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry/46_artgas1__xmlriver-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-c73q-w75p-j82v\")'"
+    },
+    {
+      "id": "GHSA-fch4-3c6x-j4gc",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency authlib@1.7.2: GHSA-fch4-3c6x-j4gc",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update authlib to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-fch4-3c6x-j4gc",
+      "location": "static:<corpus>/registry/46_artgas1__xmlriver-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry/46_artgas1__xmlriver-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-fch4-3c6x-j4gc\")'"
+    },
+    {
+      "id": "GHSA-jj7h-c3hg-m23x",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency authlib@1.7.2: GHSA-jj7h-c3hg-m23x",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update authlib to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-jj7h-c3hg-m23x",
+      "location": "static:<corpus>/registry/46_artgas1__xmlriver-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry/46_artgas1__xmlriver-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-jj7h-c3hg-m23x\")'"
+    },
+    {
+      "id": "GHSA-q686-2qmg-hqc7",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency authlib@1.7.2: GHSA-q686-2qmg-hqc7",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update authlib to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-q686-2qmg-hqc7",
+      "location": "static:<corpus>/registry/46_artgas1__xmlriver-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry/46_artgas1__xmlriver-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-q686-2qmg-hqc7\")'"
+    },
+    {
+      "id": "GHSA-x4rv-c3wx-4cr8",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency authlib@1.7.2: GHSA-x4rv-c3wx-4cr8",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update authlib to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-x4rv-c3wx-4cr8",
+      "location": "static:<corpus>/registry/46_artgas1__xmlriver-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry/46_artgas1__xmlriver-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-x4rv-c3wx-4cr8\")'"
+    },
+    {
+      "id": "PYSEC-2026-4354",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency authlib@1.7.2: PYSEC-2026-4354",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update authlib to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "PYSEC-2026-4354",
+      "location": "static:<corpus>/registry/46_artgas1__xmlriver-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry/46_artgas1__xmlriver-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"PYSEC-2026-4354\")'"
+    },
+    {
+      "id": "PYSEC-2026-4355",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency authlib@1.7.2: PYSEC-2026-4355",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update authlib to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "PYSEC-2026-4355",
+      "location": "static:<corpus>/registry/46_artgas1__xmlriver-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry/46_artgas1__xmlriver-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"PYSEC-2026-4355\")'"
+    },
+    {
+      "id": "PYSEC-2026-4356",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency authlib@1.7.2: PYSEC-2026-4356",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update authlib to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "PYSEC-2026-4356",
+      "location": "static:<corpus>/registry/46_artgas1__xmlriver-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry/46_artgas1__xmlriver-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"PYSEC-2026-4356\")'"
+    },
+    {
+      "id": "PYSEC-2026-4357",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency authlib@1.7.2: PYSEC-2026-4357",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update authlib to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "PYSEC-2026-4357",
+      "location": "static:<corpus>/registry/46_artgas1__xmlriver-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry/46_artgas1__xmlriver-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"PYSEC-2026-4357\")'"
+    },
+    {
+      "id": "PYSEC-2026-4358",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency authlib@1.7.2: PYSEC-2026-4358",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update authlib to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "PYSEC-2026-4358",
+      "location": "static:<corpus>/registry/46_artgas1__xmlriver-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry/46_artgas1__xmlriver-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"PYSEC-2026-4358\")'"
+    },
+    {
+      "id": "PYSEC-2026-4359",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency authlib@1.7.2: PYSEC-2026-4359",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update authlib to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "PYSEC-2026-4359",
+      "location": "static:<corpus>/registry/46_artgas1__xmlriver-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry/46_artgas1__xmlriver-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"PYSEC-2026-4359\")'"
+    },
+    {
+      "id": "PYSEC-2026-4360",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency authlib@1.7.2: PYSEC-2026-4360",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update authlib to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "PYSEC-2026-4360",
+      "location": "static:<corpus>/registry/46_artgas1__xmlriver-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry/46_artgas1__xmlriver-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"PYSEC-2026-4360\")'"
+    },
+    {
+      "id": "GHSA-6q48-6c7w-9gw2",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency certifi@2026.4.22: GHSA-6q48-6c7w-9gw2",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update certifi to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-6q48-6c7w-9gw2",
+      "location": "static:<corpus>/registry/46_artgas1__xmlriver-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry/46_artgas1__xmlriver-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-6q48-6c7w-9gw2\")'"
+    },
+    {
+      "id": "PYSEC-2026-4320",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency certifi@2026.4.22: PYSEC-2026-4320",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update certifi to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "PYSEC-2026-4320",
+      "location": "static:<corpus>/registry/46_artgas1__xmlriver-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry/46_artgas1__xmlriver-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"PYSEC-2026-4320\")'"
+    },
+    {
+      "id": "GHSA-537c-gmf6-5ccf",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency cryptography@48.0.0: GHSA-537c-gmf6-5ccf",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update cryptography to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-537c-gmf6-5ccf",
+      "location": "static:<corpus>/registry/46_artgas1__xmlriver-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry/46_artgas1__xmlriver-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-537c-gmf6-5ccf\")'"
+    },
+    {
+      "id": "GHSA-g6cj-pr64-35w5",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency cryptography@48.0.0: GHSA-g6cj-pr64-35w5",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update cryptography to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-g6cj-pr64-35w5",
+      "location": "static:<corpus>/registry/46_artgas1__xmlriver-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry/46_artgas1__xmlriver-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-g6cj-pr64-35w5\")'"
+    },
+    {
+      "id": "GHSA-jwv3-5hgf-82ww",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency cryptography@48.0.0: GHSA-jwv3-5hgf-82ww",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update cryptography to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-jwv3-5hgf-82ww",
+      "location": "static:<corpus>/registry/46_artgas1__xmlriver-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry/46_artgas1__xmlriver-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-jwv3-5hgf-82ww\")'"
+    },
+    {
+      "id": "GHSA-m2h6-j472-rp4c",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency cryptography@48.0.0: GHSA-m2h6-j472-rp4c",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update cryptography to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-m2h6-j472-rp4c",
+      "location": "static:<corpus>/registry/46_artgas1__xmlriver-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry/46_artgas1__xmlriver-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-m2h6-j472-rp4c\")'"
+    },
+    {
+      "id": "PYSEC-2026-3552",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency cryptography@48.0.0: PYSEC-2026-3552",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update cryptography to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "PYSEC-2026-3552",
+      "location": "static:<corpus>/registry/46_artgas1__xmlriver-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry/46_artgas1__xmlriver-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"PYSEC-2026-3552\")'"
+    },
+    {
+      "id": "PYSEC-2026-3553",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency cryptography@48.0.0: PYSEC-2026-3553",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update cryptography to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "PYSEC-2026-3553",
+      "location": "static:<corpus>/registry/46_artgas1__xmlriver-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry/46_artgas1__xmlriver-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"PYSEC-2026-3553\")'"
+    },
+    {
+      "id": "PYSEC-2026-3554",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency cryptography@48.0.0: PYSEC-2026-3554",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update cryptography to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "PYSEC-2026-3554",
+      "location": "static:<corpus>/registry/46_artgas1__xmlriver-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry/46_artgas1__xmlriver-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"PYSEC-2026-3554\")'"
+    },
+    {
+      "id": "GHSA-45c3-73f7-pv4m",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency dnspython@2.8.0: GHSA-45c3-73f7-pv4m",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update dnspython to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-45c3-73f7-pv4m",
+      "location": "static:<corpus>/registry/46_artgas1__xmlriver-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry/46_artgas1__xmlriver-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-45c3-73f7-pv4m\")'"
+    },
+    {
+      "id": "GHSA-7xgj-8392-5q4r",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency fastmcp-slim@3.3.1: GHSA-7xgj-8392-5q4r",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update fastmcp-slim to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-7xgj-8392-5q4r",
+      "location": "static:<corpus>/registry/46_artgas1__xmlriver-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry/46_artgas1__xmlriver-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-7xgj-8392-5q4r\")'"
+    },
+    {
+      "id": "GHSA-9pg5-8c7x-5hfx",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency joserfc@1.6.5: GHSA-9pg5-8c7x-5hfx",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update joserfc to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-9pg5-8c7x-5hfx",
+      "location": "static:<corpus>/registry/46_artgas1__xmlriver-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry/46_artgas1__xmlriver-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-9pg5-8c7x-5hfx\")'"
+    },
+    {
+      "id": "GHSA-gg9x-qcx2-xmrh",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency joserfc@1.6.5: GHSA-gg9x-qcx2-xmrh",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update joserfc to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-gg9x-qcx2-xmrh",
+      "location": "static:<corpus>/registry/46_artgas1__xmlriver-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry/46_artgas1__xmlriver-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-gg9x-qcx2-xmrh\")'"
+    },
+    {
+      "id": "GHSA-jpxq-7h8p-2q76",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency joserfc@1.6.5: GHSA-jpxq-7h8p-2q76",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update joserfc to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-jpxq-7h8p-2q76",
+      "location": "static:<corpus>/registry/46_artgas1__xmlriver-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry/46_artgas1__xmlriver-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-jpxq-7h8p-2q76\")'"
+    },
+    {
+      "id": "GHSA-wphv-vfrh-23q5",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency joserfc@1.6.5: GHSA-wphv-vfrh-23q5",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update joserfc to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-wphv-vfrh-23q5",
+      "location": "static:<corpus>/registry/46_artgas1__xmlriver-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry/46_artgas1__xmlriver-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-wphv-vfrh-23q5\")'"
+    },
+    {
+      "id": "PYSEC-2026-2528",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency joserfc@1.6.5: PYSEC-2026-2528",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update joserfc to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "PYSEC-2026-2528",
+      "location": "static:<corpus>/registry/46_artgas1__xmlriver-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry/46_artgas1__xmlriver-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"PYSEC-2026-2528\")'"
+    },
+    {
+      "id": "PYSEC-2026-2530",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency joserfc@1.6.5: PYSEC-2026-2530",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update joserfc to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "PYSEC-2026-2530",
+      "location": "static:<corpus>/registry/46_artgas1__xmlriver-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry/46_artgas1__xmlriver-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"PYSEC-2026-2530\")'"
+    },
+    {
+      "id": "GHSA-5h93-6whr-6q8j",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency mcp@1.27.1: GHSA-5h93-6whr-6q8j",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update mcp to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-5h93-6whr-6q8j",
+      "location": "static:<corpus>/registry/46_artgas1__xmlriver-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry/46_artgas1__xmlriver-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-5h93-6whr-6q8j\")'"
+    },
+    {
+      "id": "GHSA-84m7-p3x7-pcfv",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency mcp@1.27.1: GHSA-84m7-p3x7-pcfv",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update mcp to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-84m7-p3x7-pcfv",
+      "location": "static:<corpus>/registry/46_artgas1__xmlriver-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry/46_artgas1__xmlriver-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-84m7-p3x7-pcfv\")'"
+    },
+    {
+      "id": "GHSA-hvrp-rf83-w775",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency mcp@1.27.1: GHSA-hvrp-rf83-w775",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update mcp to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-hvrp-rf83-w775",
+      "location": "static:<corpus>/registry/46_artgas1__xmlriver-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry/46_artgas1__xmlriver-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-hvrp-rf83-w775\")'"
+    },
+    {
+      "id": "GHSA-jpw9-pfvf-9f58",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency mcp@1.27.1: GHSA-jpw9-pfvf-9f58",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update mcp to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-jpw9-pfvf-9f58",
+      "location": "static:<corpus>/registry/46_artgas1__xmlriver-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry/46_artgas1__xmlriver-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-jpw9-pfvf-9f58\")'"
+    },
+    {
+      "id": "GHSA-rwrf-2pqf-9j8j",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency mcp@1.27.1: GHSA-rwrf-2pqf-9j8j",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update mcp to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-rwrf-2pqf-9j8j",
+      "location": "static:<corpus>/registry/46_artgas1__xmlriver-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry/46_artgas1__xmlriver-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-rwrf-2pqf-9j8j\")'"
+    },
+    {
+      "id": "GHSA-vj7q-gjh5-988w",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency mcp@1.27.1: GHSA-vj7q-gjh5-988w",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update mcp to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-vj7q-gjh5-988w",
+      "location": "static:<corpus>/registry/46_artgas1__xmlriver-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry/46_artgas1__xmlriver-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-vj7q-gjh5-988w\")'"
+    },
+    {
+      "id": "GHSA-w4fh-qvv9-3v23",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency mcp@1.27.1: GHSA-w4fh-qvv9-3v23",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update mcp to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-w4fh-qvv9-3v23",
+      "location": "static:<corpus>/registry/46_artgas1__xmlriver-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry/46_artgas1__xmlriver-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-w4fh-qvv9-3v23\")'"
+    },
+    {
+      "id": "PYSEC-2026-3481",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency mcp@1.27.1: PYSEC-2026-3481",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update mcp to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "PYSEC-2026-3481",
+      "location": "static:<corpus>/registry/46_artgas1__xmlriver-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry/46_artgas1__xmlriver-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"PYSEC-2026-3481\")'"
+    },
+    {
+      "id": "PYSEC-2026-3482",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency mcp@1.27.1: PYSEC-2026-3482",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update mcp to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "PYSEC-2026-3482",
+      "location": "static:<corpus>/registry/46_artgas1__xmlriver-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry/46_artgas1__xmlriver-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"PYSEC-2026-3482\")'"
+    },
+    {
+      "id": "PYSEC-2026-3483",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency mcp@1.27.1: PYSEC-2026-3483",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update mcp to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "PYSEC-2026-3483",
+      "location": "static:<corpus>/registry/46_artgas1__xmlriver-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry/46_artgas1__xmlriver-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"PYSEC-2026-3483\")'"
+    },
+    {
+      "id": "GHSA-xcq7-p3pf-p88h",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency opentelemetry-api@1.41.1: GHSA-xcq7-p3pf-p88h",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update opentelemetry-api to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-xcq7-p3pf-p88h",
+      "location": "static:<corpus>/registry/46_artgas1__xmlriver-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry/46_artgas1__xmlriver-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-xcq7-p3pf-p88h\")'"
+    },
+    {
+      "id": "GHSA-4xgf-cpjx-pc3j",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pydantic-settings@2.14.1: GHSA-4xgf-cpjx-pc3j",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pydantic-settings to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-4xgf-cpjx-pc3j",
+      "location": "static:<corpus>/registry/46_artgas1__xmlriver-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry/46_artgas1__xmlriver-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-4xgf-cpjx-pc3j\")'"
+    },
+    {
+      "id": "GHSA-2gx3-rcp4-g85q",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pyjwt@2.12.1: GHSA-2gx3-rcp4-g85q",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pyjwt to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-2gx3-rcp4-g85q",
+      "location": "static:<corpus>/registry/46_artgas1__xmlriver-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry/46_artgas1__xmlriver-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-2gx3-rcp4-g85q\")'"
+    },
+    {
+      "id": "GHSA-42vr-xj54-vc7v",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pyjwt@2.12.1: GHSA-42vr-xj54-vc7v",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pyjwt to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-42vr-xj54-vc7v",
+      "location": "static:<corpus>/registry/46_artgas1__xmlriver-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry/46_artgas1__xmlriver-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-42vr-xj54-vc7v\")'"
+    },
+    {
+      "id": "GHSA-993g-76c3-p5m4",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pyjwt@2.12.1: GHSA-993g-76c3-p5m4",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pyjwt to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-993g-76c3-p5m4",
+      "location": "static:<corpus>/registry/46_artgas1__xmlriver-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry/46_artgas1__xmlriver-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-993g-76c3-p5m4\")'"
+    },
+    {
+      "id": "GHSA-9v7f-9g4p-ffgj",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pyjwt@2.12.1: GHSA-9v7f-9g4p-ffgj",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pyjwt to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-9v7f-9g4p-ffgj",
+      "location": "static:<corpus>/registry/46_artgas1__xmlriver-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry/46_artgas1__xmlriver-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-9v7f-9g4p-ffgj\")'"
+    },
+    {
+      "id": "GHSA-ffc3-869f-jxw9",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pyjwt@2.12.1: GHSA-ffc3-869f-jxw9",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pyjwt to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-ffc3-869f-jxw9",
+      "location": "static:<corpus>/registry/46_artgas1__xmlriver-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry/46_artgas1__xmlriver-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-ffc3-869f-jxw9\")'"
+    },
+    {
+      "id": "GHSA-fhv5-28vv-h8m8",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pyjwt@2.12.1: GHSA-fhv5-28vv-h8m8",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pyjwt to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-fhv5-28vv-h8m8",
+      "location": "static:<corpus>/registry/46_artgas1__xmlriver-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry/46_artgas1__xmlriver-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-fhv5-28vv-h8m8\")'"
+    },
+    {
+      "id": "GHSA-gvp8-978c-rx2q",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pyjwt@2.12.1: GHSA-gvp8-978c-rx2q",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pyjwt to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-gvp8-978c-rx2q",
+      "location": "static:<corpus>/registry/46_artgas1__xmlriver-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry/46_artgas1__xmlriver-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-gvp8-978c-rx2q\")'"
+    },
+    {
+      "id": "GHSA-hxm8-2xgr-2p9m",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pyjwt@2.12.1: GHSA-hxm8-2xgr-2p9m",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pyjwt to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-hxm8-2xgr-2p9m",
+      "location": "static:<corpus>/registry/46_artgas1__xmlriver-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry/46_artgas1__xmlriver-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-hxm8-2xgr-2p9m\")'"
+    },
+    {
+      "id": "GHSA-jq35-7prp-9v3f",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pyjwt@2.12.1: GHSA-jq35-7prp-9v3f",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pyjwt to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-jq35-7prp-9v3f",
+      "location": "static:<corpus>/registry/46_artgas1__xmlriver-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry/46_artgas1__xmlriver-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-jq35-7prp-9v3f\")'"
+    },
+    {
+      "id": "GHSA-jwrc-g2q2-pq5p",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pyjwt@2.12.1: GHSA-jwrc-g2q2-pq5p",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pyjwt to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-jwrc-g2q2-pq5p",
+      "location": "static:<corpus>/registry/46_artgas1__xmlriver-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry/46_artgas1__xmlriver-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-jwrc-g2q2-pq5p\")'"
+    },
+    {
+      "id": "GHSA-p4g4-x82p-q773",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pyjwt@2.12.1: GHSA-p4g4-x82p-q773",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pyjwt to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-p4g4-x82p-q773",
+      "location": "static:<corpus>/registry/46_artgas1__xmlriver-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry/46_artgas1__xmlriver-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-p4g4-x82p-q773\")'"
+    },
+    {
+      "id": "GHSA-pxh4-856f-4h89",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pyjwt@2.12.1: GHSA-pxh4-856f-4h89",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pyjwt to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-pxh4-856f-4h89",
+      "location": "static:<corpus>/registry/46_artgas1__xmlriver-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry/46_artgas1__xmlriver-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-pxh4-856f-4h89\")'"
+    },
+    {
+      "id": "GHSA-w6j9-cwv2-h6wq",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pyjwt@2.12.1: GHSA-w6j9-cwv2-h6wq",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pyjwt to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-w6j9-cwv2-h6wq",
+      "location": "static:<corpus>/registry/46_artgas1__xmlriver-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry/46_artgas1__xmlriver-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-w6j9-cwv2-h6wq\")'"
+    },
+    {
+      "id": "GHSA-w7vc-732c-9m39",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pyjwt@2.12.1: GHSA-w7vc-732c-9m39",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pyjwt to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-w7vc-732c-9m39",
+      "location": "static:<corpus>/registry/46_artgas1__xmlriver-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry/46_artgas1__xmlriver-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-w7vc-732c-9m39\")'"
+    },
+    {
+      "id": "GHSA-x33g-cr3x-6449",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pyjwt@2.12.1: GHSA-x33g-cr3x-6449",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pyjwt to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-x33g-cr3x-6449",
+      "location": "static:<corpus>/registry/46_artgas1__xmlriver-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry/46_artgas1__xmlriver-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-x33g-cr3x-6449\")'"
+    },
+    {
+      "id": "GHSA-xgmm-8j9v-c9wx",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pyjwt@2.12.1: GHSA-xgmm-8j9v-c9wx",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pyjwt to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-xgmm-8j9v-c9wx",
+      "location": "static:<corpus>/registry/46_artgas1__xmlriver-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry/46_artgas1__xmlriver-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-xgmm-8j9v-c9wx\")'"
+    },
+    {
+      "id": "PYSEC-2026-175",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pyjwt@2.12.1: PYSEC-2026-175",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pyjwt to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "PYSEC-2026-175",
+      "location": "static:<corpus>/registry/46_artgas1__xmlriver-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry/46_artgas1__xmlriver-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"PYSEC-2026-175\")'"
+    },
+    {
+      "id": "PYSEC-2026-177",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pyjwt@2.12.1: PYSEC-2026-177",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pyjwt to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "PYSEC-2026-177",
+      "location": "static:<corpus>/registry/46_artgas1__xmlriver-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry/46_artgas1__xmlriver-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"PYSEC-2026-177\")'"
+    },
+    {
+      "id": "PYSEC-2026-178",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pyjwt@2.12.1: PYSEC-2026-178",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pyjwt to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "PYSEC-2026-178",
+      "location": "static:<corpus>/registry/46_artgas1__xmlriver-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry/46_artgas1__xmlriver-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"PYSEC-2026-178\")'"
+    },
+    {
+      "id": "PYSEC-2026-179",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pyjwt@2.12.1: PYSEC-2026-179",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pyjwt to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "PYSEC-2026-179",
+      "location": "static:<corpus>/registry/46_artgas1__xmlriver-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry/46_artgas1__xmlriver-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"PYSEC-2026-179\")'"
+    },
+    {
+      "id": "PYSEC-2026-4140",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pyjwt@2.12.1: PYSEC-2026-4140",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pyjwt to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "PYSEC-2026-4140",
+      "location": "static:<corpus>/registry/46_artgas1__xmlriver-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry/46_artgas1__xmlriver-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"PYSEC-2026-4140\")'"
+    },
+    {
+      "id": "PYSEC-2026-4141",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pyjwt@2.12.1: PYSEC-2026-4141",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pyjwt to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "PYSEC-2026-4141",
+      "location": "static:<corpus>/registry/46_artgas1__xmlriver-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry/46_artgas1__xmlriver-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"PYSEC-2026-4141\")'"
+    },
+    {
+      "id": "PYSEC-2026-4144",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pyjwt@2.12.1: PYSEC-2026-4144",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pyjwt to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "PYSEC-2026-4144",
+      "location": "static:<corpus>/registry/46_artgas1__xmlriver-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry/46_artgas1__xmlriver-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"PYSEC-2026-4144\")'"
+    },
+    {
+      "id": "PYSEC-2026-4145",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pyjwt@2.12.1: PYSEC-2026-4145",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pyjwt to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "PYSEC-2026-4145",
+      "location": "static:<corpus>/registry/46_artgas1__xmlriver-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry/46_artgas1__xmlriver-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"PYSEC-2026-4145\")'"
+    },
+    {
+      "id": "PYSEC-2026-4146",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pyjwt@2.12.1: PYSEC-2026-4146",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pyjwt to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "PYSEC-2026-4146",
+      "location": "static:<corpus>/registry/46_artgas1__xmlriver-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry/46_artgas1__xmlriver-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"PYSEC-2026-4146\")'"
+    },
+    {
+      "id": "PYSEC-2026-4147",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pyjwt@2.12.1: PYSEC-2026-4147",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pyjwt to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "PYSEC-2026-4147",
+      "location": "static:<corpus>/registry/46_artgas1__xmlriver-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry/46_artgas1__xmlriver-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"PYSEC-2026-4147\")'"
+    },
+    {
+      "id": "PYSEC-2026-4148",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pyjwt@2.12.1: PYSEC-2026-4148",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pyjwt to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "PYSEC-2026-4148",
+      "location": "static:<corpus>/registry/46_artgas1__xmlriver-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry/46_artgas1__xmlriver-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"PYSEC-2026-4148\")'"
+    },
+    {
+      "id": "PYSEC-2026-4149",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pyjwt@2.12.1: PYSEC-2026-4149",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pyjwt to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "PYSEC-2026-4149",
+      "location": "static:<corpus>/registry/46_artgas1__xmlriver-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry/46_artgas1__xmlriver-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"PYSEC-2026-4149\")'"
+    },
+    {
+      "id": "PYSEC-2026-4152",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pyjwt@2.12.1: PYSEC-2026-4152",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pyjwt to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "PYSEC-2026-4152",
+      "location": "static:<corpus>/registry/46_artgas1__xmlriver-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry/46_artgas1__xmlriver-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"PYSEC-2026-4152\")'"
+    },
+    {
+      "id": "PYSEC-2026-4183",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency pyjwt@2.12.1: PYSEC-2026-4183",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pyjwt to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "PYSEC-2026-4183",
+      "location": "static:<corpus>/registry/46_artgas1__xmlriver-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry/46_artgas1__xmlriver-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"PYSEC-2026-4183\")'"
+    },
+    {
+      "id": "GHSA-5rvq-cxj2-64vf",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency python-multipart@0.0.29: GHSA-5rvq-cxj2-64vf",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update python-multipart to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-5rvq-cxj2-64vf",
+      "location": "static:<corpus>/registry/46_artgas1__xmlriver-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry/46_artgas1__xmlriver-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-5rvq-cxj2-64vf\")'"
+    },
+    {
+      "id": "GHSA-6jv3-5f52-599m",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency python-multipart@0.0.29: GHSA-6jv3-5f52-599m",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update python-multipart to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-6jv3-5f52-599m",
+      "location": "static:<corpus>/registry/46_artgas1__xmlriver-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry/46_artgas1__xmlriver-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-6jv3-5f52-599m\")'"
+    },
+    {
+      "id": "GHSA-v9pg-7xvm-68hf",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency python-multipart@0.0.29: GHSA-v9pg-7xvm-68hf",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update python-multipart to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-v9pg-7xvm-68hf",
+      "location": "static:<corpus>/registry/46_artgas1__xmlriver-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry/46_artgas1__xmlriver-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-v9pg-7xvm-68hf\")'"
+    },
+    {
+      "id": "GHSA-vffw-93wf-4j4q",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency python-multipart@0.0.29: GHSA-vffw-93wf-4j4q",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update python-multipart to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-vffw-93wf-4j4q",
+      "location": "static:<corpus>/registry/46_artgas1__xmlriver-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry/46_artgas1__xmlriver-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-vffw-93wf-4j4q\")'"
+    },
+    {
+      "id": "PYSEC-2026-3036",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency python-multipart@0.0.29: PYSEC-2026-3036",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update python-multipart to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "PYSEC-2026-3036",
+      "location": "static:<corpus>/registry/46_artgas1__xmlriver-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry/46_artgas1__xmlriver-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"PYSEC-2026-3036\")'"
+    },
+    {
+      "id": "PYSEC-2026-3037",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency python-multipart@0.0.29: PYSEC-2026-3037",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update python-multipart to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "PYSEC-2026-3037",
+      "location": "static:<corpus>/registry/46_artgas1__xmlriver-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry/46_artgas1__xmlriver-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"PYSEC-2026-3037\")'"
+    },
+    {
+      "id": "PYSEC-2026-3040",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency python-multipart@0.0.29: PYSEC-2026-3040",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update python-multipart to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "PYSEC-2026-3040",
+      "location": "static:<corpus>/registry/46_artgas1__xmlriver-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry/46_artgas1__xmlriver-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"PYSEC-2026-3040\")'"
+    },
+    {
+      "id": "PYSEC-2026-3041",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency python-multipart@0.0.29: PYSEC-2026-3041",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update python-multipart to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "PYSEC-2026-3041",
+      "location": "static:<corpus>/registry/46_artgas1__xmlriver-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry/46_artgas1__xmlriver-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"PYSEC-2026-3041\")'"
+    },
+    {
+      "id": "GHSA-82w8-qh3p-5jfq",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency starlette@1.0.0: GHSA-82w8-qh3p-5jfq",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update starlette to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-82w8-qh3p-5jfq",
+      "location": "static:<corpus>/registry/46_artgas1__xmlriver-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry/46_artgas1__xmlriver-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-82w8-qh3p-5jfq\")'"
+    },
+    {
+      "id": "GHSA-86qp-5c8j-p5mr",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency starlette@1.0.0: GHSA-86qp-5c8j-p5mr",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update starlette to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-86qp-5c8j-p5mr",
+      "location": "static:<corpus>/registry/46_artgas1__xmlriver-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry/46_artgas1__xmlriver-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-86qp-5c8j-p5mr\")'"
+    },
+    {
+      "id": "GHSA-jp82-jpqv-5vv3",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency starlette@1.0.0: GHSA-jp82-jpqv-5vv3",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update starlette to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-jp82-jpqv-5vv3",
+      "location": "static:<corpus>/registry/46_artgas1__xmlriver-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry/46_artgas1__xmlriver-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-jp82-jpqv-5vv3\")'"
+    },
+    {
+      "id": "GHSA-wqp7-x3pw-xc5r",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency starlette@1.0.0: GHSA-wqp7-x3pw-xc5r",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update starlette to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-wqp7-x3pw-xc5r",
+      "location": "static:<corpus>/registry/46_artgas1__xmlriver-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry/46_artgas1__xmlriver-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-wqp7-x3pw-xc5r\")'"
+    },
+    {
+      "id": "GHSA-x746-7m8f-x49c",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency starlette@1.0.0: GHSA-x746-7m8f-x49c",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update starlette to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-x746-7m8f-x49c",
+      "location": "static:<corpus>/registry/46_artgas1__xmlriver-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry/46_artgas1__xmlriver-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-x746-7m8f-x49c\")'"
+    },
+    {
+      "id": "PYSEC-2026-161",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency starlette@1.0.0: PYSEC-2026-161",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update starlette to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "PYSEC-2026-161",
+      "location": "static:<corpus>/registry/46_artgas1__xmlriver-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry/46_artgas1__xmlriver-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"PYSEC-2026-161\")'"
+    },
+    {
+      "id": "PYSEC-2026-2280",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency starlette@1.0.0: PYSEC-2026-2280",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update starlette to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "PYSEC-2026-2280",
+      "location": "static:<corpus>/registry/46_artgas1__xmlriver-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry/46_artgas1__xmlriver-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"PYSEC-2026-2280\")'"
+    },
+    {
+      "id": "PYSEC-2026-2281",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency starlette@1.0.0: PYSEC-2026-2281",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update starlette to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "PYSEC-2026-2281",
+      "location": "static:<corpus>/registry/46_artgas1__xmlriver-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry/46_artgas1__xmlriver-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"PYSEC-2026-2281\")'"
+    },
+    {
+      "id": "PYSEC-2026-248",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency starlette@1.0.0: PYSEC-2026-248",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update starlette to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "PYSEC-2026-248",
+      "location": "static:<corpus>/registry/46_artgas1__xmlriver-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry/46_artgas1__xmlriver-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"PYSEC-2026-248\")'"
+    },
+    {
+      "id": "PYSEC-2026-249",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency starlette@1.0.0: PYSEC-2026-249",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update starlette to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "PYSEC-2026-249",
+      "location": "static:<corpus>/registry/46_artgas1__xmlriver-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry/46_artgas1__xmlriver-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"PYSEC-2026-249\")'"
+    },
+    {
+      "id": "trust_0001",
+      "severity": "low",
+      "category": "trust_exploitation",
+      "title": "Trust exploitation pattern: deceptive output",
+      "description": "Pattern in tests\\unit\\test_suggestions.py near line 120: `FakeResponse`. This could enable a compromised agent to mislead users.",
+      "owasp_asi": [
+        "ASI09"
+      ],
+      "owasp_mcp": [
+        "MCP06"
+      ],
+      "file_path": "tests\\unit\\test_suggestions.py",
+      "line_number": 120,
+      "recommendation": "Implement output verification. Require human confirmation for high-impact actions. Mark agent-generated content as such.",
+      "rule_id": "trust_exploitation_pattern",
+      "evidence": "Trust exploitation pattern: deceptive output",
+      "location": "tests\\unit\\test_suggestions.py:120",
+      "replay": "axiom scan <corpus>/registry/46_artgas1__xmlriver-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"trust_0001\")'"
+    },
+    {
+      "id": "mcp04_unpinned_0001",
+      "severity": "medium",
+      "category": "supply_chain",
+      "title": "Unpinned install source",
+      "description": "`uvx python` without a pinned version in .github\\workflows\\publish.yml at line 90. Without an exact version the next install silently picks up whatever is published, including a compromised release.",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": ".github\\workflows\\publish.yml",
+      "line_number": 90,
+      "recommendation": "Pin an exact version (pkg@1.2.3, pkg==1.2.3) and prefer a lockfile or hash-checked requirements.",
+      "rule_id": "unpinned_install_source",
+      "evidence": "Unpinned install source",
+      "location": ".github\\workflows\\publish.yml:90",
+      "replay": "axiom scan <corpus>/registry/46_artgas1__xmlriver-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"mcp04_unpinned_0001\")'"
+    },
+    {
+      "id": "mcp04_unpinned_0002",
+      "severity": "medium",
+      "category": "supply_chain",
+      "title": "Unpinned install source",
+      "description": "`uvx python` without a pinned version in .github\\workflows\\publish.yml at line 105. Without an exact version the next install silently picks up whatever is published, including a compromised release.",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": ".github\\workflows\\publish.yml",
+      "line_number": 105,
+      "recommendation": "Pin an exact version (pkg@1.2.3, pkg==1.2.3) and prefer a lockfile or hash-checked requirements.",
+      "rule_id": "unpinned_install_source",
+      "evidence": "Unpinned install source",
+      "location": ".github\\workflows\\publish.yml:105",
+      "replay": "axiom scan <corpus>/registry/46_artgas1__xmlriver-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"mcp04_unpinned_0002\")'"
+    }
+  ],
+  "server_profile": {
+    "name": "46_artgas1__xmlriver-mcp",
+    "command": null,
+    "args": [],
+    "env_vars": [],
+    "transport": "unknown",
+    "tools": [
+      {
+        "name": "get_balance",
+        "description": "Get current XMLRiver account balance in rubles (\u20bd).\n\nUse this to check funds before bulk operations or to monitor spending.\n\nReturns:\n    Dict with `balance_rub` (float) or `isError` on failure.\n\nExamples:\n    get_balance()\n    \u2192 {\"balance_rub\": 1234.56}",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "get_tariff",
+        "description": "Get current XMLRiver tariff name.\n\nTariffs:\n- 'Basic' \u2014 pay-as-you-go, no prepay, 25 \u20bd per 1k requests\n- 'Pro' \u2014 5000 \u20bd/mo prepay, 20 \u20bd per 1k\n- 'Mega' \u2014 15000 \u20bd/mo prepay, 15 \u20bd per 1k\n- 'Giga' \u2014 50000 \u20bd/mo prepay, 12 \u20bd per 1k\n\nReturns:\n    Dict with `tariff` (str) or `isError`.",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "get_tariff_expire",
+        "description": "Get expiration date for prepay tariff (Pro/Mega/Giga).\n\nReturns 'never' or date for Basic tariff (no expiry).\n\nReturns:\n    Dict with `expires_at` (str) or `isError`.",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "medium",
+        "poisoning_detail": "Steering language in tool description (imperative guidance aimed at the model). Matched pattern in tool 'get_tariff_expire': 'never'"
+      },
+      {
+        "name": "get_cost",
+        "description": "Get cost per 1000 requests for a given engine, in rubles (\u20bd).\n\nUse this to estimate spend for a planned bulk operation. Cost depends on\ncurrent tariff \u2014 see `get_tariff` for the tariff name.\n\nReturns:\n    Dict with `engine`, `cost_per_1k_rub` or `isError`.\n\nExamples:\n    get_cost(engine=\"google\")\n    \u2192 {\"engine\": \"google\", \"cost_per_1k_rub\": 25.0}",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "engine": {}
+          },
+          "required": [
+            "engine"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "google_search",
+        "description": "Parse Google search results page (SERP) for a given query and locale.\n\nUse this for: SEO research (own/competitor ranking), keyword discovery,\nSERP feature analysis (featured snippets, knowledge graph, FAQ), competitive intel.\n\nDo NOT use for: live page content fetching (use a dedicated scraper for that),\nGoogle Ads keyword planner data (use Yandex Wordstat via `wordstat_query` for RU).\n\nReturns:\n    Dict with:\n        - `query` (echoed)\n        - `total_found` \u2014 Google's reported result count\n        - `page` \u2014 page number\n        - `results` \u2014 list of organic results with `position`, `url`, `title`, `snippet`\n        - `addresults` \u2014 featured_snippet, related_questions, related_searches,\n          knowledge_graph (if present and requested via `additional_blocks`)\n        - `top_ads` / `bottom_ads` \u2014 ads (`position`, `url`, `ads_url`, `title`,\n          `snippet`) when the response carries them; request with 'topads,bottomads'\n        - Or `isError: True` on XMLRiver error (15 = no results, 110 = rate limit, etc).\n\nExamples:\n    google_search(query=\"python tutorial\", country=2008, language=\"ru\")\n    \u2192 {\"results\": [...10 organic results...], \"total_found\": 12300, \"page\": 1}\n\n    google_search(query=\"site:wikipedia.org python\", country=2840, language=\"en\")\n    \u2192 results restricted to wikipedia.org domain",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "query": {},
+            "country": {
+              "default": 2008
+            },
+            "domain": {
+              "default": 10
+            },
+            "language": {
+              "default": "ru"
+            },
+            "device": {
+              "default": "desktop"
+            },
+            "page": {
+              "default": 1
+            },
+            "location": {},
+            "date_filter": {},
+            "additional_blocks": {},
+            "mobile_os": {},
+            "show_similar": {
+              "default": false
+            },
+            "highlights": {
+              "default": false
+            },
+            "no_autocorrect": {
+              "default": false
+            },
+            "ai_overview": {
+              "default": false
+            }
+          },
+          "required": [
+            "query"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "medium",
+        "poisoning_detail": "Tool description is 1324 characters. Long descriptions can hide malicious instructions."
+      },
+      {
+        "name": "google_maps_search",
+        "description": "Search Google Maps for places around a point.\n\nUse this for: local competitor mapping, presence checks in a city, pulling a\nlist of businesses by category around a coordinate.\n\nDo NOT use for: organic web results (use `google_search`), or for a place you\ncan name exactly \u2014 a plain web search answers that in one request.\n\nReturns:\n    Dict with `results`, `total_found`, `query`, `coords`, `zoom`, `count`,\n    or `isError: True` on failure (`code 108` means zoom/coords missing).\n\nExamples:\n    google_maps_search(query=\"\u043a\u043e\u0444\u0435\u0439\u043d\u044f\", coords=\"55.75581,37.61764\", zoom=13)\n    \u2192 places around central Moscow\n\n    google_maps_search(query=\"barber\", coords=\"41.40338,2.17403\", zoom=14, count=50)\n    \u2192 up to 50 places around Barcelona",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "query": {},
+            "coords": {},
+            "zoom": {
+              "default": 12
+            },
+            "count": {
+              "default": 20
+            },
+            "language": {
+              "default": "ru"
+            }
+          },
+          "required": [
+            "query",
+            "coords"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "medium",
+        "poisoning_detail": "Tool description is 729 characters. Long descriptions can hide malicious instructions."
+      },
+      {
+        "name": "search_suggestions",
+        "description": "Collect search-box suggestions (autocomplete) for a batch of phrases.\n\nUse this for: keyword research beyond Wordstat \u2014 suggestions surface live\nlong-tail phrasings, including ones with no Wordstat frequency at all; they\nare what people actually type. Pair it with a prefix sweep (append each\nletter of the alphabet to a seed) to pull the tail systematically.\n\nDo NOT use for: frequency data (suggestions carry no volume \u2014 feed them to\n`wordstat_query` afterwards), or for SERP contents (use `google_search` /\n`yandex_search`).\n\nReturns:\n    Dict with:\n        - `engine` (echoed), `requested` \u2014 number of phrases sent\n        - `suggestions` \u2014 flat, de-duplicated list of suggestion strings\n        - `count` \u2014 number of suggestions returned\n        - Or `isError: True` on failure (including API-level errors such as\n          `code 104` for an unsupported parameter).\n\nExamples:\n    search_suggestions(phrases=[\"\u043e\u0442\u0447\u0435\u0442 \u043f\u043e \u043f\u0440\u0430\u043a\u0442\u0438\u043a\u0435\"])\n    \u2192 {\"engine\": \"google\", \"suggestions\": [\"\u043e\u0442\u0447\u0435\u0442 \u043f\u043e \u043f\u0440\u0430\u043a\u0442\u0438\u043a\u0435 \u043f\u0440\u0438\u043c\u0435\u0440\", \u2026], \"count\": 10}\n\n    search_suggestions(phrases=[\"\u043a\u0443\u043f\u0438\u0442\u044c iphone\", \"\u043a\u0443\u043f\u0438\u0442\u044c ipad\"], engine=\"yandex\", lr=\"213\")\n    \u2192 suggestions from the Yandex search box for the Moscow region",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "phrases": {},
+            "engine": {
+              "default": "google"
+            },
+            "domain": {},
+            "lr": {}
+          },
+          "required": [
+            "phrases"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "medium",
+        "poisoning_detail": "Tool description is 1183 characters. Long descriptions can hide malicious instructions."
+      },
+      {
+        "name": "check_url_indexed",
+        "description": "Check if a URL is indexed in Google or Yandex.\n\nSends the bare URL as the query with `inindex=1` (forces a fresh index\ncheck, not cache). It does NOT use the `url:` search operator.\n\n\u26a0\ufe0f Do not reconstruct this call by hand as `url:<URL>` together with\n`inindex=1` \u2014 that combination returns \"no results\" even for pages that\nare definitely indexed (verified against https://ya.ru on 2026-09-04), so\nit reports everything as not indexed. Two combinations work and agree:\nthe bare URL with `inindex=1` (what this tool does) or the `url:` operator\nwithout `inindex`.\n\nUse this for: SEO audits, indexation monitoring, \"did Google find my new page?\".\n\nReturns:\n    Dict with:\n        - `url` \u2014 checked URL\n        - `search_engine`\n        - `indexed` \u2014 bool\n        - `details` \u2014 full search results if indexed (with title, snippet, position)",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "url": {},
+            "search_engine": {
+              "default": "google"
+            },
+            "country": {
+              "default": 2008
+            }
+          },
+          "required": [
+            "url"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "medium",
+        "poisoning_detail": "The description of 'check_url_indexed' names an external endpoint (https://ya.ru). A tool that tells the agent where to send data is an exfiltration channel."
+      },
+      {
+        "name": "wordstat_query",
+        "description": "Get Yandex Wordstat frequency, or demand dynamics over time, for a phrase.\n\nUse this for: keyword research, demand validation, **seasonality analysis**,\nlong-tail discovery. **Russian/Yandex-speaking markets** \u2014 this is Yandex's\nequivalent of Google Keyword Planner.\n\nDo NOT use for: Google volume (Wordstat is Yandex-only \u2014 for Google use\nGoogle Keyword Planner or third-party tools).\n\nTwo mutually exclusive modes, selected by `history_period`:\n\n- ``none`` (default) \u2014 `total_shows`, `containing_phrases`, `similar_queries`\n- anything else \u2014 `total_shows` plus `history`; **no phrases**, because the\n  upstream API does not return them in this mode\n\nReturns:\n    Dict with:\n        - `query` (echoed), `region` (if set)\n        - `total_shows` \u2014 monthly impressions for the phrase\n        - `containing_phrases` / `similar_queries` \u2014 words mode only\n        - `history` \u2014 list of `{date, shows, share_of_all_queries?}`, history mode only.\n          `date` is `YYYY-MM` for monthly, `YYYY-MM-DD` for weekly (week start) and daily.\n        - `window` \u2014 `{start, end, period}` actually requested upstream\n        - Or `isError: True` on failure.\n\nExamples:\n    wordstat_query(query=\"\u043a\u0443\u043f\u0438\u0442\u044c iphone\")\n    \u2192 {\"total_shows\": 187234, \"containing_phrases\": [...], \"similar_queries\": [...]}\n\n    wordstat_query(query=\"\u0440\u0435\u0444\u0435\u0440\u0430\u0442\", history_period=\"monthly\", start=\"2024-01-01\")\n    \u2192 {\"total_shows\": 145052, \"history\": [{\"date\": \"2024-01\", \"shows\": 2025430}, ...]}",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "query": {},
+            "region": {},
+            "device": {},
+            "history_period": {
+              "default": "none"
+            },
+            "start": {},
+            "end": {}
+          },
+          "required": [
+            "query"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "medium",
+        "poisoning_detail": "Tool description is 1452 characters. Long descriptions can hide malicious instructions."
+      },
+      {
+        "name": "yandex_search",
+        "description": "Parse Yandex search results page (SERP) for a given query and region.\n\nUse this for: Russian SEO research (own/competitor ranking in Yandex),\nregional keyword analysis, SERP feature analysis (FAQ, knowledge graph),\ncompetitive intel for Russian-speaking markets.\n\nDo NOT use for: keyword frequency data \u2014 use `wordstat_query` instead.\nDo NOT use for: structured JSON output \u2014 use `yandex_search_api_v2` instead\n(official Yandex Search API proxy, cleaner JSON).\n\nReturns:\n    Dict with `results` (organic 10 items), `total_found`, `page`, `addresults`\n    (related_questions, knowledge_graph, etc), or `isError: True` on failure.\n    Ads: `top_ads` / `bottom_ads` / `right_ads` (each ad: `position`, `url`,\n    `title`, `snippet`, optional `sitelinks`) for every ad block in the response,\n    and `advcount` \u2014 XMLRiver's count of ads in the top block. Request them with\n    `additional_blocks=\"y_topads,y_bottomads,y_rightads\"`; Yandex rotates ads, so\n    two identical calls can differ. No key means no such block in this response.\n\nExamples:\n    yandex_search(query=\"\u043a\u0443\u043f\u0438\u0442\u044c iphone\", region=213)\n    \u2192 top 10 organic for Moscow\n\n    yandex_search(query=\"\u043a\u0443\u043f\u0438\u0442\u044c \u043f\u043b\u0430\u0441\u0442\u0438\u043a\u043e\u0432\u044b\u0435 \u043e\u043a\u043d\u0430\",\n                  additional_blocks=\"y_topads,y_bottomads,y_rightads\")\n    \u2192 organic plus the ads shown above, below and beside them\n\n    yandex_search(query=\"site:wildberries.ru \u0438\u0433\u0440\u0443\u0448\u043a\u0438\", region=2)\n    \u2192 site-restricted search for St. Petersburg\n\n    yandex_search(query=\"\u043d\u043e\u0432\u043e\u0441\u0442\u0438\", within=\"77\")\n    \u2192 last-24-hours filtered",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "query": {},
+            "region": {
+              "default": 213
+            },
+            "domain": {
+              "default": "ru"
+            },
+            "language": {
+              "default": "ru"
+            },
+            "device": {
+              "default": "desktop"
+            },
+            "page": {
+              "default": 0
+            },
+            "within": {},
+            "additional_blocks": {},
+            "mobile_os": {},
+            "highlights": {
+              "default": false
+            },
+            "filter_duplicates": {
+              "default": false
+            }
+          },
+          "required": [
+            "query"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "medium",
+        "poisoning_detail": "Tool description is 1504 characters. Long descriptions can hide malicious instructions."
+      },
+      {
+        "name": "yandex_search_api_v2",
+        "description": "Query Yandex Search API v2 (official) via XMLRiver proxy.\n\nUse this when you need: cleaner structured output, no SERP-feature parsing overhead,\ndocumented Yandex Search API semantics. Slightly more expensive than `yandex_search`\n(~24 \u20bd/1k vs 25 \u20bd/1k on Basic tariff).\n\nDo NOT use for: SERP features (knowledge graph, FAQ, related questions) \u2014 those\nare not in the official API. Use `yandex_search` instead.\n\nReturns:\n    Parsed search results dict similar to `yandex_search` but without addresults.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "query": {},
+            "region": {
+              "default": 213
+            },
+            "page": {
+              "default": 0
+            },
+            "group_count": {
+              "default": 10
+            }
+          },
+          "required": [
+            "query"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      }
+    ],
+    "resources": [],
+    "prompts": [],
+    "repo_url": null,
+    "npm_package": null,
+    "capabilities_claimed": [],
+    "capabilities_actual": []
+  },
+  "fingerprint": "bd4885488617cebbf137e5af9567eb4b8331ce73e64963c2d74d0ccc08bf998e",
+  "surface_map": {
+    "server": {
+      "name": "xmlriver-mcp",
+      "instructions": "MCP server for XMLRiver \u2014 Russian-focused SEO API providing Google and Yandex SERP parsing, Wordstat keyword frequency, and indexing checks. Use this for SEO research, competitor analysis, and keyword discovery. All tools are read-only and call live XMLRiver API (pay-as-you-go, ~25 \u20bd per 1000 requests on Basic tariff).",
+      "transport": "stdio",
+      "auth": "unknown",
+      "instructions_location": "xmlriver_mcp\\server.py:33"
+    },
+    "tools": [
+      {
+        "name": "get_balance",
+        "description": "Get current XMLRiver account balance in rubles (\u20bd).\n\nUse this to check funds before bulk operations or to monitor spending.\n\nReturns:\n    Dict with `balance_rub` (float) or `isError` on failure.\n\nExamples:\n    get_balance()\n    \u2192 {\"balance_rub\": 1234.56}",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "xmlriver_mcp\\tools\\account.py:21"
+      },
+      {
+        "name": "get_tariff",
+        "description": "Get current XMLRiver tariff name.\n\nTariffs:\n- 'Basic' \u2014 pay-as-you-go, no prepay, 25 \u20bd per 1k requests\n- 'Pro' \u2014 5000 \u20bd/mo prepay, 20 \u20bd per 1k\n- 'Mega' \u2014 15000 \u20bd/mo prepay, 15 \u20bd per 1k\n- 'Giga' \u2014 50000 \u20bd/mo prepay, 12 \u20bd per 1k\n\nReturns:\n    Dict with `tariff` (str) or `isError`.",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "xmlriver_mcp\\tools\\account.py:54"
+      },
+      {
+        "name": "get_tariff_expire",
+        "description": "Get expiration date for prepay tariff (Pro/Mega/Giga).\n\nReturns 'never' or date for Basic tariff (no expiry).\n\nReturns:\n    Dict with `expires_at` (str) or `isError`.",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "xmlriver_mcp\\tools\\account.py:80"
+      },
+      {
+        "name": "get_cost",
+        "description": "Get cost per 1000 requests for a given engine, in rubles (\u20bd).\n\nUse this to estimate spend for a planned bulk operation. Cost depends on\ncurrent tariff \u2014 see `get_tariff` for the tariff name.\n\nReturns:\n    Dict with `engine`, `cost_per_1k_rub` or `isError`.\n\nExamples:\n    get_cost(engine=\"google\")\n    \u2192 {\"engine\": \"google\", \"cost_per_1k_rub\": 25.0}",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "engine": {}
+          },
+          "required": [
+            "engine"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "xmlriver_mcp\\tools\\account.py:102"
+      },
+      {
+        "name": "google_search",
+        "description": "Parse Google search results page (SERP) for a given query and locale.\n\nUse this for: SEO research (own/competitor ranking), keyword discovery,\nSERP feature analysis (featured snippets, knowledge graph, FAQ), competitive intel.\n\nDo NOT use for: live page content fetching (use a dedicated scraper for that),\nGoogle Ads keyword planner data (use Yandex Wordstat via `wordstat_query` for RU).\n\nReturns:\n    Dict with:\n        - `query` (echoed)\n        - `total_found` \u2014 Google's reported result count\n        - `page` \u2014 page number\n        - `results` \u2014 list of organic results with `position`, `url`, `title`, `snippet`\n        - `addresults` \u2014 featured_snippet, related_questions, related_searches,\n          knowledge_graph (if present and requested via `additional_blocks`)\n        - `top_ads` / `bottom_ads` \u2014 ads (`position`, `url`, `ads_url`, `title`,\n          `snippet`) when the response carries them; request with 'topads,bottomads'\n        - Or `isError: True` on XMLRiver error (15 = no results, 110 = rate limit, etc).\n\nExamples:\n    google_search(query=\"python tutorial\", country=2008, language=\"ru\")\n    \u2192 {\"results\": [...10 organic results...], \"total_found\": 12300, \"page\": 1}\n\n    google_search(query=\"site:wikipedia.org python\", country=2840, language=\"en\")\n    \u2192 results restricted to wikipedia.org domain",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "query": {},
+            "country": {
+              "default": 2008
+            },
+            "domain": {
+              "default": 10
+            },
+            "language": {
+              "default": "ru"
+            },
+            "device": {
+              "default": "desktop"
+            },
+            "page": {
+              "default": 1
+            },
+            "location": {},
+            "date_filter": {},
+            "additional_blocks": {},
+            "mobile_os": {},
+            "show_similar": {
+              "default": false
+            },
+            "highlights": {
+              "default": false
+            },
+            "no_autocorrect": {
+              "default": false
+            },
+            "ai_overview": {
+              "default": false
+            }
+          },
+          "required": [
+            "query"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "xmlriver_mcp\\tools\\google.py:22"
+      },
+      {
+        "name": "google_maps_search",
+        "description": "Search Google Maps for places around a point.\n\nUse this for: local competitor mapping, presence checks in a city, pulling a\nlist of businesses by category around a coordinate.\n\nDo NOT use for: organic web results (use `google_search`), or for a place you\ncan name exactly \u2014 a plain web search answers that in one request.\n\nReturns:\n    Dict with `results`, `total_found`, `query`, `coords`, `zoom`, `count`,\n    or `isError: True` on failure (`code 108` means zoom/coords missing).\n\nExamples:\n    google_maps_search(query=\"\u043a\u043e\u0444\u0435\u0439\u043d\u044f\", coords=\"55.75581,37.61764\", zoom=13)\n    \u2192 places around central Moscow\n\n    google_maps_search(query=\"barber\", coords=\"41.40338,2.17403\", zoom=14, count=50)\n    \u2192 up to 50 places around Barcelona",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "query": {},
+            "coords": {},
+            "zoom": {
+              "default": 12
+            },
+            "count": {
+              "default": 20
+            },
+            "language": {
+              "default": "ru"
+            }
+          },
+          "required": [
+            "query",
+            "coords"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "xmlriver_mcp\\tools\\maps.py:41"
+      },
+      {
+        "name": "search_suggestions",
+        "description": "Collect search-box suggestions (autocomplete) for a batch of phrases.\n\nUse this for: keyword research beyond Wordstat \u2014 suggestions surface live\nlong-tail phrasings, including ones with no Wordstat frequency at all; they\nare what people actually type. Pair it with a prefix sweep (append each\nletter of the alphabet to a seed) to pull the tail systematically.\n\nDo NOT use for: frequency data (suggestions carry no volume \u2014 feed them to\n`wordstat_query` afterwards), or for SERP contents (use `google_search` /\n`yandex_search`).\n\nReturns:\n    Dict with:\n        - `engine` (echoed), `requested` \u2014 number of phrases sent\n        - `suggestions` \u2014 flat, de-duplicated list of suggestion strings\n        - `count` \u2014 number of suggestions returned\n        - Or `isError: True` on failure (including API-level errors such as\n          `code 104` for an unsupported parameter).\n\nExamples:\n    search_suggestions(phrases=[\"\u043e\u0442\u0447\u0435\u0442 \u043f\u043e \u043f\u0440\u0430\u043a\u0442\u0438\u043a\u0435\"])\n    \u2192 {\"engine\": \"google\", \"suggestions\": [\"\u043e\u0442\u0447\u0435\u0442 \u043f\u043e \u043f\u0440\u0430\u043a\u0442\u0438\u043a\u0435 \u043f\u0440\u0438\u043c\u0435\u0440\", \u2026], \"count\": 10}\n\n    search_suggestions(phrases=[\"\u043a\u0443\u043f\u0438\u0442\u044c iphone\", \"\u043a\u0443\u043f\u0438\u0442\u044c ipad\"], engine=\"yandex\", lr=\"213\")\n    \u2192 suggestions from the Yandex search box for the Moscow region",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "phrases": {},
+            "engine": {
+              "default": "google"
+            },
+            "domain": {},
+            "lr": {}
+          },
+          "required": [
+            "phrases"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "xmlriver_mcp\\tools\\suggestions.py:38"
+      },
+      {
+        "name": "check_url_indexed",
+        "description": "Check if a URL is indexed in Google or Yandex.\n\nSends the bare URL as the query with `inindex=1` (forces a fresh index\ncheck, not cache). It does NOT use the `url:` search operator.\n\n\u26a0\ufe0f Do not reconstruct this call by hand as `url:<URL>` together with\n`inindex=1` \u2014 that combination returns \"no results\" even for pages that\nare definitely indexed (verified against https://ya.ru on 2026-09-04), so\nit reports everything as not indexed. Two combinations work and agree:\nthe bare URL with `inindex=1` (what this tool does) or the `url:` operator\nwithout `inindex`.\n\nUse this for: SEO audits, indexation monitoring, \"did Google find my new page?\".\n\nReturns:\n    Dict with:\n        - `url` \u2014 checked URL\n        - `search_engine`\n        - `indexed` \u2014 bool\n        - `details` \u2014 full search results if indexed (with title, snippet, position)",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "url": {},
+            "search_engine": {
+              "default": "google"
+            },
+            "country": {
+              "default": 2008
+            }
+          },
+          "required": [
+            "url"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "xmlriver_mcp\\tools\\utility.py:22"
+      },
+      {
+        "name": "wordstat_query",
+        "description": "Get Yandex Wordstat frequency, or demand dynamics over time, for a phrase.\n\nUse this for: keyword research, demand validation, **seasonality analysis**,\nlong-tail discovery. **Russian/Yandex-speaking markets** \u2014 this is Yandex's\nequivalent of Google Keyword Planner.\n\nDo NOT use for: Google volume (Wordstat is Yandex-only \u2014 for Google use\nGoogle Keyword Planner or third-party tools).\n\nTwo mutually exclusive modes, selected by `history_period`:\n\n- ``none`` (default) \u2014 `total_shows`, `containing_phrases`, `similar_queries`\n- anything else \u2014 `total_shows` plus `history`; **no phrases**, because the\n  upstream API does not return them in this mode\n\nReturns:\n    Dict with:\n        - `query` (echoed), `region` (if set)\n        - `total_shows` \u2014 monthly impressions for the phrase\n        - `containing_phrases` / `similar_queries` \u2014 words mode only\n        - `history` \u2014 list of `{date, shows, share_of_all_queries?}`, history mode only.\n          `date` is `YYYY-MM` for monthly, `YYYY-MM-DD` for weekly (week start) and daily.\n        - `window` \u2014 `{start, end, period}` actually requested upstream\n        - Or `isError: True` on failure.\n\nExamples:\n    wordstat_query(query=\"\u043a\u0443\u043f\u0438\u0442\u044c iphone\")\n    \u2192 {\"total_shows\": 187234, \"containing_phrases\": [...], \"similar_queries\": [...]}\n\n    wordstat_query(query=\"\u0440\u0435\u0444\u0435\u0440\u0430\u0442\", history_period=\"monthly\", start=\"2024-01-01\")\n    \u2192 {\"total_shows\": 145052, \"history\": [{\"date\": \"2024-01\", \"shows\": 2025430}, ...]}",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "query": {},
+            "region": {},
+            "device": {},
+            "history_period": {
+              "default": "none"
+            },
+            "start": {},
+            "end": {}
+          },
+          "required": [
+            "query"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [
+          "INVALID_DATE",
+          "{name}={raw} is not ISO 'YYYY-MM-DD'"
+        ],
+        "registration": "static",
+        "location": "xmlriver_mcp\\tools\\wordstat.py:163"
+      },
+      {
+        "name": "yandex_search",
+        "description": "Parse Yandex search results page (SERP) for a given query and region.\n\nUse this for: Russian SEO research (own/competitor ranking in Yandex),\nregional keyword analysis, SERP feature analysis (FAQ, knowledge graph),\ncompetitive intel for Russian-speaking markets.\n\nDo NOT use for: keyword frequency data \u2014 use `wordstat_query` instead.\nDo NOT use for: structured JSON output \u2014 use `yandex_search_api_v2` instead\n(official Yandex Search API proxy, cleaner JSON).\n\nReturns:\n    Dict with `results` (organic 10 items), `total_found`, `page`, `addresults`\n    (related_questions, knowledge_graph, etc), or `isError: True` on failure.\n    Ads: `top_ads` / `bottom_ads` / `right_ads` (each ad: `position`, `url`,\n    `title`, `snippet`, optional `sitelinks`) for every ad block in the response,\n    and `advcount` \u2014 XMLRiver's count of ads in the top block. Request them with\n    `additional_blocks=\"y_topads,y_bottomads,y_rightads\"`; Yandex rotates ads, so\n    two identical calls can differ. No key means no such block in this response.\n\nExamples:\n    yandex_search(query=\"\u043a\u0443\u043f\u0438\u0442\u044c iphone\", region=213)\n    \u2192 top 10 organic for Moscow\n\n    yandex_search(query=\"\u043a\u0443\u043f\u0438\u0442\u044c \u043f\u043b\u0430\u0441\u0442\u0438\u043a\u043e\u0432\u044b\u0435 \u043e\u043a\u043d\u0430\",\n                  additional_blocks=\"y_topads,y_bottomads,y_rightads\")\n    \u2192 organic plus the ads shown above, below and beside them\n\n    yandex_search(query=\"site:wildberries.ru \u0438\u0433\u0440\u0443\u0448\u043a\u0438\", region=2)\n    \u2192 site-restricted search for St. Petersburg\n\n    yandex_search(query=\"\u043d\u043e\u0432\u043e\u0441\u0442\u0438\", within=\"77\")\n    \u2192 last-24-hours filtered",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "query": {},
+            "region": {
+              "default": 213
+            },
+            "domain": {
+              "default": "ru"
+            },
+            "language": {
+              "default": "ru"
+            },
+            "device": {
+              "default": "desktop"
+            },
+            "page": {
+              "default": 0
+            },
+            "within": {},
+            "additional_blocks": {},
+            "mobile_os": {},
+            "highlights": {
+              "default": false
+            },
+            "filter_duplicates": {
+              "default": false
+            }
+          },
+          "required": [
+            "query"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "xmlriver_mcp\\tools\\yandex.py:27"
+      },
+      {
+        "name": "yandex_search_api_v2",
+        "description": "Query Yandex Search API v2 (official) via XMLRiver proxy.\n\nUse this when you need: cleaner structured output, no SERP-feature parsing overhead,\ndocumented Yandex Search API semantics. Slightly more expensive than `yandex_search`\n(~24 \u20bd/1k vs 25 \u20bd/1k on Basic tariff).\n\nDo NOT use for: SERP features (knowledge graph, FAQ, related questions) \u2014 those\nare not in the official API. Use `yandex_search` instead.\n\nReturns:\n    Parsed search results dict similar to `yandex_search` but without addresults.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "query": {},
+            "region": {
+              "default": 213
+            },
+            "page": {
+              "default": 0
+            },
+            "group_count": {
+              "default": 10
+            }
+          },
+          "required": [
+            "query"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "xmlriver_mcp\\tools\\yandex.py:173"
+      }
+    ],
+    "resources": [],
+    "prompts": [],
+    "mutations": [],
+    "source": {
+      "kind": "static",
+      "target": "46_artgas1__xmlriver-mcp",
+      "languages": [
+        "python"
+      ]
+    },
+    "generated_at": "2026-11-11T22:34:42+00:00",
+    "fingerprint": "bd4885488617cebbf137e5af9567eb4b8331ce73e64963c2d74d0ccc08bf998e",
+    "schema": "axiom.surface/1"
+  },
+  "provenance": {
+    "identity": {
+      "npm": null,
+      "pypi": "xmlriver-mcp",
+      "repository": "https://github.com/artgas1/xmlriver-mcp",
+      "server_name": "xmlriver-mcp"
+    },
+    "registry": {
+      "status": "match",
+      "entry": "io.github.artgas1/xmlriver-mcp",
+      "repository": "https://github.com/artgas1/xmlriver-mcp",
+      "packages": [
+        "pypi:xmlriver-mcp"
+      ],
+      "publishedAt": "2026-09-23T22:43:27.974306Z",
+      "version": "0.2.3"
+    },
+    "lookalikes": [],
+    "checked_at": "2026-11-11T22:34:44+00:00"
+  },
+  "owasp_coverage": {
+    "framework": "OWASP Top 10 for Agentic Applications 2026",
+    "reference": "https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/",
+    "coverage": {
+      "ASI01": {
+        "name": "Agent Goal Hijack",
+        "coverage_level": "strong",
+        "findings_count": 8,
+        "finding_ids": [
+          "poison_get_tariff_expire_instruction_injection",
+          "poison_google_search_long_desc",
+          "poison_google_maps_search_long_desc",
+          "poison_search_suggestions_long_desc",
+          "egress_check_url_indexed_desc_1",
+          "poison_check_url_indexed_long_desc",
+          "poison_wordstat_query_long_desc",
+          "poison_yandex_search_long_desc"
+        ],
+        "detectors": [
+          "tool_poisoning",
+          "prompt_injection",
+          "instruction_injection"
+        ]
+      },
+      "ASI02": {
+        "name": "Tool Misuse & Exploitation",
+        "coverage_level": "strong",
+        "findings_count": 10,
+        "finding_ids": [
+          "egress_check_url_indexed_desc_1",
+          "cross_tool_get_cost_get_tariff",
+          "cross_tool_google_search_wordstat_query",
+          "cross_tool_google_maps_search_google_search",
+          "cross_tool_search_suggestions_yandex_search",
+          "cross_tool_search_suggestions_wordstat_query",
+          "cross_tool_search_suggestions_google_search",
+          "cross_tool_yandex_search_yandex_search_api_v2",
+          "cross_tool_yandex_search_wordstat_query",
+          "cross_tool_yandex_search_api_v2_yandex_search"
+        ],
+        "detectors": [
+          "toxic_tool_combo",
+          "tool_overscope",
+          "tool_chaining_detection"
+        ]
+      },
+      "ASI03": {
+        "name": "Identity & Privilege Abuse",
+        "coverage_level": "strong",
+        "findings_count": 3,
+        "finding_ids": [
+          "ast_0001",
+          "ast_0002",
+          "ast_0003"
+        ],
+        "detectors": [
+          "credential_analysis",
+          "shared_credential_detection",
+          "env_var_audit"
+        ]
+      },
+      "ASI04": {
+        "name": "Agentic Supply Chain Vulnerabilities",
+        "coverage_level": "strong",
+        "findings_count": 100,
+        "finding_ids": [
+          "GHSA-7xgj-8392-5q4r",
+          "GHSA-5p39-cfhj-2xmp",
+          "GHSA-82r6-8w77-94w6",
+          "PYSEC-2026-4024",
+          "PYSEC-2026-4025",
+          "GHSA-6v38-4h7w-rj9h",
+          "GHSA-7vr2-2fgp-9w7p",
+          "GHSA-8m4g-j4wp-wgcg",
+          "GHSA-c5mf-xmp2-59rc",
+          "GHSA-c73q-w75p-j82v"
+        ],
+        "detectors": [
+          "dependency_cve",
+          "lifecycle_hooks",
+          "npx_unversioned",
+          "known_mcp_cves"
+        ]
+      },
+      "ASI05": {
+        "name": "Unexpected Code Execution",
+        "coverage_level": "strong",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "code_exec_patterns",
+          "code_generation_detection",
+          "sandbox_escape"
+        ]
+      },
+      "ASI06": {
+        "name": "Memory & Context Poisoning",
+        "coverage_level": "partial",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "memory_poisoning_patterns",
+          "context_manipulation_detection"
+        ],
+        "gap_note": "Axiom detects static patterns. Full coverage requires runtime memory monitoring."
+      },
+      "ASI07": {
+        "name": "Insecure Inter-Agent Communication",
+        "coverage_level": "partial",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "transport_security",
+          "a2a_pattern_detection"
+        ],
+        "gap_note": "Axiom checks transport security. Full A2A protocol analysis requires runtime interception."
+      },
+      "ASI08": {
+        "name": "Cascading Failures",
+        "coverage_level": "partial",
+        "findings_count": 9,
+        "finding_ids": [
+          "cross_tool_get_cost_get_tariff",
+          "cross_tool_google_search_wordstat_query",
+          "cross_tool_google_maps_search_google_search",
+          "cross_tool_search_suggestions_yandex_search",
+          "cross_tool_search_suggestions_wordstat_query",
+          "cross_tool_search_suggestions_google_search",
+          "cross_tool_yandex_search_yandex_search_api_v2",
+          "cross_tool_yandex_search_wordstat_query",
+          "cross_tool_yandex_search_api_v2_yandex_search"
+        ],
+        "detectors": [
+          "blast_radius_estimation",
+          "dependency_chain_analysis"
+        ],
+        "gap_note": "Axiom estimates blast radius from tool capabilities. Full cascading failure analysis requires runtime topology mapping."
+      },
+      "ASI09": {
+        "name": "Human-Agent Trust Exploitation",
+        "coverage_level": "strong",
+        "findings_count": 1,
+        "finding_ids": [
+          "trust_0001"
+        ],
+        "detectors": [
+          "claimed_vs_actual",
+          "deceptive_output_detection",
+          "trust_manipulation_patterns"
+        ]
+      },
+      "ASI10": {
+        "name": "Rogue Agents",
+        "coverage_level": "partial",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "sleeper_patterns",
+          "behavioral_drift_indicators",
+          "persistence_detection"
+        ],
+        "gap_note": "Axiom detects static rogue indicators. Full rogue agent detection requires runtime behavioral monitoring."
+      }
+    },
+    "total_asi_categories_with_findings": 6
+  },
+  "owasp_mcp_coverage": {
+    "framework": "OWASP MCP Top 10",
+    "framework_version": "v0.1 beta",
+    "reference": "https://owasp.org/www-project-mcp-top-10/",
+    "coverage": {
+      "MCP01": {
+        "id": "MCP01:2025",
+        "name": "Token Mismanagement & Secret Exposure",
+        "coverage_level": "partial",
+        "reason": "Regex-based secret detection in server source and client configs plus env-var exposure checks; no entropy analysis, git-history scan, or token lifetime/passthrough checks.",
+        "findings_count": 12,
+        "finding_ids": [
+          "cross_tool_get_cost_get_tariff",
+          "cross_tool_google_search_wordstat_query",
+          "cross_tool_google_maps_search_google_search",
+          "cross_tool_search_suggestions_yandex_search",
+          "cross_tool_search_suggestions_wordstat_query",
+          "cross_tool_search_suggestions_google_search",
+          "cross_tool_yandex_search_yandex_search_api_v2",
+          "cross_tool_yandex_search_wordstat_query",
+          "cross_tool_yandex_search_api_v2_yandex_search",
+          "ast_0001"
+        ],
+        "detectors": [
+          "credential_theft",
+          "cross_server",
+          "mcp01_hardcoded_secrets",
+          "config_hardcoded_secret",
+          "env_var_audit",
+          "env_dump"
+        ]
+      },
+      "MCP02": {
+        "id": "MCP02:2025",
+        "name": "Privilege Escalation via Scope Creep",
+        "coverage_level": "strong",
+        "reason": "Permission over-scope patterns, toxic tool-capability combinations, path-escape checks and env-var over-exposure in configs.",
+        "findings_count": 9,
+        "finding_ids": [
+          "cross_tool_get_cost_get_tariff",
+          "cross_tool_google_search_wordstat_query",
+          "cross_tool_google_maps_search_google_search",
+          "cross_tool_search_suggestions_yandex_search",
+          "cross_tool_search_suggestions_wordstat_query",
+          "cross_tool_search_suggestions_google_search",
+          "cross_tool_yandex_search_yandex_search_api_v2",
+          "cross_tool_yandex_search_wordstat_query",
+          "cross_tool_yandex_search_api_v2_yandex_search"
+        ],
+        "detectors": [
+          "permission_overscope",
+          "toxic_tool_combo",
+          "identity_privilege",
+          "sandbox_escape",
+          "config_risk",
+          "cascading_failure",
+          "cross_server",
+          "excessive_scope",
+          "confused_deputy",
+          "file_read",
+          "file_write"
+        ]
+      },
+      "MCP03": {
+        "id": "MCP03:2025",
+        "name": "Tool Poisoning",
+        "coverage_level": "strong",
+        "reason": "Dedicated detector for hidden instructions in tool metadata, plus runtime rug-pull diffing between source and live tool definitions.",
+        "findings_count": 7,
+        "finding_ids": [
+          "poison_get_tariff_expire_instruction_injection",
+          "poison_google_search_long_desc",
+          "poison_google_maps_search_long_desc",
+          "poison_search_suggestions_long_desc",
+          "poison_check_url_indexed_long_desc",
+          "poison_wordstat_query_long_desc",
+          "poison_yandex_search_long_desc"
+        ],
+        "detectors": [
+          "tool_poisoning",
+          "obfuscation",
+          "rogue_agent",
+          "source_vs_runtime_diff",
+          "tool_shadowing",
+          "hidden_unicode",
+          "rug_pull_primitive",
+          "surface_mismatch"
+        ]
+      },
+      "MCP04": {
+        "id": "MCP04:2025",
+        "name": "Software Supply Chain Attacks & Dependency Tampering",
+        "coverage_level": "strong",
+        "reason": "Dependency CVE lookup, known MCP CVEs, install lifecycle hooks, and unpinned npx/uvx/pip/@latest install sources.",
+        "findings_count": 100,
+        "finding_ids": [
+          "GHSA-7xgj-8392-5q4r",
+          "GHSA-5p39-cfhj-2xmp",
+          "GHSA-82r6-8w77-94w6",
+          "PYSEC-2026-4024",
+          "PYSEC-2026-4025",
+          "GHSA-6v38-4h7w-rj9h",
+          "GHSA-7vr2-2fgp-9w7p",
+          "GHSA-8m4g-j4wp-wgcg",
+          "GHSA-c5mf-xmp2-59rc",
+          "GHSA-c73q-w75p-j82v"
+        ],
+        "detectors": [
+          "dependency_vuln",
+          "supply_chain",
+          "known_cve",
+          "obfuscation",
+          "lifecycle_hooks",
+          "mcp04_unpinned_install",
+          "homoglyph",
+          "rug_pull_primitive",
+          "surface_mismatch"
+        ]
+      },
+      "MCP05": {
+        "id": "MCP05:2025",
+        "name": "Command Injection & Execution",
+        "coverage_level": "partial",
+        "reason": "Regex, AST and Semgrep find exec/shell sinks and a heuristic flags sinks inside tool handlers, but there is no inter-procedural taint tracking from tool input to sink.",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "command_injection",
+          "code_execution",
+          "code_generation",
+          "sandbox_escape",
+          "mcp05_tool_input_sink",
+          "shell_exec"
+        ]
+      },
+      "MCP06": {
+        "id": "MCP06:2025",
+        "name": "Prompt Injection via Contextual Payloads",
+        "coverage_level": "partial",
+        "reason": "Injection markers are detected in tool metadata, server instructions, resources, prompts and the strings a tool returns (static), and in instructions/resources/prompts read live; payloads produced by calling a tool at runtime are not inspected.",
+        "findings_count": 1,
+        "finding_ids": [
+          "trust_0001"
+        ],
+        "detectors": [
+          "prompt_injection",
+          "memory_poisoning",
+          "trust_exploitation",
+          "response_injection",
+          "tool_shadowing"
+        ]
+      },
+      "MCP07": {
+        "id": "MCP07:2025",
+        "name": "Insufficient Authentication & Authorization",
+        "coverage_level": "partial",
+        "reason": "Flags remote servers with no visible auth and servers bound to all interfaces; does not verify OAuth implementation or per-tool authorization logic.",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "transport_security",
+          "inter_agent_comm",
+          "identity_privilege",
+          "transport_no_auth",
+          "config_no_auth",
+          "mcp07_bind_all_interfaces"
+        ]
+      },
+      "MCP08": {
+        "id": "MCP08:2025",
+        "name": "Lack of Audit and Telemetry",
+        "coverage_level": "gap",
+        "reason": "Only a low-confidence heuristic for missing logging in tool-defining files; actual audit trails and telemetry pipelines are not verified.",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "audit_telemetry",
+          "mcp08_no_tool_logging"
+        ]
+      },
+      "MCP09": {
+        "id": "MCP09:2025",
+        "name": "Shadow MCP Servers",
+        "coverage_level": "partial",
+        "reason": "Covered by `axiom discover` allowlist on the local machine; no network-wide or fleet discovery.",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "mcpguard_discover",
+          "shadow_mcp"
+        ]
+      },
+      "MCP10": {
+        "id": "MCP10:2025",
+        "name": "Context Injection & Over-Sharing",
+        "coverage_level": "partial",
+        "reason": "Hard-coded egress URLs, tools that send to caller-chosen destinations and bulk-exposure heuristics are detected statically and live; what context is actually shared at runtime is not observed.",
+        "findings_count": 1,
+        "finding_ids": [
+          "egress_check_url_indexed_desc_1"
+        ],
+        "detectors": [
+          "context_oversharing",
+          "data_exfiltration",
+          "memory_poisoning",
+          "mcp10_broad_data_exposure"
+        ]
+      }
+    },
+    "total_mcp_categories_with_findings": 6
+  },
+  "ai_analysis": null,
+  "tool_poisoning_report": null,
+  "prompt_injection_risk": null
+}

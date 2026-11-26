@@ -1,0 +1,1145 @@
+{
+  "schema_version": "0.5",
+  "target": "23_hiddenjobs__job-search-mcp",
+  "risk_score": 45.0,
+  "risk_level": "medium",
+  "tools_found": 4,
+  "findings_count": 23,
+  "findings": [
+    {
+      "id": "poison_search_jobs_instruction_injection",
+      "severity": "medium",
+      "category": "tool_poisoning",
+      "title": "Steering language (instruction injection) in 'search_jobs'",
+      "description": "Steering language in tool description (imperative guidance aimed at the model). Matched pattern in tool 'search_jobs': 'never'",
+      "owasp_asi": [
+        "ASI01"
+      ],
+      "owasp_mcp": [
+        "MCP03"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Review tool description carefully. Compare claimed functionality with actual code behavior. Consider removing this MCP server.",
+      "rule_id": "poison_instruction_injection",
+      "evidence": "never",
+      "location": "static:<corpus>/registry2/23_hiddenjobs__job-search-mcp:search_jobs",
+      "replay": "axiom scan <corpus>/registry2/23_hiddenjobs__job-search-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"poison_search_jobs_instruction_injection\")'"
+    },
+    {
+      "id": "poison_search_jobs_long_desc",
+      "severity": "medium",
+      "category": "tool_poisoning",
+      "title": "Unusually long tool description for 'search_jobs'",
+      "description": "Tool description is 2115 characters. Long descriptions can hide malicious instructions.",
+      "owasp_asi": [
+        "ASI01"
+      ],
+      "owasp_mcp": [
+        "MCP03"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Review the full tool description for hidden instructions.",
+      "rule_id": "long_description",
+      "evidence": "Unusually long tool description for 'search_jobs'",
+      "location": "static:<corpus>/registry2/23_hiddenjobs__job-search-mcp:search_jobs",
+      "replay": "axiom scan <corpus>/registry2/23_hiddenjobs__job-search-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"poison_search_jobs_long_desc\")'"
+    },
+    {
+      "id": "poison_open_application_link_instruction_injection",
+      "severity": "medium",
+      "category": "tool_poisoning",
+      "title": "Steering language (instruction injection) in 'open_application_link'",
+      "description": "Steering language in tool description (imperative guidance aimed at the model). Matched pattern in tool 'open_application_link': 'never'",
+      "owasp_asi": [
+        "ASI01"
+      ],
+      "owasp_mcp": [
+        "MCP03"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Review tool description carefully. Compare claimed functionality with actual code behavior. Consider removing this MCP server.",
+      "rule_id": "poison_instruction_injection",
+      "evidence": "never",
+      "location": "static:<corpus>/registry2/23_hiddenjobs__job-search-mcp:open_application_link",
+      "replay": "axiom scan <corpus>/registry2/23_hiddenjobs__job-search-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"poison_open_application_link_instruction_injection\")'"
+    },
+    {
+      "id": "cross_tool_search_jobs_get_job",
+      "severity": "medium",
+      "category": "cross_server",
+      "title": "Tool 'search_jobs' references tool 'get_job'",
+      "description": "Tool description mentions another tool by name, which could enable tool chaining attacks.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP01",
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Verify this cross-reference is legitimate and necessary.",
+      "rule_id": "cross_tool_reference",
+      "evidence": "Tool 'search_jobs' references tool 'get_job'",
+      "location": "static:<corpus>/registry2/23_hiddenjobs__job-search-mcp:search_jobs_get_job",
+      "replay": "axiom scan <corpus>/registry2/23_hiddenjobs__job-search-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"cross_tool_search_jobs_get_job\")'"
+    },
+    {
+      "id": "cross_tool_search_jobs_open_application_link",
+      "severity": "medium",
+      "category": "cross_server",
+      "title": "Tool 'search_jobs' references tool 'open_application_link'",
+      "description": "Tool description mentions another tool by name, which could enable tool chaining attacks.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP01",
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Verify this cross-reference is legitimate and necessary.",
+      "rule_id": "cross_tool_reference",
+      "evidence": "Tool 'search_jobs' references tool 'open_application_link'",
+      "location": "static:<corpus>/registry2/23_hiddenjobs__job-search-mcp:search_jobs_open_application_link",
+      "replay": "axiom scan <corpus>/registry2/23_hiddenjobs__job-search-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"cross_tool_search_jobs_open_application_link\")'"
+    },
+    {
+      "id": "cross_tool_get_job_search_jobs",
+      "severity": "medium",
+      "category": "cross_server",
+      "title": "Tool 'get_job' references tool 'search_jobs'",
+      "description": "Tool description mentions another tool by name, which could enable tool chaining attacks.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP01",
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Verify this cross-reference is legitimate and necessary.",
+      "rule_id": "cross_tool_reference",
+      "evidence": "Tool 'get_job' references tool 'search_jobs'",
+      "location": "static:<corpus>/registry2/23_hiddenjobs__job-search-mcp:get_job_search_jobs",
+      "replay": "axiom scan <corpus>/registry2/23_hiddenjobs__job-search-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"cross_tool_get_job_search_jobs\")'"
+    },
+    {
+      "id": "cross_tool_open_application_link_search_jobs",
+      "severity": "medium",
+      "category": "cross_server",
+      "title": "Tool 'open_application_link' references tool 'search_jobs'",
+      "description": "Tool description mentions another tool by name, which could enable tool chaining attacks.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP01",
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Verify this cross-reference is legitimate and necessary.",
+      "rule_id": "cross_tool_reference",
+      "evidence": "Tool 'open_application_link' references tool 'search_jobs'",
+      "location": "static:<corpus>/registry2/23_hiddenjobs__job-search-mcp:open_application_link_search_jobs",
+      "replay": "axiom scan <corpus>/registry2/23_hiddenjobs__job-search-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"cross_tool_open_application_link_search_jobs\")'"
+    },
+    {
+      "id": "code_0001",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in scripts\\check-coverage.ts at line 13: `const file = /^SF:(.+)$/m.exec(record)?.[1];`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "scripts\\check-coverage.ts",
+      "line_number": 13,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const file = /^SF:(.+)$/m.exec(record)?.[1];",
+      "location": "scripts\\check-coverage.ts:13",
+      "replay": "axiom scan <corpus>/registry2/23_hiddenjobs__job-search-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0001\")'"
+    },
+    {
+      "id": "code_0002",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in scripts\\check-coverage.ts at line 19: `const match = /^(LF|LH|BRF|BRH|FNF|FNH):(\\d+)$/.exec(line);`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "scripts\\check-coverage.ts",
+      "line_number": 19,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const match = /^(LF|LH|BRF|BRH|FNF|FNH):(\\d+)$/.exec(line);",
+      "location": "scripts\\check-coverage.ts:19",
+      "replay": "axiom scan <corpus>/registry2/23_hiddenjobs__job-search-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0002\")'"
+    },
+    {
+      "id": "code_0003",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in src\\resources\\index.ts at line 39: `const shared = /^hiddenjobs:\\/\\/(workflows|guides|templates)\\/([a-z-]+)$/.exec(uri);`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "src\\resources\\index.ts",
+      "line_number": 39,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const shared = /^hiddenjobs:\\/\\/(workflows|guides|templates)\\/([a-z-]+)$/.exec(uri);",
+      "location": "src\\resources\\index.ts:39",
+      "replay": "axiom scan <corpus>/registry2/23_hiddenjobs__job-search-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0003\")'"
+    },
+    {
+      "id": "code_0004",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in src\\resources\\index.ts at line 62: `const match = /^hiddenjobs:\\/\\/me\\/(cvs|applications|documents)\\/([a-f0-9-]{36})$/.exec(uri);`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "src\\resources\\index.ts",
+      "line_number": 62,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const match = /^hiddenjobs:\\/\\/me\\/(cvs|applications|documents)\\/([a-f0-9-]{36})$/.exec(uri);",
+      "location": "src\\resources\\index.ts:62",
+      "replay": "axiom scan <corpus>/registry2/23_hiddenjobs__job-search-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0004\")'"
+    },
+    {
+      "id": "code_0005",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in src\\sources\\jobs.ts at line 30: `new RegExp('<' + name + '(?:\\\\s[^>]*)?>([\\\\s\\\\S]*?)<\\\\/' + name + '>', 'i').exec(`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "src\\sources\\jobs.ts",
+      "line_number": 30,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "new RegExp('<' + name + '(?:\\\\s[^>]*)?>([\\\\s\\\\S]*?)<\\\\/' + name + '>', 'i').exec(",
+      "location": "src\\sources\\jobs.ts:30",
+      "replay": "axiom scan <corpus>/registry2/23_hiddenjobs__job-search-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0005\")'"
+    },
+    {
+      "id": "code_0006",
+      "severity": "low",
+      "category": "obfuscation",
+      "title": "Encoded or obfuscated content in MCP server source",
+      "description": "Pattern matched in src\\sources\\validation.ts at line 11: `btoa(String.fromCharCode(...new TextEncoder().encode(JSON.stringify(value))))`",
+      "owasp_asi": [
+        "ASI01",
+        "ASI10"
+      ],
+      "owasp_mcp": [
+        "MCP03",
+        "MCP04"
+      ],
+      "file_path": "src\\sources\\validation.ts",
+      "line_number": 11,
+      "recommendation": "Review this obfuscation pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "btoa(String.fromCharCode(...new TextEncoder().encode(JSON.stringify(value))))",
+      "location": "src\\sources\\validation.ts:11",
+      "replay": "axiom scan <corpus>/registry2/23_hiddenjobs__job-search-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0006\")'"
+    },
+    {
+      "id": "code_0007",
+      "severity": "low",
+      "category": "obfuscation",
+      "title": "Encoded or obfuscated content in MCP server source",
+      "description": "Pattern matched in src\\sources\\validation.ts at line 19: `Uint8Array.from(atob(value.replace(/-/g, '+').replace(/_/g, '/')), (ch) =>`",
+      "owasp_asi": [
+        "ASI01",
+        "ASI10"
+      ],
+      "owasp_mcp": [
+        "MCP03",
+        "MCP04"
+      ],
+      "file_path": "src\\sources\\validation.ts",
+      "line_number": 19,
+      "recommendation": "Review this obfuscation pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "Uint8Array.from(atob(value.replace(/-/g, '+').replace(/_/g, '/')), (ch) =>",
+      "location": "src\\sources\\validation.ts:19",
+      "replay": "axiom scan <corpus>/registry2/23_hiddenjobs__job-search-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0007\")'"
+    },
+    {
+      "id": "code_0008",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in src\\ui\\panel.generated.ts at line 2: `export const UPLOAD_HTML = \"<!doctype html>\\n<html lang=\\\"en\\\">\\n  <head>\\n    <meta charset=\\\"utf-8\\\" />\\n    <meta nam`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "src\\ui\\panel.generated.ts",
+      "line_number": 2,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "export const UPLOAD_HTML = \"<!doctype html>\\n<html lang=\\\"en\\\">\\n  <head>\\n    <meta charset=\\\"utf-8\\\" />\\n    <meta nam",
+      "location": "src\\ui\\panel.generated.ts:2",
+      "replay": "axiom scan <corpus>/registry2/23_hiddenjobs__job-search-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0008\")'"
+    },
+    {
+      "id": "code_0009",
+      "severity": "low",
+      "category": "obfuscation",
+      "title": "Encoded or obfuscated content in MCP server source",
+      "description": "Pattern matched in src\\ui\\panel.generated.ts at line 2: `export const UPLOAD_HTML = \"<!doctype html>\\n<html lang=\\\"en\\\">\\n  <head>\\n    <meta charset=\\\"utf-8\\\" />\\n    <meta nam`",
+      "owasp_asi": [
+        "ASI01",
+        "ASI10"
+      ],
+      "owasp_mcp": [
+        "MCP03",
+        "MCP04"
+      ],
+      "file_path": "src\\ui\\panel.generated.ts",
+      "line_number": 2,
+      "recommendation": "Review this obfuscation pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "export const UPLOAD_HTML = \"<!doctype html>\\n<html lang=\\\"en\\\">\\n  <head>\\n    <meta charset=\\\"utf-8\\\" />\\n    <meta nam",
+      "location": "src\\ui\\panel.generated.ts:2",
+      "replay": "axiom scan <corpus>/registry2/23_hiddenjobs__job-search-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0009\")'"
+    },
+    {
+      "id": "code_0010",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in src\\ui\\upload.ts at line 19: `const match = /^#([a-f0-9-]{36})\\.([a-f0-9]{64})$/.exec(url.hash);`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "src\\ui\\upload.ts",
+      "line_number": 19,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const match = /^#([a-f0-9-]{36})\\.([a-f0-9]{64})$/.exec(url.hash);",
+      "location": "src\\ui\\upload.ts:19",
+      "replay": "axiom scan <corpus>/registry2/23_hiddenjobs__job-search-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0010\")'"
+    },
+    {
+      "id": "code_0011",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in ui\\main.ts at line 96: `const match = /^#([a-f0-9-]{36})\\.([a-f0-9]{64})$/.exec(fragment);`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "ui\\main.ts",
+      "line_number": 96,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const match = /^#([a-f0-9-]{36})\\.([a-f0-9]{64})$/.exec(fragment);",
+      "location": "ui\\main.ts:96",
+      "replay": "axiom scan <corpus>/registry2/23_hiddenjobs__job-search-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0011\")'"
+    },
+    {
+      "id": "GHSA-g3hv-75wg-m249",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency minimatch@10.2.6: GHSA-g3hv-75wg-m249",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update minimatch to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-g3hv-75wg-m249",
+      "location": "static:<corpus>/registry2/23_hiddenjobs__job-search-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/23_hiddenjobs__job-search-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-g3hv-75wg-m249\")'"
+    },
+    {
+      "id": "memory_0001",
+      "severity": "low",
+      "category": "memory_poisoning",
+      "title": "Memory/context modification capability detected",
+      "description": "Pattern in src\\ui\\panel.generated.ts near line 2: `context update`. MCP servers that modify agent memory or context can poison long-term behavior.",
+      "owasp_asi": [
+        "ASI06"
+      ],
+      "owasp_mcp": [
+        "MCP06",
+        "MCP10"
+      ],
+      "file_path": "src\\ui\\panel.generated.ts",
+      "line_number": 2,
+      "recommendation": "Validate all data before writing to agent memory. Implement integrity checks on persistent context. Log all memory modifications for audit.",
+      "rule_id": "memory_poisoning_pattern",
+      "evidence": "Memory/context modification capability detected",
+      "location": "src\\ui\\panel.generated.ts:2",
+      "replay": "axiom scan <corpus>/registry2/23_hiddenjobs__job-search-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"memory_0001\")'"
+    },
+    {
+      "id": "rogue_0001",
+      "severity": "low",
+      "category": "rogue_agent",
+      "title": "Rogue agent indicator detected",
+      "description": "Pattern in src\\resources\\workflows.ts near line 30: `scheduler when it can execute this MCP; use the search workflow. This workflow manages Hidden Jobs e`. This could indicate self-modifying behavior, persistence mechanisms, or evasion capabilities.",
+      "owasp_asi": [
+        "ASI10"
+      ],
+      "owasp_mcp": [
+        "MCP03"
+      ],
+      "file_path": "src\\resources\\workflows.ts",
+      "line_number": 30,
+      "recommendation": "Implement behavioral monitoring and kill switches. Ensure all agent actions are logged and auditable. Run in sandboxed environments with strict resource limits.",
+      "rule_id": "rogue_agent_pattern",
+      "evidence": "Rogue agent indicator detected",
+      "location": "src\\resources\\workflows.ts:30",
+      "replay": "axiom scan <corpus>/registry2/23_hiddenjobs__job-search-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"rogue_0001\")'"
+    },
+    {
+      "id": "rogue_0002",
+      "severity": "low",
+      "category": "rogue_agent",
+      "title": "Rogue agent indicator detected",
+      "description": "Pattern in src\\tools\\jobs.ts near line 24: `user approval`. This could indicate self-modifying behavior, persistence mechanisms, or evasion capabilities.",
+      "owasp_asi": [
+        "ASI10"
+      ],
+      "owasp_mcp": [
+        "MCP03"
+      ],
+      "file_path": "src\\tools\\jobs.ts",
+      "line_number": 24,
+      "recommendation": "Implement behavioral monitoring and kill switches. Ensure all agent actions are logged and auditable. Run in sandboxed environments with strict resource limits.",
+      "rule_id": "rogue_agent_pattern",
+      "evidence": "Rogue agent indicator detected",
+      "location": "src\\tools\\jobs.ts:24",
+      "replay": "axiom scan <corpus>/registry2/23_hiddenjobs__job-search-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"rogue_0002\")'"
+    },
+    {
+      "id": "instructions_instruction_injection",
+      "severity": "medium",
+      "category": "prompt_injection",
+      "title": "Instruction injection in server instructions",
+      "description": "Steering language in tool description (imperative guidance aimed at the model). Matched 'Never' in server instructions. Excerpt: 'For recurring-search suggestions, prefer the assistant\u2019s native scheduler when it can execute this MCP; use the search workflow. This workflow manages Hidden Jo'",
+      "owasp_asi": [
+        "ASI01"
+      ],
+      "owasp_mcp": [
+        "MCP06"
+      ],
+      "file_path": "src\\resources\\workflows.ts",
+      "line_number": 29,
+      "recommendation": "Review this content; an agent will follow it.",
+      "rule_id": "served_text_instruction_injection",
+      "evidence": "Never",
+      "location": "src\\resources\\workflows.ts:29",
+      "replay": "axiom scan <corpus>/registry2/23_hiddenjobs__job-search-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"instructions_instruction_injection\")'"
+    }
+  ],
+  "server_profile": {
+    "name": "23_hiddenjobs__job-search-mcp",
+    "command": null,
+    "args": [],
+    "env_vars": [],
+    "transport": "unknown",
+    "tools": [
+      {
+        "name": "search_jobs",
+        "description": "Choose connected job sources or Open web search (web), alone or together. For web, the MCP returns a requires_host_search request; the assistant must execute it using its own native web search, verify live listings and cite their real URLs. If native web search is unavailable, report that limitation; never treat the handoff as completed search or zero matches. Web results do not have MCP job IDs and cannot use get_job or open_application_link. Use the MCP for the six connected sources instead of browsing them separately. Search only the agreed sources. If unclear, ask: Hidden Jobs only, or all available sources? Do not enumerate external platforms in that question. Offer only these two choices. All available sources means hiddenjobs, every integrated external provider and web. Honor explicit narrower selections or exclusions and reuse an agreed selection. sources is required and must not be empty. External offers and their source links are free; Hidden Jobs original application links are included. limit applies per source. Inspect sourceResults for failures, coverage and continuation cursors; never treat a failed source as no jobs. Present one unified ranked list with the same format for every source: linked title, short summary, confirmed remote location, published salary or a clearly labelled cited market estimate and a verified Apply link. Never group by platform or add platform-specific introductions. Keep source IDs internal and required provider credits with the listing link. Never invent an application URL; a detail-only link must be labelled View job. After presenting results, first offer a daily search through the assistant\u2019s native scheduler if it supports unattended MCP calls; load get_workflow search for scheduling guidance. Preserve sources, filters and the selected profile/CV; notify about new relevant matches. Verify scheduler support and user approval before creating a task; never claim a reminder can run searches. If unavailable or the user prefers email, offer Hidden Jobs-only alerts with approval. Offer saved-CV matching when that is the more useful next step.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "query": {
+              "type": "string"
+            },
+            "sources": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": "SEARCH_SOURCES.length",
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "enum": "SEARCH_SOURCES"
+              },
+              "description": "Required selection; no default. hiddenjobs only selects Hidden Jobs. All available sources selects hiddenjobs, jobicy, weworkremotely, remoteok, himalayas, itjobs and web. Respect explicit subsets or exclusions. web uses the assistant\u2019s own web search; it is not a provider API."
+            },
+            "cursors": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": "Object.fromEntries(\n            JOB_SOURCES.filter((name) => name !== 'hiddenjobs').map((name) => [\n              name,\n              { type: 'string', maxLength: 2048 },\n            ]),\n          )",
+              "description": "Pass a sourceResults.nextCursor unchanged for the same source and filters. page applies to Hidden Jobs; external feeds use these cursors."
+            },
+            "category": {
+              "type": "string"
+            },
+            "employmentType": {
+              "type": "string"
+            },
+            "jobType": {
+              "type": "string"
+            },
+            "remoteLocation": "remoteLocationSchema",
+            "page": {
+              "type": "integer",
+              "minimum": 1,
+              "default": 1
+            },
+            "limit": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 50,
+              "default": 10
+            }
+          },
+          "required": [
+            "sources"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "medium",
+        "poisoning_detail": "Steering language in tool description (imperative guidance aimed at the model). Matched pattern in tool 'search_jobs': 'never'"
+      },
+      {
+        "name": "get_job",
+        "description": "Read a job from its original source using the source and id returned by search_jobs. External details are rechecked through the public provider API/feed. Hidden Jobs original application URLs remain excluded.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "idOrSlug": {
+              "type": "string",
+              "maxLength": 2000
+            },
+            "source": null
+          },
+          "required": [
+            "idOrSlug",
+            "source"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "open_application_link",
+        "description": "Open the supplied source link for an external offer for free. For Hidden Jobs, reveal the original application URL. Pass the source and id returned by search_jobs; never replace external source links with employer links. Before ending a tailored-CV handoff, offer to save a named reusable CV version in Hidden Jobs if not already saved. Offer tracking only for Hidden Jobs applications; do not mark submitted from opening this link.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "idOrSlug": {
+              "type": "string",
+              "maxLength": 2000
+            },
+            "source": null
+          },
+          "required": [
+            "idOrSlug",
+            "source"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "medium",
+        "poisoning_detail": "Steering language in tool description (imperative guidance aimed at the model). Matched pattern in tool 'open_application_link': 'never'"
+      },
+      {
+        "name": "get_company",
+        "description": "Read anonymous industry, company size, founding year and verification date for a job. Employer identity is withheld.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "idOrSlug": {
+              "type": "string",
+              "maxLength": 200
+            }
+          },
+          "required": [
+            "idOrSlug"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      }
+    ],
+    "resources": [],
+    "prompts": [],
+    "repo_url": null,
+    "npm_package": null,
+    "capabilities_claimed": [],
+    "capabilities_actual": []
+  },
+  "fingerprint": "18028c12bec3ea0da6728f89698e650c63932c2456a065c5b27b39116c4f8b19",
+  "surface_map": {
+    "server": {
+      "name": "job-search-mcp",
+      "instructions": "{PROACTIVE_INSTRUCTIONS}\n\n{ACCESS_INSTRUCTIONS}\n\n{SEARCH_INSTRUCTIONS}\n\n{SALARY_INSTRUCTIONS}\n\n{CAREER_INSTRUCTIONS}\n\n{DOCUMENT_UPLOAD_INSTRUCTIONS}\n{ACCESS_INSTRUCTIONS}\n\n{SEARCH_INSTRUCTIONS}\n\n{SALARY_INSTRUCTIONS}",
+      "transport": "streamable-http",
+      "auth": "unknown",
+      "instructions_location": "src\\server.ts:108"
+    },
+    "tools": [
+      {
+        "name": "search_jobs",
+        "description": "Choose connected job sources or Open web search (web), alone or together. For web, the MCP returns a requires_host_search request; the assistant must execute it using its own native web search, verify live listings and cite their real URLs. If native web search is unavailable, report that limitation; never treat the handoff as completed search or zero matches. Web results do not have MCP job IDs and cannot use get_job or open_application_link. Use the MCP for the six connected sources instead of browsing them separately. Search only the agreed sources. If unclear, ask: Hidden Jobs only, or all available sources? Do not enumerate external platforms in that question. Offer only these two choices. All available sources means hiddenjobs, every integrated external provider and web. Honor explicit narrower selections or exclusions and reuse an agreed selection. sources is required and must not be empty. External offers and their source links are free; Hidden Jobs original application links are included. limit applies per source. Inspect sourceResults for failures, coverage and continuation cursors; never treat a failed source as no jobs. Present one unified ranked list with the same format for every source: linked title, short summary, confirmed remote location, published salary or a clearly labelled cited market estimate and a verified Apply link. Never group by platform or add platform-specific introductions. Keep source IDs internal and required provider credits with the listing link. Never invent an application URL; a detail-only link must be labelled View job. After presenting results, first offer a daily search through the assistant\u2019s native scheduler if it supports unattended MCP calls; load get_workflow search for scheduling guidance. Preserve sources, filters and the selected profile/CV; notify about new relevant matches. Verify scheduler support and user approval before creating a task; never claim a reminder can run searches. If unavailable or the user prefers email, offer Hidden Jobs-only alerts with approval. Offer saved-CV matching when that is the more useful next step.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "query": {
+              "type": "string"
+            },
+            "sources": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": "SEARCH_SOURCES.length",
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "enum": "SEARCH_SOURCES"
+              },
+              "description": "Required selection; no default. hiddenjobs only selects Hidden Jobs. All available sources selects hiddenjobs, jobicy, weworkremotely, remoteok, himalayas, itjobs and web. Respect explicit subsets or exclusions. web uses the assistant\u2019s own web search; it is not a provider API."
+            },
+            "cursors": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": "Object.fromEntries(\n            JOB_SOURCES.filter((name) => name !== 'hiddenjobs').map((name) => [\n              name,\n              { type: 'string', maxLength: 2048 },\n            ]),\n          )",
+              "description": "Pass a sourceResults.nextCursor unchanged for the same source and filters. page applies to Hidden Jobs; external feeds use these cursors."
+            },
+            "category": {
+              "type": "string"
+            },
+            "employmentType": {
+              "type": "string"
+            },
+            "jobType": {
+              "type": "string"
+            },
+            "remoteLocation": "remoteLocationSchema",
+            "page": {
+              "type": "integer",
+              "minimum": 1,
+              "default": 1
+            },
+            "limit": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 50,
+              "default": 10
+            }
+          },
+          "required": [
+            "sources"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "src\\tools\\jobs.ts:20"
+      },
+      {
+        "name": "get_job",
+        "description": "Read a job from its original source using the source and id returned by search_jobs. External details are rechecked through the public provider API/feed. Hidden Jobs original application URLs remain excluded.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "idOrSlug": {
+              "type": "string",
+              "maxLength": 2000
+            },
+            "source": null
+          },
+          "required": [
+            "idOrSlug",
+            "source"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "src\\tools\\jobs.ts:68"
+      },
+      {
+        "name": "open_application_link",
+        "description": "Open the supplied source link for an external offer for free. For Hidden Jobs, reveal the original application URL. Pass the source and id returned by search_jobs; never replace external source links with employer links. Before ending a tailored-CV handoff, offer to save a named reusable CV version in Hidden Jobs if not already saved. Offer tracking only for Hidden Jobs applications; do not mark submitted from opening this link.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "idOrSlug": {
+              "type": "string",
+              "maxLength": 2000
+            },
+            "source": null
+          },
+          "required": [
+            "idOrSlug",
+            "source"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "src\\tools\\jobs.ts:86"
+      },
+      {
+        "name": "get_company",
+        "description": "Read anonymous industry, company size, founding year and verification date for a job. Employer identity is withheld.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "idOrSlug": {
+              "type": "string",
+              "maxLength": 200
+            }
+          },
+          "required": [
+            "idOrSlug"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "src\\tools\\jobs.ts:106"
+      }
+    ],
+    "resources": [],
+    "prompts": [],
+    "mutations": [],
+    "source": {
+      "kind": "static",
+      "target": "23_hiddenjobs__job-search-mcp",
+      "languages": [
+        "typescript"
+      ]
+    },
+    "generated_at": "2026-11-11T22:37:48+00:00",
+    "fingerprint": "18028c12bec3ea0da6728f89698e650c63932c2456a065c5b27b39116c4f8b19",
+    "schema": "axiom.surface/1"
+  },
+  "provenance": {
+    "identity": {
+      "npm": "job-search-mcp",
+      "pypi": null,
+      "repository": "https://github.com/hiddenjobs/job-search-mcp",
+      "server_name": "job-search-mcp"
+    },
+    "registry": {
+      "status": "match",
+      "entry": "io.github.hiddenjobs/job-search-mcp",
+      "repository": "https://github.com/hiddenjobs/job-search-mcp",
+      "packages": [],
+      "publishedAt": "2026-09-10T15:53:25.330405Z",
+      "version": "1.0.0"
+    },
+    "lookalikes": [],
+    "checked_at": "2026-11-11T22:37:51+00:00"
+  },
+  "owasp_coverage": {
+    "framework": "OWASP Top 10 for Agentic Applications 2026",
+    "reference": "https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/",
+    "coverage": {
+      "ASI01": {
+        "name": "Agent Goal Hijack",
+        "coverage_level": "strong",
+        "findings_count": 7,
+        "finding_ids": [
+          "poison_search_jobs_instruction_injection",
+          "poison_search_jobs_long_desc",
+          "poison_open_application_link_instruction_injection",
+          "code_0006",
+          "code_0007",
+          "code_0009",
+          "instructions_instruction_injection"
+        ],
+        "detectors": [
+          "tool_poisoning",
+          "prompt_injection",
+          "instruction_injection"
+        ]
+      },
+      "ASI02": {
+        "name": "Tool Misuse & Exploitation",
+        "coverage_level": "strong",
+        "findings_count": 4,
+        "finding_ids": [
+          "cross_tool_search_jobs_get_job",
+          "cross_tool_search_jobs_open_application_link",
+          "cross_tool_get_job_search_jobs",
+          "cross_tool_open_application_link_search_jobs"
+        ],
+        "detectors": [
+          "toxic_tool_combo",
+          "tool_overscope",
+          "tool_chaining_detection"
+        ]
+      },
+      "ASI03": {
+        "name": "Identity & Privilege Abuse",
+        "coverage_level": "strong",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "credential_analysis",
+          "shared_credential_detection",
+          "env_var_audit"
+        ]
+      },
+      "ASI04": {
+        "name": "Agentic Supply Chain Vulnerabilities",
+        "coverage_level": "strong",
+        "findings_count": 1,
+        "finding_ids": [
+          "GHSA-g3hv-75wg-m249"
+        ],
+        "detectors": [
+          "dependency_cve",
+          "lifecycle_hooks",
+          "npx_unversioned",
+          "known_mcp_cves"
+        ]
+      },
+      "ASI05": {
+        "name": "Unexpected Code Execution",
+        "coverage_level": "strong",
+        "findings_count": 8,
+        "finding_ids": [
+          "code_0001",
+          "code_0002",
+          "code_0003",
+          "code_0004",
+          "code_0005",
+          "code_0008",
+          "code_0010",
+          "code_0011"
+        ],
+        "detectors": [
+          "code_exec_patterns",
+          "code_generation_detection",
+          "sandbox_escape"
+        ]
+      },
+      "ASI06": {
+        "name": "Memory & Context Poisoning",
+        "coverage_level": "partial",
+        "findings_count": 1,
+        "finding_ids": [
+          "memory_0001"
+        ],
+        "detectors": [
+          "memory_poisoning_patterns",
+          "context_manipulation_detection"
+        ],
+        "gap_note": "Axiom detects static patterns. Full coverage requires runtime memory monitoring."
+      },
+      "ASI07": {
+        "name": "Insecure Inter-Agent Communication",
+        "coverage_level": "partial",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "transport_security",
+          "a2a_pattern_detection"
+        ],
+        "gap_note": "Axiom checks transport security. Full A2A protocol analysis requires runtime interception."
+      },
+      "ASI08": {
+        "name": "Cascading Failures",
+        "coverage_level": "partial",
+        "findings_count": 4,
+        "finding_ids": [
+          "cross_tool_search_jobs_get_job",
+          "cross_tool_search_jobs_open_application_link",
+          "cross_tool_get_job_search_jobs",
+          "cross_tool_open_application_link_search_jobs"
+        ],
+        "detectors": [
+          "blast_radius_estimation",
+          "dependency_chain_analysis"
+        ],
+        "gap_note": "Axiom estimates blast radius from tool capabilities. Full cascading failure analysis requires runtime topology mapping."
+      },
+      "ASI09": {
+        "name": "Human-Agent Trust Exploitation",
+        "coverage_level": "strong",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "claimed_vs_actual",
+          "deceptive_output_detection",
+          "trust_manipulation_patterns"
+        ]
+      },
+      "ASI10": {
+        "name": "Rogue Agents",
+        "coverage_level": "partial",
+        "findings_count": 5,
+        "finding_ids": [
+          "code_0006",
+          "code_0007",
+          "code_0009",
+          "rogue_0001",
+          "rogue_0002"
+        ],
+        "detectors": [
+          "sleeper_patterns",
+          "behavioral_drift_indicators",
+          "persistence_detection"
+        ],
+        "gap_note": "Axiom detects static rogue indicators. Full rogue agent detection requires runtime behavioral monitoring."
+      }
+    },
+    "total_asi_categories_with_findings": 7
+  },
+  "owasp_mcp_coverage": {
+    "framework": "OWASP MCP Top 10",
+    "framework_version": "v0.1 beta",
+    "reference": "https://owasp.org/www-project-mcp-top-10/",
+    "coverage": {
+      "MCP01": {
+        "id": "MCP01:2025",
+        "name": "Token Mismanagement & Secret Exposure",
+        "coverage_level": "partial",
+        "reason": "Regex-based secret detection in server source and client configs plus env-var exposure checks; no entropy analysis, git-history scan, or token lifetime/passthrough checks.",
+        "findings_count": 4,
+        "finding_ids": [
+          "cross_tool_search_jobs_get_job",
+          "cross_tool_search_jobs_open_application_link",
+          "cross_tool_get_job_search_jobs",
+          "cross_tool_open_application_link_search_jobs"
+        ],
+        "detectors": [
+          "credential_theft",
+          "cross_server",
+          "mcp01_hardcoded_secrets",
+          "config_hardcoded_secret",
+          "env_var_audit",
+          "env_dump"
+        ]
+      },
+      "MCP02": {
+        "id": "MCP02:2025",
+        "name": "Privilege Escalation via Scope Creep",
+        "coverage_level": "strong",
+        "reason": "Permission over-scope patterns, toxic tool-capability combinations, path-escape checks and env-var over-exposure in configs.",
+        "findings_count": 4,
+        "finding_ids": [
+          "cross_tool_search_jobs_get_job",
+          "cross_tool_search_jobs_open_application_link",
+          "cross_tool_get_job_search_jobs",
+          "cross_tool_open_application_link_search_jobs"
+        ],
+        "detectors": [
+          "permission_overscope",
+          "toxic_tool_combo",
+          "identity_privilege",
+          "sandbox_escape",
+          "config_risk",
+          "cascading_failure",
+          "cross_server",
+          "excessive_scope",
+          "confused_deputy",
+          "file_read",
+          "file_write"
+        ]
+      },
+      "MCP03": {
+        "id": "MCP03:2025",
+        "name": "Tool Poisoning",
+        "coverage_level": "strong",
+        "reason": "Dedicated detector for hidden instructions in tool metadata, plus runtime rug-pull diffing between source and live tool definitions.",
+        "findings_count": 8,
+        "finding_ids": [
+          "poison_search_jobs_instruction_injection",
+          "poison_search_jobs_long_desc",
+          "poison_open_application_link_instruction_injection",
+          "code_0006",
+          "code_0007",
+          "code_0009",
+          "rogue_0001",
+          "rogue_0002"
+        ],
+        "detectors": [
+          "tool_poisoning",
+          "obfuscation",
+          "rogue_agent",
+          "source_vs_runtime_diff",
+          "tool_shadowing",
+          "hidden_unicode",
+          "rug_pull_primitive",
+          "surface_mismatch"
+        ]
+      },
+      "MCP04": {
+        "id": "MCP04:2025",
+        "name": "Software Supply Chain Attacks & Dependency Tampering",
+        "coverage_level": "strong",
+        "reason": "Dependency CVE lookup, known MCP CVEs, install lifecycle hooks, and unpinned npx/uvx/pip/@latest install sources.",
+        "findings_count": 4,
+        "finding_ids": [
+          "code_0006",
+          "code_0007",
+          "code_0009",
+          "GHSA-g3hv-75wg-m249"
+        ],
+        "detectors": [
+          "dependency_vuln",
+          "supply_chain",
+          "known_cve",
+          "obfuscation",
+          "lifecycle_hooks",
+          "mcp04_unpinned_install",
+          "homoglyph",
+          "rug_pull_primitive",
+          "surface_mismatch"
+        ]
+      },
+      "MCP05": {
+        "id": "MCP05:2025",
+        "name": "Command Injection & Execution",
+        "coverage_level": "partial",
+        "reason": "Regex, AST and Semgrep find exec/shell sinks and a heuristic flags sinks inside tool handlers, but there is no inter-procedural taint tracking from tool input to sink.",
+        "findings_count": 8,
+        "finding_ids": [
+          "code_0001",
+          "code_0002",
+          "code_0003",
+          "code_0004",
+          "code_0005",
+          "code_0008",
+          "code_0010",
+          "code_0011"
+        ],
+        "detectors": [
+          "command_injection",
+          "code_execution",
+          "code_generation",
+          "sandbox_escape",
+          "mcp05_tool_input_sink",
+          "shell_exec"
+        ]
+      },
+      "MCP06": {
+        "id": "MCP06:2025",
+        "name": "Prompt Injection via Contextual Payloads",
+        "coverage_level": "partial",
+        "reason": "Injection markers are detected in tool metadata, server instructions, resources, prompts and the strings a tool returns (static), and in instructions/resources/prompts read live; payloads produced by calling a tool at runtime are not inspected.",
+        "findings_count": 2,
+        "finding_ids": [
+          "memory_0001",
+          "instructions_instruction_injection"
+        ],
+        "detectors": [
+          "prompt_injection",
+          "memory_poisoning",
+          "trust_exploitation",
+          "response_injection",
+          "tool_shadowing"
+        ]
+      },
+      "MCP07": {
+        "id": "MCP07:2025",
+        "name": "Insufficient Authentication & Authorization",
+        "coverage_level": "partial",
+        "reason": "Flags remote servers with no visible auth and servers bound to all interfaces; does not verify OAuth implementation or per-tool authorization logic.",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "transport_security",
+          "inter_agent_comm",
+          "identity_privilege",
+          "transport_no_auth",
+          "config_no_auth",
+          "mcp07_bind_all_interfaces"
+        ]
+      },
+      "MCP08": {
+        "id": "MCP08:2025",
+        "name": "Lack of Audit and Telemetry",
+        "coverage_level": "gap",
+        "reason": "Only a low-confidence heuristic for missing logging in tool-defining files; actual audit trails and telemetry pipelines are not verified.",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "audit_telemetry",
+          "mcp08_no_tool_logging"
+        ]
+      },
+      "MCP09": {
+        "id": "MCP09:2025",
+        "name": "Shadow MCP Servers",
+        "coverage_level": "partial",
+        "reason": "Covered by `axiom discover` allowlist on the local machine; no network-wide or fleet discovery.",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "mcpguard_discover",
+          "shadow_mcp"
+        ]
+      },
+      "MCP10": {
+        "id": "MCP10:2025",
+        "name": "Context Injection & Over-Sharing",
+        "coverage_level": "partial",
+        "reason": "Hard-coded egress URLs, tools that send to caller-chosen destinations and bulk-exposure heuristics are detected statically and live; what context is actually shared at runtime is not observed.",
+        "findings_count": 1,
+        "finding_ids": [
+          "memory_0001"
+        ],
+        "detectors": [
+          "context_oversharing",
+          "data_exfiltration",
+          "memory_poisoning",
+          "mcp10_broad_data_exposure"
+        ]
+      }
+    },
+    "total_mcp_categories_with_findings": 7
+  },
+  "ai_analysis": null,
+  "tool_poisoning_report": null,
+  "prompt_injection_risk": null
+}

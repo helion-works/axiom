@@ -1,0 +1,2721 @@
+{
+  "schema_version": "0.5",
+  "target": "<corpus>/reference-servers/src/git",
+  "risk_score": 100.0,
+  "risk_level": "critical",
+  "tools_found": 12,
+  "findings_count": 110,
+  "findings": [
+    {
+      "id": "cross_tool_diff_staged_commit",
+      "severity": "medium",
+      "category": "cross_server",
+      "title": "Tool 'diff_staged' references tool 'commit'",
+      "description": "Tool description mentions another tool by name, which could enable tool chaining attacks.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP01",
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Verify this cross-reference is legitimate and necessary."
+    },
+    {
+      "id": "cross_tool_diff_branch",
+      "severity": "medium",
+      "category": "cross_server",
+      "title": "Tool 'diff' references tool 'branch'",
+      "description": "Tool description mentions another tool by name, which could enable tool chaining attacks.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP01",
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Verify this cross-reference is legitimate and necessary."
+    },
+    {
+      "id": "cross_tool_diff_commit",
+      "severity": "medium",
+      "category": "cross_server",
+      "title": "Tool 'diff' references tool 'commit'",
+      "description": "Tool description mentions another tool by name, which could enable tool chaining attacks.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP01",
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Verify this cross-reference is legitimate and necessary."
+    },
+    {
+      "id": "cross_tool_log_commit",
+      "severity": "medium",
+      "category": "cross_server",
+      "title": "Tool 'log' references tool 'commit'",
+      "description": "Tool description mentions another tool by name, which could enable tool chaining attacks.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP01",
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Verify this cross-reference is legitimate and necessary."
+    },
+    {
+      "id": "cross_tool_create_branch_branch",
+      "severity": "medium",
+      "category": "cross_server",
+      "title": "Tool 'create_branch' references tool 'branch'",
+      "description": "Tool description mentions another tool by name, which could enable tool chaining attacks.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP01",
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Verify this cross-reference is legitimate and necessary."
+    },
+    {
+      "id": "cross_tool_create_branch_commit",
+      "severity": "medium",
+      "category": "cross_server",
+      "title": "Tool 'create_branch' references tool 'commit'",
+      "description": "Tool description mentions another tool by name, which could enable tool chaining attacks.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP01",
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Verify this cross-reference is legitimate and necessary."
+    },
+    {
+      "id": "cross_tool_checkout_branch",
+      "severity": "medium",
+      "category": "cross_server",
+      "title": "Tool 'checkout' references tool 'branch'",
+      "description": "Tool description mentions another tool by name, which could enable tool chaining attacks.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP01",
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Verify this cross-reference is legitimate and necessary."
+    },
+    {
+      "id": "cross_tool_show_commit",
+      "severity": "medium",
+      "category": "cross_server",
+      "title": "Tool 'show' references tool 'commit'",
+      "description": "Tool description mentions another tool by name, which could enable tool chaining attacks.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP01",
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Verify this cross-reference is legitimate and necessary."
+    },
+    {
+      "id": "GHSA-239g-whfq-7xj9",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: gitpython",
+      "description": "GitPython: Repository content can impersonate the git directory, leading to arbitrary code execution",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update gitpython to a patched version."
+    },
+    {
+      "id": "GHSA-23mf-xhv8-69c2",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: gitpython",
+      "description": "GitPython: arbitrary file read via attacker-controlled branch name in `Head.checkout()` (incomplete fix of CVE-2026-78679)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update gitpython to a patched version."
+    },
+    {
+      "id": "GHSA-284h-m62q-gf8w",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: gitpython",
+      "description": "GitPython: Dormant multi-line git-config values are corrupted into live injected directives (e.g. core.hooksPath) on any unrelated GitConfigParser write, enabling RCE",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update gitpython to a patched version."
+    },
+    {
+      "id": "GHSA-2f96-g7mh-g2hx",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: gitpython",
+      "description": "GitPython: Command Injection via git long-option prefix abbreviation bypass of CVE-2026-42215 blocklist",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update gitpython to a patched version."
+    },
+    {
+      "id": "GHSA-2mqj-m65w-jghx",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: gitpython",
+      "description": "Untrusted search path under some conditions on Windows allows arbitrary code execution",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update gitpython to a patched version."
+    },
+    {
+      "id": "GHSA-3f7w-8rr8-f37f",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: gitpython",
+      "description": "GitPython: Unguarded git option forwarding in IndexFile.checkout() and TagReference.create() enables arbitrary file overwrite and arbitrary file read",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update gitpython to a patched version."
+    },
+    {
+      "id": "GHSA-3rp5-jjmw-4wv2",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: gitpython",
+      "description": "GitPython: git-config section-name injection enables arbitrary config directives (core.sshCommand RCE)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update gitpython to a patched version."
+    },
+    {
+      "id": "GHSA-3wxw-xv34-2frg",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: gitpython",
+      "description": "GitPython: TagReference.create positional reference bypasses kwargs-only --file guard, enabling arbitrary file read (incomplete fix of 3af0c251)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update gitpython to a patched version."
+    },
+    {
+      "id": "GHSA-4gmw-gg2m-w46p",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: gitpython",
+      "description": "GitPython: Unguarded git read-tree option forwarding in IndexFile.from_tree/reset/merge_tree enables arbitrary file overwrite",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update gitpython to a patched version."
+    },
+    {
+      "id": "GHSA-539m-9xh6-q6rr",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: gitpython",
+      "description": "GitPython: Incomplete unsafe_git_archive_options denylist omits --add-file / --add-virtual-file, enabling arbitrary file read via Repo.archive()",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update gitpython to a patched version."
+    },
+    {
+      "id": "GHSA-59cr-6r3x-644w",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: gitpython",
+      "description": "GitPython submodule update path traversal can write outside the repository",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update gitpython to a patched version."
+    },
+    {
+      "id": "GHSA-5xxx-qhh7-9287",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: gitpython",
+      "description": "GitPython: Incomplete unsafe_git_revision_options denylist omits --contents/-S, enabling arbitrary file read via Repo.blame()",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update gitpython to a patched version."
+    },
+    {
+      "id": "GHSA-6p8h-3wgx-97gf",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: gitpython",
+      "description": "GitPython: Incomplete unsafe_git_clone_options denylist omits --template enabling arbitrary command execution via clone hooks",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update gitpython to a patched version."
+    },
+    {
+      "id": "GHSA-7545-fcxq-7j24",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: gitpython",
+      "description": "GitPython reference APIs has a path traversal vulnerability that allows arbitrary file write and delete outside the repository",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update gitpython to a patched version."
+    },
+    {
+      "id": "GHSA-7833-fr7j-v32q",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: gitpython",
+      "description": "GitPython: Arbitrary local file content disclosure via [include] directive in untrusted .gitmodules (SubmoduleConfigParser never disables merge_includes)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update gitpython to a patched version."
+    },
+    {
+      "id": "GHSA-83vg-56qc-22m7",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: gitpython",
+      "description": "GitPython validates a submodule's \".git\" path only after cloning into it (RCE)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update gitpython to a patched version."
+    },
+    {
+      "id": "GHSA-8mcc-hrx5-hvxc",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: gitpython",
+      "description": "GitPython: clone_from()/clone() omit --separate-git-dir from unsafe_git_clone_options, enabling arbitrary git-directory creation outside the destination",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update gitpython to a patched version."
+    },
+    {
+      "id": "GHSA-94p4-4cq8-9g67",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: gitpython",
+      "description": "GitPython: Environment-variable exfiltration via Repo.create_remote() / Remote.add() URL (incomplete fix of GHSA-rwj8-pgh3-r573)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update gitpython to a patched version."
+    },
+    {
+      "id": "GHSA-956x-8gvw-wg5v",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: gitpython",
+      "description": "GitPython: command injection via unguarded Git options in `Repo.archive()`, `git.ls_remote()`, and arbitrary file overwrite via `Repo.iter_commits()` / `Repo.blame()`",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update gitpython to a patched version."
+    },
+    {
+      "id": "GHSA-9rj7-rf2p-w77r",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: gitpython",
+      "description": "GitPython: Unguarded git option forwarding in Repo.init enables arbitrary command execution via --template clone hooks",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update gitpython to a patched version."
+    },
+    {
+      "id": "GHSA-cwvm-v4w8-q58c",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: gitpython",
+      "description": "GitPython blind local file inclusion",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update gitpython to a patched version."
+    },
+    {
+      "id": "GHSA-f9j4-qggq-h239",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: gitpython",
+      "description": "GitPython Remote.pull() refspec bypasses the --upload-pack unsafe-option guard, enabling arbitrary command execution",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update gitpython to a patched version."
+    },
+    {
+      "id": "GHSA-fjr4-x663-mwxc",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: gitpython",
+      "description": "GitPython: Arbitrary file overwrite via git diff --output argument injection in Diffable.diff (key- and value-controlled)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update gitpython to a patched version."
+    },
+    {
+      "id": "GHSA-fx3j-rwgx-fr94",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: gitpython",
+      "description": "GitPython: separate_git_dir leaks env vars via crafted .gitmodules submodule name",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update gitpython to a patched version."
+    },
+    {
+      "id": "GHSA-g5vv-9gxw-82hx",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: gitpython",
+      "description": "GitPython: Denial of Service via catastrophic backtracking (ReDoS) in Actor.name_email_regex \u2014 commit author/committer field parsing",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update gitpython to a patched version."
+    },
+    {
+      "id": "GHSA-gq48-pqfc-9p58",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: gitpython",
+      "description": "GitPython: Submodule.move() follows an attacker-committed intermediate symlink outside the worktree",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update gitpython to a patched version."
+    },
+    {
+      "id": "GHSA-hcpj-qp55-gfph",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: gitpython",
+      "description": "GitPython vulnerable to Remote Code Execution due to improper user input validation",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update gitpython to a patched version."
+    },
+    {
+      "id": "GHSA-hh9p-6wh2-4mfc",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: gitpython",
+      "description": "GitPython: Arbitrary file read via --pathspec-from-file in IndexFile.remove() and Head.checkout()",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update gitpython to a patched version."
+    },
+    {
+      "id": "GHSA-hmq2-w58f-27jc",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: gitpython",
+      "description": "GitPython: Arbitrary Git Repository Creation Outside the Working Tree via Unvalidated .gitmodules Submodule Name in GitPython",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update gitpython to a patched version."
+    },
+    {
+      "id": "GHSA-jm78-9fvv-mhgr",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: gitpython",
+      "description": "GitPython: git-config OPTION-name injection via =/#/whitespace bypasses name validator, enabling forged core.sshCommand/hooksPath (RCE)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update gitpython to a patched version."
+    },
+    {
+      "id": "GHSA-m64x-33q8-m5h7",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: gitpython",
+      "description": "GitPython parse_actor_and_date() is vulnerable to quadratic backtracking on malformed identity lines",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update gitpython to a patched version."
+    },
+    {
+      "id": "GHSA-mv93-w799-cj2w",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: gitpython",
+      "description": "GitPython: Newline injection in config_writer() section parameter bypasses CVE-2026-42215 patch, enabling RCE via core.hooksPath",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update gitpython to a patched version."
+    },
+    {
+      "id": "GHSA-p538-c434-8v24",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: gitpython",
+      "description": "GitPython: Arbitrary file truncation via git rev-list --output argument injection in unguarded Commit.count",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update gitpython to a patched version."
+    },
+    {
+      "id": "GHSA-pr76-5cm5-w9cj",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: gitpython",
+      "description": "GitPython vulnerable to remote code execution due to insufficient sanitization of input arguments",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update gitpython to a patched version."
+    },
+    {
+      "id": "GHSA-r9mr-m37c-5fr3",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: gitpython",
+      "description": "GitPython: Unsafe git option guard bypass via single-character kwarg value token smuggling enables arbitrary command execution",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update gitpython to a patched version."
+    },
+    {
+      "id": "GHSA-rpm5-65cw-6hj4",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: gitpython",
+      "description": "GitPython has Command Injection via Git options bypass",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update gitpython to a patched version."
+    },
+    {
+      "id": "GHSA-rwj8-pgh3-r573",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: gitpython",
+      "description": "GitPython: Environment-variable exfiltration via os.path.expandvars() on Repo.clone_from() URL",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update gitpython to a patched version."
+    },
+    {
+      "id": "GHSA-v396-v7q4-x2qj",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: gitpython",
+      "description": "GitPython unsafe clone option gate bypass through joined short options",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update gitpython to a patched version."
+    },
+    {
+      "id": "GHSA-v87r-6q3f-2j67",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: gitpython",
+      "description": "GitPython: Newline injection in config_writer().set_value() enables RCE via core.hooksPath",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update gitpython to a patched version."
+    },
+    {
+      "id": "GHSA-w8jc-g24h-crhw",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: gitpython",
+      "description": "GitPython command wrappers omit unsafe protocol and option checks",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update gitpython to a patched version."
+    },
+    {
+      "id": "GHSA-wfm5-v35h-vwf4",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: gitpython",
+      "description": "GitPython untrusted search path on Windows systems leading to arbitrary code execution",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update gitpython to a patched version."
+    },
+    {
+      "id": "GHSA-whh4-5q6c-9v3x",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: gitpython",
+      "description": "GitPython: --no-index bypasses diff unsafe-option protections and enables a blind local-file content oracle",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update gitpython to a patched version."
+    },
+    {
+      "id": "GHSA-wvpp-8hx9-p66j",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: gitpython",
+      "description": "GitPython: Unsafe git option guard bypass via split_single_char_options=False short-option token smuggling enables command execution",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update gitpython to a patched version."
+    },
+    {
+      "id": "GHSA-x2qx-6953-8485",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: gitpython",
+      "description": "GitPython: Unsafe option check validates multi_options before shlex.split transformation",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update gitpython to a patched version."
+    },
+    {
+      "id": "PYSEC-2022-42992",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: gitpython",
+      "description": "Known vulnerability",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update gitpython to a patched version."
+    },
+    {
+      "id": "PYSEC-2023-137",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: gitpython",
+      "description": "Known vulnerability",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update gitpython to a patched version."
+    },
+    {
+      "id": "PYSEC-2023-161",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: gitpython",
+      "description": "Known vulnerability",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update gitpython to a patched version."
+    },
+    {
+      "id": "PYSEC-2023-165",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: gitpython",
+      "description": "Known vulnerability",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update gitpython to a patched version."
+    },
+    {
+      "id": "PYSEC-2024-4",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: gitpython",
+      "description": "Known vulnerability",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update gitpython to a patched version."
+    },
+    {
+      "id": "PYSEC-2026-2160",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: gitpython",
+      "description": "Known vulnerability",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update gitpython to a patched version."
+    },
+    {
+      "id": "PYSEC-2026-2161",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: gitpython",
+      "description": "Known vulnerability",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update gitpython to a patched version."
+    },
+    {
+      "id": "PYSEC-2026-2162",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: gitpython",
+      "description": "Known vulnerability",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update gitpython to a patched version."
+    },
+    {
+      "id": "PYSEC-2026-2163",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: gitpython",
+      "description": "Known vulnerability",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update gitpython to a patched version."
+    },
+    {
+      "id": "PYSEC-2026-3783",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: gitpython",
+      "description": "Known vulnerability",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update gitpython to a patched version."
+    },
+    {
+      "id": "PYSEC-2026-3784",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: gitpython",
+      "description": "Known vulnerability",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update gitpython to a patched version."
+    },
+    {
+      "id": "PYSEC-2026-3785",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: gitpython",
+      "description": "Known vulnerability",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update gitpython to a patched version."
+    },
+    {
+      "id": "PYSEC-2026-3786",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: gitpython",
+      "description": "Known vulnerability",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update gitpython to a patched version."
+    },
+    {
+      "id": "PYSEC-2026-3787",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: gitpython",
+      "description": "Known vulnerability",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update gitpython to a patched version."
+    },
+    {
+      "id": "PYSEC-2026-3788",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: gitpython",
+      "description": "Known vulnerability",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update gitpython to a patched version."
+    },
+    {
+      "id": "PYSEC-2026-3836",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: gitpython",
+      "description": "GitPython: Command Injection via git long-option prefix abbreviation bypass of CVE-2026-42215 blocklist",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update gitpython to a patched version."
+    },
+    {
+      "id": "PYSEC-2026-3837",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: gitpython",
+      "description": "GitPython: TagReference.create positional reference bypasses kwargs-only --file guard, enabling arbitrary file read (incomplete fix of 3af0c251)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update gitpython to a patched version."
+    },
+    {
+      "id": "PYSEC-2026-3838",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: gitpython",
+      "description": "GitPython: Unguarded git read-tree option forwarding in IndexFile.from_tree/reset/merge_tree enables arbitrary file overwrite",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update gitpython to a patched version."
+    },
+    {
+      "id": "PYSEC-2026-3839",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: gitpython",
+      "description": "GitPython: command injection via unguarded Git options in `Repo.archive()`, `git.ls_remote()`, and arbitrary file overwrite via `Repo.iter_commits()` / `Repo.blame()`",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update gitpython to a patched version."
+    },
+    {
+      "id": "PYSEC-2026-3840",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: gitpython",
+      "description": "GitPython: Unguarded git option forwarding in Repo.init enables arbitrary command execution via --template clone hooks",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update gitpython to a patched version."
+    },
+    {
+      "id": "PYSEC-2026-3841",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: gitpython",
+      "description": "GitPython: Arbitrary file read via --pathspec-from-file in IndexFile.remove() and Head.checkout()",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update gitpython to a patched version."
+    },
+    {
+      "id": "PYSEC-2026-3842",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: gitpython",
+      "description": "GitPython: Environment-variable exfiltration via os.path.expandvars() on Repo.clone_from() URL",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update gitpython to a patched version."
+    },
+    {
+      "id": "PYSEC-2026-3843",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: gitpython",
+      "description": "GitPython: Unsafe git option guard bypass via split_single_char_options=False short-option token smuggling enables command execution",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update gitpython to a patched version."
+    },
+    {
+      "id": "PYSEC-2026-3947",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: gitpython",
+      "description": "Known vulnerability",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update gitpython to a patched version."
+    },
+    {
+      "id": "PYSEC-2026-3948",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: gitpython",
+      "description": "Known vulnerability",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update gitpython to a patched version."
+    },
+    {
+      "id": "PYSEC-2026-3949",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: gitpython",
+      "description": "Known vulnerability",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update gitpython to a patched version."
+    },
+    {
+      "id": "PYSEC-2026-3950",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: gitpython",
+      "description": "Known vulnerability",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update gitpython to a patched version."
+    },
+    {
+      "id": "PYSEC-2026-3951",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: gitpython",
+      "description": "Known vulnerability",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update gitpython to a patched version."
+    },
+    {
+      "id": "PYSEC-2026-3952",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: gitpython",
+      "description": "Known vulnerability",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update gitpython to a patched version."
+    },
+    {
+      "id": "PYSEC-2026-3953",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: gitpython",
+      "description": "Known vulnerability",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update gitpython to a patched version."
+    },
+    {
+      "id": "PYSEC-2026-3980",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: gitpython",
+      "description": "Known vulnerability",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update gitpython to a patched version."
+    },
+    {
+      "id": "PYSEC-2026-3981",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: gitpython",
+      "description": "Known vulnerability",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update gitpython to a patched version."
+    },
+    {
+      "id": "PYSEC-2026-3982",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: gitpython",
+      "description": "Known vulnerability",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update gitpython to a patched version."
+    },
+    {
+      "id": "PYSEC-2026-3984",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: gitpython",
+      "description": "Known vulnerability",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update gitpython to a patched version."
+    },
+    {
+      "id": "PYSEC-2026-3995",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: gitpython",
+      "description": "Known vulnerability",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update gitpython to a patched version."
+    },
+    {
+      "id": "GHSA-3qhf-m339-9g5v",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: mcp",
+      "description": "MCP Python SDK vulnerability in the FastMCP Server causes validation error, leading to DoS",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update mcp to a patched version."
+    },
+    {
+      "id": "GHSA-5h93-6whr-6q8j",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: mcp",
+      "description": "Model Context Protocol Python SDK: HTTP client transports followed cross-origin redirects carrying custom headers and bodies",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update mcp to a patched version."
+    },
+    {
+      "id": "GHSA-84m7-p3x7-pcfv",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: mcp",
+      "description": "MCP Python SDK: Unbounded Session Accumulation in StreamableHTTP Transport Enables Resource Exhaustion",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update mcp to a patched version."
+    },
+    {
+      "id": "GHSA-9h52-p55h-vw2f",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: mcp",
+      "description": "Model Context Protocol (MCP) Python SDK does not enable DNS rebinding protection by default",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update mcp to a patched version."
+    },
+    {
+      "id": "GHSA-hvrp-rf83-w775",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: mcp",
+      "description": "MCP Python SDK: Experimental task handlers allow any client to access and cancel other clients' tasks",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update mcp to a patched version."
+    },
+    {
+      "id": "GHSA-j975-95f5-7wqh",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: mcp",
+      "description": "MCP Python SDK has Unhandled Exception in Streamable HTTP Transport, Leading to Denial of Service",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update mcp to a patched version."
+    },
+    {
+      "id": "GHSA-jpw9-pfvf-9f58",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: mcp",
+      "description": "MCP Python SDK: HTTP transports serve session requests without verifying the authenticated principal",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update mcp to a patched version."
+    },
+    {
+      "id": "GHSA-rwrf-2pqf-9j8j",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: mcp",
+      "description": "Model Context Protocol Python SDK: Client fetched server-chosen $ref URLs while validating tool results against output schemas",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update mcp to a patched version."
+    },
+    {
+      "id": "GHSA-vj7q-gjh5-988w",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: mcp",
+      "description": "MCP Python SDK: WebSocket server transport does not support Host/Origin validation",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update mcp to a patched version."
+    },
+    {
+      "id": "GHSA-w4fh-qvv9-3v23",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: mcp",
+      "description": "Model Context Protocol Python SDK: Server bearer-token authentication accepts tokens issued for a different resource server",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update mcp to a patched version."
+    },
+    {
+      "id": "PYSEC-2026-1616",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: mcp",
+      "description": "MCP Python SDK vulnerability in the FastMCP Server causes validation error, leading to DoS",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update mcp to a patched version."
+    },
+    {
+      "id": "PYSEC-2026-1617",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: mcp",
+      "description": "Model Context Protocol (MCP) Python SDK does not enable DNS rebinding protection by default",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update mcp to a patched version."
+    },
+    {
+      "id": "PYSEC-2026-1618",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: mcp",
+      "description": "MCP Python SDK has Unhandled Exception in Streamable HTTP Transport, Leading to Denial of Service",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update mcp to a patched version."
+    },
+    {
+      "id": "PYSEC-2026-3481",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: mcp",
+      "description": "MCP Python SDK: Experimental task handlers allow any client to access and cancel other clients' tasks",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update mcp to a patched version."
+    },
+    {
+      "id": "PYSEC-2026-3482",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: mcp",
+      "description": "MCP Python SDK: HTTP transports serve session requests without verifying the authenticated principal",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update mcp to a patched version."
+    },
+    {
+      "id": "PYSEC-2026-3483",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: mcp",
+      "description": "MCP Python SDK: WebSocket server transport does not support Host/Origin validation",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update mcp to a patched version."
+    },
+    {
+      "id": "GHSA-5jqp-qgf6-3pvh",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: pydantic",
+      "description": "Use of \"infinity\" as an input to datetime and date fields causes infinite loop in pydantic",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pydantic to a patched version."
+    },
+    {
+      "id": "GHSA-mr82-8j83-vxmv",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: pydantic",
+      "description": "Pydantic regular expression denial of service",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pydantic to a patched version."
+    },
+    {
+      "id": "PYSEC-2021-47",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: pydantic",
+      "description": "Known vulnerability",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pydantic to a patched version."
+    },
+    {
+      "id": "PYSEC-2026-1812",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: pydantic",
+      "description": "Pydantic regular expression denial of service",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update pydantic to a patched version."
+    },
+    {
+      "id": "toxic_combo_data_read_data_write",
+      "severity": "medium",
+      "category": "toxic_tool_combo",
+      "title": "Broad data read + write = data manipulation risk",
+      "description": "Tools that can both read and write data could be manipulated to corrupt, overwrite, or delete information. Provided by: commit, add, show, branch (data_read) + create_branch (data_write).",
+      "owasp_asi": [
+        "ASI02"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Implement tool-level permission scoping. Consider whether both capabilities are necessary or if one can be restricted."
+    },
+    {
+      "id": "cap_add_file_read",
+      "severity": "low",
+      "category": "file_read",
+      "title": "Tool 'add' reads files (file_read)",
+      "description": "Tool 'add' reads files. Evidence: 'file contents'. Description: 'Adds file contents to the staging area'",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Scope the tool to the narrowest operation and location it needs, and require explicit user approval per call."
+    },
+    {
+      "id": "blast_radius_estimate",
+      "severity": "medium",
+      "category": "cascading_failure",
+      "title": "Blast radius: MEDIUM \u2014 compromise of this server has broad impact",
+      "description": "If this MCP server is compromised, the blast radius is MEDIUM due to: filesystem access, 12 tools (large attack surface). A single tool poisoning or supply chain attack could cascade across all connected systems.",
+      "owasp_asi": [
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Apply least-privilege to this server. Isolate it from other MCP servers. Implement kill switches and behavioral monitoring. Limit env vars to the minimum required."
+    }
+  ],
+  "server_profile": {
+    "name": "<corpus>/reference-servers/src/git",
+    "command": null,
+    "args": [],
+    "env_vars": [],
+    "transport": "stdio",
+    "tools": [
+      {
+        "name": "status",
+        "description": "Shows the working tree status",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "repo_path": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "repo_path"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "diff_unstaged",
+        "description": "Shows changes in the working directory that are not yet staged",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "repo_path": {
+              "type": "string"
+            },
+            "context_lines": {
+              "type": "integer",
+              "default": "DEFAULT_CONTEXT_LINES"
+            }
+          },
+          "required": [
+            "repo_path"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "diff_staged",
+        "description": "Shows changes that are staged for commit",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "repo_path": {
+              "type": "string"
+            },
+            "context_lines": {
+              "type": "integer",
+              "default": "DEFAULT_CONTEXT_LINES"
+            }
+          },
+          "required": [
+            "repo_path"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "diff",
+        "description": "Shows differences between branches or commits",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "repo_path": {
+              "type": "string"
+            },
+            "target": {
+              "type": "string"
+            },
+            "context_lines": {
+              "type": "integer",
+              "default": "DEFAULT_CONTEXT_LINES"
+            }
+          },
+          "required": [
+            "repo_path",
+            "target"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "commit",
+        "description": "Records changes to the repository",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "repo_path": {
+              "type": "string"
+            },
+            "message": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "repo_path",
+            "message"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "add",
+        "description": "Adds file contents to the staging area",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "repo_path": {
+              "type": "string"
+            },
+            "files": {}
+          },
+          "required": [
+            "repo_path",
+            "files"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "reset",
+        "description": "Unstages all staged changes",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "repo_path": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "repo_path"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "log",
+        "description": "Shows the commit logs",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "repo_path": {
+              "type": "string"
+            },
+            "max_count": {
+              "type": "integer",
+              "default": 10
+            },
+            "start_timestamp": {},
+            "end_timestamp": {}
+          },
+          "required": [
+            "repo_path"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "create_branch",
+        "description": "Creates a new branch from an optional base branch or commit",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "repo_path": {
+              "type": "string"
+            },
+            "branch_name": {
+              "type": "string"
+            },
+            "base_branch": {}
+          },
+          "required": [
+            "repo_path",
+            "branch_name"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "checkout",
+        "description": "Switches branches",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "repo_path": {
+              "type": "string"
+            },
+            "branch_name": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "repo_path",
+            "branch_name"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "show",
+        "description": "Shows the contents of a commit, or of a file or directory given as <revision>:<path>",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "repo_path": {
+              "type": "string"
+            },
+            "revision": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "repo_path",
+            "revision"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "branch",
+        "description": "List Git branches",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "repo_path": {},
+            "branch_type": {},
+            "contains": {},
+            "not_contains": {}
+          },
+          "required": [
+            "repo_path",
+            "branch_type"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      }
+    ],
+    "resources": [],
+    "prompts": [],
+    "repo_url": null,
+    "npm_package": null,
+    "capabilities_claimed": [],
+    "capabilities_actual": []
+  },
+  "fingerprint": "3d0573bd8088704b67461e244cc72d9e6558933e5e2c9573fe5dc9a688f20049",
+  "surface_map": {
+    "server": {
+      "name": "<corpus>/reference-servers/src/git",
+      "instructions": "",
+      "transport": "unknown",
+      "auth": "unknown"
+    },
+    "tools": [
+      {
+        "name": "status",
+        "description": "Shows the working tree status",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "repo_path": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "repo_path"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [
+          "Repository status:\n{...}"
+        ],
+        "registration": "static",
+        "location": "src\\mcp_server_git\\server.py:646"
+      },
+      {
+        "name": "diff_unstaged",
+        "description": "Shows changes in the working directory that are not yet staged",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "repo_path": {
+              "type": "string"
+            },
+            "context_lines": {
+              "type": "integer",
+              "default": "DEFAULT_CONTEXT_LINES"
+            }
+          },
+          "required": [
+            "repo_path"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [
+          "Unstaged changes:\n{diff}"
+        ],
+        "registration": "static",
+        "location": "src\\mcp_server_git\\server.py:656"
+      },
+      {
+        "name": "diff_staged",
+        "description": "Shows changes that are staged for commit",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "repo_path": {
+              "type": "string"
+            },
+            "context_lines": {
+              "type": "integer",
+              "default": "DEFAULT_CONTEXT_LINES"
+            }
+          },
+          "required": [
+            "repo_path"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [
+          "Staged changes:\n{diff}"
+        ],
+        "registration": "static",
+        "location": "src\\mcp_server_git\\server.py:669"
+      },
+      {
+        "name": "diff",
+        "description": "Shows differences between branches or commits",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "repo_path": {
+              "type": "string"
+            },
+            "target": {
+              "type": "string"
+            },
+            "context_lines": {
+              "type": "integer",
+              "default": "DEFAULT_CONTEXT_LINES"
+            }
+          },
+          "required": [
+            "repo_path",
+            "target"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [
+          "Diff with {target}:\n{result}"
+        ],
+        "registration": "static",
+        "location": "src\\mcp_server_git\\server.py:680"
+      },
+      {
+        "name": "commit",
+        "description": "Records changes to the repository",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "repo_path": {
+              "type": "string"
+            },
+            "message": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "repo_path",
+            "message"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "src\\mcp_server_git\\server.py:693"
+      },
+      {
+        "name": "add",
+        "description": "Adds file contents to the staging area",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "repo_path": {
+              "type": "string"
+            },
+            "files": {}
+          },
+          "required": [
+            "repo_path",
+            "files"
+          ]
+        },
+        "capabilities": [
+          "fs.read"
+        ],
+        "return_literals": [],
+        "registration": "static",
+        "location": "src\\mcp_server_git\\server.py:703"
+      },
+      {
+        "name": "reset",
+        "description": "Unstages all staged changes",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "repo_path": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "repo_path"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "src\\mcp_server_git\\server.py:713"
+      },
+      {
+        "name": "log",
+        "description": "Shows the commit logs",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "repo_path": {
+              "type": "string"
+            },
+            "max_count": {
+              "type": "integer",
+              "default": 10
+            },
+            "start_timestamp": {},
+            "end_timestamp": {}
+          },
+          "required": [
+            "repo_path"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [
+          "Commit history:\n",
+          "\n"
+        ],
+        "registration": "static",
+        "location": "src\\mcp_server_git\\server.py:723"
+      },
+      {
+        "name": "create_branch",
+        "description": "Creates a new branch from an optional base branch or commit",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "repo_path": {
+              "type": "string"
+            },
+            "branch_name": {
+              "type": "string"
+            },
+            "base_branch": {}
+          },
+          "required": [
+            "repo_path",
+            "branch_name"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "src\\mcp_server_git\\server.py:751"
+      },
+      {
+        "name": "checkout",
+        "description": "Switches branches",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "repo_path": {
+              "type": "string"
+            },
+            "branch_name": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "repo_path",
+            "branch_name"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "src\\mcp_server_git\\server.py:774"
+      },
+      {
+        "name": "show",
+        "description": "Shows the contents of a commit, or of a file or directory given as <revision>:<path>",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "repo_path": {
+              "type": "string"
+            },
+            "revision": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "repo_path",
+            "revision"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "src\\mcp_server_git\\server.py:784"
+      },
+      {
+        "name": "branch",
+        "description": "List Git branches",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "repo_path": {},
+            "branch_type": {},
+            "contains": {},
+            "not_contains": {}
+          },
+          "required": [
+            "repo_path",
+            "branch_type"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "src\\mcp_server_git\\server.py:794"
+      }
+    ],
+    "resources": [],
+    "prompts": [],
+    "mutations": [],
+    "source": {
+      "kind": "static",
+      "target": "<corpus>/reference-servers/src/git",
+      "languages": [
+        "python"
+      ]
+    },
+    "generated_at": "2026-11-04T02:10:13+00:00",
+    "fingerprint": "3d0573bd8088704b67461e244cc72d9e6558933e5e2c9573fe5dc9a688f20049",
+    "schema": "axiom.surface/1"
+  },
+  "owasp_coverage": {
+    "framework": "OWASP Top 10 for Agentic Applications 2026",
+    "reference": "https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/",
+    "coverage": {
+      "ASI01": {
+        "name": "Agent Goal Hijack",
+        "coverage_level": "strong",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "tool_poisoning",
+          "prompt_injection",
+          "instruction_injection"
+        ]
+      },
+      "ASI02": {
+        "name": "Tool Misuse & Exploitation",
+        "coverage_level": "strong",
+        "findings_count": 9,
+        "finding_ids": [
+          "cross_tool_diff_staged_commit",
+          "cross_tool_diff_branch",
+          "cross_tool_diff_commit",
+          "cross_tool_log_commit",
+          "cross_tool_create_branch_branch",
+          "cross_tool_create_branch_commit",
+          "cross_tool_checkout_branch",
+          "cross_tool_show_commit",
+          "toxic_combo_data_read_data_write"
+        ],
+        "detectors": [
+          "toxic_tool_combo",
+          "tool_overscope",
+          "tool_chaining_detection"
+        ]
+      },
+      "ASI03": {
+        "name": "Identity & Privilege Abuse",
+        "coverage_level": "strong",
+        "findings_count": 1,
+        "finding_ids": [
+          "cap_add_file_read"
+        ],
+        "detectors": [
+          "credential_analysis",
+          "shared_credential_detection",
+          "env_var_audit"
+        ]
+      },
+      "ASI04": {
+        "name": "Agentic Supply Chain Vulnerabilities",
+        "coverage_level": "strong",
+        "findings_count": 99,
+        "finding_ids": [
+          "GHSA-239g-whfq-7xj9",
+          "GHSA-23mf-xhv8-69c2",
+          "GHSA-284h-m62q-gf8w",
+          "GHSA-2f96-g7mh-g2hx",
+          "GHSA-2mqj-m65w-jghx",
+          "GHSA-3f7w-8rr8-f37f",
+          "GHSA-3rp5-jjmw-4wv2",
+          "GHSA-3wxw-xv34-2frg",
+          "GHSA-4gmw-gg2m-w46p",
+          "GHSA-539m-9xh6-q6rr"
+        ],
+        "detectors": [
+          "dependency_cve",
+          "lifecycle_hooks",
+          "npx_unversioned",
+          "known_mcp_cves"
+        ]
+      },
+      "ASI05": {
+        "name": "Unexpected Code Execution",
+        "coverage_level": "strong",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "code_exec_patterns",
+          "code_generation_detection",
+          "sandbox_escape"
+        ]
+      },
+      "ASI06": {
+        "name": "Memory & Context Poisoning",
+        "coverage_level": "partial",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "memory_poisoning_patterns",
+          "context_manipulation_detection"
+        ],
+        "gap_note": "Axiom detects static patterns. Full coverage requires runtime memory monitoring."
+      },
+      "ASI07": {
+        "name": "Insecure Inter-Agent Communication",
+        "coverage_level": "partial",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "transport_security",
+          "a2a_pattern_detection"
+        ],
+        "gap_note": "Axiom checks transport security. Full A2A protocol analysis requires runtime interception."
+      },
+      "ASI08": {
+        "name": "Cascading Failures",
+        "coverage_level": "partial",
+        "findings_count": 9,
+        "finding_ids": [
+          "cross_tool_diff_staged_commit",
+          "cross_tool_diff_branch",
+          "cross_tool_diff_commit",
+          "cross_tool_log_commit",
+          "cross_tool_create_branch_branch",
+          "cross_tool_create_branch_commit",
+          "cross_tool_checkout_branch",
+          "cross_tool_show_commit",
+          "blast_radius_estimate"
+        ],
+        "detectors": [
+          "blast_radius_estimation",
+          "dependency_chain_analysis"
+        ],
+        "gap_note": "Axiom estimates blast radius from tool capabilities. Full cascading failure analysis requires runtime topology mapping."
+      },
+      "ASI09": {
+        "name": "Human-Agent Trust Exploitation",
+        "coverage_level": "strong",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "claimed_vs_actual",
+          "deceptive_output_detection",
+          "trust_manipulation_patterns"
+        ]
+      },
+      "ASI10": {
+        "name": "Rogue Agents",
+        "coverage_level": "partial",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "sleeper_patterns",
+          "behavioral_drift_indicators",
+          "persistence_detection"
+        ],
+        "gap_note": "Axiom detects static rogue indicators. Full rogue agent detection requires runtime behavioral monitoring."
+      }
+    },
+    "total_asi_categories_with_findings": 4
+  },
+  "owasp_mcp_coverage": {
+    "framework": "OWASP MCP Top 10",
+    "framework_version": "v0.1 beta",
+    "reference": "https://owasp.org/www-project-mcp-top-10/",
+    "coverage": {
+      "MCP01": {
+        "id": "MCP01:2025",
+        "name": "Token Mismanagement & Secret Exposure",
+        "coverage_level": "partial",
+        "reason": "Regex-based secret detection in server source and client configs plus env-var exposure checks; no entropy analysis, git-history scan, or token lifetime/passthrough checks.",
+        "findings_count": 8,
+        "finding_ids": [
+          "cross_tool_diff_staged_commit",
+          "cross_tool_diff_branch",
+          "cross_tool_diff_commit",
+          "cross_tool_log_commit",
+          "cross_tool_create_branch_branch",
+          "cross_tool_create_branch_commit",
+          "cross_tool_checkout_branch",
+          "cross_tool_show_commit"
+        ],
+        "detectors": [
+          "credential_theft",
+          "cross_server",
+          "mcp01_hardcoded_secrets",
+          "config_hardcoded_secret",
+          "env_var_audit",
+          "env_dump"
+        ]
+      },
+      "MCP02": {
+        "id": "MCP02:2025",
+        "name": "Privilege Escalation via Scope Creep",
+        "coverage_level": "strong",
+        "reason": "Permission over-scope patterns, toxic tool-capability combinations, path-escape checks and env-var over-exposure in configs.",
+        "findings_count": 11,
+        "finding_ids": [
+          "cross_tool_diff_staged_commit",
+          "cross_tool_diff_branch",
+          "cross_tool_diff_commit",
+          "cross_tool_log_commit",
+          "cross_tool_create_branch_branch",
+          "cross_tool_create_branch_commit",
+          "cross_tool_checkout_branch",
+          "cross_tool_show_commit",
+          "toxic_combo_data_read_data_write",
+          "cap_add_file_read"
+        ],
+        "detectors": [
+          "permission_overscope",
+          "toxic_tool_combo",
+          "identity_privilege",
+          "sandbox_escape",
+          "config_risk",
+          "cascading_failure",
+          "cross_server",
+          "excessive_scope",
+          "confused_deputy",
+          "file_read",
+          "file_write"
+        ]
+      },
+      "MCP03": {
+        "id": "MCP03:2025",
+        "name": "Tool Poisoning",
+        "coverage_level": "strong",
+        "reason": "Dedicated detector for hidden instructions in tool metadata, plus runtime rug-pull diffing between source and live tool definitions.",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "tool_poisoning",
+          "obfuscation",
+          "rogue_agent",
+          "source_vs_runtime_diff",
+          "tool_shadowing",
+          "hidden_unicode",
+          "rug_pull_primitive",
+          "surface_mismatch"
+        ]
+      },
+      "MCP04": {
+        "id": "MCP04:2025",
+        "name": "Software Supply Chain Attacks & Dependency Tampering",
+        "coverage_level": "strong",
+        "reason": "Dependency CVE lookup, known MCP CVEs, install lifecycle hooks, and unpinned npx/uvx/pip/@latest install sources.",
+        "findings_count": 99,
+        "finding_ids": [
+          "GHSA-239g-whfq-7xj9",
+          "GHSA-23mf-xhv8-69c2",
+          "GHSA-284h-m62q-gf8w",
+          "GHSA-2f96-g7mh-g2hx",
+          "GHSA-2mqj-m65w-jghx",
+          "GHSA-3f7w-8rr8-f37f",
+          "GHSA-3rp5-jjmw-4wv2",
+          "GHSA-3wxw-xv34-2frg",
+          "GHSA-4gmw-gg2m-w46p",
+          "GHSA-539m-9xh6-q6rr"
+        ],
+        "detectors": [
+          "dependency_vuln",
+          "supply_chain",
+          "known_cve",
+          "obfuscation",
+          "lifecycle_hooks",
+          "mcp04_unpinned_install",
+          "homoglyph",
+          "rug_pull_primitive",
+          "surface_mismatch"
+        ]
+      },
+      "MCP05": {
+        "id": "MCP05:2025",
+        "name": "Command Injection & Execution",
+        "coverage_level": "partial",
+        "reason": "Regex, AST and Semgrep find exec/shell sinks and a heuristic flags sinks inside tool handlers, but there is no inter-procedural taint tracking from tool input to sink.",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "command_injection",
+          "code_execution",
+          "code_generation",
+          "sandbox_escape",
+          "mcp05_tool_input_sink",
+          "shell_exec"
+        ]
+      },
+      "MCP06": {
+        "id": "MCP06:2025",
+        "name": "Prompt Injection via Contextual Payloads",
+        "coverage_level": "partial",
+        "reason": "Injection markers are detected in tool metadata, server instructions, resources, prompts and the strings a tool returns (static), and in instructions/resources/prompts read live; payloads produced by calling a tool at runtime are not inspected.",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "prompt_injection",
+          "memory_poisoning",
+          "trust_exploitation",
+          "response_injection",
+          "tool_shadowing"
+        ]
+      },
+      "MCP07": {
+        "id": "MCP07:2025",
+        "name": "Insufficient Authentication & Authorization",
+        "coverage_level": "partial",
+        "reason": "Flags remote servers with no visible auth and servers bound to all interfaces; does not verify OAuth implementation or per-tool authorization logic.",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "transport_security",
+          "inter_agent_comm",
+          "identity_privilege",
+          "transport_no_auth",
+          "config_no_auth",
+          "mcp07_bind_all_interfaces"
+        ]
+      },
+      "MCP08": {
+        "id": "MCP08:2025",
+        "name": "Lack of Audit and Telemetry",
+        "coverage_level": "gap",
+        "reason": "Only a low-confidence heuristic for missing logging in tool-defining files; actual audit trails and telemetry pipelines are not verified.",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "audit_telemetry",
+          "mcp08_no_tool_logging"
+        ]
+      },
+      "MCP09": {
+        "id": "MCP09:2025",
+        "name": "Shadow MCP Servers",
+        "coverage_level": "partial",
+        "reason": "Covered by `axiom discover` allowlist on the local machine; no network-wide or fleet discovery.",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "mcpguard_discover",
+          "shadow_mcp"
+        ]
+      },
+      "MCP10": {
+        "id": "MCP10:2025",
+        "name": "Context Injection & Over-Sharing",
+        "coverage_level": "partial",
+        "reason": "Hard-coded egress URLs, tools that send to caller-chosen destinations and bulk-exposure heuristics are detected statically and live; what context is actually shared at runtime is not observed.",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "context_oversharing",
+          "data_exfiltration",
+          "memory_poisoning",
+          "mcp10_broad_data_exposure"
+        ]
+      }
+    },
+    "total_mcp_categories_with_findings": 3
+  },
+  "ai_analysis": null,
+  "tool_poisoning_report": null,
+  "prompt_injection_risk": null
+}

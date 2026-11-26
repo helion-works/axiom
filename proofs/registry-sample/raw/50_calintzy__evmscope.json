@@ -1,0 +1,3106 @@
+{
+  "schema_version": "0.5",
+  "target": "<corpus>/registry/50_calintzy__evmscope",
+  "risk_score": 100.0,
+  "risk_level": "critical",
+  "tools_found": 26,
+  "findings_count": 71,
+  "findings": [
+    {
+      "id": "code_0001",
+      "severity": "critical",
+      "category": "sandbox_escape",
+      "title": "Potential sandbox/path escape in MCP server",
+      "description": "Pattern matched in src\\cli\\commands\\abi.ts at line 1: `import type { SupportedChain } from \"../../types.js\";`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\cli\\commands\\abi.ts",
+      "line_number": 1,
+      "recommendation": "Review this sandbox escape pattern."
+    },
+    {
+      "id": "code_0002",
+      "severity": "critical",
+      "category": "sandbox_escape",
+      "title": "Potential sandbox/path escape in MCP server",
+      "description": "Pattern matched in src\\cli\\commands\\abi.ts at line 2: `import { getABI } from \"../../shared/etherscan.js\";`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\cli\\commands\\abi.ts",
+      "line_number": 2,
+      "recommendation": "Review this sandbox escape pattern."
+    },
+    {
+      "id": "code_0003",
+      "severity": "critical",
+      "category": "sandbox_escape",
+      "title": "Potential sandbox/path escape in MCP server",
+      "description": "Pattern matched in src\\cli\\commands\\balance.ts at line 1: `import type { SupportedChain } from \"../../types.js\";`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\cli\\commands\\balance.ts",
+      "line_number": 1,
+      "recommendation": "Review this sandbox escape pattern."
+    },
+    {
+      "id": "code_0004",
+      "severity": "critical",
+      "category": "sandbox_escape",
+      "title": "Potential sandbox/path escape in MCP server",
+      "description": "Pattern matched in src\\cli\\commands\\balance.ts at line 2: `import { getClient } from \"../../shared/rpc-client.js\";`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\cli\\commands\\balance.ts",
+      "line_number": 2,
+      "recommendation": "Review this sandbox escape pattern."
+    },
+    {
+      "id": "code_0005",
+      "severity": "critical",
+      "category": "sandbox_escape",
+      "title": "Potential sandbox/path escape in MCP server",
+      "description": "Pattern matched in src\\cli\\commands\\balance.ts at line 3: `import { getPrice } from \"../../shared/coingecko.js\";`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\cli\\commands\\balance.ts",
+      "line_number": 3,
+      "recommendation": "Review this sandbox escape pattern."
+    },
+    {
+      "id": "code_0006",
+      "severity": "critical",
+      "category": "sandbox_escape",
+      "title": "Potential sandbox/path escape in MCP server",
+      "description": "Pattern matched in src\\cli\\commands\\balance.ts at line 4: `import { chains } from \"../../shared/chains.js\";`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\cli\\commands\\balance.ts",
+      "line_number": 4,
+      "recommendation": "Review this sandbox escape pattern."
+    },
+    {
+      "id": "code_0007",
+      "severity": "critical",
+      "category": "sandbox_escape",
+      "title": "Potential sandbox/path escape in MCP server",
+      "description": "Pattern matched in src\\cli\\commands\\block.ts at line 1: `import type { SupportedChain } from \"../../types.js\";`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\cli\\commands\\block.ts",
+      "line_number": 1,
+      "recommendation": "Review this sandbox escape pattern."
+    },
+    {
+      "id": "code_0008",
+      "severity": "critical",
+      "category": "sandbox_escape",
+      "title": "Potential sandbox/path escape in MCP server",
+      "description": "Pattern matched in src\\cli\\commands\\block.ts at line 2: `import { getClient } from \"../../shared/rpc-client.js\";`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\cli\\commands\\block.ts",
+      "line_number": 2,
+      "recommendation": "Review this sandbox escape pattern."
+    },
+    {
+      "id": "code_0009",
+      "severity": "critical",
+      "category": "sandbox_escape",
+      "title": "Potential sandbox/path escape in MCP server",
+      "description": "Pattern matched in src\\cli\\commands\\bridge.ts at line 1: `import type { SupportedChain } from \"../../types.js\";`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\cli\\commands\\bridge.ts",
+      "line_number": 1,
+      "recommendation": "Review this sandbox escape pattern."
+    },
+    {
+      "id": "code_0010",
+      "severity": "critical",
+      "category": "sandbox_escape",
+      "title": "Potential sandbox/path escape in MCP server",
+      "description": "Pattern matched in src\\cli\\commands\\bridge.ts at line 2: `import { fetchBridgeRoutes } from \"../../shared/lifi.js\";`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\cli\\commands\\bridge.ts",
+      "line_number": 2,
+      "recommendation": "Review this sandbox escape pattern."
+    },
+    {
+      "id": "code_0011",
+      "severity": "critical",
+      "category": "sandbox_escape",
+      "title": "Potential sandbox/path escape in MCP server",
+      "description": "Pattern matched in src\\cli\\commands\\bridge.ts at line 3: `import { resolveTokenMeta } from \"../../shared/coingecko.js\";`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\cli\\commands\\bridge.ts",
+      "line_number": 3,
+      "recommendation": "Review this sandbox escape pattern."
+    },
+    {
+      "id": "code_0012",
+      "severity": "critical",
+      "category": "sandbox_escape",
+      "title": "Potential sandbox/path escape in MCP server",
+      "description": "Pattern matched in src\\cli\\commands\\bridge.ts at line 4: `import { NATIVE_TOKEN_ADDRESS } from \"../../shared/constants.js\";`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\cli\\commands\\bridge.ts",
+      "line_number": 4,
+      "recommendation": "Review this sandbox escape pattern."
+    },
+    {
+      "id": "code_0013",
+      "severity": "critical",
+      "category": "sandbox_escape",
+      "title": "Potential sandbox/path escape in MCP server",
+      "description": "Pattern matched in src\\cli\\commands\\compare-gas.ts at line 1: `import { SUPPORTED_CHAINS } from \"../../types.js\";`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\cli\\commands\\compare-gas.ts",
+      "line_number": 1,
+      "recommendation": "Review this sandbox escape pattern."
+    },
+    {
+      "id": "code_0014",
+      "severity": "critical",
+      "category": "sandbox_escape",
+      "title": "Potential sandbox/path escape in MCP server",
+      "description": "Pattern matched in src\\cli\\commands\\compare-gas.ts at line 2: `import { getClient } from \"../../shared/rpc-client.js\";`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\cli\\commands\\compare-gas.ts",
+      "line_number": 2,
+      "recommendation": "Review this sandbox escape pattern."
+    },
+    {
+      "id": "code_0015",
+      "severity": "critical",
+      "category": "sandbox_escape",
+      "title": "Potential sandbox/path escape in MCP server",
+      "description": "Pattern matched in src\\cli\\commands\\compare-gas.ts at line 3: `import { getPrice } from \"../../shared/coingecko.js\";`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\cli\\commands\\compare-gas.ts",
+      "line_number": 3,
+      "recommendation": "Review this sandbox escape pattern."
+    },
+    {
+      "id": "code_0016",
+      "severity": "critical",
+      "category": "sandbox_escape",
+      "title": "Potential sandbox/path escape in MCP server",
+      "description": "Pattern matched in src\\cli\\commands\\compare-gas.ts at line 4: `import { getNativeCoingeckoId } from \"../../shared/chains.js\";`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\cli\\commands\\compare-gas.ts",
+      "line_number": 4,
+      "recommendation": "Review this sandbox escape pattern."
+    },
+    {
+      "id": "code_0017",
+      "severity": "critical",
+      "category": "sandbox_escape",
+      "title": "Potential sandbox/path escape in MCP server",
+      "description": "Pattern matched in src\\cli\\commands\\ens.ts at line 1: `import { getClient } from \"../../shared/rpc-client.js\";`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\cli\\commands\\ens.ts",
+      "line_number": 1,
+      "recommendation": "Review this sandbox escape pattern."
+    },
+    {
+      "id": "code_0018",
+      "severity": "critical",
+      "category": "sandbox_escape",
+      "title": "Potential sandbox/path escape in MCP server",
+      "description": "Pattern matched in src\\cli\\commands\\events.ts at line 1: `import type { SupportedChain } from \"../../types.js\";`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\cli\\commands\\events.ts",
+      "line_number": 1,
+      "recommendation": "Review this sandbox escape pattern."
+    },
+    {
+      "id": "code_0019",
+      "severity": "critical",
+      "category": "sandbox_escape",
+      "title": "Potential sandbox/path escape in MCP server",
+      "description": "Pattern matched in src\\cli\\commands\\events.ts at line 2: `import { getClient } from \"../../shared/rpc-client.js\";`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\cli\\commands\\events.ts",
+      "line_number": 2,
+      "recommendation": "Review this sandbox escape pattern."
+    },
+    {
+      "id": "code_0020",
+      "severity": "critical",
+      "category": "sandbox_escape",
+      "title": "Potential sandbox/path escape in MCP server",
+      "description": "Pattern matched in src\\cli\\commands\\gas.ts at line 1: `import type { SupportedChain } from \"../../types.js\";`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\cli\\commands\\gas.ts",
+      "line_number": 1,
+      "recommendation": "Review this sandbox escape pattern."
+    },
+    {
+      "id": "code_0021",
+      "severity": "critical",
+      "category": "sandbox_escape",
+      "title": "Potential sandbox/path escape in MCP server",
+      "description": "Pattern matched in src\\cli\\commands\\gas.ts at line 2: `import { getClient } from \"../../shared/rpc-client.js\";`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\cli\\commands\\gas.ts",
+      "line_number": 2,
+      "recommendation": "Review this sandbox escape pattern."
+    },
+    {
+      "id": "code_0022",
+      "severity": "critical",
+      "category": "sandbox_escape",
+      "title": "Potential sandbox/path escape in MCP server",
+      "description": "Pattern matched in src\\cli\\commands\\governance.ts at line 17: `const protocolsPath = join(__dirname, \"../../data/protocols.json\");`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\cli\\commands\\governance.ts",
+      "line_number": 17,
+      "recommendation": "Review this sandbox escape pattern."
+    },
+    {
+      "id": "code_0023",
+      "severity": "high",
+      "category": "data_exfiltration",
+      "title": "MCP server makes outbound network requests (potential exfiltration)",
+      "description": "Pattern matched in src\\cli\\commands\\governance.ts at line 73: `const res = await fetch(\"https://hub.snapshot.org/graphql\", {`",
+      "owasp_asi": [
+        "ASI01",
+        "ASI02"
+      ],
+      "owasp_mcp": [
+        "MCP10"
+      ],
+      "file_path": "src\\cli\\commands\\governance.ts",
+      "line_number": 73,
+      "recommendation": "Review this data exfiltration pattern."
+    },
+    {
+      "id": "code_0024",
+      "severity": "critical",
+      "category": "sandbox_escape",
+      "title": "Potential sandbox/path escape in MCP server",
+      "description": "Pattern matched in src\\cli\\commands\\holders.ts at line 1: `import type { SupportedChain } from \"../../types.js\";`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\cli\\commands\\holders.ts",
+      "line_number": 1,
+      "recommendation": "Review this sandbox escape pattern."
+    },
+    {
+      "id": "code_0025",
+      "severity": "critical",
+      "category": "sandbox_escape",
+      "title": "Potential sandbox/path escape in MCP server",
+      "description": "Pattern matched in src\\cli\\commands\\holders.ts at line 2: `import { getTopTokenHolders } from \"../../shared/ethplorer.js\";`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\cli\\commands\\holders.ts",
+      "line_number": 2,
+      "recommendation": "Review this sandbox escape pattern."
+    },
+    {
+      "id": "code_0026",
+      "severity": "critical",
+      "category": "sandbox_escape",
+      "title": "Potential sandbox/path escape in MCP server",
+      "description": "Pattern matched in src\\cli\\commands\\holders.ts at line 3: `import { resolveTokenMeta } from \"../../shared/coingecko.js\";`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\cli\\commands\\holders.ts",
+      "line_number": 3,
+      "recommendation": "Review this sandbox escape pattern."
+    },
+    {
+      "id": "code_0027",
+      "severity": "critical",
+      "category": "sandbox_escape",
+      "title": "Potential sandbox/path escape in MCP server",
+      "description": "Pattern matched in src\\cli\\commands\\honeypot.ts at line 1: `import type { SupportedChain } from \"../../types.js\";`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\cli\\commands\\honeypot.ts",
+      "line_number": 1,
+      "recommendation": "Review this sandbox escape pattern."
+    },
+    {
+      "id": "code_0028",
+      "severity": "critical",
+      "category": "sandbox_escape",
+      "title": "Potential sandbox/path escape in MCP server",
+      "description": "Pattern matched in src\\cli\\commands\\honeypot.ts at line 2: `import { checkHoneypotToken } from \"../../shared/honeypot.js\";`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\cli\\commands\\honeypot.ts",
+      "line_number": 2,
+      "recommendation": "Review this sandbox escape pattern."
+    },
+    {
+      "id": "code_0029",
+      "severity": "critical",
+      "category": "sandbox_escape",
+      "title": "Potential sandbox/path escape in MCP server",
+      "description": "Pattern matched in src\\cli\\commands\\honeypot.ts at line 3: `import { resolveTokenMeta } from \"../../shared/coingecko.js\";`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\cli\\commands\\honeypot.ts",
+      "line_number": 3,
+      "recommendation": "Review this sandbox escape pattern."
+    },
+    {
+      "id": "code_0030",
+      "severity": "critical",
+      "category": "sandbox_escape",
+      "title": "Potential sandbox/path escape in MCP server",
+      "description": "Pattern matched in src\\cli\\commands\\nft.ts at line 1: `import type { SupportedChain } from \"../../types.js\";`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\cli\\commands\\nft.ts",
+      "line_number": 1,
+      "recommendation": "Review this sandbox escape pattern."
+    },
+    {
+      "id": "code_0031",
+      "severity": "critical",
+      "category": "sandbox_escape",
+      "title": "Potential sandbox/path escape in MCP server",
+      "description": "Pattern matched in src\\cli\\commands\\nft.ts at line 2: `import { getClient } from \"../../shared/rpc-client.js\";`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\cli\\commands\\nft.ts",
+      "line_number": 2,
+      "recommendation": "Review this sandbox escape pattern."
+    },
+    {
+      "id": "code_0032",
+      "severity": "critical",
+      "category": "sandbox_escape",
+      "title": "Potential sandbox/path escape in MCP server",
+      "description": "Pattern matched in src\\cli\\commands\\nft.ts at line 3: `import { isAllowedURL } from \"../../shared/validate.js\";`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\cli\\commands\\nft.ts",
+      "line_number": 3,
+      "recommendation": "Review this sandbox escape pattern."
+    },
+    {
+      "id": "code_0033",
+      "severity": "critical",
+      "category": "sandbox_escape",
+      "title": "Potential sandbox/path escape in MCP server",
+      "description": "Pattern matched in src\\cli\\commands\\portfolio.ts at line 2: `import type { SupportedChain } from \"../../types.js\";`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\cli\\commands\\portfolio.ts",
+      "line_number": 2,
+      "recommendation": "Review this sandbox escape pattern."
+    },
+    {
+      "id": "code_0034",
+      "severity": "critical",
+      "category": "sandbox_escape",
+      "title": "Potential sandbox/path escape in MCP server",
+      "description": "Pattern matched in src\\cli\\commands\\portfolio.ts at line 3: `import { getClient } from \"../../shared/rpc-client.js\";`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\cli\\commands\\portfolio.ts",
+      "line_number": 3,
+      "recommendation": "Review this sandbox escape pattern."
+    },
+    {
+      "id": "code_0035",
+      "severity": "critical",
+      "category": "sandbox_escape",
+      "title": "Potential sandbox/path escape in MCP server",
+      "description": "Pattern matched in src\\cli\\commands\\portfolio.ts at line 4: `import { getPrice, resolveCoingeckoId } from \"../../shared/coingecko.js\";`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\cli\\commands\\portfolio.ts",
+      "line_number": 4,
+      "recommendation": "Review this sandbox escape pattern."
+    },
+    {
+      "id": "code_0036",
+      "severity": "critical",
+      "category": "sandbox_escape",
+      "title": "Potential sandbox/path escape in MCP server",
+      "description": "Pattern matched in src\\cli\\commands\\portfolio.ts at line 5: `import { tokens as tokensData } from \"../../shared/tokens.js\";`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\cli\\commands\\portfolio.ts",
+      "line_number": 5,
+      "recommendation": "Review this sandbox escape pattern."
+    },
+    {
+      "id": "code_0037",
+      "severity": "critical",
+      "category": "sandbox_escape",
+      "title": "Potential sandbox/path escape in MCP server",
+      "description": "Pattern matched in src\\cli\\commands\\portfolio.ts at line 6: `import { chains } from \"../../shared/chains.js\";`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\cli\\commands\\portfolio.ts",
+      "line_number": 6,
+      "recommendation": "Review this sandbox escape pattern."
+    },
+    {
+      "id": "code_0038",
+      "severity": "critical",
+      "category": "sandbox_escape",
+      "title": "Potential sandbox/path escape in MCP server",
+      "description": "Pattern matched in src\\cli\\commands\\price.ts at line 1: `import type { SupportedChain } from \"../../types.js\";`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\cli\\commands\\price.ts",
+      "line_number": 1,
+      "recommendation": "Review this sandbox escape pattern."
+    },
+    {
+      "id": "code_0039",
+      "severity": "critical",
+      "category": "sandbox_escape",
+      "title": "Potential sandbox/path escape in MCP server",
+      "description": "Pattern matched in src\\cli\\commands\\price.ts at line 2: `import { getPrice, resolveCoingeckoId, resolveTokenMeta } from \"../../shared/coingecko.js\";`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\cli\\commands\\price.ts",
+      "line_number": 2,
+      "recommendation": "Review this sandbox escape pattern."
+    },
+    {
+      "id": "code_0040",
+      "severity": "critical",
+      "category": "sandbox_escape",
+      "title": "Potential sandbox/path escape in MCP server",
+      "description": "Pattern matched in src\\cli\\commands\\simulate.ts at line 1: `import type { SupportedChain } from \"../../types.js\";`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\cli\\commands\\simulate.ts",
+      "line_number": 1,
+      "recommendation": "Review this sandbox escape pattern."
+    },
+    {
+      "id": "code_0041",
+      "severity": "critical",
+      "category": "sandbox_escape",
+      "title": "Potential sandbox/path escape in MCP server",
+      "description": "Pattern matched in src\\cli\\commands\\simulate.ts at line 2: `import { getClient } from \"../../shared/rpc-client.js\";`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\cli\\commands\\simulate.ts",
+      "line_number": 2,
+      "recommendation": "Review this sandbox escape pattern."
+    },
+    {
+      "id": "code_0042",
+      "severity": "critical",
+      "category": "sandbox_escape",
+      "title": "Potential sandbox/path escape in MCP server",
+      "description": "Pattern matched in src\\cli\\commands\\swap.ts at line 1: `import type { SupportedChain } from \"../../types.js\";`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\cli\\commands\\swap.ts",
+      "line_number": 1,
+      "recommendation": "Review this sandbox escape pattern."
+    },
+    {
+      "id": "code_0043",
+      "severity": "critical",
+      "category": "sandbox_escape",
+      "title": "Potential sandbox/path escape in MCP server",
+      "description": "Pattern matched in src\\cli\\commands\\swap.ts at line 2: `import { fetchQuote } from \"../../shared/paraswap.js\";`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\cli\\commands\\swap.ts",
+      "line_number": 2,
+      "recommendation": "Review this sandbox escape pattern."
+    },
+    {
+      "id": "code_0044",
+      "severity": "critical",
+      "category": "sandbox_escape",
+      "title": "Potential sandbox/path escape in MCP server",
+      "description": "Pattern matched in src\\cli\\commands\\swap.ts at line 3: `import { resolveTokenMeta } from \"../../shared/coingecko.js\";`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\cli\\commands\\swap.ts",
+      "line_number": 3,
+      "recommendation": "Review this sandbox escape pattern."
+    },
+    {
+      "id": "code_0045",
+      "severity": "critical",
+      "category": "sandbox_escape",
+      "title": "Potential sandbox/path escape in MCP server",
+      "description": "Pattern matched in src\\cli\\commands\\swap.ts at line 4: `import { NATIVE_TOKEN_ADDRESS } from \"../../shared/constants.js\";`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\cli\\commands\\swap.ts",
+      "line_number": 4,
+      "recommendation": "Review this sandbox escape pattern."
+    },
+    {
+      "id": "code_0046",
+      "severity": "critical",
+      "category": "sandbox_escape",
+      "title": "Potential sandbox/path escape in MCP server",
+      "description": "Pattern matched in src\\cli\\commands\\token-info.ts at line 1: `import type { SupportedChain } from \"../../types.js\";`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\cli\\commands\\token-info.ts",
+      "line_number": 1,
+      "recommendation": "Review this sandbox escape pattern."
+    },
+    {
+      "id": "code_0047",
+      "severity": "critical",
+      "category": "sandbox_escape",
+      "title": "Potential sandbox/path escape in MCP server",
+      "description": "Pattern matched in src\\cli\\commands\\token-info.ts at line 2: `import { resolveTokenMeta } from \"../../shared/coingecko.js\";`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\cli\\commands\\token-info.ts",
+      "line_number": 2,
+      "recommendation": "Review this sandbox escape pattern."
+    },
+    {
+      "id": "code_0048",
+      "severity": "critical",
+      "category": "sandbox_escape",
+      "title": "Potential sandbox/path escape in MCP server",
+      "description": "Pattern matched in src\\cli\\commands\\transfers.ts at line 1: `import type { SupportedChain } from \"../../types.js\";`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\cli\\commands\\transfers.ts",
+      "line_number": 1,
+      "recommendation": "Review this sandbox escape pattern."
+    },
+    {
+      "id": "code_0049",
+      "severity": "critical",
+      "category": "sandbox_escape",
+      "title": "Potential sandbox/path escape in MCP server",
+      "description": "Pattern matched in src\\cli\\commands\\transfers.ts at line 2: `import { EXPLORER_API_URLS, getApiKey } from \"../../shared/etherscan.js\";`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\cli\\commands\\transfers.ts",
+      "line_number": 2,
+      "recommendation": "Review this sandbox escape pattern."
+    },
+    {
+      "id": "code_0050",
+      "severity": "critical",
+      "category": "sandbox_escape",
+      "title": "Potential sandbox/path escape in MCP server",
+      "description": "Pattern matched in src\\cli\\commands\\transfers.ts at line 3: `import { sanitizeError } from \"../../shared/validate.js\";`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\cli\\commands\\transfers.ts",
+      "line_number": 3,
+      "recommendation": "Review this sandbox escape pattern."
+    },
+    {
+      "id": "code_0051",
+      "severity": "critical",
+      "category": "sandbox_escape",
+      "title": "Potential sandbox/path escape in MCP server",
+      "description": "Pattern matched in src\\cli\\commands\\tvl.ts at line 1: `import { getProtocolData } from \"../../shared/defillama.js\";`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\cli\\commands\\tvl.ts",
+      "line_number": 1,
+      "recommendation": "Review this sandbox escape pattern."
+    },
+    {
+      "id": "code_0052",
+      "severity": "critical",
+      "category": "sandbox_escape",
+      "title": "Potential sandbox/path escape in MCP server",
+      "description": "Pattern matched in src\\cli\\commands\\tvl.ts at line 5: `const { default: protocols } = await import(\"../../data/protocols.json\", { with: { type: \"json\" } });`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\cli\\commands\\tvl.ts",
+      "line_number": 5,
+      "recommendation": "Review this sandbox escape pattern."
+    },
+    {
+      "id": "code_0053",
+      "severity": "critical",
+      "category": "sandbox_escape",
+      "title": "Potential sandbox/path escape in MCP server",
+      "description": "Pattern matched in src\\cli\\commands\\tx.ts at line 1: `import type { SupportedChain } from \"../../types.js\";`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\cli\\commands\\tx.ts",
+      "line_number": 1,
+      "recommendation": "Review this sandbox escape pattern."
+    },
+    {
+      "id": "code_0054",
+      "severity": "critical",
+      "category": "sandbox_escape",
+      "title": "Potential sandbox/path escape in MCP server",
+      "description": "Pattern matched in src\\cli\\commands\\tx.ts at line 2: `import { getClient } from \"../../shared/rpc-client.js\";`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\cli\\commands\\tx.ts",
+      "line_number": 2,
+      "recommendation": "Review this sandbox escape pattern."
+    },
+    {
+      "id": "code_0055",
+      "severity": "critical",
+      "category": "sandbox_escape",
+      "title": "Potential sandbox/path escape in MCP server",
+      "description": "Pattern matched in src\\cli\\commands\\yield.ts at line 1: `import { getYieldPools } from \"../../shared/defillama.js\";`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\cli\\commands\\yield.ts",
+      "line_number": 1,
+      "recommendation": "Review this sandbox escape pattern."
+    },
+    {
+      "id": "code_0056",
+      "severity": "high",
+      "category": "credential_theft",
+      "title": "MCP server accesses credentials or secrets",
+      "description": "Pattern matched in src\\shared\\etherscan.ts at line 29: `return process.env[keyMap[chain]] || process.env.EVMSCOPE_ETHERSCAN_KEY;`",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP01"
+      ],
+      "file_path": "src\\shared\\etherscan.ts",
+      "line_number": 29,
+      "recommendation": "Review this credential harvesting pattern."
+    },
+    {
+      "id": "code_0057",
+      "severity": "high",
+      "category": "credential_theft",
+      "title": "MCP server accesses credentials or secrets",
+      "description": "Pattern matched in src\\shared\\rpc-client.ts at line 36: `const envUrl = process.env[RPC_ENV_KEYS[chain]] || process.env.EVMSCOPE_RPC_URL;`",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP01"
+      ],
+      "file_path": "src\\shared\\rpc-client.ts",
+      "line_number": 36,
+      "recommendation": "Review this credential harvesting pattern."
+    },
+    {
+      "id": "code_0058",
+      "severity": "high",
+      "category": "obfuscation",
+      "title": "Obfuscated or encoded content in MCP server",
+      "description": "Pattern matched in src\\tools\\getNFTMetadata.ts at line 87: `const jsonStr = Buffer.from(base64Part, \"base64\").toString(\"utf-8\");`",
+      "owasp_asi": [
+        "ASI01",
+        "ASI10"
+      ],
+      "owasp_mcp": [
+        "MCP03",
+        "MCP04"
+      ],
+      "file_path": "src\\tools\\getNFTMetadata.ts",
+      "line_number": 87,
+      "recommendation": "Review this obfuscation pattern."
+    },
+    {
+      "id": "GHSA-22jm-h49p-29qw",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: @modelcontextprotocol/sdk",
+      "description": "MCP TypeScript SDK: Experimental tasks were not tied to the session that created them",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update @modelcontextprotocol/sdk to a patched version."
+    },
+    {
+      "id": "GHSA-345p-7cg4-v4c7",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: @modelcontextprotocol/sdk",
+      "description": "@modelcontextprotocol/sdk has cross-client data leak via shared server/transport instance reuse",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update @modelcontextprotocol/sdk to a patched version."
+    },
+    {
+      "id": "GHSA-46jr-4wx8-v453",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: @modelcontextprotocol/sdk",
+      "description": "MCP TypeScript SDK: One HTTP request within the default size limit could exhaust server memory during validation",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update @modelcontextprotocol/sdk to a patched version."
+    },
+    {
+      "id": "GHSA-6prh-2h8m-c8cw",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: @modelcontextprotocol/sdk",
+      "description": "MCP TypeScript client SDK: HTTP client transports and OAuth requests followed cross-origin redirects and re-sent custom headers and request bodies",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update @modelcontextprotocol/sdk to a patched version."
+    },
+    {
+      "id": "GHSA-6qxp-vccf-f47h",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: @modelcontextprotocol/sdk",
+      "description": "MCP TypeScript SDK: OAuth client could send credentials to an authorization server chosen by the MCP server",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update @modelcontextprotocol/sdk to a patched version."
+    },
+    {
+      "id": "GHSA-8r9q-7v3j-jr4g",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: @modelcontextprotocol/sdk",
+      "description": "Anthropic's MCP TypeScript SDK has a ReDoS vulnerability",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update @modelcontextprotocol/sdk to a patched version."
+    },
+    {
+      "id": "GHSA-f897-62hf-6gxq",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: @modelcontextprotocol/sdk",
+      "description": "MCP TypeScript SDK: HTTP server transports and handlers did not limit request body size or JSON-RPC batch length",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update @modelcontextprotocol/sdk to a patched version."
+    },
+    {
+      "id": "GHSA-rvq5-wwqv-78pq",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: @modelcontextprotocol/sdk",
+      "description": "MCP TypeScript SDK: Server bearer authentication accepted tokens issued for another service",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update @modelcontextprotocol/sdk to a patched version."
+    },
+    {
+      "id": "GHSA-w48q-cv73-mx4w",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: @modelcontextprotocol/sdk",
+      "description": "Model Context Protocol (MCP) TypeScript SDK does not enable DNS rebinding protection by default",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update @modelcontextprotocol/sdk to a patched version."
+    },
+    {
+      "id": "GHSA-m95q-7qp3-xv42",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: zod",
+      "description": "Zod denial of service vulnerability",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update zod to a patched version."
+    },
+    {
+      "id": "GHSA-mrhx-c7xc-m3w5",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: zod",
+      "description": "Zod can exhaust memory while validating oversized constrained collections",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update zod to a patched version."
+    },
+    {
+      "id": "mcp08_no_tool_logging",
+      "severity": "info",
+      "category": "audit_telemetry",
+      "title": "No logging found in files that define MCP tools (low confidence)",
+      "description": "None of the tool-defining files (src\\tools\\checkHoneypot.ts, src\\tools\\compareGas.ts, src\\tools\\decodeTx.ts, src\\tools\\getApprovalStatus.ts, src\\tools\\getBalance.ts) reference a logging library or logger call. Tool invocations may leave no audit trail. Confidence is low: logging could be configured elsewhere or by the host.",
+      "owasp_asi": [
+        "ASI10"
+      ],
+      "owasp_mcp": [
+        "MCP08"
+      ],
+      "file_path": "src\\tools\\checkHoneypot.ts",
+      "line_number": null,
+      "recommendation": "Log each tool invocation (tool name, caller/session, outcome, and redacted arguments) to a durable, tamper-evident sink."
+    },
+    {
+      "id": "blast_radius_estimate",
+      "severity": "high",
+      "category": "cascading_failure",
+      "title": "Blast radius: HIGH \u2014 compromise of this server has broad impact",
+      "description": "If this MCP server is compromised, the blast radius is HIGH due to: filesystem access, credential access, 26 tools (large attack surface), 54 critical findings. A single tool poisoning or supply chain attack could cascade across all connected systems.",
+      "owasp_asi": [
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Apply least-privilege to this server. Isolate it from other MCP servers. Implement kill switches and behavioral monitoring. Limit env vars to the minimum required."
+    }
+  ],
+  "server_profile": {
+    "name": "<corpus>/registry/50_calintzy__evmscope",
+    "command": null,
+    "args": [],
+    "env_vars": [],
+    "transport": "stdio",
+    "tools": [
+      {
+        "name": "checkHoneypot",
+        "description": "\ud1a0\ud070\uc758 \ud5c8\ub2c8\ud31f(\uc0ac\uae30) \uc5ec\ubd80\ub97c \ud0d0\uc9c0\ud569\ub2c8\ub2e4 (\ub9e4\uc218/\ub9e4\ub3c4 \uc138\uae08, \uc704\ud5d8\ub3c4, \ud50c\ub798\uadf8, Honeypot.is \uae30\ubc18)",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "token": {
+              "type": "string",
+              "description": "\ud1a0\ud070 \uc8fc\uc18c (0x...) \ub610\ub294 \uc2ec\ubcfc"
+            },
+            "chain": {
+              "type": "string",
+              "default": "ethereum",
+              "description": "EVM \uccb4\uc778",
+              "enum": "SUPPORTED_CHAINS"
+            }
+          },
+          "required": [
+            "token"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "compareGas",
+        "description": "5\uac1c EVM \uccb4\uc778\uc758 \uac00\uc2a4\ube44\ub97c \ud55c \ubc88\uc5d0 \ube44\uad50\ud569\ub2c8\ub2e4 (\ucd5c\uc800\uac00 \uc21c \uc815\ub82c, USD \uc608\uc0c1 \ube44\uc6a9 \ud3ec\ud568)",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "decodeTx",
+        "description": "\ud2b8\ub79c\uc7ad\uc158\uc744 \uad6c\uc870\ud654\ub41c JSON\uc73c\ub85c \ud574\uc11d\ud569\ub2c8\ub2e4 (\ud568\uc218\uba85, \ud30c\ub77c\ubbf8\ud130, \uc774\ubca4\ud2b8 \ub85c\uadf8, \uac00\uc2a4 \uc815\ubcf4)",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "txHash": {
+              "type": "string",
+              "description": "\ud2b8\ub79c\uc7ad\uc158 \ud574\uc2dc (0x...)"
+            },
+            "chain": {
+              "type": "string",
+              "default": "ethereum",
+              "description": "\uccb4\uc778 (ethereum, polygon, arbitrum, base, optimism)"
+            }
+          },
+          "required": [
+            "txHash"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "getApprovalStatus",
+        "description": "ERC-20 \ud1a0\ud070 \uc2b9\uc778(allowance) \uc0c1\ud0dc\ub97c \uc870\ud68c\ud569\ub2c8\ub2e4. \uc8fc\uc694 \ud504\ub85c\ud1a0\ucf5c \uc790\ub3d9 \uccb4\ud06c, \ub9ac\uc2a4\ud06c \ub808\ubca8 \ud310\uc815",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "owner": {
+              "type": "string",
+              "description": "\uc9c0\uac11 \uc8fc\uc18c"
+            },
+            "token": {
+              "type": "string",
+              "description": "\ud1a0\ud070 \uc2ec\ubcfc (USDC, USDT) \ub610\ub294 contract address"
+            },
+            "spender": {
+              "type": "string",
+              "description": "\ud2b9\uc815 spender \uc8fc\uc18c (\ubbf8\uc9c0\uc815 \uc2dc \uc8fc\uc694 \ud504\ub85c\ud1a0\ucf5c \uc790\ub3d9 \uc870\ud68c)"
+            },
+            "chain": {
+              "type": "string",
+              "default": "ethereum",
+              "description": "EVM \uccb4\uc778",
+              "enum": "SUPPORTED_CHAINS"
+            }
+          },
+          "required": [
+            "owner",
+            "token"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "getBalance",
+        "description": "\uc9c0\uac11 \uc8fc\uc18c\uc758 \ub124\uc774\ud2f0\ube0c \ud1a0\ud070 + ERC-20 \ud1a0\ud070 \uc794\uace0\ub97c \uc870\ud68c\ud569\ub2c8\ub2e4 (USD \ud658\uc0b0 \ud3ec\ud568)",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "address": {
+              "type": "string",
+              "description": "\uc870\ud68c\ud560 \uc9c0\uac11 \uc8fc\uc18c (0x...)"
+            },
+            "chain": {
+              "type": "string",
+              "default": "ethereum",
+              "description": "EVM \uccb4\uc778",
+              "enum": "SUPPORTED_CHAINS"
+            },
+            "tokens": {
+              "type": "array",
+              "description": "\uc870\ud68c\ud560 \ud1a0\ud070 \uc2ec\ubcfc \ubaa9\ub85d (\uae30\ubcf8: USDC, USDT, DAI, WETH)"
+            }
+          },
+          "required": [
+            "address"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "getBlockInfo",
+        "description": "\ube14\ub85d \ubc88\ud638 \ub610\ub294 'latest'\ub85c \ube14\ub85d \uc0c1\uc138 \uc815\ubcf4(\ud0c0\uc784\uc2a4\ud0ec\ud504, \ud2b8\ub79c\uc7ad\uc158 \uc218, gas \uc0ac\uc6a9\ub7c9, \uac80\uc99d\uc790)\ub97c \uc870\ud68c\ud569\ub2c8\ub2e4",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "blockNumber": {
+              "type": "string",
+              "default": "latest",
+              "description": "\ube14\ub85d \ubc88\ud638 \ub610\ub294 'latest'"
+            },
+            "chain": {
+              "type": "string",
+              "default": "ethereum",
+              "description": "EVM \uccb4\uc778",
+              "enum": "SUPPORTED_CHAINS"
+            }
+          },
+          "required": []
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "getBridgeRoutes",
+        "description": "\ud06c\ub85c\uc2a4\uccb4\uc778 \ube0c\ub9bf\uc9c0 \uacbd\ub85c\ub97c \uc870\ud68c\ud569\ub2c8\ub2e4 (LI.FI \uae30\ubc18, \ube44\uc6a9/\uc2dc\uac04/\uacbd\ub85c \ube44\uad50, \ucd5c\uc801 \uacbd\ub85c \ucd94\ucc9c)",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "fromChain": {
+              "type": "string",
+              "description": "\ucd9c\ubc1c \uccb4\uc778",
+              "enum": "SUPPORTED_CHAINS"
+            },
+            "toChain": {
+              "type": "string",
+              "description": "\ub3c4\ucc29 \uccb4\uc778",
+              "enum": "SUPPORTED_CHAINS"
+            },
+            "token": {
+              "type": "string",
+              "description": "\ud1a0\ud070 \uc2ec\ubcfc (USDC, ETH \ub4f1) \ub610\ub294 \ucee8\ud2b8\ub799\ud2b8 \uc8fc\uc18c"
+            },
+            "amount": {
+              "type": "string",
+              "description": "\uc804\uc1a1 \uc218\ub7c9 (\uc0ac\ub78c\uc774 \uc77d\uc744 \uc218 \uc788\ub294 \ub2e8\uc704, \uc608: '100')"
+            }
+          },
+          "required": [
+            "fromChain",
+            "toChain",
+            "token",
+            "amount"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "getContractABI",
+        "description": "\ucee8\ud2b8\ub799\ud2b8 ABI\ub97c \uc870\ud68c\ud569\ub2c8\ub2e4 (Etherscan \u2192 Sourcify \ud3f4\ubc31, verified contract \ud544\uc694)",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "address": {
+              "type": "string",
+              "description": "\ucee8\ud2b8\ub799\ud2b8 \uc8fc\uc18c (0x...)"
+            },
+            "chain": {
+              "type": "string",
+              "default": "ethereum",
+              "description": "\uccb4\uc778 (ethereum, polygon, arbitrum, base, optimism)"
+            }
+          },
+          "required": [
+            "address"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "getContractEvents",
+        "description": "\ucee8\ud2b8\ub799\ud2b8 \uc774\ubca4\ud2b8 \ub85c\uadf8\ub97c \uc870\ud68c\ud569\ub2c8\ub2e4 (ABI \uc790\ub3d9 \ub514\ucf54\ub529, \ucd5c\uadfc 1000\ube14\ub85d \uae30\ubcf8, \ube14\ub85d \ubc94\uc704 \uc9c0\uc815 \uac00\ub2a5)",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "address": {
+              "type": "string",
+              "description": "\ucee8\ud2b8\ub799\ud2b8 \uc8fc\uc18c (0x...)"
+            },
+            "chain": {
+              "type": "string",
+              "default": "ethereum",
+              "description": "EVM \uccb4\uc778",
+              "enum": "SUPPORTED_CHAINS"
+            },
+            "fromBlock": {
+              "type": "number",
+              "description": "\uc2dc\uc791 \ube14\ub85d (\uae30\ubcf8: \ucd5c\uadfc 1000\ube14\ub85d)"
+            },
+            "limit": {
+              "type": "number",
+              "default": 20,
+              "description": "\ucd5c\ub300 \uc774\ubca4\ud2b8 \uc218 (\uae30\ubcf8 20)"
+            }
+          },
+          "required": [
+            "address"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "getGasPrice",
+        "description": "\ud604\uc7ac \uac00\uc2a4\ube44\ub97c slow/normal/fast 3\ub2e8\uacc4\ub85c \uc870\ud68c\ud569\ub2c8\ub2e4 (Gwei + USD \uc608\uc0c1 \ube44\uc6a9)",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "chain": {
+              "type": "string",
+              "default": "ethereum",
+              "description": "EVM \uccb4\uc778",
+              "enum": "SUPPORTED_CHAINS"
+            }
+          },
+          "required": []
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "getGovernanceProposals",
+        "description": "Snapshot \uae30\ubc18 DeFi \ud504\ub85c\ud1a0\ucf5c \uac70\ubc84\ub10c\uc2a4 \ud504\ub85c\ud3ec\uc808\uc744 \uc870\ud68c\ud569\ub2c8\ub2e4 (\uc0c1\ud0dc \ud544\ud130, \ud22c\ud45c \uacb0\uacfc \ud3ec\ud568)",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "protocol": {
+              "type": "string",
+              "description": "\ud504\ub85c\ud1a0\ucf5c \uc774\ub984 \ub610\ub294 Snapshot space ID (e.g., 'uniswap', 'aave.eth')"
+            },
+            "state": {
+              "type": "string",
+              "default": "active",
+              "description": "\ud504\ub85c\ud3ec\uc808 \uc0c1\ud0dc \ud544\ud130",
+              "enum": [
+                "active",
+                "closed",
+                "all"
+              ]
+            },
+            "limit": {
+              "type": "number",
+              "default": 10,
+              "description": "\uc870\ud68c\ud560 \ud504\ub85c\ud3ec\uc808 \uc218"
+            }
+          },
+          "required": [
+            "protocol"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "getNFTInfo",
+        "description": "\ud2b9\uc815 \ucee8\ud2b8\ub799\ud2b8\uc5d0\uc11c \uc9c0\uac11 \uc8fc\uc18c\uac00 \ubcf4\uc720\ud55c ERC-721 NFT \ubaa9\ub85d\uacfc tokenURI\ub97c \uc870\ud68c\ud569\ub2c8\ub2e4",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "address": {
+              "type": "string",
+              "description": "\uc870\ud68c\ud560 \uc9c0\uac11 \uc8fc\uc18c (0x...)"
+            },
+            "chain": {
+              "type": "string",
+              "default": "ethereum",
+              "description": "EVM \uccb4\uc778",
+              "enum": "SUPPORTED_CHAINS"
+            },
+            "contractAddress": {
+              "type": "string",
+              "description": "\ud2b9\uc815 NFT \ucee8\ud2b8\ub799\ud2b8 \uc8fc\uc18c (\ubbf8\uc9c0\uc815 \uc2dc \uc624\ub958 \ubc18\ud658)"
+            }
+          },
+          "required": [
+            "address"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "getNFTMetadata",
+        "description": "ERC-721 NFT\uc758 \uba54\ud0c0\ub370\uc774\ud130(\uc774\ub984, \uc124\uba85, \uc774\ubbf8\uc9c0, \uc18d\uc131)\ub97c \uc870\ud68c\ud569\ub2c8\ub2e4. IPFS URI \uc790\ub3d9 \ubcc0\ud658 \uc9c0\uc6d0",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "contractAddress": {
+              "type": "string",
+              "description": "NFT \ucee8\ud2b8\ub799\ud2b8 \uc8fc\uc18c (0x...)"
+            },
+            "tokenId": {
+              "type": "string",
+              "description": "\uc870\ud68c\ud560 \ud1a0\ud070 ID"
+            },
+            "chain": {
+              "type": "string",
+              "default": "ethereum",
+              "description": "EVM \uccb4\uc778",
+              "enum": "SUPPORTED_CHAINS"
+            }
+          },
+          "required": [
+            "contractAddress",
+            "tokenId"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "getPortfolio",
+        "description": "\uc9c0\uac11\uc758 \uc804\uccb4 \uc790\uc0b0 \ud3ec\ud2b8\ud3f4\ub9ac\uc624(\ub124\uc774\ud2f0\ube0c + ERC-20 \ud1a0\ud070, USD \uac00\uce58, \ube44\uc728)\ub97c \ud55c \ubc88\uc5d0 \uc870\ud68c\ud569\ub2c8\ub2e4",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "address": {
+              "type": "string",
+              "description": "\uc870\ud68c\ud560 \uc9c0\uac11 \uc8fc\uc18c (0x...)"
+            },
+            "chain": {
+              "type": "string",
+              "default": "ethereum",
+              "description": "EVM \uccb4\uc778",
+              "enum": "SUPPORTED_CHAINS"
+            }
+          },
+          "required": [
+            "address"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "getProtocolTVL",
+        "description": "DeFi \ud504\ub85c\ud1a0\ucf5c\uc758 TVL(Total Value Locked)\uc744 \uc870\ud68c\ud569\ub2c8\ub2e4 (DefiLlama \uae30\ubc18, \uccb4\uc778\ubcc4 \ubd84\ud3ec, 24h/7d \ubcc0\ub3d9\ub960)",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "protocol": {
+              "type": "string",
+              "description": "\ud504\ub85c\ud1a0\ucf5c \uc774\ub984 (Aave, Uniswap \ub4f1) \ub610\ub294 DefiLlama slug"
+            }
+          },
+          "required": [
+            "protocol"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "getSwapQuote",
+        "description": "DEX \uc2a4\uc651 \uacac\uc801\uc744 \uc870\ud68c\ud569\ub2c8\ub2e4 (ParaSwap \uae30\ubc18, \ucd5c\uc801 \uacbd\ub85c, \uac00\uc2a4\ube44 \ud3ec\ud568, ETH\u2192WETH \uc790\ub3d9 \uce58\ud658)",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "tokenIn": {
+              "type": "string",
+              "description": "\ub9e4\ub3c4 \ud1a0\ud070 \uc2ec\ubcfc (ETH, USDC) \ub610\ub294 contract address"
+            },
+            "tokenOut": {
+              "type": "string",
+              "description": "\ub9e4\uc218 \ud1a0\ud070 \uc2ec\ubcfc (USDC, WETH) \ub610\ub294 contract address"
+            },
+            "amountIn": {
+              "type": "string",
+              "description": "\ub9e4\ub3c4 \uc218\ub7c9 (\uc0ac\ub78c\uc774 \uc77d\uc744 \uc218 \uc788\ub294 \ub2e8\uc704, \uc608: '1.5')"
+            },
+            "chain": {
+              "type": "string",
+              "default": "ethereum",
+              "description": "EVM \uccb4\uc778",
+              "enum": "SUPPORTED_CHAINS"
+            }
+          },
+          "required": [
+            "tokenIn",
+            "tokenOut",
+            "amountIn"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "getTokenHolders",
+        "description": "\ud1a0\ud070\uc758 \uc0c1\uc704 \ud640\ub354\ub97c \uc870\ud68c\ud569\ub2c8\ub2e4 (Ethereum: Ethplorer, \uae30\ud0c0 \uccb4\uc778: Etherscan \uc9d1\uacc4, \uc8fc\uc18c/\uc810\uc720\uc728/\uc794\uace0)",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "token": {
+              "type": "string",
+              "description": "\ud1a0\ud070 \uc8fc\uc18c (0x...) \ub610\ub294 \uc2ec\ubcfc (USDC, WETH \ub4f1)"
+            },
+            "chain": {
+              "type": "string",
+              "default": "ethereum",
+              "description": "EVM \uccb4\uc778",
+              "enum": "SUPPORTED_CHAINS"
+            },
+            "limit": {
+              "type": "number",
+              "default": 10,
+              "description": "\uc870\ud68c\ud560 \ud640\ub354 \uc218 (\uae30\ubcf8 10, \ucd5c\ub300 100)"
+            }
+          },
+          "required": [
+            "token"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "getTokenInfo",
+        "description": "ERC-20 \ud1a0\ud070\uc758 \uba54\ud0c0\ub370\uc774\ud130(\uc774\ub984, \uc2ec\ubcfc, \uc18c\uc218\uc810, \ucd1d\uacf5\uae09\ub7c9)\ub97c \uc870\ud68c\ud569\ub2c8\ub2e4",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "token": {
+              "type": "string",
+              "description": "\ud1a0\ud070 \uc2ec\ubcfc (USDC) \ub610\ub294 contract address (0x...)"
+            },
+            "chain": {
+              "type": "string",
+              "default": "ethereum",
+              "description": "EVM \uccb4\uc778",
+              "enum": "SUPPORTED_CHAINS"
+            }
+          },
+          "required": [
+            "token"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "getTokenPrice",
+        "description": "\ud1a0\ud070\uc758 \ud604\uc7ac \uac00\uaca9(USD)\uacfc 24\uc2dc\uac04 \ubcc0\ub3d9\ub960, \uc2dc\uac00\ucd1d\uc561, \uac70\ub798\ub7c9\uc744 \uc870\ud68c\ud569\ub2c8\ub2e4",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "token": {
+              "type": "string",
+              "description": "\ud1a0\ud070 \uc2ec\ubcfc (ETH, USDC) \ub610\ub294 contract address"
+            },
+            "chain": {
+              "type": "string",
+              "default": "ethereum",
+              "description": "EVM \uccb4\uc778",
+              "enum": "SUPPORTED_CHAINS"
+            }
+          },
+          "required": [
+            "token"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "getTokenTransfers",
+        "description": "\uc9c0\uac11 \uc8fc\uc18c\uc758 \ucd5c\uadfc ERC-20 \ud1a0\ud070 \uc804\uc1a1 \ub0b4\uc5ed(\uc785\uae08/\ucd9c\uae08, \ud1a0\ud070\uba85, \uc218\ub7c9)\uc744 \uc870\ud68c\ud569\ub2c8\ub2e4",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "address": {
+              "type": "string",
+              "description": "\uc9c0\uac11 \uc8fc\uc18c (0x...)"
+            },
+            "chain": {
+              "type": "string",
+              "default": "ethereum",
+              "description": "EVM \uccb4\uc778",
+              "enum": "SUPPORTED_CHAINS"
+            },
+            "limit": {
+              "type": "number",
+              "default": 20,
+              "description": "\uc870\ud68c\ud560 \uc804\uc1a1 \uc218 (\uae30\ubcf8 20, \ucd5c\ub300 100)"
+            }
+          },
+          "required": [
+            "address"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "getTxStatus",
+        "description": "\ud2b8\ub79c\uc7ad\uc158 \uc0c1\ud0dc\ub97c \uc870\ud68c\ud569\ub2c8\ub2e4 (pending/success/failed, confirmations, gas \uc0ac\uc6a9\ub7c9)",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "txHash": {
+              "type": "string",
+              "description": "\ud2b8\ub79c\uc7ad\uc158 \ud574\uc2dc (0x...)"
+            },
+            "chain": {
+              "type": "string",
+              "default": "ethereum",
+              "description": "\uccb4\uc778 (ethereum, polygon, arbitrum, base, optimism)"
+            }
+          },
+          "required": [
+            "txHash"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "getWhaleMovements",
+        "description": "\ub300\uaddc\ubaa8 \ud1a0\ud070 \uc804\uc1a1(\uace0\ub798 \uc774\ub3d9)\uc744 \ucd94\uc801\ud569\ub2c8\ub2e4. \uac70\ub798\uc18c \uc785\ucd9c\uae08 \ubc29\ud5a5 \ud310\uc815, \uc694\uc57d \ud1b5\uacc4 \ud3ec\ud568",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "token": {
+              "type": "string",
+              "description": "\ud1a0\ud070 \uc2ec\ubcfc (USDC, USDT) \ub610\ub294 contract address"
+            },
+            "chain": {
+              "type": "string",
+              "default": "ethereum",
+              "description": "EVM \uccb4\uc778",
+              "enum": "SUPPORTED_CHAINS"
+            },
+            "minValueUsd": {
+              "type": "number",
+              "default": 100000,
+              "description": "\ucd5c\uc18c USD \uae08\uc561 (\uae30\ubcf8: $100,000)"
+            },
+            "limit": {
+              "type": "number",
+              "default": 10,
+              "description": "\ubc18\ud658\ud560 \ucd5c\ub300 \uc774\ub3d9 \uc218 (\uae30\ubcf8: 10)"
+            }
+          },
+          "required": [
+            "token"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "getYieldRates",
+        "description": "DeFi \uc218\uc775\ub960(APY)\uc744 \uc870\ud68c\ud569\ub2c8\ub2e4 (DefiLlama \uae30\ubc18, \ud504\ub85c\ud1a0\ucf5c/\uccb4\uc778\ubcc4 \ud544\ud130, TVL \uae30\uc900 \uc0c1\uc704 10\uac1c \ud480)",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "protocol": {
+              "type": "string",
+              "description": "\ud504\ub85c\ud1a0\ucf5c \uc774\ub984 \ud544\ud130 (aave-v3, compound-v3 \ub4f1)"
+            },
+            "chain": {
+              "type": "string",
+              "description": "\uccb4\uc778 \ud544\ud130 (Ethereum, Polygon \ub4f1)"
+            },
+            "minTvl": {
+              "type": "number",
+              "default": 1000000,
+              "description": "\ucd5c\uc18c TVL (USD, \uae30\ubcf8 $1M)"
+            }
+          },
+          "required": []
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "identifyAddress",
+        "description": "\uc8fc\uc18c\ub97c \uc2dd\ubcc4\ud569\ub2c8\ub2e4 (\uac70\ub798\uc18c, DeFi \ud504\ub85c\ud1a0\ucf5c, \uace0\ub798 \uc9c0\uac11, \ucee8\ud2b8\ub799\ud2b8/EOA \ubd84\ub958)",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "address": {
+              "type": "string",
+              "description": "\uc774\ub354\ub9ac\uc6c0 \uc8fc\uc18c (0x...)"
+            },
+            "chain": {
+              "type": "string",
+              "default": "ethereum",
+              "description": "\uccb4\uc778 (ethereum, polygon, arbitrum, base, optimism)"
+            }
+          },
+          "required": [
+            "address"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "resolveENS",
+        "description": "ENS \uc774\ub984 \u2194 \uc774\ub354\ub9ac\uc6c0 \uc8fc\uc18c\ub97c \uc591\ubc29\ud5a5\uc73c\ub85c \ud574\uc11d\ud569\ub2c8\ub2e4 (Ethereum mainnet \uc804\uc6a9)",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "nameOrAddress": {
+              "type": "string",
+              "description": "ENS \uc774\ub984 (vitalik.eth) \ub610\ub294 \uc774\ub354\ub9ac\uc6c0 \uc8fc\uc18c (0x...)"
+            }
+          },
+          "required": [
+            "nameOrAddress"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "simulateTx",
+        "description": "\ud2b8\ub79c\uc7ad\uc158\uc744 \uc2dc\ubbac\ub808\uc774\uc158\ud569\ub2c8\ub2e4 (eth_call + estimateGas, \uac00\uc2a4\ube44 USD \ud658\uc0b0, revert reason \ub514\ucf54\ub529)",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "from": {
+              "type": "string",
+              "description": "\ubc1c\uc2e0\uc790 \uc8fc\uc18c (0x...)"
+            },
+            "to": {
+              "type": "string",
+              "description": "\uc218\uc2e0\uc790/\ucee8\ud2b8\ub799\ud2b8 \uc8fc\uc18c (0x...)"
+            },
+            "data": {
+              "type": "string",
+              "description": "\ud638\ucd9c \ub370\uc774\ud130 (hex, 0x...)"
+            },
+            "value": {
+              "type": "string",
+              "default": "0",
+              "description": "\uc804\uc1a1\ud560 \ub124\uc774\ud2f0\ube0c \ud1a0\ud070 \uc218\ub7c9 (\uc608: '0.1')"
+            },
+            "chain": {
+              "type": "string",
+              "default": "ethereum",
+              "description": "EVM \uccb4\uc778",
+              "enum": "SUPPORTED_CHAINS"
+            }
+          },
+          "required": [
+            "from",
+            "to"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      }
+    ],
+    "resources": [],
+    "prompts": [],
+    "repo_url": null,
+    "npm_package": null,
+    "capabilities_claimed": [],
+    "capabilities_actual": []
+  },
+  "fingerprint": "43af7926b60f6bb265e1297ac567113455c690917632e2b17c8ddced6c61f49f",
+  "surface_map": {
+    "server": {
+      "name": "<corpus>/registry/50_calintzy__evmscope",
+      "instructions": "",
+      "transport": "unknown",
+      "auth": "unknown"
+    },
+    "tools": [
+      {
+        "name": "checkHoneypot",
+        "description": "\ud1a0\ud070\uc758 \ud5c8\ub2c8\ud31f(\uc0ac\uae30) \uc5ec\ubd80\ub97c \ud0d0\uc9c0\ud569\ub2c8\ub2e4 (\ub9e4\uc218/\ub9e4\ub3c4 \uc138\uae08, \uc704\ud5d8\ub3c4, \ud50c\ub798\uadf8, Honeypot.is \uae30\ubc18)",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "token": {
+              "type": "string",
+              "description": "\ud1a0\ud070 \uc8fc\uc18c (0x...) \ub610\ub294 \uc2ec\ubcfc"
+            },
+            "chain": {
+              "type": "string",
+              "default": "ethereum",
+              "description": "EVM \uccb4\uc778",
+              "enum": "SUPPORTED_CHAINS"
+            }
+          },
+          "required": [
+            "token"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [
+          "text"
+        ],
+        "registration": "static",
+        "location": "src\\tools\\checkHoneypot.ts:63"
+      },
+      {
+        "name": "compareGas",
+        "description": "5\uac1c EVM \uccb4\uc778\uc758 \uac00\uc2a4\ube44\ub97c \ud55c \ubc88\uc5d0 \ube44\uad50\ud569\ub2c8\ub2e4 (\ucd5c\uc800\uac00 \uc21c \uc815\ub82c, USD \uc608\uc0c1 \ube44\uc6a9 \ud3ec\ud568)",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "capabilities": [],
+        "return_literals": [
+          "text"
+        ],
+        "registration": "static",
+        "location": "src\\tools\\compareGas.ts:98"
+      },
+      {
+        "name": "decodeTx",
+        "description": "\ud2b8\ub79c\uc7ad\uc158\uc744 \uad6c\uc870\ud654\ub41c JSON\uc73c\ub85c \ud574\uc11d\ud569\ub2c8\ub2e4 (\ud568\uc218\uba85, \ud30c\ub77c\ubbf8\ud130, \uc774\ubca4\ud2b8 \ub85c\uadf8, \uac00\uc2a4 \uc815\ubcf4)",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "txHash": {
+              "type": "string",
+              "description": "\ud2b8\ub79c\uc7ad\uc158 \ud574\uc2dc (0x...)"
+            },
+            "chain": {
+              "type": "string",
+              "default": "ethereum",
+              "description": "\uccb4\uc778 (ethereum, polygon, arbitrum, base, optimism)"
+            }
+          },
+          "required": [
+            "txHash"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [
+          "text"
+        ],
+        "registration": "static",
+        "location": "src\\tools\\decodeTx.ts:224"
+      },
+      {
+        "name": "getApprovalStatus",
+        "description": "ERC-20 \ud1a0\ud070 \uc2b9\uc778(allowance) \uc0c1\ud0dc\ub97c \uc870\ud68c\ud569\ub2c8\ub2e4. \uc8fc\uc694 \ud504\ub85c\ud1a0\ucf5c \uc790\ub3d9 \uccb4\ud06c, \ub9ac\uc2a4\ud06c \ub808\ubca8 \ud310\uc815",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "owner": {
+              "type": "string",
+              "description": "\uc9c0\uac11 \uc8fc\uc18c"
+            },
+            "token": {
+              "type": "string",
+              "description": "\ud1a0\ud070 \uc2ec\ubcfc (USDC, USDT) \ub610\ub294 contract address"
+            },
+            "spender": {
+              "type": "string",
+              "description": "\ud2b9\uc815 spender \uc8fc\uc18c (\ubbf8\uc9c0\uc815 \uc2dc \uc8fc\uc694 \ud504\ub85c\ud1a0\ucf5c \uc790\ub3d9 \uc870\ud68c)"
+            },
+            "chain": {
+              "type": "string",
+              "default": "ethereum",
+              "description": "EVM \uccb4\uc778",
+              "enum": "SUPPORTED_CHAINS"
+            }
+          },
+          "required": [
+            "owner",
+            "token"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [
+          "text"
+        ],
+        "registration": "static",
+        "location": "src\\tools\\getApprovalStatus.ts:143"
+      },
+      {
+        "name": "getBalance",
+        "description": "\uc9c0\uac11 \uc8fc\uc18c\uc758 \ub124\uc774\ud2f0\ube0c \ud1a0\ud070 + ERC-20 \ud1a0\ud070 \uc794\uace0\ub97c \uc870\ud68c\ud569\ub2c8\ub2e4 (USD \ud658\uc0b0 \ud3ec\ud568)",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "address": {
+              "type": "string",
+              "description": "\uc870\ud68c\ud560 \uc9c0\uac11 \uc8fc\uc18c (0x...)"
+            },
+            "chain": {
+              "type": "string",
+              "default": "ethereum",
+              "description": "EVM \uccb4\uc778",
+              "enum": "SUPPORTED_CHAINS"
+            },
+            "tokens": {
+              "type": "array",
+              "description": "\uc870\ud68c\ud560 \ud1a0\ud070 \uc2ec\ubcfc \ubaa9\ub85d (\uae30\ubcf8: USDC, USDT, DAI, WETH)"
+            }
+          },
+          "required": [
+            "address"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [
+          "text"
+        ],
+        "registration": "static",
+        "location": "src\\tools\\getBalance.ts:154"
+      },
+      {
+        "name": "getBlockInfo",
+        "description": "\ube14\ub85d \ubc88\ud638 \ub610\ub294 'latest'\ub85c \ube14\ub85d \uc0c1\uc138 \uc815\ubcf4(\ud0c0\uc784\uc2a4\ud0ec\ud504, \ud2b8\ub79c\uc7ad\uc158 \uc218, gas \uc0ac\uc6a9\ub7c9, \uac80\uc99d\uc790)\ub97c \uc870\ud68c\ud569\ub2c8\ub2e4",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "blockNumber": {
+              "type": "string",
+              "default": "latest",
+              "description": "\ube14\ub85d \ubc88\ud638 \ub610\ub294 'latest'"
+            },
+            "chain": {
+              "type": "string",
+              "default": "ethereum",
+              "description": "EVM \uccb4\uc778",
+              "enum": "SUPPORTED_CHAINS"
+            }
+          },
+          "required": []
+        },
+        "capabilities": [],
+        "return_literals": [
+          "text"
+        ],
+        "registration": "static",
+        "location": "src\\tools\\getBlockInfo.ts:89"
+      },
+      {
+        "name": "getBridgeRoutes",
+        "description": "\ud06c\ub85c\uc2a4\uccb4\uc778 \ube0c\ub9bf\uc9c0 \uacbd\ub85c\ub97c \uc870\ud68c\ud569\ub2c8\ub2e4 (LI.FI \uae30\ubc18, \ube44\uc6a9/\uc2dc\uac04/\uacbd\ub85c \ube44\uad50, \ucd5c\uc801 \uacbd\ub85c \ucd94\ucc9c)",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "fromChain": {
+              "type": "string",
+              "description": "\ucd9c\ubc1c \uccb4\uc778",
+              "enum": "SUPPORTED_CHAINS"
+            },
+            "toChain": {
+              "type": "string",
+              "description": "\ub3c4\ucc29 \uccb4\uc778",
+              "enum": "SUPPORTED_CHAINS"
+            },
+            "token": {
+              "type": "string",
+              "description": "\ud1a0\ud070 \uc2ec\ubcfc (USDC, ETH \ub4f1) \ub610\ub294 \ucee8\ud2b8\ub799\ud2b8 \uc8fc\uc18c"
+            },
+            "amount": {
+              "type": "string",
+              "description": "\uc804\uc1a1 \uc218\ub7c9 (\uc0ac\ub78c\uc774 \uc77d\uc744 \uc218 \uc788\ub294 \ub2e8\uc704, \uc608: '100')"
+            }
+          },
+          "required": [
+            "fromChain",
+            "toChain",
+            "token",
+            "amount"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [
+          "text"
+        ],
+        "registration": "static",
+        "location": "src\\tools\\getBridgeRoutes.ts:102"
+      },
+      {
+        "name": "getContractABI",
+        "description": "\ucee8\ud2b8\ub799\ud2b8 ABI\ub97c \uc870\ud68c\ud569\ub2c8\ub2e4 (Etherscan \u2192 Sourcify \ud3f4\ubc31, verified contract \ud544\uc694)",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "address": {
+              "type": "string",
+              "description": "\ucee8\ud2b8\ub799\ud2b8 \uc8fc\uc18c (0x...)"
+            },
+            "chain": {
+              "type": "string",
+              "default": "ethereum",
+              "description": "\uccb4\uc778 (ethereum, polygon, arbitrum, base, optimism)"
+            }
+          },
+          "required": [
+            "address"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [
+          "text"
+        ],
+        "registration": "static",
+        "location": "src\\tools\\getContractABI.ts:85"
+      },
+      {
+        "name": "getContractEvents",
+        "description": "\ucee8\ud2b8\ub799\ud2b8 \uc774\ubca4\ud2b8 \ub85c\uadf8\ub97c \uc870\ud68c\ud569\ub2c8\ub2e4 (ABI \uc790\ub3d9 \ub514\ucf54\ub529, \ucd5c\uadfc 1000\ube14\ub85d \uae30\ubcf8, \ube14\ub85d \ubc94\uc704 \uc9c0\uc815 \uac00\ub2a5)",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "address": {
+              "type": "string",
+              "description": "\ucee8\ud2b8\ub799\ud2b8 \uc8fc\uc18c (0x...)"
+            },
+            "chain": {
+              "type": "string",
+              "default": "ethereum",
+              "description": "EVM \uccb4\uc778",
+              "enum": "SUPPORTED_CHAINS"
+            },
+            "fromBlock": {
+              "type": "number",
+              "description": "\uc2dc\uc791 \ube14\ub85d (\uae30\ubcf8: \ucd5c\uadfc 1000\ube14\ub85d)"
+            },
+            "limit": {
+              "type": "number",
+              "default": 20,
+              "description": "\ucd5c\ub300 \uc774\ubca4\ud2b8 \uc218 (\uae30\ubcf8 20)"
+            }
+          },
+          "required": [
+            "address"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [
+          "text"
+        ],
+        "registration": "static",
+        "location": "src\\tools\\getContractEvents.ts:118"
+      },
+      {
+        "name": "getGasPrice",
+        "description": "\ud604\uc7ac \uac00\uc2a4\ube44\ub97c slow/normal/fast 3\ub2e8\uacc4\ub85c \uc870\ud68c\ud569\ub2c8\ub2e4 (Gwei + USD \uc608\uc0c1 \ube44\uc6a9)",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "chain": {
+              "type": "string",
+              "default": "ethereum",
+              "description": "EVM \uccb4\uc778",
+              "enum": "SUPPORTED_CHAINS"
+            }
+          },
+          "required": []
+        },
+        "capabilities": [],
+        "return_literals": [
+          "text"
+        ],
+        "registration": "static",
+        "location": "src\\tools\\getGasPrice.ts:105"
+      },
+      {
+        "name": "getGovernanceProposals",
+        "description": "Snapshot \uae30\ubc18 DeFi \ud504\ub85c\ud1a0\ucf5c \uac70\ubc84\ub10c\uc2a4 \ud504\ub85c\ud3ec\uc808\uc744 \uc870\ud68c\ud569\ub2c8\ub2e4 (\uc0c1\ud0dc \ud544\ud130, \ud22c\ud45c \uacb0\uacfc \ud3ec\ud568)",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "protocol": {
+              "type": "string",
+              "description": "\ud504\ub85c\ud1a0\ucf5c \uc774\ub984 \ub610\ub294 Snapshot space ID (e.g., 'uniswap', 'aave.eth')"
+            },
+            "state": {
+              "type": "string",
+              "default": "active",
+              "description": "\ud504\ub85c\ud3ec\uc808 \uc0c1\ud0dc \ud544\ud130",
+              "enum": [
+                "active",
+                "closed",
+                "all"
+              ]
+            },
+            "limit": {
+              "type": "number",
+              "default": 10,
+              "description": "\uc870\ud68c\ud560 \ud504\ub85c\ud3ec\uc808 \uc218"
+            }
+          },
+          "required": [
+            "protocol"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [
+          "text"
+        ],
+        "registration": "static",
+        "location": "src\\tools\\getGovernanceProposals.ts:217"
+      },
+      {
+        "name": "getNFTInfo",
+        "description": "\ud2b9\uc815 \ucee8\ud2b8\ub799\ud2b8\uc5d0\uc11c \uc9c0\uac11 \uc8fc\uc18c\uac00 \ubcf4\uc720\ud55c ERC-721 NFT \ubaa9\ub85d\uacfc tokenURI\ub97c \uc870\ud68c\ud569\ub2c8\ub2e4",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "address": {
+              "type": "string",
+              "description": "\uc870\ud68c\ud560 \uc9c0\uac11 \uc8fc\uc18c (0x...)"
+            },
+            "chain": {
+              "type": "string",
+              "default": "ethereum",
+              "description": "EVM \uccb4\uc778",
+              "enum": "SUPPORTED_CHAINS"
+            },
+            "contractAddress": {
+              "type": "string",
+              "description": "\ud2b9\uc815 NFT \ucee8\ud2b8\ub799\ud2b8 \uc8fc\uc18c (\ubbf8\uc9c0\uc815 \uc2dc \uc624\ub958 \ubc18\ud658)"
+            }
+          },
+          "required": [
+            "address"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [
+          "text"
+        ],
+        "registration": "static",
+        "location": "src\\tools\\getNFTInfo.ts:167"
+      },
+      {
+        "name": "getNFTMetadata",
+        "description": "ERC-721 NFT\uc758 \uba54\ud0c0\ub370\uc774\ud130(\uc774\ub984, \uc124\uba85, \uc774\ubbf8\uc9c0, \uc18d\uc131)\ub97c \uc870\ud68c\ud569\ub2c8\ub2e4. IPFS URI \uc790\ub3d9 \ubcc0\ud658 \uc9c0\uc6d0",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "contractAddress": {
+              "type": "string",
+              "description": "NFT \ucee8\ud2b8\ub799\ud2b8 \uc8fc\uc18c (0x...)"
+            },
+            "tokenId": {
+              "type": "string",
+              "description": "\uc870\ud68c\ud560 \ud1a0\ud070 ID"
+            },
+            "chain": {
+              "type": "string",
+              "default": "ethereum",
+              "description": "EVM \uccb4\uc778",
+              "enum": "SUPPORTED_CHAINS"
+            }
+          },
+          "required": [
+            "contractAddress",
+            "tokenId"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [
+          "text"
+        ],
+        "registration": "static",
+        "location": "src\\tools\\getNFTMetadata.ts:170"
+      },
+      {
+        "name": "getPortfolio",
+        "description": "\uc9c0\uac11\uc758 \uc804\uccb4 \uc790\uc0b0 \ud3ec\ud2b8\ud3f4\ub9ac\uc624(\ub124\uc774\ud2f0\ube0c + ERC-20 \ud1a0\ud070, USD \uac00\uce58, \ube44\uc728)\ub97c \ud55c \ubc88\uc5d0 \uc870\ud68c\ud569\ub2c8\ub2e4",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "address": {
+              "type": "string",
+              "description": "\uc870\ud68c\ud560 \uc9c0\uac11 \uc8fc\uc18c (0x...)"
+            },
+            "chain": {
+              "type": "string",
+              "default": "ethereum",
+              "description": "EVM \uccb4\uc778",
+              "enum": "SUPPORTED_CHAINS"
+            }
+          },
+          "required": [
+            "address"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [
+          "text"
+        ],
+        "registration": "static",
+        "location": "src\\tools\\getPortfolio.ts:167"
+      },
+      {
+        "name": "getProtocolTVL",
+        "description": "DeFi \ud504\ub85c\ud1a0\ucf5c\uc758 TVL(Total Value Locked)\uc744 \uc870\ud68c\ud569\ub2c8\ub2e4 (DefiLlama \uae30\ubc18, \uccb4\uc778\ubcc4 \ubd84\ud3ec, 24h/7d \ubcc0\ub3d9\ub960)",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "protocol": {
+              "type": "string",
+              "description": "\ud504\ub85c\ud1a0\ucf5c \uc774\ub984 (Aave, Uniswap \ub4f1) \ub610\ub294 DefiLlama slug"
+            }
+          },
+          "required": [
+            "protocol"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [
+          "text"
+        ],
+        "registration": "static",
+        "location": "src\\tools\\getProtocolTVL.ts:92"
+      },
+      {
+        "name": "getSwapQuote",
+        "description": "DEX \uc2a4\uc651 \uacac\uc801\uc744 \uc870\ud68c\ud569\ub2c8\ub2e4 (ParaSwap \uae30\ubc18, \ucd5c\uc801 \uacbd\ub85c, \uac00\uc2a4\ube44 \ud3ec\ud568, ETH\u2192WETH \uc790\ub3d9 \uce58\ud658)",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "tokenIn": {
+              "type": "string",
+              "description": "\ub9e4\ub3c4 \ud1a0\ud070 \uc2ec\ubcfc (ETH, USDC) \ub610\ub294 contract address"
+            },
+            "tokenOut": {
+              "type": "string",
+              "description": "\ub9e4\uc218 \ud1a0\ud070 \uc2ec\ubcfc (USDC, WETH) \ub610\ub294 contract address"
+            },
+            "amountIn": {
+              "type": "string",
+              "description": "\ub9e4\ub3c4 \uc218\ub7c9 (\uc0ac\ub78c\uc774 \uc77d\uc744 \uc218 \uc788\ub294 \ub2e8\uc704, \uc608: '1.5')"
+            },
+            "chain": {
+              "type": "string",
+              "default": "ethereum",
+              "description": "EVM \uccb4\uc778",
+              "enum": "SUPPORTED_CHAINS"
+            }
+          },
+          "required": [
+            "tokenIn",
+            "tokenOut",
+            "amountIn"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [
+          "text"
+        ],
+        "registration": "static",
+        "location": "src\\tools\\getSwapQuote.ts:105"
+      },
+      {
+        "name": "getTokenHolders",
+        "description": "\ud1a0\ud070\uc758 \uc0c1\uc704 \ud640\ub354\ub97c \uc870\ud68c\ud569\ub2c8\ub2e4 (Ethereum: Ethplorer, \uae30\ud0c0 \uccb4\uc778: Etherscan \uc9d1\uacc4, \uc8fc\uc18c/\uc810\uc720\uc728/\uc794\uace0)",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "token": {
+              "type": "string",
+              "description": "\ud1a0\ud070 \uc8fc\uc18c (0x...) \ub610\ub294 \uc2ec\ubcfc (USDC, WETH \ub4f1)"
+            },
+            "chain": {
+              "type": "string",
+              "default": "ethereum",
+              "description": "EVM \uccb4\uc778",
+              "enum": "SUPPORTED_CHAINS"
+            },
+            "limit": {
+              "type": "number",
+              "default": 10,
+              "description": "\uc870\ud68c\ud560 \ud640\ub354 \uc218 (\uae30\ubcf8 10, \ucd5c\ub300 100)"
+            }
+          },
+          "required": [
+            "token"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [
+          "text"
+        ],
+        "registration": "static",
+        "location": "src\\tools\\getTokenHolders.ts:113"
+      },
+      {
+        "name": "getTokenInfo",
+        "description": "ERC-20 \ud1a0\ud070\uc758 \uba54\ud0c0\ub370\uc774\ud130(\uc774\ub984, \uc2ec\ubcfc, \uc18c\uc218\uc810, \ucd1d\uacf5\uae09\ub7c9)\ub97c \uc870\ud68c\ud569\ub2c8\ub2e4",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "token": {
+              "type": "string",
+              "description": "\ud1a0\ud070 \uc2ec\ubcfc (USDC) \ub610\ub294 contract address (0x...)"
+            },
+            "chain": {
+              "type": "string",
+              "default": "ethereum",
+              "description": "EVM \uccb4\uc778",
+              "enum": "SUPPORTED_CHAINS"
+            }
+          },
+          "required": [
+            "token"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [
+          "text"
+        ],
+        "registration": "static",
+        "location": "src\\tools\\getTokenInfo.ts:131"
+      },
+      {
+        "name": "getTokenPrice",
+        "description": "\ud1a0\ud070\uc758 \ud604\uc7ac \uac00\uaca9(USD)\uacfc 24\uc2dc\uac04 \ubcc0\ub3d9\ub960, \uc2dc\uac00\ucd1d\uc561, \uac70\ub798\ub7c9\uc744 \uc870\ud68c\ud569\ub2c8\ub2e4",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "token": {
+              "type": "string",
+              "description": "\ud1a0\ud070 \uc2ec\ubcfc (ETH, USDC) \ub610\ub294 contract address"
+            },
+            "chain": {
+              "type": "string",
+              "default": "ethereum",
+              "description": "EVM \uccb4\uc778",
+              "enum": "SUPPORTED_CHAINS"
+            }
+          },
+          "required": [
+            "token"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [
+          "text"
+        ],
+        "registration": "static",
+        "location": "src\\tools\\getTokenPrice.ts:52"
+      },
+      {
+        "name": "getTokenTransfers",
+        "description": "\uc9c0\uac11 \uc8fc\uc18c\uc758 \ucd5c\uadfc ERC-20 \ud1a0\ud070 \uc804\uc1a1 \ub0b4\uc5ed(\uc785\uae08/\ucd9c\uae08, \ud1a0\ud070\uba85, \uc218\ub7c9)\uc744 \uc870\ud68c\ud569\ub2c8\ub2e4",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "address": {
+              "type": "string",
+              "description": "\uc9c0\uac11 \uc8fc\uc18c (0x...)"
+            },
+            "chain": {
+              "type": "string",
+              "default": "ethereum",
+              "description": "EVM \uccb4\uc778",
+              "enum": "SUPPORTED_CHAINS"
+            },
+            "limit": {
+              "type": "number",
+              "default": 20,
+              "description": "\uc870\ud68c\ud560 \uc804\uc1a1 \uc218 (\uae30\ubcf8 20, \ucd5c\ub300 100)"
+            }
+          },
+          "required": [
+            "address"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [
+          "text"
+        ],
+        "registration": "static",
+        "location": "src\\tools\\getTokenTransfers.ts:112"
+      },
+      {
+        "name": "getTxStatus",
+        "description": "\ud2b8\ub79c\uc7ad\uc158 \uc0c1\ud0dc\ub97c \uc870\ud68c\ud569\ub2c8\ub2e4 (pending/success/failed, confirmations, gas \uc0ac\uc6a9\ub7c9)",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "txHash": {
+              "type": "string",
+              "description": "\ud2b8\ub79c\uc7ad\uc158 \ud574\uc2dc (0x...)"
+            },
+            "chain": {
+              "type": "string",
+              "default": "ethereum",
+              "description": "\uccb4\uc778 (ethereum, polygon, arbitrum, base, optimism)"
+            }
+          },
+          "required": [
+            "txHash"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [
+          "text"
+        ],
+        "registration": "static",
+        "location": "src\\tools\\getTxStatus.ts:116"
+      },
+      {
+        "name": "getWhaleMovements",
+        "description": "\ub300\uaddc\ubaa8 \ud1a0\ud070 \uc804\uc1a1(\uace0\ub798 \uc774\ub3d9)\uc744 \ucd94\uc801\ud569\ub2c8\ub2e4. \uac70\ub798\uc18c \uc785\ucd9c\uae08 \ubc29\ud5a5 \ud310\uc815, \uc694\uc57d \ud1b5\uacc4 \ud3ec\ud568",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "token": {
+              "type": "string",
+              "description": "\ud1a0\ud070 \uc2ec\ubcfc (USDC, USDT) \ub610\ub294 contract address"
+            },
+            "chain": {
+              "type": "string",
+              "default": "ethereum",
+              "description": "EVM \uccb4\uc778",
+              "enum": "SUPPORTED_CHAINS"
+            },
+            "minValueUsd": {
+              "type": "number",
+              "default": 100000,
+              "description": "\ucd5c\uc18c USD \uae08\uc561 (\uae30\ubcf8: $100,000)"
+            },
+            "limit": {
+              "type": "number",
+              "default": 10,
+              "description": "\ubc18\ud658\ud560 \ucd5c\ub300 \uc774\ub3d9 \uc218 (\uae30\ubcf8: 10)"
+            }
+          },
+          "required": [
+            "token"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [
+          "text"
+        ],
+        "registration": "static",
+        "location": "src\\tools\\getWhaleMovements.ts:147"
+      },
+      {
+        "name": "getYieldRates",
+        "description": "DeFi \uc218\uc775\ub960(APY)\uc744 \uc870\ud68c\ud569\ub2c8\ub2e4 (DefiLlama \uae30\ubc18, \ud504\ub85c\ud1a0\ucf5c/\uccb4\uc778\ubcc4 \ud544\ud130, TVL \uae30\uc900 \uc0c1\uc704 10\uac1c \ud480)",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "protocol": {
+              "type": "string",
+              "description": "\ud504\ub85c\ud1a0\ucf5c \uc774\ub984 \ud544\ud130 (aave-v3, compound-v3 \ub4f1)"
+            },
+            "chain": {
+              "type": "string",
+              "description": "\uccb4\uc778 \ud544\ud130 (Ethereum, Polygon \ub4f1)"
+            },
+            "minTvl": {
+              "type": "number",
+              "default": 1000000,
+              "description": "\ucd5c\uc18c TVL (USD, \uae30\ubcf8 $1M)"
+            }
+          },
+          "required": []
+        },
+        "capabilities": [],
+        "return_literals": [
+          "text"
+        ],
+        "registration": "static",
+        "location": "src\\tools\\getYieldRates.ts:44"
+      },
+      {
+        "name": "identifyAddress",
+        "description": "\uc8fc\uc18c\ub97c \uc2dd\ubcc4\ud569\ub2c8\ub2e4 (\uac70\ub798\uc18c, DeFi \ud504\ub85c\ud1a0\ucf5c, \uace0\ub798 \uc9c0\uac11, \ucee8\ud2b8\ub799\ud2b8/EOA \ubd84\ub958)",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "address": {
+              "type": "string",
+              "description": "\uc774\ub354\ub9ac\uc6c0 \uc8fc\uc18c (0x...)"
+            },
+            "chain": {
+              "type": "string",
+              "default": "ethereum",
+              "description": "\uccb4\uc778 (ethereum, polygon, arbitrum, base, optimism)"
+            }
+          },
+          "required": [
+            "address"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [
+          "text"
+        ],
+        "registration": "static",
+        "location": "src\\tools\\identifyAddress.ts:117"
+      },
+      {
+        "name": "resolveENS",
+        "description": "ENS \uc774\ub984 \u2194 \uc774\ub354\ub9ac\uc6c0 \uc8fc\uc18c\ub97c \uc591\ubc29\ud5a5\uc73c\ub85c \ud574\uc11d\ud569\ub2c8\ub2e4 (Ethereum mainnet \uc804\uc6a9)",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "nameOrAddress": {
+              "type": "string",
+              "description": "ENS \uc774\ub984 (vitalik.eth) \ub610\ub294 \uc774\ub354\ub9ac\uc6c0 \uc8fc\uc18c (0x...)"
+            }
+          },
+          "required": [
+            "nameOrAddress"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [
+          "text"
+        ],
+        "registration": "static",
+        "location": "src\\tools\\resolveENS.ts:107"
+      },
+      {
+        "name": "simulateTx",
+        "description": "\ud2b8\ub79c\uc7ad\uc158\uc744 \uc2dc\ubbac\ub808\uc774\uc158\ud569\ub2c8\ub2e4 (eth_call + estimateGas, \uac00\uc2a4\ube44 USD \ud658\uc0b0, revert reason \ub514\ucf54\ub529)",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "from": {
+              "type": "string",
+              "description": "\ubc1c\uc2e0\uc790 \uc8fc\uc18c (0x...)"
+            },
+            "to": {
+              "type": "string",
+              "description": "\uc218\uc2e0\uc790/\ucee8\ud2b8\ub799\ud2b8 \uc8fc\uc18c (0x...)"
+            },
+            "data": {
+              "type": "string",
+              "description": "\ud638\ucd9c \ub370\uc774\ud130 (hex, 0x...)"
+            },
+            "value": {
+              "type": "string",
+              "default": "0",
+              "description": "\uc804\uc1a1\ud560 \ub124\uc774\ud2f0\ube0c \ud1a0\ud070 \uc218\ub7c9 (\uc608: '0.1')"
+            },
+            "chain": {
+              "type": "string",
+              "default": "ethereum",
+              "description": "EVM \uccb4\uc778",
+              "enum": "SUPPORTED_CHAINS"
+            }
+          },
+          "required": [
+            "from",
+            "to"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [
+          "text"
+        ],
+        "registration": "static",
+        "location": "src\\tools\\simulateTx.ts:101"
+      }
+    ],
+    "resources": [],
+    "prompts": [],
+    "mutations": [],
+    "source": {
+      "kind": "static",
+      "target": "<corpus>/registry/50_calintzy__evmscope",
+      "languages": [
+        "typescript"
+      ]
+    },
+    "generated_at": "2026-11-04T02:45:23+00:00",
+    "fingerprint": "43af7926b60f6bb265e1297ac567113455c690917632e2b17c8ddced6c61f49f",
+    "schema": "axiom.surface/1"
+  },
+  "owasp_coverage": {
+    "framework": "OWASP Top 10 for Agentic Applications 2026",
+    "reference": "https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/",
+    "coverage": {
+      "ASI01": {
+        "name": "Agent Goal Hijack",
+        "coverage_level": "strong",
+        "findings_count": 2,
+        "finding_ids": [
+          "code_0023",
+          "code_0058"
+        ],
+        "detectors": [
+          "tool_poisoning",
+          "prompt_injection",
+          "instruction_injection"
+        ]
+      },
+      "ASI02": {
+        "name": "Tool Misuse & Exploitation",
+        "coverage_level": "strong",
+        "findings_count": 1,
+        "finding_ids": [
+          "code_0023"
+        ],
+        "detectors": [
+          "toxic_tool_combo",
+          "tool_overscope",
+          "tool_chaining_detection"
+        ]
+      },
+      "ASI03": {
+        "name": "Identity & Privilege Abuse",
+        "coverage_level": "strong",
+        "findings_count": 2,
+        "finding_ids": [
+          "code_0056",
+          "code_0057"
+        ],
+        "detectors": [
+          "credential_analysis",
+          "shared_credential_detection",
+          "env_var_audit"
+        ]
+      },
+      "ASI04": {
+        "name": "Agentic Supply Chain Vulnerabilities",
+        "coverage_level": "strong",
+        "findings_count": 11,
+        "finding_ids": [
+          "GHSA-22jm-h49p-29qw",
+          "GHSA-345p-7cg4-v4c7",
+          "GHSA-46jr-4wx8-v453",
+          "GHSA-6prh-2h8m-c8cw",
+          "GHSA-6qxp-vccf-f47h",
+          "GHSA-8r9q-7v3j-jr4g",
+          "GHSA-f897-62hf-6gxq",
+          "GHSA-rvq5-wwqv-78pq",
+          "GHSA-w48q-cv73-mx4w",
+          "GHSA-m95q-7qp3-xv42"
+        ],
+        "detectors": [
+          "dependency_cve",
+          "lifecycle_hooks",
+          "npx_unversioned",
+          "known_mcp_cves"
+        ]
+      },
+      "ASI05": {
+        "name": "Unexpected Code Execution",
+        "coverage_level": "strong",
+        "findings_count": 54,
+        "finding_ids": [
+          "code_0001",
+          "code_0002",
+          "code_0003",
+          "code_0004",
+          "code_0005",
+          "code_0006",
+          "code_0007",
+          "code_0008",
+          "code_0009",
+          "code_0010"
+        ],
+        "detectors": [
+          "code_exec_patterns",
+          "code_generation_detection",
+          "sandbox_escape"
+        ]
+      },
+      "ASI06": {
+        "name": "Memory & Context Poisoning",
+        "coverage_level": "partial",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "memory_poisoning_patterns",
+          "context_manipulation_detection"
+        ],
+        "gap_note": "Axiom detects static patterns. Full coverage requires runtime memory monitoring."
+      },
+      "ASI07": {
+        "name": "Insecure Inter-Agent Communication",
+        "coverage_level": "partial",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "transport_security",
+          "a2a_pattern_detection"
+        ],
+        "gap_note": "Axiom checks transport security. Full A2A protocol analysis requires runtime interception."
+      },
+      "ASI08": {
+        "name": "Cascading Failures",
+        "coverage_level": "partial",
+        "findings_count": 1,
+        "finding_ids": [
+          "blast_radius_estimate"
+        ],
+        "detectors": [
+          "blast_radius_estimation",
+          "dependency_chain_analysis"
+        ],
+        "gap_note": "Axiom estimates blast radius from tool capabilities. Full cascading failure analysis requires runtime topology mapping."
+      },
+      "ASI09": {
+        "name": "Human-Agent Trust Exploitation",
+        "coverage_level": "strong",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "claimed_vs_actual",
+          "deceptive_output_detection",
+          "trust_manipulation_patterns"
+        ]
+      },
+      "ASI10": {
+        "name": "Rogue Agents",
+        "coverage_level": "partial",
+        "findings_count": 2,
+        "finding_ids": [
+          "code_0058",
+          "mcp08_no_tool_logging"
+        ],
+        "detectors": [
+          "sleeper_patterns",
+          "behavioral_drift_indicators",
+          "persistence_detection"
+        ],
+        "gap_note": "Axiom detects static rogue indicators. Full rogue agent detection requires runtime behavioral monitoring."
+      }
+    },
+    "total_asi_categories_with_findings": 7
+  },
+  "owasp_mcp_coverage": {
+    "framework": "OWASP MCP Top 10",
+    "framework_version": "v0.1 beta",
+    "reference": "https://owasp.org/www-project-mcp-top-10/",
+    "coverage": {
+      "MCP01": {
+        "id": "MCP01:2025",
+        "name": "Token Mismanagement & Secret Exposure",
+        "coverage_level": "partial",
+        "reason": "Regex-based secret detection in server source and client configs plus env-var exposure checks; no entropy analysis, git-history scan, or token lifetime/passthrough checks.",
+        "findings_count": 2,
+        "finding_ids": [
+          "code_0056",
+          "code_0057"
+        ],
+        "detectors": [
+          "credential_theft",
+          "cross_server",
+          "mcp01_hardcoded_secrets",
+          "config_hardcoded_secret",
+          "env_var_audit",
+          "env_dump"
+        ]
+      },
+      "MCP02": {
+        "id": "MCP02:2025",
+        "name": "Privilege Escalation via Scope Creep",
+        "coverage_level": "strong",
+        "reason": "Permission over-scope patterns, toxic tool-capability combinations, path-escape checks and env-var over-exposure in configs.",
+        "findings_count": 55,
+        "finding_ids": [
+          "code_0001",
+          "code_0002",
+          "code_0003",
+          "code_0004",
+          "code_0005",
+          "code_0006",
+          "code_0007",
+          "code_0008",
+          "code_0009",
+          "code_0010"
+        ],
+        "detectors": [
+          "permission_overscope",
+          "toxic_tool_combo",
+          "identity_privilege",
+          "sandbox_escape",
+          "config_risk",
+          "cascading_failure",
+          "cross_server",
+          "excessive_scope",
+          "confused_deputy",
+          "file_read",
+          "file_write"
+        ]
+      },
+      "MCP03": {
+        "id": "MCP03:2025",
+        "name": "Tool Poisoning",
+        "coverage_level": "strong",
+        "reason": "Dedicated detector for hidden instructions in tool metadata, plus runtime rug-pull diffing between source and live tool definitions.",
+        "findings_count": 1,
+        "finding_ids": [
+          "code_0058"
+        ],
+        "detectors": [
+          "tool_poisoning",
+          "obfuscation",
+          "rogue_agent",
+          "source_vs_runtime_diff",
+          "tool_shadowing",
+          "hidden_unicode",
+          "rug_pull_primitive",
+          "surface_mismatch"
+        ]
+      },
+      "MCP04": {
+        "id": "MCP04:2025",
+        "name": "Software Supply Chain Attacks & Dependency Tampering",
+        "coverage_level": "strong",
+        "reason": "Dependency CVE lookup, known MCP CVEs, install lifecycle hooks, and unpinned npx/uvx/pip/@latest install sources.",
+        "findings_count": 12,
+        "finding_ids": [
+          "code_0058",
+          "GHSA-22jm-h49p-29qw",
+          "GHSA-345p-7cg4-v4c7",
+          "GHSA-46jr-4wx8-v453",
+          "GHSA-6prh-2h8m-c8cw",
+          "GHSA-6qxp-vccf-f47h",
+          "GHSA-8r9q-7v3j-jr4g",
+          "GHSA-f897-62hf-6gxq",
+          "GHSA-rvq5-wwqv-78pq",
+          "GHSA-w48q-cv73-mx4w"
+        ],
+        "detectors": [
+          "dependency_vuln",
+          "supply_chain",
+          "known_cve",
+          "obfuscation",
+          "lifecycle_hooks",
+          "mcp04_unpinned_install",
+          "homoglyph",
+          "rug_pull_primitive",
+          "surface_mismatch"
+        ]
+      },
+      "MCP05": {
+        "id": "MCP05:2025",
+        "name": "Command Injection & Execution",
+        "coverage_level": "partial",
+        "reason": "Regex, AST and Semgrep find exec/shell sinks and a heuristic flags sinks inside tool handlers, but there is no inter-procedural taint tracking from tool input to sink.",
+        "findings_count": 54,
+        "finding_ids": [
+          "code_0001",
+          "code_0002",
+          "code_0003",
+          "code_0004",
+          "code_0005",
+          "code_0006",
+          "code_0007",
+          "code_0008",
+          "code_0009",
+          "code_0010"
+        ],
+        "detectors": [
+          "command_injection",
+          "code_execution",
+          "code_generation",
+          "sandbox_escape",
+          "mcp05_tool_input_sink",
+          "shell_exec"
+        ]
+      },
+      "MCP06": {
+        "id": "MCP06:2025",
+        "name": "Prompt Injection via Contextual Payloads",
+        "coverage_level": "partial",
+        "reason": "Injection markers are detected in tool metadata, server instructions, resources, prompts and the strings a tool returns (static), and in instructions/resources/prompts read live; payloads produced by calling a tool at runtime are not inspected.",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "prompt_injection",
+          "memory_poisoning",
+          "trust_exploitation",
+          "response_injection",
+          "tool_shadowing"
+        ]
+      },
+      "MCP07": {
+        "id": "MCP07:2025",
+        "name": "Insufficient Authentication & Authorization",
+        "coverage_level": "partial",
+        "reason": "Flags remote servers with no visible auth and servers bound to all interfaces; does not verify OAuth implementation or per-tool authorization logic.",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "transport_security",
+          "inter_agent_comm",
+          "identity_privilege",
+          "transport_no_auth",
+          "config_no_auth",
+          "mcp07_bind_all_interfaces"
+        ]
+      },
+      "MCP08": {
+        "id": "MCP08:2025",
+        "name": "Lack of Audit and Telemetry",
+        "coverage_level": "gap",
+        "reason": "Only a low-confidence heuristic for missing logging in tool-defining files; actual audit trails and telemetry pipelines are not verified.",
+        "findings_count": 1,
+        "finding_ids": [
+          "mcp08_no_tool_logging"
+        ],
+        "detectors": [
+          "audit_telemetry",
+          "mcp08_no_tool_logging"
+        ]
+      },
+      "MCP09": {
+        "id": "MCP09:2025",
+        "name": "Shadow MCP Servers",
+        "coverage_level": "partial",
+        "reason": "Covered by `axiom discover` allowlist on the local machine; no network-wide or fleet discovery.",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "mcpguard_discover",
+          "shadow_mcp"
+        ]
+      },
+      "MCP10": {
+        "id": "MCP10:2025",
+        "name": "Context Injection & Over-Sharing",
+        "coverage_level": "partial",
+        "reason": "Hard-coded egress URLs, tools that send to caller-chosen destinations and bulk-exposure heuristics are detected statically and live; what context is actually shared at runtime is not observed.",
+        "findings_count": 1,
+        "finding_ids": [
+          "code_0023"
+        ],
+        "detectors": [
+          "context_oversharing",
+          "data_exfiltration",
+          "memory_poisoning",
+          "mcp10_broad_data_exposure"
+        ]
+      }
+    },
+    "total_mcp_categories_with_findings": 7
+  },
+  "ai_analysis": null,
+  "tool_poisoning_report": null,
+  "prompt_injection_risk": null
+}

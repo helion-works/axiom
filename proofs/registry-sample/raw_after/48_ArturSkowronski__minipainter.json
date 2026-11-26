@@ -1,0 +1,2121 @@
+{
+  "schema_version": "0.5",
+  "target": "48_ArturSkowronski__minipainter",
+  "risk_score": 45.0,
+  "risk_level": "medium",
+  "tools_found": 0,
+  "findings_count": 85,
+  "findings": [
+    {
+      "id": "code_0001",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in docs\\assets\\app.js at line 22: `const m = /^#?([0-9a-f]{6})$/i.exec((s || '').trim());`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "docs\\assets\\app.js",
+      "line_number": 22,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const m = /^#?([0-9a-f]{6})$/i.exec((s || '').trim());",
+      "location": "docs\\assets\\app.js:22",
+      "replay": "axiom scan <corpus>/registry/48_ArturSkowronski__minipainter --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0001\")'"
+    },
+    {
+      "id": "code_0002",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in scripts\\ak-transform.mjs at line 12: `const match = /^#?([0-9a-fA-F]{6})$/.exec(String(hex).trim());`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "scripts\\ak-transform.mjs",
+      "line_number": 12,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const match = /^#?([0-9a-fA-F]{6})$/.exec(String(hex).trim());",
+      "location": "scripts\\ak-transform.mjs:12",
+      "replay": "axiom scan <corpus>/registry/48_ArturSkowronski__minipainter --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0002\")'"
+    },
+    {
+      "id": "code_0003",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in scripts\\render-demo-output.mjs at line 134: `while ((match = re.exec(line)) !== null) {`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "scripts\\render-demo-output.mjs",
+      "line_number": 134,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "while ((match = re.exec(line)) !== null) {",
+      "location": "scripts\\render-demo-output.mjs:134",
+      "replay": "axiom scan <corpus>/registry/48_ArturSkowronski__minipainter --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0003\")'"
+    },
+    {
+      "id": "code_0004",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in scripts\\render-demo-output.mjs at line 142: `} else if ((rgb = /^38;2;(\\d+);(\\d+);(\\d+)$/.exec(code))) {`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "scripts\\render-demo-output.mjs",
+      "line_number": 142,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "} else if ((rgb = /^38;2;(\\d+);(\\d+);(\\d+)$/.exec(code))) {",
+      "location": "scripts\\render-demo-output.mjs:142",
+      "replay": "axiom scan <corpus>/registry/48_ArturSkowronski__minipainter --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0004\")'"
+    },
+    {
+      "id": "code_0005",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in scripts\\render-demo-output.mjs at line 144: `} else if ((rgb = /^48;2;(\\d+);(\\d+);(\\d+)$/.exec(code))) {`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "scripts\\render-demo-output.mjs",
+      "line_number": 144,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "} else if ((rgb = /^48;2;(\\d+);(\\d+);(\\d+)$/.exec(code))) {",
+      "location": "scripts\\render-demo-output.mjs:144",
+      "replay": "axiom scan <corpus>/registry/48_ArturSkowronski__minipainter --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0005\")'"
+    },
+    {
+      "id": "code_0006",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in scripts\\vallejo-tmm-transform.mjs at line 25: `const match = /^77\\.(\\d{3})$/.exec(String(sku ?? '').trim());`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "scripts\\vallejo-tmm-transform.mjs",
+      "line_number": 25,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const match = /^77\\.(\\d{3})$/.exec(String(sku ?? '').trim());",
+      "location": "scripts\\vallejo-tmm-transform.mjs:25",
+      "replay": "axiom scan <corpus>/registry/48_ArturSkowronski__minipainter --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0006\")'"
+    },
+    {
+      "id": "code_0007",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in src\\infrastructure\\catalog\\built-in-catalog-repository.mjs at line 4: `import { loadOverlay, enrichPaint } from '../../overrides.mjs';`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\infrastructure\\catalog\\built-in-catalog-repository.mjs",
+      "line_number": 4,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "import { loadOverlay, enrichPaint } from '../../overrides.mjs';",
+      "location": "src\\infrastructure\\catalog\\built-in-catalog-repository.mjs:4",
+      "replay": "axiom scan <corpus>/registry/48_ArturSkowronski__minipainter --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0007\")'"
+    },
+    {
+      "id": "code_0008",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in src\\infrastructure\\catalog\\built-in-catalog-repository.mjs at line 6: `const CATALOG_DIR = new URL('../../../data/catalog/', import.meta.url);`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\infrastructure\\catalog\\built-in-catalog-repository.mjs",
+      "line_number": 6,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const CATALOG_DIR = new URL('../../../data/catalog/', import.meta.url);",
+      "location": "src\\infrastructure\\catalog\\built-in-catalog-repository.mjs:6",
+      "replay": "axiom scan <corpus>/registry/48_ArturSkowronski__minipainter --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0008\")'"
+    },
+    {
+      "id": "code_0009",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in src\\infrastructure\\inventory\\json-inventory-repository.mjs at line 4: `import { normalizeInventory, validateInventory } from '../../inventory-schema.mjs';`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\infrastructure\\inventory\\json-inventory-repository.mjs",
+      "line_number": 4,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "import { normalizeInventory, validateInventory } from '../../inventory-schema.mjs';",
+      "location": "src\\infrastructure\\inventory\\json-inventory-repository.mjs:4",
+      "replay": "axiom scan <corpus>/registry/48_ArturSkowronski__minipainter --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0009\")'"
+    },
+    {
+      "id": "code_0010",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in src\\infrastructure\\inventory\\postgres-inventory-repository.mjs at line 1: `import { normalizeInventory, validateInventory } from '../../inventory-schema.mjs';`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\infrastructure\\inventory\\postgres-inventory-repository.mjs",
+      "line_number": 1,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "import { normalizeInventory, validateInventory } from '../../inventory-schema.mjs';",
+      "location": "src\\infrastructure\\inventory\\postgres-inventory-repository.mjs:1",
+      "replay": "axiom scan <corpus>/registry/48_ArturSkowronski__minipainter --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0010\")'"
+    },
+    {
+      "id": "code_0011",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in src\\transports\\http\\server.mjs at line 13: `} from '../../paint-service.mjs';`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\transports\\http\\server.mjs",
+      "line_number": 13,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "} from '../../paint-service.mjs';",
+      "location": "src\\transports\\http\\server.mjs:13",
+      "replay": "axiom scan <corpus>/registry/48_ArturSkowronski__minipainter --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0011\")'"
+    },
+    {
+      "id": "code_0012",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in src\\transports\\http\\server.mjs at line 14: `import { createMcpServer } from '../../mcp-tools.mjs';`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\transports\\http\\server.mjs",
+      "line_number": 14,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "import { createMcpServer } from '../../mcp-tools.mjs';",
+      "location": "src\\transports\\http\\server.mjs:14",
+      "replay": "axiom scan <corpus>/registry/48_ArturSkowronski__minipainter --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0012\")'"
+    },
+    {
+      "id": "code_0013",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in src\\transports\\http\\server.mjs at line 15: `import { createChatGptMcpServer } from '../../chatgpt-mcp-tools.mjs';`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\transports\\http\\server.mjs",
+      "line_number": 15,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "import { createChatGptMcpServer } from '../../chatgpt-mcp-tools.mjs';",
+      "location": "src\\transports\\http\\server.mjs:15",
+      "replay": "axiom scan <corpus>/registry/48_ArturSkowronski__minipainter --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0013\")'"
+    },
+    {
+      "id": "code_0014",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in src\\transports\\http\\server.mjs at line 16: `import { handleInventorySync } from '../../inventory-sync.mjs';`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\transports\\http\\server.mjs",
+      "line_number": 16,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "import { handleInventorySync } from '../../inventory-sync.mjs';",
+      "location": "src\\transports\\http\\server.mjs:16",
+      "replay": "axiom scan <corpus>/registry/48_ArturSkowronski__minipainter --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0014\")'"
+    },
+    {
+      "id": "code_0015",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in src\\transports\\http\\server.mjs at line 17: `import { resolveServerConfig } from '../../infrastructure/config/runtime-config.mjs';`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\transports\\http\\server.mjs",
+      "line_number": 17,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "import { resolveServerConfig } from '../../infrastructure/config/runtime-config.mjs';",
+      "location": "src\\transports\\http\\server.mjs:17",
+      "replay": "axiom scan <corpus>/registry/48_ArturSkowronski__minipainter --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0015\")'"
+    },
+    {
+      "id": "GHSA-22jm-h49p-29qw",
+      "severity": "medium",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency @modelcontextprotocol/sdk@1.28.0: GHSA-22jm-h49p-29qw",
+      "description": "Known vulnerability (advisory severity: unrated; direct dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update @modelcontextprotocol/sdk to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-22jm-h49p-29qw",
+      "location": "static:<corpus>/registry/48_ArturSkowronski__minipainter:dependencies",
+      "replay": "axiom scan <corpus>/registry/48_ArturSkowronski__minipainter --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-22jm-h49p-29qw\")'"
+    },
+    {
+      "id": "GHSA-46jr-4wx8-v453",
+      "severity": "medium",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency @modelcontextprotocol/sdk@1.28.0: GHSA-46jr-4wx8-v453",
+      "description": "Known vulnerability (advisory severity: unrated; direct dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update @modelcontextprotocol/sdk to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-46jr-4wx8-v453",
+      "location": "static:<corpus>/registry/48_ArturSkowronski__minipainter:dependencies",
+      "replay": "axiom scan <corpus>/registry/48_ArturSkowronski__minipainter --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-46jr-4wx8-v453\")'"
+    },
+    {
+      "id": "GHSA-6prh-2h8m-c8cw",
+      "severity": "medium",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency @modelcontextprotocol/sdk@1.28.0: GHSA-6prh-2h8m-c8cw",
+      "description": "Known vulnerability (advisory severity: unrated; direct dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update @modelcontextprotocol/sdk to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-6prh-2h8m-c8cw",
+      "location": "static:<corpus>/registry/48_ArturSkowronski__minipainter:dependencies",
+      "replay": "axiom scan <corpus>/registry/48_ArturSkowronski__minipainter --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-6prh-2h8m-c8cw\")'"
+    },
+    {
+      "id": "GHSA-6qxp-vccf-f47h",
+      "severity": "medium",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency @modelcontextprotocol/sdk@1.28.0: GHSA-6qxp-vccf-f47h",
+      "description": "Known vulnerability (advisory severity: unrated; direct dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update @modelcontextprotocol/sdk to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-6qxp-vccf-f47h",
+      "location": "static:<corpus>/registry/48_ArturSkowronski__minipainter:dependencies",
+      "replay": "axiom scan <corpus>/registry/48_ArturSkowronski__minipainter --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-6qxp-vccf-f47h\")'"
+    },
+    {
+      "id": "GHSA-f897-62hf-6gxq",
+      "severity": "medium",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency @modelcontextprotocol/sdk@1.28.0: GHSA-f897-62hf-6gxq",
+      "description": "Known vulnerability (advisory severity: unrated; direct dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update @modelcontextprotocol/sdk to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-f897-62hf-6gxq",
+      "location": "static:<corpus>/registry/48_ArturSkowronski__minipainter:dependencies",
+      "replay": "axiom scan <corpus>/registry/48_ArturSkowronski__minipainter --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-f897-62hf-6gxq\")'"
+    },
+    {
+      "id": "GHSA-rvq5-wwqv-78pq",
+      "severity": "medium",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency @modelcontextprotocol/sdk@1.28.0: GHSA-rvq5-wwqv-78pq",
+      "description": "Known vulnerability (advisory severity: unrated; direct dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update @modelcontextprotocol/sdk to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-rvq5-wwqv-78pq",
+      "location": "static:<corpus>/registry/48_ArturSkowronski__minipainter:dependencies",
+      "replay": "axiom scan <corpus>/registry/48_ArturSkowronski__minipainter --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-rvq5-wwqv-78pq\")'"
+    },
+    {
+      "id": "GHSA-mrhx-c7xc-m3w5",
+      "severity": "medium",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency zod@4.3.6: GHSA-mrhx-c7xc-m3w5",
+      "description": "Known vulnerability (advisory severity: unrated; direct dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update zod to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-mrhx-c7xc-m3w5",
+      "location": "static:<corpus>/registry/48_ArturSkowronski__minipainter:dependencies",
+      "replay": "axiom scan <corpus>/registry/48_ArturSkowronski__minipainter --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-mrhx-c7xc-m3w5\")'"
+    },
+    {
+      "id": "GHSA-92pp-h63x-v22m",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency @hono/node-server@1.19.12: GHSA-92pp-h63x-v22m",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update @hono/node-server to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-92pp-h63x-v22m",
+      "location": "static:<corpus>/registry/48_ArturSkowronski__minipainter:dependencies",
+      "replay": "axiom scan <corpus>/registry/48_ArturSkowronski__minipainter --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-92pp-h63x-v22m\")'"
+    },
+    {
+      "id": "GHSA-frvp-7c67-39w9",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency @hono/node-server@1.19.12: GHSA-frvp-7c67-39w9",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update @hono/node-server to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-frvp-7c67-39w9",
+      "location": "static:<corpus>/registry/48_ArturSkowronski__minipainter:dependencies",
+      "replay": "axiom scan <corpus>/registry/48_ArturSkowronski__minipainter --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-frvp-7c67-39w9\")'"
+    },
+    {
+      "id": "GHSA-rmxm-3fg6-px4f",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency @hono/node-server@1.19.12: GHSA-rmxm-3fg6-px4f",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update @hono/node-server to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-rmxm-3fg6-px4f",
+      "location": "static:<corpus>/registry/48_ArturSkowronski__minipainter:dependencies",
+      "replay": "axiom scan <corpus>/registry/48_ArturSkowronski__minipainter --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-rmxm-3fg6-px4f\")'"
+    },
+    {
+      "id": "GHSA-27r3-jxmh-p828",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency body-parser@2.2.2: GHSA-27r3-jxmh-p828",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update body-parser to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-27r3-jxmh-p828",
+      "location": "static:<corpus>/registry/48_ArturSkowronski__minipainter:dependencies",
+      "replay": "axiom scan <corpus>/registry/48_ArturSkowronski__minipainter --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-27r3-jxmh-p828\")'"
+    },
+    {
+      "id": "GHSA-v422-hmwv-36x6",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency body-parser@2.2.2: GHSA-v422-hmwv-36x6",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update body-parser to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-v422-hmwv-36x6",
+      "location": "static:<corpus>/registry/48_ArturSkowronski__minipainter:dependencies",
+      "replay": "axiom scan <corpus>/registry/48_ArturSkowronski__minipainter --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-v422-hmwv-36x6\")'"
+    },
+    {
+      "id": "GHSA-333x-w4r6-6crp",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency fast-uri@3.1.0: GHSA-333x-w4r6-6crp",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update fast-uri to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-333x-w4r6-6crp",
+      "location": "static:<corpus>/registry/48_ArturSkowronski__minipainter:dependencies",
+      "replay": "axiom scan <corpus>/registry/48_ArturSkowronski__minipainter --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-333x-w4r6-6crp\")'"
+    },
+    {
+      "id": "GHSA-4c8g-83qw-93j6",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency fast-uri@3.1.0: GHSA-4c8g-83qw-93j6",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update fast-uri to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-4c8g-83qw-93j6",
+      "location": "static:<corpus>/registry/48_ArturSkowronski__minipainter:dependencies",
+      "replay": "axiom scan <corpus>/registry/48_ArturSkowronski__minipainter --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-4c8g-83qw-93j6\")'"
+    },
+    {
+      "id": "GHSA-7p8r-x3mc-p8w7",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency fast-uri@3.1.0: GHSA-7p8r-x3mc-p8w7",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update fast-uri to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-7p8r-x3mc-p8w7",
+      "location": "static:<corpus>/registry/48_ArturSkowronski__minipainter:dependencies",
+      "replay": "axiom scan <corpus>/registry/48_ArturSkowronski__minipainter --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-7p8r-x3mc-p8w7\")'"
+    },
+    {
+      "id": "GHSA-f65p-4m7j-42xc",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency fast-uri@3.1.0: GHSA-f65p-4m7j-42xc",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update fast-uri to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-f65p-4m7j-42xc",
+      "location": "static:<corpus>/registry/48_ArturSkowronski__minipainter:dependencies",
+      "replay": "axiom scan <corpus>/registry/48_ArturSkowronski__minipainter --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-f65p-4m7j-42xc\")'"
+    },
+    {
+      "id": "GHSA-hrr3-gc8f-f4qj",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency fast-uri@3.1.0: GHSA-hrr3-gc8f-f4qj",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update fast-uri to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-hrr3-gc8f-f4qj",
+      "location": "static:<corpus>/registry/48_ArturSkowronski__minipainter:dependencies",
+      "replay": "axiom scan <corpus>/registry/48_ArturSkowronski__minipainter --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-hrr3-gc8f-f4qj\")'"
+    },
+    {
+      "id": "GHSA-jqff-g426-hqxp",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency fast-uri@3.1.0: GHSA-jqff-g426-hqxp",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update fast-uri to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-jqff-g426-hqxp",
+      "location": "static:<corpus>/registry/48_ArturSkowronski__minipainter:dependencies",
+      "replay": "axiom scan <corpus>/registry/48_ArturSkowronski__minipainter --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-jqff-g426-hqxp\")'"
+    },
+    {
+      "id": "GHSA-q3j6-qgpj-74h6",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency fast-uri@3.1.0: GHSA-q3j6-qgpj-74h6",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update fast-uri to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-q3j6-qgpj-74h6",
+      "location": "static:<corpus>/registry/48_ArturSkowronski__minipainter:dependencies",
+      "replay": "axiom scan <corpus>/registry/48_ArturSkowronski__minipainter --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-q3j6-qgpj-74h6\")'"
+    },
+    {
+      "id": "GHSA-qw65-cvwx-89v3",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency fast-uri@3.1.0: GHSA-qw65-cvwx-89v3",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update fast-uri to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-qw65-cvwx-89v3",
+      "location": "static:<corpus>/registry/48_ArturSkowronski__minipainter:dependencies",
+      "replay": "axiom scan <corpus>/registry/48_ArturSkowronski__minipainter --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-qw65-cvwx-89v3\")'"
+    },
+    {
+      "id": "GHSA-v2hh-gcrm-f6hx",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency fast-uri@3.1.0: GHSA-v2hh-gcrm-f6hx",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update fast-uri to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-v2hh-gcrm-f6hx",
+      "location": "static:<corpus>/registry/48_ArturSkowronski__minipainter:dependencies",
+      "replay": "axiom scan <corpus>/registry/48_ArturSkowronski__minipainter --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-v2hh-gcrm-f6hx\")'"
+    },
+    {
+      "id": "GHSA-v39h-62p7-jpjc",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency fast-uri@3.1.0: GHSA-v39h-62p7-jpjc",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update fast-uri to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-v39h-62p7-jpjc",
+      "location": "static:<corpus>/registry/48_ArturSkowronski__minipainter:dependencies",
+      "replay": "axiom scan <corpus>/registry/48_ArturSkowronski__minipainter --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-v39h-62p7-jpjc\")'"
+    },
+    {
+      "id": "GHSA-w74x-v6f9-j3xg",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency fast-uri@3.1.0: GHSA-w74x-v6f9-j3xg",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update fast-uri to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-w74x-v6f9-j3xg",
+      "location": "static:<corpus>/registry/48_ArturSkowronski__minipainter:dependencies",
+      "replay": "axiom scan <corpus>/registry/48_ArturSkowronski__minipainter --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-w74x-v6f9-j3xg\")'"
+    },
+    {
+      "id": "GHSA-xhq7-xmqj-769h",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency fast-uri@3.1.0: GHSA-xhq7-xmqj-769h",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update fast-uri to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-xhq7-xmqj-769h",
+      "location": "static:<corpus>/registry/48_ArturSkowronski__minipainter:dependencies",
+      "replay": "axiom scan <corpus>/registry/48_ArturSkowronski__minipainter --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-xhq7-xmqj-769h\")'"
+    },
+    {
+      "id": "GHSA-26pp-8wgv-hjvm",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency hono@4.12.9: GHSA-26pp-8wgv-hjvm",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update hono to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-26pp-8wgv-hjvm",
+      "location": "static:<corpus>/registry/48_ArturSkowronski__minipainter:dependencies",
+      "replay": "axiom scan <corpus>/registry/48_ArturSkowronski__minipainter --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-26pp-8wgv-hjvm\")'"
+    },
+    {
+      "id": "GHSA-2gcr-mfcq-wcc3",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency hono@4.12.9: GHSA-2gcr-mfcq-wcc3",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update hono to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-2gcr-mfcq-wcc3",
+      "location": "static:<corpus>/registry/48_ArturSkowronski__minipainter:dependencies",
+      "replay": "axiom scan <corpus>/registry/48_ArturSkowronski__minipainter --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-2gcr-mfcq-wcc3\")'"
+    },
+    {
+      "id": "GHSA-3hrh-pfw6-9m5x",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency hono@4.12.9: GHSA-3hrh-pfw6-9m5x",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update hono to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-3hrh-pfw6-9m5x",
+      "location": "static:<corpus>/registry/48_ArturSkowronski__minipainter:dependencies",
+      "replay": "axiom scan <corpus>/registry/48_ArturSkowronski__minipainter --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-3hrh-pfw6-9m5x\")'"
+    },
+    {
+      "id": "GHSA-458j-xx4x-4375",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency hono@4.12.9: GHSA-458j-xx4x-4375",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update hono to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-458j-xx4x-4375",
+      "location": "static:<corpus>/registry/48_ArturSkowronski__minipainter:dependencies",
+      "replay": "axiom scan <corpus>/registry/48_ArturSkowronski__minipainter --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-458j-xx4x-4375\")'"
+    },
+    {
+      "id": "GHSA-54fx-42gc-7vw4",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency hono@4.12.9: GHSA-54fx-42gc-7vw4",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update hono to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-54fx-42gc-7vw4",
+      "location": "static:<corpus>/registry/48_ArturSkowronski__minipainter:dependencies",
+      "replay": "axiom scan <corpus>/registry/48_ArturSkowronski__minipainter --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-54fx-42gc-7vw4\")'"
+    },
+    {
+      "id": "GHSA-5r4p-p66f-jhc7",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency hono@4.12.9: GHSA-5r4p-p66f-jhc7",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update hono to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-5r4p-p66f-jhc7",
+      "location": "static:<corpus>/registry/48_ArturSkowronski__minipainter:dependencies",
+      "replay": "axiom scan <corpus>/registry/48_ArturSkowronski__minipainter --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-5r4p-p66f-jhc7\")'"
+    },
+    {
+      "id": "GHSA-69xw-7hcm-h432",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency hono@4.12.9: GHSA-69xw-7hcm-h432",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update hono to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-69xw-7hcm-h432",
+      "location": "static:<corpus>/registry/48_ArturSkowronski__minipainter:dependencies",
+      "replay": "axiom scan <corpus>/registry/48_ArturSkowronski__minipainter --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-69xw-7hcm-h432\")'"
+    },
+    {
+      "id": "GHSA-79qm-7rj5-m7r9",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency hono@4.12.9: GHSA-79qm-7rj5-m7r9",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update hono to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-79qm-7rj5-m7r9",
+      "location": "static:<corpus>/registry/48_ArturSkowronski__minipainter:dependencies",
+      "replay": "axiom scan <corpus>/registry/48_ArturSkowronski__minipainter --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-79qm-7rj5-m7r9\")'"
+    },
+    {
+      "id": "GHSA-88fw-hqm2-52qc",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency hono@4.12.9: GHSA-88fw-hqm2-52qc",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update hono to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-88fw-hqm2-52qc",
+      "location": "static:<corpus>/registry/48_ArturSkowronski__minipainter:dependencies",
+      "replay": "axiom scan <corpus>/registry/48_ArturSkowronski__minipainter --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-88fw-hqm2-52qc\")'"
+    },
+    {
+      "id": "GHSA-8j4g-w8fx-2239",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency hono@4.12.9: GHSA-8j4g-w8fx-2239",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update hono to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-8j4g-w8fx-2239",
+      "location": "static:<corpus>/registry/48_ArturSkowronski__minipainter:dependencies",
+      "replay": "axiom scan <corpus>/registry/48_ArturSkowronski__minipainter --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-8j4g-w8fx-2239\")'"
+    },
+    {
+      "id": "GHSA-9vqf-7f2p-gf9v",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency hono@4.12.9: GHSA-9vqf-7f2p-gf9v",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update hono to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-9vqf-7f2p-gf9v",
+      "location": "static:<corpus>/registry/48_ArturSkowronski__minipainter:dependencies",
+      "replay": "axiom scan <corpus>/registry/48_ArturSkowronski__minipainter --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-9vqf-7f2p-gf9v\")'"
+    },
+    {
+      "id": "GHSA-crvj-82cr-hjcx",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency hono@4.12.9: GHSA-crvj-82cr-hjcx",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update hono to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-crvj-82cr-hjcx",
+      "location": "static:<corpus>/registry/48_ArturSkowronski__minipainter:dependencies",
+      "replay": "axiom scan <corpus>/registry/48_ArturSkowronski__minipainter --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-crvj-82cr-hjcx\")'"
+    },
+    {
+      "id": "GHSA-f23p-vx2j-j53r",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency hono@4.12.9: GHSA-f23p-vx2j-j53r",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update hono to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-f23p-vx2j-j53r",
+      "location": "static:<corpus>/registry/48_ArturSkowronski__minipainter:dependencies",
+      "replay": "axiom scan <corpus>/registry/48_ArturSkowronski__minipainter --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-f23p-vx2j-j53r\")'"
+    },
+    {
+      "id": "GHSA-f577-qrjj-4474",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency hono@4.12.9: GHSA-f577-qrjj-4474",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update hono to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-f577-qrjj-4474",
+      "location": "static:<corpus>/registry/48_ArturSkowronski__minipainter:dependencies",
+      "replay": "axiom scan <corpus>/registry/48_ArturSkowronski__minipainter --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-f577-qrjj-4474\")'"
+    },
+    {
+      "id": "GHSA-g6gw-c38x-mqfc",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency hono@4.12.9: GHSA-g6gw-c38x-mqfc",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update hono to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-g6gw-c38x-mqfc",
+      "location": "static:<corpus>/registry/48_ArturSkowronski__minipainter:dependencies",
+      "replay": "axiom scan <corpus>/registry/48_ArturSkowronski__minipainter --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-g6gw-c38x-mqfc\")'"
+    },
+    {
+      "id": "GHSA-gqvv-2mrq-wpjv",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency hono@4.12.9: GHSA-gqvv-2mrq-wpjv",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update hono to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-gqvv-2mrq-wpjv",
+      "location": "static:<corpus>/registry/48_ArturSkowronski__minipainter:dependencies",
+      "replay": "axiom scan <corpus>/registry/48_ArturSkowronski__minipainter --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-gqvv-2mrq-wpjv\")'"
+    },
+    {
+      "id": "GHSA-hm8q-7f3q-5f36",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency hono@4.12.9: GHSA-hm8q-7f3q-5f36",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update hono to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-hm8q-7f3q-5f36",
+      "location": "static:<corpus>/registry/48_ArturSkowronski__minipainter:dependencies",
+      "replay": "axiom scan <corpus>/registry/48_ArturSkowronski__minipainter --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-hm8q-7f3q-5f36\")'"
+    },
+    {
+      "id": "GHSA-hvrm-45r6-mjfj",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency hono@4.12.9: GHSA-hvrm-45r6-mjfj",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update hono to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-hvrm-45r6-mjfj",
+      "location": "static:<corpus>/registry/48_ArturSkowronski__minipainter:dependencies",
+      "replay": "axiom scan <corpus>/registry/48_ArturSkowronski__minipainter --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-hvrm-45r6-mjfj\")'"
+    },
+    {
+      "id": "GHSA-hxh3-vqpv-xpqv",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency hono@4.12.9: GHSA-hxh3-vqpv-xpqv",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update hono to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-hxh3-vqpv-xpqv",
+      "location": "static:<corpus>/registry/48_ArturSkowronski__minipainter:dependencies",
+      "replay": "axiom scan <corpus>/registry/48_ArturSkowronski__minipainter --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-hxh3-vqpv-xpqv\")'"
+    },
+    {
+      "id": "GHSA-j6c9-x7qj-28xf",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency hono@4.12.9: GHSA-j6c9-x7qj-28xf",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update hono to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-j6c9-x7qj-28xf",
+      "location": "static:<corpus>/registry/48_ArturSkowronski__minipainter:dependencies",
+      "replay": "axiom scan <corpus>/registry/48_ArturSkowronski__minipainter --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-j6c9-x7qj-28xf\")'"
+    },
+    {
+      "id": "GHSA-p77w-8qqv-26rm",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency hono@4.12.9: GHSA-p77w-8qqv-26rm",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update hono to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-p77w-8qqv-26rm",
+      "location": "static:<corpus>/registry/48_ArturSkowronski__minipainter:dependencies",
+      "replay": "axiom scan <corpus>/registry/48_ArturSkowronski__minipainter --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-p77w-8qqv-26rm\")'"
+    },
+    {
+      "id": "GHSA-qp7p-654g-cw7p",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency hono@4.12.9: GHSA-qp7p-654g-cw7p",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update hono to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-qp7p-654g-cw7p",
+      "location": "static:<corpus>/registry/48_ArturSkowronski__minipainter:dependencies",
+      "replay": "axiom scan <corpus>/registry/48_ArturSkowronski__minipainter --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-qp7p-654g-cw7p\")'"
+    },
+    {
+      "id": "GHSA-r5rp-j6wh-rvv4",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency hono@4.12.9: GHSA-r5rp-j6wh-rvv4",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update hono to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-r5rp-j6wh-rvv4",
+      "location": "static:<corpus>/registry/48_ArturSkowronski__minipainter:dependencies",
+      "replay": "axiom scan <corpus>/registry/48_ArturSkowronski__minipainter --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-r5rp-j6wh-rvv4\")'"
+    },
+    {
+      "id": "GHSA-rv63-4mwf-qqc2",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency hono@4.12.9: GHSA-rv63-4mwf-qqc2",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update hono to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-rv63-4mwf-qqc2",
+      "location": "static:<corpus>/registry/48_ArturSkowronski__minipainter:dependencies",
+      "replay": "axiom scan <corpus>/registry/48_ArturSkowronski__minipainter --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-rv63-4mwf-qqc2\")'"
+    },
+    {
+      "id": "GHSA-w62v-xxxg-mg59",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency hono@4.12.9: GHSA-w62v-xxxg-mg59",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update hono to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-w62v-xxxg-mg59",
+      "location": "static:<corpus>/registry/48_ArturSkowronski__minipainter:dependencies",
+      "replay": "axiom scan <corpus>/registry/48_ArturSkowronski__minipainter --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-w62v-xxxg-mg59\")'"
+    },
+    {
+      "id": "GHSA-wgpf-jwqj-8h8p",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency hono@4.12.9: GHSA-wgpf-jwqj-8h8p",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update hono to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-wgpf-jwqj-8h8p",
+      "location": "static:<corpus>/registry/48_ArturSkowronski__minipainter:dependencies",
+      "replay": "axiom scan <corpus>/registry/48_ArturSkowronski__minipainter --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-wgpf-jwqj-8h8p\")'"
+    },
+    {
+      "id": "GHSA-wmmm-f939-6g9c",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency hono@4.12.9: GHSA-wmmm-f939-6g9c",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update hono to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-wmmm-f939-6g9c",
+      "location": "static:<corpus>/registry/48_ArturSkowronski__minipainter:dependencies",
+      "replay": "axiom scan <corpus>/registry/48_ArturSkowronski__minipainter --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-wmmm-f939-6g9c\")'"
+    },
+    {
+      "id": "GHSA-wwfh-h76j-fc44",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency hono@4.12.9: GHSA-wwfh-h76j-fc44",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update hono to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-wwfh-h76j-fc44",
+      "location": "static:<corpus>/registry/48_ArturSkowronski__minipainter:dependencies",
+      "replay": "axiom scan <corpus>/registry/48_ArturSkowronski__minipainter --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-wwfh-h76j-fc44\")'"
+    },
+    {
+      "id": "GHSA-xf4j-xp2r-rqqx",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency hono@4.12.9: GHSA-xf4j-xp2r-rqqx",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update hono to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-xf4j-xp2r-rqqx",
+      "location": "static:<corpus>/registry/48_ArturSkowronski__minipainter:dependencies",
+      "replay": "axiom scan <corpus>/registry/48_ArturSkowronski__minipainter --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-xf4j-xp2r-rqqx\")'"
+    },
+    {
+      "id": "GHSA-xgm2-5f3f-mvvc",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency hono@4.12.9: GHSA-xgm2-5f3f-mvvc",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update hono to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-xgm2-5f3f-mvvc",
+      "location": "static:<corpus>/registry/48_ArturSkowronski__minipainter:dependencies",
+      "replay": "axiom scan <corpus>/registry/48_ArturSkowronski__minipainter --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-xgm2-5f3f-mvvc\")'"
+    },
+    {
+      "id": "GHSA-xpcf-pg52-r92g",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency hono@4.12.9: GHSA-xpcf-pg52-r92g",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update hono to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-xpcf-pg52-r92g",
+      "location": "static:<corpus>/registry/48_ArturSkowronski__minipainter:dependencies",
+      "replay": "axiom scan <corpus>/registry/48_ArturSkowronski__minipainter --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-xpcf-pg52-r92g\")'"
+    },
+    {
+      "id": "GHSA-xrhx-7g5j-rcj5",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency hono@4.12.9: GHSA-xrhx-7g5j-rcj5",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update hono to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-xrhx-7g5j-rcj5",
+      "location": "static:<corpus>/registry/48_ArturSkowronski__minipainter:dependencies",
+      "replay": "axiom scan <corpus>/registry/48_ArturSkowronski__minipainter --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-xrhx-7g5j-rcj5\")'"
+    },
+    {
+      "id": "GHSA-h3mg-xc3c-68pw",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency ip-address@10.1.0: GHSA-h3mg-xc3c-68pw",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update ip-address to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-h3mg-xc3c-68pw",
+      "location": "static:<corpus>/registry/48_ArturSkowronski__minipainter:dependencies",
+      "replay": "axiom scan <corpus>/registry/48_ArturSkowronski__minipainter --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-h3mg-xc3c-68pw\")'"
+    },
+    {
+      "id": "GHSA-j6r3-76f7-8jcv",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency ip-address@10.1.0: GHSA-j6r3-76f7-8jcv",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update ip-address to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-j6r3-76f7-8jcv",
+      "location": "static:<corpus>/registry/48_ArturSkowronski__minipainter:dependencies",
+      "replay": "axiom scan <corpus>/registry/48_ArturSkowronski__minipainter --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-j6r3-76f7-8jcv\")'"
+    },
+    {
+      "id": "GHSA-mwp4-54f8-5fhr",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency ip-address@10.1.0: GHSA-mwp4-54f8-5fhr",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update ip-address to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-mwp4-54f8-5fhr",
+      "location": "static:<corpus>/registry/48_ArturSkowronski__minipainter:dependencies",
+      "replay": "axiom scan <corpus>/registry/48_ArturSkowronski__minipainter --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-mwp4-54f8-5fhr\")'"
+    },
+    {
+      "id": "GHSA-rpw4-54j3-4h4q",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency ip-address@10.1.0: GHSA-rpw4-54j3-4h4q",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update ip-address to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-rpw4-54j3-4h4q",
+      "location": "static:<corpus>/registry/48_ArturSkowronski__minipainter:dependencies",
+      "replay": "axiom scan <corpus>/registry/48_ArturSkowronski__minipainter --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-rpw4-54j3-4h4q\")'"
+    },
+    {
+      "id": "GHSA-rxp7-6hxx-x8q5",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency ip-address@10.1.0: GHSA-rxp7-6hxx-x8q5",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update ip-address to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-rxp7-6hxx-x8q5",
+      "location": "static:<corpus>/registry/48_ArturSkowronski__minipainter:dependencies",
+      "replay": "axiom scan <corpus>/registry/48_ArturSkowronski__minipainter --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-rxp7-6hxx-x8q5\")'"
+    },
+    {
+      "id": "GHSA-v2v4-37r5-5v8g",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency ip-address@10.1.0: GHSA-v2v4-37r5-5v8g",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update ip-address to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-v2v4-37r5-5v8g",
+      "location": "static:<corpus>/registry/48_ArturSkowronski__minipainter:dependencies",
+      "replay": "axiom scan <corpus>/registry/48_ArturSkowronski__minipainter --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-v2v4-37r5-5v8g\")'"
+    },
+    {
+      "id": "GHSA-4p3w-j4w9-5jqw",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency moment@2.30.1: GHSA-4p3w-j4w9-5jqw",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update moment to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-4p3w-j4w9-5jqw",
+      "location": "static:<corpus>/registry/48_ArturSkowronski__minipainter:dependencies",
+      "replay": "axiom scan <corpus>/registry/48_ArturSkowronski__minipainter --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-4p3w-j4w9-5jqw\")'"
+    },
+    {
+      "id": "GHSA-jqcg-44mw-7w3h",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency proxy-addr@2.0.7: GHSA-jqcg-44mw-7w3h",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update proxy-addr to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-jqcg-44mw-7w3h",
+      "location": "static:<corpus>/registry/48_ArturSkowronski__minipainter:dependencies",
+      "replay": "axiom scan <corpus>/registry/48_ArturSkowronski__minipainter --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-jqcg-44mw-7w3h\")'"
+    },
+    {
+      "id": "GHSA-4mjr-xmp4-gh2g",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency qs@6.15.0: GHSA-4mjr-xmp4-gh2g",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update qs to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-4mjr-xmp4-gh2g",
+      "location": "static:<corpus>/registry/48_ArturSkowronski__minipainter:dependencies",
+      "replay": "axiom scan <corpus>/registry/48_ArturSkowronski__minipainter --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-4mjr-xmp4-gh2g\")'"
+    },
+    {
+      "id": "GHSA-6pq8-jhm2-2vcw",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency qs@6.15.0: GHSA-6pq8-jhm2-2vcw",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update qs to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-6pq8-jhm2-2vcw",
+      "location": "static:<corpus>/registry/48_ArturSkowronski__minipainter:dependencies",
+      "replay": "axiom scan <corpus>/registry/48_ArturSkowronski__minipainter --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-6pq8-jhm2-2vcw\")'"
+    },
+    {
+      "id": "GHSA-q8mj-m7cp-5q26",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency qs@6.15.0: GHSA-q8mj-m7cp-5q26",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update qs to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-q8mj-m7cp-5q26",
+      "location": "static:<corpus>/registry/48_ArturSkowronski__minipainter:dependencies",
+      "replay": "axiom scan <corpus>/registry/48_ArturSkowronski__minipainter --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-q8mj-m7cp-5q26\")'"
+    },
+    {
+      "id": "GHSA-x5fp-wj9c-mxmx",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency qs@6.15.0: GHSA-x5fp-wj9c-mxmx",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update qs to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-x5fp-wj9c-mxmx",
+      "location": "static:<corpus>/registry/48_ArturSkowronski__minipainter:dependencies",
+      "replay": "axiom scan <corpus>/registry/48_ArturSkowronski__minipainter --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-x5fp-wj9c-mxmx\")'"
+    },
+    {
+      "id": "mcp04_unpinned_0001",
+      "severity": "medium",
+      "category": "supply_chain",
+      "title": "Unpinned install source",
+      "description": "`npm@latest` floating tag in .github\\workflows\\release.yml at line 115. Without an exact version the next install silently picks up whatever is published, including a compromised release.",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": ".github\\workflows\\release.yml",
+      "line_number": 115,
+      "recommendation": "Pin an exact version (pkg@1.2.3, pkg==1.2.3) and prefer a lockfile or hash-checked requirements.",
+      "rule_id": "unpinned_install_source",
+      "evidence": "Unpinned install source",
+      "location": ".github\\workflows\\release.yml:115",
+      "replay": "axiom scan <corpus>/registry/48_ArturSkowronski__minipainter --output json --no-ai --no-history | jq '.findings[] | select(.id==\"mcp04_unpinned_0001\")'"
+    },
+    {
+      "id": "mcp08_no_tool_logging",
+      "severity": "info",
+      "category": "audit_telemetry",
+      "title": "No logging found in files that define MCP tools (low confidence)",
+      "description": "None of the tool-defining files (src\\chatgpt-mcp-tools.mjs, src\\mcp-tools.mjs) reference a logging library or logger call. Tool invocations may leave no audit trail. Confidence is low: logging could be configured elsewhere or by the host.",
+      "owasp_asi": [
+        "ASI10"
+      ],
+      "owasp_mcp": [
+        "MCP08"
+      ],
+      "file_path": "src\\chatgpt-mcp-tools.mjs",
+      "line_number": null,
+      "recommendation": "Log each tool invocation (tool name, caller/session, outcome, and redacted arguments) to a durable, tamper-evident sink.",
+      "rule_id": "no_tool_logging",
+      "evidence": "No logging found in files that define MCP tools (low confidence)",
+      "location": "src\\chatgpt-mcp-tools.mjs",
+      "replay": "axiom scan <corpus>/registry/48_ArturSkowronski__minipainter --output json --no-ai --no-history | jq '.findings[] | select(.id==\"mcp08_no_tool_logging\")'"
+    }
+  ],
+  "server_profile": {
+    "name": "48_ArturSkowronski__minipainter",
+    "command": null,
+    "args": [],
+    "env_vars": [],
+    "transport": "unknown",
+    "tools": [],
+    "resources": [],
+    "prompts": [],
+    "repo_url": null,
+    "npm_package": null,
+    "capabilities_claimed": [],
+    "capabilities_actual": []
+  },
+  "fingerprint": "e498b97c37656b596d8b93bc1fb01bfa568ae69f61435908d643dc6cb386a256",
+  "surface_map": {
+    "server": {
+      "name": "minipainter",
+      "instructions": "",
+      "transport": "unknown",
+      "auth": "unknown"
+    },
+    "tools": [],
+    "resources": [],
+    "prompts": [],
+    "mutations": [],
+    "source": {
+      "kind": "static",
+      "target": "48_ArturSkowronski__minipainter",
+      "languages": []
+    },
+    "generated_at": "2026-11-11T22:34:47+00:00",
+    "fingerprint": "e498b97c37656b596d8b93bc1fb01bfa568ae69f61435908d643dc6cb386a256",
+    "schema": "axiom.surface/1"
+  },
+  "provenance": {
+    "identity": {
+      "npm": "minipainter",
+      "pypi": null,
+      "repository": "https://github.com/arturskowronski/minipainter",
+      "server_name": "minipainter"
+    },
+    "registry": {
+      "status": "match",
+      "entry": "io.github.ArturSkowronski/minipainter",
+      "repository": "https://github.com/arturskowronski/minipainter",
+      "packages": [
+        "npm:minipainter"
+      ],
+      "publishedAt": "2026-07-07T14:30:16.484124Z",
+      "version": "0.7.3"
+    },
+    "lookalikes": [],
+    "checked_at": "2026-11-11T22:34:51+00:00"
+  },
+  "owasp_coverage": {
+    "framework": "OWASP Top 10 for Agentic Applications 2026",
+    "reference": "https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/",
+    "coverage": {
+      "ASI01": {
+        "name": "Agent Goal Hijack",
+        "coverage_level": "strong",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "tool_poisoning",
+          "prompt_injection",
+          "instruction_injection"
+        ]
+      },
+      "ASI02": {
+        "name": "Tool Misuse & Exploitation",
+        "coverage_level": "strong",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "toxic_tool_combo",
+          "tool_overscope",
+          "tool_chaining_detection"
+        ]
+      },
+      "ASI03": {
+        "name": "Identity & Privilege Abuse",
+        "coverage_level": "strong",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "credential_analysis",
+          "shared_credential_detection",
+          "env_var_audit"
+        ]
+      },
+      "ASI04": {
+        "name": "Agentic Supply Chain Vulnerabilities",
+        "coverage_level": "strong",
+        "findings_count": 69,
+        "finding_ids": [
+          "GHSA-22jm-h49p-29qw",
+          "GHSA-46jr-4wx8-v453",
+          "GHSA-6prh-2h8m-c8cw",
+          "GHSA-6qxp-vccf-f47h",
+          "GHSA-f897-62hf-6gxq",
+          "GHSA-rvq5-wwqv-78pq",
+          "GHSA-mrhx-c7xc-m3w5",
+          "GHSA-92pp-h63x-v22m",
+          "GHSA-frvp-7c67-39w9",
+          "GHSA-rmxm-3fg6-px4f"
+        ],
+        "detectors": [
+          "dependency_cve",
+          "lifecycle_hooks",
+          "npx_unversioned",
+          "known_mcp_cves"
+        ]
+      },
+      "ASI05": {
+        "name": "Unexpected Code Execution",
+        "coverage_level": "strong",
+        "findings_count": 15,
+        "finding_ids": [
+          "code_0001",
+          "code_0002",
+          "code_0003",
+          "code_0004",
+          "code_0005",
+          "code_0006",
+          "code_0007",
+          "code_0008",
+          "code_0009",
+          "code_0010"
+        ],
+        "detectors": [
+          "code_exec_patterns",
+          "code_generation_detection",
+          "sandbox_escape"
+        ]
+      },
+      "ASI06": {
+        "name": "Memory & Context Poisoning",
+        "coverage_level": "partial",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "memory_poisoning_patterns",
+          "context_manipulation_detection"
+        ],
+        "gap_note": "Axiom detects static patterns. Full coverage requires runtime memory monitoring."
+      },
+      "ASI07": {
+        "name": "Insecure Inter-Agent Communication",
+        "coverage_level": "partial",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "transport_security",
+          "a2a_pattern_detection"
+        ],
+        "gap_note": "Axiom checks transport security. Full A2A protocol analysis requires runtime interception."
+      },
+      "ASI08": {
+        "name": "Cascading Failures",
+        "coverage_level": "partial",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "blast_radius_estimation",
+          "dependency_chain_analysis"
+        ],
+        "gap_note": "Axiom estimates blast radius from tool capabilities. Full cascading failure analysis requires runtime topology mapping."
+      },
+      "ASI09": {
+        "name": "Human-Agent Trust Exploitation",
+        "coverage_level": "strong",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "claimed_vs_actual",
+          "deceptive_output_detection",
+          "trust_manipulation_patterns"
+        ]
+      },
+      "ASI10": {
+        "name": "Rogue Agents",
+        "coverage_level": "partial",
+        "findings_count": 1,
+        "finding_ids": [
+          "mcp08_no_tool_logging"
+        ],
+        "detectors": [
+          "sleeper_patterns",
+          "behavioral_drift_indicators",
+          "persistence_detection"
+        ],
+        "gap_note": "Axiom detects static rogue indicators. Full rogue agent detection requires runtime behavioral monitoring."
+      }
+    },
+    "total_asi_categories_with_findings": 3
+  },
+  "owasp_mcp_coverage": {
+    "framework": "OWASP MCP Top 10",
+    "framework_version": "v0.1 beta",
+    "reference": "https://owasp.org/www-project-mcp-top-10/",
+    "coverage": {
+      "MCP01": {
+        "id": "MCP01:2025",
+        "name": "Token Mismanagement & Secret Exposure",
+        "coverage_level": "partial",
+        "reason": "Regex-based secret detection in server source and client configs plus env-var exposure checks; no entropy analysis, git-history scan, or token lifetime/passthrough checks.",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "credential_theft",
+          "cross_server",
+          "mcp01_hardcoded_secrets",
+          "config_hardcoded_secret",
+          "env_var_audit",
+          "env_dump"
+        ]
+      },
+      "MCP02": {
+        "id": "MCP02:2025",
+        "name": "Privilege Escalation via Scope Creep",
+        "coverage_level": "strong",
+        "reason": "Permission over-scope patterns, toxic tool-capability combinations, path-escape checks and env-var over-exposure in configs.",
+        "findings_count": 9,
+        "finding_ids": [
+          "code_0007",
+          "code_0008",
+          "code_0009",
+          "code_0010",
+          "code_0011",
+          "code_0012",
+          "code_0013",
+          "code_0014",
+          "code_0015"
+        ],
+        "detectors": [
+          "permission_overscope",
+          "toxic_tool_combo",
+          "identity_privilege",
+          "sandbox_escape",
+          "config_risk",
+          "cascading_failure",
+          "cross_server",
+          "excessive_scope",
+          "confused_deputy",
+          "file_read",
+          "file_write"
+        ]
+      },
+      "MCP03": {
+        "id": "MCP03:2025",
+        "name": "Tool Poisoning",
+        "coverage_level": "strong",
+        "reason": "Dedicated detector for hidden instructions in tool metadata, plus runtime rug-pull diffing between source and live tool definitions.",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "tool_poisoning",
+          "obfuscation",
+          "rogue_agent",
+          "source_vs_runtime_diff",
+          "tool_shadowing",
+          "hidden_unicode",
+          "rug_pull_primitive",
+          "surface_mismatch"
+        ]
+      },
+      "MCP04": {
+        "id": "MCP04:2025",
+        "name": "Software Supply Chain Attacks & Dependency Tampering",
+        "coverage_level": "strong",
+        "reason": "Dependency CVE lookup, known MCP CVEs, install lifecycle hooks, and unpinned npx/uvx/pip/@latest install sources.",
+        "findings_count": 69,
+        "finding_ids": [
+          "GHSA-22jm-h49p-29qw",
+          "GHSA-46jr-4wx8-v453",
+          "GHSA-6prh-2h8m-c8cw",
+          "GHSA-6qxp-vccf-f47h",
+          "GHSA-f897-62hf-6gxq",
+          "GHSA-rvq5-wwqv-78pq",
+          "GHSA-mrhx-c7xc-m3w5",
+          "GHSA-92pp-h63x-v22m",
+          "GHSA-frvp-7c67-39w9",
+          "GHSA-rmxm-3fg6-px4f"
+        ],
+        "detectors": [
+          "dependency_vuln",
+          "supply_chain",
+          "known_cve",
+          "obfuscation",
+          "lifecycle_hooks",
+          "mcp04_unpinned_install",
+          "homoglyph",
+          "rug_pull_primitive",
+          "surface_mismatch"
+        ]
+      },
+      "MCP05": {
+        "id": "MCP05:2025",
+        "name": "Command Injection & Execution",
+        "coverage_level": "partial",
+        "reason": "Regex, AST and Semgrep find exec/shell sinks and a heuristic flags sinks inside tool handlers, but there is no inter-procedural taint tracking from tool input to sink.",
+        "findings_count": 15,
+        "finding_ids": [
+          "code_0001",
+          "code_0002",
+          "code_0003",
+          "code_0004",
+          "code_0005",
+          "code_0006",
+          "code_0007",
+          "code_0008",
+          "code_0009",
+          "code_0010"
+        ],
+        "detectors": [
+          "command_injection",
+          "code_execution",
+          "code_generation",
+          "sandbox_escape",
+          "mcp05_tool_input_sink",
+          "shell_exec"
+        ]
+      },
+      "MCP06": {
+        "id": "MCP06:2025",
+        "name": "Prompt Injection via Contextual Payloads",
+        "coverage_level": "partial",
+        "reason": "Injection markers are detected in tool metadata, server instructions, resources, prompts and the strings a tool returns (static), and in instructions/resources/prompts read live; payloads produced by calling a tool at runtime are not inspected.",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "prompt_injection",
+          "memory_poisoning",
+          "trust_exploitation",
+          "response_injection",
+          "tool_shadowing"
+        ]
+      },
+      "MCP07": {
+        "id": "MCP07:2025",
+        "name": "Insufficient Authentication & Authorization",
+        "coverage_level": "partial",
+        "reason": "Flags remote servers with no visible auth and servers bound to all interfaces; does not verify OAuth implementation or per-tool authorization logic.",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "transport_security",
+          "inter_agent_comm",
+          "identity_privilege",
+          "transport_no_auth",
+          "config_no_auth",
+          "mcp07_bind_all_interfaces"
+        ]
+      },
+      "MCP08": {
+        "id": "MCP08:2025",
+        "name": "Lack of Audit and Telemetry",
+        "coverage_level": "gap",
+        "reason": "Only a low-confidence heuristic for missing logging in tool-defining files; actual audit trails and telemetry pipelines are not verified.",
+        "findings_count": 1,
+        "finding_ids": [
+          "mcp08_no_tool_logging"
+        ],
+        "detectors": [
+          "audit_telemetry",
+          "mcp08_no_tool_logging"
+        ]
+      },
+      "MCP09": {
+        "id": "MCP09:2025",
+        "name": "Shadow MCP Servers",
+        "coverage_level": "partial",
+        "reason": "Covered by `axiom discover` allowlist on the local machine; no network-wide or fleet discovery.",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "mcpguard_discover",
+          "shadow_mcp"
+        ]
+      },
+      "MCP10": {
+        "id": "MCP10:2025",
+        "name": "Context Injection & Over-Sharing",
+        "coverage_level": "partial",
+        "reason": "Hard-coded egress URLs, tools that send to caller-chosen destinations and bulk-exposure heuristics are detected statically and live; what context is actually shared at runtime is not observed.",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "context_oversharing",
+          "data_exfiltration",
+          "memory_poisoning",
+          "mcp10_broad_data_exposure"
+        ]
+      }
+    },
+    "total_mcp_categories_with_findings": 4
+  },
+  "ai_analysis": null,
+  "tool_poisoning_report": null,
+  "prompt_injection_risk": null
+}

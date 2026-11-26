@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Axiom — Secure Your MCP Servers</title>
+    <meta name="description" content="Security scanner for MCP servers. Detect tool poisoning, prompt injection, credential theft, and supply chain attacks before they reach your AI workflow.">
+    <meta property="og:title" content="Axiom — Secure Your MCP Servers">
+    <meta property="og:description" content="Open-source security scanner for MCP servers and agent tooling. Measured on 99 public MCP Registry servers, the official reference servers and MCPSecBench; every result is published in the repository.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://helionworks.com/">
+    <meta name="twitter:card" content="summary">
+    <meta name="theme-color" content="#0a0a0a">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Ctext y=%22.9em%22 font-size=%2290%22%3E%F0%9F%9B%A1%EF%B8%8F%3C/text%3E%3C/svg%3E">
+    <style>
+        :root {
+            --bg: #0a0a0a; --bg2: #110d0c; --bg3: #1b1412;
+            --text: #f4f1ee; --text2: #a39e99; --muted: #7d7772;
+            --accent: #ff4f2b; --accent2: #ff6c4d; --accent-bg: rgba(255,79,43,.08);
+            --green: #4ade80; --red: #f87171; --orange: #fbbf24;
+            --border: #2b1d18; --border2: #44302a;
+            --r: 2px; --rs: 2px;
+            --mono: ui-monospace, 'JetBrains Mono', 'IBM Plex Mono', 'SF Mono', 'Cascadia Mono', Menlo, Consolas, monospace;
+            --sans: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', system-ui, sans-serif;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: var(--sans); background: var(--bg); color: var(--text); line-height: 1.6; }
+        a { color: var(--accent2); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        a:focus-visible, .btn:focus-visible { outline: 2px solid var(--accent2); outline-offset: 3px; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+
+        /* Nav */
+        nav { padding: 14px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: rgba(10,10,10,.94); backdrop-filter: blur(12px); z-index: 100; }
+        nav .container { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
+        .logo { font-family: var(--mono); font-size: 18px; font-weight: 700; letter-spacing: -.3px; }
+        .logo span { color: var(--text); }
+        .logo small { font-family: var(--mono); }
+        .nav-links { display: flex; gap: 26px; align-items: center; font-family: var(--mono); font-size: 13px; flex-wrap: wrap; }
+        .nav-links a { color: var(--text2); }
+        .nav-links a:hover { color: var(--text); text-decoration: none; }
+        .nav-links a.btn-primary, .nav-links a.btn-primary:hover { color: #0a0a0a; }
+
+        /* Hero */
+        .hero { position: relative; padding: 100px 0 80px; text-align: center; overflow: hidden; border-bottom: 1px solid var(--border); }
+        .hero::before { content: ""; position: absolute; inset: 0; pointer-events: none;
+            background-image: radial-gradient(rgba(244,241,238,.20) 1px, transparent 1.4px); background-size: 9px 9px;
+            -webkit-mask-image: radial-gradient(ellipse 62% 58% at 50% 34%, transparent 0, transparent 24%, #000 62%, transparent 100%);
+            mask-image: radial-gradient(ellipse 62% 58% at 50% 34%, transparent 0, transparent 24%, #000 62%, transparent 100%); }
+        .hero::after { content: ""; position: absolute; inset: 0; pointer-events: none;
+            background: radial-gradient(ellipse 46% 34% at 50% 30%, rgba(255,79,43,.10), transparent 70%); }
+        .hero .container { position: relative; z-index: 1; }
+        .hero-badge { display: inline-block; padding: 7px 14px; border-radius: var(--r); font-family: var(--mono); font-size: 12px; font-weight: 500; background: var(--accent-bg); color: var(--text2); border: 1px solid rgba(255,79,43,.35); margin-bottom: 28px; }
+        h1 { font-family: var(--mono); font-size: clamp(32px, 4.8vw, 54px); font-weight: 700; line-height: 1.12; letter-spacing: -1.2px; margin-bottom: 22px; }
+        h1 .highlight { color: var(--accent); }
+        .hero p { font-family: var(--mono); font-size: 15px; color: var(--text2); max-width: 660px; margin: 0 auto 34px; }
+        .hero-cta { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+        .btn { display: inline-flex; align-items: center; gap: 8px; padding: 13px 26px; border-radius: var(--rs); font-family: var(--mono); font-size: 13px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; cursor: pointer; border: 1px solid transparent; transition: background .15s, border-color .15s, color .15s; }
+        .btn-primary { background: var(--accent); color: #0a0a0a; border-color: var(--accent); }
+        .btn-primary:hover { background: var(--accent2); border-color: var(--accent2); text-decoration: none; }
+        .btn-outline { background: rgba(10,10,10,.6); border-color: var(--border2); color: var(--text); }
+        .btn-outline:hover { border-color: var(--accent); color: var(--accent2); text-decoration: none; }
+
+        /* Terminal */
+        .terminal { max-width: 660px; margin: 52px auto 0; background: #0d0b0a; border: 1px solid var(--border2); border-radius: var(--r); overflow: hidden; text-align: left; }
+        .terminal-bar { display: flex; gap: 6px; padding: 11px 14px; background: var(--bg3); border-bottom: 1px solid var(--border); }
+        .terminal-dot { width: 9px; height: 9px; border-radius: 50%; opacity: .85; }
+        .terminal-body { padding: 20px; font-family: var(--mono); font-size: 13px; line-height: 1.8; overflow-x: auto; }
+        .t-prompt { color: var(--accent); }
+        .t-cmd { color: var(--text); }
+        .t-comment { color: var(--muted); }
+        .t-warn { color: var(--orange); }
+        .t-danger { color: var(--red); }
+        .t-ok { color: var(--green); }
+        .t-accent { color: var(--accent2); }
+
+        /* Stats */
+        .stats-bar { padding: 44px 0; border-bottom: 1px solid var(--border); margin: 0; background: var(--bg); }
+        .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; text-align: center; }
+        .stat-num { font-family: var(--mono); font-size: 34px; font-weight: 700; color: var(--accent); }
+        .stat-label { font-size: 13px; color: var(--text2); }
+
+        /* Sections */
+        section { padding: 84px 0; }
+        h2 { font-family: var(--mono); font-size: clamp(22px, 2.6vw, 30px); font-weight: 700; letter-spacing: -.4px; line-height: 1.25; margin-bottom: 14px; }
+        .section-sub { color: var(--text2); font-size: 16px; margin-bottom: 48px; max-width: 620px; }
+        .section-center { text-align: center; }
+        .section-center .section-sub { margin-left: auto; margin-right: auto; }
+
+        /* Feature Grid */
+        .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; text-align: left; }
+        .feature-card { background: var(--bg); border: 1px solid var(--border); border-radius: var(--r); padding: 28px; transition: border-color .15s; }
+        .feature-card:hover { border-color: var(--border2); }
+        .feature-icon { font-size: 24px; margin-bottom: 14px; }
+        .feature-card h3 { font-family: var(--mono); font-size: 15px; font-weight: 700; margin-bottom: 10px; }
+        .feature-card p { color: var(--text2); font-size: 14px; }
+
+
+        /* Breaches */
+        .breach-list { display: grid; gap: 10px; max-width: 760px; margin: 0 auto; text-align: left; }
+        .breach { background: var(--bg2); border: 1px solid var(--border); border-radius: var(--rs); padding: 16px 20px; display: flex; align-items: flex-start; gap: 16px; }
+        .breach-sev { font-family: var(--mono); font-size: 10.5px; font-weight: 700; letter-spacing: .06em; padding: 4px 9px; border-radius: var(--r); text-transform: uppercase; white-space: nowrap; margin-top: 2px; border: 1px solid transparent; }
+        .breach-sev.crit { background: rgba(248,113,113,.10); color: #fca5a5; border-color: rgba(248,113,113,.35); }
+        .breach-sev.high { background: rgba(251,191,36,.10); color: #fcd34d; border-color: rgba(251,191,36,.35); }
+        .breach-sev.note { background: rgba(163,158,153,.10); color: #d6d1cc; border-color: rgba(163,158,153,.30); }
+        .breach-text { font-size: 14px; }
+        .breach-text strong { color: var(--text); }
+        .breach-text span { color: var(--text2); }
+
+        /* CTA */
+        .cta-section { text-align: center; padding: 84px 0; border-top: 1px solid var(--border); }
+        .cta-section h2 { margin-bottom: 16px; }
+        .cta-section p { color: var(--text2); max-width: 500px; margin: 0 auto 28px; }
+
+        /* Footer */
+        footer { border-top: 1px solid var(--border); padding: 30px 0; }
+        footer .container { display: flex; flex-wrap: wrap; gap: 12px; justify-content: space-between; align-items: center; font-family: var(--mono); font-size: 12px; color: var(--muted); }
+
+        @media (max-width: 768px) {
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .hero { padding: 60px 0 44px; }
+            .breach { flex-direction: column; gap: 10px; }
+            .nav-links { gap: 16px; }
+        }
+        @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="container">
+        <div class="logo">🛡️ <span>Axiom</span> <small style="font-size:12px;font-weight:500;color:var(--muted);letter-spacing:0">by Helion Works</small></div>
+        <div class="nav-links">
+            <a href="#features">Features</a>
+            <a href="#threats">Threats</a>
+
+            <a href="https://github.com/helion-works/axiom">GitHub</a>
+            <a href="mailto:contact@helionworks.com">Contact</a>
+            <a href="https://github.com/helion-works/axiom" class="btn btn-primary" style="padding:8px 20px;font-size:13px">Get Started</a>
+        </div>
+    </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+    <div class="container">
+        <div class="hero-badge">🔬 Measured on 99 public MCP Registry servers, the official reference servers and MCPSecBench. <a href="https://github.com/helion-works/axiom/blob/main/LAUNCH_READINESS.md">Results →</a></div>
+        <h1>Secure your <span class="highlight">MCP servers</span><br>before they secure your data</h1>
+        <p>Axiom detects tool poisoning, prompt injection, credential theft, and supply chain attacks in MCP servers — before they reach your AI workflow.</p>
+        <div class="hero-cta">
+            <a href="https://github.com/helion-works/axiom" class="btn btn-primary">Get Started →</a>
+            <a href="https://github.com/helion-works/axiom" class="btn btn-outline">⭐ Star on GitHub</a>
+        </div>
+
+        <div class="terminal">
+            <div class="terminal-bar">
+                <div class="terminal-dot" style="background:#ef4444"></div>
+                <div class="terminal-dot" style="background:#f59e0b"></div>
+                <div class="terminal-dot" style="background:#22c55e"></div>
+            </div>
+            <div class="terminal-body">
+                <span class="t-prompt">$</span> <span class="t-cmd">pip install axiom-scan</span><br>
+                <span class="t-prompt">$</span> <span class="t-cmd">axiom scan https://github.com/user/my-mcp-server</span><br><br>
+                <span class="t-accent">🛡️  Axiom Scan Report</span><br>
+                <span class="t-comment">Target: my-mcp-server | Transport: stdio | Tools: 5</span><br>
+                <span class="t-warn">Risk Score: 62/100 (HIGH)</span><br><br>
+                <span class="t-danger">[CRITICAL] Command injection: unsanitized input in subprocess</span><br>
+                <span class="t-danger">[HIGH] Credential theft: reads AWS_SECRET_KEY from env</span><br>
+                <span class="t-warn">[HIGH] Tool poisoning: hidden instruction in 'search' tool</span><br>
+                <span class="t-warn">[MEDIUM] Supply chain: postinstall lifecycle hook detected</span><br>
+                <span class="t-ok">[INFO] 2 tools passed poisoning checks</span><br><br>
+                <span class="t-prompt">$</span> <span class="t-cmd">axiom local</span><br>
+                <span class="t-accent">🏠  Local Config Scan</span><br>
+                <span class="t-comment">Found 8 MCP servers across 3 config files</span><br>
+                <span class="t-danger">[HIGH] GITHUB_TOKEN shared across 4 servers</span><br>
+                <span class="t-danger">[CRITICAL] Hardcoded API key in risky-server config</span><br>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Stats -->
+<div class="stats-bar">
+    <div class="container">
+        <div class="stats-grid">
+            <div><div class="stat-num">99</div><div class="stat-label">public MCP Registry servers scanned, in two samples</div></div>
+            <div><div class="stat-num">1</div><div class="stat-label">critical false positive on the 49 servers the rules had never seen</div></div>
+            <div><div class="stat-num">0</div><div class="stat-label">critical or high findings on the 7 official reference servers</div></div>
+            <div><div class="stat-num">14/14</div><div class="stat-label">MCPSecBench server-side cases caught (5/14 before fixes written against it)</div></div>
+        </div>
+    </div>
+</div>
+
+<!-- Threats -->
+<section id="threats">
+    <div class="container section-center">
+        <h2>Documented MCP Vulnerabilities and Attack Demonstrations</h2>
+        <p class="section-sub">Three published CVEs, one bug disclosed by a vendor and two demonstrations by security researchers. Each entry links to its source.</p>
+        <div class="breach-list">
+            <div class="breach"><span class="breach-sev crit">CVE &middot; Critical</span><div class="breach-text"><strong>CVE-2025-6514: mcp-remote command injection</strong><br><span>A malicious MCP server could run commands on the client machine through a crafted OAuth authorization endpoint. Versions 0.0.5 to 0.1.15; fixed in 0.1.16. <a href="https://jfrog.com/blog/2025-6514-critical-mcp-remote-rce-vulnerability/">Source: JFrog</a></span></div></div>
+            <div class="breach"><span class="breach-sev crit">CVE &middot; Critical</span><div class="breach-text"><strong>CVE-2025-49596: MCP Inspector remote code execution</strong><br><span>Versions below 0.14.1 had no authentication between the Inspector client and its proxy, so unauthenticated requests could launch MCP commands. Fixed in 0.14.1. <a href="https://github.com/advisories/GHSA-7f8r-222p-6f5g">Source: GitHub advisory</a></span></div></div>
+            <div class="breach"><span class="breach-sev high">CVE &middot; High</span><div class="breach-text"><strong>CVE-2025-53109: Filesystem MCP server symlink bypass</strong><br><span>Symlinks inside an allowed directory could give access to files outside it. Affects every version up to 0.6.2, and 2025.1.14 to before 2025.7.1; fixed in 2025.7.1. <a href="https://github.com/advisories/GHSA-q66q-fx2p-7w4m">Source: GitHub advisory</a></span></div></div>
+            <div class="breach"><span class="breach-sev note">Disclosed bug</span><div class="breach-text"><strong>Asana MCP server data exposure</strong><br><span>A bug could have exposed one organization's data to MCP users in another. Asana took the server offline from 5 to 17 June 2025. The report found no indication that it was exploited. <a href="https://www.theregister.com/2025/06/18/asana_mcp_server_bug/">Source: The Register</a></span></div></div>
+            <div class="breach"><span class="breach-sev note">Demonstration</span><div class="breach-text"><strong>WhatsApp MCP: tool poisoning</strong><br><span>Researchers showed that a second MCP server offering a harmless "fact of the day" tool could later change its description and make an agent send the user's WhatsApp chat history to an attacker. <a href="https://invariantlabs.ai/blog/whatsapp-mcp-exploited">Source: Invariant Labs</a></span></div></div>
+            <div class="breach"><span class="breach-sev note">Demonstration</span><div class="breach-text"><strong>GitHub MCP: prompt injection through an issue</strong><br><span>Researchers showed that a malicious issue in a public repository could make an agent copy data from the user's private repositories into a public pull request. They describe it as a design problem in agent systems, not a bug in the server's code. <a href="https://invariantlabs.ai/blog/mcp-github-vulnerability">Source: Invariant Labs</a></span></div></div>
+        </div>
+    </div>
+</section>
+
+<!-- Features -->
+<section id="features" style="background:var(--bg2)">
+    <div class="container section-center">
+        <h2>Built for MCP. Not Retrofitted.</h2>
+        <p class="section-sub">Every check is tuned for MCP-specific attack vectors — not generic code scanning.</p>
+        <div class="feature-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🎣</div>
+                <h3>Tool Poisoning Detection</h3>
+                <p>Analyzes tool descriptions for hidden instructions that manipulate AI behavior. Catches instruction injection, exfiltration directives, tool chaining, and Unicode hiding.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">💉</div>
+                <h3>Prompt Injection Risk</h3>
+                <p>Identifies content that could be used as a prompt injection vector — system prompt overrides, role injection, and context manipulation.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🔍</div>
+                <h3>Claimed vs. Actual Analysis</h3>
+                <p>AI-powered comparison of what tool descriptions claim to do versus what the code actually does. Flags behavioral mismatches.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🏠</div>
+                <h3>Local Config Audit</h3>
+                <p>Discovers every MCP server on your machine. Detects hardcoded secrets, shared credentials, dangerous commands, and unversioned installs.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🔒</div>
+                <h3>Supply Chain Scanning</h3>
+                <p>Checks for npm lifecycle hooks, known vulnerable packages, dependency CVEs, and unversion-pinned npx installs.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📡</div>
+                <h3>Transport Security</h3>
+                <p>Validates authentication, session management, TLS usage, and detects session IDs exposed in URL parameters.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- CTA -->
+<section class="cta-section" style="background:var(--bg2)">
+    <div class="container">
+        <h2>Know what your MCP servers are doing.</h2>
+        <p>Scan your first server in 30 seconds. No account required.</p>
+        <div class="hero-cta">
+            <a href="https://github.com/helion-works/axiom" class="btn btn-primary">Get Started Free →</a>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <span>© 2026 Helion Works · Provided "as is", without warranty (<a href="https://github.com/helion-works/axiom/blob/main/LICENSE">Apache 2.0</a>). A scan result is information, not a guarantee.</span>
+        <span>
+            <a href="https://github.com/helion-works/axiom">GitHub</a> ·
+            <a href="mailto:contact@helionworks.com">contact@helionworks.com</a> ·
+            <a href="https://github.com/helion-works/axiom#usage-ping-anonymous-opt-out">Privacy</a>
+        </span>
+    </div>
+</footer>
+
+
+</body>
+</html>

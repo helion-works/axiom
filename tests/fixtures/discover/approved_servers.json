@@ -1,0 +1,36 @@
+{
+  "version": 1,
+  "servers": [
+    {
+      "name": "github",
+      "install_source": "npm",
+      "package": "@modelcontextprotocol/server-github",
+      "version": "2025.4.8"
+    },
+    {
+      "name": "filesystem",
+      "install_source": "npm",
+      "package": "@modelcontextprotocol/server-filesystem"
+    },
+    {
+      "name": "fetch",
+      "install_source": "pypi",
+      "package": "mcp-server-fetch"
+    },
+    {
+      "name": "time",
+      "install_source": "pypi",
+      "package": "mcp-server-time"
+    },
+    {
+      "name": "postgres",
+      "install_source": "npm",
+      "package": "@modelcontextprotocol/server-postgres"
+    },
+    {
+      "name": "docs",
+      "install_source": "remote_url",
+      "url": "https://example.com/sse"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+// Zed settings (JSON with comments)
+{
+  "theme": "One Dark",
+  /* MCP context servers */
+  "context_servers": {
+    "postgres": {
+      "command": {
+        "path": "npx",
+        "args": ["-y", "@modelcontextprotocol/server-postgres"],
+        "env": {}
+      },
+      "settings": {},
+    },
+  },
+}

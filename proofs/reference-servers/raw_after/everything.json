@@ -1,0 +1,1396 @@
+{
+  "schema_version": "0.5",
+  "target": "everything",
+  "risk_score": 31.0,
+  "risk_level": "medium",
+  "tools_found": 24,
+  "findings_count": 8,
+  "findings": [
+    {
+      "id": "GHSA-mrhx-c7xc-m3w5",
+      "severity": "medium",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency zod@4.2.0: GHSA-mrhx-c7xc-m3w5",
+      "description": "Known vulnerability (advisory severity: unrated; direct dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update zod to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-mrhx-c7xc-m3w5",
+      "location": "static:<corpus>/reference-servers/src/everything:dependencies",
+      "replay": "axiom scan <corpus>/reference-servers/src/everything --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-mrhx-c7xc-m3w5\")'"
+    },
+    {
+      "id": "transport_session_url",
+      "severity": "medium",
+      "category": "transport_security",
+      "title": "Session ID exposed in URL parameters",
+      "description": "Session identifiers in URLs are logged in server logs and browser history, enabling session hijacking.",
+      "owasp_asi": [
+        "ASI07"
+      ],
+      "owasp_mcp": [
+        "MCP07"
+      ],
+      "file_path": "transports\\sse.ts",
+      "line_number": null,
+      "recommendation": "Use session IDs in headers or cookies, not URL parameters.",
+      "rule_id": "transport_session_in_url",
+      "evidence": "Session ID exposed in URL parameters",
+      "location": "transports\\sse.ts",
+      "replay": "axiom scan <corpus>/reference-servers/src/everything --output json --no-ai --no-history | jq '.findings[] | select(.id==\"transport_session_url\")'"
+    },
+    {
+      "id": "transport_no_auth",
+      "severity": "low",
+      "category": "transport_security",
+      "title": "HTTP/SSE transport defined without visible authentication",
+      "description": "transports\\sse.ts sets up an HTTP/SSE transport and no authentication middleware is visible; the host is not known from the source; verify where this server is deployed.",
+      "owasp_asi": [
+        "ASI07"
+      ],
+      "owasp_mcp": [
+        "MCP07"
+      ],
+      "file_path": "transports\\sse.ts",
+      "line_number": null,
+      "recommendation": "Require OAuth 2.1 / bearer authentication on any endpoint that is not bound to localhost.",
+      "rule_id": "transport_no_auth",
+      "evidence": "HTTP/SSE transport defined without visible authentication",
+      "location": "transports\\sse.ts",
+      "replay": "axiom scan <corpus>/reference-servers/src/everything --output json --no-ai --no-history | jq '.findings[] | select(.id==\"transport_no_auth\")'"
+    },
+    {
+      "id": "memory_0001",
+      "severity": "low",
+      "category": "memory_poisoning",
+      "title": "Memory/context modification capability detected",
+      "description": "Pattern in __tests__\\roots.test.ts near line 131: `session cache`. MCP servers that modify agent memory or context can poison long-term behavior.",
+      "owasp_asi": [
+        "ASI06"
+      ],
+      "owasp_mcp": [
+        "MCP06",
+        "MCP10"
+      ],
+      "file_path": "__tests__\\roots.test.ts",
+      "line_number": 131,
+      "recommendation": "Validate all data before writing to agent memory. Implement integrity checks on persistent context. Log all memory modifications for audit.",
+      "rule_id": "memory_poisoning_pattern",
+      "evidence": "Memory/context modification capability detected",
+      "location": "__tests__\\roots.test.ts:131",
+      "replay": "axiom scan <corpus>/reference-servers/src/everything --output json --no-ai --no-history | jq '.findings[] | select(.id==\"memory_0001\")'"
+    },
+    {
+      "id": "trust_0001",
+      "severity": "low",
+      "category": "trust_exploitation",
+      "title": "Trust exploitation pattern: authority impersonation",
+      "description": "Pattern in resources\\session.ts near line 38: `representing`. This could enable a compromised agent to mislead users.",
+      "owasp_asi": [
+        "ASI09"
+      ],
+      "owasp_mcp": [
+        "MCP06"
+      ],
+      "file_path": "resources\\session.ts",
+      "line_number": 38,
+      "recommendation": "Implement output verification. Require human confirmation for high-impact actions. Mark agent-generated content as such.",
+      "rule_id": "trust_exploitation_pattern",
+      "evidence": "Trust exploitation pattern: authority impersonation",
+      "location": "resources\\session.ts:38",
+      "replay": "axiom scan <corpus>/reference-servers/src/everything --output json --no-ai --no-history | jq '.findings[] | select(.id==\"trust_0001\")'"
+    },
+    {
+      "id": "trust_0002",
+      "severity": "low",
+      "category": "trust_exploitation",
+      "title": "Trust exploitation pattern: authority impersonation",
+      "description": "Pattern in resources\\templates.ts near line 26: `representing`. This could enable a compromised agent to mislead users.",
+      "owasp_asi": [
+        "ASI09"
+      ],
+      "owasp_mcp": [
+        "MCP06"
+      ],
+      "file_path": "resources\\templates.ts",
+      "line_number": 26,
+      "recommendation": "Implement output verification. Require human confirmation for high-impact actions. Mark agent-generated content as such.",
+      "rule_id": "trust_exploitation_pattern",
+      "evidence": "Trust exploitation pattern: authority impersonation",
+      "location": "resources\\templates.ts:26",
+      "replay": "axiom scan <corpus>/reference-servers/src/everything --output json --no-ai --no-history | jq '.findings[] | select(.id==\"trust_0002\")'"
+    },
+    {
+      "id": "trust_0003",
+      "severity": "low",
+      "category": "trust_exploitation",
+      "title": "Trust exploitation pattern: consent bypass",
+      "description": "Pattern in tools\\get-env.ts near line 6: `auto-approve`. This could enable a compromised agent to mislead users.",
+      "owasp_asi": [
+        "ASI09"
+      ],
+      "owasp_mcp": [
+        "MCP06"
+      ],
+      "file_path": "tools\\get-env.ts",
+      "line_number": 6,
+      "recommendation": "Implement output verification. Require human confirmation for high-impact actions. Mark agent-generated content as such.",
+      "rule_id": "trust_exploitation_pattern",
+      "evidence": "Trust exploitation pattern: consent bypass",
+      "location": "tools\\get-env.ts:6",
+      "replay": "axiom scan <corpus>/reference-servers/src/everything --output json --no-ai --no-history | jq '.findings[] | select(.id==\"trust_0003\")'"
+    },
+    {
+      "id": "rugpull_add_tool_tools_list_changed",
+      "severity": "medium",
+      "category": "rug_pull_primitive",
+      "title": "Runtime tool registration: add_tool('tools/list_changed') in <anonymous>()",
+      "description": "server\\context.ts line 71: the server can change its tool list after approval (sendToolListChanged()). A tool that is benign at approval time can be swapped for a malicious one later (rug pull), and a tool injected after the first scan is never reviewed.",
+      "owasp_asi": [
+        "ASI04",
+        "ASI10"
+      ],
+      "owasp_mcp": [
+        "MCP03",
+        "MCP04"
+      ],
+      "file_path": "server\\context.ts",
+      "line_number": 71,
+      "recommendation": "Register every tool at startup; never mutate the tool list from a tool handler.",
+      "rule_id": "rugpull_runtime_registration",
+      "evidence": "Runtime tool registration: add_tool('tools/list_changed') in <anonymous>()",
+      "location": "server\\context.ts:71",
+      "replay": "axiom scan <corpus>/reference-servers/src/everything --output json --no-ai --no-history | jq '.findings[] | select(.id==\"rugpull_add_tool_tools_list_changed\")'"
+    }
+  ],
+  "server_profile": {
+    "name": "everything",
+    "command": null,
+    "args": [],
+    "env_vars": [],
+    "transport": "http",
+    "tools": [
+      {
+        "name": "echo",
+        "description": "",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "get-annotated-message",
+        "description": "",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "get-env",
+        "description": "",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "get-header-params",
+        "description": "",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "region": {},
+            "repeat": {}
+          },
+          "required": [
+            "region",
+            "repeat"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "get-resource-links",
+        "description": "",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "get-resource-reference",
+        "description": "",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "get-roots-list",
+        "description": "",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "get-structured-content",
+        "description": "",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "get-sum",
+        "description": "",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "get-tiny-image",
+        "description": "",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "gzip-file-as-resource",
+        "description": "",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "simulate-research-query",
+        "description": "",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "toggle-simulated-logging",
+        "description": "",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "toggle-subscriber-updates",
+        "description": "",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "trigger-elicitation-request-async",
+        "description": "",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "trigger-elicitation-request",
+        "description": "",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "trigger-list-changed",
+        "description": "",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "trigger-log-messages",
+        "description": "",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "trigger-long-running-operation",
+        "description": "",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "trigger-multi-step-elicitation",
+        "description": "",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "trigger-resource-update",
+        "description": "",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "trigger-sampling-request-async",
+        "description": "",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "trigger-sampling-request",
+        "description": "",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "trigger-url-elicitation",
+        "description": "",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      }
+    ],
+    "resources": [
+      {
+        "uri": "demo://resource/collection/summer-specials",
+        "name": "summer-specials",
+        "description": "A resource collection: one read returns every item in the catalog as a separate content, each under its own demo://resource/collection/item/{itemId} URI.",
+        "mime_type": null
+      },
+      {
+        "uri": "demo://resource/collection/by-category/{category}",
+        "name": "collection-by-category",
+        "description": "A resource collection filtered by the {category} variable ({COLLECTION_CATEGORIES.join(\", \")}): one read returns each item in that category as a separate content, under its own URI.",
+        "mime_type": null
+      },
+      {
+        "uri": "demo://resource/collection/item/{itemId}",
+        "name": "collection-item",
+        "description": "One item of the resource collections, selected by the {itemId} variable (1 to 5). The collections return their items under these URIs.",
+        "mime_type": null
+      },
+      {
+        "uri": "demo://resource/minted/{id}/{name}",
+        "name": "Minted Resource",
+        "description": "A resource a tool created for this client, such as gzip-file-as-resource's output. Readable for ten minutes at the URI the tool returned.",
+        "mime_type": null
+      },
+      {
+        "uri": "demo://resource/dynamic/text/{resourceId}",
+        "name": "Dynamic Text Resource",
+        "description": "Plaintext dynamic resource fabricated from the {resourceId} variable, which must be an integer.",
+        "mime_type": null
+      },
+      {
+        "uri": "demo://resource/dynamic/blob/{resourceId}",
+        "name": "Dynamic Blob Resource",
+        "description": "Binary (base64) dynamic resource fabricated from the {resourceId} variable, which must be an integer.",
+        "mime_type": null
+      }
+    ],
+    "prompts": [
+      {
+        "name": "args-prompt",
+        "description": "A prompt with two arguments, one required and one optional",
+        "arguments": []
+      },
+      {
+        "name": "completable-prompt",
+        "description": "First argument choice narrows values for second argument.",
+        "arguments": [
+          {
+            "name": "department",
+            "required": true
+          },
+          {
+            "name": "name",
+            "required": true
+          }
+        ]
+      },
+      {
+        "name": "resource-prompt",
+        "description": "A prompt that includes an embedded resource reference",
+        "arguments": []
+      },
+      {
+        "name": "simple-prompt",
+        "description": "A prompt with no arguments",
+        "arguments": []
+      }
+    ],
+    "repo_url": null,
+    "npm_package": null,
+    "capabilities_claimed": [],
+    "capabilities_actual": []
+  },
+  "fingerprint": "bc53dec708590a6736a214c0c8d6ba523b7f42e77093cd4dafeb880e2ac0d540",
+  "surface_map": {
+    "server": {
+      "name": "@modelcontextprotocol/server-everything",
+      "instructions": "",
+      "transport": "unknown",
+      "auth": "unknown"
+    },
+    "tools": [
+      {
+        "name": "echo",
+        "description": "",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "capabilities": [],
+        "return_literals": [
+          "text",
+          "Echo: {validatedArgs.message}"
+        ],
+        "registration": "static",
+        "location": "tools\\echo.ts:35"
+      },
+      {
+        "name": "get-annotated-message",
+        "description": "",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "tools\\get-annotated-message.ts:46"
+      },
+      {
+        "name": "get-env",
+        "description": "",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "capabilities": [
+          "env"
+        ],
+        "return_literals": [
+          "text"
+        ],
+        "registration": "static",
+        "location": "tools\\get-env.ts:113"
+      },
+      {
+        "name": "get-header-params",
+        "description": "",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "region": {},
+            "repeat": {}
+          },
+          "required": [
+            "region",
+            "repeat"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [
+          "text"
+        ],
+        "registration": "static",
+        "location": "tools\\get-header-params.ts:100"
+      },
+      {
+        "name": "get-resource-links",
+        "description": "",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "tools\\get-resource-links.ts:49"
+      },
+      {
+        "name": "get-resource-reference",
+        "description": "",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "capabilities": [],
+        "return_literals": [
+          "text",
+          "Returning resource reference for Resource {resourceId}:",
+          "resource",
+          "You can access this resource using the URI: {resource.uri}"
+        ],
+        "registration": "static",
+        "location": "tools\\get-resource-reference.ts:58"
+      },
+      {
+        "name": "get-roots-list",
+        "description": "",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "capabilities": [],
+        "return_literals": [
+          "text",
+          "The client supports roots but no roots are currently configured.\n\nThis could mean:\n1. The client hasn't provided any roots yet\n2. The client provided an empty roots list\n3. The roots configuration is still being loaded",
+          "Current MCP Roots ({currentRoots.length} total):\n\n{rootsList}\n\nNote: This server demonstrates the roots protocol capability but doesn't actually access files. The roots are provided by the MCP client and can be used by servers that need file system access."
+        ],
+        "registration": "static",
+        "location": "tools\\get-roots-list.ts:47"
+      },
+      {
+        "name": "get-structured-content",
+        "description": "",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "tools\\get-structured-content.ts:55"
+      },
+      {
+        "name": "get-sum",
+        "description": "",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "capabilities": [],
+        "return_literals": [
+          "text",
+          "The sum of {validatedArgs.a} and {validatedArgs.b} is {sum}."
+        ],
+        "registration": "static",
+        "location": "tools\\get-sum.ts:40"
+      },
+      {
+        "name": "get-tiny-image",
+        "description": "",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "capabilities": [],
+        "return_literals": [
+          "text",
+          "Here's the image you requested:",
+          "image",
+          "iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAeGVYSWZNTQAqAAAACAAFARIAAwAAAAEAAQAAARoABQAAAAEAAABKARsABQAAAAEAAABSASgAAwAAAAEAAgAAh2kABAAAAAEAAABaAAAAAAAAAJAAAAABAAAAkAAAAAEAAqACAAQAAAABAAAAFKADAAQAAAABAAAAFAAAAAAXNii1AAAACXBIWXMAABYlAAAWJQFJUiTwAAAB82lUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iWE1QIENvcmUgNi4wLjAiPgogICA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPgogICAgICA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIgogICAgICAgICAgICB4bWxuczp0aWZmPSJodHRwOi8vbnMuYWRvYmUuY29tL3RpZmYvMS4wLyI+CiAgICAgICAgIDx0aWZmOllSZXNvbHV0aW9uPjE0NDwvdGlmZjpZUmVzb2x1dGlvbj4KICAgICAgICAgPHRpZmY6T3JpZW50YXRpb24+MTwvdGlmZjpPcmllbnRhdGlvbj4KICAgICAgICAgPHRpZmY6WFJlc29sdXRpb24+MTQ0PC90aWZmOlhSZXNvbHV0aW9uPgogICAgICAgICA8dGlmZjpSZXNvbHV0aW9uVW5pdD4yPC90aWZmOlJlc29sdXRpb25Vbml0PgogICAgICA8L3JkZjpEZXNjcmlwdGlvbj4KICAgPC9yZGY6UkRGPgo8L3g6eG1wbWV0YT4KReh49gAAAjRJREFUOBGFlD2vMUEUx2clvoNCcW8hCqFAo1dKhEQpvsF9KrWEBh/ALbQ0KkInBI3SWyGPCCJEQliXgsTLefaca/bBWjvJzs6cOf/fnDkzOQJIjWm06/XKBEGgD8c6nU5VIWgBtQDPZPWtJE8O63a7LBgMMo/Hw0ql0jPjcY4RvmqXy4XMjUYDUwLtdhtmsxnYbDbI5/O0djqdFFKmsEiGZ9jP9gem0yn0ej2Yz+fg9XpfycimAD7DttstQTDKfr8Po9GIIg6Hw1Cr1RTgB+A72GAwgMPhQLBMJgNSXsFqtUI2myUo18pA6QJogefsPrLBX4QdCVatViklw+EQRFGEj88P2O12pEUGATmsXq+TaLPZ0AXgMRF2vMEqlQoJTSYTpNNpApvNZliv1/+BHDaZTAi2Wq1A3Ig0xmMej7+RcZjdbodUKkWAaDQK+GHjHPnImB88JrZIJAKFQgH2+z2BOczhcMiwRCIBgUAA+NN5BP6mj2DYff35gk6nA61WCzBn2JxO5wPM7/fLz4vD0E+OECfn8xl/0Gw2KbLxeAyLxQIsFgt8p75pDSO7h/HbpUWpewCike9WLpfB7XaDy+WCYrFI/slk8i0MnRRAUt46hPMI4vE4+Hw+ec7t9/44VgWigEeby+UgFArJWjUYOqhWG6x50rpcSfR6PVUfNOgEVRlTX0HhrZBKz4MZjUYWi8VoA+lc9H/VaRZYjBKrtXR8tlwumcFgeMWRbZpA9ORQWfVm8A/FsrLaxebd5wAAAABJRU5ErkJggg==",
+          "image/png",
+          "The image above is the MCP logo."
+        ],
+        "registration": "static",
+        "location": "tools\\get-tiny-image.ts:35"
+      },
+      {
+        "name": "gzip-file-as-resource",
+        "description": "",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "capabilities": [],
+        "return_literals": [
+          "resource"
+        ],
+        "registration": "static",
+        "location": "tools\\gzip-file-as-resource.ts:212"
+      },
+      {
+        "name": "simulate-research-query",
+        "description": "",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "tools\\simulate-research-query.ts:200"
+      },
+      {
+        "name": "toggle-simulated-logging",
+        "description": "",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "capabilities": [],
+        "return_literals": [
+          "text"
+        ],
+        "registration": "static",
+        "location": "tools\\toggle-simulated-logging.ts:56"
+      },
+      {
+        "name": "toggle-subscriber-updates",
+        "description": "",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "capabilities": [],
+        "return_literals": [
+          "text"
+        ],
+        "registration": "static",
+        "location": "tools\\toggle-subscriber-updates.ts:56"
+      },
+      {
+        "name": "trigger-elicitation-request-async",
+        "description": "",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "tools\\trigger-elicitation-request-async.ts:94"
+      },
+      {
+        "name": "trigger-elicitation-request",
+        "description": "",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "capabilities": [],
+        "return_literals": [
+          "Please provide inputs for the following fields:"
+        ],
+        "registration": "static",
+        "location": "tools\\trigger-elicitation-request.ts:206"
+      },
+      {
+        "name": "trigger-list-changed",
+        "description": "",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "capabilities": [],
+        "return_literals": [
+          "text",
+          "Sent notifications/{list}/list_changed"
+        ],
+        "registration": "static",
+        "location": "tools\\trigger-list-changed.ts:52"
+      },
+      {
+        "name": "trigger-log-messages",
+        "description": "",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "capabilities": [],
+        "return_literals": [
+          "text",
+          "Sent one log message at each of {LOGGING_LEVELS.length} levels ({LOGGING_LEVELS.join(\", \")}). The ones below this request's log level were dropped."
+        ],
+        "registration": "static",
+        "location": "tools\\trigger-log-messages.ts:58"
+      },
+      {
+        "name": "trigger-long-running-operation",
+        "description": "",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "capabilities": [],
+        "return_literals": [
+          "text",
+          "Long running operation cancelled after {i - 1} of {steps} steps.",
+          "Long running operation completed. Duration: {duration} seconds, Steps: {steps}."
+        ],
+        "registration": "static",
+        "location": "tools\\trigger-long-running-operation.ts:50"
+      },
+      {
+        "name": "trigger-multi-step-elicitation",
+        "description": "",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "capabilities": [],
+        "return_literals": [
+          "the name question",
+          "A name is required. What is your name?",
+          "the color question",
+          "trigger-multi-step-elicitation",
+          "text",
+          "trigger-multi-step-elicitation's favorite color is {answer.color}.",
+          "What is your name?"
+        ],
+        "registration": "static",
+        "location": "tools\\trigger-multi-step-elicitation.ts:107"
+      },
+      {
+        "name": "trigger-resource-update",
+        "description": "",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "capabilities": [],
+        "return_literals": [
+          "text",
+          "Sent notifications/resources/updated for {uri} to each subscriber"
+        ],
+        "registration": "static",
+        "location": "tools\\trigger-resource-update.ts:54"
+      },
+      {
+        "name": "trigger-sampling-request-async",
+        "description": "",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "tools\\trigger-sampling-request-async.ts:73"
+      },
+      {
+        "name": "trigger-sampling-request",
+        "description": "",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "capabilities": [],
+        "return_literals": [
+          "user",
+          "text",
+          "Resource trigger-sampling-request context: {prompt}",
+          "You are a helpful test server.",
+          "LLM sampling result: \n{JSON.stringify(answer.result, null, 2)}"
+        ],
+        "registration": "static",
+        "location": "tools\\trigger-sampling-request.ts:62"
+      },
+      {
+        "name": "trigger-url-elicitation",
+        "description": "",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "tools\\trigger-url-elicitation.ts:156"
+      }
+    ],
+    "resources": [
+      {
+        "uri": "demo://resource/collection/summer-specials",
+        "name": "summer-specials",
+        "description": "A resource collection: one read returns every item in the catalog as a separate content, each under its own demo://resource/collection/item/{itemId} URI.",
+        "mime_type": null,
+        "content_literals": [],
+        "location": "resources\\collections.ts:95"
+      },
+      {
+        "uri": "demo://resource/collection/by-category/{category}",
+        "name": "collection-by-category",
+        "description": "A resource collection filtered by the {category} variable ({COLLECTION_CATEGORIES.join(\", \")}): one read returns each item in that category as a separate content, under its own URI.",
+        "mime_type": null,
+        "content_literals": [],
+        "location": "resources\\collections.ts:109"
+      },
+      {
+        "uri": "demo://resource/collection/item/{itemId}",
+        "name": "collection-item",
+        "description": "One item of the resource collections, selected by the {itemId} variable (1 to 5). The collections return their items under these URIs.",
+        "mime_type": null,
+        "content_literals": [],
+        "location": "resources\\collections.ts:132"
+      },
+      {
+        "uri": "demo://resource/minted/{id}/{name}",
+        "name": "Minted Resource",
+        "description": "A resource a tool created for this client, such as gzip-file-as-resource's output. Readable for ten minutes at the URI the tool returned.",
+        "mime_type": null,
+        "content_literals": [],
+        "location": "resources\\minted.ts:126"
+      },
+      {
+        "uri": "demo://resource/dynamic/text/{resourceId}",
+        "name": "Dynamic Text Resource",
+        "description": "Plaintext dynamic resource fabricated from the {resourceId} variable, which must be an integer.",
+        "mime_type": null,
+        "content_literals": [],
+        "location": "resources\\templates.ts:182"
+      },
+      {
+        "uri": "demo://resource/dynamic/blob/{resourceId}",
+        "name": "Dynamic Blob Resource",
+        "description": "Binary (base64) dynamic resource fabricated from the {resourceId} variable, which must be an integer.",
+        "mime_type": null,
+        "content_literals": [],
+        "location": "resources\\templates.ts:203"
+      }
+    ],
+    "prompts": [
+      {
+        "name": "args-prompt",
+        "description": "A prompt with two arguments, one required and one optional",
+        "arguments": [],
+        "message_literals": [
+          "user",
+          "text",
+          "What's weather in {args?.city}, {args?.state}?"
+        ],
+        "location": "prompts\\args.ts:20"
+      },
+      {
+        "name": "completable-prompt",
+        "description": "First argument choice narrows values for second argument.",
+        "arguments": [
+          {
+            "name": "department",
+            "required": true
+          },
+          {
+            "name": "name",
+            "required": true
+          }
+        ],
+        "message_literals": [
+          "user",
+          "text",
+          "Please promote {name} to the head of the {department} team."
+        ],
+        "location": "prompts\\completions.ts:45"
+      },
+      {
+        "name": "resource-prompt",
+        "description": "A prompt that includes an embedded resource reference",
+        "arguments": [],
+        "message_literals": [
+          "user",
+          "text",
+          "This prompt includes the {resourceType} resource with id: {resourceId}. Please analyze the following resource:",
+          "resource"
+        ],
+        "location": "prompts\\resource.ts:33"
+      },
+      {
+        "name": "simple-prompt",
+        "description": "A prompt with no arguments",
+        "arguments": [],
+        "message_literals": [
+          "user",
+          "text",
+          "This is a simple prompt without arguments."
+        ],
+        "location": "prompts\\simple.ts:12"
+      }
+    ],
+    "mutations": [
+      {
+        "kind": "add_tool",
+        "name": "tools/list_changed",
+        "location": "server\\context.ts:71",
+        "inside": "<anonymous>"
+      }
+    ],
+    "source": {
+      "kind": "static",
+      "target": "everything",
+      "languages": [
+        "typescript"
+      ]
+    },
+    "generated_at": "2026-11-11T22:29:17+00:00",
+    "fingerprint": "bc53dec708590a6736a214c0c8d6ba523b7f42e77093cd4dafeb880e2ac0d540",
+    "schema": "axiom.surface/1"
+  },
+  "provenance": {
+    "identity": {
+      "npm": "@modelcontextprotocol/server-everything",
+      "pypi": null,
+      "repository": "https://github.com/modelcontextprotocol/servers",
+      "server_name": "@modelcontextprotocol/server-everything"
+    },
+    "registry": {
+      "status": "not_in_registry"
+    },
+    "lookalikes": [],
+    "checked_at": "2026-11-11T22:29:19+00:00"
+  },
+  "owasp_coverage": {
+    "framework": "OWASP Top 10 for Agentic Applications 2026",
+    "reference": "https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/",
+    "coverage": {
+      "ASI01": {
+        "name": "Agent Goal Hijack",
+        "coverage_level": "strong",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "tool_poisoning",
+          "prompt_injection",
+          "instruction_injection"
+        ]
+      },
+      "ASI02": {
+        "name": "Tool Misuse & Exploitation",
+        "coverage_level": "strong",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "toxic_tool_combo",
+          "tool_overscope",
+          "tool_chaining_detection"
+        ]
+      },
+      "ASI03": {
+        "name": "Identity & Privilege Abuse",
+        "coverage_level": "strong",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "credential_analysis",
+          "shared_credential_detection",
+          "env_var_audit"
+        ]
+      },
+      "ASI04": {
+        "name": "Agentic Supply Chain Vulnerabilities",
+        "coverage_level": "strong",
+        "findings_count": 2,
+        "finding_ids": [
+          "GHSA-mrhx-c7xc-m3w5",
+          "rugpull_add_tool_tools_list_changed"
+        ],
+        "detectors": [
+          "dependency_cve",
+          "lifecycle_hooks",
+          "npx_unversioned",
+          "known_mcp_cves"
+        ]
+      },
+      "ASI05": {
+        "name": "Unexpected Code Execution",
+        "coverage_level": "strong",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "code_exec_patterns",
+          "code_generation_detection",
+          "sandbox_escape"
+        ]
+      },
+      "ASI06": {
+        "name": "Memory & Context Poisoning",
+        "coverage_level": "partial",
+        "findings_count": 1,
+        "finding_ids": [
+          "memory_0001"
+        ],
+        "detectors": [
+          "memory_poisoning_patterns",
+          "context_manipulation_detection"
+        ],
+        "gap_note": "Axiom detects static patterns. Full coverage requires runtime memory monitoring."
+      },
+      "ASI07": {
+        "name": "Insecure Inter-Agent Communication",
+        "coverage_level": "partial",
+        "findings_count": 2,
+        "finding_ids": [
+          "transport_session_url",
+          "transport_no_auth"
+        ],
+        "detectors": [
+          "transport_security",
+          "a2a_pattern_detection"
+        ],
+        "gap_note": "Axiom checks transport security. Full A2A protocol analysis requires runtime interception."
+      },
+      "ASI08": {
+        "name": "Cascading Failures",
+        "coverage_level": "partial",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "blast_radius_estimation",
+          "dependency_chain_analysis"
+        ],
+        "gap_note": "Axiom estimates blast radius from tool capabilities. Full cascading failure analysis requires runtime topology mapping."
+      },
+      "ASI09": {
+        "name": "Human-Agent Trust Exploitation",
+        "coverage_level": "strong",
+        "findings_count": 3,
+        "finding_ids": [
+          "trust_0001",
+          "trust_0002",
+          "trust_0003"
+        ],
+        "detectors": [
+          "claimed_vs_actual",
+          "deceptive_output_detection",
+          "trust_manipulation_patterns"
+        ]
+      },
+      "ASI10": {
+        "name": "Rogue Agents",
+        "coverage_level": "partial",
+        "findings_count": 1,
+        "finding_ids": [
+          "rugpull_add_tool_tools_list_changed"
+        ],
+        "detectors": [
+          "sleeper_patterns",
+          "behavioral_drift_indicators",
+          "persistence_detection"
+        ],
+        "gap_note": "Axiom detects static rogue indicators. Full rogue agent detection requires runtime behavioral monitoring."
+      }
+    },
+    "total_asi_categories_with_findings": 5
+  },
+  "owasp_mcp_coverage": {
+    "framework": "OWASP MCP Top 10",
+    "framework_version": "v0.1 beta",
+    "reference": "https://owasp.org/www-project-mcp-top-10/",
+    "coverage": {
+      "MCP01": {
+        "id": "MCP01:2025",
+        "name": "Token Mismanagement & Secret Exposure",
+        "coverage_level": "partial",
+        "reason": "Regex-based secret detection in server source and client configs plus env-var exposure checks; no entropy analysis, git-history scan, or token lifetime/passthrough checks.",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "credential_theft",
+          "cross_server",
+          "mcp01_hardcoded_secrets",
+          "config_hardcoded_secret",
+          "env_var_audit",
+          "env_dump"
+        ]
+      },
+      "MCP02": {
+        "id": "MCP02:2025",
+        "name": "Privilege Escalation via Scope Creep",
+        "coverage_level": "strong",
+        "reason": "Permission over-scope patterns, toxic tool-capability combinations, path-escape checks and env-var over-exposure in configs.",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "permission_overscope",
+          "toxic_tool_combo",
+          "identity_privilege",
+          "sandbox_escape",
+          "config_risk",
+          "cascading_failure",
+          "cross_server",
+          "excessive_scope",
+          "confused_deputy",
+          "file_read",
+          "file_write"
+        ]
+      },
+      "MCP03": {
+        "id": "MCP03:2025",
+        "name": "Tool Poisoning",
+        "coverage_level": "strong",
+        "reason": "Dedicated detector for hidden instructions in tool metadata, plus runtime rug-pull diffing between source and live tool definitions.",
+        "findings_count": 1,
+        "finding_ids": [
+          "rugpull_add_tool_tools_list_changed"
+        ],
+        "detectors": [
+          "tool_poisoning",
+          "obfuscation",
+          "rogue_agent",
+          "source_vs_runtime_diff",
+          "tool_shadowing",
+          "hidden_unicode",
+          "rug_pull_primitive",
+          "surface_mismatch"
+        ]
+      },
+      "MCP04": {
+        "id": "MCP04:2025",
+        "name": "Software Supply Chain Attacks & Dependency Tampering",
+        "coverage_level": "strong",
+        "reason": "Dependency CVE lookup, known MCP CVEs, install lifecycle hooks, and unpinned npx/uvx/pip/@latest install sources.",
+        "findings_count": 2,
+        "finding_ids": [
+          "GHSA-mrhx-c7xc-m3w5",
+          "rugpull_add_tool_tools_list_changed"
+        ],
+        "detectors": [
+          "dependency_vuln",
+          "supply_chain",
+          "known_cve",
+          "obfuscation",
+          "lifecycle_hooks",
+          "mcp04_unpinned_install",
+          "homoglyph",
+          "rug_pull_primitive",
+          "surface_mismatch"
+        ]
+      },
+      "MCP05": {
+        "id": "MCP05:2025",
+        "name": "Command Injection & Execution",
+        "coverage_level": "partial",
+        "reason": "Regex, AST and Semgrep find exec/shell sinks and a heuristic flags sinks inside tool handlers, but there is no inter-procedural taint tracking from tool input to sink.",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "command_injection",
+          "code_execution",
+          "code_generation",
+          "sandbox_escape",
+          "mcp05_tool_input_sink",
+          "shell_exec"
+        ]
+      },
+      "MCP06": {
+        "id": "MCP06:2025",
+        "name": "Prompt Injection via Contextual Payloads",
+        "coverage_level": "partial",
+        "reason": "Injection markers are detected in tool metadata, server instructions, resources, prompts and the strings a tool returns (static), and in instructions/resources/prompts read live; payloads produced by calling a tool at runtime are not inspected.",
+        "findings_count": 4,
+        "finding_ids": [
+          "memory_0001",
+          "trust_0001",
+          "trust_0002",
+          "trust_0003"
+        ],
+        "detectors": [
+          "prompt_injection",
+          "memory_poisoning",
+          "trust_exploitation",
+          "response_injection",
+          "tool_shadowing"
+        ]
+      },
+      "MCP07": {
+        "id": "MCP07:2025",
+        "name": "Insufficient Authentication & Authorization",
+        "coverage_level": "partial",
+        "reason": "Flags remote servers with no visible auth and servers bound to all interfaces; does not verify OAuth implementation or per-tool authorization logic.",
+        "findings_count": 2,
+        "finding_ids": [
+          "transport_session_url",
+          "transport_no_auth"
+        ],
+        "detectors": [
+          "transport_security",
+          "inter_agent_comm",
+          "identity_privilege",
+          "transport_no_auth",
+          "config_no_auth",
+          "mcp07_bind_all_interfaces"
+        ]
+      },
+      "MCP08": {
+        "id": "MCP08:2025",
+        "name": "Lack of Audit and Telemetry",
+        "coverage_level": "gap",
+        "reason": "Only a low-confidence heuristic for missing logging in tool-defining files; actual audit trails and telemetry pipelines are not verified.",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "audit_telemetry",
+          "mcp08_no_tool_logging"
+        ]
+      },
+      "MCP09": {
+        "id": "MCP09:2025",
+        "name": "Shadow MCP Servers",
+        "coverage_level": "partial",
+        "reason": "Covered by `axiom discover` allowlist on the local machine; no network-wide or fleet discovery.",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "mcpguard_discover",
+          "shadow_mcp"
+        ]
+      },
+      "MCP10": {
+        "id": "MCP10:2025",
+        "name": "Context Injection & Over-Sharing",
+        "coverage_level": "partial",
+        "reason": "Hard-coded egress URLs, tools that send to caller-chosen destinations and bulk-exposure heuristics are detected statically and live; what context is actually shared at runtime is not observed.",
+        "findings_count": 1,
+        "finding_ids": [
+          "memory_0001"
+        ],
+        "detectors": [
+          "context_oversharing",
+          "data_exfiltration",
+          "memory_poisoning",
+          "mcp10_broad_data_exposure"
+        ]
+      }
+    },
+    "total_mcp_categories_with_findings": 5
+  },
+  "ai_analysis": null,
+  "tool_poisoning_report": null,
+  "prompt_injection_risk": null
+}

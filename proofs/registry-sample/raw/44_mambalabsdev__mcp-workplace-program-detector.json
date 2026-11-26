@@ -1,0 +1,823 @@
+{
+  "schema_version": "0.5",
+  "target": "<corpus>/registry/44_mambalabsdev__mcp-workplace-program-detector",
+  "risk_score": 100.0,
+  "risk_level": "critical",
+  "tools_found": 1,
+  "findings_count": 21,
+  "findings": [
+    {
+      "id": "poison_detect_workplace_programs_instruction_injection",
+      "severity": "critical",
+      "category": "tool_poisoning",
+      "title": "Tool poisoning: instruction injection in 'detect_workplace_programs'",
+      "description": "Hidden instruction detected in tool description that could manipulate AI behavior. Matched pattern in tool 'detect_workplace_programs': 'never '",
+      "owasp_asi": [
+        "ASI01"
+      ],
+      "owasp_mcp": [
+        "MCP03"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Review tool description carefully. Compare claimed functionality with actual code behavior. Consider removing this MCP server."
+    },
+    {
+      "id": "poison_detect_workplace_programs_long_desc",
+      "severity": "medium",
+      "category": "tool_poisoning",
+      "title": "Unusually long tool description for 'detect_workplace_programs'",
+      "description": "Tool description is 962 characters. Long descriptions can hide malicious instructions.",
+      "owasp_asi": [
+        "ASI01"
+      ],
+      "owasp_mcp": [
+        "MCP03"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Review the full tool description for hidden instructions."
+    },
+    {
+      "id": "GHSA-22jm-h49p-29qw",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: @modelcontextprotocol/sdk",
+      "description": "MCP TypeScript SDK: Experimental tasks were not tied to the session that created them",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update @modelcontextprotocol/sdk to a patched version."
+    },
+    {
+      "id": "GHSA-345p-7cg4-v4c7",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: @modelcontextprotocol/sdk",
+      "description": "@modelcontextprotocol/sdk has cross-client data leak via shared server/transport instance reuse",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update @modelcontextprotocol/sdk to a patched version."
+    },
+    {
+      "id": "GHSA-46jr-4wx8-v453",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: @modelcontextprotocol/sdk",
+      "description": "MCP TypeScript SDK: One HTTP request within the default size limit could exhaust server memory during validation",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update @modelcontextprotocol/sdk to a patched version."
+    },
+    {
+      "id": "GHSA-6prh-2h8m-c8cw",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: @modelcontextprotocol/sdk",
+      "description": "MCP TypeScript client SDK: HTTP client transports and OAuth requests followed cross-origin redirects and re-sent custom headers and request bodies",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update @modelcontextprotocol/sdk to a patched version."
+    },
+    {
+      "id": "GHSA-6qxp-vccf-f47h",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: @modelcontextprotocol/sdk",
+      "description": "MCP TypeScript SDK: OAuth client could send credentials to an authorization server chosen by the MCP server",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update @modelcontextprotocol/sdk to a patched version."
+    },
+    {
+      "id": "GHSA-8r9q-7v3j-jr4g",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: @modelcontextprotocol/sdk",
+      "description": "Anthropic's MCP TypeScript SDK has a ReDoS vulnerability",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update @modelcontextprotocol/sdk to a patched version."
+    },
+    {
+      "id": "GHSA-f897-62hf-6gxq",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: @modelcontextprotocol/sdk",
+      "description": "MCP TypeScript SDK: HTTP server transports and handlers did not limit request body size or JSON-RPC batch length",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update @modelcontextprotocol/sdk to a patched version."
+    },
+    {
+      "id": "GHSA-rvq5-wwqv-78pq",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: @modelcontextprotocol/sdk",
+      "description": "MCP TypeScript SDK: Server bearer authentication accepted tokens issued for another service",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update @modelcontextprotocol/sdk to a patched version."
+    },
+    {
+      "id": "GHSA-w48q-cv73-mx4w",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: @modelcontextprotocol/sdk",
+      "description": "Model Context Protocol (MCP) TypeScript SDK does not enable DNS rebinding protection by default",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update @modelcontextprotocol/sdk to a patched version."
+    },
+    {
+      "id": "GHSA-m95q-7qp3-xv42",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: zod",
+      "description": "Zod denial of service vulnerability",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update zod to a patched version."
+    },
+    {
+      "id": "GHSA-mrhx-c7xc-m3w5",
+      "severity": "high",
+      "category": "dependency_vuln",
+      "title": "CVE in dependency: zod",
+      "description": "Zod can exhaust memory while validating oversized constrained collections",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update zod to a patched version."
+    },
+    {
+      "id": "toxic_combo_data_read_network_external",
+      "severity": "high",
+      "category": "toxic_tool_combo",
+      "title": "Data read + external network = exfiltration path",
+      "description": "Tools that can read internal data AND make external network requests create a direct exfiltration channel. A hijacked agent could read sensitive data then forward it to an attacker-controlled endpoint. Provided by: detect_workplace_programs (data_read) + detect_workplace_programs (network_external).",
+      "owasp_asi": [
+        "ASI02"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Implement tool-level permission scoping. Consider whether both capabilities are necessary or if one can be restricted."
+    },
+    {
+      "id": "toxic_combo_credential_access_network_external",
+      "severity": "critical",
+      "category": "toxic_tool_combo",
+      "title": "Credential access + external network = credential theft path",
+      "description": "Tools that access credentials AND make external requests can exfiltrate tokens, API keys, and secrets to remote servers. Provided by: detect_workplace_programs (credential_access) + detect_workplace_programs (network_external).",
+      "owasp_asi": [
+        "ASI02"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Implement tool-level permission scoping. Consider whether both capabilities are necessary or if one can be restricted."
+    },
+    {
+      "id": "toxic_combo_data_read_data_write",
+      "severity": "medium",
+      "category": "toxic_tool_combo",
+      "title": "Broad data read + write = data manipulation risk",
+      "description": "Tools that can both read and write data could be manipulated to corrupt, overwrite, or delete information. Provided by: detect_workplace_programs (data_read) + detect_workplace_programs (data_write).",
+      "owasp_asi": [
+        "ASI02"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Implement tool-level permission scoping. Consider whether both capabilities are necessary or if one can be restricted."
+    },
+    {
+      "id": "toxic_combo_filesystem_network_external",
+      "severity": "high",
+      "category": "toxic_tool_combo",
+      "title": "Filesystem access + external network = file exfiltration path",
+      "description": "Tools that access local files AND make network requests can exfiltrate source code, configs, keys, and documents. Provided by: detect_workplace_programs (filesystem) + detect_workplace_programs (network_external).",
+      "owasp_asi": [
+        "ASI02"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Implement tool-level permission scoping. Consider whether both capabilities are necessary or if one can be restricted."
+    },
+    {
+      "id": "toxic_combo_credential_access_data_write",
+      "severity": "high",
+      "category": "toxic_tool_combo",
+      "title": "Credential access + data write = privilege persistence",
+      "description": "Tools that access credentials AND write data could persist stolen credentials or create backdoor accounts. Provided by: detect_workplace_programs (credential_access) + detect_workplace_programs (data_write).",
+      "owasp_asi": [
+        "ASI02"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Implement tool-level permission scoping. Consider whether both capabilities are necessary or if one can be restricted."
+    },
+    {
+      "id": "mcp04_unpinned_0001",
+      "severity": "medium",
+      "category": "supply_chain",
+      "title": "Unpinned install source",
+      "description": "`npx @mambalabsdev/mcp-workplace-program-detector` without a pinned version in .mcp.json at line 4. Without an exact version the next install silently picks up whatever is published, including a compromised release.",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": ".mcp.json",
+      "line_number": 4,
+      "recommendation": "Pin an exact version (pkg@1.2.3, pkg==1.2.3) and prefer a lockfile or hash-checked requirements."
+    },
+    {
+      "id": "mcp08_no_tool_logging",
+      "severity": "info",
+      "category": "audit_telemetry",
+      "title": "No logging found in files that define MCP tools (low confidence)",
+      "description": "None of the tool-defining files (src\\index.ts) reference a logging library or logger call. Tool invocations may leave no audit trail. Confidence is low: logging could be configured elsewhere or by the host.",
+      "owasp_asi": [
+        "ASI10"
+      ],
+      "owasp_mcp": [
+        "MCP08"
+      ],
+      "file_path": "src\\index.ts",
+      "line_number": null,
+      "recommendation": "Log each tool invocation (tool name, caller/session, outcome, and redacted arguments) to a durable, tamper-evident sink."
+    },
+    {
+      "id": "blast_radius_estimate",
+      "severity": "high",
+      "category": "cascading_failure",
+      "title": "Blast radius: HIGH \u2014 compromise of this server has broad impact",
+      "description": "If this MCP server is compromised, the blast radius is HIGH due to: external network access, filesystem access, credential access. A single tool poisoning or supply chain attack could cascade across all connected systems.",
+      "owasp_asi": [
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Apply least-privilege to this server. Isolate it from other MCP servers. Implement kill switches and behavioral monitoring. Limit env vars to the minimum required."
+    }
+  ],
+  "server_profile": {
+    "name": "<corpus>/registry/44_mambalabsdev__mcp-workplace-program-detector",
+    "command": null,
+    "args": [],
+    "env_vars": [],
+    "transport": "stdio",
+    "tools": [
+      {
+        "name": "detect_workplace_programs",
+        "description": "Detect which people programs a company publishes on its own surfaces, and return one flat row per domain. It reads two independent paths and each catches what the other misses: the company's live job postings through its Greenhouse, Lever or Ashby board, which is where benefits language that marketing pages omit shows up, and the careers, culture, benefits, DEI and ESG pages on the website, which is where employee resource group and volunteering language shows up. Either path can be turned off. If you already know the company's ATS board slug, pass ats_slug to skip discovery and read that board directly. Results are cached for 14 days and skipCache forces a fresh crawl. This reports what a company publishes, which is not the same as what it does: absence of a signal means the company does not say it publicly, not that the program does not exist. Requires an APIFY_TOKEN and consumes Apify credits. Read only: it reads public pages, it writes nothing.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "domain": {
+              "type": "string",
+              "description": "Bare domain, for example hubspot.com. Protocol and path are stripped."
+            },
+            "ats_slug": {
+              "type": "string",
+              "description": "Skip ATS discovery and read this Greenhouse, Lever or Ashby board slug directly."
+            },
+            "programs": {
+              "type": "array",
+              "description": "Report only these program families. Omit for all six. A family you do not select reports null on its boolean, its evidence URL and its evidence phrase, never false, and is not counted in program_count. A selected family that is genuinely absent still reports false. Narrowing does not make a run cheaper: the corpus is the same either way, only the matching is narrowed."
+            },
+            "scan_job_postings": {
+              "type": "boolean",
+              "description": "Reads the company's live job bodies from its ATS. This path finds benefits language that marketing pages omit. Default: true."
+            },
+            "scan_web_pages": {
+              "type": "boolean",
+              "description": "Probes the careers, culture, benefits, DEI and ESG paths. This path finds ERG and volunteering language that job postings omit. Default: true."
+            },
+            "max_pages": {
+              "type": "string",
+              "description": "Sent as a string for Clay. Clamped to 1 to 25. Default: \"14\"."
+            },
+            "skipCache": {
+              "type": "string",
+              "description": "false uses the 14 day cache, true forces a fresh crawl. Sent as a string for Clay, matching the fleet convention. Default: \"false\".",
+              "enum": [
+                "false",
+                "true"
+              ]
+            },
+            "max_charge_usd": {}
+          },
+          "required": [
+            "domain",
+            "max_charge_usd"
+          ]
+        },
+        "has_hidden_instructions": true,
+        "poisoning_risk": "critical",
+        "poisoning_detail": "Hidden instruction detected in tool description that could manipulate AI behavior. Matched pattern in tool 'detect_workplace_programs': 'never '"
+      }
+    ],
+    "resources": [],
+    "prompts": [],
+    "repo_url": null,
+    "npm_package": null,
+    "capabilities_claimed": [],
+    "capabilities_actual": []
+  },
+  "fingerprint": "e24079ab60f06ac91a6a12cd61ba92fbbc1fa130c8c4634044a0b59536823108",
+  "surface_map": {
+    "server": {
+      "name": "<corpus>/registry/44_mambalabsdev__mcp-workplace-program-detector",
+      "instructions": "",
+      "transport": "stdio",
+      "auth": "unknown"
+    },
+    "tools": [
+      {
+        "name": "detect_workplace_programs",
+        "description": "Detect which people programs a company publishes on its own surfaces, and return one flat row per domain. It reads two independent paths and each catches what the other misses: the company's live job postings through its Greenhouse, Lever or Ashby board, which is where benefits language that marketing pages omit shows up, and the careers, culture, benefits, DEI and ESG pages on the website, which is where employee resource group and volunteering language shows up. Either path can be turned off. If you already know the company's ATS board slug, pass ats_slug to skip discovery and read that board directly. Results are cached for 14 days and skipCache forces a fresh crawl. This reports what a company publishes, which is not the same as what it does: absence of a signal means the company does not say it publicly, not that the program does not exist. Requires an APIFY_TOKEN and consumes Apify credits. Read only: it reads public pages, it writes nothing.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "domain": {
+              "type": "string",
+              "description": "Bare domain, for example hubspot.com. Protocol and path are stripped."
+            },
+            "ats_slug": {
+              "type": "string",
+              "description": "Skip ATS discovery and read this Greenhouse, Lever or Ashby board slug directly."
+            },
+            "programs": {
+              "type": "array",
+              "description": "Report only these program families. Omit for all six. A family you do not select reports null on its boolean, its evidence URL and its evidence phrase, never false, and is not counted in program_count. A selected family that is genuinely absent still reports false. Narrowing does not make a run cheaper: the corpus is the same either way, only the matching is narrowed."
+            },
+            "scan_job_postings": {
+              "type": "boolean",
+              "description": "Reads the company's live job bodies from its ATS. This path finds benefits language that marketing pages omit. Default: true."
+            },
+            "scan_web_pages": {
+              "type": "boolean",
+              "description": "Probes the careers, culture, benefits, DEI and ESG paths. This path finds ERG and volunteering language that job postings omit. Default: true."
+            },
+            "max_pages": {
+              "type": "string",
+              "description": "Sent as a string for Clay. Clamped to 1 to 25. Default: \"14\"."
+            },
+            "skipCache": {
+              "type": "string",
+              "description": "false uses the 14 day cache, true forces a fresh crawl. Sent as a string for Clay, matching the fleet convention. Default: \"false\".",
+              "enum": [
+                "false",
+                "true"
+              ]
+            },
+            "max_charge_usd": {}
+          },
+          "required": [
+            "domain",
+            "max_charge_usd"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [
+          "Li6pPDhqbdzFz3h7G",
+          "Workplace Program Detector"
+        ],
+        "registration": "static",
+        "location": "src\\index.ts:211"
+      }
+    ],
+    "resources": [],
+    "prompts": [],
+    "mutations": [],
+    "source": {
+      "kind": "static",
+      "target": "<corpus>/registry/44_mambalabsdev__mcp-workplace-program-detector",
+      "languages": [
+        "typescript"
+      ]
+    },
+    "generated_at": "2026-11-04T02:48:16+00:00",
+    "fingerprint": "e24079ab60f06ac91a6a12cd61ba92fbbc1fa130c8c4634044a0b59536823108",
+    "schema": "axiom.surface/1"
+  },
+  "owasp_coverage": {
+    "framework": "OWASP Top 10 for Agentic Applications 2026",
+    "reference": "https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/",
+    "coverage": {
+      "ASI01": {
+        "name": "Agent Goal Hijack",
+        "coverage_level": "strong",
+        "findings_count": 2,
+        "finding_ids": [
+          "poison_detect_workplace_programs_instruction_injection",
+          "poison_detect_workplace_programs_long_desc"
+        ],
+        "detectors": [
+          "tool_poisoning",
+          "prompt_injection",
+          "instruction_injection"
+        ]
+      },
+      "ASI02": {
+        "name": "Tool Misuse & Exploitation",
+        "coverage_level": "strong",
+        "findings_count": 5,
+        "finding_ids": [
+          "toxic_combo_data_read_network_external",
+          "toxic_combo_credential_access_network_external",
+          "toxic_combo_data_read_data_write",
+          "toxic_combo_filesystem_network_external",
+          "toxic_combo_credential_access_data_write"
+        ],
+        "detectors": [
+          "toxic_tool_combo",
+          "tool_overscope",
+          "tool_chaining_detection"
+        ]
+      },
+      "ASI03": {
+        "name": "Identity & Privilege Abuse",
+        "coverage_level": "strong",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "credential_analysis",
+          "shared_credential_detection",
+          "env_var_audit"
+        ]
+      },
+      "ASI04": {
+        "name": "Agentic Supply Chain Vulnerabilities",
+        "coverage_level": "strong",
+        "findings_count": 12,
+        "finding_ids": [
+          "GHSA-22jm-h49p-29qw",
+          "GHSA-345p-7cg4-v4c7",
+          "GHSA-46jr-4wx8-v453",
+          "GHSA-6prh-2h8m-c8cw",
+          "GHSA-6qxp-vccf-f47h",
+          "GHSA-8r9q-7v3j-jr4g",
+          "GHSA-f897-62hf-6gxq",
+          "GHSA-rvq5-wwqv-78pq",
+          "GHSA-w48q-cv73-mx4w",
+          "GHSA-m95q-7qp3-xv42"
+        ],
+        "detectors": [
+          "dependency_cve",
+          "lifecycle_hooks",
+          "npx_unversioned",
+          "known_mcp_cves"
+        ]
+      },
+      "ASI05": {
+        "name": "Unexpected Code Execution",
+        "coverage_level": "strong",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "code_exec_patterns",
+          "code_generation_detection",
+          "sandbox_escape"
+        ]
+      },
+      "ASI06": {
+        "name": "Memory & Context Poisoning",
+        "coverage_level": "partial",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "memory_poisoning_patterns",
+          "context_manipulation_detection"
+        ],
+        "gap_note": "Axiom detects static patterns. Full coverage requires runtime memory monitoring."
+      },
+      "ASI07": {
+        "name": "Insecure Inter-Agent Communication",
+        "coverage_level": "partial",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "transport_security",
+          "a2a_pattern_detection"
+        ],
+        "gap_note": "Axiom checks transport security. Full A2A protocol analysis requires runtime interception."
+      },
+      "ASI08": {
+        "name": "Cascading Failures",
+        "coverage_level": "partial",
+        "findings_count": 1,
+        "finding_ids": [
+          "blast_radius_estimate"
+        ],
+        "detectors": [
+          "blast_radius_estimation",
+          "dependency_chain_analysis"
+        ],
+        "gap_note": "Axiom estimates blast radius from tool capabilities. Full cascading failure analysis requires runtime topology mapping."
+      },
+      "ASI09": {
+        "name": "Human-Agent Trust Exploitation",
+        "coverage_level": "strong",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "claimed_vs_actual",
+          "deceptive_output_detection",
+          "trust_manipulation_patterns"
+        ]
+      },
+      "ASI10": {
+        "name": "Rogue Agents",
+        "coverage_level": "partial",
+        "findings_count": 1,
+        "finding_ids": [
+          "mcp08_no_tool_logging"
+        ],
+        "detectors": [
+          "sleeper_patterns",
+          "behavioral_drift_indicators",
+          "persistence_detection"
+        ],
+        "gap_note": "Axiom detects static rogue indicators. Full rogue agent detection requires runtime behavioral monitoring."
+      }
+    },
+    "total_asi_categories_with_findings": 5
+  },
+  "owasp_mcp_coverage": {
+    "framework": "OWASP MCP Top 10",
+    "framework_version": "v0.1 beta",
+    "reference": "https://owasp.org/www-project-mcp-top-10/",
+    "coverage": {
+      "MCP01": {
+        "id": "MCP01:2025",
+        "name": "Token Mismanagement & Secret Exposure",
+        "coverage_level": "partial",
+        "reason": "Regex-based secret detection in server source and client configs plus env-var exposure checks; no entropy analysis, git-history scan, or token lifetime/passthrough checks.",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "credential_theft",
+          "cross_server",
+          "mcp01_hardcoded_secrets",
+          "config_hardcoded_secret",
+          "env_var_audit",
+          "env_dump"
+        ]
+      },
+      "MCP02": {
+        "id": "MCP02:2025",
+        "name": "Privilege Escalation via Scope Creep",
+        "coverage_level": "strong",
+        "reason": "Permission over-scope patterns, toxic tool-capability combinations, path-escape checks and env-var over-exposure in configs.",
+        "findings_count": 6,
+        "finding_ids": [
+          "toxic_combo_data_read_network_external",
+          "toxic_combo_credential_access_network_external",
+          "toxic_combo_data_read_data_write",
+          "toxic_combo_filesystem_network_external",
+          "toxic_combo_credential_access_data_write",
+          "blast_radius_estimate"
+        ],
+        "detectors": [
+          "permission_overscope",
+          "toxic_tool_combo",
+          "identity_privilege",
+          "sandbox_escape",
+          "config_risk",
+          "cascading_failure",
+          "cross_server",
+          "excessive_scope",
+          "confused_deputy",
+          "file_read",
+          "file_write"
+        ]
+      },
+      "MCP03": {
+        "id": "MCP03:2025",
+        "name": "Tool Poisoning",
+        "coverage_level": "strong",
+        "reason": "Dedicated detector for hidden instructions in tool metadata, plus runtime rug-pull diffing between source and live tool definitions.",
+        "findings_count": 2,
+        "finding_ids": [
+          "poison_detect_workplace_programs_instruction_injection",
+          "poison_detect_workplace_programs_long_desc"
+        ],
+        "detectors": [
+          "tool_poisoning",
+          "obfuscation",
+          "rogue_agent",
+          "source_vs_runtime_diff",
+          "tool_shadowing",
+          "hidden_unicode",
+          "rug_pull_primitive",
+          "surface_mismatch"
+        ]
+      },
+      "MCP04": {
+        "id": "MCP04:2025",
+        "name": "Software Supply Chain Attacks & Dependency Tampering",
+        "coverage_level": "strong",
+        "reason": "Dependency CVE lookup, known MCP CVEs, install lifecycle hooks, and unpinned npx/uvx/pip/@latest install sources.",
+        "findings_count": 12,
+        "finding_ids": [
+          "GHSA-22jm-h49p-29qw",
+          "GHSA-345p-7cg4-v4c7",
+          "GHSA-46jr-4wx8-v453",
+          "GHSA-6prh-2h8m-c8cw",
+          "GHSA-6qxp-vccf-f47h",
+          "GHSA-8r9q-7v3j-jr4g",
+          "GHSA-f897-62hf-6gxq",
+          "GHSA-rvq5-wwqv-78pq",
+          "GHSA-w48q-cv73-mx4w",
+          "GHSA-m95q-7qp3-xv42"
+        ],
+        "detectors": [
+          "dependency_vuln",
+          "supply_chain",
+          "known_cve",
+          "obfuscation",
+          "lifecycle_hooks",
+          "mcp04_unpinned_install",
+          "homoglyph",
+          "rug_pull_primitive",
+          "surface_mismatch"
+        ]
+      },
+      "MCP05": {
+        "id": "MCP05:2025",
+        "name": "Command Injection & Execution",
+        "coverage_level": "partial",
+        "reason": "Regex, AST and Semgrep find exec/shell sinks and a heuristic flags sinks inside tool handlers, but there is no inter-procedural taint tracking from tool input to sink.",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "command_injection",
+          "code_execution",
+          "code_generation",
+          "sandbox_escape",
+          "mcp05_tool_input_sink",
+          "shell_exec"
+        ]
+      },
+      "MCP06": {
+        "id": "MCP06:2025",
+        "name": "Prompt Injection via Contextual Payloads",
+        "coverage_level": "partial",
+        "reason": "Injection markers are detected in tool metadata, server instructions, resources, prompts and the strings a tool returns (static), and in instructions/resources/prompts read live; payloads produced by calling a tool at runtime are not inspected.",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "prompt_injection",
+          "memory_poisoning",
+          "trust_exploitation",
+          "response_injection",
+          "tool_shadowing"
+        ]
+      },
+      "MCP07": {
+        "id": "MCP07:2025",
+        "name": "Insufficient Authentication & Authorization",
+        "coverage_level": "partial",
+        "reason": "Flags remote servers with no visible auth and servers bound to all interfaces; does not verify OAuth implementation or per-tool authorization logic.",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "transport_security",
+          "inter_agent_comm",
+          "identity_privilege",
+          "transport_no_auth",
+          "config_no_auth",
+          "mcp07_bind_all_interfaces"
+        ]
+      },
+      "MCP08": {
+        "id": "MCP08:2025",
+        "name": "Lack of Audit and Telemetry",
+        "coverage_level": "gap",
+        "reason": "Only a low-confidence heuristic for missing logging in tool-defining files; actual audit trails and telemetry pipelines are not verified.",
+        "findings_count": 1,
+        "finding_ids": [
+          "mcp08_no_tool_logging"
+        ],
+        "detectors": [
+          "audit_telemetry",
+          "mcp08_no_tool_logging"
+        ]
+      },
+      "MCP09": {
+        "id": "MCP09:2025",
+        "name": "Shadow MCP Servers",
+        "coverage_level": "partial",
+        "reason": "Covered by `axiom discover` allowlist on the local machine; no network-wide or fleet discovery.",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "mcpguard_discover",
+          "shadow_mcp"
+        ]
+      },
+      "MCP10": {
+        "id": "MCP10:2025",
+        "name": "Context Injection & Over-Sharing",
+        "coverage_level": "partial",
+        "reason": "Hard-coded egress URLs, tools that send to caller-chosen destinations and bulk-exposure heuristics are detected statically and live; what context is actually shared at runtime is not observed.",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "context_oversharing",
+          "data_exfiltration",
+          "memory_poisoning",
+          "mcp10_broad_data_exposure"
+        ]
+      }
+    },
+    "total_mcp_categories_with_findings": 4
+  },
+  "ai_analysis": null,
+  "tool_poisoning_report": null,
+  "prompt_injection_risk": null
+}

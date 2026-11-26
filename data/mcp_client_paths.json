@@ -1,0 +1,184 @@
+{
+  "_comment": "Known MCP client configuration file locations. Loaded by app/analysis/local_config.py (MCP_CONFIG_PATHS / MCP_CLIENT_LOCATIONS). Paths use '~' for the home directory and %VAR% for environment variables (expanded the same way on every host OS). scope=user paths are absolute after expansion; scope=project paths are relative to the current working directory. 'keys' lists the JSON keys that may hold server definitions. Entries with a 'note' are less certain and are only read if the file exists.",
+  "version": 1,
+  "locations": [
+    {
+      "id": "claude_desktop",
+      "client": "claude_desktop",
+      "display_name": "Claude Desktop",
+      "scope": "user",
+      "keys": ["mcpServers"],
+      "paths": {
+        "darwin": "~/Library/Application Support/Claude/claude_desktop_config.json",
+        "linux": "~/.config/Claude/claude_desktop_config.json",
+        "windows": "%APPDATA%/Claude/claude_desktop_config.json"
+      },
+      "note": "There is no official Claude Desktop build for Linux; the Linux path matches community builds."
+    },
+    {
+      "id": "claude_code",
+      "client": "claude_code",
+      "display_name": "Claude Code",
+      "scope": "user",
+      "keys": ["mcpServers", "projects.*.mcpServers"],
+      "paths": {
+        "darwin": "~/.claude.json",
+        "linux": "~/.claude.json",
+        "windows": "%USERPROFILE%/.claude.json"
+      }
+    },
+    {
+      "id": "claude_code_settings",
+      "client": "claude_code",
+      "display_name": "Claude Code (settings.json)",
+      "scope": "user",
+      "keys": ["mcpServers"],
+      "paths": {
+        "darwin": "~/.claude/settings.json",
+        "linux": "~/.claude/settings.json",
+        "windows": "%USERPROFILE%/.claude/settings.json"
+      },
+      "note": "Claude Code normally keeps MCP servers in ~/.claude.json; settings.json is read in case it holds an mcpServers block."
+    },
+    {
+      "id": "cursor",
+      "client": "cursor",
+      "display_name": "Cursor",
+      "scope": "user",
+      "keys": ["mcpServers"],
+      "paths": {
+        "darwin": "~/.cursor/mcp.json",
+        "linux": "~/.cursor/mcp.json",
+        "windows": "%USERPROFILE%/.cursor/mcp.json"
+      }
+    },
+    {
+      "id": "windsurf",
+      "client": "windsurf",
+      "display_name": "Windsurf",
+      "scope": "user",
+      "keys": ["mcpServers"],
+      "paths": {
+        "darwin": "~/.codeium/windsurf/mcp_config.json",
+        "linux": "~/.codeium/windsurf/mcp_config.json",
+        "windows": "%USERPROFILE%/.codeium/windsurf/mcp_config.json"
+      }
+    },
+    {
+      "id": "vscode_settings",
+      "client": "vscode",
+      "display_name": "VS Code (settings.json)",
+      "scope": "user",
+      "keys": ["mcp.servers", "mcpServers"],
+      "paths": {
+        "darwin": "~/Library/Application Support/Code/User/settings.json",
+        "linux": "~/.config/Code/User/settings.json",
+        "windows": "%APPDATA%/Code/User/settings.json"
+      },
+      "note": "Older VS Code releases kept MCP servers in an \"mcp\": {\"servers\": ...} block inside settings.json (JSON with comments)."
+    },
+    {
+      "id": "vscode_user_mcp",
+      "client": "vscode",
+      "display_name": "VS Code (user mcp.json)",
+      "scope": "user",
+      "keys": ["servers", "mcpServers"],
+      "paths": {
+        "darwin": "~/Library/Application Support/Code/User/mcp.json",
+        "linux": "~/.config/Code/User/mcp.json",
+        "windows": "%APPDATA%/Code/User/mcp.json"
+      }
+    },
+    {
+      "id": "cline",
+      "client": "cline",
+      "display_name": "Cline (VS Code extension)",
+      "scope": "user",
+      "keys": ["mcpServers"],
+      "paths": {
+        "darwin": "~/Library/Application Support/Code/User/globalStorage/saoudrizwan.claude-dev/settings/cline_mcp_settings.json",
+        "linux": "~/.config/Code/User/globalStorage/saoudrizwan.claude-dev/settings/cline_mcp_settings.json",
+        "windows": "%APPDATA%/Code/User/globalStorage/saoudrizwan.claude-dev/settings/cline_mcp_settings.json"
+      }
+    },
+    {
+      "id": "zed",
+      "client": "zed",
+      "display_name": "Zed",
+      "scope": "user",
+      "keys": ["context_servers"],
+      "paths": {
+        "darwin": "~/.config/zed/settings.json",
+        "linux": "~/.config/zed/settings.json",
+        "windows": "%APPDATA%/Zed/settings.json"
+      },
+      "note": "The Windows path is for the newer Zed for Windows build and is less certain than the macOS/Linux path."
+    },
+    {
+      "id": "gemini_cli",
+      "client": "gemini_cli",
+      "display_name": "Gemini CLI",
+      "scope": "user",
+      "keys": ["mcpServers"],
+      "paths": {
+        "darwin": "~/.gemini/settings.json",
+        "linux": "~/.gemini/settings.json",
+        "windows": "%USERPROFILE%/.gemini/settings.json"
+      }
+    },
+    {
+      "id": "continue",
+      "client": "continue",
+      "display_name": "Continue",
+      "scope": "user",
+      "keys": ["mcpServers", "experimental.modelContextProtocolServers"],
+      "paths": {
+        "darwin": "~/.continue/config.json",
+        "linux": "~/.continue/config.json",
+        "windows": "%USERPROFILE%/.continue/config.json"
+      },
+      "note": "Newer Continue releases use config.yaml, which is not parsed (JSON only)."
+    },
+    {
+      "id": "project_mcp_json",
+      "client": "claude_code",
+      "display_name": "Project .mcp.json (Claude Code)",
+      "scope": "project",
+      "keys": ["mcpServers"],
+      "paths": {"any": ".mcp.json"}
+    },
+    {
+      "id": "project_generic_mcp_json",
+      "client": "project",
+      "display_name": "Project mcp.json",
+      "scope": "project",
+      "keys": ["mcpServers", "servers"],
+      "paths": {"any": "mcp.json"},
+      "note": "Generic project-level file, not tied to one client."
+    },
+    {
+      "id": "project_cursor",
+      "client": "cursor",
+      "display_name": "Project .cursor/mcp.json",
+      "scope": "project",
+      "keys": ["mcpServers"],
+      "paths": {"any": ".cursor/mcp.json"}
+    },
+    {
+      "id": "project_vscode",
+      "client": "vscode",
+      "display_name": "Project .vscode/mcp.json",
+      "scope": "project",
+      "keys": ["servers", "mcpServers"],
+      "paths": {"any": ".vscode/mcp.json"}
+    },
+    {
+      "id": "project_gemini",
+      "client": "gemini_cli",
+      "display_name": "Project .gemini/settings.json",
+      "scope": "project",
+      "keys": ["mcpServers"],
+      "paths": {"any": ".gemini/settings.json"}
+    }
+  ]
+}

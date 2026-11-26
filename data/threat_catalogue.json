@@ -1,0 +1,415 @@
+{
+  "catalogue_version": "0.5.0",
+  "description": "Axiom threat-model rule catalogue. Each rule is evaluated deterministically against a SystemModel (app/analysis/threat_model/system_model.py) by app/analysis/threat_model/rules.py.",
+  "maestro_layers": {
+    "1": "Foundation Models",
+    "2": "Data Operations",
+    "3": "Agent Frameworks",
+    "4": "Deployment and Infrastructure",
+    "5": "Evaluation and Observability",
+    "6": "Security and Compliance",
+    "7": "Agent Ecosystem"
+  },
+  "maestro_reference": "CSA MAESTRO agentic AI threat modelling framework (seven layers).",
+  "stride": {
+    "S": "Spoofing",
+    "T": "Tampering",
+    "R": "Repudiation",
+    "I": "Information disclosure",
+    "D": "Denial of service",
+    "E": "Elevation of privilege"
+  },
+  "dsl": {
+    "component_attr": "One threat per component of `kind` (string or list). Optional filters: `attr` (string or list, any listed attribute truthy), `attr_all` (all truthy), `and_not` / `attr_missing` (attribute falsy or absent), `trust_zone` (string or list).",
+    "tool_pair": "Tools `a` and `b` are capability attributes (reads_external, sends_out, writes, executes). Fires when, within one agent context (same agent host when same_context is true), some tool has `a` and some tool has `b`. One threat per distinct set of contributing tools.",
+    "flow": "One threat per data flow matching all given filters: crosses_boundary, data_class, src_kind, dst_kind, dst_trust_zone (string or list), dst_attr (truthy), dst_attr_missing (falsy or absent).",
+    "shared_credential": "One threat per credential component that flows (data_class secrets) to two or more MCP servers.",
+    "remote_agent": "One threat per remote_agent component; optional `attr` (truthy, lists must be non-empty) and `attr_missing` (falsy or absent).",
+    "remote_agent_skill_output": "One threat per remote agent that advertises at least one skill and whose output flows back into an agent host.",
+    "evidence": "Optional per-rule selector {categories, id_prefixes, id_contains}: a finding attached to an affected component (or its server) that matches any of them is listed as evidence and raises likelihood by 1 (max 5).",
+    "finding": "Threats raised from source-scan evidence. Matches findings by `categories` or `id_prefixes` (either), optional `severity` list. Grouped into one threat per set of components the findings are attached to, unless `per_finding` is true. `uncovered_only` restricts to findings not already used as evidence by another rule (evaluated last)."
+  },
+  "rules": [
+    {
+      "id": "TM-001",
+      "title": "Exfiltration chain: untrusted content can drive an outbound tool",
+      "description": "The same agent can both pull in content an attacker can influence (web pages, mail, tickets, files) and push data out (email, posts, uploads, webhooks). Instructions hidden in the fetched content can steer the agent into reading sensitive context and sending it to an attacker-chosen destination without any code vulnerability.",
+      "trigger": {"type": "tool_pair", "a": "reads_external", "b": "sends_out", "same_context": true},
+      "evidence": {"categories": ["toxic_tool_combo", "data_exfiltration", "prompt_injection", "tool_poisoning"], "id_prefixes": ["toxic_combo_", "inject_"]},
+      "stage": "impact",
+      "stride": "I",
+      "maestro_layer": 3,
+      "cross_layer": [1, 2, 7],
+      "owasp_asi": ["ASI01", "ASI02"],
+      "owasp_mcp": ["MCP06", "MCP10"],
+      "likelihood": 4,
+      "impact": 4,
+      "mitigations": [
+        {"owner": "developer", "text": "Treat tool output from external sources as data: wrap or label it and never let it select recipients or destinations for outbound tools."},
+        {"owner": "operator", "text": "Require human confirmation for outbound actions (send, post, upload) and restrict recipients to an allowlist."},
+        {"owner": "platform", "text": "Avoid enabling read-external and send-out tools in the same agent session, or split them across isolated agents."}
+      ]
+    },
+    {
+      "id": "TM-002",
+      "title": "Autonomous command or code execution without human approval",
+      "description": "A tool can run commands or code and the agent may call it without a person confirming the call. Any successful prompt injection or model error turns directly into code running with the user's privileges.",
+      "trigger": {"type": "component_attr", "kind": "tool", "attr": "executes", "and_not": "human_approved"},
+      "evidence": {"categories": ["code_execution", "command_injection", "code_generation", "sandbox_escape"], "id_prefixes": ["mcp05_", "toxic_combo_code_execute"]},
+      "stage": "pivot",
+      "stride": "E",
+      "maestro_layer": 3,
+      "cross_layer": [4],
+      "owasp_asi": ["ASI02", "ASI05"],
+      "owasp_mcp": ["MCP05"],
+      "likelihood": 3,
+      "impact": 5,
+      "mitigations": [
+        {"owner": "operator", "text": "Turn on per-call approval for execution tools in the MCP client and never auto-approve them."},
+        {"owner": "platform", "text": "Run execution tools in a sandbox (container, VM or restricted user) with no access to credentials or the home directory."},
+        {"owner": "developer", "text": "Replace free-form command parameters with a fixed set of allowed operations."}
+      ]
+    },
+    {
+      "id": "TM-003",
+      "title": "Autonomous write or delete without human approval",
+      "description": "A tool can create, change or delete data and calls are not gated by a person. A manipulated or confused agent can corrupt or destroy records, files or repository content before anyone notices.",
+      "trigger": {"type": "component_attr", "kind": "tool", "attr": "writes", "and_not": "human_approved"},
+      "evidence": {"categories": ["permission_overscope", "toxic_tool_combo"], "id_prefixes": ["toxic_combo_data_read_data_write"]},
+      "stage": "pivot",
+      "stride": "T",
+      "maestro_layer": 3,
+      "cross_layer": [2],
+      "owasp_asi": ["ASI02", "ASI09"],
+      "owasp_mcp": ["MCP02"],
+      "likelihood": 3,
+      "impact": 4,
+      "mitigations": [
+        {"owner": "operator", "text": "Require confirmation for destructive tool calls and keep backups or version history for affected data."},
+        {"owner": "developer", "text": "Mark destructive tools with MCP annotations (destructiveHint) and offer dry-run or soft-delete modes."}
+      ]
+    },
+    {
+      "id": "TM-004",
+      "title": "Remote MCP server reachable across a trust boundary without authentication",
+      "description": "The agent host talks to an MCP server on another machine and no authentication is visible. Anyone who can reach the endpoint may call its tools, and the client cannot be sure it is talking to the genuine server.",
+      "trigger": {"type": "flow", "crosses_boundary": true, "dst_kind": "mcp_server", "dst_trust_zone": "remote_server", "dst_attr_missing": "authenticated"},
+      "evidence": {"categories": ["transport_security"], "id_contains": ["no_auth"]},
+      "stage": "entry",
+      "stride": "S",
+      "maestro_layer": 4,
+      "cross_layer": [6, 7],
+      "owasp_asi": ["ASI03", "ASI07"],
+      "owasp_mcp": ["MCP07"],
+      "likelihood": 3,
+      "impact": 4,
+      "mitigations": [
+        {"owner": "developer", "text": "Require OAuth 2.1 or bearer-token authentication on the server's HTTP/SSE endpoint and validate the audience of each token."},
+        {"owner": "operator", "text": "Configure the client with credentials for the remote server and restrict network access to the endpoint."}
+      ]
+    },
+    {
+      "id": "TM-005",
+      "title": "One credential shared by several MCP servers",
+      "description": "The same credential name is handed to more than one server. A compromise of any one of them exposes the credential for all of them, and activity cannot be attributed to a single integration.",
+      "trigger": {"type": "shared_credential"},
+      "evidence": {"categories": ["credential_theft"], "id_prefixes": ["cross_env_"]},
+      "stage": "pivot",
+      "stride": "E",
+      "maestro_layer": 6,
+      "cross_layer": [4],
+      "owasp_asi": ["ASI03"],
+      "owasp_mcp": ["MCP01", "MCP02"],
+      "likelihood": 3,
+      "impact": 4,
+      "mitigations": [
+        {"owner": "operator", "text": "Issue a separate, least-privilege token per server so one leak does not expose the others."},
+        {"owner": "security_team", "text": "Inventory where each token is used and rotate any credential that was shared with an unreviewed server."}
+      ]
+    },
+    {
+      "id": "TM-006",
+      "title": "Third-party MCP server installed without a version pin",
+      "description": "The server is fetched from a public registry at launch with no fixed version. A new release - malicious or simply broken - runs on the next start without review.",
+      "trigger": {"type": "component_attr", "kind": "mcp_server", "attr": "unpinned", "trust_zone": "third_party"},
+      "evidence": {"categories": ["dependency_vuln", "known_cve"], "id_contains": ["_npx_unknown", "_uvx", "mcp04_unpinned_"]},
+      "stage": "entry",
+      "stride": "T",
+      "maestro_layer": 7,
+      "cross_layer": [4],
+      "owasp_asi": ["ASI04"],
+      "owasp_mcp": ["MCP04"],
+      "likelihood": 3,
+      "impact": 4,
+      "mitigations": [
+        {"owner": "operator", "text": "Pin an exact version (npx pkg@1.2.3, uvx pkg==1.2.3, image digest) and update deliberately."},
+        {"owner": "security_team", "text": "Scan each new version (axiom scan) before it is approved for use."}
+      ]
+    },
+    {
+      "id": "TM-007",
+      "title": "Shadow MCP server outside the approved inventory",
+      "description": "A configured server does not match the organisation's allowlist. Unreviewed servers run with the user's privileges and receive whatever credentials the client passes them.",
+      "trigger": {"type": "component_attr", "kind": "mcp_server", "attr": "unapproved"},
+      "evidence": {"id_prefixes": ["discover_unapproved_"]},
+      "stage": "entry",
+      "stride": "E",
+      "maestro_layer": 6,
+      "cross_layer": [7],
+      "owasp_asi": ["ASI04"],
+      "owasp_mcp": ["MCP09"],
+      "likelihood": 4,
+      "impact": 4,
+      "mitigations": [
+        {"owner": "security_team", "text": "Review the server and either add it to the allowlist with a pinned version or remove it."},
+        {"owner": "operator", "text": "Rotate credentials that were exposed to the unapproved server."},
+        {"owner": "platform", "text": "Enforce the allowlist centrally (managed client configuration) and run axiom discover regularly."}
+      ]
+    },
+    {
+      "id": "TM-008",
+      "title": "Poisoned tool metadata can hijack the agent",
+      "description": "The static scan found instructions or obfuscated content in tool metadata. Tool descriptions are read by the model as trusted context, so they can redirect the agent's goals or make it misuse other tools.",
+      "trigger": {"type": "finding", "categories": ["tool_poisoning", "obfuscation"], "id_prefixes": ["poison_", "cross_tool_"]},
+      "stage": "entry",
+      "stride": "T",
+      "maestro_layer": 7,
+      "cross_layer": [1, 3],
+      "owasp_asi": ["ASI01"],
+      "owasp_mcp": ["MCP03"],
+      "likelihood": 4,
+      "impact": 4,
+      "mitigations": [
+        {"owner": "developer", "text": "Keep tool descriptions short and factual; remove any instructions aimed at the model."},
+        {"owner": "security_team", "text": "Block the server until the flagged descriptions are reviewed, and pin the reviewed version."},
+        {"owner": "platform", "text": "Show full tool descriptions to users at approval time and alert when they change."}
+      ]
+    },
+    {
+      "id": "TM-009",
+      "title": "Command-injection sink inside a tool handler",
+      "description": "A tool handler passes data into a shell or exec call. Tool arguments are chosen by the model and can be shaped by injected content, so an attacker may run commands on the server host.",
+      "trigger": {"type": "finding", "id_prefixes": ["mcp05_tool_sink_"]},
+      "stage": "pivot",
+      "stride": "E",
+      "maestro_layer": 4,
+      "cross_layer": [3],
+      "owasp_asi": ["ASI05"],
+      "owasp_mcp": ["MCP05"],
+      "likelihood": 3,
+      "impact": 5,
+      "mitigations": [
+        {"owner": "developer", "text": "Call processes with argument arrays (no shell), validate arguments against an allowlist and never interpolate tool input into command strings."},
+        {"owner": "platform", "text": "Run the server with least privilege in a sandbox so a successful injection cannot reach user data."}
+      ]
+    },
+    {
+      "id": "TM-010",
+      "title": "Remote endpoint over plain HTTP",
+      "description": "Traffic to a remote server or agent is not encrypted. Anyone on the network path can read tool arguments, results and tokens, or alter them in transit.",
+      "trigger": {"type": "component_attr", "kind": ["mcp_server", "remote_agent"], "attr": "plain_http"},
+      "evidence": {"categories": ["transport_security"], "id_prefixes": ["transport_plain_http", "a2a-transport-insecure"]},
+      "stage": "impact",
+      "stride": "I",
+      "maestro_layer": 4,
+      "cross_layer": [6],
+      "owasp_asi": ["ASI07"],
+      "owasp_mcp": ["MCP07"],
+      "likelihood": 3,
+      "impact": 3,
+      "mitigations": [
+        {"owner": "operator", "text": "Use https:// endpoints only and reject plain-HTTP remotes in client configuration."},
+        {"owner": "developer", "text": "Serve the endpoint over TLS and redirect or refuse plain HTTP."}
+      ]
+    },
+    {
+      "id": "TM-011",
+      "title": "Unsigned agent card allows peer-agent impersonation",
+      "description": "The remote agent's card carries no signature, so a client cannot verify who published it. An attacker who controls DNS, a proxy or a look-alike domain can present a card with the same name and capture delegated tasks.",
+      "trigger": {"type": "remote_agent", "attr_missing": "signed"},
+      "evidence": {"id_prefixes": ["a2a-card-unsigned", "a2a-signature-", "a2a-provider-", "a2a-interface-host-mismatch"]},
+      "stage": "entry",
+      "stride": "S",
+      "maestro_layer": 7,
+      "cross_layer": [6],
+      "owasp_asi": ["ASI07", "ASI10"],
+      "owasp_mcp": [],
+      "likelihood": 3,
+      "impact": 4,
+      "mitigations": [
+        {"owner": "developer", "text": "Sign the agent card (JWS) and publish the verification key through a trusted channel."},
+        {"owner": "operator", "text": "Pin the expected card signer or endpoint for each peer agent and refuse unsigned cards."}
+      ]
+    },
+    {
+      "id": "TM-012",
+      "title": "Prompt injection through peer-agent skill output",
+      "description": "Results returned by a remote agent flow back into the local agent's context. A compromised or malicious peer can embed instructions in those results to steer the local agent and its tools.",
+      "trigger": {"type": "remote_agent_skill_output"},
+      "evidence": {"categories": ["inter_agent_comm"], "id_prefixes": ["a2a-skill-poisoning:"]},
+      "stage": "entry",
+      "stride": "T",
+      "maestro_layer": 7,
+      "cross_layer": [1, 3],
+      "owasp_asi": ["ASI01", "ASI07"],
+      "owasp_mcp": [],
+      "likelihood": 3,
+      "impact": 4,
+      "mitigations": [
+        {"owner": "developer", "text": "Treat peer-agent output as untrusted data: validate it against an expected schema and do not execute instructions found in it."},
+        {"owner": "platform", "text": "Do not let peer-agent output trigger high-impact local tools without human confirmation."}
+      ]
+    },
+    {
+      "id": "TM-013",
+      "title": "Remote agent exposes dangerous skills without authentication",
+      "description": "The peer agent advertises skills that run code, change data or send data out, and its card declares no authentication. Anyone who can reach it can invoke those skills, and callers cannot be held to account.",
+      "trigger": {"type": "remote_agent", "attr": "dangerous_skills", "attr_missing": "has_auth"},
+      "evidence": {"id_prefixes": ["a2a-skill-dangerous-noauth:", "a2a-auth-missing"]},
+      "stage": "pivot",
+      "stride": "E",
+      "maestro_layer": 7,
+      "cross_layer": [4, 6],
+      "owasp_asi": ["ASI03", "ASI05", "ASI07"],
+      "owasp_mcp": [],
+      "likelihood": 4,
+      "impact": 5,
+      "mitigations": [
+        {"owner": "developer", "text": "Declare and enforce an authentication scheme (OAuth 2.0, mTLS or API key) for every skill, with per-skill authorisation."},
+        {"owner": "operator", "text": "Do not delegate to the agent until authentication is in place; restrict network exposure meanwhile."}
+      ]
+    },
+    {
+      "id": "TM-014",
+      "title": "Broad data exposure into the model context",
+      "description": "A tool or resource appears to return bulk data (whole tables, histories, file trees). Everything it returns lands in the model context, where it can be leaked through other tools or shown to the wrong user.",
+      "trigger": {"type": "component_attr", "kind": ["tool", "resource"], "attr": "broad_exposure"},
+      "evidence": {"categories": ["context_oversharing"], "id_prefixes": ["mcp10_broad_exposure_"]},
+      "stage": "impact",
+      "stride": "I",
+      "maestro_layer": 2,
+      "cross_layer": [3],
+      "owasp_asi": ["ASI02"],
+      "owasp_mcp": ["MCP10"],
+      "likelihood": 3,
+      "impact": 3,
+      "mitigations": [
+        {"owner": "developer", "text": "Paginate and filter results and apply per-user access checks before data reaches the model."},
+        {"owner": "operator", "text": "Disable bulk-export tools in agent sessions that do not need them."}
+      ]
+    },
+    {
+      "id": "TM-015",
+      "title": "Tool calls are not audited",
+      "description": "The scan found no logging around tool invocations. Without an audit trail, misuse by a hijacked agent cannot be reconstructed or attributed.",
+      "trigger": {"type": "finding", "categories": ["audit_telemetry"], "id_prefixes": ["mcp08_"]},
+      "stage": "impact",
+      "stride": "R",
+      "maestro_layer": 5,
+      "cross_layer": [6],
+      "owasp_asi": ["ASI10"],
+      "owasp_mcp": ["MCP08"],
+      "likelihood": 3,
+      "impact": 2,
+      "mitigations": [
+        {"owner": "developer", "text": "Log each tool call with tool name, caller, arguments (redacted) and outcome."},
+        {"owner": "security_team", "text": "Ship tool-call logs to central monitoring and alert on unusual tool sequences."}
+      ]
+    },
+    {
+      "id": "TM-016",
+      "title": "Credential handed to code outside the local trust zone",
+      "description": "A credential crosses a trust boundary into third-party or remote server code. That code can use the credential for anything its scope allows, including actions the user never asked for.",
+      "trigger": {"type": "flow", "crosses_boundary": true, "data_class": "secrets", "dst_kind": "mcp_server"},
+      "evidence": {"categories": ["credential_theft"], "id_contains": ["_env_", "hardcoded_secret", "mcp01_secret_"]},
+      "stage": "pivot",
+      "stride": "I",
+      "maestro_layer": 6,
+      "cross_layer": [4, 7],
+      "owasp_asi": ["ASI03"],
+      "owasp_mcp": ["MCP01"],
+      "likelihood": 2,
+      "impact": 4,
+      "mitigations": [
+        {"owner": "operator", "text": "Give each server the narrowest token scope it needs and prefer short-lived tokens."},
+        {"owner": "platform", "text": "Store tokens in an OS keychain or secret manager instead of plain-text client config."}
+      ]
+    },
+    {
+      "id": "TM-017",
+      "title": "Untrusted content can drive code execution",
+      "description": "The same agent can read attacker-influenced content and call a tool that executes commands or code. Injected instructions can turn into code execution on the user's machine.",
+      "trigger": {"type": "tool_pair", "a": "reads_external", "b": "executes", "same_context": true},
+      "evidence": {"categories": ["toxic_tool_combo", "prompt_injection", "tool_poisoning"], "id_prefixes": ["toxic_combo_code_execute", "inject_"]},
+      "stage": "pivot",
+      "stride": "E",
+      "maestro_layer": 3,
+      "cross_layer": [1, 4],
+      "owasp_asi": ["ASI01", "ASI05"],
+      "owasp_mcp": ["MCP05", "MCP06"],
+      "likelihood": 3,
+      "impact": 5,
+      "mitigations": [
+        {"owner": "operator", "text": "Require approval for every execution call in sessions that also browse or read external content."},
+        {"owner": "platform", "text": "Separate browsing/reading agents from agents that can execute code."}
+      ]
+    },
+    {
+      "id": "TM-018",
+      "title": "Remote dependency is a single point of failure",
+      "description": "The agent relies on a remote server or peer agent it does not control. If that service is unavailable, slow or returns errors, dependent agent workflows stall or fail in cascade.",
+      "trigger": {"type": "component_attr", "kind": ["mcp_server", "remote_agent"], "trust_zone": "remote_server"},
+      "stage": "impact",
+      "stride": "D",
+      "maestro_layer": 4,
+      "cross_layer": [7],
+      "owasp_asi": ["ASI08"],
+      "owasp_mcp": [],
+      "likelihood": 2,
+      "impact": 2,
+      "mitigations": [
+        {"owner": "developer", "text": "Set timeouts and retries with back-off on remote calls and let workflows degrade gracefully."},
+        {"owner": "operator", "text": "Monitor availability of remote servers and agents and keep a fallback for critical workflows."}
+      ]
+    },
+    {
+      "id": "TM-090",
+      "title": "High-severity scan finding",
+      "description": "A critical or high finding from the source scan that no other rule covers, lifted into the threat model so it is not lost.",
+      "trigger": {"type": "finding", "severity": ["critical", "high"], "uncovered_only": true, "per_finding": true},
+      "stage": "pivot",
+      "stride": "T",
+      "stride_by_category": {
+        "tool_poisoning": "T", "prompt_injection": "T", "credential_theft": "I", "data_exfiltration": "I",
+        "code_execution": "E", "sandbox_escape": "E", "command_injection": "E", "transport_security": "I",
+        "permission_overscope": "E", "dependency_vuln": "T", "supply_chain": "T", "cross_server": "T",
+        "obfuscation": "T", "config_risk": "I", "known_cve": "E", "toxic_tool_combo": "E",
+        "identity_privilege": "E", "code_generation": "E", "memory_poisoning": "T", "inter_agent_comm": "S",
+        "cascading_failure": "D", "trust_exploitation": "S", "rogue_agent": "E", "audit_telemetry": "R",
+        "context_oversharing": "I"
+      },
+      "maestro_by_category": {
+        "dependency_vuln": 7, "supply_chain": 7, "known_cve": 7, "tool_poisoning": 7, "inter_agent_comm": 7,
+        "transport_security": 4, "command_injection": 4, "code_execution": 4, "sandbox_escape": 4,
+        "credential_theft": 6, "config_risk": 6, "permission_overscope": 6, "identity_privilege": 6,
+        "memory_poisoning": 2, "context_oversharing": 2, "data_exfiltration": 2, "audit_telemetry": 5
+      },
+      "stage_by_category": {
+        "tool_poisoning": "entry", "prompt_injection": "entry", "supply_chain": "entry", "dependency_vuln": "entry",
+        "known_cve": "entry", "obfuscation": "entry", "memory_poisoning": "entry", "trust_exploitation": "entry",
+        "data_exfiltration": "impact", "context_oversharing": "impact", "transport_security": "impact"
+      },
+      "scores_by_severity": {"critical": [4, 5], "high": [3, 4]},
+      "maestro_layer": 3,
+      "cross_layer": [],
+      "owasp_asi": [],
+      "owasp_mcp": [],
+      "likelihood": 3,
+      "impact": 4,
+      "mitigations": [
+        {"owner": "developer", "text": "Fix the underlying finding as described in the scan recommendation."},
+        {"owner": "security_team", "text": "Track the finding to closure and re-scan before approving the server."}
+      ]
+    }
+  ]
+}

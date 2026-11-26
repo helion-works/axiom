@@ -1,0 +1,67 @@
+# Axiom CI — Scan MCP servers on every PR
+# Add this to your repository at .github/workflows/axiom.yml
+
+name: Axiom Security Scan
+
+on:
+  pull_request:
+    paths:
+      # Trigger when MCP configs change
+      - '**/mcp.json'
+      - '**/.mcp.json'
+      - '**/mcp_config.json'
+      - '**/claude_desktop_config.json'
+      - '.cursor/mcp.json'
+      - '.vscode/mcp.json'
+      # Trigger when dependencies change
+      - 'package.json'
+      - 'package-lock.json'
+      - 'requirements.txt'
+      - 'pyproject.toml'
+  push:
+    branches: [main]
+  # Run weekly to catch newly disclosed CVEs
+  schedule:
+    - cron: '0 9 * * 1'  # Every Monday at 9am UTC
+
+permissions:
+  contents: read
+  security-events: write  # Required for SARIF upload
+
+jobs:
+  axiom:
+    name: MCP Security Scan
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install Axiom
+        run: pip install .   # installs this checkout; in another repository use: pip install axiom-scan
+
+      # Scan local MCP configs in the repo
+      - name: Scan local MCP configs
+        run: axiom local --output json > local-results.json
+        continue-on-error: true
+
+      # Scan specific MCP servers your project depends on
+      # Uncomment and edit these:
+      # - name: Scan filesystem server
+      #   run: axiom scan @modelcontextprotocol/server-filesystem --output json --no-ai
+      # - name: Scan custom server
+      #   run: axiom scan https://github.com/your-org/your-mcp-server --output json --no-ai
+
+      # Show OWASP coverage
+      - name: OWASP Coverage
+        run: axiom owasp
+
+      # Upload SARIF for GitHub Code Scanning (optional)
+      # - name: Upload SARIF
+      #   uses: github/codeql-action/upload-sarif@v3
+      #   with:
+      #     sarif_file: axiom-results.sarif
+      #   if: always()

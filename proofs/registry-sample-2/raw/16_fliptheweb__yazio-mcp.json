@@ -1,0 +1,3978 @@
+{
+  "schema_version": "0.5",
+  "target": "16_fliptheweb__yazio-mcp",
+  "risk_score": 50.0,
+  "risk_level": "high",
+  "tools_found": 47,
+  "findings_count": 109,
+  "findings": [
+    {
+      "id": "poison_get_user_body_values_instruction_injection",
+      "severity": "medium",
+      "category": "tool_poisoning",
+      "title": "Steering language (instruction injection) in 'get_user_body_values'",
+      "description": "Steering language in tool description (imperative guidance aimed at the model). Matched pattern in tool 'get_user_body_values': 'Always'",
+      "owasp_asi": [
+        "ASI01"
+      ],
+      "owasp_mcp": [
+        "MCP03"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Review tool description carefully. Compare claimed functionality with actual code behavior. Consider removing this MCP server.",
+      "rule_id": "poison_instruction_injection",
+      "evidence": "Always",
+      "location": "static:<corpus>/registry2/16_fliptheweb__yazio-mcp:get_user_body_values",
+      "replay": "axiom scan <corpus>/registry2/16_fliptheweb__yazio-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"poison_get_user_body_values_instruction_injection\")'"
+    },
+    {
+      "id": "shadow_set_user_note_near_duplicate",
+      "severity": "medium",
+      "category": "tool_shadowing",
+      "title": "Tool 'set_user_note' is a near-duplicate of 'get_user_note'",
+      "description": "'set_user_note' and 'get_user_note' differ by one character or a suffix. The model may pick either; a lookalike with extra instructions shadows the legitimate tool.",
+      "owasp_asi": [
+        "ASI01",
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP03",
+        "MCP06"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Keep one clearly named tool per capability; remove or rename lookalikes.",
+      "rule_id": "near_duplicate_tool_name",
+      "evidence": "Tool 'set_user_note' is a near-duplicate of 'get_user_note'",
+      "location": "static:<corpus>/registry2/16_fliptheweb__yazio-mcp:set_user_note",
+      "replay": "axiom scan <corpus>/registry2/16_fliptheweb__yazio-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"shadow_set_user_note_near_duplicate\")'"
+    },
+    {
+      "id": "cross_tool_get_user_weight_get_user",
+      "severity": "medium",
+      "category": "cross_server",
+      "title": "Tool 'get_user_weight' references tool 'get_user'",
+      "description": "Tool description mentions another tool by name, which could enable tool chaining attacks.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP01",
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Verify this cross-reference is legitimate and necessary.",
+      "rule_id": "cross_tool_reference",
+      "evidence": "Tool 'get_user_weight' references tool 'get_user'",
+      "location": "static:<corpus>/registry2/16_fliptheweb__yazio-mcp:get_user_weight_get_user",
+      "replay": "axiom scan <corpus>/registry2/16_fliptheweb__yazio-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"cross_tool_get_user_weight_get_user\")'"
+    },
+    {
+      "id": "cross_tool_get_user_weight_get_user_weight_history",
+      "severity": "medium",
+      "category": "cross_server",
+      "title": "Tool 'get_user_weight' references tool 'get_user_weight_history'",
+      "description": "Tool description mentions another tool by name, which could enable tool chaining attacks.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP01",
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Verify this cross-reference is legitimate and necessary.",
+      "rule_id": "cross_tool_reference",
+      "evidence": "Tool 'get_user_weight' references tool 'get_user_weight_history'",
+      "location": "static:<corpus>/registry2/16_fliptheweb__yazio-mcp:get_user_weight_get_user_weight_history",
+      "replay": "axiom scan <corpus>/registry2/16_fliptheweb__yazio-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"cross_tool_get_user_weight_get_user_weight_history\")'"
+    },
+    {
+      "id": "cross_tool_get_recipe_get_user",
+      "severity": "medium",
+      "category": "cross_server",
+      "title": "Tool 'get_recipe' references tool 'get_user'",
+      "description": "Tool description mentions another tool by name, which could enable tool chaining attacks.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP01",
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Verify this cross-reference is legitimate and necessary.",
+      "rule_id": "cross_tool_reference",
+      "evidence": "Tool 'get_recipe' references tool 'get_user'",
+      "location": "static:<corpus>/registry2/16_fliptheweb__yazio-mcp:get_recipe_get_user",
+      "replay": "axiom scan <corpus>/registry2/16_fliptheweb__yazio-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"cross_tool_get_recipe_get_user\")'"
+    },
+    {
+      "id": "cross_tool_get_recipe_get_user_consumed_items",
+      "severity": "medium",
+      "category": "cross_server",
+      "title": "Tool 'get_recipe' references tool 'get_user_consumed_items'",
+      "description": "Tool description mentions another tool by name, which could enable tool chaining attacks.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP01",
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Verify this cross-reference is legitimate and necessary.",
+      "rule_id": "cross_tool_reference",
+      "evidence": "Tool 'get_recipe' references tool 'get_user_consumed_items'",
+      "location": "static:<corpus>/registry2/16_fliptheweb__yazio-mcp:get_recipe_get_user_consumed_items",
+      "replay": "axiom scan <corpus>/registry2/16_fliptheweb__yazio-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"cross_tool_get_recipe_get_user_consumed_items\")'"
+    },
+    {
+      "id": "cross_tool_add_user_consumed_item_remove_user_consumed_item",
+      "severity": "medium",
+      "category": "cross_server",
+      "title": "Tool 'add_user_consumed_item' references tool 'remove_user_consumed_item'",
+      "description": "Tool description mentions another tool by name, which could enable tool chaining attacks.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP01",
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Verify this cross-reference is legitimate and necessary.",
+      "rule_id": "cross_tool_reference",
+      "evidence": "Tool 'add_user_consumed_item' references tool 'remove_user_consumed_item'",
+      "location": "static:<corpus>/registry2/16_fliptheweb__yazio-mcp:add_user_consumed_item_remove_user_consumed_item",
+      "replay": "axiom scan <corpus>/registry2/16_fliptheweb__yazio-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"cross_tool_add_user_consumed_item_remove_user_consumed_item\")'"
+    },
+    {
+      "id": "cross_tool_create_product_add_user_consumed_item",
+      "severity": "medium",
+      "category": "cross_server",
+      "title": "Tool 'create_product' references tool 'add_user_consumed_item'",
+      "description": "Tool description mentions another tool by name, which could enable tool chaining attacks.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP01",
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Verify this cross-reference is legitimate and necessary.",
+      "rule_id": "cross_tool_reference",
+      "evidence": "Tool 'create_product' references tool 'add_user_consumed_item'",
+      "location": "static:<corpus>/registry2/16_fliptheweb__yazio-mcp:create_product_add_user_consumed_item",
+      "replay": "axiom scan <corpus>/registry2/16_fliptheweb__yazio-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"cross_tool_create_product_add_user_consumed_item\")'"
+    },
+    {
+      "id": "cross_tool_add_quick_entry_get_user",
+      "severity": "medium",
+      "category": "cross_server",
+      "title": "Tool 'add_quick_entry' references tool 'get_user'",
+      "description": "Tool description mentions another tool by name, which could enable tool chaining attacks.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP01",
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Verify this cross-reference is legitimate and necessary.",
+      "rule_id": "cross_tool_reference",
+      "evidence": "Tool 'add_quick_entry' references tool 'get_user'",
+      "location": "static:<corpus>/registry2/16_fliptheweb__yazio-mcp:add_quick_entry_get_user",
+      "replay": "axiom scan <corpus>/registry2/16_fliptheweb__yazio-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"cross_tool_add_quick_entry_get_user\")'"
+    },
+    {
+      "id": "cross_tool_add_quick_entry_remove_user_consumed_item",
+      "severity": "medium",
+      "category": "cross_server",
+      "title": "Tool 'add_quick_entry' references tool 'remove_user_consumed_item'",
+      "description": "Tool description mentions another tool by name, which could enable tool chaining attacks.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP01",
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Verify this cross-reference is legitimate and necessary.",
+      "rule_id": "cross_tool_reference",
+      "evidence": "Tool 'add_quick_entry' references tool 'remove_user_consumed_item'",
+      "location": "static:<corpus>/registry2/16_fliptheweb__yazio-mcp:add_quick_entry_remove_user_consumed_item",
+      "replay": "axiom scan <corpus>/registry2/16_fliptheweb__yazio-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"cross_tool_add_quick_entry_remove_user_consumed_item\")'"
+    },
+    {
+      "id": "cross_tool_add_quick_entry_get_user_consumed_items",
+      "severity": "medium",
+      "category": "cross_server",
+      "title": "Tool 'add_quick_entry' references tool 'get_user_consumed_items'",
+      "description": "Tool description mentions another tool by name, which could enable tool chaining attacks.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP01",
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Verify this cross-reference is legitimate and necessary.",
+      "rule_id": "cross_tool_reference",
+      "evidence": "Tool 'add_quick_entry' references tool 'get_user_consumed_items'",
+      "location": "static:<corpus>/registry2/16_fliptheweb__yazio-mcp:add_quick_entry_get_user_consumed_items",
+      "replay": "axiom scan <corpus>/registry2/16_fliptheweb__yazio-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"cross_tool_add_quick_entry_get_user_consumed_items\")'"
+    },
+    {
+      "id": "cross_tool_add_user_consumed_recipe_get_user",
+      "severity": "medium",
+      "category": "cross_server",
+      "title": "Tool 'add_user_consumed_recipe' references tool 'get_user'",
+      "description": "Tool description mentions another tool by name, which could enable tool chaining attacks.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP01",
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Verify this cross-reference is legitimate and necessary.",
+      "rule_id": "cross_tool_reference",
+      "evidence": "Tool 'add_user_consumed_recipe' references tool 'get_user'",
+      "location": "static:<corpus>/registry2/16_fliptheweb__yazio-mcp:add_user_consumed_recipe_get_user",
+      "replay": "axiom scan <corpus>/registry2/16_fliptheweb__yazio-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"cross_tool_add_user_consumed_recipe_get_user\")'"
+    },
+    {
+      "id": "cross_tool_add_user_consumed_recipe_get_recipe",
+      "severity": "medium",
+      "category": "cross_server",
+      "title": "Tool 'add_user_consumed_recipe' references tool 'get_recipe'",
+      "description": "Tool description mentions another tool by name, which could enable tool chaining attacks.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP01",
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Verify this cross-reference is legitimate and necessary.",
+      "rule_id": "cross_tool_reference",
+      "evidence": "Tool 'add_user_consumed_recipe' references tool 'get_recipe'",
+      "location": "static:<corpus>/registry2/16_fliptheweb__yazio-mcp:add_user_consumed_recipe_get_recipe",
+      "replay": "axiom scan <corpus>/registry2/16_fliptheweb__yazio-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"cross_tool_add_user_consumed_recipe_get_recipe\")'"
+    },
+    {
+      "id": "cross_tool_add_user_consumed_recipe_get_user_consumed_items",
+      "severity": "medium",
+      "category": "cross_server",
+      "title": "Tool 'add_user_consumed_recipe' references tool 'get_user_consumed_items'",
+      "description": "Tool description mentions another tool by name, which could enable tool chaining attacks.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP01",
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Verify this cross-reference is legitimate and necessary.",
+      "rule_id": "cross_tool_reference",
+      "evidence": "Tool 'add_user_consumed_recipe' references tool 'get_user_consumed_items'",
+      "location": "static:<corpus>/registry2/16_fliptheweb__yazio-mcp:add_user_consumed_recipe_get_user_consumed_items",
+      "replay": "axiom scan <corpus>/registry2/16_fliptheweb__yazio-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"cross_tool_add_user_consumed_recipe_get_user_consumed_items\")'"
+    },
+    {
+      "id": "cross_tool_create_user_recipe_add_user_consumed_recipe",
+      "severity": "medium",
+      "category": "cross_server",
+      "title": "Tool 'create_user_recipe' references tool 'add_user_consumed_recipe'",
+      "description": "Tool description mentions another tool by name, which could enable tool chaining attacks.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP01",
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Verify this cross-reference is legitimate and necessary.",
+      "rule_id": "cross_tool_reference",
+      "evidence": "Tool 'create_user_recipe' references tool 'add_user_consumed_recipe'",
+      "location": "static:<corpus>/registry2/16_fliptheweb__yazio-mcp:create_user_recipe_add_user_consumed_recipe",
+      "replay": "axiom scan <corpus>/registry2/16_fliptheweb__yazio-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"cross_tool_create_user_recipe_add_user_consumed_recipe\")'"
+    },
+    {
+      "id": "cross_tool_create_user_meal_add_user_consumed_meal",
+      "severity": "medium",
+      "category": "cross_server",
+      "title": "Tool 'create_user_meal' references tool 'add_user_consumed_meal'",
+      "description": "Tool description mentions another tool by name, which could enable tool chaining attacks.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP01",
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Verify this cross-reference is legitimate and necessary.",
+      "rule_id": "cross_tool_reference",
+      "evidence": "Tool 'create_user_meal' references tool 'add_user_consumed_meal'",
+      "location": "static:<corpus>/registry2/16_fliptheweb__yazio-mcp:create_user_meal_add_user_consumed_meal",
+      "replay": "axiom scan <corpus>/registry2/16_fliptheweb__yazio-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"cross_tool_create_user_meal_add_user_consumed_meal\")'"
+    },
+    {
+      "id": "cross_tool_add_user_consumed_meal_get_user",
+      "severity": "medium",
+      "category": "cross_server",
+      "title": "Tool 'add_user_consumed_meal' references tool 'get_user'",
+      "description": "Tool description mentions another tool by name, which could enable tool chaining attacks.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP01",
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Verify this cross-reference is legitimate and necessary.",
+      "rule_id": "cross_tool_reference",
+      "evidence": "Tool 'add_user_consumed_meal' references tool 'get_user'",
+      "location": "static:<corpus>/registry2/16_fliptheweb__yazio-mcp:add_user_consumed_meal_get_user",
+      "replay": "axiom scan <corpus>/registry2/16_fliptheweb__yazio-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"cross_tool_add_user_consumed_meal_get_user\")'"
+    },
+    {
+      "id": "cross_tool_add_user_consumed_meal_remove_user_consumed_item",
+      "severity": "medium",
+      "category": "cross_server",
+      "title": "Tool 'add_user_consumed_meal' references tool 'remove_user_consumed_item'",
+      "description": "Tool description mentions another tool by name, which could enable tool chaining attacks.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP01",
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Verify this cross-reference is legitimate and necessary.",
+      "rule_id": "cross_tool_reference",
+      "evidence": "Tool 'add_user_consumed_meal' references tool 'remove_user_consumed_item'",
+      "location": "static:<corpus>/registry2/16_fliptheweb__yazio-mcp:add_user_consumed_meal_remove_user_consumed_item",
+      "replay": "axiom scan <corpus>/registry2/16_fliptheweb__yazio-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"cross_tool_add_user_consumed_meal_remove_user_consumed_item\")'"
+    },
+    {
+      "id": "cross_tool_add_user_consumed_meal_get_user_consumed_items",
+      "severity": "medium",
+      "category": "cross_server",
+      "title": "Tool 'add_user_consumed_meal' references tool 'get_user_consumed_items'",
+      "description": "Tool description mentions another tool by name, which could enable tool chaining attacks.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP01",
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Verify this cross-reference is legitimate and necessary.",
+      "rule_id": "cross_tool_reference",
+      "evidence": "Tool 'add_user_consumed_meal' references tool 'get_user_consumed_items'",
+      "location": "static:<corpus>/registry2/16_fliptheweb__yazio-mcp:add_user_consumed_meal_get_user_consumed_items",
+      "replay": "axiom scan <corpus>/registry2/16_fliptheweb__yazio-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"cross_tool_add_user_consumed_meal_get_user_consumed_items\")'"
+    },
+    {
+      "id": "cross_tool_add_user_weight_delete_user_weight",
+      "severity": "medium",
+      "category": "cross_server",
+      "title": "Tool 'add_user_weight' references tool 'delete_user_weight'",
+      "description": "Tool description mentions another tool by name, which could enable tool chaining attacks.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP01",
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Verify this cross-reference is legitimate and necessary.",
+      "rule_id": "cross_tool_reference",
+      "evidence": "Tool 'add_user_weight' references tool 'delete_user_weight'",
+      "location": "static:<corpus>/registry2/16_fliptheweb__yazio-mcp:add_user_weight_delete_user_weight",
+      "replay": "axiom scan <corpus>/registry2/16_fliptheweb__yazio-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"cross_tool_add_user_weight_delete_user_weight\")'"
+    },
+    {
+      "id": "cross_tool_delete_user_weight_add_user_weight",
+      "severity": "medium",
+      "category": "cross_server",
+      "title": "Tool 'delete_user_weight' references tool 'add_user_weight'",
+      "description": "Tool description mentions another tool by name, which could enable tool chaining attacks.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP01",
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Verify this cross-reference is legitimate and necessary.",
+      "rule_id": "cross_tool_reference",
+      "evidence": "Tool 'delete_user_weight' references tool 'add_user_weight'",
+      "location": "static:<corpus>/registry2/16_fliptheweb__yazio-mcp:delete_user_weight_add_user_weight",
+      "replay": "axiom scan <corpus>/registry2/16_fliptheweb__yazio-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"cross_tool_delete_user_weight_add_user_weight\")'"
+    },
+    {
+      "id": "cross_tool_delete_user_weight_get_user",
+      "severity": "medium",
+      "category": "cross_server",
+      "title": "Tool 'delete_user_weight' references tool 'get_user'",
+      "description": "Tool description mentions another tool by name, which could enable tool chaining attacks.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP01",
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Verify this cross-reference is legitimate and necessary.",
+      "rule_id": "cross_tool_reference",
+      "evidence": "Tool 'delete_user_weight' references tool 'get_user'",
+      "location": "static:<corpus>/registry2/16_fliptheweb__yazio-mcp:delete_user_weight_get_user",
+      "replay": "axiom scan <corpus>/registry2/16_fliptheweb__yazio-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"cross_tool_delete_user_weight_get_user\")'"
+    },
+    {
+      "id": "cross_tool_delete_user_weight_get_user_weight",
+      "severity": "medium",
+      "category": "cross_server",
+      "title": "Tool 'delete_user_weight' references tool 'get_user_weight'",
+      "description": "Tool description mentions another tool by name, which could enable tool chaining attacks.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP01",
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Verify this cross-reference is legitimate and necessary.",
+      "rule_id": "cross_tool_reference",
+      "evidence": "Tool 'delete_user_weight' references tool 'get_user_weight'",
+      "location": "static:<corpus>/registry2/16_fliptheweb__yazio-mcp:delete_user_weight_get_user_weight",
+      "replay": "axiom scan <corpus>/registry2/16_fliptheweb__yazio-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"cross_tool_delete_user_weight_get_user_weight\")'"
+    },
+    {
+      "id": "cross_tool_add_user_body_value_add_user_weight",
+      "severity": "medium",
+      "category": "cross_server",
+      "title": "Tool 'add_user_body_value' references tool 'add_user_weight'",
+      "description": "Tool description mentions another tool by name, which could enable tool chaining attacks.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP01",
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Verify this cross-reference is legitimate and necessary.",
+      "rule_id": "cross_tool_reference",
+      "evidence": "Tool 'add_user_body_value' references tool 'add_user_weight'",
+      "location": "static:<corpus>/registry2/16_fliptheweb__yazio-mcp:add_user_body_value_add_user_weight",
+      "replay": "axiom scan <corpus>/registry2/16_fliptheweb__yazio-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"cross_tool_add_user_body_value_add_user_weight\")'"
+    },
+    {
+      "id": "cross_tool_add_user_body_value_delete_user_body_value",
+      "severity": "medium",
+      "category": "cross_server",
+      "title": "Tool 'add_user_body_value' references tool 'delete_user_body_value'",
+      "description": "Tool description mentions another tool by name, which could enable tool chaining attacks.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP01",
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Verify this cross-reference is legitimate and necessary.",
+      "rule_id": "cross_tool_reference",
+      "evidence": "Tool 'add_user_body_value' references tool 'delete_user_body_value'",
+      "location": "static:<corpus>/registry2/16_fliptheweb__yazio-mcp:add_user_body_value_delete_user_body_value",
+      "replay": "axiom scan <corpus>/registry2/16_fliptheweb__yazio-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"cross_tool_add_user_body_value_delete_user_body_value\")'"
+    },
+    {
+      "id": "cross_tool_delete_user_body_value_get_user",
+      "severity": "medium",
+      "category": "cross_server",
+      "title": "Tool 'delete_user_body_value' references tool 'get_user'",
+      "description": "Tool description mentions another tool by name, which could enable tool chaining attacks.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP01",
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Verify this cross-reference is legitimate and necessary.",
+      "rule_id": "cross_tool_reference",
+      "evidence": "Tool 'delete_user_body_value' references tool 'get_user'",
+      "location": "static:<corpus>/registry2/16_fliptheweb__yazio-mcp:delete_user_body_value_get_user",
+      "replay": "axiom scan <corpus>/registry2/16_fliptheweb__yazio-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"cross_tool_delete_user_body_value_get_user\")'"
+    },
+    {
+      "id": "cross_tool_delete_user_body_value_get_user_body_values",
+      "severity": "medium",
+      "category": "cross_server",
+      "title": "Tool 'delete_user_body_value' references tool 'get_user_body_values'",
+      "description": "Tool description mentions another tool by name, which could enable tool chaining attacks.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP01",
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Verify this cross-reference is legitimate and necessary.",
+      "rule_id": "cross_tool_reference",
+      "evidence": "Tool 'delete_user_body_value' references tool 'get_user_body_values'",
+      "location": "static:<corpus>/registry2/16_fliptheweb__yazio-mcp:delete_user_body_value_get_user_body_values",
+      "replay": "axiom scan <corpus>/registry2/16_fliptheweb__yazio-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"cross_tool_delete_user_body_value_get_user_body_values\")'"
+    },
+    {
+      "id": "cross_tool_delete_user_body_value_add_user_body_value",
+      "severity": "medium",
+      "category": "cross_server",
+      "title": "Tool 'delete_user_body_value' references tool 'add_user_body_value'",
+      "description": "Tool description mentions another tool by name, which could enable tool chaining attacks.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP01",
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Verify this cross-reference is legitimate and necessary.",
+      "rule_id": "cross_tool_reference",
+      "evidence": "Tool 'delete_user_body_value' references tool 'add_user_body_value'",
+      "location": "static:<corpus>/registry2/16_fliptheweb__yazio-mcp:delete_user_body_value_add_user_body_value",
+      "replay": "axiom scan <corpus>/registry2/16_fliptheweb__yazio-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"cross_tool_delete_user_body_value_add_user_body_value\")'"
+    },
+    {
+      "id": "cross_tool_delete_user_exercise_get_user_exercises",
+      "severity": "medium",
+      "category": "cross_server",
+      "title": "Tool 'delete_user_exercise' references tool 'get_user_exercises'",
+      "description": "Tool description mentions another tool by name, which could enable tool chaining attacks.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP01",
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Verify this cross-reference is legitimate and necessary.",
+      "rule_id": "cross_tool_reference",
+      "evidence": "Tool 'delete_user_exercise' references tool 'get_user_exercises'",
+      "location": "static:<corpus>/registry2/16_fliptheweb__yazio-mcp:delete_user_exercise_get_user_exercises",
+      "replay": "axiom scan <corpus>/registry2/16_fliptheweb__yazio-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"cross_tool_delete_user_exercise_get_user_exercises\")'"
+    },
+    {
+      "id": "cross_tool_delete_user_exercise_get_user",
+      "severity": "medium",
+      "category": "cross_server",
+      "title": "Tool 'delete_user_exercise' references tool 'get_user'",
+      "description": "Tool description mentions another tool by name, which could enable tool chaining attacks.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP01",
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Verify this cross-reference is legitimate and necessary.",
+      "rule_id": "cross_tool_reference",
+      "evidence": "Tool 'delete_user_exercise' references tool 'get_user'",
+      "location": "static:<corpus>/registry2/16_fliptheweb__yazio-mcp:delete_user_exercise_get_user",
+      "replay": "axiom scan <corpus>/registry2/16_fliptheweb__yazio-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"cross_tool_delete_user_exercise_get_user\")'"
+    },
+    {
+      "id": "cross_tool_delete_user_exercise_add_user_exercise",
+      "severity": "medium",
+      "category": "cross_server",
+      "title": "Tool 'delete_user_exercise' references tool 'add_user_exercise'",
+      "description": "Tool description mentions another tool by name, which could enable tool chaining attacks.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP01",
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Verify this cross-reference is legitimate and necessary.",
+      "rule_id": "cross_tool_reference",
+      "evidence": "Tool 'delete_user_exercise' references tool 'add_user_exercise'",
+      "location": "static:<corpus>/registry2/16_fliptheweb__yazio-mcp:delete_user_exercise_add_user_exercise",
+      "replay": "axiom scan <corpus>/registry2/16_fliptheweb__yazio-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"cross_tool_delete_user_exercise_add_user_exercise\")'"
+    },
+    {
+      "id": "cross_tool_update_user_recipe_create_user_recipe",
+      "severity": "medium",
+      "category": "cross_server",
+      "title": "Tool 'update_user_recipe' references tool 'create_user_recipe'",
+      "description": "Tool description mentions another tool by name, which could enable tool chaining attacks.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP01",
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Verify this cross-reference is legitimate and necessary.",
+      "rule_id": "cross_tool_reference",
+      "evidence": "Tool 'update_user_recipe' references tool 'create_user_recipe'",
+      "location": "static:<corpus>/registry2/16_fliptheweb__yazio-mcp:update_user_recipe_create_user_recipe",
+      "replay": "axiom scan <corpus>/registry2/16_fliptheweb__yazio-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"cross_tool_update_user_recipe_create_user_recipe\")'"
+    },
+    {
+      "id": "cross_tool_set_user_activity_add_user_exercise",
+      "severity": "medium",
+      "category": "cross_server",
+      "title": "Tool 'set_user_activity' references tool 'add_user_exercise'",
+      "description": "Tool description mentions another tool by name, which could enable tool chaining attacks.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP01",
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Verify this cross-reference is legitimate and necessary.",
+      "rule_id": "cross_tool_reference",
+      "evidence": "Tool 'set_user_activity' references tool 'add_user_exercise'",
+      "location": "static:<corpus>/registry2/16_fliptheweb__yazio-mcp:set_user_activity_add_user_exercise",
+      "replay": "axiom scan <corpus>/registry2/16_fliptheweb__yazio-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"cross_tool_set_user_activity_add_user_exercise\")'"
+    },
+    {
+      "id": "cross_tool_remove_user_favorite_recipe_get_user",
+      "severity": "medium",
+      "category": "cross_server",
+      "title": "Tool 'remove_user_favorite_recipe' references tool 'get_user'",
+      "description": "Tool description mentions another tool by name, which could enable tool chaining attacks.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP01",
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Verify this cross-reference is legitimate and necessary.",
+      "rule_id": "cross_tool_reference",
+      "evidence": "Tool 'remove_user_favorite_recipe' references tool 'get_user'",
+      "location": "static:<corpus>/registry2/16_fliptheweb__yazio-mcp:remove_user_favorite_recipe_get_user",
+      "replay": "axiom scan <corpus>/registry2/16_fliptheweb__yazio-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"cross_tool_remove_user_favorite_recipe_get_user\")'"
+    },
+    {
+      "id": "cross_tool_remove_user_favorite_recipe_get_user_favorites",
+      "severity": "medium",
+      "category": "cross_server",
+      "title": "Tool 'remove_user_favorite_recipe' references tool 'get_user_favorites'",
+      "description": "Tool description mentions another tool by name, which could enable tool chaining attacks.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP01",
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Verify this cross-reference is legitimate and necessary.",
+      "rule_id": "cross_tool_reference",
+      "evidence": "Tool 'remove_user_favorite_recipe' references tool 'get_user_favorites'",
+      "location": "static:<corpus>/registry2/16_fliptheweb__yazio-mcp:remove_user_favorite_recipe_get_user_favorites",
+      "replay": "axiom scan <corpus>/registry2/16_fliptheweb__yazio-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"cross_tool_remove_user_favorite_recipe_get_user_favorites\")'"
+    },
+    {
+      "id": "code_0001",
+      "severity": "info",
+      "category": "permission_overscope",
+      "title": "Filesystem operations in MCP server source (capability note)",
+      "description": "Pattern matched in scripts\\bump-version.cjs at line 5: `const content = fs.readFileSync(filePath, 'utf8');`",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": "scripts\\bump-version.cjs",
+      "line_number": 5,
+      "recommendation": "Review this file system broad access pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const content = fs.readFileSync(filePath, 'utf8');",
+      "location": "scripts\\bump-version.cjs:5",
+      "replay": "axiom scan <corpus>/registry2/16_fliptheweb__yazio-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0001\")'"
+    },
+    {
+      "id": "code_0002",
+      "severity": "info",
+      "category": "permission_overscope",
+      "title": "Filesystem operations in MCP server source (capability note)",
+      "description": "Pattern matched in scripts\\bump-version.cjs at line 6: `fs.writeFileSync(filePath, replacer(content, version));`",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": "scripts\\bump-version.cjs",
+      "line_number": 6,
+      "recommendation": "Review this file system broad access pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "fs.writeFileSync(filePath, replacer(content, version));",
+      "location": "scripts\\bump-version.cjs:6",
+      "replay": "axiom scan <corpus>/registry2/16_fliptheweb__yazio-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0002\")'"
+    },
+    {
+      "id": "code_0003",
+      "severity": "info",
+      "category": "data_exfiltration",
+      "title": "Server makes outbound network requests (capability note)",
+      "description": "Pattern matched in src\\api\\yazio.ts at line 35: `getUser = () => this.http.request('GET', '/user', { schema: S.UserSchema });`",
+      "owasp_asi": [
+        "ASI01",
+        "ASI02"
+      ],
+      "owasp_mcp": [
+        "MCP10"
+      ],
+      "file_path": "src\\api\\yazio.ts",
+      "line_number": 35,
+      "recommendation": "Review this data exfiltration pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "getUser = () => this.http.request('GET', '/user', { schema: S.UserSchema });",
+      "location": "src\\api\\yazio.ts:35",
+      "replay": "axiom scan <corpus>/registry2/16_fliptheweb__yazio-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0003\")'"
+    },
+    {
+      "id": "code_0004",
+      "severity": "info",
+      "category": "data_exfiltration",
+      "title": "Server makes outbound network requests (capability note)",
+      "description": "Pattern matched in src\\api\\yazio.ts at line 37: `getSettings = () => this.http.request('GET', '/user/settings', { schema: S.UserSettingsSchema });`",
+      "owasp_asi": [
+        "ASI01",
+        "ASI02"
+      ],
+      "owasp_mcp": [
+        "MCP10"
+      ],
+      "file_path": "src\\api\\yazio.ts",
+      "line_number": 37,
+      "recommendation": "Review this data exfiltration pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "getSettings = () => this.http.request('GET', '/user/settings', { schema: S.UserSettingsSchema });",
+      "location": "src\\api\\yazio.ts:37",
+      "replay": "axiom scan <corpus>/registry2/16_fliptheweb__yazio-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0004\")'"
+    },
+    {
+      "id": "code_0005",
+      "severity": "info",
+      "category": "data_exfiltration",
+      "title": "Server makes outbound network requests (capability note)",
+      "description": "Pattern matched in src\\api\\yazio.ts at line 40: `this.http.request('GET', '/user/dietary-preferences', { schema: S.DietaryPreferencesSchema });`",
+      "owasp_asi": [
+        "ASI01",
+        "ASI02"
+      ],
+      "owasp_mcp": [
+        "MCP10"
+      ],
+      "file_path": "src\\api\\yazio.ts",
+      "line_number": 40,
+      "recommendation": "Review this data exfiltration pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "this.http.request('GET', '/user/dietary-preferences', { schema: S.DietaryPreferencesSchema });",
+      "location": "src\\api\\yazio.ts:40",
+      "replay": "axiom scan <corpus>/registry2/16_fliptheweb__yazio-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0005\")'"
+    },
+    {
+      "id": "code_0006",
+      "severity": "info",
+      "category": "data_exfiltration",
+      "title": "Server makes outbound network requests (capability note)",
+      "description": "Pattern matched in src\\api\\yazio.ts at line 43: `this.http.request('GET', '/user/goals', { query: { date }, schema: S.GoalsSchema });`",
+      "owasp_asi": [
+        "ASI01",
+        "ASI02"
+      ],
+      "owasp_mcp": [
+        "MCP10"
+      ],
+      "file_path": "src\\api\\yazio.ts",
+      "line_number": 43,
+      "recommendation": "Review this data exfiltration pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "this.http.request('GET', '/user/goals', { query: { date }, schema: S.GoalsSchema });",
+      "location": "src\\api\\yazio.ts:43",
+      "replay": "axiom scan <corpus>/registry2/16_fliptheweb__yazio-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0006\")'"
+    },
+    {
+      "id": "code_0007",
+      "severity": "info",
+      "category": "data_exfiltration",
+      "title": "Server makes outbound network requests (capability note)",
+      "description": "Pattern matched in src\\api\\yazio.ts at line 46: `this.http.request('GET', '/user/widgets/daily-summary', { query: { date }, schema: S.DailySummarySchema });`",
+      "owasp_asi": [
+        "ASI01",
+        "ASI02"
+      ],
+      "owasp_mcp": [
+        "MCP10"
+      ],
+      "file_path": "src\\api\\yazio.ts",
+      "line_number": 46,
+      "recommendation": "Review this data exfiltration pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "this.http.request('GET', '/user/widgets/daily-summary', { query: { date }, schema: S.DailySummarySchema });",
+      "location": "src\\api\\yazio.ts:46",
+      "replay": "axiom scan <corpus>/registry2/16_fliptheweb__yazio-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0007\")'"
+    },
+    {
+      "id": "code_0008",
+      "severity": "info",
+      "category": "data_exfiltration",
+      "title": "Server makes outbound network requests (capability note)",
+      "description": "Pattern matched in src\\api\\yazio.ts at line 49: `this.http.request('GET', '/user/bodyvalues/weight/last', { query: { date }, schema: S.WeightEntrySchema.nullable() });`",
+      "owasp_asi": [
+        "ASI01",
+        "ASI02"
+      ],
+      "owasp_mcp": [
+        "MCP10"
+      ],
+      "file_path": "src\\api\\yazio.ts",
+      "line_number": 49,
+      "recommendation": "Review this data exfiltration pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "this.http.request('GET', '/user/bodyvalues/weight/last', { query: { date }, schema: S.WeightEntrySchema.nullable() });",
+      "location": "src\\api\\yazio.ts:49",
+      "replay": "axiom scan <corpus>/registry2/16_fliptheweb__yazio-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0008\")'"
+    },
+    {
+      "id": "code_0009",
+      "severity": "info",
+      "category": "data_exfiltration",
+      "title": "Server makes outbound network requests (capability note)",
+      "description": "Pattern matched in src\\api\\yazio.ts at line 53: `this.http.request('GET', '/user/bodyvalues/weight', { query: { start, end }, schema: S.WeightHistorySchema });`",
+      "owasp_asi": [
+        "ASI01",
+        "ASI02"
+      ],
+      "owasp_mcp": [
+        "MCP10"
+      ],
+      "file_path": "src\\api\\yazio.ts",
+      "line_number": 53,
+      "recommendation": "Review this data exfiltration pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "this.http.request('GET', '/user/bodyvalues/weight', { query: { start, end }, schema: S.WeightHistorySchema });",
+      "location": "src\\api\\yazio.ts:53",
+      "replay": "axiom scan <corpus>/registry2/16_fliptheweb__yazio-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0009\")'"
+    },
+    {
+      "id": "code_0010",
+      "severity": "info",
+      "category": "data_exfiltration",
+      "title": "Server makes outbound network requests (capability note)",
+      "description": "Pattern matched in src\\api\\yazio.ts at line 57: `this.http.request('GET', '/user/bodyvalues', { query: { date }, schema: S.BodyValuesSchema });`",
+      "owasp_asi": [
+        "ASI01",
+        "ASI02"
+      ],
+      "owasp_mcp": [
+        "MCP10"
+      ],
+      "file_path": "src\\api\\yazio.ts",
+      "line_number": 57,
+      "recommendation": "Review this data exfiltration pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "this.http.request('GET', '/user/bodyvalues', { query: { date }, schema: S.BodyValuesSchema });",
+      "location": "src\\api\\yazio.ts:57",
+      "replay": "axiom scan <corpus>/registry2/16_fliptheweb__yazio-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0010\")'"
+    },
+    {
+      "id": "code_0011",
+      "severity": "info",
+      "category": "data_exfiltration",
+      "title": "Server makes outbound network requests (capability note)",
+      "description": "Pattern matched in src\\api\\yazio.ts at line 63: `this.http.request('POST', '/user/bodyvalues', { body: { [type]: entries } });`",
+      "owasp_asi": [
+        "ASI01",
+        "ASI02"
+      ],
+      "owasp_mcp": [
+        "MCP10"
+      ],
+      "file_path": "src\\api\\yazio.ts",
+      "line_number": 63,
+      "recommendation": "Review this data exfiltration pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "this.http.request('POST', '/user/bodyvalues', { body: { [type]: entries } });",
+      "location": "src\\api\\yazio.ts:63",
+      "replay": "axiom scan <corpus>/registry2/16_fliptheweb__yazio-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0011\")'"
+    },
+    {
+      "id": "code_0012",
+      "severity": "info",
+      "category": "data_exfiltration",
+      "title": "Server makes outbound network requests (capability note)",
+      "description": "Pattern matched in src\\api\\yazio.ts at line 67: `this.http.request('PUT', `/user/bodyvalues/${encodeURIComponent(id)}`, { body: { value } });`",
+      "owasp_asi": [
+        "ASI01",
+        "ASI02"
+      ],
+      "owasp_mcp": [
+        "MCP10"
+      ],
+      "file_path": "src\\api\\yazio.ts",
+      "line_number": 67,
+      "recommendation": "Review this data exfiltration pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "this.http.request('PUT',",
+      "location": "src\\api\\yazio.ts:67",
+      "replay": "axiom scan <corpus>/registry2/16_fliptheweb__yazio-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0012\")'"
+    },
+    {
+      "id": "code_0013",
+      "severity": "info",
+      "category": "data_exfiltration",
+      "title": "Server makes outbound network requests (capability note)",
+      "description": "Pattern matched in src\\api\\yazio.ts at line 70: `deleteBodyValues = (ids: string[]) => this.http.request('DELETE', '/user/bodyvalues', { body: ids });`",
+      "owasp_asi": [
+        "ASI01",
+        "ASI02"
+      ],
+      "owasp_mcp": [
+        "MCP10"
+      ],
+      "file_path": "src\\api\\yazio.ts",
+      "line_number": 70,
+      "recommendation": "Review this data exfiltration pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "deleteBodyValues = (ids: string[]) => this.http.request('DELETE', '/user/bodyvalues', { body: ids });",
+      "location": "src\\api\\yazio.ts:70",
+      "replay": "axiom scan <corpus>/registry2/16_fliptheweb__yazio-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0013\")'"
+    },
+    {
+      "id": "code_0014",
+      "severity": "info",
+      "category": "data_exfiltration",
+      "title": "Server makes outbound network requests (capability note)",
+      "description": "Pattern matched in src\\api\\yazio.ts at line 73: `this.http.request('GET', '/user/exercises', { query: { date }, schema: S.ExercisesSchema });`",
+      "owasp_asi": [
+        "ASI01",
+        "ASI02"
+      ],
+      "owasp_mcp": [
+        "MCP10"
+      ],
+      "file_path": "src\\api\\yazio.ts",
+      "line_number": 73,
+      "recommendation": "Review this data exfiltration pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "this.http.request('GET', '/user/exercises', { query: { date }, schema: S.ExercisesSchema });",
+      "location": "src\\api\\yazio.ts:73",
+      "replay": "axiom scan <corpus>/registry2/16_fliptheweb__yazio-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0014\")'"
+    },
+    {
+      "id": "code_0015",
+      "severity": "info",
+      "category": "data_exfiltration",
+      "title": "Server makes outbound network requests (capability note)",
+      "description": "Pattern matched in src\\api\\yazio.ts at line 75: `addExercises = (exercises: AddExercisesDto) => this.http.request('POST', '/user/exercises', { body: exercises });`",
+      "owasp_asi": [
+        "ASI01",
+        "ASI02"
+      ],
+      "owasp_mcp": [
+        "MCP10"
+      ],
+      "file_path": "src\\api\\yazio.ts",
+      "line_number": 75,
+      "recommendation": "Review this data exfiltration pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "addExercises = (exercises: AddExercisesDto) => this.http.request('POST', '/user/exercises', { body: exercises });",
+      "location": "src\\api\\yazio.ts:75",
+      "replay": "axiom scan <corpus>/registry2/16_fliptheweb__yazio-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0015\")'"
+    },
+    {
+      "id": "code_0016",
+      "severity": "info",
+      "category": "data_exfiltration",
+      "title": "Server makes outbound network requests (capability note)",
+      "description": "Pattern matched in src\\api\\yazio.ts at line 80: `deleteExercises = (ids: string[]) => this.http.request('DELETE', '/user/exercises/trainings', { body: ids });`",
+      "owasp_asi": [
+        "ASI01",
+        "ASI02"
+      ],
+      "owasp_mcp": [
+        "MCP10"
+      ],
+      "file_path": "src\\api\\yazio.ts",
+      "line_number": 80,
+      "recommendation": "Review this data exfiltration pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "deleteExercises = (ids: string[]) => this.http.request('DELETE', '/user/exercises/trainings', { body: ids });",
+      "location": "src\\api\\yazio.ts:80",
+      "replay": "axiom scan <corpus>/registry2/16_fliptheweb__yazio-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0016\")'"
+    },
+    {
+      "id": "code_0017",
+      "severity": "info",
+      "category": "data_exfiltration",
+      "title": "Server makes outbound network requests (capability note)",
+      "description": "Pattern matched in src\\api\\yazio.ts at line 83: `this.http.request('GET', '/user/products/suggested', { query: { date, daytime }, schema: S.SuggestedProductsSchema });`",
+      "owasp_asi": [
+        "ASI01",
+        "ASI02"
+      ],
+      "owasp_mcp": [
+        "MCP10"
+      ],
+      "file_path": "src\\api\\yazio.ts",
+      "line_number": 83,
+      "recommendation": "Review this data exfiltration pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "this.http.request('GET', '/user/products/suggested', { query: { date, daytime }, schema: S.SuggestedProductsSchema });",
+      "location": "src\\api\\yazio.ts:83",
+      "replay": "axiom scan <corpus>/registry2/16_fliptheweb__yazio-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0017\")'"
+    },
+    {
+      "id": "code_0018",
+      "severity": "info",
+      "category": "data_exfiltration",
+      "title": "Server makes outbound network requests (capability note)",
+      "description": "Pattern matched in src\\api\\yazio.ts at line 86: `this.http.request('GET', '/user/consumed-items', { query: { date }, schema: S.ConsumedItemsSchema });`",
+      "owasp_asi": [
+        "ASI01",
+        "ASI02"
+      ],
+      "owasp_mcp": [
+        "MCP10"
+      ],
+      "file_path": "src\\api\\yazio.ts",
+      "line_number": 86,
+      "recommendation": "Review this data exfiltration pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "this.http.request('GET', '/user/consumed-items', { query: { date }, schema: S.ConsumedItemsSchema });",
+      "location": "src\\api\\yazio.ts:86",
+      "replay": "axiom scan <corpus>/registry2/16_fliptheweb__yazio-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0018\")'"
+    },
+    {
+      "id": "code_0019",
+      "severity": "info",
+      "category": "data_exfiltration",
+      "title": "Server makes outbound network requests (capability note)",
+      "description": "Pattern matched in src\\api\\yazio.ts at line 89: `this.http.request('POST', '/user/consumed-items', {`",
+      "owasp_asi": [
+        "ASI01",
+        "ASI02"
+      ],
+      "owasp_mcp": [
+        "MCP10"
+      ],
+      "file_path": "src\\api\\yazio.ts",
+      "line_number": 89,
+      "recommendation": "Review this data exfiltration pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "this.http.request('POST', '/user/consumed-items', {",
+      "location": "src\\api\\yazio.ts:89",
+      "replay": "axiom scan <corpus>/registry2/16_fliptheweb__yazio-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0019\")'"
+    },
+    {
+      "id": "code_0020",
+      "severity": "info",
+      "category": "data_exfiltration",
+      "title": "Server makes outbound network requests (capability note)",
+      "description": "Pattern matched in src\\api\\yazio.ts at line 95: `this.http.request('GET', '/user/consumed-items/nutrients-daily', { query: { start, end }, schema: S.DailyNutrientsSchema`",
+      "owasp_asi": [
+        "ASI01",
+        "ASI02"
+      ],
+      "owasp_mcp": [
+        "MCP10"
+      ],
+      "file_path": "src\\api\\yazio.ts",
+      "line_number": 95,
+      "recommendation": "Review this data exfiltration pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "this.http.request('GET', '/user/consumed-items/nutrients-daily', { query: { start, end }, schema: S.DailyNutrientsSchema",
+      "location": "src\\api\\yazio.ts:95",
+      "replay": "axiom scan <corpus>/registry2/16_fliptheweb__yazio-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0020\")'"
+    },
+    {
+      "id": "code_0021",
+      "severity": "info",
+      "category": "data_exfiltration",
+      "title": "Server makes outbound network requests (capability note)",
+      "description": "Pattern matched in src\\api\\yazio.ts at line 98: `removeConsumedItems = (ids: string[]) => this.http.request('DELETE', '/user/consumed-items', { body: ids });`",
+      "owasp_asi": [
+        "ASI01",
+        "ASI02"
+      ],
+      "owasp_mcp": [
+        "MCP10"
+      ],
+      "file_path": "src\\api\\yazio.ts",
+      "line_number": 98,
+      "recommendation": "Review this data exfiltration pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "removeConsumedItems = (ids: string[]) => this.http.request('DELETE', '/user/consumed-items', { body: ids });",
+      "location": "src\\api\\yazio.ts:98",
+      "replay": "axiom scan <corpus>/registry2/16_fliptheweb__yazio-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0021\")'"
+    },
+    {
+      "id": "code_0022",
+      "severity": "info",
+      "category": "data_exfiltration",
+      "title": "Server makes outbound network requests (capability note)",
+      "description": "Pattern matched in src\\api\\yazio.ts at line 101: `this.http.request('GET', '/user/water-intake', { query: { date }, schema: S.WaterIntakeSchema });`",
+      "owasp_asi": [
+        "ASI01",
+        "ASI02"
+      ],
+      "owasp_mcp": [
+        "MCP10"
+      ],
+      "file_path": "src\\api\\yazio.ts",
+      "line_number": 101,
+      "recommendation": "Review this data exfiltration pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "this.http.request('GET', '/user/water-intake', { query: { date }, schema: S.WaterIntakeSchema });",
+      "location": "src\\api\\yazio.ts:101",
+      "replay": "axiom scan <corpus>/registry2/16_fliptheweb__yazio-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0022\")'"
+    },
+    {
+      "id": "code_0023",
+      "severity": "info",
+      "category": "data_exfiltration",
+      "title": "Server makes outbound network requests (capability note)",
+      "description": "Pattern matched in src\\api\\yazio.ts at line 103: `addWaterIntake = (entries: WaterIntakeEntry[]) => this.http.request('POST', '/user/water-intake', { body: entries });`",
+      "owasp_asi": [
+        "ASI01",
+        "ASI02"
+      ],
+      "owasp_mcp": [
+        "MCP10"
+      ],
+      "file_path": "src\\api\\yazio.ts",
+      "line_number": 103,
+      "recommendation": "Review this data exfiltration pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "addWaterIntake = (entries: WaterIntakeEntry[]) => this.http.request('POST', '/user/water-intake', { body: entries });",
+      "location": "src\\api\\yazio.ts:103",
+      "replay": "axiom scan <corpus>/registry2/16_fliptheweb__yazio-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0023\")'"
+    },
+    {
+      "id": "code_0024",
+      "severity": "info",
+      "category": "data_exfiltration",
+      "title": "Server makes outbound network requests (capability note)",
+      "description": "Pattern matched in src\\api\\yazio.ts at line 106: `this.http.request('GET', '/products/search', {`",
+      "owasp_asi": [
+        "ASI01",
+        "ASI02"
+      ],
+      "owasp_mcp": [
+        "MCP10"
+      ],
+      "file_path": "src\\api\\yazio.ts",
+      "line_number": 106,
+      "recommendation": "Review this data exfiltration pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "this.http.request('GET', '/products/search', {",
+      "location": "src\\api\\yazio.ts:106",
+      "replay": "axiom scan <corpus>/registry2/16_fliptheweb__yazio-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0024\")'"
+    },
+    {
+      "id": "code_0025",
+      "severity": "info",
+      "category": "data_exfiltration",
+      "title": "Server makes outbound network requests (capability note)",
+      "description": "Pattern matched in src\\api\\yazio.ts at line 112: `this.http.request('GET', `/products/${encodeURIComponent(id)}`, { schema: S.ProductSchema });`",
+      "owasp_asi": [
+        "ASI01",
+        "ASI02"
+      ],
+      "owasp_mcp": [
+        "MCP10"
+      ],
+      "file_path": "src\\api\\yazio.ts",
+      "line_number": 112,
+      "recommendation": "Review this data exfiltration pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "this.http.request('GET',",
+      "location": "src\\api\\yazio.ts:112",
+      "replay": "axiom scan <corpus>/registry2/16_fliptheweb__yazio-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0025\")'"
+    },
+    {
+      "id": "code_0026",
+      "severity": "info",
+      "category": "data_exfiltration",
+      "title": "Server makes outbound network requests (capability note)",
+      "description": "Pattern matched in src\\api\\yazio.ts at line 114: `createProduct = (product: CreateProductDto) => this.http.request('POST', '/user/products', { body: product });`",
+      "owasp_asi": [
+        "ASI01",
+        "ASI02"
+      ],
+      "owasp_mcp": [
+        "MCP10"
+      ],
+      "file_path": "src\\api\\yazio.ts",
+      "line_number": 114,
+      "recommendation": "Review this data exfiltration pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "createProduct = (product: CreateProductDto) => this.http.request('POST', '/user/products', { body: product });",
+      "location": "src\\api\\yazio.ts:114",
+      "replay": "axiom scan <corpus>/registry2/16_fliptheweb__yazio-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0026\")'"
+    },
+    {
+      "id": "code_0027",
+      "severity": "info",
+      "category": "data_exfiltration",
+      "title": "Server makes outbound network requests (capability note)",
+      "description": "Pattern matched in src\\api\\yazio.ts at line 116: `getUserProductIds = () => this.http.request('GET', '/user/products', { schema: S.UserProductIdsSchema });`",
+      "owasp_asi": [
+        "ASI01",
+        "ASI02"
+      ],
+      "owasp_mcp": [
+        "MCP10"
+      ],
+      "file_path": "src\\api\\yazio.ts",
+      "line_number": 116,
+      "recommendation": "Review this data exfiltration pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "getUserProductIds = () => this.http.request('GET', '/user/products', { schema: S.UserProductIdsSchema });",
+      "location": "src\\api\\yazio.ts:116",
+      "replay": "axiom scan <corpus>/registry2/16_fliptheweb__yazio-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0027\")'"
+    },
+    {
+      "id": "code_0028",
+      "severity": "info",
+      "category": "data_exfiltration",
+      "title": "Server makes outbound network requests (capability note)",
+      "description": "Pattern matched in src\\api\\yazio.ts at line 118: `deleteUserProduct = (id: string) => this.http.request('DELETE', `/user/products/${encodeURIComponent(id)}`);`",
+      "owasp_asi": [
+        "ASI01",
+        "ASI02"
+      ],
+      "owasp_mcp": [
+        "MCP10"
+      ],
+      "file_path": "src\\api\\yazio.ts",
+      "line_number": 118,
+      "recommendation": "Review this data exfiltration pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "deleteUserProduct = (id: string) => this.http.request('DELETE',",
+      "location": "src\\api\\yazio.ts:118",
+      "replay": "axiom scan <corpus>/registry2/16_fliptheweb__yazio-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0028\")'"
+    },
+    {
+      "id": "code_0029",
+      "severity": "info",
+      "category": "data_exfiltration",
+      "title": "Server makes outbound network requests (capability note)",
+      "description": "Pattern matched in src\\api\\yazio.ts at line 122: `this.http.request('GET', `/recipes/${encodeURIComponent(id)}`, { schema: S.RecipeSchema });`",
+      "owasp_asi": [
+        "ASI01",
+        "ASI02"
+      ],
+      "owasp_mcp": [
+        "MCP10"
+      ],
+      "file_path": "src\\api\\yazio.ts",
+      "line_number": 122,
+      "recommendation": "Review this data exfiltration pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "this.http.request('GET',",
+      "location": "src\\api\\yazio.ts:122",
+      "replay": "axiom scan <corpus>/registry2/16_fliptheweb__yazio-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0029\")'"
+    },
+    {
+      "id": "code_0030",
+      "severity": "info",
+      "category": "data_exfiltration",
+      "title": "Server makes outbound network requests (capability note)",
+      "description": "Pattern matched in src\\api\\yazio.ts at line 124: `getUserRecipeIds = () => this.http.request('GET', '/user/recipes', { schema: S.RecipeIdsSchema });`",
+      "owasp_asi": [
+        "ASI01",
+        "ASI02"
+      ],
+      "owasp_mcp": [
+        "MCP10"
+      ],
+      "file_path": "src\\api\\yazio.ts",
+      "line_number": 124,
+      "recommendation": "Review this data exfiltration pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "getUserRecipeIds = () => this.http.request('GET', '/user/recipes', { schema: S.RecipeIdsSchema });",
+      "location": "src\\api\\yazio.ts:124",
+      "replay": "axiom scan <corpus>/registry2/16_fliptheweb__yazio-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0030\")'"
+    },
+    {
+      "id": "code_0031",
+      "severity": "info",
+      "category": "data_exfiltration",
+      "title": "Server makes outbound network requests (capability note)",
+      "description": "Pattern matched in src\\api\\yazio.ts at line 126: `deleteUserRecipe = (id: string) => this.http.request('DELETE', `/user/recipes/${encodeURIComponent(id)}`);`",
+      "owasp_asi": [
+        "ASI01",
+        "ASI02"
+      ],
+      "owasp_mcp": [
+        "MCP10"
+      ],
+      "file_path": "src\\api\\yazio.ts",
+      "line_number": 126,
+      "recommendation": "Review this data exfiltration pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "deleteUserRecipe = (id: string) => this.http.request('DELETE',",
+      "location": "src\\api\\yazio.ts:126",
+      "replay": "axiom scan <corpus>/registry2/16_fliptheweb__yazio-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0031\")'"
+    },
+    {
+      "id": "code_0032",
+      "severity": "info",
+      "category": "data_exfiltration",
+      "title": "Server makes outbound network requests (capability note)",
+      "description": "Pattern matched in src\\api\\yazio.ts at line 128: `createUserRecipe = (recipe: CreateUserRecipeDto) => this.http.request('POST', '/user/recipes', { body: recipe });`",
+      "owasp_asi": [
+        "ASI01",
+        "ASI02"
+      ],
+      "owasp_mcp": [
+        "MCP10"
+      ],
+      "file_path": "src\\api\\yazio.ts",
+      "line_number": 128,
+      "recommendation": "Review this data exfiltration pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "createUserRecipe = (recipe: CreateUserRecipeDto) => this.http.request('POST', '/user/recipes', { body: recipe });",
+      "location": "src\\api\\yazio.ts:128",
+      "replay": "axiom scan <corpus>/registry2/16_fliptheweb__yazio-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0032\")'"
+    },
+    {
+      "id": "code_0033",
+      "severity": "info",
+      "category": "data_exfiltration",
+      "title": "Server makes outbound network requests (capability note)",
+      "description": "Pattern matched in src\\api\\yazio.ts at line 132: `this.http.request('PUT', `/user/recipes/${encodeURIComponent(recipe.id)}`, { body: recipe });`",
+      "owasp_asi": [
+        "ASI01",
+        "ASI02"
+      ],
+      "owasp_mcp": [
+        "MCP10"
+      ],
+      "file_path": "src\\api\\yazio.ts",
+      "line_number": 132,
+      "recommendation": "Review this data exfiltration pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "this.http.request('PUT',",
+      "location": "src\\api\\yazio.ts:132",
+      "replay": "axiom scan <corpus>/registry2/16_fliptheweb__yazio-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0033\")'"
+    },
+    {
+      "id": "code_0034",
+      "severity": "info",
+      "category": "data_exfiltration",
+      "title": "Server makes outbound network requests (capability note)",
+      "description": "Pattern matched in src\\api\\yazio.ts at line 134: `getFavoriteProducts = () => this.http.request('GET', '/user/favorites/product', { schema: S.FavoriteProductsSchema });`",
+      "owasp_asi": [
+        "ASI01",
+        "ASI02"
+      ],
+      "owasp_mcp": [
+        "MCP10"
+      ],
+      "file_path": "src\\api\\yazio.ts",
+      "line_number": 134,
+      "recommendation": "Review this data exfiltration pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "getFavoriteProducts = () => this.http.request('GET', '/user/favorites/product', { schema: S.FavoriteProductsSchema });",
+      "location": "src\\api\\yazio.ts:134",
+      "replay": "axiom scan <corpus>/registry2/16_fliptheweb__yazio-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0034\")'"
+    },
+    {
+      "id": "code_0035",
+      "severity": "info",
+      "category": "data_exfiltration",
+      "title": "Server makes outbound network requests (capability note)",
+      "description": "Pattern matched in src\\api\\yazio.ts at line 136: `getFavoriteRecipes = () => this.http.request('GET', '/user/favorites/recipe', { schema: S.FavoriteRecipesSchema });`",
+      "owasp_asi": [
+        "ASI01",
+        "ASI02"
+      ],
+      "owasp_mcp": [
+        "MCP10"
+      ],
+      "file_path": "src\\api\\yazio.ts",
+      "line_number": 136,
+      "recommendation": "Review this data exfiltration pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "getFavoriteRecipes = () => this.http.request('GET', '/user/favorites/recipe', { schema: S.FavoriteRecipesSchema });",
+      "location": "src\\api\\yazio.ts:136",
+      "replay": "axiom scan <corpus>/registry2/16_fliptheweb__yazio-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0035\")'"
+    },
+    {
+      "id": "code_0036",
+      "severity": "info",
+      "category": "data_exfiltration",
+      "title": "Server makes outbound network requests (capability note)",
+      "description": "Pattern matched in src\\api\\yazio.ts at line 139: `this.http.request('PUT', '/user/favorites/products', { body: favorite });`",
+      "owasp_asi": [
+        "ASI01",
+        "ASI02"
+      ],
+      "owasp_mcp": [
+        "MCP10"
+      ],
+      "file_path": "src\\api\\yazio.ts",
+      "line_number": 139,
+      "recommendation": "Review this data exfiltration pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "this.http.request('PUT', '/user/favorites/products', { body: favorite });",
+      "location": "src\\api\\yazio.ts:139",
+      "replay": "axiom scan <corpus>/registry2/16_fliptheweb__yazio-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0036\")'"
+    },
+    {
+      "id": "code_0037",
+      "severity": "info",
+      "category": "data_exfiltration",
+      "title": "Server makes outbound network requests (capability note)",
+      "description": "Pattern matched in src\\api\\yazio.ts at line 141: `addFavoriteRecipe = (favorite: FavoriteRecipeDto) => this.http.request('PUT', '/user/favorites/recipes', { body: favorit`",
+      "owasp_asi": [
+        "ASI01",
+        "ASI02"
+      ],
+      "owasp_mcp": [
+        "MCP10"
+      ],
+      "file_path": "src\\api\\yazio.ts",
+      "line_number": 141,
+      "recommendation": "Review this data exfiltration pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "addFavoriteRecipe = (favorite: FavoriteRecipeDto) => this.http.request('PUT', '/user/favorites/recipes', { body: favorit",
+      "location": "src\\api\\yazio.ts:141",
+      "replay": "axiom scan <corpus>/registry2/16_fliptheweb__yazio-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0037\")'"
+    },
+    {
+      "id": "code_0038",
+      "severity": "info",
+      "category": "data_exfiltration",
+      "title": "Server makes outbound network requests (capability note)",
+      "description": "Pattern matched in src\\api\\yazio.ts at line 145: `this.http.request('DELETE', `/user/favorites/product/${encodeURIComponent(productId)}`);`",
+      "owasp_asi": [
+        "ASI01",
+        "ASI02"
+      ],
+      "owasp_mcp": [
+        "MCP10"
+      ],
+      "file_path": "src\\api\\yazio.ts",
+      "line_number": 145,
+      "recommendation": "Review this data exfiltration pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "this.http.request('DELETE',",
+      "location": "src\\api\\yazio.ts:145",
+      "replay": "axiom scan <corpus>/registry2/16_fliptheweb__yazio-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0038\")'"
+    },
+    {
+      "id": "code_0039",
+      "severity": "info",
+      "category": "data_exfiltration",
+      "title": "Server makes outbound network requests (capability note)",
+      "description": "Pattern matched in src\\api\\yazio.ts at line 149: `this.http.request('DELETE', `/user/favorites/${encodeURIComponent(favoriteId)}`);`",
+      "owasp_asi": [
+        "ASI01",
+        "ASI02"
+      ],
+      "owasp_mcp": [
+        "MCP10"
+      ],
+      "file_path": "src\\api\\yazio.ts",
+      "line_number": 149,
+      "recommendation": "Review this data exfiltration pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "this.http.request('DELETE',",
+      "location": "src\\api\\yazio.ts:149",
+      "replay": "axiom scan <corpus>/registry2/16_fliptheweb__yazio-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0039\")'"
+    },
+    {
+      "id": "code_0040",
+      "severity": "info",
+      "category": "data_exfiltration",
+      "title": "Server makes outbound network requests (capability note)",
+      "description": "Pattern matched in src\\api\\yazio.ts at line 152: `getFeeling = (date: string) => this.http.request('GET', '/user/feeling', { query: { date }, schema: S.FeelingSchema });`",
+      "owasp_asi": [
+        "ASI01",
+        "ASI02"
+      ],
+      "owasp_mcp": [
+        "MCP10"
+      ],
+      "file_path": "src\\api\\yazio.ts",
+      "line_number": 152,
+      "recommendation": "Review this data exfiltration pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "getFeeling = (date: string) => this.http.request('GET', '/user/feeling', { query: { date }, schema: S.FeelingSchema });",
+      "location": "src\\api\\yazio.ts:152",
+      "replay": "axiom scan <corpus>/registry2/16_fliptheweb__yazio-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0040\")'"
+    },
+    {
+      "id": "code_0041",
+      "severity": "info",
+      "category": "data_exfiltration",
+      "title": "Server makes outbound network requests (capability note)",
+      "description": "Pattern matched in src\\api\\yazio.ts at line 156: `this.http.request('PUT', '/user/feeling', { query: { date }, body: feeling });`",
+      "owasp_asi": [
+        "ASI01",
+        "ASI02"
+      ],
+      "owasp_mcp": [
+        "MCP10"
+      ],
+      "file_path": "src\\api\\yazio.ts",
+      "line_number": 156,
+      "recommendation": "Review this data exfiltration pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "this.http.request('PUT', '/user/feeling', { query: { date }, body: feeling });",
+      "location": "src\\api\\yazio.ts:156",
+      "replay": "axiom scan <corpus>/registry2/16_fliptheweb__yazio-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0041\")'"
+    },
+    {
+      "id": "code_0042",
+      "severity": "info",
+      "category": "data_exfiltration",
+      "title": "Server makes outbound network requests (capability note)",
+      "description": "Pattern matched in src\\api\\yazio.ts at line 159: `getMeals = () => this.http.request('GET', '/user/meals', { schema: S.MealsSchema });`",
+      "owasp_asi": [
+        "ASI01",
+        "ASI02"
+      ],
+      "owasp_mcp": [
+        "MCP10"
+      ],
+      "file_path": "src\\api\\yazio.ts",
+      "line_number": 159,
+      "recommendation": "Review this data exfiltration pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "getMeals = () => this.http.request('GET', '/user/meals', { schema: S.MealsSchema });",
+      "location": "src\\api\\yazio.ts:159",
+      "replay": "axiom scan <corpus>/registry2/16_fliptheweb__yazio-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0042\")'"
+    },
+    {
+      "id": "code_0043",
+      "severity": "info",
+      "category": "data_exfiltration",
+      "title": "Server makes outbound network requests (capability note)",
+      "description": "Pattern matched in src\\api\\yazio.ts at line 161: `createMeal = (meal: CreateMealDto) => this.http.request('POST', '/user/meals', { body: meal });`",
+      "owasp_asi": [
+        "ASI01",
+        "ASI02"
+      ],
+      "owasp_mcp": [
+        "MCP10"
+      ],
+      "file_path": "src\\api\\yazio.ts",
+      "line_number": 161,
+      "recommendation": "Review this data exfiltration pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "createMeal = (meal: CreateMealDto) => this.http.request('POST', '/user/meals', { body: meal });",
+      "location": "src\\api\\yazio.ts:161",
+      "replay": "axiom scan <corpus>/registry2/16_fliptheweb__yazio-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0043\")'"
+    },
+    {
+      "id": "code_0044",
+      "severity": "info",
+      "category": "data_exfiltration",
+      "title": "Server makes outbound network requests (capability note)",
+      "description": "Pattern matched in src\\api\\yazio.ts at line 163: `deleteMeal = (id: string) => this.http.request('DELETE', `/user/meals/${encodeURIComponent(id)}`);`",
+      "owasp_asi": [
+        "ASI01",
+        "ASI02"
+      ],
+      "owasp_mcp": [
+        "MCP10"
+      ],
+      "file_path": "src\\api\\yazio.ts",
+      "line_number": 163,
+      "recommendation": "Review this data exfiltration pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "deleteMeal = (id: string) => this.http.request('DELETE',",
+      "location": "src\\api\\yazio.ts:163",
+      "replay": "axiom scan <corpus>/registry2/16_fliptheweb__yazio-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0044\")'"
+    },
+    {
+      "id": "GHSA-mrhx-c7xc-m3w5",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency zod@3.25.76: GHSA-mrhx-c7xc-m3w5",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update zod to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-mrhx-c7xc-m3w5",
+      "location": "static:<corpus>/registry2/16_fliptheweb__yazio-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/16_fliptheweb__yazio-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-mrhx-c7xc-m3w5\")'"
+    },
+    {
+      "id": "GHSA-2vgq-wchc-25w7",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency node-forge@1.4.0: GHSA-2vgq-wchc-25w7",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update node-forge to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-2vgq-wchc-25w7",
+      "location": "static:<corpus>/registry2/16_fliptheweb__yazio-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/16_fliptheweb__yazio-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-2vgq-wchc-25w7\")'"
+    },
+    {
+      "id": "GHSA-4487-j8r4-4g2f",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency node-forge@1.4.0: GHSA-4487-j8r4-4g2f",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update node-forge to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-4487-j8r4-4g2f",
+      "location": "static:<corpus>/registry2/16_fliptheweb__yazio-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/16_fliptheweb__yazio-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-4487-j8r4-4g2f\")'"
+    },
+    {
+      "id": "GHSA-4642-5mcj-2rqw",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency node-forge@1.4.0: GHSA-4642-5mcj-2rqw",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update node-forge to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-4642-5mcj-2rqw",
+      "location": "static:<corpus>/registry2/16_fliptheweb__yazio-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/16_fliptheweb__yazio-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-4642-5mcj-2rqw\")'"
+    },
+    {
+      "id": "GHSA-525v-9gp9-w22h",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency node-forge@1.4.0: GHSA-525v-9gp9-w22h",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update node-forge to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-525v-9gp9-w22h",
+      "location": "static:<corpus>/registry2/16_fliptheweb__yazio-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/16_fliptheweb__yazio-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-525v-9gp9-w22h\")'"
+    },
+    {
+      "id": "GHSA-5cwg-6vw7-rj6p",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency node-forge@1.4.0: GHSA-5cwg-6vw7-rj6p",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update node-forge to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-5cwg-6vw7-rj6p",
+      "location": "static:<corpus>/registry2/16_fliptheweb__yazio-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/16_fliptheweb__yazio-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-5cwg-6vw7-rj6p\")'"
+    },
+    {
+      "id": "GHSA-5x38-2vff-x55p",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency node-forge@1.4.0: GHSA-5x38-2vff-x55p",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update node-forge to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-5x38-2vff-x55p",
+      "location": "static:<corpus>/registry2/16_fliptheweb__yazio-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/16_fliptheweb__yazio-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-5x38-2vff-x55p\")'"
+    },
+    {
+      "id": "GHSA-6889-vf6x-f3g5",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency node-forge@1.4.0: GHSA-6889-vf6x-f3g5",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update node-forge to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-6889-vf6x-f3g5",
+      "location": "static:<corpus>/registry2/16_fliptheweb__yazio-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/16_fliptheweb__yazio-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-6889-vf6x-f3g5\")'"
+    },
+    {
+      "id": "GHSA-6cv4-p8m7-4r25",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency node-forge@1.4.0: GHSA-6cv4-p8m7-4r25",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update node-forge to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-6cv4-p8m7-4r25",
+      "location": "static:<corpus>/registry2/16_fliptheweb__yazio-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/16_fliptheweb__yazio-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-6cv4-p8m7-4r25\")'"
+    },
+    {
+      "id": "GHSA-6qrw-m8cv-hcxf",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency node-forge@1.4.0: GHSA-6qrw-m8cv-hcxf",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update node-forge to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-6qrw-m8cv-hcxf",
+      "location": "static:<corpus>/registry2/16_fliptheweb__yazio-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/16_fliptheweb__yazio-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-6qrw-m8cv-hcxf\")'"
+    },
+    {
+      "id": "GHSA-6wvx-3r32-xmcg",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency node-forge@1.4.0: GHSA-6wvx-3r32-xmcg",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update node-forge to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-6wvx-3r32-xmcg",
+      "location": "static:<corpus>/registry2/16_fliptheweb__yazio-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/16_fliptheweb__yazio-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-6wvx-3r32-xmcg\")'"
+    },
+    {
+      "id": "GHSA-7wch-p9px-956x",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency node-forge@1.4.0: GHSA-7wch-p9px-956x",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update node-forge to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-7wch-p9px-956x",
+      "location": "static:<corpus>/registry2/16_fliptheweb__yazio-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/16_fliptheweb__yazio-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-7wch-p9px-956x\")'"
+    },
+    {
+      "id": "GHSA-86w9-cpqp-85rv",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency node-forge@1.4.0: GHSA-86w9-cpqp-85rv",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update node-forge to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-86w9-cpqp-85rv",
+      "location": "static:<corpus>/registry2/16_fliptheweb__yazio-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/16_fliptheweb__yazio-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-86w9-cpqp-85rv\")'"
+    },
+    {
+      "id": "GHSA-8hrf-8g6f-7xwp",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency node-forge@1.4.0: GHSA-8hrf-8g6f-7xwp",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update node-forge to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-8hrf-8g6f-7xwp",
+      "location": "static:<corpus>/registry2/16_fliptheweb__yazio-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/16_fliptheweb__yazio-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-8hrf-8g6f-7xwp\")'"
+    },
+    {
+      "id": "GHSA-9wg5-mj3p-v49q",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency node-forge@1.4.0: GHSA-9wg5-mj3p-v49q",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update node-forge to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-9wg5-mj3p-v49q",
+      "location": "static:<corpus>/registry2/16_fliptheweb__yazio-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/16_fliptheweb__yazio-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-9wg5-mj3p-v49q\")'"
+    },
+    {
+      "id": "GHSA-h46v-rmh6-fq4f",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency node-forge@1.4.0: GHSA-h46v-rmh6-fq4f",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update node-forge to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-h46v-rmh6-fq4f",
+      "location": "static:<corpus>/registry2/16_fliptheweb__yazio-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/16_fliptheweb__yazio-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-h46v-rmh6-fq4f\")'"
+    },
+    {
+      "id": "GHSA-h6cr-wjv9-3cpp",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency node-forge@1.4.0: GHSA-h6cr-wjv9-3cpp",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update node-forge to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-h6cr-wjv9-3cpp",
+      "location": "static:<corpus>/registry2/16_fliptheweb__yazio-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/16_fliptheweb__yazio-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-h6cr-wjv9-3cpp\")'"
+    },
+    {
+      "id": "GHSA-hqq3-7jhf-c5jx",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency node-forge@1.4.0: GHSA-hqq3-7jhf-c5jx",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update node-forge to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-hqq3-7jhf-c5jx",
+      "location": "static:<corpus>/registry2/16_fliptheweb__yazio-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/16_fliptheweb__yazio-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-hqq3-7jhf-c5jx\")'"
+    },
+    {
+      "id": "GHSA-j8rw-jp99-435v",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency node-forge@1.4.0: GHSA-j8rw-jp99-435v",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update node-forge to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-j8rw-jp99-435v",
+      "location": "static:<corpus>/registry2/16_fliptheweb__yazio-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/16_fliptheweb__yazio-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-j8rw-jp99-435v\")'"
+    },
+    {
+      "id": "GHSA-jc66-7q78-782g",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency node-forge@1.4.0: GHSA-jc66-7q78-782g",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update node-forge to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-jc66-7q78-782g",
+      "location": "static:<corpus>/registry2/16_fliptheweb__yazio-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/16_fliptheweb__yazio-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-jc66-7q78-782g\")'"
+    },
+    {
+      "id": "GHSA-rhr8-3pm8-cq29",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency node-forge@1.4.0: GHSA-rhr8-3pm8-cq29",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update node-forge to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-rhr8-3pm8-cq29",
+      "location": "static:<corpus>/registry2/16_fliptheweb__yazio-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/16_fliptheweb__yazio-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-rhr8-3pm8-cq29\")'"
+    },
+    {
+      "id": "GHSA-w4xr-hqv8-ch44",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency node-forge@1.4.0: GHSA-w4xr-hqv8-ch44",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update node-forge to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-w4xr-hqv8-ch44",
+      "location": "static:<corpus>/registry2/16_fliptheweb__yazio-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/16_fliptheweb__yazio-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-w4xr-hqv8-ch44\")'"
+    },
+    {
+      "id": "GHSA-52f5-9888-hmc6",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency tmp@0.0.33: GHSA-52f5-9888-hmc6",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update tmp to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-52f5-9888-hmc6",
+      "location": "static:<corpus>/registry2/16_fliptheweb__yazio-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/16_fliptheweb__yazio-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-52f5-9888-hmc6\")'"
+    },
+    {
+      "id": "GHSA-ph9p-34f9-6g65",
+      "severity": "low",
+      "category": "dependency_vuln",
+      "title": "Advisory in dependency tmp@0.0.33: GHSA-ph9p-34f9-6g65",
+      "description": "Known vulnerability (advisory severity: unrated; transitive dependency)",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Update tmp to a version outside the advisory's affected range.",
+      "rule_id": "dependency_advisory",
+      "evidence": "GHSA-ph9p-34f9-6g65",
+      "location": "static:<corpus>/registry2/16_fliptheweb__yazio-mcp:dependencies",
+      "replay": "axiom scan <corpus>/registry2/16_fliptheweb__yazio-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"GHSA-ph9p-34f9-6g65\")'"
+    },
+    {
+      "id": "provenance_fresh_publish",
+      "severity": "medium",
+      "category": "supply_chain",
+      "title": "Registry entry 'io.github.fliptheweb/yazio-mcp' was published 0 day(s) ago",
+      "description": "'io.github.fliptheweb/yazio-mcp' version 0.0.21 appeared in the registry on 2026-11-11T13:29:12.074218Z. Nothing this new has been looked at by anyone; pin it and review it before an agent uses it.",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Pin the version and review the diff from the previous release.",
+      "rule_id": "provenance_rule",
+      "evidence": "publishedAt 2026-11-11T13:29:12.074218Z",
+      "location": "static:<corpus>/registry2/16_fliptheweb__yazio-mcp:provenance",
+      "replay": "axiom scan <corpus>/registry2/16_fliptheweb__yazio-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"provenance_fresh_publish\")'"
+    },
+    {
+      "id": "mcp01_secret_0001",
+      "severity": "high",
+      "category": "credential_theft",
+      "title": "Hard-coded secret in server source: Generic API key/secret literal",
+      "description": "A value shaped like a generic api key/secret literal is assigned in variable 'DEFAULT_CLIENT_SECRET' src\\api\\http.ts at line 9. The value itself is not reproduced here. Anyone with read access to the source or the published package can use it.",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP01"
+      ],
+      "file_path": "src\\api\\http.ts",
+      "line_number": 9,
+      "recommendation": "Revoke and rotate this credential, remove it from source (and git history), and load it from the environment or a secrets manager at runtime.",
+      "rule_id": "hardcoded_secret",
+      "evidence": "Hard-coded secret in server source: Generic API key/secret literal",
+      "location": "src\\api\\http.ts:9",
+      "replay": "axiom scan <corpus>/registry2/16_fliptheweb__yazio-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"mcp01_secret_0001\")'"
+    },
+    {
+      "id": "mcp08_no_tool_logging",
+      "severity": "info",
+      "category": "audit_telemetry",
+      "title": "No logging found in files that define MCP tools (low confidence)",
+      "description": "None of the tool-defining files (src\\server.ts) reference a logging library or logger call. Tool invocations may leave no audit trail. Confidence is low: logging could be configured elsewhere or by the host.",
+      "owasp_asi": [
+        "ASI10"
+      ],
+      "owasp_mcp": [
+        "MCP08"
+      ],
+      "file_path": "src\\server.ts",
+      "line_number": null,
+      "recommendation": "Log each tool invocation (tool name, caller/session, outcome, and redacted arguments) to a durable, tamper-evident sink.",
+      "rule_id": "no_tool_logging",
+      "evidence": "No logging found in files that define MCP tools (low confidence)",
+      "location": "src\\server.ts",
+      "replay": "axiom scan <corpus>/registry2/16_fliptheweb__yazio-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"mcp08_no_tool_logging\")'"
+    },
+    {
+      "id": "instructions_instruction_injection",
+      "severity": "medium",
+      "category": "prompt_injection",
+      "title": "Instruction injection in server instructions",
+      "description": "Steering language in tool description (imperative guidance aimed at the model). Matched 'always' in server instructions. Excerpt: 'Access to the signed-in user's Yazio nutrition and fitness data via an unofficial API.  When to use: Yazio is the user's food and body diary. Use these tools wh'",
+      "owasp_asi": [
+        "ASI01"
+      ],
+      "owasp_mcp": [
+        "MCP06"
+      ],
+      "file_path": "src\\server.ts",
+      "line_number": 155,
+      "recommendation": "Review this content; an agent will follow it.",
+      "rule_id": "served_text_instruction_injection",
+      "evidence": "always",
+      "location": "src\\server.ts:155",
+      "replay": "axiom scan <corpus>/registry2/16_fliptheweb__yazio-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"instructions_instruction_injection\")'"
+    },
+    {
+      "id": "prompt_add_food_item_instruction_injection",
+      "severity": "medium",
+      "category": "prompt_injection",
+      "title": "Instruction injection in prompt 'add_food_item'",
+      "description": "Steering language in tool description (imperative guidance aimed at the model). Matched 'Always' in prompt 'add_food_item'. Excerpt: 'user text To add a food item to the user's consumption log, follow these steps:  1. **Search for the product**: Use the `search_products` tool with a query stri'",
+      "owasp_asi": [
+        "ASI01"
+      ],
+      "owasp_mcp": [
+        "MCP06"
+      ],
+      "file_path": "src\\server.ts",
+      "line_number": 984,
+      "recommendation": "Review this content; an agent will follow it.",
+      "rule_id": "served_text_instruction_injection",
+      "evidence": "Always",
+      "location": "src\\server.ts:984",
+      "replay": "axiom scan <corpus>/registry2/16_fliptheweb__yazio-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"prompt_add_food_item_instruction_injection\")'"
+    },
+    {
+      "id": "prompt_remove_food_item_instruction_injection",
+      "severity": "medium",
+      "category": "prompt_injection",
+      "title": "Instruction injection in prompt 'remove_food_item'",
+      "description": "Steering language in tool description (imperative guidance aimed at the model). Matched 'You must' in prompt 'remove_food_item'. Excerpt: 'user text To remove a food item from the user's consumption log, follow these steps:  1. **Get consumed items**: Use the `get_user_consumed_items` tool with the'",
+      "owasp_asi": [
+        "ASI01"
+      ],
+      "owasp_mcp": [
+        "MCP06"
+      ],
+      "file_path": "src\\server.ts",
+      "line_number": 1036,
+      "recommendation": "Review this content; an agent will follow it.",
+      "rule_id": "served_text_instruction_injection",
+      "evidence": "You must",
+      "location": "src\\server.ts:1036",
+      "replay": "axiom scan <corpus>/registry2/16_fliptheweb__yazio-mcp --output json --no-ai --no-history | jq '.findings[] | select(.id==\"prompt_remove_food_item_instruction_injection\")'"
+    }
+  ],
+  "server_profile": {
+    "name": "16_fliptheweb__yazio-mcp",
+    "command": null,
+    "args": [],
+    "env_vars": [],
+    "transport": "unknown",
+    "tools": [
+      {
+        "name": "get_user",
+        "description": "Get Yazio user profile information",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "get_user_consumed_items",
+        "description": "Get food entries for a specific date",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "get_user_dietary_preferences",
+        "description": "Get user dietary preferences and restrictions",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "get_user_exercises",
+        "description": "Get user exercise data for a date or date range",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "get_user_goals",
+        "description": "Get the user's daily nutrition and fitness goals, including their own adjustments",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "get_user_settings",
+        "description": "Get user settings and preferences",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "get_user_suggested_products",
+        "description": "Get product suggestions for the user for a meal (daytime) on a date",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "get_user_water_intake",
+        "description": "Get water intake data for a specific date",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "get_user_weight",
+        "description": "Get the last weight entry up to a date. Use get_user_weight_history for all entries in a date range.",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "get_user_weight_history",
+        "description": "Get all weight entries between two dates in one call, e.g. for trends. A day can have several entries at different times.",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "get_user_daily_summary",
+        "description": "Get daily nutrition summary for a specific date",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "search_products",
+        "description": "Search for food products in Yazio database. You can optionally specify user's sex, country and locale of the products to search for.",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "get_product",
+        "description": "Get detailed information about a specific product by ID",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "get_recipe",
+        "description": "Get a recipe by ID with its ingredients, portion count and nutrients per portion. Use it to resolve recipe_id of recipe portions in get_user_consumed_items.",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "get_user_recipes",
+        "description": "Get the user's own recipes with their ingredients and nutrients",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "delete_user_recipe",
+        "description": "Permanently delete one of the user's own recipes. It can't be restored, so confirm with the user first.",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "add_user_consumed_item",
+        "description": "Add a food item to user consumption log. Pass date with time (\"YYYY-MM-DD HH:mm:ss\") to keep the time of the entry; date only (YYYY-MM-DD) logs it at 00:00. Returns the entry ID for remove_user_consumed_item.",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "remove_user_consumed_item",
+        "description": "Remove a food item from user consumption log",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "add_user_water_intake",
+        "description": "Log water intake at a date and time (\"YYYY-MM-DD HH:mm:ss\"). Pass add_ml (the amount drunk): the server reads the current daily total and adds to it. To correct the day's total, pass water_intake as the corrected absolute total in ml.",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "create_product",
+        "description": "Create a custom product (e.g. a restaurant dish or a brand missing in search) from label values per 100 g/ml. Returns its product_id for add_user_consumed_item. Search first: creating duplicates clutters the database.",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "add_quick_entry",
+        "description": "Log a one-off diary entry with a name and total nutrition of the eaten amount (Yazio \"quick add\"), without creating a product. Shows up in get_user_consumed_items as simple_products and is removed with remove_user_consumed_item.",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "add_user_consumed_recipe",
+        "description": "Log portions of a recipe to the diary. Shows up in get_user_consumed_items as recipe_portions. Use get_recipe for the nutrients per portion.",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "create_user_recipe",
+        "description": "Create a recipe from products and their amounts in the whole recipe. The nutrients per portion are calculated from the products. Returns the recipe ID for add_user_consumed_recipe.",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "get_user_note",
+        "description": "Get the user's diary note and feeling tags for a date (the Notes card in the Yazio diary)",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "set_user_note",
+        "description": "Set the user's diary note and/or feeling tags for a date. Fields you leave out keep their current value; the note text replaces the old text, so include it to append. Yazio has no delete: to clear the day, pass note: null and tags: [].",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "get_user_meals",
+        "description": "Get the user's saved meals: named sets of foods that are logged together",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "create_user_meal",
+        "description": "Save a set of products as a meal to log it again later with add_user_consumed_meal. Returns the meal ID.",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "delete_user_meal",
+        "description": "Permanently delete one of the user's saved meals. Diary entries logged from it stay. It can't be restored, so confirm with the user first.",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "add_user_consumed_meal",
+        "description": "Log all items of a saved meal to the diary. Each item shows up in get_user_consumed_items as a separate entry. Returns the entry IDs for remove_user_consumed_item.",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "add_user_weight",
+        "description": "Log a weight measurement in kg. Returns the entry ID for delete_user_weight.",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "delete_user_weight",
+        "description": "Delete a weight entry by its ID, from add_user_weight or get_user_weight.",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "get_user_body_values",
+        "description": "Get every body value of a day, by type: weight in kg, body fat and muscle in %, blood glucose in mg/dL, circumferences in cm. Always metric, whatever units the app shows.",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "medium",
+        "poisoning_detail": "Steering language in tool description (imperative guidance aimed at the model). Matched pattern in tool 'get_user_body_values': 'Always'"
+      },
+      {
+        "name": "add_user_body_value",
+        "description": "Log a body fat or muscle percentage, a blood glucose level or a circumference. Convert to the metric unit first: Yazio stores metric whatever units the app shows. For weight use add_user_weight. Returns the entry ID for delete_user_body_value.",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "delete_user_body_value",
+        "description": "Delete a body value entry by its ID, from add_user_body_value or get_user_body_values.",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "add_user_exercise",
+        "description": "Log an exercise: a Yazio training (e.g. running) or, with custom: true, an exercise with any name. Pass the burned energy, because Yazio does not calculate it. Returns the entry ID.",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "delete_user_exercise",
+        "description": "Delete an exercise entry by its ID from get_user_exercises or add_user_exercise.",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "update_user_recipe",
+        "description": "Replace one of the user's own recipes: name, portions, ingredients and instructions. Pass the whole recipe, as for create_user_recipe; the nutrients per portion are recalculated from the products.",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "update_user_body_value",
+        "description": "Change the value of a weight or other body value entry by its ID. Values are metric: kg, %, mg/dL or cm.",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "set_user_activity",
+        "description": "Set the day's total step count and/or energy burned by activity (kcal), as a step counter would. It replaces the day's values; a value left out keeps its current value. For a workout use add_user_exercise.",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "get_user_daily_nutrients",
+        "description": "Get the energy (kcal), carb, protein and fat totals and the energy goal for each day of a date range, in one request. Use it for weekly or monthly overviews.",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "get_user_products",
+        "description": "Get the products the user created, with their nutrients and servings.",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "delete_user_product",
+        "description": "Permanently delete one of the user's own products. It can't be restored, so confirm with the user first.",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "get_user_favorites",
+        "description": "Get the user's favorite products (with their name and the amount and serving they were favorited with) and favorite recipes (with their name and the portion count).",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "add_user_favorite_product",
+        "description": "Add a product to the user's favorites, with the amount (and optionally serving) it is usually eaten in.",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "add_user_favorite_recipe",
+        "description": "Add a recipe to the user's favorites, with the number of portions usually eaten.",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "remove_user_favorite_product",
+        "description": "Remove a product from the user's favorites by its product_id.",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "remove_user_favorite_recipe",
+        "description": "Remove a recipe from the user's favorites by the favorite's own id from get_user_favorites (not the recipe_id).",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      }
+    ],
+    "resources": [],
+    "prompts": [
+      {
+        "name": "add_food_item",
+        "description": "Guide for adding a food item to the user's consumption log",
+        "arguments": []
+      },
+      {
+        "name": "remove_food_item",
+        "description": "Guide for removing a food item from the user's consumption log",
+        "arguments": []
+      },
+      {
+        "name": "add_water_intake",
+        "description": "Guide for adding water intake entries to the user's log",
+        "arguments": []
+      }
+    ],
+    "repo_url": null,
+    "npm_package": null,
+    "capabilities_claimed": [],
+    "capabilities_actual": []
+  },
+  "fingerprint": "503d0fe41dc559047482d8c81ec1ce4cc3ced7b20c04ba98c0f3563daaf2e032",
+  "surface_map": {
+    "server": {
+      "name": "yazio-mcp",
+      "instructions": "Access to the signed-in user's Yazio nutrition and fitness data via an unofficial API.\n\nWhen to use: Yazio is the user's food and body diary. Use these tools whenever the user talks about what they ate or drank, calories, macros (protein, fat, carbs), water, weight, body measurements, exercise or their nutrition goals, even when they don't name Yazio. A plain \"I had two eggs for breakfast\" or \"track my lunch\" means: log it. Questions such as \"how much protein today?\" or \"am I under my calories?\" mean: read the diary and the goals first, then answer. Short or spoken requests count too; when the food, amount or meal is unclear, ask or make a reasonable estimate and say so.\n\nConventions:\n- Dates are YYYY-MM-DD; diary and water entries also take \"YYYY-MM-DD HH:mm:ss\". Amounts are in base units, grams (g) or milliliters (ml).\n- daytime (meal) is one of: breakfast, lunch, dinner, snack.\n- get_* and search_products only read. add_*, create_*, update_*, delete_*, remove_*, set_user_note and set_user_activity change the user's data.\n\nLogging food: search_products, then get_product for its servings and base unit, then add_user_consumed_item. For food that isn't in the database, use add_quick_entry for a one-off entry or create_product for something eaten again. For a recipe, use add_user_consumed_recipe. For a saved meal (get_user_meals), use add_user_consumed_meal.\n\nWater: add_user_water_intake with add_ml adds to the day's total.\n\nNotes: get_user_note reads the day's diary note and feeling tags, set_user_note changes them.\n\nWeight and exercises: add_user_weight and add_user_exercise log them; delete_user_weight and delete_user_exercise remove them by id. set_user_activity sets the day's steps.\n\nOverviews: get_user_daily_nutrients gives the daily energy and macro totals of a date range in one call.\n\nOther body values (body fat, muscle, blood glucose, circumferences): get_user_body_values reads a day, add_user_body_value logs one, delete_user_body_value removes one by id. update_user_body_value changes a weight or body value entry. Values are always metric, whatever units the app shows.\n\nFavorites and own items: get_user_favorites, add_user_favorite_product/recipe and remove_user_favorite_product/recipe manage favorites. get_user_products and delete_user_product manage the user's own products; update_user_recipe changes a recipe.\n\nRemoving a diary entry: get_user_consumed_items gives the entry's id (not its product_id) for remove_user_consumed_item.",
+      "transport": "unknown",
+      "auth": "unknown",
+      "instructions_location": "src\\server.ts:155"
+    },
+    "tools": [
+      {
+        "name": "get_user",
+        "description": "Get Yazio user profile information",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "src\\server.ts:164"
+      },
+      {
+        "name": "get_user_consumed_items",
+        "description": "Get food entries for a specific date",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "src\\server.ts:180"
+      },
+      {
+        "name": "get_user_dietary_preferences",
+        "description": "Get user dietary preferences and restrictions",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "src\\server.ts:196"
+      },
+      {
+        "name": "get_user_exercises",
+        "description": "Get user exercise data for a date or date range",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "src\\server.ts:212"
+      },
+      {
+        "name": "get_user_goals",
+        "description": "Get the user's daily nutrition and fitness goals, including their own adjustments",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "src\\server.ts:228"
+      },
+      {
+        "name": "get_user_settings",
+        "description": "Get user settings and preferences",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "src\\server.ts:245"
+      },
+      {
+        "name": "get_user_suggested_products",
+        "description": "Get product suggestions for the user for a meal (daytime) on a date",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "src\\server.ts:261"
+      },
+      {
+        "name": "get_user_water_intake",
+        "description": "Get water intake data for a specific date",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "src\\server.ts:278"
+      },
+      {
+        "name": "get_user_weight",
+        "description": "Get the last weight entry up to a date. Use get_user_weight_history for all entries in a date range.",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "src\\server.ts:294"
+      },
+      {
+        "name": "get_user_weight_history",
+        "description": "Get all weight entries between two dates in one call, e.g. for trends. A day can have several entries at different times.",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "src\\server.ts:310"
+      },
+      {
+        "name": "get_user_daily_summary",
+        "description": "Get daily nutrition summary for a specific date",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "src\\server.ts:326"
+      },
+      {
+        "name": "search_products",
+        "description": "Search for food products in Yazio database. You can optionally specify user's sex, country and locale of the products to search for.",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "src\\server.ts:343"
+      },
+      {
+        "name": "get_product",
+        "description": "Get detailed information about a specific product by ID",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "src\\server.ts:362"
+      },
+      {
+        "name": "get_recipe",
+        "description": "Get a recipe by ID with its ingredients, portion count and nutrients per portion. Use it to resolve recipe_id of recipe portions in get_user_consumed_items.",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "src\\server.ts:380"
+      },
+      {
+        "name": "get_user_recipes",
+        "description": "Get the user's own recipes with their ingredients and nutrients",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "src\\server.ts:396"
+      },
+      {
+        "name": "delete_user_recipe",
+        "description": "Permanently delete one of the user's own recipes. It can't be restored, so confirm with the user first.",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "src\\server.ts:412"
+      },
+      {
+        "name": "add_user_consumed_item",
+        "description": "Add a food item to user consumption log. Pass date with time (\"YYYY-MM-DD HH:mm:ss\") to keep the time of the entry; date only (YYYY-MM-DD) logs it at 00:00. Returns the entry ID for remove_user_consumed_item.",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "src\\server.ts:429"
+      },
+      {
+        "name": "remove_user_consumed_item",
+        "description": "Remove a food item from user consumption log",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "src\\server.ts:446"
+      },
+      {
+        "name": "add_user_water_intake",
+        "description": "Log water intake at a date and time (\"YYYY-MM-DD HH:mm:ss\"). Pass add_ml (the amount drunk): the server reads the current daily total and adds to it. To correct the day's total, pass water_intake as the corrected absolute total in ml.",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "src\\server.ts:463"
+      },
+      {
+        "name": "create_product",
+        "description": "Create a custom product (e.g. a restaurant dish or a brand missing in search) from label values per 100 g/ml. Returns its product_id for add_user_consumed_item. Search first: creating duplicates clutters the database.",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "src\\server.ts:480"
+      },
+      {
+        "name": "add_quick_entry",
+        "description": "Log a one-off diary entry with a name and total nutrition of the eaten amount (Yazio \"quick add\"), without creating a product. Shows up in get_user_consumed_items as simple_products and is removed with remove_user_consumed_item.",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "src\\server.ts:497"
+      },
+      {
+        "name": "add_user_consumed_recipe",
+        "description": "Log portions of a recipe to the diary. Shows up in get_user_consumed_items as recipe_portions. Use get_recipe for the nutrients per portion.",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "src\\server.ts:514"
+      },
+      {
+        "name": "create_user_recipe",
+        "description": "Create a recipe from products and their amounts in the whole recipe. The nutrients per portion are calculated from the products. Returns the recipe ID for add_user_consumed_recipe.",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "src\\server.ts:531"
+      },
+      {
+        "name": "get_user_note",
+        "description": "Get the user's diary note and feeling tags for a date (the Notes card in the Yazio diary)",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "src\\server.ts:548"
+      },
+      {
+        "name": "set_user_note",
+        "description": "Set the user's diary note and/or feeling tags for a date. Fields you leave out keep their current value; the note text replaces the old text, so include it to append. Yazio has no delete: to clear the day, pass note: null and tags: [].",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "src\\server.ts:564"
+      },
+      {
+        "name": "get_user_meals",
+        "description": "Get the user's saved meals: named sets of foods that are logged together",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "src\\server.ts:581"
+      },
+      {
+        "name": "create_user_meal",
+        "description": "Save a set of products as a meal to log it again later with add_user_consumed_meal. Returns the meal ID.",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "src\\server.ts:597"
+      },
+      {
+        "name": "delete_user_meal",
+        "description": "Permanently delete one of the user's saved meals. Diary entries logged from it stay. It can't be restored, so confirm with the user first.",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "src\\server.ts:614"
+      },
+      {
+        "name": "add_user_consumed_meal",
+        "description": "Log all items of a saved meal to the diary. Each item shows up in get_user_consumed_items as a separate entry. Returns the entry IDs for remove_user_consumed_item.",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "src\\server.ts:631"
+      },
+      {
+        "name": "add_user_weight",
+        "description": "Log a weight measurement in kg. Returns the entry ID for delete_user_weight.",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "src\\server.ts:648"
+      },
+      {
+        "name": "delete_user_weight",
+        "description": "Delete a weight entry by its ID, from add_user_weight or get_user_weight.",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "src\\server.ts:665"
+      },
+      {
+        "name": "get_user_body_values",
+        "description": "Get every body value of a day, by type: weight in kg, body fat and muscle in %, blood glucose in mg/dL, circumferences in cm. Always metric, whatever units the app shows.",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "src\\server.ts:682"
+      },
+      {
+        "name": "add_user_body_value",
+        "description": "Log a body fat or muscle percentage, a blood glucose level or a circumference. Convert to the metric unit first: Yazio stores metric whatever units the app shows. For weight use add_user_weight. Returns the entry ID for delete_user_body_value.",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "src\\server.ts:699"
+      },
+      {
+        "name": "delete_user_body_value",
+        "description": "Delete a body value entry by its ID, from add_user_body_value or get_user_body_values.",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "src\\server.ts:716"
+      },
+      {
+        "name": "add_user_exercise",
+        "description": "Log an exercise: a Yazio training (e.g. running) or, with custom: true, an exercise with any name. Pass the burned energy, because Yazio does not calculate it. Returns the entry ID.",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "src\\server.ts:733"
+      },
+      {
+        "name": "delete_user_exercise",
+        "description": "Delete an exercise entry by its ID from get_user_exercises or add_user_exercise.",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "src\\server.ts:750"
+      },
+      {
+        "name": "update_user_recipe",
+        "description": "Replace one of the user's own recipes: name, portions, ingredients and instructions. Pass the whole recipe, as for create_user_recipe; the nutrients per portion are recalculated from the products.",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "src\\server.ts:767"
+      },
+      {
+        "name": "update_user_body_value",
+        "description": "Change the value of a weight or other body value entry by its ID. Values are metric: kg, %, mg/dL or cm.",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "src\\server.ts:784"
+      },
+      {
+        "name": "set_user_activity",
+        "description": "Set the day's total step count and/or energy burned by activity (kcal), as a step counter would. It replaces the day's values; a value left out keeps its current value. For a workout use add_user_exercise.",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "src\\server.ts:801"
+      },
+      {
+        "name": "get_user_daily_nutrients",
+        "description": "Get the energy (kcal), carb, protein and fat totals and the energy goal for each day of a date range, in one request. Use it for weekly or monthly overviews.",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "src\\server.ts:818"
+      },
+      {
+        "name": "get_user_products",
+        "description": "Get the products the user created, with their nutrients and servings.",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "src\\server.ts:834"
+      },
+      {
+        "name": "delete_user_product",
+        "description": "Permanently delete one of the user's own products. It can't be restored, so confirm with the user first.",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "src\\server.ts:850"
+      },
+      {
+        "name": "get_user_favorites",
+        "description": "Get the user's favorite products (with their name and the amount and serving they were favorited with) and favorite recipes (with their name and the portion count).",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "src\\server.ts:867"
+      },
+      {
+        "name": "add_user_favorite_product",
+        "description": "Add a product to the user's favorites, with the amount (and optionally serving) it is usually eaten in.",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "src\\server.ts:883"
+      },
+      {
+        "name": "add_user_favorite_recipe",
+        "description": "Add a recipe to the user's favorites, with the number of portions usually eaten.",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "src\\server.ts:900"
+      },
+      {
+        "name": "remove_user_favorite_product",
+        "description": "Remove a product from the user's favorites by its product_id.",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "src\\server.ts:917"
+      },
+      {
+        "name": "remove_user_favorite_recipe",
+        "description": "Remove a recipe from the user's favorites by the favorite's own id from get_user_favorites (not the recipe_id).",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "src\\server.ts:934"
+      }
+    ],
+    "resources": [],
+    "prompts": [
+      {
+        "name": "add_food_item",
+        "description": "Guide for adding a food item to the user's consumption log",
+        "arguments": [],
+        "message_literals": [
+          "user",
+          "text",
+          "To add a food item to the user's consumption log, follow these steps:\n\n1. **Search for the product**: Use the `search_products` tool with a query string (e.g., \"chicken breast\", \"apple\", \"pasta\"), optionally specifying user's sex, country and locale of the products to search for. This will return a list of matching products with their IDs and short information about the product and serving.\n\n2. **Clarify the product**: If multiple products are found, ask the user to clarify which product they want to use.\n\n3. **Get product details**: Use the `get_product` tool with the `product_id` from the search results. This will show you full information about the product and serving:\n   - Available serving types (e.g., \"portion\", \"gram\", \"piece\", \"cup\") and their amounts in base units (g or ml)\n   - Base unit (g or ml)\n\n4. **Clarify the serving**: If the user doesn't provide a serving type and quantity, ask them to clarify the serving type provided by previous step and quantity they want to add.\n\n5. **Add the consumed item**: Use the `add_user_consumed_item` tool with:\n   - `product_id`: The UUID from step 1\n   - `date`: Date and time in \"YYYY-MM-DD HH:mm:ss\" format (or date only in YYYY-MM-DD format)\n   - `daytime`: One of: \"breakfast\", \"lunch\", \"dinner\", or \"snack\"\n   - `serving`: Use a serving type from step 2 (e.g., \"portion\", \"piece\", \"cup\") OR base unit (g or ml)\n   - `serving_quantity`: Quantity of the serving type (e.g., 1, 2, 0.5)\n   - `amount`: Direct amount in base units (g or ml). If serving type is provided, use the amount of the serving type * serving_quantity. If serving type is not provided, use the amount of the base unit.\n\n**Important Notes**:\n- Always search first if you don't have a product_id\n- Check product details to understand available serving types, base unit (g or ml) and amount in serving\n- The date should include the time the food was consumed (\"YYYY-MM-DD HH:mm:ss\"); date only (YYYY-MM-DD) logs it at 00:00\n- You can use serving or base unit approach:\n  1. serving type + serving quantity + amount (amount for selected serving type multiplied by serving quantity)\n  2. amount in g/ml - serving fields could be omitted\nExample:\n  1. \"I ate 2 apples\" - serving type \"piece\" which has 100g amount (from product details) + serving quantity 2 + amount 200g\n  2. \"I ate 200g of chicken breast\" - amount 200g\n- Always provide amount in base units (g or ml), not in servings.\n"
+        ],
+        "location": "src\\server.ts:984"
+      },
+      {
+        "name": "remove_food_item",
+        "description": "Guide for removing a food item from the user's consumption log",
+        "arguments": [],
+        "message_literals": [
+          "user",
+          "text",
+          "To remove a food item from the user's consumption log, follow these steps:\n\n1. **Get consumed items**: Use the `get_user_consumed_items` tool with the `date` parameter (in YYYY-MM-DD format) to retrieve all food entries for that date.\n\n2. **Identify the item**: From the returned list of consumed items, identify the specific item you want to remove. Each item will have:\n   - `id`: The unique identifier for the consumed item (this is what you need for removal)\n   - `product_id`: The product identifier\n   - `name`: The product name\n   - `date`: The date it was consumed\n   - `daytime`: The meal type (breakfast, lunch, dinner, snack)\n   - Other details like amount, serving, etc.\n\n3. **Remove the item**: Use the `remove_user_consumed_item` tool with:\n   - `itemId`: The `id` field from the consumed item you identified in step 2\n\n**Important Notes**:\n- You must first retrieve the consumed items to get the item ID\n- The `itemId` is different from `product_id` - use the `id` field from the consumed item\n- The date should be in ISO format (YYYY-MM-DD)\n- If multiple items match the description, you may need to ask the user to clarify which specific item to remove"
+        ],
+        "location": "src\\server.ts:1036"
+      },
+      {
+        "name": "add_water_intake",
+        "description": "Guide for adding water intake entries to the user's log",
+        "arguments": [],
+        "message_literals": [
+          "user",
+          "text",
+          "To add water intake to the user's log, call `add_user_water_intake` with:\n- `date`: date and time as \"YYYY-MM-DD HH:mm:ss\" (e.g. \"2025-12-18 12:00:00\")\n- `add_ml`: the amount drunk, in ml\n\nThe server reads the day's current total and adds `add_ml` to it, so there is no need to fetch or compute the total yourself.\n\nTo correct the day's total, e.g. after a wrong entry, pass `water_intake` with the corrected absolute total in ml (0 is allowed) instead of `add_ml`. Provide one of the two, not both.\n\n**Example**: the user says \"I drank 250ml of water\" \u2192 `{ date: \"2025-12-18 12:00:00\", add_ml: 250 }`. If the day's total was 500 ml, it becomes 750 ml."
+        ],
+        "location": "src\\server.ts:1076"
+      }
+    ],
+    "mutations": [],
+    "source": {
+      "kind": "static",
+      "target": "16_fliptheweb__yazio-mcp",
+      "languages": [
+        "typescript"
+      ]
+    },
+    "generated_at": "2026-11-11T22:37:16+00:00",
+    "fingerprint": "503d0fe41dc559047482d8c81ec1ce4cc3ced7b20c04ba98c0f3563daaf2e032",
+    "schema": "axiom.surface/1"
+  },
+  "provenance": {
+    "identity": {
+      "npm": "yazio-mcp",
+      "pypi": null,
+      "repository": "https://github.com/fliptheweb/yazio-mcp",
+      "server_name": "yazio-mcp"
+    },
+    "registry": {
+      "status": "match",
+      "entry": "io.github.fliptheweb/yazio-mcp",
+      "repository": "https://github.com/fliptheweb/yazio-mcp",
+      "packages": [
+        "npm:yazio-mcp"
+      ],
+      "publishedAt": "2026-11-11T13:29:12.074218Z",
+      "version": "0.0.21"
+    },
+    "lookalikes": [],
+    "checked_at": "2026-11-11T22:37:19+00:00"
+  },
+  "owasp_coverage": {
+    "framework": "OWASP Top 10 for Agentic Applications 2026",
+    "reference": "https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/",
+    "coverage": {
+      "ASI01": {
+        "name": "Agent Goal Hijack",
+        "coverage_level": "strong",
+        "findings_count": 47,
+        "finding_ids": [
+          "poison_get_user_body_values_instruction_injection",
+          "shadow_set_user_note_near_duplicate",
+          "code_0003",
+          "code_0004",
+          "code_0005",
+          "code_0006",
+          "code_0007",
+          "code_0008",
+          "code_0009",
+          "code_0010"
+        ],
+        "detectors": [
+          "tool_poisoning",
+          "prompt_injection",
+          "instruction_injection"
+        ]
+      },
+      "ASI02": {
+        "name": "Tool Misuse & Exploitation",
+        "coverage_level": "strong",
+        "findings_count": 75,
+        "finding_ids": [
+          "cross_tool_get_user_weight_get_user",
+          "cross_tool_get_user_weight_get_user_weight_history",
+          "cross_tool_get_recipe_get_user",
+          "cross_tool_get_recipe_get_user_consumed_items",
+          "cross_tool_add_user_consumed_item_remove_user_consumed_item",
+          "cross_tool_create_product_add_user_consumed_item",
+          "cross_tool_add_quick_entry_get_user",
+          "cross_tool_add_quick_entry_remove_user_consumed_item",
+          "cross_tool_add_quick_entry_get_user_consumed_items",
+          "cross_tool_add_user_consumed_recipe_get_user"
+        ],
+        "detectors": [
+          "toxic_tool_combo",
+          "tool_overscope",
+          "tool_chaining_detection"
+        ]
+      },
+      "ASI03": {
+        "name": "Identity & Privilege Abuse",
+        "coverage_level": "strong",
+        "findings_count": 3,
+        "finding_ids": [
+          "code_0001",
+          "code_0002",
+          "mcp01_secret_0001"
+        ],
+        "detectors": [
+          "credential_analysis",
+          "shared_credential_detection",
+          "env_var_audit"
+        ]
+      },
+      "ASI04": {
+        "name": "Agentic Supply Chain Vulnerabilities",
+        "coverage_level": "strong",
+        "findings_count": 26,
+        "finding_ids": [
+          "shadow_set_user_note_near_duplicate",
+          "GHSA-mrhx-c7xc-m3w5",
+          "GHSA-2vgq-wchc-25w7",
+          "GHSA-4487-j8r4-4g2f",
+          "GHSA-4642-5mcj-2rqw",
+          "GHSA-525v-9gp9-w22h",
+          "GHSA-5cwg-6vw7-rj6p",
+          "GHSA-5x38-2vff-x55p",
+          "GHSA-6889-vf6x-f3g5",
+          "GHSA-6cv4-p8m7-4r25"
+        ],
+        "detectors": [
+          "dependency_cve",
+          "lifecycle_hooks",
+          "npx_unversioned",
+          "known_mcp_cves"
+        ]
+      },
+      "ASI05": {
+        "name": "Unexpected Code Execution",
+        "coverage_level": "strong",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "code_exec_patterns",
+          "code_generation_detection",
+          "sandbox_escape"
+        ]
+      },
+      "ASI06": {
+        "name": "Memory & Context Poisoning",
+        "coverage_level": "partial",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "memory_poisoning_patterns",
+          "context_manipulation_detection"
+        ],
+        "gap_note": "Axiom detects static patterns. Full coverage requires runtime memory monitoring."
+      },
+      "ASI07": {
+        "name": "Insecure Inter-Agent Communication",
+        "coverage_level": "partial",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "transport_security",
+          "a2a_pattern_detection"
+        ],
+        "gap_note": "Axiom checks transport security. Full A2A protocol analysis requires runtime interception."
+      },
+      "ASI08": {
+        "name": "Cascading Failures",
+        "coverage_level": "partial",
+        "findings_count": 33,
+        "finding_ids": [
+          "cross_tool_get_user_weight_get_user",
+          "cross_tool_get_user_weight_get_user_weight_history",
+          "cross_tool_get_recipe_get_user",
+          "cross_tool_get_recipe_get_user_consumed_items",
+          "cross_tool_add_user_consumed_item_remove_user_consumed_item",
+          "cross_tool_create_product_add_user_consumed_item",
+          "cross_tool_add_quick_entry_get_user",
+          "cross_tool_add_quick_entry_remove_user_consumed_item",
+          "cross_tool_add_quick_entry_get_user_consumed_items",
+          "cross_tool_add_user_consumed_recipe_get_user"
+        ],
+        "detectors": [
+          "blast_radius_estimation",
+          "dependency_chain_analysis"
+        ],
+        "gap_note": "Axiom estimates blast radius from tool capabilities. Full cascading failure analysis requires runtime topology mapping."
+      },
+      "ASI09": {
+        "name": "Human-Agent Trust Exploitation",
+        "coverage_level": "strong",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "claimed_vs_actual",
+          "deceptive_output_detection",
+          "trust_manipulation_patterns"
+        ]
+      },
+      "ASI10": {
+        "name": "Rogue Agents",
+        "coverage_level": "partial",
+        "findings_count": 1,
+        "finding_ids": [
+          "mcp08_no_tool_logging"
+        ],
+        "detectors": [
+          "sleeper_patterns",
+          "behavioral_drift_indicators",
+          "persistence_detection"
+        ],
+        "gap_note": "Axiom detects static rogue indicators. Full rogue agent detection requires runtime behavioral monitoring."
+      }
+    },
+    "total_asi_categories_with_findings": 6
+  },
+  "owasp_mcp_coverage": {
+    "framework": "OWASP MCP Top 10",
+    "framework_version": "v0.1 beta",
+    "reference": "https://owasp.org/www-project-mcp-top-10/",
+    "coverage": {
+      "MCP01": {
+        "id": "MCP01:2025",
+        "name": "Token Mismanagement & Secret Exposure",
+        "coverage_level": "partial",
+        "reason": "Regex-based secret detection in server source and client configs plus env-var exposure checks; no entropy analysis, git-history scan, or token lifetime/passthrough checks.",
+        "findings_count": 34,
+        "finding_ids": [
+          "cross_tool_get_user_weight_get_user",
+          "cross_tool_get_user_weight_get_user_weight_history",
+          "cross_tool_get_recipe_get_user",
+          "cross_tool_get_recipe_get_user_consumed_items",
+          "cross_tool_add_user_consumed_item_remove_user_consumed_item",
+          "cross_tool_create_product_add_user_consumed_item",
+          "cross_tool_add_quick_entry_get_user",
+          "cross_tool_add_quick_entry_remove_user_consumed_item",
+          "cross_tool_add_quick_entry_get_user_consumed_items",
+          "cross_tool_add_user_consumed_recipe_get_user"
+        ],
+        "detectors": [
+          "credential_theft",
+          "cross_server",
+          "mcp01_hardcoded_secrets",
+          "config_hardcoded_secret",
+          "env_var_audit",
+          "env_dump"
+        ]
+      },
+      "MCP02": {
+        "id": "MCP02:2025",
+        "name": "Privilege Escalation via Scope Creep",
+        "coverage_level": "strong",
+        "reason": "Permission over-scope patterns, toxic tool-capability combinations, path-escape checks and env-var over-exposure in configs.",
+        "findings_count": 35,
+        "finding_ids": [
+          "cross_tool_get_user_weight_get_user",
+          "cross_tool_get_user_weight_get_user_weight_history",
+          "cross_tool_get_recipe_get_user",
+          "cross_tool_get_recipe_get_user_consumed_items",
+          "cross_tool_add_user_consumed_item_remove_user_consumed_item",
+          "cross_tool_create_product_add_user_consumed_item",
+          "cross_tool_add_quick_entry_get_user",
+          "cross_tool_add_quick_entry_remove_user_consumed_item",
+          "cross_tool_add_quick_entry_get_user_consumed_items",
+          "cross_tool_add_user_consumed_recipe_get_user"
+        ],
+        "detectors": [
+          "permission_overscope",
+          "toxic_tool_combo",
+          "identity_privilege",
+          "sandbox_escape",
+          "config_risk",
+          "cascading_failure",
+          "cross_server",
+          "excessive_scope",
+          "confused_deputy",
+          "file_read",
+          "file_write"
+        ]
+      },
+      "MCP03": {
+        "id": "MCP03:2025",
+        "name": "Tool Poisoning",
+        "coverage_level": "strong",
+        "reason": "Dedicated detector for hidden instructions in tool metadata, plus runtime rug-pull diffing between source and live tool definitions.",
+        "findings_count": 2,
+        "finding_ids": [
+          "poison_get_user_body_values_instruction_injection",
+          "shadow_set_user_note_near_duplicate"
+        ],
+        "detectors": [
+          "tool_poisoning",
+          "obfuscation",
+          "rogue_agent",
+          "source_vs_runtime_diff",
+          "tool_shadowing",
+          "hidden_unicode",
+          "rug_pull_primitive",
+          "surface_mismatch"
+        ]
+      },
+      "MCP04": {
+        "id": "MCP04:2025",
+        "name": "Software Supply Chain Attacks & Dependency Tampering",
+        "coverage_level": "strong",
+        "reason": "Dependency CVE lookup, known MCP CVEs, install lifecycle hooks, and unpinned npx/uvx/pip/@latest install sources.",
+        "findings_count": 25,
+        "finding_ids": [
+          "GHSA-mrhx-c7xc-m3w5",
+          "GHSA-2vgq-wchc-25w7",
+          "GHSA-4487-j8r4-4g2f",
+          "GHSA-4642-5mcj-2rqw",
+          "GHSA-525v-9gp9-w22h",
+          "GHSA-5cwg-6vw7-rj6p",
+          "GHSA-5x38-2vff-x55p",
+          "GHSA-6889-vf6x-f3g5",
+          "GHSA-6cv4-p8m7-4r25",
+          "GHSA-6qrw-m8cv-hcxf"
+        ],
+        "detectors": [
+          "dependency_vuln",
+          "supply_chain",
+          "known_cve",
+          "obfuscation",
+          "lifecycle_hooks",
+          "mcp04_unpinned_install",
+          "homoglyph",
+          "rug_pull_primitive",
+          "surface_mismatch"
+        ]
+      },
+      "MCP05": {
+        "id": "MCP05:2025",
+        "name": "Command Injection & Execution",
+        "coverage_level": "partial",
+        "reason": "Regex, AST and Semgrep find exec/shell sinks and a heuristic flags sinks inside tool handlers, but there is no inter-procedural taint tracking from tool input to sink.",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "command_injection",
+          "code_execution",
+          "code_generation",
+          "sandbox_escape",
+          "mcp05_tool_input_sink",
+          "shell_exec"
+        ]
+      },
+      "MCP06": {
+        "id": "MCP06:2025",
+        "name": "Prompt Injection via Contextual Payloads",
+        "coverage_level": "partial",
+        "reason": "Injection markers are detected in tool metadata, server instructions, resources, prompts and the strings a tool returns (static), and in instructions/resources/prompts read live; payloads produced by calling a tool at runtime are not inspected.",
+        "findings_count": 4,
+        "finding_ids": [
+          "shadow_set_user_note_near_duplicate",
+          "instructions_instruction_injection",
+          "prompt_add_food_item_instruction_injection",
+          "prompt_remove_food_item_instruction_injection"
+        ],
+        "detectors": [
+          "prompt_injection",
+          "memory_poisoning",
+          "trust_exploitation",
+          "response_injection",
+          "tool_shadowing"
+        ]
+      },
+      "MCP07": {
+        "id": "MCP07:2025",
+        "name": "Insufficient Authentication & Authorization",
+        "coverage_level": "partial",
+        "reason": "Flags remote servers with no visible auth and servers bound to all interfaces; does not verify OAuth implementation or per-tool authorization logic.",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "transport_security",
+          "inter_agent_comm",
+          "identity_privilege",
+          "transport_no_auth",
+          "config_no_auth",
+          "mcp07_bind_all_interfaces"
+        ]
+      },
+      "MCP08": {
+        "id": "MCP08:2025",
+        "name": "Lack of Audit and Telemetry",
+        "coverage_level": "gap",
+        "reason": "Only a low-confidence heuristic for missing logging in tool-defining files; actual audit trails and telemetry pipelines are not verified.",
+        "findings_count": 1,
+        "finding_ids": [
+          "mcp08_no_tool_logging"
+        ],
+        "detectors": [
+          "audit_telemetry",
+          "mcp08_no_tool_logging"
+        ]
+      },
+      "MCP09": {
+        "id": "MCP09:2025",
+        "name": "Shadow MCP Servers",
+        "coverage_level": "partial",
+        "reason": "Covered by `axiom discover` allowlist on the local machine; no network-wide or fleet discovery.",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "mcpguard_discover",
+          "shadow_mcp"
+        ]
+      },
+      "MCP10": {
+        "id": "MCP10:2025",
+        "name": "Context Injection & Over-Sharing",
+        "coverage_level": "partial",
+        "reason": "Hard-coded egress URLs, tools that send to caller-chosen destinations and bulk-exposure heuristics are detected statically and live; what context is actually shared at runtime is not observed.",
+        "findings_count": 42,
+        "finding_ids": [
+          "code_0003",
+          "code_0004",
+          "code_0005",
+          "code_0006",
+          "code_0007",
+          "code_0008",
+          "code_0009",
+          "code_0010",
+          "code_0011",
+          "code_0012"
+        ],
+        "detectors": [
+          "context_oversharing",
+          "data_exfiltration",
+          "memory_poisoning",
+          "mcp10_broad_data_exposure"
+        ]
+      }
+    },
+    "total_mcp_categories_with_findings": 7
+  },
+  "ai_analysis": null,
+  "tool_poisoning_report": null,
+  "prompt_injection_risk": null
+}

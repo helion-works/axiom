@@ -1,0 +1,1177 @@
+{
+  "schema_version": "0.5",
+  "target": "<corpus>/registry/21_ldclabs__KIP",
+  "risk_score": 100.0,
+  "risk_level": "critical",
+  "tools_found": 3,
+  "findings_count": 37,
+  "findings": [
+    {
+      "id": "poison_execute_kip_instruction_injection",
+      "severity": "critical",
+      "category": "tool_poisoning",
+      "title": "Tool poisoning: instruction injection in 'execute_kip'",
+      "description": "Hidden instruction detected in tool description that could manipulate AI behavior. Matched pattern in tool 'execute_kip': 'you MUST'",
+      "owasp_asi": [
+        "ASI01"
+      ],
+      "owasp_mcp": [
+        "MCP03"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Review tool description carefully. Compare claimed functionality with actual code behavior. Consider removing this MCP server."
+    },
+    {
+      "id": "poison_execute_kip_long_desc",
+      "severity": "medium",
+      "category": "tool_poisoning",
+      "title": "Unusually long tool description for 'execute_kip'",
+      "description": "Tool description is 1551 characters. Long descriptions can hide malicious instructions.",
+      "owasp_asi": [
+        "ASI01"
+      ],
+      "owasp_mcp": [
+        "MCP03"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Review the full tool description for hidden instructions."
+    },
+    {
+      "id": "poison_execute_kip_readonly_instruction_injection",
+      "severity": "critical",
+      "category": "tool_poisoning",
+      "title": "Tool poisoning: instruction injection in 'execute_kip_readonly'",
+      "description": "Hidden instruction detected in tool description that could manipulate AI behavior. Matched pattern in tool 'execute_kip_readonly': 'never '",
+      "owasp_asi": [
+        "ASI01"
+      ],
+      "owasp_mcp": [
+        "MCP03"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Review tool description carefully. Compare claimed functionality with actual code behavior. Consider removing this MCP server."
+    },
+    {
+      "id": "poison_execute_kip_readonly_long_desc",
+      "severity": "medium",
+      "category": "tool_poisoning",
+      "title": "Unusually long tool description for 'execute_kip_readonly'",
+      "description": "Tool description is 623 characters. Long descriptions can hide malicious instructions.",
+      "owasp_asi": [
+        "ASI01"
+      ],
+      "owasp_mcp": [
+        "MCP03"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Review the full tool description for hidden instructions."
+    },
+    {
+      "id": "cross_tool_execute_kip_execute_kip_readonly",
+      "severity": "medium",
+      "category": "cross_server",
+      "title": "Tool 'execute_kip' references tool 'execute_kip_readonly'",
+      "description": "Tool description mentions another tool by name, which could enable tool chaining attacks.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP01",
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Verify this cross-reference is legitimate and necessary."
+    },
+    {
+      "id": "cross_tool_execute_kip_readonly_execute_kip",
+      "severity": "medium",
+      "category": "cross_server",
+      "title": "Tool 'execute_kip_readonly' references tool 'execute_kip'",
+      "description": "Tool description mentions another tool by name, which could enable tool chaining attacks.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP01",
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Verify this cross-reference is legitimate and necessary."
+    },
+    {
+      "id": "code_0001",
+      "severity": "critical",
+      "category": "code_execution",
+      "title": "MCP server can execute arbitrary commands",
+      "description": "Pattern matched in conformance\\engine-runner.mjs at line 22: `const defaultTag = value => /^([A-Z])-[A-Za-z0-9_]+$/.exec(value)?.[1] ?? null`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "conformance\\engine-runner.mjs",
+      "line_number": 22,
+      "recommendation": "Review this arbitrary code exec pattern."
+    },
+    {
+      "id": "code_0002",
+      "severity": "critical",
+      "category": "sandbox_escape",
+      "title": "Potential sandbox/path escape in MCP server",
+      "description": "Pattern matched in conformance\\reference\\contracts.mjs at line 2: `import { canonicalize, parseTimestamp } from '../../packages/kip-lang/dist/index.js'`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "conformance\\reference\\contracts.mjs",
+      "line_number": 2,
+      "recommendation": "Review this sandbox escape pattern."
+    },
+    {
+      "id": "code_0003",
+      "severity": "critical",
+      "category": "sandbox_escape",
+      "title": "Potential sandbox/path escape in MCP server",
+      "description": "Pattern matched in conformance\\reference\\memory-interface.mjs at line 5: `import { canonicalize } from '../../packages/kip-lang/dist/index.js'`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "conformance\\reference\\memory-interface.mjs",
+      "line_number": 5,
+      "recommendation": "Review this sandbox escape pattern."
+    },
+    {
+      "id": "code_0004",
+      "severity": "critical",
+      "category": "code_execution",
+      "title": "MCP server can execute arbitrary commands",
+      "description": "Pattern matched in conformance\\reference\\memory-interface.mjs at line 144: `const match = /^attention:(\\d+)(?::(.+))?$/.exec(String(cursor))`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "conformance\\reference\\memory-interface.mjs",
+      "line_number": 144,
+      "recommendation": "Review this arbitrary code exec pattern."
+    },
+    {
+      "id": "code_0005",
+      "severity": "critical",
+      "category": "sandbox_escape",
+      "title": "Potential sandbox/path escape in MCP server",
+      "description": "Pattern matched in conformance\\reference\\reliability.mjs at line 3: `import { canonicalize, parseTimestamp } from '../../packages/kip-lang/dist/index.js'`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "conformance\\reference\\reliability.mjs",
+      "line_number": 3,
+      "recommendation": "Review this sandbox escape pattern."
+    },
+    {
+      "id": "code_0006",
+      "severity": "critical",
+      "category": "code_execution",
+      "title": "MCP server can execute arbitrary commands",
+      "description": "Pattern matched in packages\\kip-lang\\src\\canonical.ts at line 109: `const match = /^-?(?:0|[1-9][0-9]*)(?:\\.[0-9]+)?(?:[eE][+-]?[0-9]+)?/.exec(source.slice(pos))`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "packages\\kip-lang\\src\\canonical.ts",
+      "line_number": 109,
+      "recommendation": "Review this arbitrary code exec pattern."
+    },
+    {
+      "id": "code_0007",
+      "severity": "critical",
+      "category": "code_execution",
+      "title": "MCP server can execute arbitrary commands",
+      "description": "Pattern matched in packages\\kip-lang\\src\\token.ts at line 354: `export function isFunction(name: string): boolean {`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "packages\\kip-lang\\src\\token.ts",
+      "line_number": 354,
+      "recommendation": "Review this arbitrary code exec pattern."
+    },
+    {
+      "id": "code_0008",
+      "severity": "high",
+      "category": "credential_theft",
+      "title": "MCP server accesses credentials or secrets",
+      "description": "Pattern matched in v1\\mcp\\kip-mcp-server\\src\\index.ts at line 20: `const v = process.env[name]`",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP01"
+      ],
+      "file_path": "v1\\mcp\\kip-mcp-server\\src\\index.ts",
+      "line_number": 20,
+      "recommendation": "Review this credential harvesting pattern."
+    },
+    {
+      "id": "ast_0001",
+      "severity": "high",
+      "category": "credential_theft",
+      "title": "Environment variable access via os.environ.get()",
+      "description": "Call to `os.environ.get()` reads credentials/secrets in v1\\skill\\kip-cognitive-nexus\\scripts\\execute_kip.py at line 42",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP01"
+      ],
+      "file_path": "v1\\skill\\kip-cognitive-nexus\\scripts\\execute_kip.py",
+      "line_number": 42,
+      "recommendation": "Document which env vars are needed. Avoid reading arbitrary env vars."
+    },
+    {
+      "id": "ast_0002",
+      "severity": "high",
+      "category": "credential_theft",
+      "title": "Environment variable access via os.environ.get()",
+      "description": "Call to `os.environ.get()` reads credentials/secrets in v1\\skill\\kip-cognitive-nexus\\scripts\\execute_kip.py at line 47",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP01"
+      ],
+      "file_path": "v1\\skill\\kip-cognitive-nexus\\scripts\\execute_kip.py",
+      "line_number": 47,
+      "recommendation": "Document which env vars are needed. Avoid reading arbitrary env vars."
+    },
+    {
+      "id": "ast_0001",
+      "severity": "high",
+      "category": "credential_theft",
+      "title": "Environment variable access via os.environ.get()",
+      "description": "Call to `os.environ.get()` reads credentials/secrets in v1\\skill\\kip-cognitive-nexus\\scripts\\test_integration.py at line 260",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP01"
+      ],
+      "file_path": "v1\\skill\\kip-cognitive-nexus\\scripts\\test_integration.py",
+      "line_number": 260,
+      "recommendation": "Document which env vars are needed. Avoid reading arbitrary env vars."
+    },
+    {
+      "id": "ast_0002",
+      "severity": "high",
+      "category": "credential_theft",
+      "title": "Environment variable access via os.environ[]",
+      "description": "Direct access to `os.environ[]` reads credentials/secrets in v1\\skill\\kip-cognitive-nexus\\scripts\\test_integration.py at line 261",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP01"
+      ],
+      "file_path": "v1\\skill\\kip-cognitive-nexus\\scripts\\test_integration.py",
+      "line_number": 261,
+      "recommendation": "Document which env vars are needed. Avoid reading arbitrary env vars."
+    },
+    {
+      "id": "ast_0003",
+      "severity": "high",
+      "category": "credential_theft",
+      "title": "Environment variable access via os.environ[]",
+      "description": "Direct access to `os.environ[]` reads credentials/secrets in v1\\skill\\kip-cognitive-nexus\\scripts\\test_integration.py at line 270",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP01"
+      ],
+      "file_path": "v1\\skill\\kip-cognitive-nexus\\scripts\\test_integration.py",
+      "line_number": 270,
+      "recommendation": "Document which env vars are needed. Avoid reading arbitrary env vars."
+    },
+    {
+      "id": "toxic_combo_data_read_network_external",
+      "severity": "high",
+      "category": "toxic_tool_combo",
+      "title": "Data read + external network = exfiltration path",
+      "description": "Tools that can read internal data AND make external network requests create a direct exfiltration channel. A hijacked agent could read sensitive data then forward it to an attacker-controlled endpoint. Provided by: execute_kip, execute_kip_readonly, list_logs (data_read) + execute_kip (network_external).",
+      "owasp_asi": [
+        "ASI02"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Implement tool-level permission scoping. Consider whether both capabilities are necessary or if one can be restricted."
+    },
+    {
+      "id": "toxic_combo_credential_access_network_external",
+      "severity": "critical",
+      "category": "toxic_tool_combo",
+      "title": "Credential access + external network = credential theft path",
+      "description": "Tools that access credentials AND make external requests can exfiltrate tokens, API keys, and secrets to remote servers. Provided by: execute_kip (credential_access) + execute_kip (network_external).",
+      "owasp_asi": [
+        "ASI02"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Implement tool-level permission scoping. Consider whether both capabilities are necessary or if one can be restricted."
+    },
+    {
+      "id": "toxic_combo_code_execute_network_external",
+      "severity": "critical",
+      "category": "toxic_tool_combo",
+      "title": "Code execution + external network = remote code execution path",
+      "description": "Tools that execute code AND fetch external content can download and run attacker-controlled payloads. Provided by: execute_kip, execute_kip_readonly, list_logs (code_execute) + execute_kip (network_external).",
+      "owasp_asi": [
+        "ASI02"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Implement tool-level permission scoping. Consider whether both capabilities are necessary or if one can be restricted."
+    },
+    {
+      "id": "toxic_combo_data_read_data_write",
+      "severity": "medium",
+      "category": "toxic_tool_combo",
+      "title": "Broad data read + write = data manipulation risk",
+      "description": "Tools that can both read and write data could be manipulated to corrupt, overwrite, or delete information. Provided by: execute_kip, execute_kip_readonly, list_logs (data_read) + execute_kip, execute_kip_readonly (data_write).",
+      "owasp_asi": [
+        "ASI02"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Implement tool-level permission scoping. Consider whether both capabilities are necessary or if one can be restricted."
+    },
+    {
+      "id": "toxic_combo_credential_access_data_write",
+      "severity": "high",
+      "category": "toxic_tool_combo",
+      "title": "Credential access + data write = privilege persistence",
+      "description": "Tools that access credentials AND write data could persist stolen credentials or create backdoor accounts. Provided by: execute_kip (credential_access) + execute_kip, execute_kip_readonly (data_write).",
+      "owasp_asi": [
+        "ASI02"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Implement tool-level permission scoping. Consider whether both capabilities are necessary or if one can be restricted."
+    },
+    {
+      "id": "cap_execute_kip_shell_exec",
+      "severity": "high",
+      "category": "shell_exec",
+      "title": "Tool 'execute_kip' can execute shell commands (shell_exec)",
+      "description": "Tool 'execute_kip' can execute shell commands. Evidence: 'execute_'. Description: 'Execute KIP (Knowledge Interaction Protocol) commands against a Cognitive Nexus backend.\n\nIMPORTANT: KIP is new and typically NOT present in'",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Scope the tool to the narrowest operation and location it needs, and require explicit user approval per call."
+    },
+    {
+      "id": "cap_execute_kip_readonly_shell_exec",
+      "severity": "high",
+      "category": "shell_exec",
+      "title": "Tool 'execute_kip_readonly' can execute shell commands (shell_exec)",
+      "description": "Tool 'execute_kip_readonly' can execute shell commands. Evidence: 'execute_'. Description: 'Execute safe, read-only KIP commands against a Cognitive Nexus backend.\n\nPrefer this tool over 'execute_kip' whenever you only need to retri'",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Scope the tool to the narrowest operation and location it needs, and require explicit user approval per call."
+    },
+    {
+      "id": "memory_0001",
+      "severity": "medium",
+      "category": "memory_poisoning",
+      "title": "Memory/context modification capability detected",
+      "description": "Pattern in conformance\\reference\\contracts.mjs near line 201: `context set`. MCP servers that modify agent memory or context can poison long-term behavior.",
+      "owasp_asi": [
+        "ASI06"
+      ],
+      "owasp_mcp": [
+        "MCP06",
+        "MCP10"
+      ],
+      "file_path": "conformance\\reference\\contracts.mjs",
+      "line_number": 201,
+      "recommendation": "Validate all data before writing to agent memory. Implement integrity checks on persistent context. Log all memory modifications for audit."
+    },
+    {
+      "id": "memory_0002",
+      "severity": "medium",
+      "category": "memory_poisoning",
+      "title": "Memory/context modification capability detected",
+      "description": "Pattern in conformance\\reference\\memory-interface.mjs near line 60: `context set`. MCP servers that modify agent memory or context can poison long-term behavior.",
+      "owasp_asi": [
+        "ASI06"
+      ],
+      "owasp_mcp": [
+        "MCP06",
+        "MCP10"
+      ],
+      "file_path": "conformance\\reference\\memory-interface.mjs",
+      "line_number": 60,
+      "recommendation": "Validate all data before writing to agent memory. Implement integrity checks on persistent context. Log all memory modifications for audit."
+    },
+    {
+      "id": "memory_0003",
+      "severity": "medium",
+      "category": "memory_poisoning",
+      "title": "Memory/context modification capability detected",
+      "description": "Pattern in formal\\temporal\\check_temporal.py near line 10: `context set`. MCP servers that modify agent memory or context can poison long-term behavior.",
+      "owasp_asi": [
+        "ASI06"
+      ],
+      "owasp_mcp": [
+        "MCP06",
+        "MCP10"
+      ],
+      "file_path": "formal\\temporal\\check_temporal.py",
+      "line_number": 10,
+      "recommendation": "Validate all data before writing to agent memory. Implement integrity checks on persistent context. Log all memory modifications for audit."
+    },
+    {
+      "id": "memory_0004",
+      "severity": "medium",
+      "category": "memory_poisoning",
+      "title": "Memory/context modification capability detected",
+      "description": "Pattern in packages\\kip-lang\\test\\contracts.test.mjs near line 382: `context set`. MCP servers that modify agent memory or context can poison long-term behavior.",
+      "owasp_asi": [
+        "ASI06"
+      ],
+      "owasp_mcp": [
+        "MCP06",
+        "MCP10"
+      ],
+      "file_path": "packages\\kip-lang\\test\\contracts.test.mjs",
+      "line_number": 382,
+      "recommendation": "Validate all data before writing to agent memory. Implement integrity checks on persistent context. Log all memory modifications for audit."
+    },
+    {
+      "id": "trust_0001",
+      "severity": "medium",
+      "category": "trust_exploitation",
+      "title": "Trust exploitation pattern: authority impersonation",
+      "description": "Pattern in packages\\kip-lang\\src\\index.ts near line 153: `Root\n  Command`. This could enable a compromised agent to mislead users.",
+      "owasp_asi": [
+        "ASI09"
+      ],
+      "owasp_mcp": [
+        "MCP06"
+      ],
+      "file_path": "packages\\kip-lang\\src\\index.ts",
+      "line_number": 153,
+      "recommendation": "Implement output verification. Require human confirmation for high-impact actions. Mark agent-generated content as such."
+    },
+    {
+      "id": "mcp04_unpinned_0001",
+      "severity": "medium",
+      "category": "supply_chain",
+      "title": "Unpinned install source",
+      "description": "`npm@latest` floating tag in .github\\workflows\\kip-lang.yml at line 29. Without an exact version the next install silently picks up whatever is published, including a compromised release.",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": ".github\\workflows\\kip-lang.yml",
+      "line_number": 29,
+      "recommendation": "Pin an exact version (pkg@1.2.3, pkg==1.2.3) and prefer a lockfile or hash-checked requirements."
+    },
+    {
+      "id": "mcp08_no_tool_logging",
+      "severity": "info",
+      "category": "audit_telemetry",
+      "title": "No logging found in files that define MCP tools (low confidence)",
+      "description": "None of the tool-defining files (v1\\mcp\\kip-mcp-server\\src\\index.ts) reference a logging library or logger call. Tool invocations may leave no audit trail. Confidence is low: logging could be configured elsewhere or by the host.",
+      "owasp_asi": [
+        "ASI10"
+      ],
+      "owasp_mcp": [
+        "MCP08"
+      ],
+      "file_path": "v1\\mcp\\kip-mcp-server\\src\\index.ts",
+      "line_number": null,
+      "recommendation": "Log each tool invocation (tool name, caller/session, outcome, and redacted arguments) to a durable, tamper-evident sink."
+    },
+    {
+      "id": "prompt_kip_bootstrap_invokes_dangerous_tool",
+      "severity": "high",
+      "category": "prompt_injection",
+      "title": "prompt 'kip_bootstrap' steers the agent to dangerous tools: execute_kip",
+      "description": "prompt 'kip_bootstrap' names execute_kip (shell_exec). Content that tells the model which high-impact tool to call next is how a hijack becomes an action.",
+      "owasp_asi": [
+        "ASI01",
+        "ASI02"
+      ],
+      "owasp_mcp": [
+        "MCP06"
+      ],
+      "file_path": "v1\\mcp\\kip-mcp-server\\src\\index.ts",
+      "line_number": 132,
+      "recommendation": "Remove tool-invocation guidance from server-provided content."
+    },
+    {
+      "id": "mcp10_broad_exposure_0001",
+      "severity": "low",
+      "category": "context_oversharing",
+      "title": "Tool 'execute_kip' suggests broad data exposure",
+      "description": "The tool 'execute_kip' (description phrase 'EXPORT') appears to return bulk data into the model context, where it can be over-shared with other tools, sessions or users. What is actually returned at runtime is not checked (runtime over-sharing remains a coverage gap).",
+      "owasp_asi": [
+        "ASI02"
+      ],
+      "owasp_mcp": [
+        "MCP10"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Scope results (pagination, filters, per-user access checks) and avoid returning whole tables, histories or file trees to the model."
+    },
+    {
+      "id": "mcp10_broad_exposure_0002",
+      "severity": "low",
+      "category": "context_oversharing",
+      "title": "Tool 'execute_kip_readonly' suggests broad data exposure",
+      "description": "The tool 'execute_kip_readonly' (description phrase 'EXPORT') appears to return bulk data into the model context, where it can be over-shared with other tools, sessions or users. What is actually returned at runtime is not checked (runtime over-sharing remains a coverage gap).",
+      "owasp_asi": [
+        "ASI02"
+      ],
+      "owasp_mcp": [
+        "MCP10"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Scope results (pagination, filters, per-user access checks) and avoid returning whole tables, histories or file trees to the model."
+    },
+    {
+      "id": "blast_radius_estimate",
+      "severity": "high",
+      "category": "cascading_failure",
+      "title": "Blast radius: HIGH \u2014 compromise of this server has broad impact",
+      "description": "If this MCP server is compromised, the blast radius is HIGH due to: arbitrary code execution, external network access, credential access, 11 critical findings. A single tool poisoning or supply chain attack could cascade across all connected systems.",
+      "owasp_asi": [
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Apply least-privilege to this server. Isolate it from other MCP servers. Implement kill switches and behavioral monitoring. Limit env vars to the minimum required."
+    }
+  ],
+  "server_profile": {
+    "name": "<corpus>/registry/21_ldclabs__KIP",
+    "command": null,
+    "args": [],
+    "env_vars": [],
+    "transport": "stdio",
+    "tools": [
+      {
+        "name": "execute_kip",
+        "description": "Execute KIP (Knowledge Interaction Protocol) commands against a Cognitive Nexus backend.\n\nIMPORTANT: KIP is new and typically NOT present in the model's training data. Before using this tool for anything non-trivial (especially writes), you MUST load KIP usage instructions.\n\nDo one of the following first:\n- Use the prompt: kip_bootstrap (recommended)\n- Or fetch the resources: kip://docs/Instructions.md and (optionally) kip://docs/KIP.md\n\nInput shape:\n- Provide exactly one of: 'command' (single multi-line string) OR 'commands' (batch).\n- In a batch, each 'commands' element is either a string (using shared 'parameters') or an object { command, parameters } whose parameters override the shared ones.\n- Use 'dry_run: true' to validate without executing.\n- If you only need to read (KQL FIND, META DESCRIBE/SEARCH/EXPORT) and will not modify the graph, prefer the 'execute_kip_readonly' tool.\n\nSchema grounding (do not guess):\n- Types are UpperCamelCase; predicates/attributes are snake_case (case-sensitive).\n- If unsure about schema/types/predicates, discover first via META: DESCRIBE / SEARCH.\n\nSafe parameterization:\n- Prefer 'parameters' over string interpolation.\n- Placeholders start with ':' and MUST occupy a complete KIP value position (for example: name: :name, LIMIT :limit, or SEARCH CONCEPT :term).\n\nUpdate semantics:\n- SET ATTRIBUTES overwrites each specified key (arrays/objects are replaced, not merged).\n- SET PROPOSITIONS is additive (creates/updates links).\n\nSafety:\n- Never store secrets/credentials or one-time tokens in KIP.",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "has_hidden_instructions": true,
+        "poisoning_risk": "critical",
+        "poisoning_detail": "Hidden instruction detected in tool description that could manipulate AI behavior. Matched pattern in tool 'execute_kip': 'you MUST'"
+      },
+      {
+        "name": "execute_kip_readonly",
+        "description": "Execute safe, read-only KIP commands against a Cognitive Nexus backend.\n\nPrefer this tool over 'execute_kip' whenever you only need to retrieve knowledge and will not modify the graph. Only read-only commands are valid here: KQL FIND and META DESCRIBE / SEARCH / EXPORT. Any KML write (UPSERT / UPDATE / MERGE / DELETE) will be rejected by the backend.\n\nThe input shape and parameterization rules are identical to 'execute_kip' (provide exactly one of 'command' or 'commands'; use 'parameters' for safe placeholder substitution).\n\nIf you are unsure about schema/types/predicates, discover first via META: DESCRIBE / SEARCH.",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "has_hidden_instructions": true,
+        "poisoning_risk": "critical",
+        "poisoning_detail": "Hidden instruction detected in tool description that could manipulate AI behavior. Matched pattern in tool 'execute_kip_readonly': 'never '"
+      },
+      {
+        "name": "list_logs",
+        "description": "List log entries from the KIP backend (if supported). Use this to debug failed executions or inspect recent activity.",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      }
+    ],
+    "resources": [
+      {
+        "uri": "kip://docs/Instructions.md",
+        "name": "kip-instructions",
+        "description": "KIP cognitive core instructions (recommended to inject as system prompt by the client).",
+        "mime_type": null
+      },
+      {
+        "uri": "kip://docs/KIP.md",
+        "name": "kip-specification",
+        "description": "Full KIP specification document.",
+        "mime_type": null
+      }
+    ],
+    "prompts": [
+      {
+        "name": "kip_bootstrap",
+        "description": "Return a system prompt that teaches the agent how to use KIP correctly (retrieval-first, schema-grounded, safe writes).",
+        "arguments": []
+      }
+    ],
+    "repo_url": null,
+    "npm_package": null,
+    "capabilities_claimed": [],
+    "capabilities_actual": []
+  },
+  "fingerprint": "7b2603979294ecd10a19b5579af314c5aaaf99df8d0141a0e4b1710d63249d0c",
+  "surface_map": {
+    "server": {
+      "name": "<corpus>/registry/21_ldclabs__KIP",
+      "instructions": "",
+      "transport": "stdio",
+      "auth": "unknown"
+    },
+    "tools": [
+      {
+        "name": "execute_kip",
+        "description": "Execute KIP (Knowledge Interaction Protocol) commands against a Cognitive Nexus backend.\n\nIMPORTANT: KIP is new and typically NOT present in the model's training data. Before using this tool for anything non-trivial (especially writes), you MUST load KIP usage instructions.\n\nDo one of the following first:\n- Use the prompt: kip_bootstrap (recommended)\n- Or fetch the resources: kip://docs/Instructions.md and (optionally) kip://docs/KIP.md\n\nInput shape:\n- Provide exactly one of: 'command' (single multi-line string) OR 'commands' (batch).\n- In a batch, each 'commands' element is either a string (using shared 'parameters') or an object { command, parameters } whose parameters override the shared ones.\n- Use 'dry_run: true' to validate without executing.\n- If you only need to read (KQL FIND, META DESCRIBE/SEARCH/EXPORT) and will not modify the graph, prefer the 'execute_kip_readonly' tool.\n\nSchema grounding (do not guess):\n- Types are UpperCamelCase; predicates/attributes are snake_case (case-sensitive).\n- If unsure about schema/types/predicates, discover first via META: DESCRIBE / SEARCH.\n\nSafe parameterization:\n- Prefer 'parameters' over string interpolation.\n- Placeholders start with ':' and MUST occupy a complete KIP value position (for example: name: :name, LIMIT :limit, or SEARCH CONCEPT :term).\n\nUpdate semantics:\n- SET ATTRIBUTES overwrites each specified key (arrays/objects are replaced, not merged).\n- SET PROPOSITIONS is additive (creates/updates links).\n\nSafety:\n- Never store secrets/credentials or one-time tokens in KIP.",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "capabilities": [
+          "exec"
+        ],
+        "return_literals": [],
+        "registration": "static",
+        "location": "v1\\mcp\\kip-mcp-server\\src\\index.ts:165"
+      },
+      {
+        "name": "execute_kip_readonly",
+        "description": "Execute safe, read-only KIP commands against a Cognitive Nexus backend.\n\nPrefer this tool over 'execute_kip' whenever you only need to retrieve knowledge and will not modify the graph. Only read-only commands are valid here: KQL FIND and META DESCRIBE / SEARCH / EXPORT. Any KML write (UPSERT / UPDATE / MERGE / DELETE) will be rejected by the backend.\n\nThe input shape and parameterization rules are identical to 'execute_kip' (provide exactly one of 'command' or 'commands'; use 'parameters' for safe placeholder substitution).\n\nIf you are unsure about schema/types/predicates, discover first via META: DESCRIBE / SEARCH.",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "capabilities": [
+          "exec"
+        ],
+        "return_literals": [],
+        "registration": "static",
+        "location": "v1\\mcp\\kip-mcp-server\\src\\index.ts:211"
+      },
+      {
+        "name": "list_logs",
+        "description": "List log entries from the KIP backend (if supported). Use this to debug failed executions or inspect recent activity.",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "capabilities": [],
+        "return_literals": [],
+        "registration": "static",
+        "location": "v1\\mcp\\kip-mcp-server\\src\\index.ts:236"
+      }
+    ],
+    "resources": [
+      {
+        "uri": "kip://docs/Instructions.md",
+        "name": "kip-instructions",
+        "description": "KIP cognitive core instructions (recommended to inject as system prompt by the client).",
+        "mime_type": null,
+        "content_literals": [
+          "text/markdown"
+        ],
+        "location": "v1\\mcp\\kip-mcp-server\\src\\index.ts:98"
+      },
+      {
+        "uri": "kip://docs/KIP.md",
+        "name": "kip-specification",
+        "description": "Full KIP specification document.",
+        "mime_type": null,
+        "content_literals": [
+          "text/markdown"
+        ],
+        "location": "v1\\mcp\\kip-mcp-server\\src\\index.ts:115"
+      }
+    ],
+    "prompts": [
+      {
+        "name": "kip_bootstrap",
+        "description": "Return a system prompt that teaches the agent how to use KIP correctly (retrieval-first, schema-grounded, safe writes).",
+        "arguments": [],
+        "message_literals": [
+          "user",
+          "text",
+          "Use the following as your system instructions for interacting with a Cognitive Nexus via KIP.\n\n",
+          "assistant",
+          "Loaded KIP instructions. Use 'execute_kip' and follow schema discovery (DESCRIBE/SEARCH) when uncertain."
+        ],
+        "location": "v1\\mcp\\kip-mcp-server\\src\\index.ts:132"
+      }
+    ],
+    "mutations": [],
+    "source": {
+      "kind": "static",
+      "target": "<corpus>/registry/21_ldclabs__KIP",
+      "languages": [
+        "typescript"
+      ]
+    },
+    "generated_at": "2026-11-04T02:42:33+00:00",
+    "fingerprint": "7b2603979294ecd10a19b5579af314c5aaaf99df8d0141a0e4b1710d63249d0c",
+    "schema": "axiom.surface/1"
+  },
+  "owasp_coverage": {
+    "framework": "OWASP Top 10 for Agentic Applications 2026",
+    "reference": "https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/",
+    "coverage": {
+      "ASI01": {
+        "name": "Agent Goal Hijack",
+        "coverage_level": "strong",
+        "findings_count": 5,
+        "finding_ids": [
+          "poison_execute_kip_instruction_injection",
+          "poison_execute_kip_long_desc",
+          "poison_execute_kip_readonly_instruction_injection",
+          "poison_execute_kip_readonly_long_desc",
+          "prompt_kip_bootstrap_invokes_dangerous_tool"
+        ],
+        "detectors": [
+          "tool_poisoning",
+          "prompt_injection",
+          "instruction_injection"
+        ]
+      },
+      "ASI02": {
+        "name": "Tool Misuse & Exploitation",
+        "coverage_level": "strong",
+        "findings_count": 10,
+        "finding_ids": [
+          "cross_tool_execute_kip_execute_kip_readonly",
+          "cross_tool_execute_kip_readonly_execute_kip",
+          "toxic_combo_data_read_network_external",
+          "toxic_combo_credential_access_network_external",
+          "toxic_combo_code_execute_network_external",
+          "toxic_combo_data_read_data_write",
+          "toxic_combo_credential_access_data_write",
+          "prompt_kip_bootstrap_invokes_dangerous_tool",
+          "mcp10_broad_exposure_0001",
+          "mcp10_broad_exposure_0002"
+        ],
+        "detectors": [
+          "toxic_tool_combo",
+          "tool_overscope",
+          "tool_chaining_detection"
+        ]
+      },
+      "ASI03": {
+        "name": "Identity & Privilege Abuse",
+        "coverage_level": "strong",
+        "findings_count": 6,
+        "finding_ids": [
+          "code_0008",
+          "ast_0001",
+          "ast_0002",
+          "ast_0001",
+          "ast_0002",
+          "ast_0003"
+        ],
+        "detectors": [
+          "credential_analysis",
+          "shared_credential_detection",
+          "env_var_audit"
+        ]
+      },
+      "ASI04": {
+        "name": "Agentic Supply Chain Vulnerabilities",
+        "coverage_level": "strong",
+        "findings_count": 1,
+        "finding_ids": [
+          "mcp04_unpinned_0001"
+        ],
+        "detectors": [
+          "dependency_cve",
+          "lifecycle_hooks",
+          "npx_unversioned",
+          "known_mcp_cves"
+        ]
+      },
+      "ASI05": {
+        "name": "Unexpected Code Execution",
+        "coverage_level": "strong",
+        "findings_count": 9,
+        "finding_ids": [
+          "code_0001",
+          "code_0002",
+          "code_0003",
+          "code_0004",
+          "code_0005",
+          "code_0006",
+          "code_0007",
+          "cap_execute_kip_shell_exec",
+          "cap_execute_kip_readonly_shell_exec"
+        ],
+        "detectors": [
+          "code_exec_patterns",
+          "code_generation_detection",
+          "sandbox_escape"
+        ]
+      },
+      "ASI06": {
+        "name": "Memory & Context Poisoning",
+        "coverage_level": "partial",
+        "findings_count": 4,
+        "finding_ids": [
+          "memory_0001",
+          "memory_0002",
+          "memory_0003",
+          "memory_0004"
+        ],
+        "detectors": [
+          "memory_poisoning_patterns",
+          "context_manipulation_detection"
+        ],
+        "gap_note": "Axiom detects static patterns. Full coverage requires runtime memory monitoring."
+      },
+      "ASI07": {
+        "name": "Insecure Inter-Agent Communication",
+        "coverage_level": "partial",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "transport_security",
+          "a2a_pattern_detection"
+        ],
+        "gap_note": "Axiom checks transport security. Full A2A protocol analysis requires runtime interception."
+      },
+      "ASI08": {
+        "name": "Cascading Failures",
+        "coverage_level": "partial",
+        "findings_count": 3,
+        "finding_ids": [
+          "cross_tool_execute_kip_execute_kip_readonly",
+          "cross_tool_execute_kip_readonly_execute_kip",
+          "blast_radius_estimate"
+        ],
+        "detectors": [
+          "blast_radius_estimation",
+          "dependency_chain_analysis"
+        ],
+        "gap_note": "Axiom estimates blast radius from tool capabilities. Full cascading failure analysis requires runtime topology mapping."
+      },
+      "ASI09": {
+        "name": "Human-Agent Trust Exploitation",
+        "coverage_level": "strong",
+        "findings_count": 1,
+        "finding_ids": [
+          "trust_0001"
+        ],
+        "detectors": [
+          "claimed_vs_actual",
+          "deceptive_output_detection",
+          "trust_manipulation_patterns"
+        ]
+      },
+      "ASI10": {
+        "name": "Rogue Agents",
+        "coverage_level": "partial",
+        "findings_count": 1,
+        "finding_ids": [
+          "mcp08_no_tool_logging"
+        ],
+        "detectors": [
+          "sleeper_patterns",
+          "behavioral_drift_indicators",
+          "persistence_detection"
+        ],
+        "gap_note": "Axiom detects static rogue indicators. Full rogue agent detection requires runtime behavioral monitoring."
+      }
+    },
+    "total_asi_categories_with_findings": 9
+  },
+  "owasp_mcp_coverage": {
+    "framework": "OWASP MCP Top 10",
+    "framework_version": "v0.1 beta",
+    "reference": "https://owasp.org/www-project-mcp-top-10/",
+    "coverage": {
+      "MCP01": {
+        "id": "MCP01:2025",
+        "name": "Token Mismanagement & Secret Exposure",
+        "coverage_level": "partial",
+        "reason": "Regex-based secret detection in server source and client configs plus env-var exposure checks; no entropy analysis, git-history scan, or token lifetime/passthrough checks.",
+        "findings_count": 8,
+        "finding_ids": [
+          "cross_tool_execute_kip_execute_kip_readonly",
+          "cross_tool_execute_kip_readonly_execute_kip",
+          "code_0008",
+          "ast_0001",
+          "ast_0002",
+          "ast_0001",
+          "ast_0002",
+          "ast_0003"
+        ],
+        "detectors": [
+          "credential_theft",
+          "cross_server",
+          "mcp01_hardcoded_secrets",
+          "config_hardcoded_secret",
+          "env_var_audit",
+          "env_dump"
+        ]
+      },
+      "MCP02": {
+        "id": "MCP02:2025",
+        "name": "Privilege Escalation via Scope Creep",
+        "coverage_level": "strong",
+        "reason": "Permission over-scope patterns, toxic tool-capability combinations, path-escape checks and env-var over-exposure in configs.",
+        "findings_count": 11,
+        "finding_ids": [
+          "cross_tool_execute_kip_execute_kip_readonly",
+          "cross_tool_execute_kip_readonly_execute_kip",
+          "code_0002",
+          "code_0003",
+          "code_0005",
+          "toxic_combo_data_read_network_external",
+          "toxic_combo_credential_access_network_external",
+          "toxic_combo_code_execute_network_external",
+          "toxic_combo_data_read_data_write",
+          "toxic_combo_credential_access_data_write"
+        ],
+        "detectors": [
+          "permission_overscope",
+          "toxic_tool_combo",
+          "identity_privilege",
+          "sandbox_escape",
+          "config_risk",
+          "cascading_failure",
+          "cross_server",
+          "excessive_scope",
+          "confused_deputy",
+          "file_read",
+          "file_write"
+        ]
+      },
+      "MCP03": {
+        "id": "MCP03:2025",
+        "name": "Tool Poisoning",
+        "coverage_level": "strong",
+        "reason": "Dedicated detector for hidden instructions in tool metadata, plus runtime rug-pull diffing between source and live tool definitions.",
+        "findings_count": 4,
+        "finding_ids": [
+          "poison_execute_kip_instruction_injection",
+          "poison_execute_kip_long_desc",
+          "poison_execute_kip_readonly_instruction_injection",
+          "poison_execute_kip_readonly_long_desc"
+        ],
+        "detectors": [
+          "tool_poisoning",
+          "obfuscation",
+          "rogue_agent",
+          "source_vs_runtime_diff",
+          "tool_shadowing",
+          "hidden_unicode",
+          "rug_pull_primitive",
+          "surface_mismatch"
+        ]
+      },
+      "MCP04": {
+        "id": "MCP04:2025",
+        "name": "Software Supply Chain Attacks & Dependency Tampering",
+        "coverage_level": "strong",
+        "reason": "Dependency CVE lookup, known MCP CVEs, install lifecycle hooks, and unpinned npx/uvx/pip/@latest install sources.",
+        "findings_count": 1,
+        "finding_ids": [
+          "mcp04_unpinned_0001"
+        ],
+        "detectors": [
+          "dependency_vuln",
+          "supply_chain",
+          "known_cve",
+          "obfuscation",
+          "lifecycle_hooks",
+          "mcp04_unpinned_install",
+          "homoglyph",
+          "rug_pull_primitive",
+          "surface_mismatch"
+        ]
+      },
+      "MCP05": {
+        "id": "MCP05:2025",
+        "name": "Command Injection & Execution",
+        "coverage_level": "partial",
+        "reason": "Regex, AST and Semgrep find exec/shell sinks and a heuristic flags sinks inside tool handlers, but there is no inter-procedural taint tracking from tool input to sink.",
+        "findings_count": 9,
+        "finding_ids": [
+          "code_0001",
+          "code_0002",
+          "code_0003",
+          "code_0004",
+          "code_0005",
+          "code_0006",
+          "code_0007",
+          "cap_execute_kip_shell_exec",
+          "cap_execute_kip_readonly_shell_exec"
+        ],
+        "detectors": [
+          "command_injection",
+          "code_execution",
+          "code_generation",
+          "sandbox_escape",
+          "mcp05_tool_input_sink",
+          "shell_exec"
+        ]
+      },
+      "MCP06": {
+        "id": "MCP06:2025",
+        "name": "Prompt Injection via Contextual Payloads",
+        "coverage_level": "partial",
+        "reason": "Injection markers are detected in tool metadata, server instructions, resources, prompts and the strings a tool returns (static), and in instructions/resources/prompts read live; payloads produced by calling a tool at runtime are not inspected.",
+        "findings_count": 6,
+        "finding_ids": [
+          "memory_0001",
+          "memory_0002",
+          "memory_0003",
+          "memory_0004",
+          "trust_0001",
+          "prompt_kip_bootstrap_invokes_dangerous_tool"
+        ],
+        "detectors": [
+          "prompt_injection",
+          "memory_poisoning",
+          "trust_exploitation",
+          "response_injection",
+          "tool_shadowing"
+        ]
+      },
+      "MCP07": {
+        "id": "MCP07:2025",
+        "name": "Insufficient Authentication & Authorization",
+        "coverage_level": "partial",
+        "reason": "Flags remote servers with no visible auth and servers bound to all interfaces; does not verify OAuth implementation or per-tool authorization logic.",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "transport_security",
+          "inter_agent_comm",
+          "identity_privilege",
+          "transport_no_auth",
+          "config_no_auth",
+          "mcp07_bind_all_interfaces"
+        ]
+      },
+      "MCP08": {
+        "id": "MCP08:2025",
+        "name": "Lack of Audit and Telemetry",
+        "coverage_level": "gap",
+        "reason": "Only a low-confidence heuristic for missing logging in tool-defining files; actual audit trails and telemetry pipelines are not verified.",
+        "findings_count": 1,
+        "finding_ids": [
+          "mcp08_no_tool_logging"
+        ],
+        "detectors": [
+          "audit_telemetry",
+          "mcp08_no_tool_logging"
+        ]
+      },
+      "MCP09": {
+        "id": "MCP09:2025",
+        "name": "Shadow MCP Servers",
+        "coverage_level": "partial",
+        "reason": "Covered by `axiom discover` allowlist on the local machine; no network-wide or fleet discovery.",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "mcpguard_discover",
+          "shadow_mcp"
+        ]
+      },
+      "MCP10": {
+        "id": "MCP10:2025",
+        "name": "Context Injection & Over-Sharing",
+        "coverage_level": "partial",
+        "reason": "Hard-coded egress URLs, tools that send to caller-chosen destinations and bulk-exposure heuristics are detected statically and live; what context is actually shared at runtime is not observed.",
+        "findings_count": 6,
+        "finding_ids": [
+          "memory_0001",
+          "memory_0002",
+          "memory_0003",
+          "memory_0004",
+          "mcp10_broad_exposure_0001",
+          "mcp10_broad_exposure_0002"
+        ],
+        "detectors": [
+          "context_oversharing",
+          "data_exfiltration",
+          "memory_poisoning",
+          "mcp10_broad_data_exposure"
+        ]
+      }
+    },
+    "total_mcp_categories_with_findings": 8
+  },
+  "ai_analysis": null,
+  "tool_poisoning_report": null,
+  "prompt_injection_risk": null
+}

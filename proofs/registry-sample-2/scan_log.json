@@ -1,0 +1,1009 @@
+{
+ "method": {
+  "registry": "https://registry.modelcontextprotocol.io/v0/servers (all pages, isLatest only, status active)",
+  "pulled_at": "2026-11-11T22:29:54Z",
+  "latest_entries": 62251,
+  "with_github_repo": 30986,
+  "excluded": "the 50 repositories of the Phase 4 sample (50 still listed)",
+  "pool": "400 entries drawn uniformly at random (seed 20261105) from the eligible entries; 49 not resolvable on GitHub and 0 forks dropped",
+  "popular": "top 25 of the pool by GitHub stargazers (the registry API exposes no download or reference counts)",
+  "random": "25 drawn uniformly at random (seed 20261105) from the remaining pool",
+  "scanner_commit": "fe6d5dc",
+  "cloned": "2026-11-11, depth 1, core.longpaths=true",
+  "command": "axiom scan <dir> --output json --no-ai --no-history"
+ },
+ "repositories": [
+  {
+   "n": 1,
+   "group": "popular",
+   "repo": "thedaviddias/Front-End-Checklist",
+   "name": "io.github.thedaviddias/front-end-checklist",
+   "stars": 74709,
+   "slug": "01_thedaviddias__Front-End-Checklist",
+   "commit": "e8d14d049010e2ce25afcd5e8609dfcbbe63e47e",
+   "files_checked_out": 1967,
+   "status": "scanned",
+   "risk_level": "medium",
+   "tools_found": 11,
+   "counts": {
+    "critical": 0,
+    "high": 0,
+    "medium": 5,
+    "low": 92,
+    "info": 48
+   }
+  },
+  {
+   "n": 2,
+   "group": "popular",
+   "repo": "brightdata/brightdata-mcp",
+   "name": "io.github.brightdata/brightdata-mcp",
+   "stars": 2722,
+   "slug": "02_brightdata__brightdata-mcp",
+   "commit": "258f368ecf06556be7a63b2e3c259f94d9349f89",
+   "files_checked_out": 86,
+   "status": "scanned",
+   "risk_level": "medium",
+   "tools_found": 15,
+   "counts": {
+    "critical": 0,
+    "high": 0,
+    "medium": 50,
+    "low": 105,
+    "info": 3
+   }
+  },
+  {
+   "n": 3,
+   "group": "popular",
+   "repo": "MaxFreedomPollard/Compartment",
+   "name": "io.github.MaxFreedomPollard/compartment",
+   "stars": 569,
+   "slug": "03_MaxFreedomPollard__Compartment",
+   "commit": "2e2c587666c6f7d40738ae97b401d40cff7e504a",
+   "files_checked_out": 217,
+   "status": "scanned",
+   "risk_level": "high",
+   "tools_found": 14,
+   "counts": {
+    "critical": 0,
+    "high": 3,
+    "medium": 29,
+    "low": 42,
+    "info": 70
+   }
+  },
+  {
+   "n": 4,
+   "group": "popular",
+   "repo": "gitkraken/gk-cli",
+   "name": "com.gitkraken/gk-cli",
+   "stars": 464,
+   "slug": "04_gitkraken__gk-cli",
+   "commit": "5e5eeebf9533db5e2c6c0e849f171d5f3488dfeb",
+   "files_checked_out": 7,
+   "status": "scanned",
+   "risk_level": "safe",
+   "tools_found": 0,
+   "counts": {
+    "critical": 0,
+    "high": 0,
+    "medium": 0,
+    "low": 0,
+    "info": 0
+   }
+  },
+  {
+   "n": 5,
+   "group": "popular",
+   "repo": "drhelius/gearsystem",
+   "name": "io.github.drhelius/gearsystem",
+   "stars": 400,
+   "slug": "05_drhelius__gearsystem",
+   "commit": "1be9a12b82cae84ddd6f9b7006d546abe2d58bd4",
+   "files_checked_out": 493,
+   "status": "scanned",
+   "risk_level": "safe",
+   "tools_found": 0,
+   "counts": {
+    "critical": 0,
+    "high": 0,
+    "medium": 0,
+    "low": 0,
+    "info": 0
+   }
+  },
+  {
+   "n": 6,
+   "group": "popular",
+   "repo": "Arenukvern/mcp_flutter",
+   "name": "io.github.Arenukvern/flutter-mcp-toolkit",
+   "stars": 397,
+   "slug": "06_Arenukvern__mcp_flutter",
+   "commit": "d1cb0b6c4b66c955005d73045a699d118044a5d9",
+   "files_checked_out": 1085,
+   "status": "scanned",
+   "risk_level": "medium",
+   "tools_found": 0,
+   "counts": {
+    "critical": 0,
+    "high": 0,
+    "medium": 2,
+    "low": 0,
+    "info": 0
+   }
+  },
+  {
+   "n": 7,
+   "group": "popular",
+   "repo": "Goldentrii/AgentRecall-MCP",
+   "name": "io.github.Goldentrii/agent-recall",
+   "stars": 375,
+   "slug": "07_Goldentrii__AgentRecall-MCP",
+   "commit": "7ad6895244bfb2eb6b9b41405313f1829d4abfe0",
+   "files_checked_out": 1101,
+   "status": "scanned",
+   "risk_level": "high",
+   "tools_found": 37,
+   "counts": {
+    "critical": 0,
+    "high": 1,
+    "medium": 19,
+    "low": 261,
+    "info": 525
+   }
+  },
+  {
+   "n": 8,
+   "group": "popular",
+   "repo": "no-human-ai/no_human",
+   "name": "io.github.no-human-ai/no_human",
+   "stars": 321,
+   "slug": "08_no-human-ai__no_human",
+   "commit": "cdcbd0af086890eb4ecdbece1c1ca8dc168e5907",
+   "files_checked_out": 1728,
+   "status": "scanned",
+   "risk_level": "high",
+   "tools_found": 2,
+   "counts": {
+    "critical": 0,
+    "high": 1,
+    "medium": 29,
+    "low": 491,
+    "info": 533
+   }
+  },
+  {
+   "n": 9,
+   "group": "popular",
+   "repo": "sanity-io/agent-toolkit",
+   "name": "io.sanity.www/mcp",
+   "stars": 197,
+   "slug": "09_sanity-io__agent-toolkit",
+   "commit": "3ed3a143f8d3413faa7790ac0b2274fd3a8a6320",
+   "files_checked_out": 100,
+   "status": "scanned",
+   "risk_level": "low",
+   "tools_found": 0,
+   "counts": {
+    "critical": 0,
+    "high": 0,
+    "medium": 0,
+    "low": 14,
+    "info": 0
+   }
+  },
+  {
+   "n": 10,
+   "group": "popular",
+   "repo": "serpapi/serpapi-mcp",
+   "name": "io.github.serpapi/serpapi-mcp",
+   "stars": 184,
+   "slug": "10_serpapi__serpapi-mcp",
+   "commit": "6ffa96138143409ae8277ee32b6d4e13c9924e65",
+   "files_checked_out": 46,
+   "status": "scanned",
+   "risk_level": "medium",
+   "tools_found": 4,
+   "counts": {
+    "critical": 0,
+    "high": 0,
+    "medium": 5,
+    "low": 110,
+    "info": 3
+   }
+  },
+  {
+   "n": 11,
+   "group": "popular",
+   "repo": "DeHor-Labs/mcp-juridico-brasil",
+   "name": "io.github.DeHor-Labs/mcp-juridico-brasil",
+   "stars": 139,
+   "slug": "11_DeHor-Labs__mcp-juridico-brasil",
+   "commit": "4dd19d146b2a3efe6fd3d0c7fcd2ceaefe40cfc1",
+   "files_checked_out": 83,
+   "status": "scanned",
+   "risk_level": "medium",
+   "tools_found": 2,
+   "counts": {
+    "critical": 0,
+    "high": 0,
+    "medium": 3,
+    "low": 0,
+    "info": 18
+   }
+  },
+  {
+   "n": 12,
+   "group": "popular",
+   "repo": "pmndrs/docs",
+   "name": "io.github.pmndrs/docs",
+   "stars": 120,
+   "slug": "12_pmndrs__docs",
+   "commit": "b18e3ed7941a7e6e07896998a4dfb7b71b1b9c5b",
+   "files_checked_out": 409,
+   "status": "scanned",
+   "risk_level": "medium",
+   "tools_found": 3,
+   "counts": {
+    "critical": 0,
+    "high": 0,
+    "medium": 19,
+    "low": 61,
+    "info": 10
+   }
+  },
+  {
+   "n": 13,
+   "group": "popular",
+   "repo": "fr0ster/mcp-abap-adt",
+   "name": "io.github.fr0ster/mcp-abap-adt",
+   "stars": 106,
+   "slug": "13_fr0ster__mcp-abap-adt",
+   "commit": "b29d6ffdc8665ce00580e100ca70e28d341f7bfb",
+   "files_checked_out": 2004,
+   "status": "scanned",
+   "risk_level": "medium",
+   "tools_found": 0,
+   "counts": {
+    "critical": 0,
+    "high": 0,
+    "medium": 4,
+    "low": 2967,
+    "info": 59
+   }
+  },
+  {
+   "n": 14,
+   "group": "popular",
+   "repo": "manusa/podman-mcp-server",
+   "name": "io.github.manusa/podman-mcp-server",
+   "stars": 86,
+   "slug": "14_manusa__podman-mcp-server",
+   "commit": "5fd49dbb496f74216c8c464d7c0cf84c9a9bd848",
+   "files_checked_out": 66,
+   "status": "scanned",
+   "risk_level": "safe",
+   "tools_found": 0,
+   "counts": {
+    "critical": 0,
+    "high": 0,
+    "medium": 0,
+    "low": 0,
+    "info": 2
+   }
+  },
+  {
+   "n": 15,
+   "group": "popular",
+   "repo": "HorizunGroup/horizun-revit-mcp",
+   "name": "io.github.HorizunGroup/horizun-revit-mcp",
+   "stars": 85,
+   "slug": "15_HorizunGroup__horizun-revit-mcp",
+   "commit": "00fe15b515db895d8626867b038b43335ed61ad2",
+   "files_checked_out": 1916,
+   "status": "scanned",
+   "risk_level": "low",
+   "tools_found": 0,
+   "counts": {
+    "critical": 0,
+    "high": 0,
+    "medium": 0,
+    "low": 13,
+    "info": 18
+   }
+  },
+  {
+   "n": 16,
+   "group": "popular",
+   "repo": "fliptheweb/yazio-mcp",
+   "name": "io.github.fliptheweb/yazio-mcp",
+   "stars": 72,
+   "slug": "16_fliptheweb__yazio-mcp",
+   "commit": "a299dbd0341642cbf6fe8339bff81dc316b644ef",
+   "files_checked_out": 28,
+   "status": "scanned",
+   "risk_level": "high",
+   "tools_found": 47,
+   "counts": {
+    "critical": 0,
+    "high": 1,
+    "medium": 39,
+    "low": 24,
+    "info": 45
+   }
+  },
+  {
+   "n": 17,
+   "group": "popular",
+   "repo": "shitianfang/jev-use",
+   "name": "io.github.shitianfang/jev-use",
+   "stars": 70,
+   "slug": "17_shitianfang__jev-use",
+   "commit": "541c86caabf1eeb0af929256649d460f2708cb42",
+   "files_checked_out": 80,
+   "status": "scanned",
+   "risk_level": "medium",
+   "tools_found": 2,
+   "counts": {
+    "critical": 0,
+    "high": 0,
+    "medium": 10,
+    "low": 54,
+    "info": 2
+   }
+  },
+  {
+   "n": 18,
+   "group": "popular",
+   "repo": "logisky/logisheets-mcp",
+   "name": "io.github.logisky/logisheets-mcp",
+   "stars": 41,
+   "slug": "18_logisky__logisheets-mcp",
+   "commit": "d1295a6d921f316c3dc5ae439af7b0945bc0a780",
+   "files_checked_out": 42,
+   "status": "scanned",
+   "risk_level": "medium",
+   "tools_found": 0,
+   "counts": {
+    "critical": 0,
+    "high": 0,
+    "medium": 7,
+    "low": 42,
+    "info": 2
+   }
+  },
+  {
+   "n": 19,
+   "group": "popular",
+   "repo": "Noord-Ventures/vlak",
+   "name": "io.github.Noord-Ventures/vlak",
+   "stars": 34,
+   "slug": "19_Noord-Ventures__vlak",
+   "commit": "2eadc30b0b3ba6e026b35febfb499df146283b8c",
+   "files_checked_out": 2321,
+   "status": "scanned",
+   "risk_level": "high",
+   "tools_found": 13,
+   "counts": {
+    "critical": 0,
+    "high": 3,
+    "medium": 8,
+    "low": 465,
+    "info": 4
+   }
+  },
+  {
+   "n": 20,
+   "group": "popular",
+   "repo": "roian6/apple-health-ai-bridge",
+   "name": "io.github.roian6/health-bridge",
+   "stars": 32,
+   "slug": "20_roian6__apple-health-ai-bridge",
+   "commit": "27ea4f1f36f75fbb62127cb89204b08cbe2b0e26",
+   "files_checked_out": 749,
+   "status": "scanned",
+   "risk_level": "low",
+   "tools_found": 0,
+   "counts": {
+    "critical": 0,
+    "high": 0,
+    "medium": 0,
+    "low": 11,
+    "info": 13
+   }
+  },
+  {
+   "n": 21,
+   "group": "popular",
+   "repo": "MarketplaceAdPros/amazon-ads-mcp-server",
+   "name": "com.marketplaceadpros/amazon-ads",
+   "stars": 29,
+   "slug": "21_MarketplaceAdPros__amazon-ads-mcp-server",
+   "commit": "09b770a6fa3737c626d0787ddb091153dd9d0088",
+   "files_checked_out": 11,
+   "status": "scanned",
+   "risk_level": "medium",
+   "tools_found": 0,
+   "counts": {
+    "critical": 0,
+    "high": 0,
+    "medium": 7,
+    "low": 12,
+    "info": 0
+   }
+  },
+  {
+   "n": 22,
+   "group": "popular",
+   "repo": "mattheworiordan/remi",
+   "name": "io.github.mattheworiordan/remi",
+   "stars": 27,
+   "slug": "22_mattheworiordan__remi",
+   "commit": "c7bd272b3f1d938b88d92ff09f2c6600ae77ab8f",
+   "files_checked_out": 67,
+   "status": "scanned",
+   "risk_level": "high",
+   "tools_found": 16,
+   "counts": {
+    "critical": 0,
+    "high": 2,
+    "medium": 10,
+    "low": 137,
+    "info": 0
+   }
+  },
+  {
+   "n": 23,
+   "group": "popular",
+   "repo": "hiddenjobs/job-search-mcp",
+   "name": "io.github.hiddenjobs/job-search-mcp",
+   "stars": 27,
+   "slug": "23_hiddenjobs__job-search-mcp",
+   "commit": "8b573df59114be161b628e9e2247769b87760b33",
+   "files_checked_out": 98,
+   "status": "scanned",
+   "risk_level": "medium",
+   "tools_found": 4,
+   "counts": {
+    "critical": 0,
+    "high": 0,
+    "medium": 8,
+    "low": 15,
+    "info": 0
+   }
+  },
+  {
+   "n": 24,
+   "group": "popular",
+   "repo": "oozoofrog/mcp-baepsae",
+   "name": "io.github.oozoofrog/baepsae",
+   "stars": 26,
+   "slug": "24_oozoofrog__mcp-baepsae",
+   "commit": "4e36492380ca82ae2c3ea28f5475e0ac9050d193",
+   "files_checked_out": 89,
+   "status": "scan_failed",
+   "error": "scanner exited without output (see the .stderr.txt next to the result)"
+  },
+  {
+   "n": 25,
+   "group": "popular",
+   "repo": "swap-api/swap-api",
+   "name": "io.github.Swap-API/mcp",
+   "stars": 22,
+   "slug": "25_swap-api__swap-api",
+   "commit": "bdfd0332bc6ced9801ea2c3a4a3308b8654ff917",
+   "files_checked_out": 14,
+   "status": "scanned",
+   "risk_level": "high",
+   "tools_found": 1,
+   "counts": {
+    "critical": 0,
+    "high": 1,
+    "medium": 2,
+    "low": 0,
+    "info": 1
+   }
+  },
+  {
+   "n": 26,
+   "group": "random",
+   "repo": "GitDakky/twin-me-up",
+   "name": "io.github.GitDakky/twin-me-up",
+   "stars": 2,
+   "slug": "26_GitDakky__twin-me-up",
+   "commit": "7d1113c37fb2bf5a8286861165bfab16251de5cd",
+   "files_checked_out": 74,
+   "status": "scanned",
+   "risk_level": "medium",
+   "tools_found": 0,
+   "counts": {
+    "critical": 0,
+    "high": 0,
+    "medium": 3,
+    "low": 5,
+    "info": 13
+   }
+  },
+  {
+   "n": 27,
+   "group": "random",
+   "repo": "endformdev/skills",
+   "name": "dev.endform/mcp",
+   "stars": 2,
+   "slug": "27_endformdev__skills",
+   "commit": "0727f7c1e3df42a9b90aebabecef764ee71a36fb",
+   "files_checked_out": 16,
+   "status": "scanned",
+   "risk_level": "medium",
+   "tools_found": 0,
+   "counts": {
+    "critical": 0,
+    "high": 0,
+    "medium": 4,
+    "low": 0,
+    "info": 0
+   }
+  },
+  {
+   "n": 28,
+   "group": "random",
+   "repo": "docjet-dev/docjet-mcp",
+   "name": "io.github.docjet-dev/docjet-mcp",
+   "stars": 0,
+   "slug": "28_docjet-dev__docjet-mcp",
+   "commit": "03044f6d3efe450319e14372c3d86781b8e03648",
+   "files_checked_out": 11,
+   "status": "scanned",
+   "risk_level": "medium",
+   "tools_found": 3,
+   "counts": {
+    "critical": 0,
+    "high": 0,
+    "medium": 13,
+    "low": 52,
+    "info": 0
+   }
+  },
+  {
+   "n": 29,
+   "group": "random",
+   "repo": "RagingOrangutan/rootvine-mcp",
+   "name": "io.github.RagingOrangutan/rootvine-mcp",
+   "stars": 3,
+   "slug": "29_RagingOrangutan__rootvine-mcp",
+   "commit": "f863bdf9e6384e1cb88166a4473560209c3d830d",
+   "files_checked_out": 64,
+   "status": "scanned",
+   "risk_level": "medium",
+   "tools_found": 5,
+   "counts": {
+    "critical": 0,
+    "high": 0,
+    "medium": 9,
+    "low": 20,
+    "info": 2
+   }
+  },
+  {
+   "n": 30,
+   "group": "random",
+   "repo": "devart-ai-connectivity/devart-mcp-server-dynamics365",
+   "name": "com.devart/mcp-dynamics365",
+   "stars": 0,
+   "slug": "30_devart-ai-connectivity__devart-mcp-server-dynamics365",
+   "commit": "7a654f7836d726d1c34faad67f6f3af69dc91bae",
+   "files_checked_out": 130,
+   "status": "scanned",
+   "risk_level": "safe",
+   "tools_found": 0,
+   "counts": {
+    "critical": 0,
+    "high": 0,
+    "medium": 0,
+    "low": 0,
+    "info": 0
+   }
+  },
+  {
+   "n": 31,
+   "group": "random",
+   "repo": "pipeworx-io/mcp-datos-co",
+   "name": "io.github.pipeworx-io/datos-co",
+   "stars": 0,
+   "slug": "31_pipeworx-io__mcp-datos-co",
+   "commit": "7fdeb99ba87eefeefa2d5587d27e1b03ffdaee39",
+   "files_checked_out": 8,
+   "status": "scanned",
+   "risk_level": "medium",
+   "tools_found": 0,
+   "counts": {
+    "critical": 0,
+    "high": 0,
+    "medium": 1,
+    "low": 0,
+    "info": 0
+   }
+  },
+  {
+   "n": 32,
+   "group": "random",
+   "repo": "podop29/shotpipe-mcp",
+   "name": "io.github.podop29/shotpipe-mcp",
+   "stars": 0,
+   "slug": "32_podop29__shotpipe-mcp",
+   "commit": "a4b16957431fa8a5b2a8bf124a43101ff8a9008d",
+   "files_checked_out": 9,
+   "status": "scanned",
+   "risk_level": "medium",
+   "tools_found": 2,
+   "counts": {
+    "critical": 0,
+    "high": 0,
+    "medium": 2,
+    "low": 36,
+    "info": 0
+   }
+  },
+  {
+   "n": 33,
+   "group": "random",
+   "repo": "rjn32s/mcp-yolo",
+   "name": "io.github.rjn32s/mcp-yolo",
+   "stars": 1,
+   "slug": "33_rjn32s__mcp-yolo",
+   "commit": "0df8eb7395550740c0ac82dcd74cceb37a0764ed",
+   "files_checked_out": 14,
+   "status": "scanned",
+   "risk_level": "high",
+   "tools_found": 2,
+   "counts": {
+    "critical": 0,
+    "high": 1,
+    "medium": 7,
+    "low": 244,
+    "info": 1
+   }
+  },
+  {
+   "n": 34,
+   "group": "random",
+   "repo": "pipeworx-io/mcp-anzctr",
+   "name": "io.github.pipeworx-io/anzctr",
+   "stars": 0,
+   "slug": "34_pipeworx-io__mcp-anzctr",
+   "commit": "d28498335e82202901e35bd87a568c3eb919b69a",
+   "files_checked_out": 8,
+   "status": "scanned",
+   "risk_level": "medium",
+   "tools_found": 0,
+   "counts": {
+    "critical": 0,
+    "high": 0,
+    "medium": 1,
+    "low": 0,
+    "info": 0
+   }
+  },
+  {
+   "n": 35,
+   "group": "random",
+   "repo": "violetclaire/popcorn-temporal-anchor",
+   "name": "io.github.violetclaire/popcorn-mcp",
+   "stars": 0,
+   "slug": "35_violetclaire__popcorn-temporal-anchor",
+   "commit": "a3dbba73e904870237a7c2d8dba9fdd3391ed90b",
+   "files_checked_out": 329,
+   "status": "scanned",
+   "risk_level": "medium",
+   "tools_found": 7,
+   "counts": {
+    "critical": 0,
+    "high": 0,
+    "medium": 4,
+    "low": 180,
+    "info": 56
+   }
+  },
+  {
+   "n": 36,
+   "group": "random",
+   "repo": "czekaj/sf-transit-mcp",
+   "name": "io.github.czekaj/sf-transit-mcp",
+   "stars": 1,
+   "slug": "36_czekaj__sf-transit-mcp",
+   "commit": "4383312fda32b26dccc02314db86f789445de416",
+   "files_checked_out": 97,
+   "status": "scanned",
+   "risk_level": "high",
+   "tools_found": 2,
+   "counts": {
+    "critical": 0,
+    "high": 3,
+    "medium": 2,
+    "low": 14,
+    "info": 3
+   }
+  },
+  {
+   "n": 37,
+   "group": "random",
+   "repo": "mcp-dir/pref_sp_sao_paulo_iptu2via-mcp",
+   "name": "io.github.mcp-dir/pref_sp_sao_paulo_iptu2via-mcp",
+   "stars": 0,
+   "slug": "37_mcp-dir__pref_sp_sao_paulo_iptu2via-mcp",
+   "commit": "3ad849c740a11341160b6a6c6f10e29949fe30fc",
+   "files_checked_out": 21,
+   "status": "scanned",
+   "risk_level": "safe",
+   "tools_found": 0,
+   "counts": {
+    "critical": 0,
+    "high": 0,
+    "medium": 0,
+    "low": 0,
+    "info": 0
+   }
+  },
+  {
+   "n": 38,
+   "group": "random",
+   "repo": "doazvjettu/leakguard-mcp",
+   "name": "io.github.doazvjettu/leakguard-mcp",
+   "stars": 0,
+   "slug": "38_doazvjettu__leakguard-mcp",
+   "commit": "17e278e6a51c40d4911ca29abec273f7a6dea9ca",
+   "files_checked_out": 121,
+   "status": "scanned",
+   "risk_level": "medium",
+   "tools_found": 0,
+   "counts": {
+    "critical": 0,
+    "high": 0,
+    "medium": 1,
+    "low": 158,
+    "info": 1
+   }
+  },
+  {
+   "n": 39,
+   "group": "random",
+   "repo": "greenmtnsun/GitEasy",
+   "name": "io.github.greenmtnsun/giteasy",
+   "stars": 1,
+   "slug": "39_greenmtnsun__GitEasy",
+   "commit": "c82ef99b701fc66e75c0a1c25b95e5f70e025039",
+   "files_checked_out": 218,
+   "status": "scanned",
+   "risk_level": "safe",
+   "tools_found": 0,
+   "counts": {
+    "critical": 0,
+    "high": 0,
+    "medium": 0,
+    "low": 0,
+    "info": 0
+   }
+  },
+  {
+   "n": 40,
+   "group": "random",
+   "repo": "MShekow/package-version-check-mcp",
+   "name": "io.github.MShekow/package-version-check-mcp",
+   "stars": 9,
+   "slug": "40_MShekow__package-version-check-mcp",
+   "commit": "d40e7ba441a3b9857bd9f4454b18e37fcea7ea67",
+   "files_checked_out": 49,
+   "status": "scanned",
+   "risk_level": "high",
+   "tools_found": 4,
+   "counts": {
+    "critical": 0,
+    "high": 3,
+    "medium": 13,
+    "low": 1,
+    "info": 5
+   }
+  },
+  {
+   "n": 41,
+   "group": "random",
+   "repo": "pipeworx-io/mcp-trade-compliance",
+   "name": "io.github.pipeworx-io/trade-compliance",
+   "stars": 0,
+   "slug": "41_pipeworx-io__mcp-trade-compliance",
+   "commit": "6c1ea936a4e664a94aadec4308b48a6076f139bb",
+   "files_checked_out": 8,
+   "status": "scanned",
+   "risk_level": "medium",
+   "tools_found": 0,
+   "counts": {
+    "critical": 0,
+    "high": 0,
+    "medium": 1,
+    "low": 0,
+    "info": 0
+   }
+  },
+  {
+   "n": 42,
+   "group": "random",
+   "repo": "pipeworx-io/mcp-tweedekamer-nl",
+   "name": "io.github.pipeworx-io/tweedekamer-nl",
+   "stars": 0,
+   "slug": "42_pipeworx-io__mcp-tweedekamer-nl",
+   "commit": "4fe234ee5db6f99bc46b58d578a52b1330187ecb",
+   "files_checked_out": 8,
+   "status": "scanned",
+   "risk_level": "medium",
+   "tools_found": 0,
+   "counts": {
+    "critical": 0,
+    "high": 0,
+    "medium": 1,
+    "low": 0,
+    "info": 0
+   }
+  },
+  {
+   "n": 43,
+   "group": "random",
+   "repo": "cookieyes/cookieyes-mcp",
+   "name": "com.cookieyes/mcp",
+   "stars": 0,
+   "slug": "43_cookieyes__cookieyes-mcp",
+   "commit": "4827653619c30abd002eabb477e75e63ae322e26",
+   "files_checked_out": 2,
+   "status": "scanned",
+   "risk_level": "safe",
+   "tools_found": 0,
+   "counts": {
+    "critical": 0,
+    "high": 0,
+    "medium": 0,
+    "low": 0,
+    "info": 0
+   }
+  },
+  {
+   "n": 44,
+   "group": "random",
+   "repo": "lineofflight/frankfurter-mcp",
+   "name": "io.github.lineofflight/frankfurter",
+   "stars": 6,
+   "slug": "44_lineofflight__frankfurter-mcp",
+   "commit": "e45622f73a98bec3a63018a9a2101ef1b4e8204e",
+   "files_checked_out": 42,
+   "status": "scanned",
+   "risk_level": "medium",
+   "tools_found": 4,
+   "counts": {
+    "critical": 0,
+    "high": 0,
+    "medium": 11,
+    "low": 15,
+    "info": 1
+   }
+  },
+  {
+   "n": 45,
+   "group": "random",
+   "repo": "akomyagin/aiMCPGate",
+   "name": "io.github.akomyagin/aimcpgate",
+   "stars": 0,
+   "slug": "45_akomyagin__aiMCPGate",
+   "commit": "076def3b93f1a381129c35e97e5383c2ac7654e2",
+   "files_checked_out": 140,
+   "status": "scanned",
+   "risk_level": "medium",
+   "tools_found": 0,
+   "counts": {
+    "critical": 0,
+    "high": 0,
+    "medium": 1,
+    "low": 0,
+    "info": 1
+   }
+  },
+  {
+   "n": 46,
+   "group": "random",
+   "repo": "mcp-dir/asaas-mcp",
+   "name": "io.github.mcp-dir/asaas-mcp",
+   "stars": 4,
+   "slug": "46_mcp-dir__asaas-mcp",
+   "commit": "19d6ea79fd1feb9663fca436917334068bb97dd5",
+   "files_checked_out": 21,
+   "status": "scanned",
+   "risk_level": "safe",
+   "tools_found": 0,
+   "counts": {
+    "critical": 0,
+    "high": 0,
+    "medium": 0,
+    "low": 0,
+    "info": 0
+   }
+  },
+  {
+   "n": 47,
+   "group": "random",
+   "repo": "simonsbookclub/readingrate-plugin",
+   "name": "com.readingrate/readingrate",
+   "stars": 0,
+   "slug": "47_simonsbookclub__readingrate-plugin",
+   "commit": "9678a89078f831558a51007078f88509db374bbd",
+   "files_checked_out": 18,
+   "status": "scanned",
+   "risk_level": "safe",
+   "tools_found": 0,
+   "counts": {
+    "critical": 0,
+    "high": 0,
+    "medium": 0,
+    "low": 0,
+    "info": 0
+   }
+  },
+  {
+   "n": 48,
+   "group": "random",
+   "repo": "CindyLiao1106/nocodecsv",
+   "name": "io.github.CindyLiao1106/nocodecsv",
+   "stars": 0,
+   "slug": "48_CindyLiao1106__nocodecsv",
+   "commit": "3b8a9ca04df6e5e5ba346fae83ab048a88e66325",
+   "files_checked_out": 540,
+   "status": "scanned",
+   "risk_level": "medium",
+   "tools_found": 0,
+   "counts": {
+    "critical": 0,
+    "high": 0,
+    "medium": 13,
+    "low": 51,
+    "info": 36
+   }
+  },
+  {
+   "n": 49,
+   "group": "random",
+   "repo": "Baptoshi/silicon-floor",
+   "name": "com.siliconfloor/silicon-floor",
+   "stars": 1,
+   "slug": "49_Baptoshi__silicon-floor",
+   "commit": "6249207319f4b57371120b189a042fd8d6fda51a",
+   "files_checked_out": 25,
+   "status": "scanned",
+   "risk_level": "safe",
+   "tools_found": 0,
+   "counts": {
+    "critical": 0,
+    "high": 0,
+    "medium": 0,
+    "low": 0,
+    "info": 0
+   }
+  },
+  {
+   "n": 50,
+   "group": "random",
+   "repo": "man0l/slashloop",
+   "name": "io.github.man0l/slashloop",
+   "stars": 0,
+   "slug": "50_man0l__slashloop",
+   "commit": "de2c600011ff7f5ba901b75b7b4d56616fb16ac7",
+   "files_checked_out": 642,
+   "status": "scanned",
+   "risk_level": "critical",
+   "tools_found": 78,
+   "counts": {
+    "critical": 1,
+    "high": 1,
+    "medium": 124,
+    "low": 309,
+    "info": 45
+   }
+  }
+ ]
+}

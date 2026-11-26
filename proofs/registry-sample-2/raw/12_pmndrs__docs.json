@@ -1,0 +1,2554 @@
+{
+  "schema_version": "0.5",
+  "target": "12_pmndrs__docs",
+  "risk_score": 45.0,
+  "risk_level": "medium",
+  "tools_found": 3,
+  "findings_count": 90,
+  "findings": [
+    {
+      "id": "poison_get_page_content_instruction_injection",
+      "severity": "medium",
+      "category": "tool_poisoning",
+      "title": "Steering language (instruction injection) in 'get_page_content'",
+      "description": "Steering language in tool description (imperative guidance aimed at the model). Matched pattern in tool 'get_page_content': 'never'",
+      "owasp_asi": [
+        "ASI01"
+      ],
+      "owasp_mcp": [
+        "MCP03"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Review tool description carefully. Compare claimed functionality with actual code behavior. Consider removing this MCP server.",
+      "rule_id": "poison_instruction_injection",
+      "evidence": "never",
+      "location": "static:<corpus>/registry2/12_pmndrs__docs:get_page_content",
+      "replay": "axiom scan <corpus>/registry2/12_pmndrs__docs --output json --no-ai --no-history | jq '.findings[] | select(.id==\"poison_get_page_content_instruction_injection\")'"
+    },
+    {
+      "id": "cross_tool_search_docs_get_page_content",
+      "severity": "medium",
+      "category": "cross_server",
+      "title": "Tool 'search_docs' references tool 'get_page_content'",
+      "description": "Tool description mentions another tool by name, which could enable tool chaining attacks.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP01",
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Verify this cross-reference is legitimate and necessary.",
+      "rule_id": "cross_tool_reference",
+      "evidence": "Tool 'search_docs' references tool 'get_page_content'",
+      "location": "static:<corpus>/registry2/12_pmndrs__docs:search_docs_get_page_content",
+      "replay": "axiom scan <corpus>/registry2/12_pmndrs__docs --output json --no-ai --no-history | jq '.findings[] | select(.id==\"cross_tool_search_docs_get_page_content\")'"
+    },
+    {
+      "id": "cross_tool_get_page_content_search_docs",
+      "severity": "medium",
+      "category": "cross_server",
+      "title": "Tool 'get_page_content' references tool 'search_docs'",
+      "description": "Tool description mentions another tool by name, which could enable tool chaining attacks.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP01",
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Verify this cross-reference is legitimate and necessary.",
+      "rule_id": "cross_tool_reference",
+      "evidence": "Tool 'get_page_content' references tool 'search_docs'",
+      "location": "static:<corpus>/registry2/12_pmndrs__docs:get_page_content_search_docs",
+      "replay": "axiom scan <corpus>/registry2/12_pmndrs__docs --output json --no-ai --no-history | jq '.findings[] | select(.id==\"cross_tool_get_page_content_search_docs\")'"
+    },
+    {
+      "id": "cross_tool_get_example_search_docs",
+      "severity": "medium",
+      "category": "cross_server",
+      "title": "Tool 'get_example' references tool 'search_docs'",
+      "description": "Tool description mentions another tool by name, which could enable tool chaining attacks.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP01",
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Verify this cross-reference is legitimate and necessary.",
+      "rule_id": "cross_tool_reference",
+      "evidence": "Tool 'get_example' references tool 'search_docs'",
+      "location": "static:<corpus>/registry2/12_pmndrs__docs:get_example_search_docs",
+      "replay": "axiom scan <corpus>/registry2/12_pmndrs__docs --output json --no-ai --no-history | jq '.findings[] | select(.id==\"cross_tool_get_example_search_docs\")'"
+    },
+    {
+      "id": "cross_tool_get_example_get_page_content",
+      "severity": "medium",
+      "category": "cross_server",
+      "title": "Tool 'get_example' references tool 'get_page_content'",
+      "description": "Tool description mentions another tool by name, which could enable tool chaining attacks.",
+      "owasp_asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "owasp_mcp": [
+        "MCP01",
+        "MCP02"
+      ],
+      "file_path": null,
+      "line_number": null,
+      "recommendation": "Verify this cross-reference is legitimate and necessary.",
+      "rule_id": "cross_tool_reference",
+      "evidence": "Tool 'get_example' references tool 'get_page_content'",
+      "location": "static:<corpus>/registry2/12_pmndrs__docs:get_example_get_page_content",
+      "replay": "axiom scan <corpus>/registry2/12_pmndrs__docs --output json --no-ai --no-history | jq '.findings[] | select(.id==\"cross_tool_get_example_get_page_content\")'"
+    },
+    {
+      "id": "code_0001",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in registry\\color\\color.stories.tsx at line 4: `import { allModes } from '../../.storybook/modes'`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "registry\\color\\color.stories.tsx",
+      "line_number": 4,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "import { allModes } from '../../.storybook/modes'",
+      "location": "registry\\color\\color.stories.tsx:4",
+      "replay": "axiom scan <corpus>/registry2/12_pmndrs__docs --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0001\")'"
+    },
+    {
+      "id": "code_0002",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in registry\\keypoints\\keypoints.stories.tsx at line 3: `import { allModes } from '../../.storybook/modes'`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "registry\\keypoints\\keypoints.stories.tsx",
+      "line_number": 3,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "import { allModes } from '../../.storybook/modes'",
+      "location": "registry\\keypoints\\keypoints.stories.tsx:3",
+      "replay": "axiom scan <corpus>/registry2/12_pmndrs__docs --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0002\")'"
+    },
+    {
+      "id": "code_0003",
+      "severity": "info",
+      "category": "data_exfiltration",
+      "title": "Server makes outbound network requests (capability note)",
+      "description": "Pattern matched in src\\app\\api\\[transport]\\route.test.ts at line 94: `const response = await fetch('https://r3f.docs.pmnd.rs/llms-full.txt')`",
+      "owasp_asi": [
+        "ASI01",
+        "ASI02"
+      ],
+      "owasp_mcp": [
+        "MCP10"
+      ],
+      "file_path": "src\\app\\api\\[transport]\\route.test.ts",
+      "line_number": 94,
+      "recommendation": "Review this data exfiltration pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const response = await fetch('https://r3f.docs.pmnd.rs/llms-full.txt')",
+      "location": "src\\app\\api\\[transport]\\route.test.ts:94",
+      "replay": "axiom scan <corpus>/registry2/12_pmndrs__docs --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0003\")'"
+    },
+    {
+      "id": "code_0004",
+      "severity": "info",
+      "category": "data_exfiltration",
+      "title": "Server makes outbound network requests (capability note)",
+      "description": "Pattern matched in src\\app\\api\\[transport]\\route.test.ts at line 244: `await expect(fetch('https://error.test.com/llms-full.txt')).rejects.toThrow()`",
+      "owasp_asi": [
+        "ASI01",
+        "ASI02"
+      ],
+      "owasp_mcp": [
+        "MCP10"
+      ],
+      "file_path": "src\\app\\api\\[transport]\\route.test.ts",
+      "line_number": 244,
+      "recommendation": "Review this data exfiltration pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "await expect(fetch('https://error.test.com/llms-full.txt')).rejects.toThrow()",
+      "location": "src\\app\\api\\[transport]\\route.test.ts:244",
+      "replay": "axiom scan <corpus>/registry2/12_pmndrs__docs --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0004\")'"
+    },
+    {
+      "id": "code_0005",
+      "severity": "info",
+      "category": "data_exfiltration",
+      "title": "Server makes outbound network requests (capability note)",
+      "description": "Pattern matched in src\\app\\api\\[transport]\\route.test.ts at line 254: `const response = await fetch('https://notfound.test.com/llms-full.txt')`",
+      "owasp_asi": [
+        "ASI01",
+        "ASI02"
+      ],
+      "owasp_mcp": [
+        "MCP10"
+      ],
+      "file_path": "src\\app\\api\\[transport]\\route.test.ts",
+      "line_number": 254,
+      "recommendation": "Review this data exfiltration pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const response = await fetch('https://notfound.test.com/llms-full.txt')",
+      "location": "src\\app\\api\\[transport]\\route.test.ts:254",
+      "replay": "axiom scan <corpus>/registry2/12_pmndrs__docs --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0005\")'"
+    },
+    {
+      "id": "code_0006",
+      "severity": "info",
+      "category": "data_exfiltration",
+      "title": "Server makes outbound network requests (capability note)",
+      "description": "Pattern matched in src\\app\\api\\[transport]\\route.test.ts at line 325: `const response = await fetch('https://r3f.docs.pmnd.rs/llms-full.txt')`",
+      "owasp_asi": [
+        "ASI01",
+        "ASI02"
+      ],
+      "owasp_mcp": [
+        "MCP10"
+      ],
+      "file_path": "src\\app\\api\\[transport]\\route.test.ts",
+      "line_number": 325,
+      "recommendation": "Review this data exfiltration pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const response = await fetch('https://r3f.docs.pmnd.rs/llms-full.txt')",
+      "location": "src\\app\\api\\[transport]\\route.test.ts:325",
+      "replay": "axiom scan <corpus>/registry2/12_pmndrs__docs --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0006\")'"
+    },
+    {
+      "id": "code_0007",
+      "severity": "info",
+      "category": "data_exfiltration",
+      "title": "Server makes outbound network requests (capability note)",
+      "description": "Pattern matched in src\\app\\api\\[transport]\\route.test.ts at line 492: `await expect(fetch('https://error.docs.pmnd.rs/llms-full.txt')).rejects.toThrow()`",
+      "owasp_asi": [
+        "ASI01",
+        "ASI02"
+      ],
+      "owasp_mcp": [
+        "MCP10"
+      ],
+      "file_path": "src\\app\\api\\[transport]\\route.test.ts",
+      "line_number": 492,
+      "recommendation": "Review this data exfiltration pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "await expect(fetch('https://error.docs.pmnd.rs/llms-full.txt')).rejects.toThrow()",
+      "location": "src\\app\\api\\[transport]\\route.test.ts:492",
+      "replay": "axiom scan <corpus>/registry2/12_pmndrs__docs --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0007\")'"
+    },
+    {
+      "id": "code_0008",
+      "severity": "info",
+      "category": "data_exfiltration",
+      "title": "Server makes outbound network requests (capability note)",
+      "description": "Pattern matched in src\\app\\api\\[transport]\\route.test.ts at line 502: `const response = await fetch('https://notfound.docs.pmnd.rs/llms-full.txt')`",
+      "owasp_asi": [
+        "ASI01",
+        "ASI02"
+      ],
+      "owasp_mcp": [
+        "MCP10"
+      ],
+      "file_path": "src\\app\\api\\[transport]\\route.test.ts",
+      "line_number": 502,
+      "recommendation": "Review this data exfiltration pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const response = await fetch('https://notfound.docs.pmnd.rs/llms-full.txt')",
+      "location": "src\\app\\api\\[transport]\\route.test.ts:502",
+      "replay": "axiom scan <corpus>/registry2/12_pmndrs__docs --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0008\")'"
+    },
+    {
+      "id": "code_0009",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in src\\app\\api\\[transport]\\route.test.ts at line 707: `it.each(['../../../etc/passwd', 'Caustics'])(`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\app\\api\\[transport]\\route.test.ts",
+      "line_number": 707,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "it.each(['../../../etc/passwd', 'Caustics'])(",
+      "location": "src\\app\\api\\[transport]\\route.test.ts:707",
+      "replay": "axiom scan <corpus>/registry2/12_pmndrs__docs --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0009\")'"
+    },
+    {
+      "id": "code_0010",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in src\\app\\mcp\\live\\events\\capture.ts at line 59: `const product = /^\\s*([a-z0-9][a-z0-9._-]*)/i.exec(userAgent)?.[1]`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "src\\app\\mcp\\live\\events\\capture.ts",
+      "line_number": 59,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const product = /^\\s*([a-z0-9][a-z0-9._-]*)/i.exec(userAgent)?.[1]",
+      "location": "src\\app\\mcp\\live\\events\\capture.ts:59",
+      "replay": "axiom scan <corpus>/registry2/12_pmndrs__docs --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0010\")'"
+    },
+    {
+      "id": "code_0011",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in src\\app\\mcp\\live\\events\\capture.ts at line 153: `const docsIndex = /^docs:\\/\\/([^/]+)\\/index$/.exec(uri)`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "src\\app\\mcp\\live\\events\\capture.ts",
+      "line_number": 153,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const docsIndex = /^docs:\\/\\/([^/]+)\\/index$/.exec(uri)",
+      "location": "src\\app\\mcp\\live\\events\\capture.ts:153",
+      "replay": "axiom scan <corpus>/registry2/12_pmndrs__docs --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0011\")'"
+    },
+    {
+      "id": "code_0012",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in src\\app\\md\\[...slug]\\route.markdown.test.ts at line 7: `import { GET as getFullMarkdown } from '../../llms-full.txt/route'`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\app\\md\\[...slug]\\route.markdown.test.ts",
+      "line_number": 7,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "import { GET as getFullMarkdown } from '../../llms-full.txt/route'",
+      "location": "src\\app\\md\\[...slug]\\route.markdown.test.ts:7",
+      "replay": "axiom scan <corpus>/registry2/12_pmndrs__docs --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0012\")'"
+    },
+    {
+      "id": "code_0013",
+      "severity": "low",
+      "category": "obfuscation",
+      "title": "Encoded or obfuscated content in MCP server source",
+      "description": "Pattern matched in src\\cli\\browse.markdown.test.ts at line 133: `expect(ansi).toContain(`${String.fromCharCode(27)}]8;;https://example.com/x`)`",
+      "owasp_asi": [
+        "ASI01",
+        "ASI10"
+      ],
+      "owasp_mcp": [
+        "MCP03",
+        "MCP04"
+      ],
+      "file_path": "src\\cli\\browse.markdown.test.ts",
+      "line_number": 133,
+      "recommendation": "Review this obfuscation pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "expect(ansi).toContain(",
+      "location": "src\\cli\\browse.markdown.test.ts:133",
+      "replay": "axiom scan <corpus>/registry2/12_pmndrs__docs --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0013\")'"
+    },
+    {
+      "id": "code_0014",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in src\\cli\\browse.mouse.ts at line 24: `const match = SGR.exec(input)`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "src\\cli\\browse.mouse.ts",
+      "line_number": 24,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const match = SGR.exec(input)",
+      "location": "src\\cli\\browse.mouse.ts:24",
+      "replay": "axiom scan <corpus>/registry2/12_pmndrs__docs --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0014\")'"
+    },
+    {
+      "id": "code_0015",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in src\\cli\\browse.mouse.ts at line 50: `pending = /\\x1b(?:\\[(?:<(?:\\d+(?:;\\d*(?:;\\d*)?)?)?)?)?$/.exec(input)?.[0] ?? ''`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "src\\cli\\browse.mouse.ts",
+      "line_number": 50,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "pending = /\\x1b(?:\\[(?:<(?:\\d+(?:;\\d*(?:;\\d*)?)?)?)?)?$/.exec(input)?.[0] ?? ''",
+      "location": "src\\cli\\browse.mouse.ts:50",
+      "replay": "axiom scan <corpus>/registry2/12_pmndrs__docs --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0015\")'"
+    },
+    {
+      "id": "code_0016",
+      "severity": "low",
+      "category": "obfuscation",
+      "title": "Encoded or obfuscated content in MCP server source",
+      "description": "Pattern matched in src\\cli\\browse.test.tsx at line 43: `const RIGHT_ARROW = `${String.fromCharCode(27)}[C``",
+      "owasp_asi": [
+        "ASI01",
+        "ASI10"
+      ],
+      "owasp_mcp": [
+        "MCP03",
+        "MCP04"
+      ],
+      "file_path": "src\\cli\\browse.test.tsx",
+      "line_number": 43,
+      "recommendation": "Review this obfuscation pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const RIGHT_ARROW =",
+      "location": "src\\cli\\browse.test.tsx:43",
+      "replay": "axiom scan <corpus>/registry2/12_pmndrs__docs --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0016\")'"
+    },
+    {
+      "id": "code_0017",
+      "severity": "low",
+      "category": "obfuscation",
+      "title": "Encoded or obfuscated content in MCP server source",
+      "description": "Pattern matched in src\\cli\\browse.test.tsx at line 46: `const wheelDown = (column: number) => `${String.fromCharCode(27)}[<65;${column};5M``",
+      "owasp_asi": [
+        "ASI01",
+        "ASI10"
+      ],
+      "owasp_mcp": [
+        "MCP03",
+        "MCP04"
+      ],
+      "file_path": "src\\cli\\browse.test.tsx",
+      "line_number": 46,
+      "recommendation": "Review this obfuscation pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const wheelDown = (column: number) =>",
+      "location": "src\\cli\\browse.test.tsx:46",
+      "replay": "axiom scan <corpus>/registry2/12_pmndrs__docs --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0017\")'"
+    },
+    {
+      "id": "code_0018",
+      "severity": "low",
+      "category": "obfuscation",
+      "title": "Encoded or obfuscated content in MCP server source",
+      "description": "Pattern matched in src\\cli\\browse.test.tsx at line 116: `app.stdin.write(String.fromCharCode(13))`",
+      "owasp_asi": [
+        "ASI01",
+        "ASI10"
+      ],
+      "owasp_mcp": [
+        "MCP03",
+        "MCP04"
+      ],
+      "file_path": "src\\cli\\browse.test.tsx",
+      "line_number": 116,
+      "recommendation": "Review this obfuscation pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "app.stdin.write(String.fromCharCode(13))",
+      "location": "src\\cli\\browse.test.tsx:116",
+      "replay": "axiom scan <corpus>/registry2/12_pmndrs__docs --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0018\")'"
+    },
+    {
+      "id": "code_0019",
+      "severity": "low",
+      "category": "obfuscation",
+      "title": "Encoded or obfuscated content in MCP server source",
+      "description": "Pattern matched in src\\cli\\browse.test.tsx at line 124: `app.stdin.write(String.fromCharCode(27))`",
+      "owasp_asi": [
+        "ASI01",
+        "ASI10"
+      ],
+      "owasp_mcp": [
+        "MCP03",
+        "MCP04"
+      ],
+      "file_path": "src\\cli\\browse.test.tsx",
+      "line_number": 124,
+      "recommendation": "Review this obfuscation pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "app.stdin.write(String.fromCharCode(27))",
+      "location": "src\\cli\\browse.test.tsx:124",
+      "replay": "axiom scan <corpus>/registry2/12_pmndrs__docs --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0019\")'"
+    },
+    {
+      "id": "code_0020",
+      "severity": "low",
+      "category": "obfuscation",
+      "title": "Encoded or obfuscated content in MCP server source",
+      "description": "Pattern matched in src\\cli\\browse.test.tsx at line 135: `app.stdin.write(String.fromCharCode(9))`",
+      "owasp_asi": [
+        "ASI01",
+        "ASI10"
+      ],
+      "owasp_mcp": [
+        "MCP03",
+        "MCP04"
+      ],
+      "file_path": "src\\cli\\browse.test.tsx",
+      "line_number": 135,
+      "recommendation": "Review this obfuscation pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "app.stdin.write(String.fromCharCode(9))",
+      "location": "src\\cli\\browse.test.tsx:135",
+      "replay": "axiom scan <corpus>/registry2/12_pmndrs__docs --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0020\")'"
+    },
+    {
+      "id": "code_0021",
+      "severity": "low",
+      "category": "obfuscation",
+      "title": "Encoded or obfuscated content in MCP server source",
+      "description": "Pattern matched in src\\cli\\browse.test.tsx at line 141: `app.stdin.write(String.fromCharCode(9))`",
+      "owasp_asi": [
+        "ASI01",
+        "ASI10"
+      ],
+      "owasp_mcp": [
+        "MCP03",
+        "MCP04"
+      ],
+      "file_path": "src\\cli\\browse.test.tsx",
+      "line_number": 141,
+      "recommendation": "Review this obfuscation pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "app.stdin.write(String.fromCharCode(9))",
+      "location": "src\\cli\\browse.test.tsx:141",
+      "replay": "axiom scan <corpus>/registry2/12_pmndrs__docs --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0021\")'"
+    },
+    {
+      "id": "code_0022",
+      "severity": "low",
+      "category": "obfuscation",
+      "title": "Encoded or obfuscated content in MCP server source",
+      "description": "Pattern matched in src\\cli\\browse.test.tsx at line 176: `app.stdin.write(String.fromCharCode(13))`",
+      "owasp_asi": [
+        "ASI01",
+        "ASI10"
+      ],
+      "owasp_mcp": [
+        "MCP03",
+        "MCP04"
+      ],
+      "file_path": "src\\cli\\browse.test.tsx",
+      "line_number": 176,
+      "recommendation": "Review this obfuscation pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "app.stdin.write(String.fromCharCode(13))",
+      "location": "src\\cli\\browse.test.tsx:176",
+      "replay": "axiom scan <corpus>/registry2/12_pmndrs__docs --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0022\")'"
+    },
+    {
+      "id": "code_0023",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in src\\cli\\fragments.test.ts at line 12: `const packageRoot = fileURLToPath(new URL('../../', import.meta.url))`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\cli\\fragments.test.ts",
+      "line_number": 12,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const packageRoot = fileURLToPath(new URL('../../', import.meta.url))",
+      "location": "src\\cli\\fragments.test.ts:12",
+      "replay": "axiom scan <corpus>/registry2/12_pmndrs__docs --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0023\")'"
+    },
+    {
+      "id": "code_0024",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in src\\components\\ColorMatchToggle.test.ts at line 19: `new Function('localStorage', 'document', prepaintScript(defaultColorMatch))(`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "src\\components\\ColorMatchToggle.test.ts",
+      "line_number": 19,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "new Function('localStorage', 'document', prepaintScript(defaultColorMatch))(",
+      "location": "src\\components\\ColorMatchToggle.test.ts:19",
+      "replay": "axiom scan <corpus>/registry2/12_pmndrs__docs --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0024\")'"
+    },
+    {
+      "id": "code_0025",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in src\\components\\ContrastToggle.test.ts at line 19: `new Function('localStorage', 'document', prepaintScript(defaultLevelName))(localStorage, document)`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "src\\components\\ContrastToggle.test.ts",
+      "line_number": 19,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "new Function('localStorage', 'document', prepaintScript(defaultLevelName))(localStorage, document)",
+      "location": "src\\components\\ContrastToggle.test.ts:19",
+      "replay": "axiom scan <corpus>/registry2/12_pmndrs__docs --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0025\")'"
+    },
+    {
+      "id": "code_0026",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in src\\components\\PrimaryColorPrepaint.test.ts at line 33: `new Function('localStorage', 'document', prepaintScript(config))(localStorage, document)`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "src\\components\\PrimaryColorPrepaint.test.ts",
+      "line_number": 33,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "new Function('localStorage', 'document', prepaintScript(config))(localStorage, document)",
+      "location": "src\\components\\PrimaryColorPrepaint.test.ts:33",
+      "replay": "axiom scan <corpus>/registry2/12_pmndrs__docs --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0026\")'"
+    },
+    {
+      "id": "code_0027",
+      "severity": "low",
+      "category": "code_execution",
+      "title": "Server source contains a process/code-execution sink (capability note; see tool-level findings)",
+      "description": "Pattern matched in src\\components\\SchemeToggle.test.ts at line 19: `new Function('localStorage', 'document', prepaintScript(defaultScheme))(localStorage, document)`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "src\\components\\SchemeToggle.test.ts",
+      "line_number": 19,
+      "recommendation": "Review this arbitrary code exec pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "new Function('localStorage', 'document', prepaintScript(defaultScheme))(localStorage, document)",
+      "location": "src\\components\\SchemeToggle.test.ts:19",
+      "replay": "axiom scan <corpus>/registry2/12_pmndrs__docs --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0027\")'"
+    },
+    {
+      "id": "code_0028",
+      "severity": "low",
+      "category": "obfuscation",
+      "title": "Encoded or obfuscated content in MCP server source",
+      "description": "Pattern matched in src\\components\\McpInstall\\mcpServer.test.ts at line 22: `expect(JSON.parse(atob(url.searchParams.get('config')!))).toEqual({ url: MCP_URL })`",
+      "owasp_asi": [
+        "ASI01",
+        "ASI10"
+      ],
+      "owasp_mcp": [
+        "MCP03",
+        "MCP04"
+      ],
+      "file_path": "src\\components\\McpInstall\\mcpServer.test.ts",
+      "line_number": 22,
+      "recommendation": "Review this obfuscation pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "expect(JSON.parse(atob(url.searchParams.get('config')!))).toEqual({ url: MCP_URL })",
+      "location": "src\\components\\McpInstall\\mcpServer.test.ts:22",
+      "replay": "axiom scan <corpus>/registry2/12_pmndrs__docs --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0028\")'"
+    },
+    {
+      "id": "code_0029",
+      "severity": "low",
+      "category": "obfuscation",
+      "title": "Encoded or obfuscated content in MCP server source",
+      "description": "Pattern matched in src\\components\\McpInstall\\mcpServer.test.ts at line 29: `expect(JSON.parse(atob(url.searchParams.get('config')!))).toEqual({`",
+      "owasp_asi": [
+        "ASI01",
+        "ASI10"
+      ],
+      "owasp_mcp": [
+        "MCP03",
+        "MCP04"
+      ],
+      "file_path": "src\\components\\McpInstall\\mcpServer.test.ts",
+      "line_number": 29,
+      "recommendation": "Review this obfuscation pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "expect(JSON.parse(atob(url.searchParams.get('config')!))).toEqual({",
+      "location": "src\\components\\McpInstall\\mcpServer.test.ts:29",
+      "replay": "axiom scan <corpus>/registry2/12_pmndrs__docs --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0029\")'"
+    },
+    {
+      "id": "code_0030",
+      "severity": "low",
+      "category": "obfuscation",
+      "title": "Encoded or obfuscated content in MCP server source",
+      "description": "Pattern matched in src\\components\\McpInstall\\mcpServer.ts at line 33: `const config = btoa(JSON.stringify({ url }))`",
+      "owasp_asi": [
+        "ASI01",
+        "ASI10"
+      ],
+      "owasp_mcp": [
+        "MCP03",
+        "MCP04"
+      ],
+      "file_path": "src\\components\\McpInstall\\mcpServer.ts",
+      "line_number": 33,
+      "recommendation": "Review this obfuscation pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const config = btoa(JSON.stringify({ url }))",
+      "location": "src\\components\\McpInstall\\mcpServer.ts:33",
+      "replay": "axiom scan <corpus>/registry2/12_pmndrs__docs --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0030\")'"
+    },
+    {
+      "id": "code_0031",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in src\\components\\mdx\\Badge\\Badge.stories.tsx at line 6: `import { allModes } from '../../../../.storybook/modes'`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\components\\mdx\\Badge\\Badge.stories.tsx",
+      "line_number": 6,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "import { allModes } from '../../../../.storybook/modes'",
+      "location": "src\\components\\mdx\\Badge\\Badge.stories.tsx:6",
+      "replay": "axiom scan <corpus>/registry2/12_pmndrs__docs --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0031\")'"
+    },
+    {
+      "id": "code_0032",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in src\\components\\mdx\\Carousel\\Carousel.stories.tsx at line 6: `import { allModes } from '../../../../.storybook/modes'`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\components\\mdx\\Carousel\\Carousel.stories.tsx",
+      "line_number": 6,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "import { allModes } from '../../../../.storybook/modes'",
+      "location": "src\\components\\mdx\\Carousel\\Carousel.stories.tsx:6",
+      "replay": "axiom scan <corpus>/registry2/12_pmndrs__docs --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0032\")'"
+    },
+    {
+      "id": "code_0033",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in src\\components\\mdx\\Code\\Code.stories.tsx at line 6: `import { allModes } from '../../../../.storybook/modes'`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\components\\mdx\\Code\\Code.stories.tsx",
+      "line_number": 6,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "import { allModes } from '../../../../.storybook/modes'",
+      "location": "src\\components\\mdx\\Code\\Code.stories.tsx:6",
+      "replay": "axiom scan <corpus>/registry2/12_pmndrs__docs --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0033\")'"
+    },
+    {
+      "id": "code_0034",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in src\\components\\mdx\\Code\\remarkCodeFile.test.ts at line 56: `expect(parseFile('file=\"../../dev.sh\"')).toBe('../../dev.sh')`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\components\\mdx\\Code\\remarkCodeFile.test.ts",
+      "line_number": 56,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "expect(parseFile('file=\"../../dev.sh\"')).toBe('../../dev.sh')",
+      "location": "src\\components\\mdx\\Code\\remarkCodeFile.test.ts:56",
+      "replay": "axiom scan <corpus>/registry2/12_pmndrs__docs --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0034\")'"
+    },
+    {
+      "id": "code_0035",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in src\\components\\mdx\\Code\\remarkCodeFile.test.ts at line 109: `await expect(render('```sh file=\"../../secret.sh\"\\n```', page)).rejects.toThrow(`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\components\\mdx\\Code\\remarkCodeFile.test.ts",
+      "line_number": 109,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "await expect(render('",
+      "location": "src\\components\\mdx\\Code\\remarkCodeFile.test.ts:109",
+      "replay": "axiom scan <corpus>/registry2/12_pmndrs__docs --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0035\")'"
+    },
+    {
+      "id": "code_0036",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in src\\components\\mdx\\Code\\remarkCodeFile.test.ts at line 110: ``file=\"../../secret.sh\" is outside the repository holding the page: ${repo}`,`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\components\\mdx\\Code\\remarkCodeFile.test.ts",
+      "line_number": 110,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "`file=\"../../secret.sh\" is outside the repository holding the page: ${repo}",
+      "location": "src\\components\\mdx\\Code\\remarkCodeFile.test.ts:110",
+      "replay": "axiom scan <corpus>/registry2/12_pmndrs__docs --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0036\")'"
+    },
+    {
+      "id": "code_0037",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in src\\components\\mdx\\Code\\remarkCodeFile.test.ts at line 118: `await expect(render('```sh file=\"../../secret.sh\"\\n```', projectPage)).rejects.toThrow(`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\components\\mdx\\Code\\remarkCodeFile.test.ts",
+      "line_number": 118,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "await expect(render('",
+      "location": "src\\components\\mdx\\Code\\remarkCodeFile.test.ts:118",
+      "replay": "axiom scan <corpus>/registry2/12_pmndrs__docs --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0037\")'"
+    },
+    {
+      "id": "code_0038",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in src\\components\\mdx\\Code\\remarkCodeFile.ts at line 10: `* The `file=\"...\"` of a fence's meta, e.g. `../../dev.sh` for ```` ```sh file=\"../../dev.sh\" ````.`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\components\\mdx\\Code\\remarkCodeFile.ts",
+      "line_number": 10,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "* The",
+      "location": "src\\components\\mdx\\Code\\remarkCodeFile.ts:10",
+      "replay": "axiom scan <corpus>/registry2/12_pmndrs__docs --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0038\")'"
+    },
+    {
+      "id": "code_0039",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in src\\components\\mdx\\Code\\remarkCodeFile.ts at line 18: `* Fills a fenced code block with a file, e.g. ```` ```sh file=\"../../dev.sh\" ````: the block shows`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\components\\mdx\\Code\\remarkCodeFile.ts",
+      "line_number": 18,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "* Fills a fenced code block with a file, e.g.",
+      "location": "src\\components\\mdx\\Code\\remarkCodeFile.ts:18",
+      "replay": "axiom scan <corpus>/registry2/12_pmndrs__docs --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0039\")'"
+    },
+    {
+      "id": "code_0040",
+      "severity": "info",
+      "category": "permission_overscope",
+      "title": "Filesystem operations in MCP server source (capability note)",
+      "description": "Pattern matched in src\\components\\mdx\\Codesandbox\\rehypeCodesandbox.test.ts at line 144: `fs.writeFileSync(path.join(MDX, 'authoring', 'a.png'), '')`",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": "src\\components\\mdx\\Codesandbox\\rehypeCodesandbox.test.ts",
+      "line_number": 144,
+      "recommendation": "Review this file system broad access pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "fs.writeFileSync(path.join(MDX, 'authoring', 'a.png'), '')",
+      "location": "src\\components\\mdx\\Codesandbox\\rehypeCodesandbox.test.ts:144",
+      "replay": "axiom scan <corpus>/registry2/12_pmndrs__docs --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0040\")'"
+    },
+    {
+      "id": "code_0041",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in src\\components\\mdx\\Intro\\Intro.stories.tsx at line 4: `import { allModes } from '../../../../.storybook/modes'`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\components\\mdx\\Intro\\Intro.stories.tsx",
+      "line_number": 4,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "import { allModes } from '../../../../.storybook/modes'",
+      "location": "src\\components\\mdx\\Intro\\Intro.stories.tsx:4",
+      "replay": "axiom scan <corpus>/registry2/12_pmndrs__docs --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0041\")'"
+    },
+    {
+      "id": "code_0042",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in src\\components\\mdx\\Link\\rehypeLink.ts at line 54: `* out of the MDX folder, e.g. `[index.tsx](../../src/components/mdx/index.tsx)`, points at that`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\components\\mdx\\Link\\rehypeLink.ts",
+      "line_number": 54,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "* out of the MDX folder, e.g.",
+      "location": "src\\components\\mdx\\Link\\rehypeLink.ts:54",
+      "replay": "axiom scan <corpus>/registry2/12_pmndrs__docs --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0042\")'"
+    },
+    {
+      "id": "code_0043",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in src\\components\\mdx\\Link\\repoFileUrl.test.ts at line 14: `expect(repoFileUrl('../../src/components/mdx/index.tsx', file, mdx, base)).toBe(`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\components\\mdx\\Link\\repoFileUrl.test.ts",
+      "line_number": 14,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "expect(repoFileUrl('../../src/components/mdx/index.tsx', file, mdx, base)).toBe(",
+      "location": "src\\components\\mdx\\Link\\repoFileUrl.test.ts:14",
+      "replay": "axiom scan <corpus>/registry2/12_pmndrs__docs --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0043\")'"
+    },
+    {
+      "id": "code_0044",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in src\\components\\mdx\\Link\\repoFileUrl.test.ts at line 17: `expect(repoFileUrl('../../.github/workflows/build.yml#L172', file, mdx, base)).toBe(`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\components\\mdx\\Link\\repoFileUrl.test.ts",
+      "line_number": 17,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "expect(repoFileUrl('../../.github/workflows/build.yml#L172', file, mdx, base)).toBe(",
+      "location": "src\\components\\mdx\\Link\\repoFileUrl.test.ts:17",
+      "replay": "axiom scan <corpus>/registry2/12_pmndrs__docs --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0044\")'"
+    },
+    {
+      "id": "code_0045",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in src\\components\\mdx\\Link\\repoFileUrl.test.ts at line 43: `expect(repoFileUrl('../../../../../../../../etc/hosts', file, mdx, base)).toBe(`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\components\\mdx\\Link\\repoFileUrl.test.ts",
+      "line_number": 43,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "expect(repoFileUrl('../../../../../../../../etc/hosts', file, mdx, base)).toBe(",
+      "location": "src\\components\\mdx\\Link\\repoFileUrl.test.ts:43",
+      "replay": "axiom scan <corpus>/registry2/12_pmndrs__docs --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0045\")'"
+    },
+    {
+      "id": "code_0046",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in src\\components\\mdx\\Link\\repoFileUrl.test.ts at line 44: `'../../../../../../../../etc/hosts',`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\components\\mdx\\Link\\repoFileUrl.test.ts",
+      "line_number": 44,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "'../../../../../../../../etc/hosts',",
+      "location": "src\\components\\mdx\\Link\\repoFileUrl.test.ts:44",
+      "replay": "axiom scan <corpus>/registry2/12_pmndrs__docs --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0046\")'"
+    },
+    {
+      "id": "code_0047",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in src\\components\\mdx\\Link\\repoFileUrl.test.ts at line 49: `expect(repoFileUrl('../../src/a.ts', file, mdx, undefined)).toBe('../../src/a.ts')`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\components\\mdx\\Link\\repoFileUrl.test.ts",
+      "line_number": 49,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "expect(repoFileUrl('../../src/a.ts', file, mdx, undefined)).toBe('../../src/a.ts')",
+      "location": "src\\components\\mdx\\Link\\repoFileUrl.test.ts:49",
+      "replay": "axiom scan <corpus>/registry2/12_pmndrs__docs --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0047\")'"
+    },
+    {
+      "id": "code_0048",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in src\\components\\mdx\\Link\\repoFileUrl.test.ts at line 50: `expect(repoFileUrl('../../src/a.ts', file, mdx, '')).toBe('../../src/a.ts')`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\components\\mdx\\Link\\repoFileUrl.test.ts",
+      "line_number": 50,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "expect(repoFileUrl('../../src/a.ts', file, mdx, '')).toBe('../../src/a.ts')",
+      "location": "src\\components\\mdx\\Link\\repoFileUrl.test.ts:50",
+      "replay": "axiom scan <corpus>/registry2/12_pmndrs__docs --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0048\")'"
+    },
+    {
+      "id": "code_0049",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in src\\components\\mdx\\Link\\repoFileUrl.test.ts at line 51: `expect(repoFileUrl('../../src/a.ts', file, undefined, base)).toBe('../../src/a.ts')`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\components\\mdx\\Link\\repoFileUrl.test.ts",
+      "line_number": 51,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "expect(repoFileUrl('../../src/a.ts', file, undefined, base)).toBe('../../src/a.ts')",
+      "location": "src\\components\\mdx\\Link\\repoFileUrl.test.ts:51",
+      "replay": "axiom scan <corpus>/registry2/12_pmndrs__docs --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0049\")'"
+    },
+    {
+      "id": "code_0050",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in src\\components\\mdx\\Link\\repoFileUrl.test.ts at line 60: `repoFileUrl('../../src/a.ts', join(root, 'docs/guide/page.mdx'), join(root, 'docs'), base),`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\components\\mdx\\Link\\repoFileUrl.test.ts",
+      "line_number": 60,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "repoFileUrl('../../src/a.ts', join(root, 'docs/guide/page.mdx'), join(root, 'docs'), base),",
+      "location": "src\\components\\mdx\\Link\\repoFileUrl.test.ts:60",
+      "replay": "axiom scan <corpus>/registry2/12_pmndrs__docs --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0050\")'"
+    },
+    {
+      "id": "code_0051",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in src\\components\\mdx\\Link\\repoFileUrl.ts at line 21: `* @example repoFileUrl('../../src/a.ts', '/repo/docs/guide/page.mdx', '/repo/docs', 'https://github.com/pmndrs/docs/tree`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\components\\mdx\\Link\\repoFileUrl.ts",
+      "line_number": 21,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "* @example repoFileUrl('../../src/a.ts', '/repo/docs/guide/page.mdx', '/repo/docs', 'https://github.com/pmndrs/docs/tree",
+      "location": "src\\components\\mdx\\Link\\repoFileUrl.ts:21",
+      "replay": "axiom scan <corpus>/registry2/12_pmndrs__docs --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0051\")'"
+    },
+    {
+      "id": "code_0052",
+      "severity": "info",
+      "category": "permission_overscope",
+      "title": "Filesystem operations in MCP server source (capability note)",
+      "description": "Pattern matched in src\\components\\mdx\\Sandpack\\Sandpack.tsx at line 24: `const str = fs.readFileSync(pkgPath, 'utf-8')`",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": "src\\components\\mdx\\Sandpack\\Sandpack.tsx",
+      "line_number": 24,
+      "recommendation": "Review this file system broad access pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const str = fs.readFileSync(pkgPath, 'utf-8')",
+      "location": "src\\components\\mdx\\Sandpack\\Sandpack.tsx:24",
+      "replay": "axiom scan <corpus>/registry2/12_pmndrs__docs --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0052\")'"
+    },
+    {
+      "id": "code_0053",
+      "severity": "info",
+      "category": "permission_overscope",
+      "title": "Filesystem operations in MCP server source (capability note)",
+      "description": "Pattern matched in src\\components\\mdx\\Sandpack\\Sandpack.tsx at line 49: `code: fs.readFileSync(filepath, 'utf-8'),`",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": "src\\components\\mdx\\Sandpack\\Sandpack.tsx",
+      "line_number": 49,
+      "recommendation": "Review this file system broad access pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "code: fs.readFileSync(filepath, 'utf-8'),",
+      "location": "src\\components\\mdx\\Sandpack\\Sandpack.tsx:49",
+      "replay": "axiom scan <corpus>/registry2/12_pmndrs__docs --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0053\")'"
+    },
+    {
+      "id": "code_0054",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in src\\components\\mdx\\ScrollArea\\ScrollArea.stories.tsx at line 5: `import { allModes } from '../../../../.storybook/modes'`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\components\\mdx\\ScrollArea\\ScrollArea.stories.tsx",
+      "line_number": 5,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "import { allModes } from '../../../../.storybook/modes'",
+      "location": "src\\components\\mdx\\ScrollArea\\ScrollArea.stories.tsx:5",
+      "replay": "axiom scan <corpus>/registry2/12_pmndrs__docs --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0054\")'"
+    },
+    {
+      "id": "code_0055",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in src\\components\\mdx\\Steps\\Steps.stories.tsx at line 6: `import { allModes } from '../../../../.storybook/modes'`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\components\\mdx\\Steps\\Steps.stories.tsx",
+      "line_number": 6,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "import { allModes } from '../../../../.storybook/modes'",
+      "location": "src\\components\\mdx\\Steps\\Steps.stories.tsx:6",
+      "replay": "axiom scan <corpus>/registry2/12_pmndrs__docs --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0055\")'"
+    },
+    {
+      "id": "code_0056",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in src\\components\\mdx\\Tabs\\Tabs.stories.tsx at line 7: `import { allModes } from '../../../../.storybook/modes'`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\components\\mdx\\Tabs\\Tabs.stories.tsx",
+      "line_number": 7,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "import { allModes } from '../../../../.storybook/modes'",
+      "location": "src\\components\\mdx\\Tabs\\Tabs.stories.tsx:7",
+      "replay": "axiom scan <corpus>/registry2/12_pmndrs__docs --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0056\")'"
+    },
+    {
+      "id": "code_0057",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in src\\utils\\compileMdxContent.test.ts at line 190: `'[index](../../src/components/mdx/index.tsx) [img](./img) <a href=\"../../README.md\">readme</a> <Badge href=\"../../README`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\utils\\compileMdxContent.test.ts",
+      "line_number": 190,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "'[index](../../src/components/mdx/index.tsx) [img](./img) <a href=\"../../README.md\">readme</a> <Badge href=\"../../README",
+      "location": "src\\utils\\compileMdxContent.test.ts:190",
+      "replay": "axiom scan <corpus>/registry2/12_pmndrs__docs --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0057\")'"
+    },
+    {
+      "id": "code_0058",
+      "severity": "info",
+      "category": "permission_overscope",
+      "title": "Filesystem operations in MCP server source (capability note)",
+      "description": "Pattern matched in src\\utils\\docs.tsx at line 27: `const filenames = fs.readdirSync(dir) as string[]`",
+      "owasp_asi": [
+        "ASI03"
+      ],
+      "owasp_mcp": [
+        "MCP02"
+      ],
+      "file_path": "src\\utils\\docs.tsx",
+      "line_number": 27,
+      "recommendation": "Review this file system broad access pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "const filenames = fs.readdirSync(dir) as string[]",
+      "location": "src\\utils\\docs.tsx:27",
+      "replay": "axiom scan <corpus>/registry2/12_pmndrs__docs --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0058\")'"
+    },
+    {
+      "id": "code_0059",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in src\\utils\\examples.test.ts at line 17: `'../../etc/passwd',`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\utils\\examples.test.ts",
+      "line_number": 17,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "'../../etc/passwd',",
+      "location": "src\\utils\\examples.test.ts:17",
+      "replay": "axiom scan <corpus>/registry2/12_pmndrs__docs --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0059\")'"
+    },
+    {
+      "id": "code_0060",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in src\\utils\\renderMarkdown.test.tsx at line 66: `'[index](../../src/components/mdx/index.tsx) and [img](./img.mdx) <a href=\"../../README.md\">readme</a> <Badge href=\"../.`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\utils\\renderMarkdown.test.tsx",
+      "line_number": 66,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "'[index](../../src/components/mdx/index.tsx) and [img](./img.mdx) <a href=\"../../README.md\">readme</a> <Badge href=\"../.",
+      "location": "src\\utils\\renderMarkdown.test.tsx:66",
+      "replay": "axiom scan <corpus>/registry2/12_pmndrs__docs --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0060\")'"
+    },
+    {
+      "id": "code_0061",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in src\\utils\\resolveMdxUrl.test.ts at line 30: `expect(resolveMdxUrl('../../../../../../dog.png', mdFile, baseUrl)).toBe(`${baseUrl}/dog.png`)`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\utils\\resolveMdxUrl.test.ts",
+      "line_number": 30,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "expect(resolveMdxUrl('../../../../../../dog.png', mdFile, baseUrl)).toBe(",
+      "location": "src\\utils\\resolveMdxUrl.test.ts:30",
+      "replay": "axiom scan <corpus>/registry2/12_pmndrs__docs --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0061\")'"
+    },
+    {
+      "id": "code_0062",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in src\\utils\\resolveMdxUrl.test.ts at line 72: `expect(resolveMdxUrl('../../../../../../dog.png', mdFile, baseUrl)).toBe(`${baseUrl}/dog.png`)`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\utils\\resolveMdxUrl.test.ts",
+      "line_number": 72,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "expect(resolveMdxUrl('../../../../../../dog.png', mdFile, baseUrl)).toBe(",
+      "location": "src\\utils\\resolveMdxUrl.test.ts:72",
+      "replay": "axiom scan <corpus>/registry2/12_pmndrs__docs --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0062\")'"
+    },
+    {
+      "id": "code_0063",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in src\\utils\\resolveMdxUrl.test.ts at line 94: `expect(resolveMdxUrl('dog.png', '../../getting-started/tutorials/store.mdx', baseUrl)).toBe(`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\utils\\resolveMdxUrl.test.ts",
+      "line_number": 94,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "expect(resolveMdxUrl('dog.png', '../../getting-started/tutorials/store.mdx', baseUrl)).toBe(",
+      "location": "src\\utils\\resolveMdxUrl.test.ts:94",
+      "replay": "axiom scan <corpus>/registry2/12_pmndrs__docs --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0063\")'"
+    },
+    {
+      "id": "code_0064",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in src\\utils\\resolveMdxUrl.test.ts at line 101: `resolveMdxUrl('../dog.png', '../../getting-started/tutorials/store.mdx', baseUrl),`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\utils\\resolveMdxUrl.test.ts",
+      "line_number": 101,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "resolveMdxUrl('../dog.png', '../../getting-started/tutorials/store.mdx', baseUrl),",
+      "location": "src\\utils\\resolveMdxUrl.test.ts:101",
+      "replay": "axiom scan <corpus>/registry2/12_pmndrs__docs --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0064\")'"
+    },
+    {
+      "id": "code_0065",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in src\\utils\\resolveMdxUrl.test.ts at line 108: `'../../../../../../../dog.png',`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\utils\\resolveMdxUrl.test.ts",
+      "line_number": 108,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "'../../../../../../../dog.png',",
+      "location": "src\\utils\\resolveMdxUrl.test.ts:108",
+      "replay": "axiom scan <corpus>/registry2/12_pmndrs__docs --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0065\")'"
+    },
+    {
+      "id": "code_0066",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in src\\utils\\resolveMdxUrl.test.ts at line 109: `'../../../../../../../getting-started/tutorials/store.mdx',`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\utils\\resolveMdxUrl.test.ts",
+      "line_number": 109,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "'../../../../../../../getting-started/tutorials/store.mdx',",
+      "location": "src\\utils\\resolveMdxUrl.test.ts:109",
+      "replay": "axiom scan <corpus>/registry2/12_pmndrs__docs --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0066\")'"
+    },
+    {
+      "id": "code_0067",
+      "severity": "low",
+      "category": "sandbox_escape",
+      "title": "Path-escape primitive referenced in MCP server source (capability note)",
+      "description": "Pattern matched in src\\utils\\resolveMdxUrl.test.ts at line 219: `expect(resolveMdxUrl('../../../x.png', mdFile, '/integral')).toBe('/integral/x.png')`",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP02",
+        "MCP05"
+      ],
+      "file_path": "src\\utils\\resolveMdxUrl.test.ts",
+      "line_number": 219,
+      "recommendation": "Review this sandbox escape pattern.",
+      "rule_id": "code_pattern_regex",
+      "evidence": "expect(resolveMdxUrl('../../../x.png', mdFile, '/integral')).toBe('/integral/x.png')",
+      "location": "src\\utils\\resolveMdxUrl.test.ts:219",
+      "replay": "axiom scan <corpus>/registry2/12_pmndrs__docs --output json --no-ai --no-history | jq '.findings[] | select(.id==\"code_0067\")'"
+    },
+    {
+      "id": "codegen_0001",
+      "severity": "low",
+      "category": "code_generation",
+      "title": "Dynamic code generation from input detected",
+      "description": "Pattern in src\\components\\ColorMatchToggle.test.ts at line 19: `new Function('localStorage', 'document', prepaintScript(defaultColorMatch))(`. Tools that generate code from agent inputs can execute attacker-controlled payloads.",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "src\\components\\ColorMatchToggle.test.ts",
+      "line_number": 19,
+      "recommendation": "Sandbox code execution. Validate and sanitize all inputs before code generation. Use AST-based analysis instead of string-based code construction.",
+      "rule_id": "code_generation_pattern",
+      "evidence": "Dynamic code generation from input detected",
+      "location": "src\\components\\ColorMatchToggle.test.ts:19",
+      "replay": "axiom scan <corpus>/registry2/12_pmndrs__docs --output json --no-ai --no-history | jq '.findings[] | select(.id==\"codegen_0001\")'"
+    },
+    {
+      "id": "codegen_0002",
+      "severity": "low",
+      "category": "code_generation",
+      "title": "Dynamic code generation from input detected",
+      "description": "Pattern in src\\components\\ContrastToggle.test.ts at line 19: `new Function('localStorage', 'document', prepaintScript(defaultLevelName))(localStorage, document)`. Tools that generate code from agent inputs can execute attacker-controlled payloads.",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "src\\components\\ContrastToggle.test.ts",
+      "line_number": 19,
+      "recommendation": "Sandbox code execution. Validate and sanitize all inputs before code generation. Use AST-based analysis instead of string-based code construction.",
+      "rule_id": "code_generation_pattern",
+      "evidence": "Dynamic code generation from input detected",
+      "location": "src\\components\\ContrastToggle.test.ts:19",
+      "replay": "axiom scan <corpus>/registry2/12_pmndrs__docs --output json --no-ai --no-history | jq '.findings[] | select(.id==\"codegen_0002\")'"
+    },
+    {
+      "id": "codegen_0003",
+      "severity": "low",
+      "category": "code_generation",
+      "title": "Dynamic code generation from input detected",
+      "description": "Pattern in src\\components\\PrimaryColorPrepaint.test.ts at line 33: `new Function('localStorage', 'document', prepaintScript(config))(localStorage, document)`. Tools that generate code from agent inputs can execute attacker-controlled payloads.",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "src\\components\\PrimaryColorPrepaint.test.ts",
+      "line_number": 33,
+      "recommendation": "Sandbox code execution. Validate and sanitize all inputs before code generation. Use AST-based analysis instead of string-based code construction.",
+      "rule_id": "code_generation_pattern",
+      "evidence": "Dynamic code generation from input detected",
+      "location": "src\\components\\PrimaryColorPrepaint.test.ts:33",
+      "replay": "axiom scan <corpus>/registry2/12_pmndrs__docs --output json --no-ai --no-history | jq '.findings[] | select(.id==\"codegen_0003\")'"
+    },
+    {
+      "id": "codegen_0004",
+      "severity": "low",
+      "category": "code_generation",
+      "title": "Dynamic code generation from input detected",
+      "description": "Pattern in src\\components\\SchemeToggle.test.ts at line 19: `new Function('localStorage', 'document', prepaintScript(defaultScheme))(localStorage, document)`. Tools that generate code from agent inputs can execute attacker-controlled payloads.",
+      "owasp_asi": [
+        "ASI05"
+      ],
+      "owasp_mcp": [
+        "MCP05"
+      ],
+      "file_path": "src\\components\\SchemeToggle.test.ts",
+      "line_number": 19,
+      "recommendation": "Sandbox code execution. Validate and sanitize all inputs before code generation. Use AST-based analysis instead of string-based code construction.",
+      "rule_id": "code_generation_pattern",
+      "evidence": "Dynamic code generation from input detected",
+      "location": "src\\components\\SchemeToggle.test.ts:19",
+      "replay": "axiom scan <corpus>/registry2/12_pmndrs__docs --output json --no-ai --no-history | jq '.findings[] | select(.id==\"codegen_0004\")'"
+    },
+    {
+      "id": "mcp04_unpinned_0001",
+      "severity": "medium",
+      "category": "supply_chain",
+      "title": "Unpinned install source",
+      "description": "`npx serve` without a pinned version in dev.sh at line 23. Without an exact version the next install silently picks up whatever is published, including a compromised release.",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": "dev.sh",
+      "line_number": 23,
+      "recommendation": "Pin an exact version (pkg@1.2.3, pkg==1.2.3) and prefer a lockfile or hash-checked requirements.",
+      "rule_id": "unpinned_install_source",
+      "evidence": "Unpinned install source",
+      "location": "dev.sh:23",
+      "replay": "axiom scan <corpus>/registry2/12_pmndrs__docs --output json --no-ai --no-history | jq '.findings[] | select(.id==\"mcp04_unpinned_0001\")'"
+    },
+    {
+      "id": "mcp04_unpinned_0002",
+      "severity": "medium",
+      "category": "supply_chain",
+      "title": "Unpinned install source",
+      "description": "`npx serve` without a pinned version in preview.sh at line 20. Without an exact version the next install silently picks up whatever is published, including a compromised release.",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": "preview.sh",
+      "line_number": 20,
+      "recommendation": "Pin an exact version (pkg@1.2.3, pkg==1.2.3) and prefer a lockfile or hash-checked requirements.",
+      "rule_id": "unpinned_install_source",
+      "evidence": "Unpinned install source",
+      "location": "preview.sh:20",
+      "replay": "axiom scan <corpus>/registry2/12_pmndrs__docs --output json --no-ai --no-history | jq '.findings[] | select(.id==\"mcp04_unpinned_0002\")'"
+    },
+    {
+      "id": "mcp04_unpinned_0003",
+      "severity": "medium",
+      "category": "supply_chain",
+      "title": "Unpinned install source",
+      "description": "`npx serve` without a pinned version in preview.sh at line 22. Without an exact version the next install silently picks up whatever is published, including a compromised release.",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": "preview.sh",
+      "line_number": 22,
+      "recommendation": "Pin an exact version (pkg@1.2.3, pkg==1.2.3) and prefer a lockfile or hash-checked requirements.",
+      "rule_id": "unpinned_install_source",
+      "evidence": "Unpinned install source",
+      "location": "preview.sh:22",
+      "replay": "axiom scan <corpus>/registry2/12_pmndrs__docs --output json --no-ai --no-history | jq '.findings[] | select(.id==\"mcp04_unpinned_0003\")'"
+    },
+    {
+      "id": "mcp04_unpinned_0004",
+      "severity": "medium",
+      "category": "supply_chain",
+      "title": "Unpinned install source",
+      "description": "`npx serve` without a pinned version in start.sh at line 29. Without an exact version the next install silently picks up whatever is published, including a compromised release.",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": "start.sh",
+      "line_number": 29,
+      "recommendation": "Pin an exact version (pkg@1.2.3, pkg==1.2.3) and prefer a lockfile or hash-checked requirements.",
+      "rule_id": "unpinned_install_source",
+      "evidence": "Unpinned install source",
+      "location": "start.sh:29",
+      "replay": "axiom scan <corpus>/registry2/12_pmndrs__docs --output json --no-ai --no-history | jq '.findings[] | select(.id==\"mcp04_unpinned_0004\")'"
+    },
+    {
+      "id": "mcp04_unpinned_0005",
+      "severity": "medium",
+      "category": "supply_chain",
+      "title": "Unpinned install source",
+      "description": "`npx serve` without a pinned version in start.sh at line 31. Without an exact version the next install silently picks up whatever is published, including a compromised release.",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": "start.sh",
+      "line_number": 31,
+      "recommendation": "Pin an exact version (pkg@1.2.3, pkg==1.2.3) and prefer a lockfile or hash-checked requirements.",
+      "rule_id": "unpinned_install_source",
+      "evidence": "Unpinned install source",
+      "location": "start.sh:31",
+      "replay": "axiom scan <corpus>/registry2/12_pmndrs__docs --output json --no-ai --no-history | jq '.findings[] | select(.id==\"mcp04_unpinned_0005\")'"
+    },
+    {
+      "id": "mcp04_unpinned_0006",
+      "severity": "medium",
+      "category": "supply_chain",
+      "title": "Unpinned install source",
+      "description": "`npx @pmndrs/docs` without a pinned version in .github\\workflows\\build.yml at line 165. Without an exact version the next install silently picks up whatever is published, including a compromised release.",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": ".github\\workflows\\build.yml",
+      "line_number": 165,
+      "recommendation": "Pin an exact version (pkg@1.2.3, pkg==1.2.3) and prefer a lockfile or hash-checked requirements.",
+      "rule_id": "unpinned_install_source",
+      "evidence": "Unpinned install source",
+      "location": ".github\\workflows\\build.yml:165",
+      "replay": "axiom scan <corpus>/registry2/12_pmndrs__docs --output json --no-ai --no-history | jq '.findings[] | select(.id==\"mcp04_unpinned_0006\")'"
+    },
+    {
+      "id": "mcp04_unpinned_0007",
+      "severity": "medium",
+      "category": "supply_chain",
+      "title": "Unpinned install source",
+      "description": "`npx @pmndrs/docs` without a pinned version in .github\\workflows\\build.yml at line 214. Without an exact version the next install silently picks up whatever is published, including a compromised release.",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": ".github\\workflows\\build.yml",
+      "line_number": 214,
+      "recommendation": "Pin an exact version (pkg@1.2.3, pkg==1.2.3) and prefer a lockfile or hash-checked requirements.",
+      "rule_id": "unpinned_install_source",
+      "evidence": "Unpinned install source",
+      "location": ".github\\workflows\\build.yml:214",
+      "replay": "axiom scan <corpus>/registry2/12_pmndrs__docs --output json --no-ai --no-history | jq '.findings[] | select(.id==\"mcp04_unpinned_0007\")'"
+    },
+    {
+      "id": "mcp04_unpinned_0008",
+      "severity": "medium",
+      "category": "supply_chain",
+      "title": "Unpinned install source",
+      "description": "`npx @pmndrs/docs` without a pinned version in .github\\workflows\\build.yml at line 215. Without an exact version the next install silently picks up whatever is published, including a compromised release.",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": ".github\\workflows\\build.yml",
+      "line_number": 215,
+      "recommendation": "Pin an exact version (pkg@1.2.3, pkg==1.2.3) and prefer a lockfile or hash-checked requirements.",
+      "rule_id": "unpinned_install_source",
+      "evidence": "Unpinned install source",
+      "location": ".github\\workflows\\build.yml:215",
+      "replay": "axiom scan <corpus>/registry2/12_pmndrs__docs --output json --no-ai --no-history | jq '.findings[] | select(.id==\"mcp04_unpinned_0008\")'"
+    },
+    {
+      "id": "mcp04_unpinned_0009",
+      "severity": "medium",
+      "category": "supply_chain",
+      "title": "Unpinned install source",
+      "description": "`action@latest` floating tag in .github\\workflows\\chromatic-storybook.yml at line 18. Without an exact version the next install silently picks up whatever is published, including a compromised release.",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": ".github\\workflows\\chromatic-storybook.yml",
+      "line_number": 18,
+      "recommendation": "Pin an exact version (pkg@1.2.3, pkg==1.2.3) and prefer a lockfile or hash-checked requirements.",
+      "rule_id": "unpinned_install_source",
+      "evidence": "Unpinned install source",
+      "location": ".github\\workflows\\chromatic-storybook.yml:18",
+      "replay": "axiom scan <corpus>/registry2/12_pmndrs__docs --output json --no-ai --no-history | jq '.findings[] | select(.id==\"mcp04_unpinned_0009\")'"
+    },
+    {
+      "id": "mcp04_unpinned_0010",
+      "severity": "medium",
+      "category": "supply_chain",
+      "title": "Unpinned install source",
+      "description": "`npx vercel` without a pinned version in .github\\workflows\\ci.yml at line 161. Without an exact version the next install silently picks up whatever is published, including a compromised release.",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": ".github\\workflows\\ci.yml",
+      "line_number": 161,
+      "recommendation": "Pin an exact version (pkg@1.2.3, pkg==1.2.3) and prefer a lockfile or hash-checked requirements.",
+      "rule_id": "unpinned_install_source",
+      "evidence": "Unpinned install source",
+      "location": ".github\\workflows\\ci.yml:161",
+      "replay": "axiom scan <corpus>/registry2/12_pmndrs__docs --output json --no-ai --no-history | jq '.findings[] | select(.id==\"mcp04_unpinned_0010\")'"
+    },
+    {
+      "id": "mcp04_unpinned_0011",
+      "severity": "medium",
+      "category": "supply_chain",
+      "title": "Unpinned install source",
+      "description": "`npx vercel` without a pinned version in .github\\workflows\\ci.yml at line 213. Without an exact version the next install silently picks up whatever is published, including a compromised release.",
+      "owasp_asi": [
+        "ASI04"
+      ],
+      "owasp_mcp": [
+        "MCP04"
+      ],
+      "file_path": ".github\\workflows\\ci.yml",
+      "line_number": 213,
+      "recommendation": "Pin an exact version (pkg@1.2.3, pkg==1.2.3) and prefer a lockfile or hash-checked requirements.",
+      "rule_id": "unpinned_install_source",
+      "evidence": "Unpinned install source",
+      "location": ".github\\workflows\\ci.yml:213",
+      "replay": "axiom scan <corpus>/registry2/12_pmndrs__docs --output json --no-ai --no-history | jq '.findings[] | select(.id==\"mcp04_unpinned_0011\")'"
+    },
+    {
+      "id": "resource_docs_pmndrs_manifest_instruction_injection",
+      "severity": "medium",
+      "category": "prompt_injection",
+      "title": "Instruction injection in resource 'docs://pmndrs/manifest'",
+      "description": "Steering language in tool description (imperative guidance aimed at the model). Matched 'Never' in resource 'docs://pmndrs/manifest'. Excerpt: 'docs://pmndrs/manifest # PMNDRS Documentation MCP Server  ## Rules  1. **Call `search_docs` before answering any question about {libraryNames}** -- a prop, a ho'",
+      "owasp_asi": [
+        "ASI01"
+      ],
+      "owasp_mcp": [
+        "MCP06"
+      ],
+      "file_path": "src\\app\\api\\[transport]\\route.ts",
+      "line_number": 127,
+      "recommendation": "Review this content; an agent will follow it.",
+      "rule_id": "served_text_instruction_injection",
+      "evidence": "Never",
+      "location": "src\\app\\api\\[transport]\\route.ts:127",
+      "replay": "axiom scan <corpus>/registry2/12_pmndrs__docs --output json --no-ai --no-history | jq '.findings[] | select(.id==\"resource_docs_pmndrs_manifest_instruction_injection\")'"
+    },
+    {
+      "id": "resource_docs_pmndrs_manifest_egress_1",
+      "severity": "medium",
+      "category": "data_exfiltration",
+      "title": "External endpoint named in resource 'docs://pmndrs/manifest': pmndrs.github.io",
+      "description": "resource 'docs://pmndrs/manifest' points the agent at https://pmndrs.github.io/examples. Combined with an instruction, this is a ready-made exfiltration path.",
+      "owasp_asi": [
+        "ASI01",
+        "ASI02"
+      ],
+      "owasp_mcp": [
+        "MCP10"
+      ],
+      "file_path": "src\\app\\api\\[transport]\\route.ts",
+      "line_number": 127,
+      "recommendation": "Content an agent reads should not name endpoints to send data to.",
+      "rule_id": "served_text_egress_url",
+      "evidence": "https://pmndrs.github.io/examples",
+      "location": "src\\app\\api\\[transport]\\route.ts:127",
+      "replay": "axiom scan <corpus>/registry2/12_pmndrs__docs --output json --no-ai --no-history | jq '.findings[] | select(.id==\"resource_docs_pmndrs_manifest_egress_1\")'"
+    },
+    {
+      "id": "resource_docs_pmndrs_manifest_egress_2",
+      "severity": "medium",
+      "category": "data_exfiltration",
+      "title": "External endpoint named in resource 'docs://pmndrs/manifest': docs.pmnd.rs",
+      "description": "resource 'docs://pmndrs/manifest' points the agent at https://docs.pmnd.rs/api/mcp. Combined with an instruction, this is a ready-made exfiltration path.",
+      "owasp_asi": [
+        "ASI01",
+        "ASI02"
+      ],
+      "owasp_mcp": [
+        "MCP10"
+      ],
+      "file_path": "src\\app\\api\\[transport]\\route.ts",
+      "line_number": 127,
+      "recommendation": "Content an agent reads should not name endpoints to send data to.",
+      "rule_id": "served_text_egress_url",
+      "evidence": "https://docs.pmnd.rs/api/mcp",
+      "location": "src\\app\\api\\[transport]\\route.ts:127",
+      "replay": "axiom scan <corpus>/registry2/12_pmndrs__docs --output json --no-ai --no-history | jq '.findings[] | select(.id==\"resource_docs_pmndrs_manifest_egress_2\")'"
+    }
+  ],
+  "server_profile": {
+    "name": "12_pmndrs__docs",
+    "command": null,
+    "args": [],
+    "env_vars": [],
+    "transport": "unknown",
+    "tools": [
+      {
+        "name": "search_docs",
+        "description": "Search the current documentation of {libraryNames}. Call this FIRST, before answering any question about one of these libraries: these docs track their current releases, which are newer than your training data, and their APIs changed across major versions (react-three-fiber v9, drei v10, zustand v5 each broke things), so an answer from memory is likely stale. Returns the {MAX_HITS} best-matching pages, best first, each with the lib and path to pass to get_page_content.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "query": {
+              "type": "string",
+              "description": "What to look for: a component, hook, prop or concept, in a few words (e.g. \"useFrame\", \"instanced mesh\", \"persist middleware\"). Every term has to match."
+            },
+            "lib": {
+              "type": "string",
+              "description": "Search this library only. Leave out to search all of them.",
+              "enum": "LIBNAMES"
+            }
+          },
+          "required": [
+            "query"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      },
+      {
+        "name": "get_page_content",
+        "description": "Read one documentation page in full, as current markdown. Take `lib` and `path` verbatim from a search_docs hit (or from the docs://{lib}/index resource): paths are matched exactly and their shape differs per library, so never guess or adapt one. Call search_docs first when you do not have a path yet.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "lib": {
+              "type": "string",
+              "description": "The library name, as search_docs returned it",
+              "enum": "LIBNAMES"
+            },
+            "path": {
+              "type": "string",
+              "description": "The page path, as search_docs returned it (e.g. /api/hooks/use-frame)"
+            }
+          },
+          "required": [
+            "lib",
+            "path"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "medium",
+        "poisoning_detail": "Steering language in tool description (imperative guidance aimed at the model). Matched pattern in tool 'get_page_content': 'never'"
+      },
+      {
+        "name": "get_example",
+        "description": "Read one pmndrs example in full: what it demonstrates, the exact versions it is written against, and every source file. Take `name` verbatim from the examples://index resource. Reach for an example when the question is how a scene is put together; for what an API takes, search_docs then get_page_content.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string",
+              "description": "An example name taken verbatim from the examples://index resource"
+            }
+          },
+          "required": [
+            "name"
+          ]
+        },
+        "has_hidden_instructions": false,
+        "poisoning_risk": "safe",
+        "poisoning_detail": null
+      }
+    ],
+    "resources": [
+      {
+        "uri": "docs://pmndrs/manifest",
+        "name": "pmndrs-docs Manifest",
+        "description": "Global description and behavior rules for this MCP server.",
+        "mime_type": null
+      },
+      {
+        "uri": "docs://{libname}/index",
+        "name": "{libname} index",
+        "description": "List of available pages for the {libname} library.",
+        "mime_type": null
+      },
+      {
+        "uri": "examples://index",
+        "name": "pmndrs examples index",
+        "description": "The pmndrs example gallery: every published demo, one per line, with what it shows and what it is built with.",
+        "mime_type": null
+      }
+    ],
+    "prompts": [],
+    "repo_url": null,
+    "npm_package": null,
+    "capabilities_claimed": [],
+    "capabilities_actual": []
+  },
+  "fingerprint": "96bce13fe2ca5ec4ccc973abe834e6f4f600167f0151a3256e94fa41dc1bbaf3",
+  "surface_map": {
+    "server": {
+      "name": "@pmndrs/docs",
+      "instructions": "",
+      "transport": "streamable-http",
+      "auth": "unknown"
+    },
+    "tools": [
+      {
+        "name": "search_docs",
+        "description": "Search the current documentation of {libraryNames}. Call this FIRST, before answering any question about one of these libraries: these docs track their current releases, which are newer than your training data, and their APIs changed across major versions (react-three-fiber v9, drei v10, zustand v5 each broke things), so an answer from memory is likely stale. Returns the {MAX_HITS} best-matching pages, best first, each with the lib and path to pass to get_page_content.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "query": {
+              "type": "string",
+              "description": "What to look for: a component, hook, prop or concept, in a few words (e.g. \"useFrame\", \"instanced mesh\", \"persist middleware\"). Every term has to match."
+            },
+            "lib": {
+              "type": "string",
+              "description": "Search this library only. Leave out to search all of them.",
+              "enum": "LIBNAMES"
+            }
+          },
+          "required": [
+            "query"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [
+          "text"
+        ],
+        "registration": "static",
+        "location": "src\\app\\api\\[transport]\\route.ts:425"
+      },
+      {
+        "name": "get_page_content",
+        "description": "Read one documentation page in full, as current markdown. Take `lib` and `path` verbatim from a search_docs hit (or from the docs://{lib}/index resource): paths are matched exactly and their shape differs per library, so never guess or adapt one. Call search_docs first when you do not have a path yet.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "lib": {
+              "type": "string",
+              "description": "The library name, as search_docs returned it",
+              "enum": "LIBNAMES"
+            },
+            "path": {
+              "type": "string",
+              "description": "The page path, as search_docs returned it (e.g. /api/hooks/use-frame)"
+            }
+          },
+          "required": [
+            "lib",
+            "path"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [
+          "text"
+        ],
+        "registration": "static",
+        "location": "src\\app\\api\\[transport]\\route.ts:485"
+      },
+      {
+        "name": "get_example",
+        "description": "Read one pmndrs example in full: what it demonstrates, the exact versions it is written against, and every source file. Take `name` verbatim from the examples://index resource. Reach for an example when the question is how a scene is put together; for what an API takes, search_docs then get_page_content.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string",
+              "description": "An example name taken verbatim from the examples://index resource"
+            }
+          },
+          "required": [
+            "name"
+          ]
+        },
+        "capabilities": [],
+        "return_literals": [
+          "text"
+        ],
+        "registration": "static",
+        "location": "src\\app\\api\\[transport]\\route.ts:528"
+      }
+    ],
+    "resources": [
+      {
+        "uri": "docs://pmndrs/manifest",
+        "name": "pmndrs-docs Manifest",
+        "description": "Global description and behavior rules for this MCP server.",
+        "mime_type": null,
+        "content_literals": [
+          "docs://pmndrs/manifest",
+          "# PMNDRS Documentation MCP Server\n\n## Rules\n\n1. **Call `search_docs` before answering any question about {libraryNames}** -- a prop, a hook, a signature, a migration, a store pattern, anything. Do not answer from memory.\n2. **These docs are newer than your training data.** They track each library's current release, and the APIs changed across major versions (react-three-fiber v9, drei v10, zustand v5 each broke things): what you remember is likely stale, and silently so.\n3. **Then read before you answer**: `get_page_content(lib, path)` with a hit's `lib` and `path`, verbatim. A search result is a pointer, not an answer.\n4. **Never invent a path or a name.** Paths come from `search_docs` or a `docs://{lib}/index` resource; example names from `examples://index`.\n\n## Overview\n\nThis MCP (Model Context Protocol) server provides programmatic access to the current documentation of the pmndrs libraries through surgical queries: an agent searches, then reads the one page it needs, instead of downloading a whole site.\n\nIt serves two bodies of material, and they answer different questions. The **docs** say what an API is -- signatures, props, options; the **examples** show a working scene that already does the thing, in full, with the versions it was written against. Reach for an example when the question is \"how is this put together\", for the docs when it is \"what does this take\".\n\n## Supported Libraries\n\nThe server supports the pmndrs libraries whose documentation site publishes a\nfull-text dump. That is these, and only these -- any other pmndrs library is out of\nscope here, however well known:\n{libraryList}\n\n## Available Resources\n\n### 1. `docs://pmndrs/manifest`\nThis manifest - provides an overview of the server, its capabilities, and usage guidelines.\n\n### 2. `docs://{lib}/index`\nIndex of available documentation pages for each library -- one resource per supported library, e.g. `docs://zustand/index` or `docs://drei/index`.\n\n**Output format:**\nEach line contains: `{page_path} - {page_title}`\n\n**Example** (from `docs://zustand/index`):\n```\n/learn/getting-started/introduction - Introduction\n/learn/guides/beginner-typescript - Beginner TypeScript Guide\n/reference/apis/create - create\n```\n\nPath shapes differ per library -- zustand nests under `/learn` and `/reference`, react-three-fiber under `/api` and `/tutorials`, drei under `/abstractions` and `/staging`. Read the index, never extrapolate a path from another library.\n\n### 3. `examples://index`\nThe whole pmndrs example gallery (https://pmndrs.github.io/examples), one line per demo. About 4k tokens for all of them, so read it once and pick from it -- there is no per-library or per-tag variant.\n\n**Output format:**\n```\n{name} [({title}, when it is not just the name)] \u00b7 {description} \u00b7 +{libraries} \u00b7 #{tags} \u00b7 ~{size}\n```\n\nEvery part after the name is dropped when the example does not carry it:\n```\naquarium \u00b7 #transmission\narkanoid \u00b7 Simple arkanoid implementation using cannon physics. \u00b7 +cannon,zustand \u00b7 #physics,game,audio\nbounds-and-makedefault (Bounds and makeDefault) \u00b7 #bounds\nflow-shield \u00b7 Interactive energy shield. \u00b7 +postprocessing,leva \u00b7 #shader \u00b7 ~23k\n```\n\n`+` lists only what an example uses *on top of* `@react-three/fiber` and `@react-three/drei`, which all of them use. Tags are freeform and unvalidated -- expect typos (`gtlf`) and both spellings of an idea (`contact shadows` / `contact-shadows`) -- so match on names and descriptions too, never on tags alone.\n\nThe trailing `~23k` is what `get_example` will cost in tokens, and only eight lines carry one. Its absence means the example is small: the median is ~1.4k tokens, so reading two or three of them costs less than this index did. Read the marked ones deliberately, one at a time.\n\n## Available Tools\n\n### 1. `search_docs`\nRanks the documentation pages matching a query, across every supported library or within one. This is the entry point: call it first.\n\n**Input:**\n- `query` (string): What to look for, in a few words -- a component, hook, prop or concept (e.g. \"useFrame\", \"instanced mesh\", \"persist middleware\"). Every term has to match, so fewer terms find more.\n- `lib` (string, optional): One library name, to search it alone\n\n**Output:**\n- Up to {MAX_HITS} hits, best first, each as `lib=\"...\" path=\"...\" - {title}` and a one-line summary, then the instruction to read one with `get_page_content`. No hit is a message, not an error: retry with fewer or more general terms.\n\n**Example usage:**\n```\nUse search_docs with query=\"typescript\" and lib=\"zustand\" to find the TypeScript guides\n```\n\nTitles rank above paths and descriptions, which rank above a mention in a page body, so the name of the thing is the best query. The same ranking is what `npx @pmndrs/docs search` prints in a terminal.\n\n### 2. `get_page_content`\nRetrieves the full content of a specific documentation page.\n\n**Input:**\n- `lib` (string): The library name, as a `search_docs` hit gives it\n- `path` (string): A page path taken verbatim from a `search_docs` hit or from that library's index (e.g., \"/learn/guides/beginner-typescript\")\n\n**Output:**\n- The full markdown content of the requested page\n\n**Example usage:**\n```\nUse get_page_content with lib=\"zustand\" and path=\"/learn/guides/beginner-typescript\" to get the beginner TypeScript guide\n```\n\nPaths are matched exactly -- no trailing-slash or extension normalization. A path that is not in the index returns `Page not found`; search again rather than retrying variants.\n\n### 3. `get_example`\nRetrieves one example in full: description, demo URL, authors, asset attribution, the exact dependency versions it is written against, and every source file it has.\n\n**Input:**\n- `name` (string): An example name taken verbatim from `examples://index` (e.g., \"caustics\")\n\n**Output:**\n- Markdown: a fact block, then one fenced section per source file\n\n**Example usage:**\n```\nUse get_example with name=\"caustics\" to read the caustics demo end to end\n```\n\nTypically 300-2k tokens, up to ~23k for the largest multi-file example. Two kinds of file are named rather than inlined: binary companions (.glb models, textures, audio), and text that is generated or vendored past the point of being readable (bundles, font atlases). Both are in the repository the response links to.\n\n## Best Practices\n\n### Efficient Querying\n1. **Start with `search_docs`**: it is one call, it searches every library at once, and it hands back paths that exist\n2. **Read a `docs://{lib}/index` resource** when you need the whole table of contents of one library instead -- a migration, say, where the question is what sections exist\n3. **Use the paths you were given** rather than trying to guess URLs\n4. **Let the index line say how many examples to open.** Unmarked ones are ~1.4k tokens, so reading the two that both look right beats fetching one and coming back; a `~23k` marker is the one case where it pays to narrow first\n\n### Understanding the Content\n1. Documentation is returned as **raw markdown text**\n2. Code examples are included inline with syntax highlighting markers\n3. Each page is self-contained and focuses on a specific topic\n\n### Working with Libraries\n1. Library names are **case-sensitive** (use exact names as listed above)\n2. A library configured with a local `docs_url` is served from this host\n3. External library documentation is fetched from their respective domains\n\n## Error Handling\n\nThe server provides clear error messages for common issues:\n- **Unknown library**: The specified library name doesn't exist\n- **Page not found**: The requested path doesn't exist for that library\n- **Not an example name**: `get_example` was given something that is not a published example; re-read `examples://index`\n- **Network errors**: Connectivity issues fetching documentation\n\nAlways handle errors gracefully and consider alternative approaches when a specific page isn't available.\n\n## Resource URI Scheme\n\n- `docs://pmndrs/manifest` - This manifest document\n- `docs://{lib}/index` - Page index for each library (e.g., `docs://zustand/index`)\n- `examples://index` - The example gallery, all of it\n\n## Technical Notes\n\n### Architecture\n- Built with `mcp-handler` for Vercel deployment\n- `search_docs` ranks with the same code as the CLI's `search` verb (`match-sorter`\n  over title, path, description and body, every term required)\n- HTTP streamable transport at `/api/mcp` -- the only transport served. The legacy\n  SSE transport would need a Redis instance to relay messages, which this deployment\n  does not have, so `/api/sse` is not usable.\n- Documentation is parsed from XML-tagged full-text dumps (`/llms-full.txt`)\n- Examples are passed through from what the gallery publishes: `/llms.txt` for the\n  index, and each example's page URL with `.md` on the end for the document. They\n  are public -- every example page links its own with `rel=\"alternate\"` -- so the\n  same text is reachable without this server\n\n### Security\n- CSS selector injection protection via `.filter()` instead of direct selectors\n- Input validation with Zod schemas\n- No arbitrary URL fetching - only approved pmndrs libraries\n\n### Performance\n- 10-second timeout on every upstream fetch, 30 seconds per request in all\n- Minimal payload - only requested pages are transferred\n- XML parsing with Cheerio for efficient text extraction\n- **5-minute fetch cache** for documentation content (revalidated every 5 minutes)\n- Cache tags for granular invalidation per library\n\n## Getting Started\n\n1. Connect to the server at `https://docs.pmnd.rs/api/mcp`\n2. Read `docs://pmndrs/manifest` to understand server capabilities\n3. Find the pages that answer the question with the `search_docs` tool\n4. Read the ones that look right with the `get_page_content` tool\n5. Combine information from multiple pages to provide comprehensive answers\n\n## Example Workflow\n\n```\n1. User asks: \"How do I use TypeScript with Zustand?\"\n\n2. Agent thinks: zustand's current docs may say something my training data does not\n   \u2192 Call tool search_docs(query=\"typescript\", lib=\"zustand\")\n   \u2192 The first hit is lib=\"zustand\" path=\"/learn/guides/beginner-typescript\" - Beginner TypeScript Guide\n\n3. Agent retrieves content:\n   \u2192 Call tool get_page_content(lib=\"zustand\", path=\"/learn/guides/beginner-typescript\")\n\n4. Agent synthesizes answer from the documentation content\n```\n\n```\n1. User asks: \"How do I make glass refract in r3f?\"\n\n2. Agent thinks: someone has almost certainly built this already\n   \u2192 Read resource examples://index\n   \u2192 Several lines carry #transmission; \"aquarium\" and \"caustics\" look closest\n\n3. Agent retrieves one of them:\n   \u2192 Call tool get_example(name=\"caustics\")\n\n4. Agent has a working scene, and the drei version it was written against. If the\n   answer turns on an API's current shape, it checks that with search_docs and\n   get_page_content rather than assuming the example is up to date.\n```\n\n## Notes\n\n- Documentation is cached for 5 minutes to improve performance\n- Cache can be invalidated per library using Next.js cache tags\n- Always retrieves fresh content after cache expiration\n- Suitable for both simple queries and comprehensive research\n"
+        ],
+        "location": "src\\app\\api\\[transport]\\route.ts:127"
+      },
+      {
+        "uri": "docs://{libname}/index",
+        "name": "{libname} index",
+        "description": "List of available pages for the {libname} library.",
+        "mime_type": null,
+        "content_literals": [
+          "docs://{libname}/index",
+          "\n"
+        ],
+        "location": "src\\app\\api\\[transport]\\route.ts:370"
+      },
+      {
+        "uri": "examples://index",
+        "name": "pmndrs examples index",
+        "description": "The pmndrs example gallery: every published demo, one per line, with what it shows and what it is built with.",
+        "mime_type": null,
+        "content_literals": [
+          "examples://index"
+        ],
+        "location": "src\\app\\api\\[transport]\\route.ts:401"
+      }
+    ],
+    "prompts": [],
+    "mutations": [],
+    "source": {
+      "kind": "static",
+      "target": "12_pmndrs__docs",
+      "languages": [
+        "typescript"
+      ]
+    },
+    "generated_at": "2026-11-11T22:36:28+00:00",
+    "fingerprint": "96bce13fe2ca5ec4ccc973abe834e6f4f600167f0151a3256e94fa41dc1bbaf3",
+    "schema": "axiom.surface/1"
+  },
+  "provenance": {
+    "identity": {
+      "npm": "@pmndrs/docs",
+      "pypi": null,
+      "repository": "https://github.com/pmndrs/docs",
+      "server_name": "@pmndrs/docs"
+    },
+    "registry": {
+      "status": "name_match_different_repo",
+      "entry": "ai.a2uicatalog/docs",
+      "repository": "https://github.com/a2uicatalog/a2ui",
+      "packages": [],
+      "publishedAt": "2026-11-10T20:58:08.76538Z",
+      "version": "1.0.0"
+    },
+    "lookalikes": [],
+    "checked_at": "2026-11-11T22:36:32+00:00"
+  },
+  "owasp_coverage": {
+    "framework": "OWASP Top 10 for Agentic Applications 2026",
+    "reference": "https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/",
+    "coverage": {
+      "ASI01": {
+        "name": "Agent Goal Hijack",
+        "coverage_level": "strong",
+        "findings_count": 21,
+        "finding_ids": [
+          "poison_get_page_content_instruction_injection",
+          "code_0003",
+          "code_0004",
+          "code_0005",
+          "code_0006",
+          "code_0007",
+          "code_0008",
+          "code_0013",
+          "code_0016",
+          "code_0017"
+        ],
+        "detectors": [
+          "tool_poisoning",
+          "prompt_injection",
+          "instruction_injection"
+        ]
+      },
+      "ASI02": {
+        "name": "Tool Misuse & Exploitation",
+        "coverage_level": "strong",
+        "findings_count": 12,
+        "finding_ids": [
+          "cross_tool_search_docs_get_page_content",
+          "cross_tool_get_page_content_search_docs",
+          "cross_tool_get_example_search_docs",
+          "cross_tool_get_example_get_page_content",
+          "code_0003",
+          "code_0004",
+          "code_0005",
+          "code_0006",
+          "code_0007",
+          "code_0008"
+        ],
+        "detectors": [
+          "toxic_tool_combo",
+          "tool_overscope",
+          "tool_chaining_detection"
+        ]
+      },
+      "ASI03": {
+        "name": "Identity & Privilege Abuse",
+        "coverage_level": "strong",
+        "findings_count": 4,
+        "finding_ids": [
+          "code_0040",
+          "code_0052",
+          "code_0053",
+          "code_0058"
+        ],
+        "detectors": [
+          "credential_analysis",
+          "shared_credential_detection",
+          "env_var_audit"
+        ]
+      },
+      "ASI04": {
+        "name": "Agentic Supply Chain Vulnerabilities",
+        "coverage_level": "strong",
+        "findings_count": 11,
+        "finding_ids": [
+          "mcp04_unpinned_0001",
+          "mcp04_unpinned_0002",
+          "mcp04_unpinned_0003",
+          "mcp04_unpinned_0004",
+          "mcp04_unpinned_0005",
+          "mcp04_unpinned_0006",
+          "mcp04_unpinned_0007",
+          "mcp04_unpinned_0008",
+          "mcp04_unpinned_0009",
+          "mcp04_unpinned_0010"
+        ],
+        "detectors": [
+          "dependency_cve",
+          "lifecycle_hooks",
+          "npx_unversioned",
+          "known_mcp_cves"
+        ]
+      },
+      "ASI05": {
+        "name": "Unexpected Code Execution",
+        "coverage_level": "strong",
+        "findings_count": 50,
+        "finding_ids": [
+          "code_0001",
+          "code_0002",
+          "code_0009",
+          "code_0010",
+          "code_0011",
+          "code_0012",
+          "code_0014",
+          "code_0015",
+          "code_0023",
+          "code_0024"
+        ],
+        "detectors": [
+          "code_exec_patterns",
+          "code_generation_detection",
+          "sandbox_escape"
+        ]
+      },
+      "ASI06": {
+        "name": "Memory & Context Poisoning",
+        "coverage_level": "partial",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "memory_poisoning_patterns",
+          "context_manipulation_detection"
+        ],
+        "gap_note": "Axiom detects static patterns. Full coverage requires runtime memory monitoring."
+      },
+      "ASI07": {
+        "name": "Insecure Inter-Agent Communication",
+        "coverage_level": "partial",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "transport_security",
+          "a2a_pattern_detection"
+        ],
+        "gap_note": "Axiom checks transport security. Full A2A protocol analysis requires runtime interception."
+      },
+      "ASI08": {
+        "name": "Cascading Failures",
+        "coverage_level": "partial",
+        "findings_count": 4,
+        "finding_ids": [
+          "cross_tool_search_docs_get_page_content",
+          "cross_tool_get_page_content_search_docs",
+          "cross_tool_get_example_search_docs",
+          "cross_tool_get_example_get_page_content"
+        ],
+        "detectors": [
+          "blast_radius_estimation",
+          "dependency_chain_analysis"
+        ],
+        "gap_note": "Axiom estimates blast radius from tool capabilities. Full cascading failure analysis requires runtime topology mapping."
+      },
+      "ASI09": {
+        "name": "Human-Agent Trust Exploitation",
+        "coverage_level": "strong",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "claimed_vs_actual",
+          "deceptive_output_detection",
+          "trust_manipulation_patterns"
+        ]
+      },
+      "ASI10": {
+        "name": "Rogue Agents",
+        "coverage_level": "partial",
+        "findings_count": 11,
+        "finding_ids": [
+          "code_0013",
+          "code_0016",
+          "code_0017",
+          "code_0018",
+          "code_0019",
+          "code_0020",
+          "code_0021",
+          "code_0022",
+          "code_0028",
+          "code_0029"
+        ],
+        "detectors": [
+          "sleeper_patterns",
+          "behavioral_drift_indicators",
+          "persistence_detection"
+        ],
+        "gap_note": "Axiom detects static rogue indicators. Full rogue agent detection requires runtime behavioral monitoring."
+      }
+    },
+    "total_asi_categories_with_findings": 7
+  },
+  "owasp_mcp_coverage": {
+    "framework": "OWASP MCP Top 10",
+    "framework_version": "v0.1 beta",
+    "reference": "https://owasp.org/www-project-mcp-top-10/",
+    "coverage": {
+      "MCP01": {
+        "id": "MCP01:2025",
+        "name": "Token Mismanagement & Secret Exposure",
+        "coverage_level": "partial",
+        "reason": "Regex-based secret detection in server source and client configs plus env-var exposure checks; no entropy analysis, git-history scan, or token lifetime/passthrough checks.",
+        "findings_count": 4,
+        "finding_ids": [
+          "cross_tool_search_docs_get_page_content",
+          "cross_tool_get_page_content_search_docs",
+          "cross_tool_get_example_search_docs",
+          "cross_tool_get_example_get_page_content"
+        ],
+        "detectors": [
+          "credential_theft",
+          "cross_server",
+          "mcp01_hardcoded_secrets",
+          "config_hardcoded_secret",
+          "env_var_audit",
+          "env_dump"
+        ]
+      },
+      "MCP02": {
+        "id": "MCP02:2025",
+        "name": "Privilege Escalation via Scope Creep",
+        "coverage_level": "strong",
+        "reason": "Permission over-scope patterns, toxic tool-capability combinations, path-escape checks and env-var over-exposure in configs.",
+        "findings_count": 46,
+        "finding_ids": [
+          "cross_tool_search_docs_get_page_content",
+          "cross_tool_get_page_content_search_docs",
+          "cross_tool_get_example_search_docs",
+          "cross_tool_get_example_get_page_content",
+          "code_0001",
+          "code_0002",
+          "code_0009",
+          "code_0012",
+          "code_0023",
+          "code_0031"
+        ],
+        "detectors": [
+          "permission_overscope",
+          "toxic_tool_combo",
+          "identity_privilege",
+          "sandbox_escape",
+          "config_risk",
+          "cascading_failure",
+          "cross_server",
+          "excessive_scope",
+          "confused_deputy",
+          "file_read",
+          "file_write"
+        ]
+      },
+      "MCP03": {
+        "id": "MCP03:2025",
+        "name": "Tool Poisoning",
+        "coverage_level": "strong",
+        "reason": "Dedicated detector for hidden instructions in tool metadata, plus runtime rug-pull diffing between source and live tool definitions.",
+        "findings_count": 12,
+        "finding_ids": [
+          "poison_get_page_content_instruction_injection",
+          "code_0013",
+          "code_0016",
+          "code_0017",
+          "code_0018",
+          "code_0019",
+          "code_0020",
+          "code_0021",
+          "code_0022",
+          "code_0028"
+        ],
+        "detectors": [
+          "tool_poisoning",
+          "obfuscation",
+          "rogue_agent",
+          "source_vs_runtime_diff",
+          "tool_shadowing",
+          "hidden_unicode",
+          "rug_pull_primitive",
+          "surface_mismatch"
+        ]
+      },
+      "MCP04": {
+        "id": "MCP04:2025",
+        "name": "Software Supply Chain Attacks & Dependency Tampering",
+        "coverage_level": "strong",
+        "reason": "Dependency CVE lookup, known MCP CVEs, install lifecycle hooks, and unpinned npx/uvx/pip/@latest install sources.",
+        "findings_count": 22,
+        "finding_ids": [
+          "code_0013",
+          "code_0016",
+          "code_0017",
+          "code_0018",
+          "code_0019",
+          "code_0020",
+          "code_0021",
+          "code_0022",
+          "code_0028",
+          "code_0029"
+        ],
+        "detectors": [
+          "dependency_vuln",
+          "supply_chain",
+          "known_cve",
+          "obfuscation",
+          "lifecycle_hooks",
+          "mcp04_unpinned_install",
+          "homoglyph",
+          "rug_pull_primitive",
+          "surface_mismatch"
+        ]
+      },
+      "MCP05": {
+        "id": "MCP05:2025",
+        "name": "Command Injection & Execution",
+        "coverage_level": "partial",
+        "reason": "Regex, AST and Semgrep find exec/shell sinks and a heuristic flags sinks inside tool handlers, but there is no inter-procedural taint tracking from tool input to sink.",
+        "findings_count": 50,
+        "finding_ids": [
+          "code_0001",
+          "code_0002",
+          "code_0009",
+          "code_0010",
+          "code_0011",
+          "code_0012",
+          "code_0014",
+          "code_0015",
+          "code_0023",
+          "code_0024"
+        ],
+        "detectors": [
+          "command_injection",
+          "code_execution",
+          "code_generation",
+          "sandbox_escape",
+          "mcp05_tool_input_sink",
+          "shell_exec"
+        ]
+      },
+      "MCP06": {
+        "id": "MCP06:2025",
+        "name": "Prompt Injection via Contextual Payloads",
+        "coverage_level": "partial",
+        "reason": "Injection markers are detected in tool metadata, server instructions, resources, prompts and the strings a tool returns (static), and in instructions/resources/prompts read live; payloads produced by calling a tool at runtime are not inspected.",
+        "findings_count": 1,
+        "finding_ids": [
+          "resource_docs_pmndrs_manifest_instruction_injection"
+        ],
+        "detectors": [
+          "prompt_injection",
+          "memory_poisoning",
+          "trust_exploitation",
+          "response_injection",
+          "tool_shadowing"
+        ]
+      },
+      "MCP07": {
+        "id": "MCP07:2025",
+        "name": "Insufficient Authentication & Authorization",
+        "coverage_level": "partial",
+        "reason": "Flags remote servers with no visible auth and servers bound to all interfaces; does not verify OAuth implementation or per-tool authorization logic.",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "transport_security",
+          "inter_agent_comm",
+          "identity_privilege",
+          "transport_no_auth",
+          "config_no_auth",
+          "mcp07_bind_all_interfaces"
+        ]
+      },
+      "MCP08": {
+        "id": "MCP08:2025",
+        "name": "Lack of Audit and Telemetry",
+        "coverage_level": "gap",
+        "reason": "Only a low-confidence heuristic for missing logging in tool-defining files; actual audit trails and telemetry pipelines are not verified.",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "audit_telemetry",
+          "mcp08_no_tool_logging"
+        ]
+      },
+      "MCP09": {
+        "id": "MCP09:2025",
+        "name": "Shadow MCP Servers",
+        "coverage_level": "partial",
+        "reason": "Covered by `axiom discover` allowlist on the local machine; no network-wide or fleet discovery.",
+        "findings_count": 0,
+        "finding_ids": [],
+        "detectors": [
+          "mcpguard_discover",
+          "shadow_mcp"
+        ]
+      },
+      "MCP10": {
+        "id": "MCP10:2025",
+        "name": "Context Injection & Over-Sharing",
+        "coverage_level": "partial",
+        "reason": "Hard-coded egress URLs, tools that send to caller-chosen destinations and bulk-exposure heuristics are detected statically and live; what context is actually shared at runtime is not observed.",
+        "findings_count": 8,
+        "finding_ids": [
+          "code_0003",
+          "code_0004",
+          "code_0005",
+          "code_0006",
+          "code_0007",
+          "code_0008",
+          "resource_docs_pmndrs_manifest_egress_1",
+          "resource_docs_pmndrs_manifest_egress_2"
+        ],
+        "detectors": [
+          "context_oversharing",
+          "data_exfiltration",
+          "memory_poisoning",
+          "mcp10_broad_data_exposure"
+        ]
+      }
+    },
+    "total_mcp_categories_with_findings": 7
+  },
+  "ai_analysis": null,
+  "tool_poisoning_report": null,
+  "prompt_injection_risk": null
+}

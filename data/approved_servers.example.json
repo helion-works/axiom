@@ -1,0 +1,27 @@
+{
+  "_comment": "Example allowlist for: axiom discover --allowlist approved_servers.json. A discovered server matches an entry by 'package' (npm/PyPI package or container image) or 'url' (remote servers), or by 'name' when the entry's package/url does not contradict what is configured. If 'version' is set, the configured server must pin exactly that version or it is classified 'unknown-version'. Servers matching no entry are 'unapproved' and produce one HIGH finding each (OWASP ASI04 / MCP09).",
+  "version": 1,
+  "servers": [
+    {
+      "name": "github",
+      "install_source": "npm",
+      "package": "@modelcontextprotocol/server-github",
+      "version": "2025.4.8"
+    },
+    {
+      "name": "filesystem",
+      "install_source": "npm",
+      "package": "@modelcontextprotocol/server-filesystem"
+    },
+    {
+      "name": "fetch",
+      "install_source": "pypi",
+      "package": "mcp-server-fetch"
+    },
+    {
+      "name": "internal-docs",
+      "install_source": "remote_url",
+      "url": "https://mcp.internal.example.com/sse"
+    }
+  ]
+}
